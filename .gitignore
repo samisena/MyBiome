@@ -1,0 +1,45 @@
+# Python's compilation and packaging artifacts - machine specific -
+# shouldn't be shared
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment - These should never be committed because they're large, 
+# machine-specific, and easily recreated with requirements.txt or environment.yml files.
+venv/
+ENV/
+
+# Jupyter Notebook - Jupyter creates checkpoint files as temporary backups 
+.ipynb_checkpoints
+
+# Data files - We want this directory in Git, but not its contents, 
+# just its structure
+data/raw/*
+!data/raw/.gitkeep
+
+# API keys and secrets
+.env
+
+# VS Code editor configuration
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
