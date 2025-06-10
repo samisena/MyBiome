@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my-workspace-tools"  # Choose any name you like
+version = "0.1.0"
+description = "My local workspace utilities"
+
+# This tells setuptools to find all your packages automatically
+[tool.setuptools.packages.find]
+where = ["."]

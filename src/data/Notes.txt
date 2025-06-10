@@ -1,1 +1,2 @@
-The metadata from data_collector.py doesn't get saved to the right location.
+The location of the where the raw data get saved is wrong.
+The location of the processed data is correct
