@@ -2,32 +2,41 @@ import os
 import time
 import json
 import requests   #? Used to communicate with APIs
-from dotenv import load_dotenv  #? used to load from .env
+from dotenv import load_dotenv  #? used to load from .env file
 from pathlib import Path
+from typing import List
 
-# Create a path to the project root (3 levels up from your script)
+# Import our modules
+from src.data.database_manager import DatabaseManager
+from src.data.paper_parser import PubmedParser
+
+# Create a path to the project root (3 levels up from the current script)
 # project/src/data/script.py -> project/
 project_root = Path(__file__).parent.parent.parent
 
-# Load the .env file from the project root
+#* Load the .env file from the project root using dotenv module
 env_path = project_root / '.env'
-#* Using the dotenv module to load our variables form .env=
 load_dotenv(dotenv_path=env_path) 
 
 class PubMedCollector:
     """The class interacts with PubMed's E-utilities API to:
         1.Search for paper IDs matching specific criteria (strains and conditions)
         2.Fetch paper details in XML format from those IDs
-        3.Save this metadata to files with timestamps
+        3.Save this metadata to a SQLite database
     """ 
+    
     def __init__(self):
-        #Base URL for PubMed API  
+        #*Base URL for PubMed API  
         self.base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
-        #Our personal Access Key
+        #*Our personal Access Key
         self.api_key = os.getenv("NCBI_API_KEY")
-        #Setting up the data save paths 
+        #*Setting up the data save paths 
         self.data_dir = project_root / "data" / "raw" / "papers"
         self.metadata_dir = project_root / "data" /"raw" /"metadata"
+        
+        self.db_manager = DatabaseManager()
+        self.parser = PubmedParser
+        
         
     def search_papers(self, query, max_results=100, min_year=2000):
         """Search for papers that match the query criterias
@@ -106,86 +115,74 @@ class PubMedCollector:
             f.write(response.text)   #writes the contents of the response to the file 
         return metadata_file
     
+    
     def collect_by_strain_and_condition(self, strain, condition, max_results=20):
-        """Searchs for papers that investigate a probiotic strain and a health condition
-
-        Args:
-            strain (str)
-            condition (str)
-            max_results (int, optional): Defaults to 20.
-
-        Returns:
-            _dict: a dictionary with the metadata info
         """
-        #Query combining a probiotic strain and health condition/outcome
+        Search for papers that investigate a probiotic strain and a health condition,
+        and parses them into a database
+        """
+        
+        #*Query combining a probiotic strain and health condition/outcome
         query = f'"{strain}"[Title/Abstract] AND "{condition}"[Title/Abstract] AND "clinical trial"[Publication Type]'
-        #Gets the IDs of papers matching the query
+          
+        #*Gets the IDs of papers matching the query
         paper_ids = self.search_papers(query, max_results)
+        
+        #*Record the search in the database        
         #! Error handling:
         if not paper_ids:
-            return []
-        #Gets the paper details
-        metadata_file = self.fetch_paper_details(paper_ids)
-        return {
-            "strain" : strain,
-            "condition" : condition,
-            "paper_count" : len(paper_ids),
-            "metadata_file" : str(metadata_file)
-        }
+            self.db_manager.record_search(strain, condition, query, 0)
+            return {
+                "strain": strain,
+                "condition": condition,
+                "paper_count": 0,
+                "status": "no_results"
+            }
+            
+        #* Record the search with results
+        search_id = self.db_manager.record_search(strain, condition, query,
+                                                  len(paper_ids))
         
-    def run_collection_for_list(self, strains, conditions, results_per_query=10):
+        #* Fetch the metadata
+        metadata_file = self.fetch_paper_details(paper_ids)
+        
+        #* Parse the XML file to the database
+        papers = self.parser.parse_metadata_file(metadata_file, search_id)
+        
+        return {
+            "strain": strain,
+            "condition": condition,
+            "paper_count": len(papers),
+            "search_id": search_id,
+            "metadata_file": str(metadata_file),
+            "status": "success"
+        }
+ 
+        
+    def run_collection_for_list(self, strains: List[str], conditions: List[str], results_per_query: int = 10) -> List[dict]:
+        """
+        Run collection for all combinations of strains and conditions.
+        """
         collection_results = []
+        
+        total_queries = len(strains) * len(conditions)
+        query_count = 0
+        
         for strain in strains:
             for condition in conditions:
-                print(f"Collecting papers for {strain} and {condition}...")
+                query_count += 1
+                print(f"\n[{query_count}/{total_queries}] Collecting papers for {strain} and {condition}...")
+                
                 result = self.collect_by_strain_and_condition(strain, condition, results_per_query)
-                if result:  #if result is not empty
-                    collection_results.append(result)
-                time.sleep(1)  #pause between requests
-        # save record of searches
-        results_file = self.metadata_dir / "collection_results.json"
+                collection_results.append(result)
+                
+                # Be respectful to the API
+                time.sleep(1)
+        
+        # Save collection summary
+        results_file = self.metadata_dir / f"collection_results_{int(time.time())}.json"
         with open(results_file, 'w') as f:
-            json.dump(collection_results, f, indent=2) #converts JSON to Python
+            json.dump(collection_results, f, indent=2)
+        
         return collection_results
             
-
-
-#! Sample data for testing
-test_strains = [
-    "Lactobacillus acidophilus",
-    "Bifidobacterium bifidum"
-]
-
-test_conditions = [
-    "irritable bowel syndrome",
-    "antibiotic-associated diarrhea"
-]
-
-if __name__ == "__main__":
-    # Check for API key
-    if not os.getenv("NCBI_API_KEY"):
-        print("Error: No NCBI API key found. Make sure you have a .env file with NCBI_API_KEY defined.")
-        exit(1)
-    
-    # Initialize the collector
-    collector = PubMedCollector()
-    
-    print(f"Running collection for {len(test_strains)} strains and {len(test_conditions)} conditions...")
-    print(f"This will make {len(test_strains) * len(test_conditions)} API calls")
-    
-    # Run the collection
-    results = collector.run_collection_for_list(test_strains, test_conditions, results_per_query=5)
-    
-    if results:
-        print("\nCollection complete!")
-        print(f"Collected data for {len(results)} strain-condition combinations")
-        
-        # Display results
-        print("\nResults summary:")
-        for result in results:
-            print(f"- {result['strain']} + {result['condition']}: {result['paper_count']} papers")
-            print(f"  Metadata saved to: {result['metadata_file']}")
-        
-        print("\nFull collection results saved to: data/raw/metadata/collection_results.json")
-    else:
-        print("No results were collected.")

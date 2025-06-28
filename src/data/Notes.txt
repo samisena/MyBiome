@@ -1,2 +1,0 @@
-The location of the where the raw data get saved is wrong.
-The location of the processed data is correct
