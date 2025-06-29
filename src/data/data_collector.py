@@ -35,7 +35,7 @@ class PubMedCollector:
         self.metadata_dir = project_root / "data" /"raw" /"metadata"
         
         self.db_manager = DatabaseManager()
-        self.parser = PubmedParser
+        self.parser = PubmedParser()
         
         
     def search_papers(self, query, max_results=100, min_year=2000):

@@ -21,23 +21,28 @@ class PubmedParser:
         self.db_manager = DatabaseManager()
         
     def parse_metadata_file(self, file_path: str, search_id: Optional[int] = None) -> List[Paper]:
-        """ Parses a single XML metadata file and returns a Paper object.
-        """
+        """Parses a single XML metadata file and returns a list of Paper objects."""
+        
+        print(f"Starting to parse: {file_path}")  # Debug line
+        
         try:
-            tree = ET.parse(file_path)   # Uses ElementTree (ET) to parse the XML file 
-                                         # into a tree structure
-            root = tree.getroot()   # Gets the root element of the tree
-            papers = []             # empty list to store the parsed paper objects
+            tree = ET.parse(file_path)
+            root = tree.getroot()
+            papers = []
             papers_inserted = 0
             papers_skipped = 0
             
-            #* searching the XML tree for all elements with the tag "PubmedArticle" 
-            #* at any level of the hierarchy
+            # Count articles for debugging
+            articles = root.findall(".//PubmedArticle")
+            print(f"Found {len(articles)} articles in XML")  # Debug line
             
-            for article in root.findall(".//PubmedArticle"):  # powerful way to search 
-                                    # for matching elements in an XML structure     
+            for i, article in enumerate(articles):
+                print(f"\nProcessing article {i+1}...")  # Debug line
+                
                 try:
-                    #* Extract PMID
+                    # Your existing parsing code here...
+                    # Add print statements before each major extraction:
+                    print("  - Extracting PMID...")
                     pmid_elem = article.find(".//PMID")
                     if pmid_elem is None:   
                         print("Warning: Article missing PMID, skipping...")
@@ -171,11 +176,5 @@ class PubmedParser:
         print(f"Total papers in database: {stats['total_papers']}")
         print(f"Total authors in database: {stats['total_authors']}")
         print(f"Date range: {stats['date_range']}")
-       
-                
-            
-            
         
-                
-                    
-
+        
