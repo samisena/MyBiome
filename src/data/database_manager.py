@@ -98,7 +98,7 @@ class DatabaseManager:
                 )
             ''')
             
-            # Search history table - This was missing!
+            # Search history table 
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS search_history (
                     search_id INTEGER PRIMARY KEY AUTOINCREMENT,
