@@ -20,7 +20,7 @@ class PubmedParser:
         self.ns = {"": "http://www.ncbi.nlm.nih.gov/pubmed"}
         self.db_manager = DatabaseManager()
         
-    def parse_metadata_file(self, file_path: str, search_id: Optional[int] = None) -> List[Paper]:
+    def parse_metadata_file(self, file_path: str) -> List['Paper']:
         """Parses a single XML metadata file and returns a list of Paper objects."""
         
         print(f"Starting to parse: {file_path}")  # Debug line
@@ -40,8 +40,7 @@ class PubmedParser:
                 print(f"\nProcessing article {i+1}...")  # Debug line
                 
                 try:
-                    # Your existing parsing code here...
-                    # Add print statements before each major extraction:
+                    # Extract PMID
                     print("  - Extracting PMID...")
                     pmid_elem = article.find(".//PMID")
                     if pmid_elem is None:   
@@ -84,31 +83,6 @@ class PubmedParser:
                     doi_elem = article.find(".//ArticleId[@IdType='doi']")
                     doi = doi_elem.text if doi_elem is not None else None
                     
-                    #* Extract authors
-                    authors = []
-                    author_list = article_meta.find(".//AuthorList")
-                    
-                    #* check if parent class exists
-                    if author_list is not None:  
-                        for author_elem in author_list.findall(".//Author"):
-                            last_name_elem = author_elem.find(".//LastName")
-                            first_name_elem = author_elem.find(".//ForeName")
-                            initials_elem = author_elem.find(".//Initials")
-                            affiliation_elem = author_elem.find(".//Affiliation")
-                            
-                            last_name = last_name_elem.text if last_name_elem is not None else ""
-                            first_name = first_name_elem.text if first_name_elem is not None else ""
-                            initials = initials_elem.text if initials_elem is not None else ""
-                            affiliation = affiliation_elem.text if affiliation_elem is not None else None
-                            
-                            #* Creating an Author object (previously defined class)
-                            authors.append(Author(   
-                                last_name=last_name,
-                                first_name=first_name,
-                                initials=initials,
-                                affiliations=affiliation  
-                            ))
-                    
                     #* Extract keywords        
                     keywords = []
                     keyword_list = article.find(".//KeywordList")
@@ -122,7 +96,6 @@ class PubmedParser:
                         pmid=pmid,
                         title=title,
                         abstract=abstract,
-                        authors=authors,  # takes the authors list with Author Objects
                         journal=journal,
                         publication_date=pub_date_str,
                         doi=doi,
@@ -130,11 +103,13 @@ class PubmedParser:
                     )
                     
                     #* Insert into database:
-                    was_new = self.db_manager.insert_papers(paper, search_id)
+                    was_new = self.db_manager.insert_paper(paper)
                     if was_new:
                         papers_inserted += 1
                     else:
                         papers_skipped += 1
+                    
+                    papers.append(paper)
                     
                 except Exception as e:
                     print(f"Error parsing article: {e}")
@@ -156,7 +131,6 @@ class PubmedParser:
         self.processed_dir.mkdir(parents=True, exist_ok=True)
         self.metadata_dir.mkdir(parents=True, exist_ok=True)
         
-        # Fixed: self.metadata.dir -> self.metadata_dir
         xml_files = list(self.metadata_dir.glob("pubmed_batch_*.xml"))
         
         if not xml_files:
@@ -170,11 +144,16 @@ class PubmedParser:
             papers = self.parse_metadata_file(file_path)  # calls previous method
             total_papers += len(papers)
             
-        #* database statics
+        #* database statistics
         stats = self.db_manager.get_database_stats()
         print(f"\n=== Database Statistics ===")
         print(f"Total papers in database: {stats['total_papers']}")
-        print(f"Total authors in database: {stats['total_authors']}")
         print(f"Date range: {stats['date_range']}")
+        
+        if stats['top_journals']:
+            print("\nTop Journals:")
+            for journal, count in stats['top_journals'][:5]:
+                print(f"  - {journal}: {count} papers")
+
         
         

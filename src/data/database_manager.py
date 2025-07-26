@@ -18,7 +18,7 @@ project_root = Path(__file__).parent.parent.parent
 
 class DatabaseManager:
     """Manages all database operations for the PubMed research system.
-    This class handles creating tables, inserting papers and authors,
+    This class handles creating tables, inserting papers,
     and querying the stored data.
     """
     
@@ -54,7 +54,7 @@ class DatabaseManager:
             conn.close()
             
     def create_tables(self):
-        """Creates all necessary database tables with proper relationships."""
+        """Creates all necessary database tables."""
         
         with self.get_connection() as conn:
             cursor = conn.cursor()
@@ -73,54 +73,6 @@ class DatabaseManager:
                 )
             ''')
             
-            # Create the Authors table
-            cursor.execute('''
-                CREATE TABLE IF NOT EXISTS authors (
-                    author_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    last_name TEXT NOT NULL,
-                    first_name TEXT,
-                    initials TEXT,
-                    affiliations TEXT,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    UNIQUE(last_name, first_name, initials, affiliations)
-                )
-            ''')
-            
-            # Junction table for papers-authors relationship
-            cursor.execute('''
-                CREATE TABLE IF NOT EXISTS papers_authors (
-                    paper_pmid TEXT,
-                    author_id INTEGER,
-                    author_order INTEGER,
-                    PRIMARY KEY (paper_pmid, author_id),
-                    FOREIGN KEY (paper_pmid) REFERENCES papers(pmid),
-                    FOREIGN KEY (author_id) REFERENCES authors(author_id)
-                )
-            ''')
-            
-            # Search history table 
-            cursor.execute('''
-                CREATE TABLE IF NOT EXISTS search_history (
-                    search_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    strain TEXT,
-                    condition TEXT,
-                    query TEXT,
-                    result_count INTEGER,
-                    search_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                )
-            ''')
-            
-            # Search results junction table (links searches to papers)
-            cursor.execute('''
-                CREATE TABLE IF NOT EXISTS search_results (
-                    search_id INTEGER,
-                    paper_pmid TEXT,
-                    PRIMARY KEY (search_id, paper_pmid),
-                    FOREIGN KEY (search_id) REFERENCES search_history(search_id),
-                    FOREIGN KEY (paper_pmid) REFERENCES papers(pmid)
-                )
-            ''')
-            
             # Create indexes for faster querying
             cursor.execute('''
                 CREATE INDEX IF NOT EXISTS idx_papers_date 
@@ -128,25 +80,24 @@ class DatabaseManager:
             ''')
             
             cursor.execute('''
-                CREATE INDEX IF NOT EXISTS idx_authors_name
-                ON authors(last_name, first_name)
+                CREATE INDEX IF NOT EXISTS idx_papers_journal
+                ON papers(journal)
             ''')
             
             conn.commit()
             self.logger.info(f"Database tables created at {self.db_path}")
     
-    def insert_papers(self, paper: Paper, search_id: Optional[int] = None) -> bool:
-        """Inserts a paper and its authors into the database.
+    def insert_paper(self, paper: 'Paper') -> bool:
+        """Inserts a paper into the database.
         
         Args:
             paper: Paper object containing all paper details
-            search_id: Optional ID linking this paper to a search
             
         Returns:
             True if paper was newly inserted, False if it already existed
         """
         
-        with self.get_connection() as conn:  # Fixed: added parentheses
+        with self.get_connection() as conn:
             cursor = conn.cursor()
             
             try:
@@ -167,52 +118,9 @@ class DatabaseManager:
                 
                 was_new_paper = cursor.rowcount > 0
                 
-                # Add each author
-                for order, author in enumerate(paper.authors):
-                    # Insert author (or ignore if exists)
-                    cursor.execute('''
-                        INSERT OR IGNORE INTO authors
-                        (last_name, first_name, initials, affiliations)
-                        VALUES (?, ?, ?, ?)
-                    ''', (
-                        author.last_name,
-                        author.first_name,
-                        author.initials,  # Fixed: was 'intials'
-                        author.affiliations
-                    ))
-                    
-                    # Get the author's ID
-                    cursor.execute('''
-                        SELECT author_id FROM authors
-                        WHERE last_name = ? AND first_name = ?
-                        AND initials = ? AND affiliations IS ?
-                    ''', (
-                        author.last_name,
-                        author.first_name,
-                        author.initials,  # Fixed: was 'intials'
-                        author.affiliations
-                    ))
-                    
-                    author_id = cursor.fetchone()[0]  # Fixed: was 'fetchtone'
-                    
-                    # Link paper to author
-                    cursor.execute('''
-                        INSERT OR IGNORE INTO papers_authors
-                        (paper_pmid, author_id, author_order)
-                        VALUES (?, ?, ?)
-                    ''', (paper.pmid, author_id, order))
-                
-                # Link to search if search_id provided
-                if search_id is not None:
-                    cursor.execute('''
-                        INSERT OR IGNORE INTO search_results
-                        (search_id, paper_pmid)
-                        VALUES (?, ?)
-                    ''', (search_id, paper.pmid))
-                
                 conn.commit()
                 
-                if was_new_paper:  # Fixed: removed parentheses
+                if was_new_paper:
                     self.logger.info(f"Inserted new paper: {paper.title}")
                 else:
                     self.logger.debug(f"Paper already exists: {paper.title}")
@@ -224,34 +132,11 @@ class DatabaseManager:
                 self.logger.error(f"Error inserting paper {paper.pmid}: {e}")
                 raise
     
-    def record_search(self, strain: str, condition: str, query: str, 
-                      result_count: int) -> int:
-        """Records a search in the search_history table.
+    def get_papers_by_keyword(self, keyword: str) -> List[Dict]:
+        """Retrieves all papers containing a keyword in title or abstract.
         
         Args:
-            strain: Probiotic strain searched for
-            condition: Health condition searched for
-            query: Full search query used
-            result_count: Number of papers found
-            
-        Returns:
-            The search_id of the recorded search
-        """
-        
-        with self.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute('''
-                INSERT INTO search_history (strain, condition, query, result_count)
-                VALUES (?, ?, ?, ?)
-            ''', (strain, condition, query, result_count))
-            conn.commit()
-            return cursor.lastrowid
-    
-    def get_papers_by_strain(self, strain: str) -> List[Dict]:
-        """Retrieves all papers related to a specific strain.
-        
-        Args:
-            strain: The probiotic strain to search for
+            keyword: The keyword to search for
             
         Returns:
             List of dictionaries containing paper details
@@ -260,21 +145,18 @@ class DatabaseManager:
         with self.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute('''
-                SELECT DISTINCT p.* FROM papers p
-                JOIN search_results sr ON p.pmid = sr.paper_pmid
-                JOIN search_history sh ON sr.search_id = sh.search_id
-                WHERE sh.strain = ?
-                ORDER BY p.publication_date DESC
-            ''', (strain,))  # Fixed: added comma to make it a tuple
+                SELECT * FROM papers
+                WHERE title LIKE ? OR abstract LIKE ?
+                ORDER BY publication_date DESC
+            ''', (f'%{keyword}%', f'%{keyword}%'))
             return [dict(row) for row in cursor.fetchall()]
     
-    def get_papers_by_author(self, last_name: str, 
-                           first_name: Optional[str] = None) -> List[Dict]:
-        """Finds all papers by a specific author.
+    def get_papers_by_date_range(self, start_date: str, end_date: str) -> List[Dict]:
+        """Retrieves papers published within a date range.
         
         Args:
-            last_name: Author's last name
-            first_name: Optional first name for more specific search
+            start_date: Start date in YYYY-MM-DD format
+            end_date: End date in YYYY-MM-DD format
             
         Returns:
             List of dictionaries containing paper details
@@ -282,27 +164,45 @@ class DatabaseManager:
         
         with self.get_connection() as conn:
             cursor = conn.cursor()
+            cursor.execute('''
+                SELECT * FROM papers
+                WHERE publication_date >= ? AND publication_date <= ?
+                ORDER BY publication_date DESC
+            ''', (start_date, end_date))
+            return [dict(row) for row in cursor.fetchall()]
+    
+    def get_paper_by_pmid(self, pmid: str) -> Optional[Dict]:
+        """Retrieves a specific paper by its PMID.
+        
+        Args:
+            pmid: PubMed ID of the paper
             
-            if first_name:
-                query = '''
-                    SELECT p.* FROM papers p
-                    JOIN papers_authors pa ON p.pmid = pa.paper_pmid
-                    JOIN authors a ON pa.author_id = a.author_id
-                    WHERE a.last_name = ? AND a.first_name = ?
-                    ORDER BY p.publication_date DESC
-                '''
-                params = (last_name, first_name)
+        Returns:
+            Dictionary containing paper details or None if not found
+        """
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('SELECT * FROM papers WHERE pmid = ?', (pmid,))
+            row = cursor.fetchone()
+            return dict(row) if row else None
+    
+    def get_all_papers(self, limit: Optional[int] = None) -> List[Dict]:
+        """Retrieves all papers from the database.
+        
+        Args:
+            limit: Optional limit on number of papers to return
+            
+        Returns:
+            List of dictionaries containing paper details
+        """
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            if limit:
+                cursor.execute('SELECT * FROM papers ORDER BY publication_date DESC LIMIT ?', (limit,))
             else:
-                query = '''
-                    SELECT p.* FROM papers p
-                    JOIN papers_authors pa ON p.pmid = pa.paper_pmid
-                    JOIN authors a ON pa.author_id = a.author_id
-                    WHERE a.last_name = ?
-                    ORDER BY p.publication_date DESC
-                '''
-                params = (last_name,)
-                
-            cursor.execute(query, params)
+                cursor.execute('SELECT * FROM papers ORDER BY publication_date DESC')
             return [dict(row) for row in cursor.fetchall()]
     
     def get_database_stats(self) -> Dict:
@@ -319,15 +219,7 @@ class DatabaseManager:
             
             # Count total papers
             cursor.execute('SELECT COUNT(*) FROM papers')
-            stats['total_papers'] = cursor.fetchone()[0]  # Fixed: was conn.fetchone()
-            
-            # Count total authors
-            cursor.execute('SELECT COUNT(*) FROM authors')
-            stats['total_authors'] = cursor.fetchone()[0]  # Fixed: was conn.fetchone()
-            
-            # Count total searches
-            cursor.execute('SELECT COUNT(*) FROM search_history')
-            stats['total_searches'] = cursor.fetchone()[0]  # Fixed: was conn.fetchone()
+            stats['total_papers'] = cursor.fetchone()[0]
             
             # Get date range of publications
             cursor.execute('''
@@ -337,7 +229,65 @@ class DatabaseManager:
             min_date, max_date = cursor.fetchone()
             stats['date_range'] = f"{min_date} to {max_date}" if min_date else "No papers yet"
             
+            # Count papers by journal
+            cursor.execute('''
+                SELECT journal, COUNT(*) as count
+                FROM papers
+                GROUP BY journal
+                ORDER BY count DESC
+                LIMIT 10
+            ''')
+            stats['top_journals'] = [(row[0], row[1]) for row in cursor.fetchall()]
+            
+            # Get recent papers count
+            cursor.execute('''
+                SELECT COUNT(*) FROM papers
+                WHERE datetime(created_at) >= datetime('now', '-7 days')
+            ''')
+            stats['papers_added_last_week'] = cursor.fetchone()[0]
+            
             return stats
+    
+    def search_papers(self, query: str) -> List[Dict]:
+        """Full-text search across titles and abstracts.
+        
+        Args:
+            query: Search query string
+            
+        Returns:
+            List of dictionaries containing matching papers
+        """
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            # Simple LIKE search - could be enhanced with FTS5 for better performance
+            cursor.execute('''
+                SELECT * FROM papers
+                WHERE title LIKE ? OR abstract LIKE ?
+                ORDER BY 
+                    CASE 
+                        WHEN title LIKE ? THEN 0 
+                        ELSE 1 
+                    END,
+                    publication_date DESC
+            ''', (f'%{query}%', f'%{query}%', f'%{query}%'))
+            return [dict(row) for row in cursor.fetchall()]
+    
+    def delete_paper(self, pmid: str) -> bool:
+        """Deletes a paper from the database.
+        
+        Args:
+            pmid: PubMed ID of the paper to delete
+            
+        Returns:
+            True if paper was deleted, False if it didn't exist
+        """
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('DELETE FROM papers WHERE pmid = ?', (pmid,))
+            conn.commit()
+            return cursor.rowcount > 0
             
                 
                     

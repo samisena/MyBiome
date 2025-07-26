@@ -1,0 +1,10 @@
+Add a variable that is the strength of the evidence: randomized trial 
+vs observational study
+
+Remove search_history table 
+
+Remove authors table and authors class 
+
+Remove semantic search 
+
+Improve probiotic named entitity detection

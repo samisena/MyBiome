@@ -128,32 +128,25 @@ class PubMedCollector:
         #*Gets the IDs of papers matching the query
         paper_ids = self.search_papers(query, max_results)
         
-        #*Record the search in the database        
         #! Error handling:
         if not paper_ids:
-            self.db_manager.record_search(strain, condition, query, 0)
             return {
                 "strain": strain,
                 "condition": condition,
                 "paper_count": 0,
                 "status": "no_results"
             }
-            
-        #* Record the search with results
-        search_id = self.db_manager.record_search(strain, condition, query,
-                                                  len(paper_ids))
         
         #* Fetch the metadata
         metadata_file = self.fetch_paper_details(paper_ids)
         
         #* Parse the XML file to the database
-        papers = self.parser.parse_metadata_file(metadata_file, search_id)
+        papers = self.parser.parse_metadata_file(metadata_file)
         
         return {
             "strain": strain,
             "condition": condition,
             "paper_count": len(papers),
-            "search_id": search_id,
             "metadata_file": str(metadata_file),
             "status": "success"
         }

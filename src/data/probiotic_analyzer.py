@@ -17,7 +17,16 @@ from src.data.paper_parser import PubmedParser
 
 project_root = Path(__file__).parent.parent.parent
 
+import re
+from pathlib import Path
+
+from transformers import pipeline, AutoTokenizer, AutoModel
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+
+
 class ProbioticAnalyzer:
+    """Analyzes probiotic research papers to extract strain-condition relationships"""
     """Analyzes probiotic research papers to extract strain-condition relationships"""
     
     def __init__(self, project_root):
@@ -72,8 +81,18 @@ class ProbioticAnalyzer:
             "Adverse effects were reported"
         ]
         
+        neutral_refs = [
+            "No significant difference was observed between groups",
+            "The treatment had no effect on the condition",
+            "Results showed no change in symptoms",
+            "There was no statistical difference between treatment and control",
+            "The intervention did not affect the outcome",
+            "No clinically meaningful changes were detected"
+        ]
+        
         self.pos_embeddings = self.sentence_model.encode(positive_refs)
         self.neg_embeddings = self.sentence_model.encode(negative_refs)
+        self.neutral_embeddings = self.sentence_model.encode(neutral_refs)
     
     
     def prepare_data_from_db(self) -> pd.DataFrame:
@@ -81,7 +100,7 @@ class ProbioticAnalyzer:
         with sqlite3.connect(self.db_path) as conn:
             query = """
                 SELECT
-                    paper_id,
+                    pmid as paper_id,
                     title,
                     abstract
                 FROM papers
@@ -95,7 +114,7 @@ class ProbioticAnalyzer:
     
     
     def extract_entities(self, text: str) -> Dict[str, List[Dict]]:
-        """Uses BioBERT NER to extract strains and conditions"""
+        """Uses BioBERT NER to extract strains and conditions with improved probiotic detection"""
         
         #* Detects named entities:
         entities = self.ner_pipeline(text[:512])  # BioBERT token limit
@@ -106,18 +125,194 @@ class ProbioticAnalyzer:
             'outcomes': []
         }
         
-        strain_keywords = ['bacterium', 'bacillus', 'coccus', 'bifidum', 'lactis', 
-                          'lactobacillus', 'streptococcus', 'saccharomyces']
+        # Enhanced strain detection with common probiotic genera and species patterns
+        strain_keywords = [
+            'bacterium', 'bacillus', 'coccus', 'bifidum', 'lactis', 
+            'lactobacillus', 'streptococcus', 'saccharomyces', 'bifido',
+            'lacto', 'strepto', 'entero', 'clostridium', 'escherichia',
+            'propionibacterium', 'akkermansia', 'faecalibacterium',
+            'bacteroides', 'prevotella', 'ruminococcus', 'roseburia',
+            'probiotic', 'probiotics', 'synbiotic', 'prebiotic'
+        ]
         
+        # Common probiotic genus patterns
+        genus_patterns = [
+            'Lactobacillus', 'Bifidobacterium', 'Streptococcus', 'Enterococcus',
+            'Saccharomyces', 'Bacillus', 'Lactococcus', 'Pediococcus',
+            'Leuconostoc', 'Propionibacterium', 'Clostridium', 'Escherichia',
+            'Weissella', 'Oenococcus', 'Lactiplantibacillus', 'Lacticaseibacillus',
+            'Limosilactobacillus', 'Ligilactobacillus', 'Lacticaseibacillus'
+        ]
+        
+        # Common species epithets in probiotics
+        species_patterns = [
+            'acidophilus', 'casei', 'rhamnosus', 'bulgaricus', 'plantarum',
+            'brevis', 'fermentum', 'reuteri', 'johnsonii', 'lactis',
+            'longum', 'breve', 'infantis', 'bifidum', 'animalis',
+            'thermophilus', 'helveticus', 'delbrueckii', 'paracasei',
+            'salivarius', 'gasseri', 'crispatus', 'jensenii',
+            'boulardii', 'cerevisiae', 'coagulans', 'clausii'
+        ]
+        
+        # Process entities with enhanced strain detection
         for entity in entities:
-            if entity['entity_group'] in ['GENE', 'PROTEIN']:
-                if any(term in entity['word'].lower() for term in strain_keywords):
-                    categorized_entities['strains'].append(entity)
-            elif entity['entity_group'] in ['DISEASE', 'PHENOTYPE']:
+            entity_text = entity['word']
+            entity_lower = entity_text.lower()
+            
+            # Check for strain indicators
+            is_strain = False
+            
+            # Check if entity contains strain keywords
+            if any(keyword in entity_lower for keyword in strain_keywords):
+                is_strain = True
+            
+            # Check if entity matches genus patterns (case-sensitive)
+            elif any(genus in entity_text for genus in genus_patterns):
+                is_strain = True
+            
+            # Check if entity contains species epithets
+            elif any(species in entity_lower for species in species_patterns):
+                is_strain = True
+            
+            # Check for strain number patterns (e.g., "BB-12", "LGG", "GG")
+            elif re.search(r'\b[A-Z]{1,3}[-\s]?\d+\b', entity_text):
+                is_strain = True
+            
+            # Check for full species names (e.g., "L. acidophilus")
+            elif re.search(r'\b[A-Z]\.\s*[a-z]+\b', entity_text):
+                is_strain = True
+            
+            if is_strain:
+                categorized_entities['strains'].append(entity)
+            elif entity['entity_group'] in ['DISEASE', 'PHENOTYPE', 'CHEMICAL']:
+                # CHEMICAL added as some conditions involve metabolic markers
                 categorized_entities['conditions'].append(entity)
+        
+        # Also search for strains using regex patterns in the full text
+        strain_regex_patterns = [
+            r'\b(?:Lactobacillus|Bifidobacterium|Streptococcus|L\.|B\.|S\.)\s+[a-z]+\b',
+            r'\b[A-Z][a-z]+\s+[a-z]+\s+(?:subsp\.|ssp\.)\s+[a-z]+\b',
+            r'\b(?:strain|ATCC|DSM|NCFM|Bb12|LGG|GG|BB-12)\s*[\d\-]+\b',
+            r'\b(?:Lactobacillus|Bifidobacterium)\s+(?:strain\s+)?[A-Z]{1,3}\d+\b',
+            r'\b[A-Z][a-z]+\s+[a-z]+\s+[A-Z]{1,3}\d+\b',  # e.g., "Lactobacillus rhamnosus GG"
+            r'\bprobiotic[s]?\s+(?:strain[s]?|bacteria|supplement[s]?)\b'
+        ]
+        
+        for pattern in strain_regex_patterns:
+            matches = re.finditer(pattern, text[:512], re.IGNORECASE)
+            for match in matches:
+                strain_text = match.group()
+                # Check if this strain is already captured
+                if not any(strain_text.lower() in s['word'].lower() for s in categorized_entities['strains']):
+                    categorized_entities['strains'].append({
+                        'word': strain_text,
+                        'start': match.start(),
+                        'end': match.end(),
+                        'entity_group': 'STRAIN',
+                        'score': 0.9  # High confidence for regex matches
+                    })
         
         categorized_entities['outcomes'] = self._extract_outcomes(text)
         return categorized_entities
+    
+    
+    def _extract_study_type(self, text: str) -> Dict[str, float]:
+        """Extract study type and assign evidence strength score"""
+        text_lower = text.lower()
+        
+        # Patterns for different study types
+        rct_patterns = [
+            'randomized controlled trial',
+            'randomized clinical trial',
+            'randomised controlled trial',
+            'randomised clinical trial',
+            'rct',
+            'double-blind',
+            'double blind',
+            'placebo-controlled',
+            'placebo controlled',
+            'randomized trial',
+            'randomised trial'
+        ]
+        
+        observational_patterns = [
+            'observational study',
+            'cohort study',
+            'case-control',
+            'case control',
+            'cross-sectional',
+            'cross sectional',
+            'retrospective',
+            'prospective cohort',
+            'epidemiological'
+        ]
+        
+        systematic_review_patterns = [
+            'systematic review',
+            'meta-analysis',
+            'meta analysis',
+            'pooled analysis'
+        ]
+        
+        case_report_patterns = [
+            'case report',
+            'case series',
+            'case study'
+        ]
+        
+        in_vitro_patterns = [
+            'in vitro',
+            'in-vitro',
+            'cell culture',
+            'cell line',
+            'cultured cells'
+        ]
+        
+        in_vivo_patterns = [
+            'in vivo',
+            'in-vivo',
+            'animal model',
+            'mouse model',
+            'rat model',
+            'murine'
+        ]
+        
+        # Check for study type and assign evidence strength
+        if any(pattern in text_lower for pattern in systematic_review_patterns):
+            return {
+                'study_type': 'systematic_review',
+                'evidence_strength': 1.0  # Highest evidence
+            }
+        elif any(pattern in text_lower for pattern in rct_patterns):
+            return {
+                'study_type': 'randomized_controlled_trial',
+                'evidence_strength': 0.9
+            }
+        elif any(pattern in text_lower for pattern in observational_patterns):
+            return {
+                'study_type': 'observational_study',
+                'evidence_strength': 0.6
+            }
+        elif any(pattern in text_lower for pattern in in_vivo_patterns):
+            return {
+                'study_type': 'in_vivo_study',
+                'evidence_strength': 0.4
+            }
+        elif any(pattern in text_lower for pattern in case_report_patterns):
+            return {
+                'study_type': 'case_report',
+                'evidence_strength': 0.3
+            }
+        elif any(pattern in text_lower for pattern in in_vitro_patterns):
+            return {
+                'study_type': 'in_vitro_study',
+                'evidence_strength': 0.2
+            }
+        else:
+            return {
+                'study_type': 'unspecified',
+                'evidence_strength': 0.5  # Default moderate evidence
+            }
     
     
     def _extract_outcomes(self, text: str) -> List[Dict]:
@@ -136,12 +331,23 @@ class ProbioticAnalyzer:
                               for ref_emb in self.pos_embeddings])
             neg_sim = np.mean([cosine_similarity([embedding], [ref_emb])[0][0]
                               for ref_emb in self.neg_embeddings])
+            neutral_sim = np.mean([cosine_similarity([embedding], [ref_emb])[0][0]
+                                 for ref_emb in self.neutral_embeddings])
             
-            if pos_sim > 0.7 or neg_sim > 0.7:
+            max_sim = max(pos_sim, neg_sim, neutral_sim)
+            
+            if max_sim > 0.7:
+                if pos_sim == max_sim:
+                    outcome_type = 'positive'
+                elif neg_sim == max_sim:
+                    outcome_type = 'negative'
+                else:
+                    outcome_type = 'neutral'
+                
                 outcomes.append({
                     'text': sentence.strip(),
-                    'type': 'positive' if pos_sim > neg_sim else 'negative',
-                    'confidence': max(pos_sim, neg_sim)
+                    'type': outcome_type,
+                    'confidence': max_sim
                 })
         
         return outcomes
@@ -152,6 +358,9 @@ class ProbioticAnalyzer:
         text = paper_data['full_text']
         entities = self.extract_entities(text)
         relationships = []
+        
+        # Extract study type and evidence strength
+        study_info = self._extract_study_type(text)
         
         # Only process if we have both strains and conditions
         if not entities['strains'] or not entities['conditions']:
@@ -184,7 +393,9 @@ class ProbioticAnalyzer:
                         'relationship_type': relationship_info['type'],
                         'context': context,
                         'outcomes': relevant_outcomes,
-                        'paper_id': paper_data.get('paper_id', 'unknown')
+                        'paper_id': paper_data.get('paper_id', 'unknown'),
+                        'study_type': study_info['study_type'],
+                        'evidence_strength': study_info['evidence_strength']
                     })
         
         return relationships
@@ -218,8 +429,8 @@ class ProbioticAnalyzer:
         relationship_types = {
             'therapeutic': "The probiotic strain treats and improves the condition",
             'preventive': "The probiotic strain prevents the condition",
-            'associated': "The probiotic strain is associated with the condition",
-            'no_effect': "The probiotic strain has no effect on the condition"
+            'neutral': "The probiotic strain has no significant effect on the condition",
+            'associated': "The probiotic strain is associated with the condition"
         }
         
         similarities = {}
@@ -262,7 +473,7 @@ class ProbioticAnalyzer:
             if strain_distance < 300 or condition_distance < 300:
                 relevant_outcomes.append({
                     'text': outcome['text'],
-                    'type': outcome['type'],
+                    'type': outcome['type'],  # Now includes 'positive', 'negative', or 'neutral'
                     'confidence': outcome['confidence']
                 })
         
@@ -304,58 +515,13 @@ class ProbioticAnalyzer:
                 'type': rel['relationship_type'],
                 'confidence': rel['confidence'],
                 'outcomes': rel.get('outcomes', []),
-                'paper_id': rel.get('paper_id')
+                'paper_id': rel.get('paper_id'),
+                'study_type': rel.get('study_type', 'unspecified'),
+                'evidence_strength': rel.get('evidence_strength', 0.5)
             }
             knowledge_graph['edges'].append(edge)
         
         return knowledge_graph
-    
-    
-    def create_semantic_index(self, df: pd.DataFrame) -> Tuple[faiss.IndexFlatIP, List[Dict]]:
-        """Create FAISS index for semantic search"""
-        embeddings = []
-        metadata = []
-        
-        for idx, row in tqdm(df.iterrows(), total=len(df), desc="Encoding Papers"):
-            text = row['full_text'][:1000]
-            embedding = self.sentence_model.encode(text)
-            embeddings.append(embedding)
-            metadata.append({
-                'paper_id': row['paper_id'],
-                'title': row['title'],
-                'text_snippet': text[:200]
-            })
-        
-        # Create FAISS index after processing all papers
-        embeddings_array = np.array(embeddings).astype('float32')
-        
-        # Normalize embeddings for cosine similarity
-        embeddings_array = embeddings_array / np.linalg.norm(embeddings_array, axis=1, keepdims=True)
-        
-        dimension = embeddings_array.shape[1]
-        index = faiss.IndexFlatIP(dimension)
-        index.add(embeddings_array)
-        
-        return index, metadata
-    
-    
-    def semantic_search(self, query: str, index: faiss.IndexFlatIP, 
-                       metadata: List[Dict], k: int = 10) -> List[Dict]:
-        """Search for similar papers"""
-        query_embedding = self.sentence_model.encode(query)
-        query_embedding = query_embedding / np.linalg.norm(query_embedding)
-        
-        similarities, indices = index.search(
-            query_embedding.reshape(1, -1).astype('float32'), k
-        )
-        
-        results = []
-        for sim, idx in zip(similarities[0], indices[0]):
-            result = metadata[idx].copy()
-            result['similarity'] = float(sim)
-            results.append(result)
-        
-        return results
     
     
     def aggregate_relationships(self, all_relationships: List[Dict]) -> pd.DataFrame:
@@ -366,7 +532,10 @@ class ProbioticAnalyzer:
             'relationship_types': [],
             'positive_outcomes': 0,
             'negative_outcomes': 0,
-            'total_outcomes': 0
+            'neutral_outcomes': 0,
+            'total_outcomes': 0,
+            'study_types': [],
+            'evidence_strengths': []
         })
         
         for rel in all_relationships:
@@ -375,43 +544,70 @@ class ProbioticAnalyzer:
             pair_data[key]['papers'].append(rel.get('paper_id', 'unknown'))
             pair_data[key]['confidence_scores'].append(rel['confidence'])
             pair_data[key]['relationship_types'].append(rel['relationship_type'])
+            pair_data[key]['study_types'].append(rel.get('study_type', 'unspecified'))
+            pair_data[key]['evidence_strengths'].append(rel.get('evidence_strength', 0.5))
             
             for outcome in rel.get('outcomes', []):
                 if outcome['type'] == 'positive':
                     pair_data[key]['positive_outcomes'] += 1
-                else:
+                elif outcome['type'] == 'negative':
                     pair_data[key]['negative_outcomes'] += 1
+                elif outcome['type'] == 'neutral':
+                    pair_data[key]['neutral_outcomes'] += 1
                 pair_data[key]['total_outcomes'] += 1
         
         aggregated_data = []
         for (strain, condition), data in pair_data.items():
             avg_confidence = np.mean(data['confidence_scores'])
+            avg_evidence_strength = np.mean(data['evidence_strengths'])
             paper_count = len(set(data['papers']))
             
+            # Count study types
+            study_type_counts = defaultdict(int)
+            for study_type in data['study_types']:
+                study_type_counts[study_type] += 1
+            
+            # Count relationship types
             type_counts = defaultdict(int)
             for rel_type in data['relationship_types']:
                 type_counts[rel_type] += 1
             
             primary_type = max(type_counts.items(), key=lambda x: x[1])[0]
             
+            # Calculate outcome score
             if data['total_outcomes'] > 0:
+                # Positive outcomes get +1, negative get -1, neutral get 0
                 outcome_score = (data['positive_outcomes'] - data['negative_outcomes']) / data['total_outcomes']
             else:
                 outcome_score = 0
+            
+            # Calculate weighted evidence strength
+            # Combines average confidence, evidence strength from study types, and paper count
+            weighted_evidence = avg_confidence * avg_evidence_strength * np.log1p(paper_count)
             
             aggregated_data.append({
                 'strain': strain,
                 'condition': condition,
                 'paper_count': paper_count,
                 'avg_confidence': avg_confidence,
+                'avg_evidence_strength': avg_evidence_strength,
                 'primary_relationship': primary_type,
                 'positive_outcomes': data['positive_outcomes'],
                 'negative_outcomes': data['negative_outcomes'],
+                'neutral_outcomes': data['neutral_outcomes'],
                 'outcome_score': outcome_score,
-                'evidence_strength': paper_count * avg_confidence
+                'evidence_strength': paper_count * avg_confidence,  # Keep original metric
+                'weighted_evidence_strength': weighted_evidence,  # New weighted metric
+                'rct_count': study_type_counts.get('randomized_controlled_trial', 0),
+                'systematic_review_count': study_type_counts.get('systematic_review', 0),
+                'observational_count': study_type_counts.get('observational_study', 0),
+                'in_vivo_count': study_type_counts.get('in_vivo_study', 0),
+                'in_vitro_count': study_type_counts.get('in_vitro_study', 0),
+                'case_report_count': study_type_counts.get('case_report', 0),
+                'predominant_study_type': max(study_type_counts.items(), key=lambda x: x[1])[0] if study_type_counts else 'unspecified'
             })
         
-        return pd.DataFrame(aggregated_data).sort_values('evidence_strength', ascending=False)
+        return pd.DataFrame(aggregated_data).sort_values('weighted_evidence_strength', ascending=False)
     
     
     def generate_insights_report(self, aggregated_df: pd.DataFrame, 
@@ -421,23 +617,45 @@ class ProbioticAnalyzer:
             'summary_statistics': {
                 'total_relationships': len(aggregated_df),
                 'unique_strains': aggregated_df['strain'].nunique(),
-                'unique_conditions': aggregated_df['condition'].nunique()
+                'unique_conditions': aggregated_df['condition'].nunique(),
+                'total_rcts': aggregated_df['rct_count'].sum(),
+                'total_systematic_reviews': aggregated_df['systematic_review_count'].sum(),
+                'total_observational_studies': aggregated_df['observational_count'].sum()
             },
             'top_therapeutic_relationships': [],
-            'most_studied_pairs': []
+            'top_neutral_relationships': [],
+            'most_studied_pairs': [],
+            'highest_quality_evidence': []
         }
         
         # Top therapeutic relationships
         therapeutic_df = aggregated_df[
             aggregated_df['primary_relationship'] == 'therapeutic'
-        ].sort_values('outcome_score', ascending=False)
+        ].sort_values('weighted_evidence_strength', ascending=False)
         
         for _, row in therapeutic_df.head(10).iterrows():
             insights['top_therapeutic_relationships'].append({
                 'strain': row['strain'],
                 'condition': row['condition'],
                 'outcome_score': row['outcome_score'],
-                'evidence': row['paper_count']
+                'evidence': row['paper_count'],
+                'weighted_evidence': row['weighted_evidence_strength'],
+                'predominant_study_type': row['predominant_study_type']
+            })
+        
+        # Top neutral relationships (no effect)
+        neutral_df = aggregated_df[
+            aggregated_df['primary_relationship'] == 'neutral'
+        ].sort_values('weighted_evidence_strength', ascending=False)
+        
+        for _, row in neutral_df.head(10).iterrows():
+            insights['top_neutral_relationships'].append({
+                'strain': row['strain'],
+                'condition': row['condition'],
+                'neutral_outcomes': row['neutral_outcomes'],
+                'evidence': row['paper_count'],
+                'weighted_evidence': row['weighted_evidence_strength'],
+                'predominant_study_type': row['predominant_study_type']
             })
         
         # Most studied pairs
@@ -446,7 +664,24 @@ class ProbioticAnalyzer:
             insights['most_studied_pairs'].append({
                 'strain': row['strain'],
                 'condition': row['condition'],
-                'papers': row['paper_count']
+                'papers': row['paper_count'],
+                'rct_count': row['rct_count'],
+                'systematic_review_count': row['systematic_review_count']
+            })
+        
+        # Highest quality evidence (based on RCTs and systematic reviews)
+        high_quality_df = aggregated_df[
+            (aggregated_df['rct_count'] > 0) | (aggregated_df['systematic_review_count'] > 0)
+        ].sort_values('weighted_evidence_strength', ascending=False)
+        
+        for _, row in high_quality_df.head(10).iterrows():
+            insights['highest_quality_evidence'].append({
+                'strain': row['strain'],
+                'condition': row['condition'],
+                'relationship': row['primary_relationship'],
+                'rct_count': row['rct_count'],
+                'systematic_review_count': row['systematic_review_count'],
+                'weighted_evidence': row['weighted_evidence_strength']
             })
         
         return insights
@@ -461,11 +696,21 @@ class ProbioticAnalyzer:
                     condition TEXT,
                     paper_count INTEGER,
                     avg_confidence REAL,
+                    avg_evidence_strength REAL,
                     primary_relationship TEXT,
                     positive_outcomes INTEGER,
                     negative_outcomes INTEGER,
+                    neutral_outcomes INTEGER,
                     outcome_score REAL,
                     evidence_strength REAL,
+                    weighted_evidence_strength REAL,
+                    rct_count INTEGER,
+                    systematic_review_count INTEGER,
+                    observational_count INTEGER,
+                    in_vivo_count INTEGER,
+                    in_vitro_count INTEGER,
+                    case_report_count INTEGER,
+                    predominant_study_type TEXT,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
             """)
@@ -499,10 +744,6 @@ class ProbioticAnalyzer:
         print("\nBuilding knowledge graph...")
         knowledge_graph = self.build_knowledge_graph(all_relationships)
         
-        # Create semantic search index
-        print("\nCreating semantic search index...")
-        search_index, search_metadata = self.create_semantic_index(df)
-        
         # Aggregate relationships
         print("\nAggregating relationships...")
         aggregated_df = self.aggregate_relationships(all_relationships)
@@ -522,9 +763,7 @@ class ProbioticAnalyzer:
             'relationships': all_relationships,
             'aggregated': aggregated_df,
             'knowledge_graph': knowledge_graph,
-            'insights': insights,
-            'search_index': search_index,
-            'search_metadata': search_metadata
+            'insights': insights
         }
     
     
@@ -534,15 +773,33 @@ class ProbioticAnalyzer:
         print(f"Total relationships found: {insights['summary_statistics']['total_relationships']}")
         print(f"Unique strains: {insights['summary_statistics']['unique_strains']}")
         print(f"Unique conditions: {insights['summary_statistics']['unique_conditions']}")
+        print(f"\nStudy Type Distribution:")
+        print(f"  - Randomized Controlled Trials: {insights['summary_statistics']['total_rcts']}")
+        print(f"  - Systematic Reviews: {insights['summary_statistics']['total_systematic_reviews']}")
+        print(f"  - Observational Studies: {insights['summary_statistics']['total_observational_studies']}")
         
         print("\nTop Therapeutic Relationships:")
         for rel in insights['top_therapeutic_relationships'][:5]:
             print(f"  {rel['strain']} -> {rel['condition']}: "
-                  f"score={rel['outcome_score']:.2f}, evidence={rel['evidence']}")
+                  f"score={rel['outcome_score']:.2f}, evidence={rel['evidence']}, "
+                  f"study_type={rel['predominant_study_type']}")
+        
+        print("\nTop Neutral Relationships (No Effect):")
+        for rel in insights['top_neutral_relationships'][:5]:
+            print(f"  {rel['strain']} -> {rel['condition']}: "
+                  f"neutral_outcomes={rel['neutral_outcomes']}, evidence={rel['evidence']}, "
+                  f"study_type={rel['predominant_study_type']}")
+        
+        print("\nHighest Quality Evidence (RCTs/Systematic Reviews):")
+        for rel in insights['highest_quality_evidence'][:5]:
+            print(f"  {rel['strain']} + {rel['condition']}: "
+                  f"RCTs={rel['rct_count']}, Reviews={rel['systematic_review_count']}, "
+                  f"relationship={rel['relationship']}")
         
         print("\nMost Studied Pairs:")
         for pair in insights['most_studied_pairs'][:5]:
-            print(f"  {pair['strain']} + {pair['condition']}: {pair['papers']} papers")
+            print(f"  {pair['strain']} + {pair['condition']}: {pair['papers']} papers "
+                  f"(RCTs={pair['rct_count']}, Reviews={pair['systematic_review_count']})")
         
          
 
