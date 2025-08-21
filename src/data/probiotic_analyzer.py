@@ -184,7 +184,56 @@ class CorrelationExtractor:
 
         return prompt
 
-    def parse_json_response():
+    def parse_json_response(self, llm_text_output:str, paper_id):
+        """"""
+
+        try:
+
+            #* Text cleaning:
+            llm_text_output = llm_text_output.strip() #removes white spaces
+
+            if "```json" in llm_text_output:  #only leaves JSON content 
+                llm_text_output = llm_text_output.split("```json")[1].split("```")[0]
+            elif "```" in llm_text_output:
+                response_text = response_text.split("```")[1].split("```")[0]
+
+            # converts JSON to Python list
+            correlations = json.loads(llm_text_output)
+
+            # Ensuring the LLM returned a JSON ARRAY as instrcuted
+            if not isinstance(correlations, list):
+                self.logger.error(f"Response for {paper_id} is not a list/array")
+                return []
+
+            # We iterrate over each strain-condition relation found within a paper
+            # (we allowed for more than one per paper)
+            valited_correlations = []
+
+            # for every pair in the list, if one of these keys is missing:
+            for corr in correlations: 
+
+                validation_issues = []
+
+                if not all(key in corr for key in ['probiotic_strain', 'health_condition', 'correlation_type']):
+                    self.logger.warning(f"Missing required fields in correlation for {paper_id}")
+                    continue
+
+                if corr['correlation_type'] not in ['positive', 'negative',
+                    'neutral', 'inconclusive']:
+                    self.logger.warning(f"Invalid correlation type '{corr['correlation_type']}' for {paper_id}")
+                    corr['correlation_type'] = 'inconclusive'
+
+                if 'correlation_strength' in corr: 
+                    try:
+                        val = float(corr['correlation_strength'])
+                        if not 0.0 <= val <= 1.0:
+                            validation_issues.append(f"correlation_strength {val} out of range")
+                        else:
+                            corr['correlation_strength'] = val
+                    except (ValueError, TypeError):
+                        validation_issues.append(f"non-numeric correlation_strength: {corr['correlation_strength']}")
+                        corr['correlation_strength'] = None
+
 
 
     
