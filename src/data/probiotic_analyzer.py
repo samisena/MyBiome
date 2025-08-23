@@ -1,4 +1,5 @@
 import json
+from re import T
 import time
 import logging
 from typing import Dict, List, Optional, Tuple
@@ -92,7 +93,7 @@ class CorrelationExtractor:
         return input_cost + output_cost
 
     
-    def correlation_extraction_prompt(self, paper: Dict) -> str:
+    def llm_prompt(self, paper: Dict) -> str:
         """ Returns the prompt used for correlation extraction
         
         Args:
@@ -185,7 +186,15 @@ class CorrelationExtractor:
         return prompt
 
     def parse_json_response(self, llm_text_output:str, paper_id):
-        """"""
+        """ Parses the JSON response output from the LLM
+        
+        Args:
+            llm_text_output: the JSON response
+            paper_id: PMID for error reporting
+
+        Returns:
+            List of dictionary containing validated correlations
+        """
 
         try:
 
@@ -205,9 +214,9 @@ class CorrelationExtractor:
                 self.logger.error(f"Response for {paper_id} is not a list/array")
                 return []
 
-            # We iterrate over each strain-condition relation found within a paper
+            #* We iterrate over each strain-condition relation found within a paper
             # (we allowed for more than one per paper)
-            valited_correlations = []
+            validated_correlations = []
 
             # for every pair in the list, if one of these keys is missing:
             for corr in correlations: 
@@ -233,6 +242,152 @@ class CorrelationExtractor:
                     except (ValueError, TypeError):
                         validation_issues.append(f"non-numeric correlation_strength: {corr['correlation_strength']}")
                         corr['correlation_strength'] = None
+
+                # We add the paper id and the model used to the correlations dictionary
+                corr['paper_id'] = paper_id
+                corr['extraction_model'] = self.config.model_name
+
+                # Append a strain-condition relationship
+                validated_correlations.append(corr)
+
+            return validated_correlations
+        
+        except json.JSONDecodeError as e:
+            self.logger.error(f"JSON parsing error for {paper_id}: {e}")
+            self.logger.debug(f"Raw response: {response_text[:500]}")
+            return []
+        except Exception as e:
+            self.logger.error(f"""Unexpected error parsing response for paper
+            {paper_id}: {e}""")
+
+
+    def exctract_correlations(self, paper: Dict) -> List[Dict]:
+        """ Extract correlations from a single paper using the LLM.
+        
+        Args:
+            paper: dictionary with 'pmid', 'title', and 'abstract'
+
+        Returns:
+            List of extracted correlations in JSON formatting
+        """
+
+        # if the paper dictionary doesn't have an abstract or title key
+        if not paper.get('abstract') or not paper.get('title'):
+            self.logger.warning(f"""Paper {paper.get('pmid', 'unkown')} 
+            missing title or abstract""")
+            return []
+
+        # We pass a paper to our llm_prompt method
+        prompt = self.llm_prompt(paper)
+
+        # Estimate the cost 
+        input_cost, output_cost = self.estimate_cost(prompt)
+        self.logger.info(f"Estimated cost for {paper['pmid']}: ${input_cost:.4f} + ${output_cost:.4f}")
+
+        #* Attempt to make an API call
+        try:
+            response = self.client.chat.completions.create(
+                model = self.config.model_name,
+                messages = [
+                    {"role": "system",
+                     "content": """You are a precise biomedical information
+                      extraction system. Return only JSON."""},
+                    {"role": "user", "content": prompt}
+                    ],
+                temperature= self.config.temperature,
+                max_tokens = self.config.max_tokens
+            )
+
+            #* Checks if the LLM response object has the attribute 'usage'
+            if hasattr(response, 'usage'):
+
+                #* Adds the input and output tokens to our cost tracking
+                self.total_input_tokens += response.usage.prompt_tokens
+                self.total_output_tokens += response.usage.completion_tokens
+                self.logger.info(f"""Tokens used for {paper['pmid']} : 
+                    {response.usage.prompt_tokens} in, 
+                    {response.usge.completion_tokens} out""")
+                
+                # Extract response the text response
+                response_text = response.choices[0].message.content
+
+                # Parse JSON
+                correlations = self.parse_json_response(response_text,
+                    paper['pmid'])
+
+                self.logger.info(f"""Extracted {len(correlations)} correlations
+                from {paper['pmid']}""")
+
+                return correlations
+            
+        except Exception as e:
+            self.logger.error(f"API error for paper {paper['pmid']}: {e}")
+            return []
+
+        
+    def process_papers(self, papers: List[Dict], save_to_db: bool = True):
+        """
+        Applies the extract_correlations method to multiple papers and optionally
+        saves correlations to the database.
+
+        Args:
+            papers: List of paper dictionary objects
+            save_to_db: save results to SQLite database or no
+
+        Returns:
+            A dictionary with containing a summary of the extraction process
+        """
+
+        all_correlations = []
+        failed_papers = []
+        
+        self.logger.info(f"String extraction for {len(papers)} papers")
+
+        for i, paper in enumerate(papers, 1):
+            self.logger.info(f"\n--- Processing paper {i}/{len(papers)}: {paper['pmid']} ---")
+
+            correlations = self.exctract_correlations(paper)
+
+            if correlations:
+                all_correlations.extend(correlations)
+
+                if save_to_db:
+                    for corr in correlations:
+                        try:
+                            #Method from DatabaseManager Object 
+                            self.db_manager.insert_correlation(corr) 
+                        except Exception as e:
+                            self.logger.error(f"Database error saving correlation: {e}")
+
+            else:
+                failed_papers.append(paper['pmid'])
+
+                #* Avoid overwhelming the API (rate limiting error)
+            if i < len(papers):
+                time.sleep(1)
+
+        total_cost = self.total_cost()
+
+        results = {
+            'total_papers': len(papers),
+            'successful_papers': len(papers) - len(failed_papers),
+            'failed_papers': failed_papers,
+            'total_correlations': len(all_correlations),
+            'total_cost': total_cost,
+            'average_cost_per_paper': total_cost / len(papers) if papers else 0,
+            'correlations': all_correlations
+        }                
+            
+        self.logger.info(f"\n=== Extraction Complete ===")
+        self.logger.info(f"Papers processed: {results['successful_papers']}/{results['total_papers']}")
+        self.logger.info(f"Correlations found: {results['total_correlations']}")
+        self.logger.info(f"Total cost: ${results['total_cost']:.4f}")
+        self.logger.info(f"Average cost per paper: ${results['average_cost_per_paper']:.4f}")
+        
+        return results
+        
+
+                
 
 
 
