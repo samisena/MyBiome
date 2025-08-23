@@ -1,10 +1,12 @@
 Add a variable that is the strength of the evidence: randomized trial 
 vs observational study
 
-Remove search_history table 
+Insert the actual costs per 1k tokens for DeepSeek and Qwen in def _set_cost_rates()
 
-Remove authors table and authors class 
+Go through about 100 examples to create a dataset of training examples.
 
-Remove semantic search 
+Get a deepseek and Qwen API key.
 
-Improve probiotic named entitity detection
+quality assurance workflow: first model extracts → validation catches issues 
+→ second model verifies problematic extractions → humans review what both 
+models couldn't handle.

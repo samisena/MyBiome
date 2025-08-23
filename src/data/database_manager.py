@@ -79,27 +79,34 @@ class DatabaseManager:
             
             #* Create the Correlations table (new)
             cursor.execute('''
-                CREATE TABLE IF NOT EXISTS correlations (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    paper_id TEXT NOT NULL,
-                    probiotic_strain TEXT NOT NULL,
-                    health_condition TEXT NOT NULL,
-                    correlation_type TEXT CHECK(correlation_type IN ('positive', 'negative', 'neutral', 'inconclusive')),
-                    correlation_strength REAL CHECK(correlation_strength >= 0 AND correlation_strength <= 1),
-                    effect_size TEXT,
-                    sample_size INTEGER,
-                    study_duration TEXT,
-                    study_type TEXT,
-                    dosage TEXT,
-                    population_details TEXT,
-                    confidence_score REAL CHECK(confidence_score >= 0 AND confidence_score <= 1),
-                    supporting_quote TEXT,
-                    extraction_model TEXT NOT NULL,
-                    extraction_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    FOREIGN KEY (paper_id) REFERENCES papers(pmid),
-                    UNIQUE(paper_id, probiotic_strain, health_condition, extraction_model)
-                )
-            ''')
+                    CREATE TABLE IF NOT EXISTS correlations (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        paper_id TEXT NOT NULL,
+                        probiotic_strain TEXT NOT NULL,
+                        health_condition TEXT NOT NULL,
+                        correlation_type TEXT CHECK(correlation_type IN ('positive', 'negative', 'neutral', 'inconclusive')),
+                        correlation_strength REAL CHECK(correlation_strength >= 0 AND correlation_strength <= 1),
+                        effect_size TEXT,
+                        sample_size INTEGER,
+                        study_duration TEXT,
+                        study_type TEXT,
+                        dosage TEXT,
+                        population_details TEXT,
+                        confidence_score REAL CHECK(confidence_score >= 0 AND confidence_score <= 1),
+                        supporting_quote TEXT,
+                        extraction_model TEXT NOT NULL,
+                        extraction_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        
+                        -- New validation columns
+                        validation_status TEXT DEFAULT 'validated',
+                        validation_issues TEXT,
+                        verification_model TEXT,
+                        human_reviewed BOOLEAN DEFAULT FALSE,
+                        
+                        FOREIGN KEY (paper_id) REFERENCES papers(pmid),
+                        UNIQUE(paper_id, probiotic_strain, health_condition, extraction_model)
+                    )
+                ''')
             
             #* Create indexes for existing tables
             cursor.execute('''
@@ -324,11 +331,12 @@ class DatabaseManager:
                 cursor.execute('''
                     INSERT OR REPLACE INTO correlations
                     (paper_id, probiotic_strain, health_condition, correlation_type,
-                     correlation_strength, effect_size, sample_size, study_duration,
-                     study_type, dosage, population_details, confidence_score,
-                     supporting_quote, extraction_model)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ''', (
+                    correlation_strength, effect_size, sample_size, study_duration,
+                    study_type, dosage, population_details, confidence_score,
+                    supporting_quote, extraction_model, validation_status, 
+                    validation_issues, verification_model, human_reviewed)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ''', (
                     correlation['paper_id'],
                     correlation['probiotic_strain'],
                     correlation['health_condition'],
@@ -343,6 +351,10 @@ class DatabaseManager:
                     correlation.get('confidence_score'),
                     correlation.get('supporting_quote'),
                     correlation['extraction_model']
+                    correlation.get('validation_status', 'validated'),
+                    correlation.get('validation_issues'),
+                    correlation.get('verification_model'),
+                    correlation.get('human_reviewed', False)
                 ))
                 
                 conn.commit()
