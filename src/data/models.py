@@ -12,7 +12,6 @@ class Paper:
     pmid: str
     title: str
     abstract: str
-    authors: List[Author]
     journal: str
     publication_date: str
     doi: Optional[str] = None

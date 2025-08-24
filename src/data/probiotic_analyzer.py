@@ -65,8 +65,12 @@ class CorrelationExtractor:
             #* Qwen pricing (example - check their actual rates)
             self.config.cost_per_1k_input_tokens = 0.0002
             self.config.cost_per_1k_output_tokens = 0.0006
-
-        self.logger.info((f"Cost rates set for {self.config.model_name}: "
+       
+        elif 'groq' in self.config.model_name.lower() or 'mixtral' in self.config.model_name.lower():
+            #* Groq is free tier
+            self.config.cost_per_1k_input_tokens = 0
+            self.config.cost_per_1k_output_tokens = 0
+            self.logger.info((f"Cost rates set for {self.config.model_name}: "
                         f"${self.config.cost_per_1k_input_tokens}/1k input, "
                         f"${self.config.cost_per_1k_output_tokens}/1k output"))
 
@@ -145,6 +149,11 @@ class CorrelationExtractor:
 
         10. SUPPORTING QUOTE: The exact text from the abstract supporting this correlation
 
+        11. "EFFECT SIZE: Extract if mentioned (e.g., 'Cohen's d = 0.8', 'reduction of 3.2 days', '45% improvement')"
+
+        12. "POPULATION DETAILS: Extract demographics if specified (e.g., 'adults 18-65', 'pregnant women', 'infants <6 months')"
+
+
         Return ONLY a JSON array. Each element should have this struture:
         [
             {{
@@ -204,7 +213,7 @@ class CorrelationExtractor:
             if "```json" in llm_text_output:  #only leaves JSON content 
                 llm_text_output = llm_text_output.split("```json")[1].split("```")[0]
             elif "```" in llm_text_output:
-                response_text = response_text.split("```")[1].split("```")[0]
+                llm_text_output = response_text.split("```")[1].split("```")[0]
 
             # converts JSON to Python list
             correlations = json.loads(llm_text_output)
@@ -261,7 +270,7 @@ class CorrelationExtractor:
             {paper_id}: {e}""")
 
 
-    def exctract_correlations(self, paper: Dict) -> List[Dict]:
+    def extract_correlations(self, paper: Dict) -> List[Dict]:
         """ Extract correlations from a single paper using the LLM.
         
         Args:
@@ -306,7 +315,7 @@ class CorrelationExtractor:
                 self.total_output_tokens += response.usage.completion_tokens
                 self.logger.info(f"""Tokens used for {paper['pmid']} : 
                     {response.usage.prompt_tokens} in, 
-                    {response.usge.completion_tokens} out""")
+                    {response.usage.completion_tokens} out""")
                 
                 # Extract response the text response
                 response_text = response.choices[0].message.content
@@ -346,7 +355,7 @@ class CorrelationExtractor:
         for i, paper in enumerate(papers, 1):
             self.logger.info(f"\n--- Processing paper {i}/{len(papers)}: {paper['pmid']} ---")
 
-            correlations = self.exctract_correlations(paper)
+            correlations = self.extract_correlations(paper)
 
             if correlations:
                 all_correlations.extend(correlations)
@@ -355,6 +364,7 @@ class CorrelationExtractor:
                     for corr in correlations:
                         try:
                             #Method from DatabaseManager Object 
+                            corr['validation_status'] = 'pending'
                             self.db_manager.insert_correlation(corr) 
                         except Exception as e:
                             self.logger.error(f"Database error saving correlation: {e}")

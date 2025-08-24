@@ -12,7 +12,7 @@ from typing import List, Dict, Optional
 from datetime import datetime
 
 #* Import the shared data models
-from src.data.models import Author, Paper
+from src.data.models import Paper
 
 #* Get project root 
 project_root = Path(__file__).parent.parent.parent
@@ -79,34 +79,38 @@ class DatabaseManager:
             
             #* Create the Correlations table (new)
             cursor.execute('''
-                    CREATE TABLE IF NOT EXISTS correlations (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        paper_id TEXT NOT NULL,
-                        probiotic_strain TEXT NOT NULL,
-                        health_condition TEXT NOT NULL,
-                        correlation_type TEXT CHECK(correlation_type IN ('positive', 'negative', 'neutral', 'inconclusive')),
-                        correlation_strength REAL CHECK(correlation_strength >= 0 AND correlation_strength <= 1),
-                        effect_size TEXT,
-                        sample_size INTEGER,
-                        study_duration TEXT,
-                        study_type TEXT,
-                        dosage TEXT,
-                        population_details TEXT,
-                        confidence_score REAL CHECK(confidence_score >= 0 AND confidence_score <= 1),
-                        supporting_quote TEXT,
-                        extraction_model TEXT NOT NULL,
-                        extraction_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        
-                        -- New validation columns
-                        validation_status TEXT DEFAULT 'validated',
-                        validation_issues TEXT,
-                        verification_model TEXT,
-                        human_reviewed BOOLEAN DEFAULT FALSE,
-                        
-                        FOREIGN KEY (paper_id) REFERENCES papers(pmid),
-                        UNIQUE(paper_id, probiotic_strain, health_condition, extraction_model)
-                    )
-                ''')
+                CREATE TABLE IF NOT EXISTS correlations (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    paper_id TEXT NOT NULL,
+                    probiotic_strain TEXT NOT NULL,
+                    health_condition TEXT NOT NULL,
+                    correlation_type TEXT CHECK(correlation_type IN ('positive', 'negative', 'neutral', 'inconclusive')),
+                    correlation_strength REAL CHECK(correlation_strength >= 0 AND correlation_strength <= 1),
+                    effect_size TEXT,
+                    sample_size INTEGER,
+                    study_duration TEXT,
+                    study_type TEXT,
+                    dosage TEXT,
+                    population_details TEXT,
+                    confidence_score REAL CHECK(confidence_score >= 0 AND confidence_score <= 1),
+                    supporting_quote TEXT,
+                    
+                    -- Extraction tracking
+                    extraction_model TEXT NOT NULL,
+                    extraction_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    
+                    -- Validation tracking
+                    validation_status TEXT DEFAULT 'pending' CHECK(validation_status IN ('pending', 'verified', 'conflicted', 'failed')),
+                    validation_issues TEXT,
+                    verification_model TEXT,
+                    verification_timestamp TIMESTAMP,
+                    verification_confidence REAL,
+                    human_reviewed BOOLEAN DEFAULT FALSE,
+                    
+                    FOREIGN KEY (paper_id) REFERENCES papers(pmid),
+                    UNIQUE(paper_id, probiotic_strain, health_condition, extraction_model)
+                )
+            ''')
             
             #* Create indexes for existing tables
             cursor.execute('''
@@ -145,7 +149,7 @@ class DatabaseManager:
     
     #* ============= EXISTING PAPER METHODS (unchanged) =============
     
-    def insert_paper(self, paper: 'Paper') -> bool:
+    def insert_paper(self, paper: Dict) -> bool:
         """Inserts a paper into the database.
         
         Args:
@@ -165,13 +169,13 @@ class DatabaseManager:
                     (pmid, title, abstract, journal, publication_date, doi, keywords)
                     VALUES (?, ?, ?, ?, ?, ?, ?)
                 ''', (
-                    paper.pmid,
-                    paper.title,
-                    paper.abstract,
-                    paper.journal,
-                    paper.publication_date,
-                    paper.doi,
-                    json.dumps(paper.keywords) if paper.keywords else None
+                    paper['pmid'],
+                    paper['title'],
+                    paper.get('abstract', ''),  # Use .get() for optional fields
+                    paper.get('journal', 'Unknown journal'),
+                    paper.get('publication_date', ''),
+                    paper.get('doi'),
+                    json.dumps(paper.get('keywords')) if paper.get('keywords') else None
                 ))
                 
                 was_new_paper = cursor.rowcount > 0
@@ -179,15 +183,15 @@ class DatabaseManager:
                 conn.commit()
                 
                 if was_new_paper:
-                    self.logger.info(f"Inserted new paper: {paper.title}")
+                    self.logger.info(f"Inserted new paper: {paper['title']}")
                 else:
-                    self.logger.debug(f"Paper already exists: {paper.title}")
+                    self.logger.debug(f"Paper already exists: {paper['title']}")
                     
                 return was_new_paper
                 
             except Exception as e:
                 conn.rollback()
-                self.logger.error(f"Error inserting paper {paper.pmid}: {e}")
+                self.logger.error(f"Error inserting paper {paper['pmid']}: {e}")
                 raise
     
     def get_papers_by_keyword(self, keyword: str) -> List[Dict]:
@@ -336,7 +340,7 @@ class DatabaseManager:
                     supporting_quote, extraction_model, validation_status, 
                     validation_issues, verification_model, human_reviewed)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    ''', (
+                    ''',(
                     correlation['paper_id'],
                     correlation['probiotic_strain'],
                     correlation['health_condition'],
@@ -350,7 +354,7 @@ class DatabaseManager:
                     correlation.get('population_details'),
                     correlation.get('confidence_score'),
                     correlation.get('supporting_quote'),
-                    correlation['extraction_model']
+                    correlation['extraction_model'],
                     correlation.get('validation_status', 'validated'),
                     correlation.get('validation_issues'),
                     correlation.get('verification_model'),
@@ -571,5 +575,77 @@ class DatabaseManager:
             return stats
             
                 
-                    
+    def get_correlations_for_verification(self, limit: int = 10) -> List[Dict]:
+        """Get correlations that need verification (pending status)."""
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+                SELECT c.*, p.title, p.abstract
+                FROM correlations c
+                JOIN papers p ON c.paper_id = p.pmid
+                WHERE c.validation_status = 'pending'
+                ORDER BY c.extraction_timestamp
+                LIMIT ?
+            ''', (limit,))
+            return [dict(row) for row in cursor.fetchall()]
+
+
+    def update_correlation_verification(self, correlation_id: int, 
+                                    verification_data: Dict) -> bool:
+        """Update correlation with verification results."""
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            
+            try:
+                cursor.execute('''
+                    UPDATE correlations
+                    SET validation_status = ?,
+                        validation_issues = ?,
+                        verification_model = ?,
+                        verification_timestamp = CURRENT_TIMESTAMP,
+                        verification_confidence = ?
+                    WHERE id = ?
+                ''', (
+                    verification_data['validation_status'],
+                    verification_data.get('validation_issues'),
+                    verification_data['verification_model'],
+                    verification_data.get('verification_confidence'),
+                    correlation_id
+                ))
+                
+                conn.commit()
+                return cursor.rowcount > 0
+                
+            except Exception as e:
+                conn.rollback()
+                self.logger.error(f"Error updating verification: {e}")
+                return False
+
+
+    def update_human_review(self, correlation_id: int, 
+                        reviewer: str, notes: str = None) -> bool:
+        """Mark correlation as human-reviewed."""
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            
+            try:
+                cursor.execute('''
+                    UPDATE correlations
+                    SET human_reviewed = TRUE,
+                        human_reviewer = ?,
+                        review_timestamp = CURRENT_TIMESTAMP,
+                        review_notes = ?
+                    WHERE id = ?
+                ''', (reviewer, notes, correlation_id))
+                
+                conn.commit()
+                return cursor.rowcount > 0
+                
+            except Exception as e:
+                conn.rollback()
+                self.logger.error(f"Error updating human review: {e}")
+                return False          
                     

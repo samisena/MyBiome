@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET  # Module for processing XML data
 from pathlib import Path
 from dataclasses import dataclass, asdict 
 from typing import List, Dict, Optional, Any
-from src.data.database_manager import DatabaseManager, Paper, Author  # Import our new database manager
+from src.data.database_manager import DatabaseManager, Paper  # Import our new database manager
 
 project_root = Path(__file__).parent.parent.parent
 
@@ -92,15 +92,15 @@ class PubmedParser:
                                 keywords.append(keyword_elem.text)
                     
                     #* Create Paper object
-                    paper = Paper(
-                        pmid=pmid,
-                        title=title,
-                        abstract=abstract,
-                        journal=journal,
-                        publication_date=pub_date_str,
-                        doi=doi,
-                        keywords=keywords if keywords else None
-                    )
+                    paper = {
+                        'pmid':pmid,
+                        'title':title,
+                        'abstract':abstract,
+                        'journal':journal,
+                        'publication_date':pub_date_str,
+                        'doi':doi,
+                        'keywords':keywords if keywords else None
+                     }
                     
                     #* Insert into database:
                     was_new = self.db_manager.insert_paper(paper)

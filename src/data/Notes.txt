@@ -5,8 +5,12 @@ Insert the actual costs per 1k tokens for DeepSeek and Qwen in def _set_cost_rat
 
 Go through about 100 examples to create a dataset of training examples.
 
-Get a deepseek and Qwen API key.
-
 quality assurance workflow: first model extracts → validation catches issues 
 → second model verifies problematic extractions → humans review what both 
 models couldn't handle.
+
+I need a bank card for Qwen and deepseek
+Will experience with free alternatives
+Grok or Ollama
+
+Works but need to debug. JSON parsing errors.
