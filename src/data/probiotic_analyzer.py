@@ -105,96 +105,48 @@ class CorrelationExtractor:
 
         Returns:
             the prompt as a string
-         """
+        """
 
-        prompt = f""" You are a biomedical research analyst specializing in probiotics
-        studies. Exctract ALL correlations between probiotic strains and health
-        conditions from this paper.
+        prompt = f"""Extract correlations between probiotic strains and health conditions from this paper.
 
-        Title: {paper['title']}
-        Abstract: {paper['abstract']}
+    Title: {paper['title']}
+    Abstract: {paper['abstract']}
 
-        For each probiotic-health condition pair found, extract:
+    CRITICAL: Return ONLY a JSON array. Do not include any text, explanations, or thinking before or after the JSON.
 
-        1. PROBIOTIC STRAIN: the specific strain name (e.g., "Lactobacillus rhamnosus GG")
-            - If only genus/species given (e.g., "L. acidophilus"), record as is
-            - If multiple strains tested together, list as "Strain1 + Strain2"
-            - If generic "probiotics" mentioned, record as "probiotics (unspecified)"property
+    For each probiotic-health condition pair found, create a JSON object with these fields:
+    - probiotic_strain: specific strain name (e.g., "Lactobacillus rhamnosus GG")
+    - health_condition: specific condition studied
+    - correlation_type: "positive" | "negative" | "neutral" | "inconclusive"
+    - correlation_strength: 0.0 to 1.0
+    - study_type: study design (e.g., "RCT", "meta_analysis")
+    - sample_size: integer or null
+    - study_duration: string or null
+    - dosage: string or null
+    - confidence_score: 0.0 to 1.0
+    - supporting_quote: exact quote from abstract
 
-        2. HEALTH CONDITION: The specific condition or outcome studied 
-            - Be specific (e.g., "antibiotic-associated diarrhea" not just "diarrhea")
-            - Include the population if specified (e.g., "IBS in adults")
+    Return format - JSON array only:
+    [
+    {{
+        "probiotic_strain": "...",
+        "health_condition": "...",
+        "correlation_type": "...",
+        "correlation_strength": 0.5,
+        "study_type": "...",
+        "sample_size": 100,
+        "study_duration": "...",
+        "dosage": "...",
+        "confidence_score": 0.8,
+        "supporting_quote": "..."
+    }}
+    ]
 
-        3. CORRELATION TYPE: Classify as one of :
-            -"positive": Probiotic improved the condition
-            -"negative": Probiotic worsened the condition or caused adverse effects
-            -"neutral": No significant effect observed
-            -"inconclusive": Mixed or unclear results
-
-        4. CORRELATION STRENGHT: Rate from 0.0 to 1.0
-            - 0.0-0.3: Weak effect
-            - 0.4-0.6: Moderate effect
-            - 0.7-1.0: Strong effect
-
-        5. STUDY TYPE: Identify the study design
-            - Examples: "RCT", "meta_analysis", "observational", "case_control", "in-vitro"object
-
-        6. SAMPLE SIZE: Exctract if mentioned (as an integer)
-
-        7. STUDY DURATION: Exctract if mentioned (e.g., "12 weeks", "6 months")
-
-        8. DOSAGE: Extract if mentioned (e.g., "10^9 CFU/day", "twice daily)
-
-        9. CONFIDENCE SCORE: Your confidence in this insigh exctration (0.0 to 1.0)
-
-        10. SUPPORTING QUOTE: The exact text from the abstract supporting this correlation
-
-        11. "EFFECT SIZE: Extract if mentioned (e.g., 'Cohen's d = 0.8', 'reduction of 3.2 days', '45% improvement')"
-
-        12. "POPULATION DETAILS: Extract demographics if specified (e.g., 'adults 18-65', 'pregnant women', 'infants <6 months')"
-
-
-        Return ONLY a JSON array. Each element should have this struture:
-        [
-            {{
-                "probiotic_strain": "exact strain name",
-                "health_condition": "specific condition",
-                "correlation_type": "positive|negative|neutral|inconclusive",
-                "correlation_strength": 0.0-1.0,
-                "study_type": "study design",
-                "sample_size": null or integer,
-                "study_duration": null or "duration string",
-                "dosage": null or "dosage string",
-                "confidence_score": 0.0-1.0,
-                "supporting_quote": "exact quote from abstract"        
-            }}
-        ]
-
-        Example for a hypothetical abstract:
-        [
-            {{
-                "probiotic_strain": "Lactobacillus rhamnosus GG",
-                "health_condition": "acute gastroenteritis in children",
-                "correlation_type": "positive",
-                "correlation_strength": 0.7,
-                "study_type": "RCT",
-                "sample_size": 124,
-                "study_duration": "5 days",
-                "dosage": "10^10 CFU twice daily",
-                "confidence_score": 0.9,
-                "supporting_quote": "LGG significantly reduced the duration of diarrhea compared to placebo (3.1 vs 5.2 days, p<0.001)"
-            }}
-        ]
-
-        Important:
-        - Extract ALL strain-condition pairs mentioned
-        - If no correlations found, returan an empty array []
-        - Ensure all JSON is properly formatted
-        - Do not include any text outside the JSON array"""
+    If no correlations found, return: []"""
 
         return prompt
 
-    def parse_json_response(self, llm_text_output:str, paper_id):
+    def parse_json_response(self, llm_text_output: str, paper_id):
         """ Parses the JSON response output from the LLM
         
         Args:
@@ -204,40 +156,55 @@ class CorrelationExtractor:
         Returns:
             List of dictionary containing validated correlations
         """
-
         try:
+            # Store original for debugging
+            original_output = llm_text_output
+            
+            # DEBUG: Log the raw input
+            self.logger.info(f"Raw LLM output for {paper_id} (first 500 chars):")
+            self.logger.info(f"{original_output[:500]}")
+            
+            # Text cleaning:
+            llm_text_output = llm_text_output.strip()  # removes white spaces
+            
+            # DEBUG: Log after stripping
+            self.logger.info(f"After strip (first 200 chars): {llm_text_output[:200]}")
 
-            #* Text cleaning:
-            llm_text_output = llm_text_output.strip() #removes white spaces
-
-            if "```json" in llm_text_output:  #only leaves JSON content 
+            if "```json" in llm_text_output:  # only leaves JSON content 
+                self.logger.info("Found ```json markers, extracting...")
                 llm_text_output = llm_text_output.split("```json")[1].split("```")[0]
             elif "```" in llm_text_output:
-                llm_text_output = response_text.split("```")[1].split("```")[0]
+                self.logger.info("Found ``` markers, extracting...")
+                llm_text_output = llm_text_output.split("```")[1].split("```")[0]
+            
+            # DEBUG: Log final cleaned text
+            self.logger.info(f"Final cleaned text (first 200 chars): {llm_text_output[:200]}")
+            self.logger.info(f"Length of cleaned text: {len(llm_text_output)}")
+
+            # Check if empty
+            if not llm_text_output:
+                self.logger.error(f"Cleaned text is empty for {paper_id}")
+                return []
 
             # converts JSON to Python list
             correlations = json.loads(llm_text_output)
 
-            # Ensuring the LLM returned a JSON ARRAY as instrcuted
+            # Ensuring the LLM returned a JSON ARRAY as instructed
             if not isinstance(correlations, list):
                 self.logger.error(f"Response for {paper_id} is not a list/array")
                 return []
 
-            #* We iterrate over each strain-condition relation found within a paper
-            # (we allowed for more than one per paper)
+            # We iterate over each strain-condition relation found within a paper
             validated_correlations = []
 
-            # for every pair in the list, if one of these keys is missing:
             for corr in correlations: 
-
                 validation_issues = []
 
                 if not all(key in corr for key in ['probiotic_strain', 'health_condition', 'correlation_type']):
                     self.logger.warning(f"Missing required fields in correlation for {paper_id}")
                     continue
 
-                if corr['correlation_type'] not in ['positive', 'negative',
-                    'neutral', 'inconclusive']:
+                if corr['correlation_type'] not in ['positive', 'negative', 'neutral', 'inconclusive']:
                     self.logger.warning(f"Invalid correlation type '{corr['correlation_type']}' for {paper_id}")
                     corr['correlation_type'] = 'inconclusive'
 
@@ -252,22 +219,24 @@ class CorrelationExtractor:
                         validation_issues.append(f"non-numeric correlation_strength: {corr['correlation_strength']}")
                         corr['correlation_strength'] = None
 
-                # We add the paper id and the model used to the correlations dictionary
+                # Add paper id and model to the correlations
                 corr['paper_id'] = paper_id
                 corr['extraction_model'] = self.config.model_name
 
-                # Append a strain-condition relationship
                 validated_correlations.append(corr)
 
+            self.logger.info(f"Successfully parsed {len(validated_correlations)} correlations for {paper_id}")
             return validated_correlations
         
         except json.JSONDecodeError as e:
             self.logger.error(f"JSON parsing error for {paper_id}: {e}")
-            self.logger.debug(f"Raw response: {response_text[:500]}")
+            self.logger.error(f"Failed to parse: {llm_text_output[:100]}...")
             return []
         except Exception as e:
-            self.logger.error(f"""Unexpected error parsing response for paper
-            {paper_id}: {e}""")
+            self.logger.error(f"Unexpected error parsing response for paper {paper_id}: {e}")
+            import traceback
+            self.logger.error(traceback.format_exc())
+            return []
 
 
     def extract_correlations(self, paper: Dict) -> List[Dict]:
@@ -279,60 +248,57 @@ class CorrelationExtractor:
         Returns:
             List of extracted correlations in JSON formatting
         """
-
-        # if the paper dictionary doesn't have an abstract or title key
         if not paper.get('abstract') or not paper.get('title'):
-            self.logger.warning(f"""Paper {paper.get('pmid', 'unkown')} 
-            missing title or abstract""")
+            self.logger.warning(f"Paper {paper.get('pmid', 'unknown')} missing title or abstract")
             return []
 
-        # We pass a paper to our llm_prompt method
         prompt = self.llm_prompt(paper)
 
         # Estimate the cost 
         input_cost, output_cost = self.estimate_cost(prompt)
         self.logger.info(f"Estimated cost for {paper['pmid']}: ${input_cost:.4f} + ${output_cost:.4f}")
 
-        #* Attempt to make an API call
         try:
             response = self.client.chat.completions.create(
-                model = self.config.model_name,
-                messages = [
-                    {"role": "system",
-                     "content": """You are a precise biomedical information
-                      extraction system. Return only JSON."""},
+                model=self.config.model_name,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are a JSON-only response system. Output ONLY valid JSON arrays with no additional text, explanations, or markdown formatting. Do not include thinking or reasoning in your response."
+                    },
                     {"role": "user", "content": prompt}
-                    ],
-                temperature= self.config.temperature,
-                max_tokens = self.config.max_tokens
+                ],
+                temperature=self.config.temperature,
+                max_tokens=self.config.max_tokens
             )
 
-            #* Checks if the LLM response object has the attribute 'usage'
-            if hasattr(response, 'usage'):
+            # Extract response text
+            response_text = response.choices[0].message.content
+            
+            # Check if response was cut off
+            if hasattr(response.choices[0], 'finish_reason'):
+                if response.choices[0].finish_reason == 'length':
+                    self.logger.warning(f"Response truncated at max_tokens for {paper['pmid']}!")
 
-                #* Adds the input and output tokens to our cost tracking
+            # Log token usage
+            if hasattr(response, 'usage'):
                 self.total_input_tokens += response.usage.prompt_tokens
                 self.total_output_tokens += response.usage.completion_tokens
-                self.logger.info(f"""Tokens used for {paper['pmid']} : 
-                    {response.usage.prompt_tokens} in, 
-                    {response.usage.completion_tokens} out""")
-                
-                # Extract response the text response
-                response_text = response.choices[0].message.content
+                self.logger.info(f"Tokens used for {paper['pmid']}: {response.usage.prompt_tokens} in, {response.usage.completion_tokens} out")
 
-                # Parse JSON
-                correlations = self.parse_json_response(response_text,
-                    paper['pmid'])
+            # Parse JSON
+            correlations = self.parse_json_response(response_text, paper['pmid'])
 
-                self.logger.info(f"""Extracted {len(correlations)} correlations
-                from {paper['pmid']}""")
+            if correlations:
+                self.logger.info(f"Extracted {len(correlations)} correlations from {paper['pmid']}")
+            else:
+                self.logger.warning(f"No correlations extracted from {paper['pmid']}")
 
-                return correlations
+            return correlations
             
         except Exception as e:
             self.logger.error(f"API error for paper {paper['pmid']}: {e}")
             return []
-
         
     def process_papers(self, papers: List[Dict], save_to_db: bool = True):
         """

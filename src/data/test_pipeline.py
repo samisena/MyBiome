@@ -33,26 +33,25 @@ def test_groq_pipeline():
     logger = logging.getLogger(__name__)
     
     # Get Groq API key
-    api_key = os.getenv('GROQ_API_KEY')  # Add this to your .env file
+    api_key = os.getenv('GROQ_API_KEY')
     if not api_key:
         logger.error("GROQ_API_KEY not found in .env file")
         return
     
     db_manager = DatabaseManager()
     
-    # Configure Groq for extraction
+    # Configure Groq for extraction with an active, instruction-following model
     extraction_config = LLMConfig(
         api_key=api_key,
         base_url="https://api.groq.com/openai/v1",
-        model_name="qwen/qwen3-32b",  # Good balance of speed/quality
-        temperature=0.3,
-        max_tokens=1000,
-        cost_per_1k_input_tokens=0,  # Free
+        model_name="llama-3.3-70b-versatile",  # Best current model for complex tasks
+        temperature=0.1,  # Low temperature for consistent JSON formatting
+        max_tokens=4000,  # Increased to avoid truncation
+        cost_per_1k_input_tokens=0,  # Free tier
         cost_per_1k_output_tokens=0
     )
     
     extractor = CorrelationExtractor(extraction_config, db_manager)
-
     
     logger.info("=" * 50)
     logger.info("EXTRACTING CORRELATIONS WITH GROQ")
@@ -60,7 +59,7 @@ def test_groq_pipeline():
     
     # Get papers that haven't been processed
     unprocessed = db_manager.get_unprocessed_papers(
-        extraction_model="qwen/qwen3-32b",
+        extraction_model="llama-3.3-70b-versatile",  # Update this to match your model
         limit=5
     )
     
