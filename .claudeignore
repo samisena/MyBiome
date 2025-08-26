@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+env/
+
+# Database
+*.db
+*.sqlite
+*.db-journal
+
+# Large data files
+backend/data/raw_papers/
+*.csv
+*.xlsx
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+config/secrets.yml
+*.key
+.env.*
+
+# Large JSON (if over 1MB)
+frontend/data/correlations_full.json
+
+# Node (if you add any JS tooling later)
+node_modules/

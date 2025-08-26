@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probiotic-Health Correlations Database</title>
+    
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- jQuery and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>🧬 Probiotic-Health Correlations Database</h1>
+            <p class="subtitle">Research-backed insights into probiotic strain effectiveness</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Loading indicator -->
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading correlations data...</p>
+        </div>
+
+        <!-- Error message -->
+        <div id="error" class="error-message" style="display: none;">
+            <h3>❌ Error Loading Data</h3>
+            <p id="error-details">Could not load correlations data. Please try refreshing the page.</p>
+        </div>
+
+        <!-- Summary statistics -->
+        <section id="summary" class="summary-section" style="display: none;">
+            <h2>📊 Database Summary</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-correlations">-</div>
+                    <div class="stat-label">Total Correlations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="unique-strains">-</div>
+                    <div class="stat-label">Probiotic Strains</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="unique-conditions">-</div>
+                    <div class="stat-label">Health Conditions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="unique-papers">-</div>
+                    <div class="stat-label">Research Papers</div>
+                </div>
+                <div class="stat-card positive">
+                    <div class="stat-number" id="positive-correlations">-</div>
+                    <div class="stat-label">Positive Effects</div>
+                </div>
+                <div class="stat-card negative">
+                    <div class="stat-number" id="negative-correlations">-</div>
+                    <div class="stat-label">Negative Effects</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section id="filters" class="filters-section" style="display: none;">
+            <h3>🔍 Filters</h3>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="correlation-filter">Correlation Type:</label>
+                    <select id="correlation-filter">
+                        <option value="">All Types</option>
+                        <option value="positive">Positive</option>
+                        <option value="negative">Negative</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="inconclusive">Inconclusive</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="confidence-filter">Min Confidence Score:</label>
+                    <input type="range" id="confidence-filter" min="0" max="1" step="0.1" value="0">
+                    <span id="confidence-value">0.0</span>
+                </div>
+                <div class="filter-group">
+                    <label for="validation-filter">Validation Status:</label>
+                    <select id="validation-filter">
+                        <option value="">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="verified">Verified</option>
+                        <option value="conflicted">Conflicted</option>
+                        <option value="failed">Failed</option>
+                    </select>
+                </div>
+                <div class="filter-actions">
+                    <button id="clear-filters" class="btn btn-secondary">Clear Filters</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data table -->
+        <section id="table-section" class="table-section" style="display: none;">
+            <h3>📋 Correlations Data</h3>
+            <table id="correlations-table" class="display responsive nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Probiotic Strain</th>
+                        <th>Health Condition</th>
+                        <th>Correlation</th>
+                        <th>Strength</th>
+                        <th>Confidence</th>
+                        <th>Sample Size</th>
+                        <th>Study Type</th>
+                        <th>Paper</th>
+                        <th>Journal</th>
+                        <th>Validation</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Top performers -->
+        <section id="top-performers" class="top-performers-section" style="display: none;">
+            <div class="top-performers-grid">
+                <div class="top-list">
+                    <h3>🏆 Top Probiotic Strains</h3>
+                    <ul id="top-strains-list"></ul>
+                </div>
+                <div class="top-list">
+                    <h3>🎯 Most Studied Conditions</h3>
+                    <ul id="top-conditions-list"></ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Probiotic Research Database | Data sourced from PubMed</p>
+            <p>Last updated: <span id="last-updated">-</span></p>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
