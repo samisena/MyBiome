@@ -17,13 +17,6 @@ from src.data.probiotic_analyzer import CorrelationExtractor, LLMConfig
 from src.data.correlation_verfier import CorrelationVerifier
 from src.data.database_manager import DatabaseManager
 
-# test_pipeline_groq.py
-import os
-import sys
-import logging
-from pathlib import Path
-from dotenv import load_dotenv
-
 
 def test_groq_pipeline():
     logging.basicConfig(

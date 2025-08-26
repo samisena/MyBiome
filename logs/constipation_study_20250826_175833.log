@@ -1,0 +1,831 @@
+2025-08-26 17:58:33,601 - __main__ - INFO - Logging to logs\constipation_study_20250826_175833.log
+2025-08-26 17:58:33,622 - src.data.database_manager - INFO - Database tables created at C:\Users\samis\OneDrive\Bureau\My_Biome\data\processed\pubmed_research.db
+2025-08-26 17:58:33,623 - src.data.database_manager - INFO - Database tables created at C:\Users\samis\OneDrive\Bureau\My_Biome\data\processed\pubmed_research.db
+2025-08-26 17:58:33,626 - src.data.database_manager - INFO - Database tables created at C:\Users\samis\OneDrive\Bureau\My_Biome\data\processed\pubmed_research.db
+2025-08-26 17:58:33,806 - __main__ - INFO - ============================================================
+2025-08-26 17:58:33,806 - __main__ - INFO - CONSTIPATION-PROBIOTICS RESEARCH PIPELINE
+2025-08-26 17:58:33,806 - __main__ - INFO - Target: 10 papers
+2025-08-26 17:58:33,806 - __main__ - INFO - ============================================================
+2025-08-26 17:58:33,806 - __main__ - INFO - ============================================================
+2025-08-26 17:58:33,806 - __main__ - INFO - PHASE 1: COLLECTING PAPERS FROM PUBMED
+2025-08-26 17:58:33,806 - __main__ - INFO - ============================================================
+2025-08-26 17:58:33,806 - __main__ - INFO - 
+[Query 1/4]
+2025-08-26 17:58:33,806 - __main__ - INFO - Searching: "probiotics"[Title/Abstract] AND ("constipation"[Title/Abstract] OR "bowel movement"[Title/Abstract]...
+2025-08-26 17:58:34,394 - __main__ - INFO - Found 12 papers (Total unique: 12)
+2025-08-26 17:58:35,399 - __main__ - INFO - 
+[Query 2/4]
+2025-08-26 17:58:35,399 - __main__ - INFO - Searching: "Bifidobacterium"[Title/Abstract] AND "constipation"[Title/Abstract]...
+2025-08-26 17:58:35,875 - __main__ - INFO - Found 12 papers (Total unique: 23)
+2025-08-26 17:58:36,880 - __main__ - INFO - 
+[Query 3/4]
+2025-08-26 17:58:36,880 - __main__ - INFO - Searching: "Lactobacillus"[Title/Abstract] AND "constipation"[Title/Abstract]...
+2025-08-26 17:58:37,363 - __main__ - INFO - Found 12 papers (Total unique: 30)
+2025-08-26 17:58:38,363 - __main__ - INFO - 
+[Query 4/4]
+2025-08-26 17:58:38,363 - __main__ - INFO - Searching: "probiotics"[Title/Abstract] AND "constipation"[Title/Abstract] AND ("randomized controlled trial"[P...
+2025-08-26 17:58:38,846 - __main__ - INFO - Found 12 papers (Total unique: 39)
+2025-08-26 17:58:39,857 - __main__ - INFO - 
+Total unique papers found: 10
+2025-08-26 17:58:39,857 - __main__ - INFO - Fetching batch 1/1
+2025-08-26 17:58:40,811 - __main__ - INFO - Parsed 10 papers from batch
+2025-08-26 17:58:41,831 - __main__ - INFO - 
+============================================================
+2025-08-26 17:58:41,831 - __main__ - INFO - PHASE 2: EXTRACTING CORRELATIONS WITH LLM
+2025-08-26 17:58:41,831 - __main__ - INFO - ============================================================
+2025-08-26 17:58:41,834 - __main__ - INFO - Found 47 unprocessed papers
+2025-08-26 17:58:41,834 - __main__ - INFO - 
+Processing batch 1/5 (10 papers)
+2025-08-26 17:58:41,834 - src.data.probiotic_analyzer - INFO - String extraction for 10 papers
+2025-08-26 17:58:41,834 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 1/10: 40085083 ---
+2025-08-26 17:58:41,834 - src.data.probiotic_analyzer - INFO - Estimated cost for 40085083: $0.0000 + $0.0000
+2025-08-26 17:58:42,936 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:42,968 - src.data.probiotic_analyzer - INFO - Tokens used for 40085083: 452 in, 125 out
+2025-08-26 17:58:42,968 - src.data.probiotic_analyzer - INFO - Raw LLM output for 40085083 (first 500 chars):
+2025-08-26 17:58:42,968 - src.data.probiotic_analyzer - INFO - [
+    {
+        "probiotic_strain": null,
+        "health_condition": "Upper Respiratory Tract Infections (URTIs)",
+        "correlation_type": "inconclusive",
+        "correlation_strength": 0.0,
+        "study_type": "RCT",
+        "sample_size": null,
+        "study_duration": null,
+        "dosage": null,
+        "confidence_score": 0.0,
+        "supporting_quote": "Probiotics show potential as an adjuvant treatment for URTIs, but evidence in children is limited."
+    }
+]
+2025-08-26 17:58:42,970 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): [
+    {
+        "probiotic_strain": null,
+        "health_condition": "Upper Respiratory Tract Infections (URTIs)",
+        "correlation_type": "inconclusive",
+        "correlation_strength": 0.0,
+   
+2025-08-26 17:58:42,970 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): [
+    {
+        "probiotic_strain": null,
+        "health_condition": "Upper Respiratory Tract Infections (URTIs)",
+        "correlation_type": "inconclusive",
+        "correlation_strength": 0.0,
+   
+2025-08-26 17:58:42,970 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 480
+2025-08-26 17:58:42,970 - src.data.probiotic_analyzer - INFO - Successfully parsed 1 correlations for 40085083
+2025-08-26 17:58:42,970 - src.data.probiotic_analyzer - INFO - Extracted 1 correlations from 40085083
+2025-08-26 17:58:42,972 - src.data.database_manager - ERROR - Error inserting correlation: NOT NULL constraint failed: correlations.probiotic_strain
+2025-08-26 17:58:42,973 - src.data.probiotic_analyzer - ERROR - Database error saving correlation: NOT NULL constraint failed: correlations.probiotic_strain
+2025-08-26 17:58:43,977 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 2/10: 40005029 ---
+2025-08-26 17:58:43,977 - src.data.probiotic_analyzer - INFO - Estimated cost for 40005029: $0.0000 + $0.0000
+2025-08-26 17:58:44,216 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:44,219 - src.data.probiotic_analyzer - INFO - Tokens used for 40005029: 479 in, 2 out
+2025-08-26 17:58:44,219 - src.data.probiotic_analyzer - INFO - Raw LLM output for 40005029 (first 500 chars):
+2025-08-26 17:58:44,219 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:58:44,219 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:58:44,219 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:58:44,220 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:58:44,220 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 40005029
+2025-08-26 17:58:44,220 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 40005029
+2025-08-26 17:58:45,226 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 3/10: 39159626 ---
+2025-08-26 17:58:45,226 - src.data.probiotic_analyzer - INFO - Estimated cost for 39159626: $0.0000 + $0.0000
+2025-08-26 17:58:45,483 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:45,484 - src.data.probiotic_analyzer - INFO - Tokens used for 39159626: 987 in, 2 out
+2025-08-26 17:58:45,484 - src.data.probiotic_analyzer - INFO - Raw LLM output for 39159626 (first 500 chars):
+2025-08-26 17:58:45,484 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:58:45,484 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:58:45,484 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:58:45,484 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:58:45,484 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 39159626
+2025-08-26 17:58:45,484 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 39159626
+2025-08-26 17:58:46,488 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 4/10: 40207278 ---
+2025-08-26 17:58:46,488 - src.data.probiotic_analyzer - INFO - Estimated cost for 40207278: $0.0000 + $0.0000
+2025-08-26 17:58:46,711 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:46,712 - src.data.probiotic_analyzer - INFO - Tokens used for 40207278: 417 in, 2 out
+2025-08-26 17:58:46,715 - src.data.probiotic_analyzer - INFO - Raw LLM output for 40207278 (first 500 chars):
+2025-08-26 17:58:46,716 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:58:46,716 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:58:46,716 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:58:46,716 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:58:46,716 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 40207278
+2025-08-26 17:58:46,716 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 40207278
+2025-08-26 17:58:47,718 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 5/10: 38693449 ---
+2025-08-26 17:58:47,718 - src.data.probiotic_analyzer - INFO - Estimated cost for 38693449: $0.0000 + $0.0000
+2025-08-26 17:58:47,921 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:47,922 - src.data.probiotic_analyzer - INFO - Tokens used for 38693449: 436 in, 2 out
+2025-08-26 17:58:47,922 - src.data.probiotic_analyzer - INFO - Raw LLM output for 38693449 (first 500 chars):
+2025-08-26 17:58:47,922 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:58:47,922 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:58:47,922 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:58:47,923 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:58:47,923 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 38693449
+2025-08-26 17:58:47,923 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 38693449
+2025-08-26 17:58:48,937 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 6/10: 39458493 ---
+2025-08-26 17:58:48,937 - src.data.probiotic_analyzer - INFO - Estimated cost for 39458493: $0.0000 + $0.0000
+2025-08-26 17:58:49,168 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:49,172 - src.data.probiotic_analyzer - INFO - Tokens used for 39458493: 492 in, 2 out
+2025-08-26 17:58:49,172 - src.data.probiotic_analyzer - INFO - Raw LLM output for 39458493 (first 500 chars):
+2025-08-26 17:58:49,173 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:58:49,173 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:58:49,173 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:58:49,173 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:58:49,174 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 39458493
+2025-08-26 17:58:49,174 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 39458493
+2025-08-26 17:58:50,186 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 7/10: 39408300 ---
+2025-08-26 17:58:50,186 - src.data.probiotic_analyzer - INFO - Estimated cost for 39408300: $0.0000 + $0.0000
+2025-08-26 17:58:50,439 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:50,444 - src.data.probiotic_analyzer - INFO - Tokens used for 39408300: 492 in, 2 out
+2025-08-26 17:58:50,445 - src.data.probiotic_analyzer - INFO - Raw LLM output for 39408300 (first 500 chars):
+2025-08-26 17:58:50,445 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:58:50,446 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:58:50,446 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:58:50,447 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:58:50,447 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 39408300
+2025-08-26 17:58:50,447 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 39408300
+2025-08-26 17:58:51,463 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 8/10: 39225513 ---
+2025-08-26 17:58:51,463 - src.data.probiotic_analyzer - INFO - Estimated cost for 39225513: $0.0000 + $0.0000
+2025-08-26 17:58:51,679 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:51,680 - src.data.probiotic_analyzer - INFO - Tokens used for 39225513: 440 in, 2 out
+2025-08-26 17:58:51,680 - src.data.probiotic_analyzer - INFO - Raw LLM output for 39225513 (first 500 chars):
+2025-08-26 17:58:51,680 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:58:51,680 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:58:51,681 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:58:51,681 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:58:51,681 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 39225513
+2025-08-26 17:58:51,681 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 39225513
+2025-08-26 17:58:52,682 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 9/10: 38930462 ---
+2025-08-26 17:58:52,682 - src.data.probiotic_analyzer - INFO - Estimated cost for 38930462: $0.0000 + $0.0000
+2025-08-26 17:58:52,917 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:52,919 - src.data.probiotic_analyzer - INFO - Tokens used for 38930462: 574 in, 2 out
+2025-08-26 17:58:52,919 - src.data.probiotic_analyzer - INFO - Raw LLM output for 38930462 (first 500 chars):
+2025-08-26 17:58:52,919 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:58:52,919 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:58:52,919 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:58:52,919 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:58:52,920 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 38930462
+2025-08-26 17:58:52,920 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 38930462
+2025-08-26 17:58:53,928 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 10/10: 38794748 ---
+2025-08-26 17:58:53,929 - src.data.probiotic_analyzer - INFO - Estimated cost for 38794748: $0.0000 + $0.0000
+2025-08-26 17:58:54,146 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - Tokens used for 38794748: 441 in, 2 out
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - Raw LLM output for 38794748 (first 500 chars):
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 38794748
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 38794748
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - 
+=== Extraction Complete ===
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - Papers processed: 1/10
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - Correlations found: 1
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - Total cost: $0.0000
+2025-08-26 17:58:54,149 - src.data.probiotic_analyzer - INFO - Average cost per paper: $0.0000
+2025-08-26 17:58:54,149 - __main__ - INFO - Batch 1 complete: 1 correlations found
+2025-08-26 17:58:54,149 - __main__ - INFO - Waiting 5 seconds before next batch...
+2025-08-26 17:58:59,156 - __main__ - INFO - 
+Processing batch 2/5 (10 papers)
+2025-08-26 17:58:59,156 - src.data.probiotic_analyzer - INFO - String extraction for 10 papers
+2025-08-26 17:58:59,156 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 1/10: 38542689 ---
+2025-08-26 17:58:59,156 - src.data.probiotic_analyzer - INFO - Estimated cost for 38542689: $0.0000 + $0.0000
+2025-08-26 17:58:59,481 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:58:59,483 - src.data.probiotic_analyzer - INFO - Tokens used for 38542689: 550 in, 2 out
+2025-08-26 17:58:59,483 - src.data.probiotic_analyzer - INFO - Raw LLM output for 38542689 (first 500 chars):
+2025-08-26 17:58:59,483 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:58:59,483 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:58:59,484 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:58:59,484 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:58:59,484 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 38542689
+2025-08-26 17:58:59,484 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 38542689
+2025-08-26 17:59:00,494 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 2/10: 39064634 ---
+2025-08-26 17:59:00,494 - src.data.probiotic_analyzer - INFO - Estimated cost for 39064634: $0.0000 + $0.0000
+2025-08-26 17:59:01,075 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:01,077 - src.data.probiotic_analyzer - INFO - Tokens used for 39064634: 438 in, 2 out
+2025-08-26 17:59:01,077 - src.data.probiotic_analyzer - INFO - Raw LLM output for 39064634 (first 500 chars):
+2025-08-26 17:59:01,077 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:01,077 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:01,077 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:01,077 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:01,077 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 39064634
+2025-08-26 17:59:01,077 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 39064634
+2025-08-26 17:59:02,085 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 3/10: 38766683 ---
+2025-08-26 17:59:02,085 - src.data.probiotic_analyzer - INFO - Estimated cost for 38766683: $0.0000 + $0.0000
+2025-08-26 17:59:02,332 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:02,334 - src.data.probiotic_analyzer - INFO - Tokens used for 38766683: 884 in, 2 out
+2025-08-26 17:59:02,334 - src.data.probiotic_analyzer - INFO - Raw LLM output for 38766683 (first 500 chars):
+2025-08-26 17:59:02,334 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:02,334 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:02,334 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:02,334 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:02,335 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 38766683
+2025-08-26 17:59:02,335 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 38766683
+2025-08-26 17:59:03,335 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 4/10: 38343084 ---
+2025-08-26 17:59:03,335 - src.data.probiotic_analyzer - INFO - Estimated cost for 38343084: $0.0000 + $0.0000
+2025-08-26 17:59:03,551 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:03,553 - src.data.probiotic_analyzer - INFO - Tokens used for 38343084: 444 in, 2 out
+2025-08-26 17:59:03,553 - src.data.probiotic_analyzer - INFO - Raw LLM output for 38343084 (first 500 chars):
+2025-08-26 17:59:03,553 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:03,553 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:03,553 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:03,553 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:03,553 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 38343084
+2025-08-26 17:59:03,553 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 38343084
+2025-08-26 17:59:04,565 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 5/10: 38516317 ---
+2025-08-26 17:59:04,566 - src.data.probiotic_analyzer - INFO - Estimated cost for 38516317: $0.0000 + $0.0000
+2025-08-26 17:59:05,408 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:05,409 - src.data.probiotic_analyzer - INFO - Tokens used for 38516317: 505 in, 2 out
+2025-08-26 17:59:05,409 - src.data.probiotic_analyzer - INFO - Raw LLM output for 38516317 (first 500 chars):
+2025-08-26 17:59:05,409 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:05,409 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:05,409 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:05,409 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:05,409 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 38516317
+2025-08-26 17:59:05,409 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 38516317
+2025-08-26 17:59:06,423 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 6/10: 39588509 ---
+2025-08-26 17:59:06,423 - src.data.probiotic_analyzer - INFO - Estimated cost for 39588509: $0.0000 + $0.0000
+2025-08-26 17:59:06,648 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:06,649 - src.data.probiotic_analyzer - INFO - Tokens used for 39588509: 493 in, 2 out
+2025-08-26 17:59:06,649 - src.data.probiotic_analyzer - INFO - Raw LLM output for 39588509 (first 500 chars):
+2025-08-26 17:59:06,649 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:06,650 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:06,650 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:06,650 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:06,650 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 39588509
+2025-08-26 17:59:06,650 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 39588509
+2025-08-26 17:59:07,653 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 7/10: 37049488 ---
+2025-08-26 17:59:07,653 - src.data.probiotic_analyzer - INFO - Estimated cost for 37049488: $0.0000 + $0.0000
+2025-08-26 17:59:07,942 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:07,943 - src.data.probiotic_analyzer - INFO - Tokens used for 37049488: 615 in, 2 out
+2025-08-26 17:59:07,943 - src.data.probiotic_analyzer - INFO - Raw LLM output for 37049488 (first 500 chars):
+2025-08-26 17:59:07,944 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:07,944 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:07,944 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:07,944 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:07,944 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 37049488
+2025-08-26 17:59:07,944 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 37049488
+2025-08-26 17:59:08,959 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 8/10: 37470081 ---
+2025-08-26 17:59:08,959 - src.data.probiotic_analyzer - INFO - Estimated cost for 37470081: $0.0000 + $0.0000
+2025-08-26 17:59:09,173 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:09,175 - src.data.probiotic_analyzer - INFO - Tokens used for 37470081: 460 in, 2 out
+2025-08-26 17:59:09,175 - src.data.probiotic_analyzer - INFO - Raw LLM output for 37470081 (first 500 chars):
+2025-08-26 17:59:09,175 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:09,175 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:09,175 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:09,176 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:09,176 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 37470081
+2025-08-26 17:59:09,176 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 37470081
+2025-08-26 17:59:10,189 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 9/10: 36925458 ---
+2025-08-26 17:59:10,189 - src.data.probiotic_analyzer - INFO - Estimated cost for 36925458: $0.0000 + $0.0000
+2025-08-26 17:59:10,407 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:10,408 - src.data.probiotic_analyzer - INFO - Tokens used for 36925458: 642 in, 2 out
+2025-08-26 17:59:10,408 - src.data.probiotic_analyzer - INFO - Raw LLM output for 36925458 (first 500 chars):
+2025-08-26 17:59:10,408 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:10,408 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:10,408 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:10,408 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:10,408 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 36925458
+2025-08-26 17:59:10,408 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 36925458
+2025-08-26 17:59:11,420 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 10/10: 37630717 ---
+2025-08-26 17:59:11,420 - src.data.probiotic_analyzer - INFO - Estimated cost for 37630717: $0.0000 + $0.0000
+2025-08-26 17:59:11,662 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:11,664 - src.data.probiotic_analyzer - INFO - Tokens used for 37630717: 545 in, 2 out
+2025-08-26 17:59:11,664 - src.data.probiotic_analyzer - INFO - Raw LLM output for 37630717 (first 500 chars):
+2025-08-26 17:59:11,664 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:11,664 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:11,664 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:11,665 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:11,665 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 37630717
+2025-08-26 17:59:11,665 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 37630717
+2025-08-26 17:59:11,665 - src.data.probiotic_analyzer - INFO - 
+=== Extraction Complete ===
+2025-08-26 17:59:11,665 - src.data.probiotic_analyzer - INFO - Papers processed: 0/10
+2025-08-26 17:59:11,665 - src.data.probiotic_analyzer - INFO - Correlations found: 0
+2025-08-26 17:59:11,665 - src.data.probiotic_analyzer - INFO - Total cost: $0.0000
+2025-08-26 17:59:11,665 - src.data.probiotic_analyzer - INFO - Average cost per paper: $0.0000
+2025-08-26 17:59:11,665 - __main__ - INFO - Batch 2 complete: 0 correlations found
+2025-08-26 17:59:11,665 - __main__ - INFO - Waiting 5 seconds before next batch...
+2025-08-26 17:59:16,671 - __main__ - INFO - 
+Processing batch 3/5 (10 papers)
+2025-08-26 17:59:16,671 - src.data.probiotic_analyzer - INFO - String extraction for 10 papers
+2025-08-26 17:59:16,671 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 1/10: 37078654 ---
+2025-08-26 17:59:16,671 - src.data.probiotic_analyzer - INFO - Estimated cost for 37078654: $0.0000 + $0.0000
+2025-08-26 17:59:16,969 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:16,971 - src.data.probiotic_analyzer - INFO - Tokens used for 37078654: 518 in, 2 out
+2025-08-26 17:59:16,971 - src.data.probiotic_analyzer - INFO - Raw LLM output for 37078654 (first 500 chars):
+2025-08-26 17:59:16,971 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:16,972 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:16,972 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:16,972 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:16,972 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 37078654
+2025-08-26 17:59:16,972 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 37078654
+2025-08-26 17:59:17,979 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 2/10: 36573834 ---
+2025-08-26 17:59:17,979 - src.data.probiotic_analyzer - INFO - Estimated cost for 36573834: $0.0000 + $0.0000
+2025-08-26 17:59:18,204 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:18,204 - src.data.probiotic_analyzer - INFO - Tokens used for 36573834: 628 in, 2 out
+2025-08-26 17:59:18,205 - src.data.probiotic_analyzer - INFO - Raw LLM output for 36573834 (first 500 chars):
+2025-08-26 17:59:18,205 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:18,205 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:18,205 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:18,205 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:18,205 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 36573834
+2025-08-26 17:59:18,205 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 36573834
+2025-08-26 17:59:19,210 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 3/10: 36185096 ---
+2025-08-26 17:59:19,210 - src.data.probiotic_analyzer - INFO - Estimated cost for 36185096: $0.0000 + $0.0000
+2025-08-26 17:59:19,444 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:19,447 - src.data.probiotic_analyzer - INFO - Tokens used for 36185096: 703 in, 2 out
+2025-08-26 17:59:19,447 - src.data.probiotic_analyzer - INFO - Raw LLM output for 36185096 (first 500 chars):
+2025-08-26 17:59:19,447 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:19,447 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:19,447 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:19,448 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:19,448 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 36185096
+2025-08-26 17:59:19,448 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 36185096
+2025-08-26 17:59:20,451 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 4/10: 36145079 ---
+2025-08-26 17:59:20,451 - src.data.probiotic_analyzer - INFO - Estimated cost for 36145079: $0.0000 + $0.0000
+2025-08-26 17:59:20,665 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:20,666 - src.data.probiotic_analyzer - INFO - Tokens used for 36145079: 628 in, 2 out
+2025-08-26 17:59:20,666 - src.data.probiotic_analyzer - INFO - Raw LLM output for 36145079 (first 500 chars):
+2025-08-26 17:59:20,666 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:20,668 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:20,669 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:20,669 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:20,669 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 36145079
+2025-08-26 17:59:20,669 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 36145079
+2025-08-26 17:59:21,680 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 5/10: 36316826 ---
+2025-08-26 17:59:21,680 - src.data.probiotic_analyzer - INFO - Estimated cost for 36316826: $0.0000 + $0.0000
+2025-08-26 17:59:22,090 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:22,091 - src.data.probiotic_analyzer - INFO - Tokens used for 36316826: 431 in, 125 out
+2025-08-26 17:59:22,092 - src.data.probiotic_analyzer - INFO - Raw LLM output for 36316826 (first 500 chars):
+2025-08-26 17:59:22,092 - src.data.probiotic_analyzer - INFO - [
+    {
+        "probiotic_strain": null,
+        "health_condition": "functional constipation",
+        "correlation_type": "inconclusive",
+        "correlation_strength": 0.0,
+        "study_type": "RCT",
+        "sample_size": null,
+        "study_duration": null,
+        "dosage": null,
+        "confidence_score": 0.0,
+        "supporting_quote": "Two formulations were developed in the form of an oral sachet containing probiotics, and their efficacy and safety were evaluated in adults with f
+2025-08-26 17:59:22,092 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): [
+    {
+        "probiotic_strain": null,
+        "health_condition": "functional constipation",
+        "correlation_type": "inconclusive",
+        "correlation_strength": 0.0,
+        "study_type": 
+2025-08-26 17:59:22,092 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): [
+    {
+        "probiotic_strain": null,
+        "health_condition": "functional constipation",
+        "correlation_type": "inconclusive",
+        "correlation_strength": 0.0,
+        "study_type": 
+2025-08-26 17:59:22,092 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 532
+2025-08-26 17:59:22,092 - src.data.probiotic_analyzer - INFO - Successfully parsed 1 correlations for 36316826
+2025-08-26 17:59:22,093 - src.data.probiotic_analyzer - INFO - Extracted 1 correlations from 36316826
+2025-08-26 17:59:22,094 - src.data.database_manager - ERROR - Error inserting correlation: NOT NULL constraint failed: correlations.probiotic_strain
+2025-08-26 17:59:22,094 - src.data.probiotic_analyzer - ERROR - Database error saving correlation: NOT NULL constraint failed: correlations.probiotic_strain
+2025-08-26 17:59:23,100 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 6/10: 36087572 ---
+2025-08-26 17:59:23,100 - src.data.probiotic_analyzer - INFO - Estimated cost for 36087572: $0.0000 + $0.0000
+2025-08-26 17:59:23,498 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:23,501 - src.data.probiotic_analyzer - INFO - Tokens used for 36087572: 441 in, 119 out
+2025-08-26 17:59:23,501 - src.data.probiotic_analyzer - INFO - Raw LLM output for 36087572 (first 500 chars):
+2025-08-26 17:59:23,501 - src.data.probiotic_analyzer - INFO - [
+    {
+        "probiotic_strain": null,
+        "health_condition": "Constipation in Parkinson's disease",
+        "correlation_type": "inconclusive",
+        "correlation_strength": 0.0,
+        "study_type": null,
+        "sample_size": null,
+        "study_duration": null,
+        "dosage": null,
+        "confidence_score": 0.0,
+        "supporting_quote": "Probiotics supplementation may improve constipation symptoms, but its effect on the gut microbiota population is unclear."
+    }
+]
+2025-08-26 17:59:23,501 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): [
+    {
+        "probiotic_strain": null,
+        "health_condition": "Constipation in Parkinson's disease",
+        "correlation_type": "inconclusive",
+        "correlation_strength": 0.0,
+        "s
+2025-08-26 17:59:23,501 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): [
+    {
+        "probiotic_strain": null,
+        "health_condition": "Constipation in Parkinson's disease",
+        "correlation_type": "inconclusive",
+        "correlation_strength": 0.0,
+        "s
+2025-08-26 17:59:23,503 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 495
+2025-08-26 17:59:23,503 - src.data.probiotic_analyzer - INFO - Successfully parsed 1 correlations for 36087572
+2025-08-26 17:59:23,503 - src.data.probiotic_analyzer - INFO - Extracted 1 correlations from 36087572
+2025-08-26 17:59:23,505 - src.data.database_manager - ERROR - Error inserting correlation: NOT NULL constraint failed: correlations.probiotic_strain
+2025-08-26 17:59:23,506 - src.data.probiotic_analyzer - ERROR - Database error saving correlation: NOT NULL constraint failed: correlations.probiotic_strain
+2025-08-26 17:59:24,521 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 7/10: 35349168 ---
+2025-08-26 17:59:24,521 - src.data.probiotic_analyzer - INFO - Estimated cost for 35349168: $0.0000 + $0.0000
+2025-08-26 17:59:24,760 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:24,761 - src.data.probiotic_analyzer - INFO - Tokens used for 35349168: 501 in, 2 out
+2025-08-26 17:59:24,762 - src.data.probiotic_analyzer - INFO - Raw LLM output for 35349168 (first 500 chars):
+2025-08-26 17:59:24,762 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:24,762 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:24,762 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:24,762 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:24,762 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 35349168
+2025-08-26 17:59:24,762 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 35349168
+2025-08-26 17:59:25,763 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 8/10: 35143108 ---
+2025-08-26 17:59:25,763 - src.data.probiotic_analyzer - INFO - Estimated cost for 35143108: $0.0000 + $0.0000
+2025-08-26 17:59:25,991 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:25,992 - src.data.probiotic_analyzer - INFO - Tokens used for 35143108: 706 in, 2 out
+2025-08-26 17:59:25,992 - src.data.probiotic_analyzer - INFO - Raw LLM output for 35143108 (first 500 chars):
+2025-08-26 17:59:25,993 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:25,993 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:25,993 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:25,993 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:25,993 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 35143108
+2025-08-26 17:59:25,993 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 35143108
+2025-08-26 17:59:26,999 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 9/10: 34536492 ---
+2025-08-26 17:59:26,999 - src.data.probiotic_analyzer - INFO - Estimated cost for 34536492: $0.0000 + $0.0000
+2025-08-26 17:59:27,223 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:27,224 - src.data.probiotic_analyzer - INFO - Tokens used for 34536492: 422 in, 2 out
+2025-08-26 17:59:27,224 - src.data.probiotic_analyzer - INFO - Raw LLM output for 34536492 (first 500 chars):
+2025-08-26 17:59:27,224 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:27,224 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:27,224 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:27,224 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:27,224 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 34536492
+2025-08-26 17:59:27,224 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 34536492
+2025-08-26 17:59:28,229 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 10/10: 35419092 ---
+2025-08-26 17:59:28,229 - src.data.probiotic_analyzer - INFO - Estimated cost for 35419092: $0.0000 + $0.0000
+2025-08-26 17:59:28,462 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:28,463 - src.data.probiotic_analyzer - INFO - Tokens used for 35419092: 560 in, 2 out
+2025-08-26 17:59:28,463 - src.data.probiotic_analyzer - INFO - Raw LLM output for 35419092 (first 500 chars):
+2025-08-26 17:59:28,463 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:28,463 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:28,463 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:28,463 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:28,465 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 35419092
+2025-08-26 17:59:28,465 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 35419092
+2025-08-26 17:59:28,465 - src.data.probiotic_analyzer - INFO - 
+=== Extraction Complete ===
+2025-08-26 17:59:28,465 - src.data.probiotic_analyzer - INFO - Papers processed: 2/10
+2025-08-26 17:59:28,465 - src.data.probiotic_analyzer - INFO - Correlations found: 2
+2025-08-26 17:59:28,465 - src.data.probiotic_analyzer - INFO - Total cost: $0.0000
+2025-08-26 17:59:28,465 - src.data.probiotic_analyzer - INFO - Average cost per paper: $0.0000
+2025-08-26 17:59:28,465 - __main__ - INFO - Batch 3 complete: 2 correlations found
+2025-08-26 17:59:28,465 - __main__ - INFO - Waiting 5 seconds before next batch...
+2025-08-26 17:59:33,473 - __main__ - INFO - 
+Processing batch 4/5 (10 papers)
+2025-08-26 17:59:33,474 - src.data.probiotic_analyzer - INFO - String extraction for 10 papers
+2025-08-26 17:59:33,474 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 1/10: 36372047 ---
+2025-08-26 17:59:33,475 - src.data.probiotic_analyzer - INFO - Estimated cost for 36372047: $0.0000 + $0.0000
+2025-08-26 17:59:33,863 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:33,865 - src.data.probiotic_analyzer - INFO - Tokens used for 36372047: 472 in, 2 out
+2025-08-26 17:59:33,866 - src.data.probiotic_analyzer - INFO - Raw LLM output for 36372047 (first 500 chars):
+2025-08-26 17:59:33,866 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:33,866 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:33,867 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:33,867 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:33,867 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 36372047
+2025-08-26 17:59:33,867 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 36372047
+2025-08-26 17:59:34,873 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 2/10: 33737146 ---
+2025-08-26 17:59:34,873 - src.data.probiotic_analyzer - INFO - Estimated cost for 33737146: $0.0000 + $0.0000
+2025-08-26 17:59:35,132 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:35,134 - src.data.probiotic_analyzer - INFO - Tokens used for 33737146: 729 in, 2 out
+2025-08-26 17:59:35,134 - src.data.probiotic_analyzer - INFO - Raw LLM output for 33737146 (first 500 chars):
+2025-08-26 17:59:35,134 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:35,134 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:35,134 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:35,135 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:35,135 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 33737146
+2025-08-26 17:59:35,135 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 33737146
+2025-08-26 17:59:36,136 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 3/10: 33505154 ---
+2025-08-26 17:59:36,136 - src.data.probiotic_analyzer - INFO - Estimated cost for 33505154: $0.0000 + $0.0000
+2025-08-26 17:59:36,376 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:36,380 - src.data.probiotic_analyzer - INFO - Tokens used for 33505154: 531 in, 2 out
+2025-08-26 17:59:36,380 - src.data.probiotic_analyzer - INFO - Raw LLM output for 33505154 (first 500 chars):
+2025-08-26 17:59:36,380 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:36,381 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:36,381 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:36,381 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:36,381 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 33505154
+2025-08-26 17:59:36,381 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 33505154
+2025-08-26 17:59:37,397 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 4/10: 34603471 ---
+2025-08-26 17:59:37,397 - src.data.probiotic_analyzer - INFO - Estimated cost for 34603471: $0.0000 + $0.0000
+2025-08-26 17:59:37,679 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:37,680 - src.data.probiotic_analyzer - INFO - Tokens used for 34603471: 543 in, 2 out
+2025-08-26 17:59:37,680 - src.data.probiotic_analyzer - INFO - Raw LLM output for 34603471 (first 500 chars):
+2025-08-26 17:59:37,680 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:37,682 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:37,682 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:37,682 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:37,682 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 34603471
+2025-08-26 17:59:37,682 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 34603471
+2025-08-26 17:59:38,698 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 5/10: 31707507 ---
+2025-08-26 17:59:38,699 - src.data.probiotic_analyzer - INFO - Estimated cost for 31707507: $0.0000 + $0.0000
+2025-08-26 17:59:38,962 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:38,963 - src.data.probiotic_analyzer - INFO - Tokens used for 31707507: 541 in, 2 out
+2025-08-26 17:59:38,963 - src.data.probiotic_analyzer - INFO - Raw LLM output for 31707507 (first 500 chars):
+2025-08-26 17:59:38,963 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:38,963 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:38,963 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:38,963 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:38,963 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 31707507
+2025-08-26 17:59:38,963 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 31707507
+2025-08-26 17:59:39,978 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 6/10: 31356353 ---
+2025-08-26 17:59:39,978 - src.data.probiotic_analyzer - INFO - Estimated cost for 31356353: $0.0000 + $0.0000
+2025-08-26 17:59:40,211 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:40,212 - src.data.probiotic_analyzer - INFO - Tokens used for 31356353: 509 in, 2 out
+2025-08-26 17:59:40,213 - src.data.probiotic_analyzer - INFO - Raw LLM output for 31356353 (first 500 chars):
+2025-08-26 17:59:40,213 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:40,213 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:40,213 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:40,213 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:40,213 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 31356353
+2025-08-26 17:59:40,213 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 31356353
+2025-08-26 17:59:41,220 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 7/10: 31039287 ---
+2025-08-26 17:59:41,220 - src.data.probiotic_analyzer - INFO - Estimated cost for 31039287: $0.0000 + $0.0000
+2025-08-26 17:59:41,317 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-26 17:59:41,318 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2025-08-26 17:59:42,773 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:42,776 - src.data.probiotic_analyzer - INFO - Tokens used for 31039287: 435 in, 121 out
+2025-08-26 17:59:42,776 - src.data.probiotic_analyzer - INFO - Raw LLM output for 31039287 (first 500 chars):
+2025-08-26 17:59:42,776 - src.data.probiotic_analyzer - INFO - [
+    {
+        "probiotic_strain": null,
+        "health_condition": "antibiotic-associated diarrhea",
+        "correlation_type": "positive",
+        "correlation_strength": 0.5,
+        "study_type": null,
+        "sample_size": null,
+        "study_duration": null,
+        "dosage": null,
+        "confidence_score": 0.5,
+        "supporting_quote": "Probiotics may prevent AAD via providing gut barrier, restoration of the gut microflora, and other potential mechanisms of action."
+    }
+]
+2025-08-26 17:59:42,776 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): [
+    {
+        "probiotic_strain": null,
+        "health_condition": "antibiotic-associated diarrhea",
+        "correlation_type": "positive",
+        "correlation_strength": 0.5,
+        "study_type
+2025-08-26 17:59:42,776 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): [
+    {
+        "probiotic_strain": null,
+        "health_condition": "antibiotic-associated diarrhea",
+        "correlation_type": "positive",
+        "correlation_strength": 0.5,
+        "study_type
+2025-08-26 17:59:42,776 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 495
+2025-08-26 17:59:42,776 - src.data.probiotic_analyzer - INFO - Successfully parsed 1 correlations for 31039287
+2025-08-26 17:59:42,776 - src.data.probiotic_analyzer - INFO - Extracted 1 correlations from 31039287
+2025-08-26 17:59:42,778 - src.data.database_manager - ERROR - Error inserting correlation: NOT NULL constraint failed: correlations.probiotic_strain
+2025-08-26 17:59:42,778 - src.data.probiotic_analyzer - ERROR - Database error saving correlation: NOT NULL constraint failed: correlations.probiotic_strain
+2025-08-26 17:59:43,791 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 8/10: 31010241 ---
+2025-08-26 17:59:43,791 - src.data.probiotic_analyzer - INFO - Estimated cost for 31010241: $0.0000 + $0.0000
+2025-08-26 17:59:43,889 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-26 17:59:43,890 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2025-08-26 17:59:45,146 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:45,149 - src.data.probiotic_analyzer - INFO - Tokens used for 31010241: 482 in, 2 out
+2025-08-26 17:59:45,149 - src.data.probiotic_analyzer - INFO - Raw LLM output for 31010241 (first 500 chars):
+2025-08-26 17:59:45,149 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:45,149 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:45,149 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:45,150 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:45,150 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 31010241
+2025-08-26 17:59:45,150 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 31010241
+2025-08-26 17:59:46,157 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 9/10: 30402873 ---
+2025-08-26 17:59:46,157 - src.data.probiotic_analyzer - INFO - Estimated cost for 30402873: $0.0000 + $0.0000
+2025-08-26 17:59:46,290 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-26 17:59:46,290 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2025-08-26 17:59:47,556 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:47,559 - src.data.probiotic_analyzer - INFO - Tokens used for 30402873: 499 in, 2 out
+2025-08-26 17:59:47,559 - src.data.probiotic_analyzer - INFO - Raw LLM output for 30402873 (first 500 chars):
+2025-08-26 17:59:47,559 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:47,559 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:47,559 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:47,560 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:47,560 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 30402873
+2025-08-26 17:59:47,560 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 30402873
+2025-08-26 17:59:48,573 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 10/10: 30501103 ---
+2025-08-26 17:59:48,573 - src.data.probiotic_analyzer - INFO - Estimated cost for 30501103: $0.0000 + $0.0000
+2025-08-26 17:59:48,672 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-26 17:59:48,673 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2025-08-26 17:59:49,925 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:49,927 - src.data.probiotic_analyzer - INFO - Tokens used for 30501103: 491 in, 2 out
+2025-08-26 17:59:49,927 - src.data.probiotic_analyzer - INFO - Raw LLM output for 30501103 (first 500 chars):
+2025-08-26 17:59:49,929 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:49,929 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:49,929 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:49,929 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:49,929 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 30501103
+2025-08-26 17:59:49,930 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 30501103
+2025-08-26 17:59:49,930 - src.data.probiotic_analyzer - INFO - 
+=== Extraction Complete ===
+2025-08-26 17:59:49,930 - src.data.probiotic_analyzer - INFO - Papers processed: 1/10
+2025-08-26 17:59:49,931 - src.data.probiotic_analyzer - INFO - Correlations found: 1
+2025-08-26 17:59:49,931 - src.data.probiotic_analyzer - INFO - Total cost: $0.0000
+2025-08-26 17:59:49,931 - src.data.probiotic_analyzer - INFO - Average cost per paper: $0.0000
+2025-08-26 17:59:49,931 - __main__ - INFO - Batch 4 complete: 1 correlations found
+2025-08-26 17:59:49,932 - __main__ - INFO - Waiting 5 seconds before next batch...
+2025-08-26 17:59:54,934 - __main__ - INFO - 
+Processing batch 5/5 (7 papers)
+2025-08-26 17:59:54,934 - src.data.probiotic_analyzer - INFO - String extraction for 7 papers
+2025-08-26 17:59:54,934 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 1/7: 28213610 ---
+2025-08-26 17:59:54,935 - src.data.probiotic_analyzer - INFO - Estimated cost for 28213610: $0.0000 + $0.0000
+2025-08-26 17:59:55,172 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:55,176 - src.data.probiotic_analyzer - INFO - Tokens used for 28213610: 497 in, 2 out
+2025-08-26 17:59:55,177 - src.data.probiotic_analyzer - INFO - Raw LLM output for 28213610 (first 500 chars):
+2025-08-26 17:59:55,177 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:55,177 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:55,177 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:55,177 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:55,178 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 28213610
+2025-08-26 17:59:55,178 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 28213610
+2025-08-26 17:59:56,182 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 2/7: 28122648 ---
+2025-08-26 17:59:56,182 - src.data.probiotic_analyzer - INFO - Estimated cost for 28122648: $0.0000 + $0.0000
+2025-08-26 17:59:56,610 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:56,612 - src.data.probiotic_analyzer - INFO - Tokens used for 28122648: 458 in, 114 out
+2025-08-26 17:59:56,613 - src.data.probiotic_analyzer - INFO - Raw LLM output for 28122648 (first 500 chars):
+2025-08-26 17:59:56,613 - src.data.probiotic_analyzer - INFO - [
+    {
+        "probiotic_strain": null,
+        "health_condition": "Autism spectrum disorders (ASD)",
+        "correlation_type": "positive",
+        "correlation_strength": 0.5,
+        "study_type": "open-label study",
+        "sample_size": null,
+        "study_duration": null,
+        "dosage": null,
+        "confidence_score": 0.5,
+        "supporting_quote": "Microbiota Transfer Therapy alters gut ecosystem and improves gastrointestinal and autism symptoms"
+    }
+]
+2025-08-26 17:59:56,613 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): [
+    {
+        "probiotic_strain": null,
+        "health_condition": "Autism spectrum disorders (ASD)",
+        "correlation_type": "positive",
+        "correlation_strength": 0.5,
+        "study_typ
+2025-08-26 17:59:56,613 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): [
+    {
+        "probiotic_strain": null,
+        "health_condition": "Autism spectrum disorders (ASD)",
+        "correlation_type": "positive",
+        "correlation_strength": 0.5,
+        "study_typ
+2025-08-26 17:59:56,613 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 478
+2025-08-26 17:59:56,613 - src.data.probiotic_analyzer - INFO - Successfully parsed 1 correlations for 28122648
+2025-08-26 17:59:56,614 - src.data.probiotic_analyzer - INFO - Extracted 1 correlations from 28122648
+2025-08-26 17:59:56,617 - src.data.database_manager - ERROR - Error inserting correlation: NOT NULL constraint failed: correlations.probiotic_strain
+2025-08-26 17:59:56,618 - src.data.probiotic_analyzer - ERROR - Database error saving correlation: NOT NULL constraint failed: correlations.probiotic_strain
+2025-08-26 17:59:57,619 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 3/7: 28222761 ---
+2025-08-26 17:59:57,619 - src.data.probiotic_analyzer - INFO - Estimated cost for 28222761: $0.0000 + $0.0000
+2025-08-26 17:59:57,745 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-26 17:59:57,745 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2025-08-26 17:59:58,978 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 17:59:58,983 - src.data.probiotic_analyzer - INFO - Tokens used for 28222761: 445 in, 2 out
+2025-08-26 17:59:58,983 - src.data.probiotic_analyzer - INFO - Raw LLM output for 28222761 (first 500 chars):
+2025-08-26 17:59:58,983 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 17:59:58,983 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 17:59:58,984 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 17:59:58,984 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 17:59:58,984 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 28222761
+2025-08-26 17:59:58,984 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 28222761
+2025-08-26 17:59:59,995 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 4/7: 27543643 ---
+2025-08-26 17:59:59,995 - src.data.probiotic_analyzer - INFO - Estimated cost for 27543643: $0.0000 + $0.0000
+2025-08-26 18:00:00,101 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-26 18:00:00,102 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2025-08-26 18:00:01,583 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 18:00:01,583 - src.data.probiotic_analyzer - INFO - Tokens used for 27543643: 427 in, 126 out
+2025-08-26 18:00:01,584 - src.data.probiotic_analyzer - INFO - Raw LLM output for 27543643 (first 500 chars):
+2025-08-26 18:00:01,584 - src.data.probiotic_analyzer - INFO - [
+    {
+        "probiotic_strain": "Not specified",
+        "health_condition": "Constipation associated with Parkinson disease",
+        "correlation_type": "inconclusive",
+        "correlation_strength": 0.0,
+        "study_type": "RCT",
+        "sample_size": null,
+        "study_duration": null,
+        "dosage": null,
+        "confidence_score": 0.0,
+        "supporting_quote": "Our objective was to evaluate the efficacy of probiotics and prebiotics in patients with Parkinson disease (PD) 
+2025-08-26 18:00:01,584 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): [
+    {
+        "probiotic_strain": "Not specified",
+        "health_condition": "Constipation associated with Parkinson disease",
+        "correlation_type": "inconclusive",
+        "correlation_stre
+2025-08-26 18:00:01,584 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): [
+    {
+        "probiotic_strain": "Not specified",
+        "health_condition": "Constipation associated with Parkinson disease",
+        "correlation_type": "inconclusive",
+        "correlation_stre
+2025-08-26 18:00:01,584 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 526
+2025-08-26 18:00:01,584 - src.data.probiotic_analyzer - INFO - Successfully parsed 1 correlations for 27543643
+2025-08-26 18:00:01,584 - src.data.probiotic_analyzer - INFO - Extracted 1 correlations from 27543643
+2025-08-26 18:00:01,593 - src.data.database_manager - INFO - Inserted correlation: Not specified - Constipation associated with Parkinson disease
+2025-08-26 18:00:02,597 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 5/7: 25758093 ---
+2025-08-26 18:00:02,597 - src.data.probiotic_analyzer - INFO - Estimated cost for 25758093: $0.0000 + $0.0000
+2025-08-26 18:00:02,717 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-26 18:00:02,717 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2025-08-26 18:00:03,970 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 18:00:03,972 - src.data.probiotic_analyzer - INFO - Tokens used for 25758093: 477 in, 2 out
+2025-08-26 18:00:03,973 - src.data.probiotic_analyzer - INFO - Raw LLM output for 25758093 (first 500 chars):
+2025-08-26 18:00:03,973 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 18:00:03,973 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 18:00:03,973 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 18:00:03,973 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 18:00:03,973 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 25758093
+2025-08-26 18:00:03,973 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 25758093
+2025-08-26 18:00:04,979 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 6/7: 25070051 ---
+2025-08-26 18:00:04,980 - src.data.probiotic_analyzer - INFO - Estimated cost for 25070051: $0.0000 + $0.0000
+2025-08-26 18:00:05,084 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-26 18:00:05,085 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2025-08-26 18:00:06,341 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 18:00:06,344 - src.data.probiotic_analyzer - INFO - Tokens used for 25070051: 484 in, 2 out
+2025-08-26 18:00:06,344 - src.data.probiotic_analyzer - INFO - Raw LLM output for 25070051 (first 500 chars):
+2025-08-26 18:00:06,344 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 18:00:06,344 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 18:00:06,345 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 18:00:06,345 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 18:00:06,345 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 25070051
+2025-08-26 18:00:06,345 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 25070051
+2025-08-26 18:00:07,353 - src.data.probiotic_analyzer - INFO - 
+--- Processing paper 7/7: 21718570 ---
+2025-08-26 18:00:07,353 - src.data.probiotic_analyzer - INFO - Estimated cost for 21718570: $0.0000 + $0.0000
+2025-08-26 18:00:07,450 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-26 18:00:07,450 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2025-08-26 18:00:08,697 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 18:00:08,698 - src.data.probiotic_analyzer - INFO - Tokens used for 21718570: 475 in, 2 out
+2025-08-26 18:00:08,700 - src.data.probiotic_analyzer - INFO - Raw LLM output for 21718570 (first 500 chars):
+2025-08-26 18:00:08,700 - src.data.probiotic_analyzer - INFO - []
+2025-08-26 18:00:08,700 - src.data.probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-08-26 18:00:08,700 - src.data.probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-08-26 18:00:08,700 - src.data.probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-08-26 18:00:08,700 - src.data.probiotic_analyzer - INFO - Successfully parsed 0 correlations for 21718570
+2025-08-26 18:00:08,700 - src.data.probiotic_analyzer - WARNING - No correlations extracted from 21718570
+2025-08-26 18:00:08,701 - src.data.probiotic_analyzer - INFO - 
+=== Extraction Complete ===
+2025-08-26 18:00:08,701 - src.data.probiotic_analyzer - INFO - Papers processed: 2/7
+2025-08-26 18:00:08,701 - src.data.probiotic_analyzer - INFO - Correlations found: 2
+2025-08-26 18:00:08,701 - src.data.probiotic_analyzer - INFO - Total cost: $0.0000
+2025-08-26 18:00:08,701 - src.data.probiotic_analyzer - INFO - Average cost per paper: $0.0000
+2025-08-26 18:00:08,702 - __main__ - INFO - Batch 5 complete: 2 correlations found
+2025-08-26 18:00:08,704 - __main__ - INFO - 
+============================================================
+2025-08-26 18:00:08,704 - __main__ - INFO - PHASE 3: ANALYZING RESULTS
+2025-08-26 18:00:08,704 - __main__ - INFO - ============================================================

@@ -1,0 +1,33 @@
+probiotic_strain,avg_strength,std_strength,num_studies,percent_positive,avg_sample_size,avg_confidence
+Bifidobacterium,0.74,0.055,5,100.0,,0.76
+Not specified,0.1,0.224,5,20.0,,0.2
+Lactobacillus,0.767,0.058,3,100.0,,0.8
+Prevotella,0.7,0.141,2,100.0,,0.8
+Lacticaseibacillus paracasei DG,0.85,0.071,2,100.0,30.0,0.75
+probiotics,0.25,0.354,2,50.0,,0.5
+Bacteroidetes,0.7,,1,100.0,,0.6
+Akkermansia,0.8,,1,100.0,,0.9
+Bifidobacterium lactis HN019,0.5,,1,100.0,,0.8
+Bifidobacterium longum,0.8,,1,100.0,,0.9
+Bifidobacterium longum BB536,0.7,,1,100.0,,0.9
+Bifidobacteria,0.7,,1,0.0,,0.6
+Bifidobacterium Lactis (BLa80),0.5,,1,100.0,,0.8
+Bifidobacterium Lactobacillus triple viable,0.8,,1,100.0,,0.7
+Bifidobacterium animalis subsp. lactis HN019,0.8,,1,100.0,,0.9
+Bifidobacterium infantis,0.5,,1,100.0,8.0,0.6
+Galacto-oligosaccharides (GOS),0.8,,1,100.0,63.0,0.9
+Fermented Gold Kiwi,0.8,,1,100.0,,0.9
+Faecalibacterium,0.5,,1,0.0,,0.6
+Faecalibacillus intestinalis,0.8,,1,100.0,,0.7
+Clostridium,0.7,,1,100.0,,0.6
+Lactobacilli,0.7,,1,100.0,,0.6
+Lactiplantibacillus plantarum P9,0.8,,1,100.0,163.0,0.9
+Lacticaseibacillus rhamnosus IDCC 3201,0.8,,1,100.0,30.0,0.9
+Multispecies probiotic,0.5,,1,100.0,,0.8
+Megamonas,0.8,,1,100.0,,0.9
+Lactobacillus rhamnosus GG,0.5,,1,0.0,,0.5
+Multistrain probiotics,0.5,,1,100.0,,0.8
+Multistrain Probiotics,0.7,,1,100.0,,0.9
+Roseburia,0.5,,1,0.0,,0.6
+Saccharomyces boulardii,0.5,,1,0.0,,0.5
+Thickettsia,0.4,,1,0.0,,0.5
