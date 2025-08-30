@@ -63,7 +63,7 @@ class DatabaseManager:
         with self.get_connection() as conn:
             cursor = conn.cursor()
             
-            #* Create the Papers table (existing)
+            #* Create the Papers table (existing + new fulltext fields)
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS papers (
                     pmid TEXT PRIMARY KEY,
@@ -72,7 +72,11 @@ class DatabaseManager:
                     journal TEXT,
                     publication_date TEXT,
                     doi TEXT,
+                    pmc_id TEXT,
                     keywords TEXT,
+                    has_fulltext BOOLEAN DEFAULT FALSE,
+                    fulltext_source TEXT,
+                    fulltext_path TEXT,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
             ''')
@@ -145,7 +149,34 @@ class DatabaseManager:
             ''')
             
             conn.commit()
+            
+            #* Add new columns to existing databases if they don't exist
+            self._add_missing_columns(cursor)
+            
             self.logger.info(f"Database tables created at {self.db_path}")
+    
+    def _add_missing_columns(self, cursor):
+        """Add missing columns to existing papers table for backward compatibility."""
+        
+        # Get existing column names
+        cursor.execute("PRAGMA table_info(papers)")
+        existing_columns = {row[1] for row in cursor.fetchall()}
+        
+        # Add missing columns one by one
+        new_columns = {
+            'pmc_id': 'ALTER TABLE papers ADD COLUMN pmc_id TEXT',
+            'has_fulltext': 'ALTER TABLE papers ADD COLUMN has_fulltext BOOLEAN DEFAULT FALSE',
+            'fulltext_source': 'ALTER TABLE papers ADD COLUMN fulltext_source TEXT',
+            'fulltext_path': 'ALTER TABLE papers ADD COLUMN fulltext_path TEXT'
+        }
+        
+        for column_name, alter_statement in new_columns.items():
+            if column_name not in existing_columns:
+                try:
+                    cursor.execute(alter_statement)
+                    self.logger.info(f"Added column {column_name} to papers table")
+                except Exception as e:
+                    self.logger.warning(f"Could not add column {column_name}: {e}")
     
     #* ============= EXISTING PAPER METHODS (unchanged) =============
     
@@ -166,8 +197,9 @@ class DatabaseManager:
                 # Insert the paper (or ignore if it already exists)
                 cursor.execute('''
                     INSERT OR IGNORE INTO papers
-                    (pmid, title, abstract, journal, publication_date, doi, keywords)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    (pmid, title, abstract, journal, publication_date, doi, pmc_id, keywords, 
+                     has_fulltext, fulltext_source, fulltext_path)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     paper['pmid'],
                     paper['title'],
@@ -175,7 +207,11 @@ class DatabaseManager:
                     paper.get('journal', 'Unknown journal'),
                     paper.get('publication_date', ''),
                     paper.get('doi'),
-                    json.dumps(paper.get('keywords')) if paper.get('keywords') else None
+                    paper.get('pmc_id'),
+                    json.dumps(paper.get('keywords')) if paper.get('keywords') else None,
+                    paper.get('has_fulltext', False),
+                    paper.get('fulltext_source'),
+                    paper.get('fulltext_path')
                 ))
                 
                 was_new_paper = cursor.rowcount > 0
@@ -291,6 +327,80 @@ class DatabaseManager:
             ''', (f'%{query}%', f'%{query}%', f'%{query}%'))
             return [dict(row) for row in cursor.fetchall()]
     
+    def update_paper_fulltext(self, pmid: str, has_fulltext: bool, 
+                            fulltext_source: str = None, fulltext_path: str = None) -> bool:
+        """Updates fulltext information for an existing paper.
+        
+        Args:
+            pmid: PubMed ID of the paper
+            has_fulltext: Whether fulltext is available
+            fulltext_source: Source of fulltext ('pmc', 'unpaywall', etc.)
+            fulltext_path: Path where fulltext is stored
+            
+        Returns:
+            True if paper was updated, False if it didn't exist
+        """
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+                UPDATE papers 
+                SET has_fulltext = ?, fulltext_source = ?, fulltext_path = ?
+                WHERE pmid = ?
+            ''', (has_fulltext, fulltext_source, fulltext_path, pmid))
+            conn.commit()
+            return cursor.rowcount > 0
+    
+    def get_papers_with_pmc_ids(self, limit: Optional[int] = None) -> List[Dict]:
+        """Retrieves papers that have PMC IDs but no fulltext yet.
+        
+        Args:
+            limit: Optional limit on number of papers to return
+            
+        Returns:
+            List of dictionaries containing paper details
+        """
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            query = '''
+                SELECT * FROM papers 
+                WHERE pmc_id IS NOT NULL AND pmc_id != '' 
+                AND (has_fulltext IS NULL OR has_fulltext = FALSE)
+                ORDER BY publication_date DESC
+            '''
+            if limit:
+                query += ' LIMIT ?'
+                cursor.execute(query, (limit,))
+            else:
+                cursor.execute(query)
+            return [dict(row) for row in cursor.fetchall()]
+    
+    def get_papers_with_doi_no_fulltext(self, limit: Optional[int] = None) -> List[Dict]:
+        """Retrieves papers that have DOIs but no fulltext yet (for Unpaywall check).
+        
+        Args:
+            limit: Optional limit on number of papers to return
+            
+        Returns:
+            List of dictionaries containing paper details
+        """
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            query = '''
+                SELECT * FROM papers 
+                WHERE doi IS NOT NULL AND doi != '' 
+                AND (has_fulltext IS NULL OR has_fulltext = FALSE)
+                ORDER BY publication_date DESC
+            '''
+            if limit:
+                query += ' LIMIT ?'
+                cursor.execute(query, (limit,))
+            else:
+                cursor.execute(query)
+            return [dict(row) for row in cursor.fetchall()]
+
     def delete_paper(self, pmid: str) -> bool:
         """Deletes a paper from the database.
         

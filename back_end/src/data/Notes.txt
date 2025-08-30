@@ -1,16 +1,61 @@
 Add a variable that is the strength of the evidence: randomized trial 
 vs observational study
 
-Insert the actual costs per 1k tokens for DeepSeek and Qwen in def _set_cost_rates()
 
-Go through about 100 examples to create a dataset of training examples.
-
-quality assurance workflow: first model extracts → validation catches issues 
+Quality assurance workflow: first model extracts → validation catches issues 
 → second model verifies problematic extractions → humans review what both 
 models couldn't handle.
 
-I need a bank card for Qwen and deepseek
-Will experience with free alternatives
-Grok or Ollama
 
-Works but need to debug. JSON parsing errors.
+Thoughts:
+Two searches for the user
+Health problem -> Probiotic strains
+or
+Probiotic strain -> Health problem
+
+Next steps:
+1. Integrate local LLMs into the workflow
+2. Use free paper APIs (unpaywall,semantic scholar)
+    Citation analyzer: Identifies the most cited/influential papers in your field
+    Related paper discovery: Finds papers you might miss with keyword-only search
+    Author network analysis: Identifies key researchers in probiotic research
+    Impact scoring: Prioritizes papers by citation count and influence
+        1. Add Unpaywall to your existing PubMed workflow
+        2.Add Semantic Scholar for paper prioritization
+3. Start processing papers in batches (processing many papers at once): 10-20 due to 8gb ram limitation
+
+
+Abstratc only Strategy:
+Key relationships are almost always mentioned in abstracts
+Can process 3-5x more papers in the same time
+More comprehensive database faster
+
+Hybrid Strategy:
+Process ALL papers with abstracts (baseline data)
+ENHANCE the subset with full text when available
+Two-tier relationship confidence scoring (abstract only vs full text)
+Best of both worlds, but more complex
+
+For each paper:
+1. Always extract from abstract (your current approach)
+2. Check Unpaywall (quick API call)
+3. If full text available → run additional extraction
+4. Store both abstract-based and full-text-based relationships
+5. Flag full-text relationships as "high confidence"
+
+
+Local LLM problem:
+Try Llama 3.2 3B 
++ batching: Load the model, process a batch of papers, unload, repeat. Slower but memory-efficient.
+
+Hybrid approach: use a tiny local model for initial filtering/classification, 
+then only send promising abstracts to Grok or a better model.
+
+
+Free paper alternatives:
+* Unpaywall
+* PubMed Central
+* Semantic scholar
+
+max results per api get request is set to 100 by default (PubMedCollector -> search_papers).
+Is it optimal?

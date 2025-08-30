@@ -83,6 +83,10 @@ class PubmedParser:
                     doi_elem = article.find(".//ArticleId[@IdType='doi']")
                     doi = doi_elem.text if doi_elem is not None else None
                     
+                    #* Extract PMC ID
+                    pmc_elem = article.find(".//ArticleId[@IdType='pmc']")
+                    pmc_id = pmc_elem.text if pmc_elem is not None else None
+                    
                     #* Extract keywords        
                     keywords = []
                     keyword_list = article.find(".//KeywordList")
@@ -99,6 +103,7 @@ class PubmedParser:
                         'journal':journal,
                         'publication_date':pub_date_str,
                         'doi':doi,
+                        'pmc_id':pmc_id,
                         'keywords':keywords if keywords else None
                      }
                     
