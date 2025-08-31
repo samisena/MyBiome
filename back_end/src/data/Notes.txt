@@ -58,4 +58,9 @@ Free paper alternatives:
 * Semantic scholar
 
 max results per api get request is set to 100 by default (PubMedCollector -> search_papers).
-Is it optimal?
+I might want to process all the data. 10s of 1000s of papers when I buy a better PC.
+
+Check if full_text retriver class has rate limiting for the API calls.
+
+Let's optimise the search query. We want to find papers that generally discuss probiotics
+and leave to the LLM to find out about the relationships.

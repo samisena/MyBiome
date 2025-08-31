@@ -1,17 +1,15 @@
-import os 
-import json 
 import xml.etree.ElementTree as ET  # Module for processing XML data
 from pathlib import Path
-from dataclasses import dataclass, asdict 
 from typing import List, Dict, Optional, Any
 from src.data.database_manager import DatabaseManager, Paper  # Import our new database manager
 
 project_root = Path(__file__).parent.parent.parent
 
 class PubmedParser:
-    """ This class parses the XML files from the pubmed API into a tree structure, 
+    """ 
+    This class parses the XML files from the pubmed API into a tree structure, 
     then searches for relevant information within the structure using methods 
-    from xml.etree and stores it within a SQLite database.
+    from xml.etree and stores it within the SQLite database.
     """
     
     def __init__(self):
@@ -130,7 +128,7 @@ class PubmedParser:
             return []
         
     def parse_all_metadata(self):
-        """Parse all XML files and save them to the database"""
+        """Parse all XML files and stores them in the database"""
         
         # Create directories if they don't exist
         self.processed_dir.mkdir(parents=True, exist_ok=True)

@@ -82,6 +82,7 @@ class FullTextRetriever:
         
         self._rate_limit_pmc()
         
+        #* Requests full texts from the PMC API
         try:
             # Make API request
             params = {
@@ -155,6 +156,7 @@ class FullTextRetriever:
         except Exception as e:
             self.logger.error(f"Unexpected error fetching PMC {pmc_id}: {e}")
             return None
+    
     
     def check_unpaywall(self, doi: str) -> Optional[str]:
         """
