@@ -1,10 +1,23 @@
 import xml.etree.ElementTree as ET  # Module for processing XML data
 from pathlib import Path
 from typing import List, Dict, Optional, Any
-from src.data.database_manager import DatabaseManager, Paper  # Import our new database manager
+from src.data.database_manager import DatabaseManager  # Import our new database manager
 
 project_root = Path(__file__).parent.parent.parent
+from dataclasses import dataclass
+from typing import List, Optional
 
+@dataclass 
+class Paper:
+    """Represents a research paper"""
+    pmid: str
+    title: str
+    abstract: str
+    journal: str
+    publication_date: str
+    doi: Optional[str] = None
+    keywords: Optional[List[str]] = None
+    
 class PubmedParser:
     """ 
     This class parses the XML files from the pubmed API into a tree structure, 

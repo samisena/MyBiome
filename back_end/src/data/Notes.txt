@@ -1,4 +1,8 @@
-Add a variable that is the strength of the evidence: randomized trial 
+-> Start analyzing papers in batches using free LLMs such as Grok. Focus on the big 5: IBS, IBD, GERD,
+ constipation, diarhea.
+
+
+-> Add a variable that is the strength of the evidence: randomized trial 
 vs observational study
 
 
@@ -7,14 +11,8 @@ Quality assurance workflow: first model extracts → validation catches issues
 models couldn't handle.
 
 
-Thoughts:
-Two searches for the user
-Health problem -> Probiotic strains
-or
-Probiotic strain -> Health problem
-
 Next steps:
-1. Integrate local LLMs into the workflow
+1. Integrate local LLMs into the workflow (requires 64GB of RAM PC)
 2. Use free paper APIs (unpaywall,semantic scholar)
     Citation analyzer: Identifies the most cited/influential papers in your field
     Related paper discovery: Finds papers you might miss with keyword-only search
@@ -44,23 +42,4 @@ For each paper:
 5. Flag full-text relationships as "high confidence"
 
 
-Local LLM problem:
-Try Llama 3.2 3B 
-+ batching: Load the model, process a batch of papers, unload, repeat. Slower but memory-efficient.
-
-Hybrid approach: use a tiny local model for initial filtering/classification, 
-then only send promising abstracts to Grok or a better model.
-
-
-Free paper alternatives:
-* Unpaywall
-* PubMed Central
-* Semantic scholar
-
-max results per api get request is set to 100 by default (PubMedCollector -> search_papers).
-I might want to process all the data. 10s of 1000s of papers when I buy a better PC.
-
 Check if full_text retriver class has rate limiting for the API calls.
-
-Let's optimise the search query. We want to find papers that generally discuss probiotics
-and leave to the LLM to find out about the relationships.

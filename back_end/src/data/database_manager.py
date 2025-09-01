@@ -1,8 +1,3 @@
-"""
-Database management for the PubMed collection system.
-This module handles all SQLite operations.
-"""
-
 import sqlite3
 import json
 import logging
@@ -10,9 +5,6 @@ from pathlib import Path
 from contextlib import contextmanager #? context for "with" statements
 from typing import List, Dict, Optional
 from datetime import datetime
-
-#* Import the shared data models
-from src.data.models import Paper
 
 #* Get project root 
 project_root = Path(__file__).parent.parent.parent
@@ -24,7 +16,8 @@ class DatabaseManager:
     """
     
     def __init__(self, db_name: str = 'pubmed_research.db', project_root: Path = None):
-        """Initiates the database connection and creates tables if needed.
+        """
+        Initiates the database connection and creates tables if needed.
         
         Args:
             db_name (str, optional): Database filename. Defaults to 'pubmed_research.db'.
@@ -33,9 +26,9 @@ class DatabaseManager:
         
         #* Setting up the database path
         if project_root is None:
-            project_root = Path(__file__).parent.parent.parent
+            project_root = Path(__file__).parent.parent.parent  
         self.db_path = project_root / "data" / "processed" / db_name
-        self.db_path.parent.mkdir(parents=True, exist_ok=True)
+        self.db_path.parent.mkdir(parents=True, exist_ok=True)  #creates the directory if it doesn't exist
                                                 
         #* Setting up logging
         logging.basicConfig(level=logging.INFO)
@@ -44,29 +37,35 @@ class DatabaseManager:
         #* Create all necessary tables                          
         self.create_tables()
         
+
     @contextmanager  
     def get_connection(self):
-        """Context manager that handles database connections safely.
-        Ensures connections are properly closed even if errors occur."""
+        """
+        Context manager that handles database connections safely.
+        Ensures connections are properly closed even if errors occur.
+        Important for SQLite databases.
+        """
         
         #* Connect to the SQLite database
         conn = sqlite3.connect(str(self.db_path))
-        conn.row_factory = sqlite3.Row  #* Enables column access by name
+        conn.row_factory = sqlite3.Row  # Enables column access by name
         try:
             yield conn
         finally:
             conn.close()
             
+
     def create_tables(self):
-        """Creates all necessary database tables including new correlation tables."""
+        """Creates all necessary database tables including the papers table,
+        correlations table, and indexes."""
         
         with self.get_connection() as conn:
             cursor = conn.cursor()
             
-            #* Create the Papers table (existing + new fulltext fields)
+            #* Creates the Papers table (main table)
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS papers (
-                    pmid TEXT PRIMARY KEY,
+                    pmid TEXT PRIMARY KEY,  
                     title TEXT NOT NULL,
                     abstract TEXT,
                     journal TEXT,
@@ -81,7 +80,7 @@ class DatabaseManager:
                 )
             ''')
             
-            #* Create the Correlations table (new)
+            #* Creates the Correlations table 
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS correlations (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -116,15 +115,10 @@ class DatabaseManager:
                 )
             ''')
             
-            #* Create indexes for existing tables
+            #* Create indexes for faster querying 
             cursor.execute('''
                 CREATE INDEX IF NOT EXISTS idx_papers_date 
                 ON papers(publication_date)
-            ''')
-            
-            cursor.execute('''
-                CREATE INDEX IF NOT EXISTS idx_papers_journal
-                ON papers(journal)
             ''')
             
             #* Create indexes for correlation table
@@ -153,35 +147,12 @@ class DatabaseManager:
             #* Add new columns to existing databases if they don't exist
             self._add_missing_columns(cursor)
             
-            self.logger.info(f"Database tables created at {self.db_path}")
-    
-    def _add_missing_columns(self, cursor):
-        """Add missing columns to existing papers table for backward compatibility."""
+            self.logger.info(f"Database tables created ans saved at {self.db_path}")
+
         
-        # Get existing column names
-        cursor.execute("PRAGMA table_info(papers)")
-        existing_columns = {row[1] for row in cursor.fetchall()}
-        
-        # Add missing columns one by one
-        new_columns = {
-            'pmc_id': 'ALTER TABLE papers ADD COLUMN pmc_id TEXT',
-            'has_fulltext': 'ALTER TABLE papers ADD COLUMN has_fulltext BOOLEAN DEFAULT FALSE',
-            'fulltext_source': 'ALTER TABLE papers ADD COLUMN fulltext_source TEXT',
-            'fulltext_path': 'ALTER TABLE papers ADD COLUMN fulltext_path TEXT'
-        }
-        
-        for column_name, alter_statement in new_columns.items():
-            if column_name not in existing_columns:
-                try:
-                    cursor.execute(alter_statement)
-                    self.logger.info(f"Added column {column_name} to papers table")
-                except Exception as e:
-                    self.logger.warning(f"Could not add column {column_name}: {e}")
-    
-    #* ============= EXISTING PAPER METHODS (unchanged) =============
-    
     def insert_paper(self, paper: Dict) -> bool:
-        """Inserts a paper into the database.
+        """
+        Adds a paper into the database, in the papers table.
         
         Args:
             paper: Paper object containing all paper details
@@ -190,11 +161,11 @@ class DatabaseManager:
             True if paper was newly inserted, False if it already existed
         """
         
-        with self.get_connection() as conn:
+        with self.get_connection() as conn:  #connects to the database
             cursor = conn.cursor()
             
+            #* Insert the paper (or ignore if it already exists)
             try:
-                # Insert the paper (or ignore if it already exists)
                 cursor.execute('''
                     INSERT OR IGNORE INTO papers
                     (pmid, title, abstract, journal, publication_date, doi, pmc_id, keywords, 
@@ -203,7 +174,7 @@ class DatabaseManager:
                 ''', (
                     paper['pmid'],
                     paper['title'],
-                    paper.get('abstract', ''),  # Use .get() for optional fields
+                    paper.get('abstract', ''),  # Use .get() for optional fields to avoid errors
                     paper.get('journal', 'Unknown journal'),
                     paper.get('publication_date', ''),
                     paper.get('doi'),
@@ -214,63 +185,26 @@ class DatabaseManager:
                     paper.get('fulltext_path')
                 ))
                 
-                was_new_paper = cursor.rowcount > 0
-                
-                conn.commit()
+                #* Check if the paper was added
+                was_new_paper = cursor.rowcount > 0  # the number of rows that were actually inserted,
+                                                    # not the total number of rows in the database.
+                conn.commit()  #applies changes
                 
                 if was_new_paper:
                     self.logger.info(f"Inserted new paper: {paper['title']}")
                 else:
                     self.logger.debug(f"Paper already exists: {paper['title']}")
-                    
                 return was_new_paper
                 
             except Exception as e:
                 conn.rollback()
                 self.logger.error(f"Error inserting paper {paper['pmid']}: {e}")
-                raise
-    
-    def get_papers_by_keyword(self, keyword: str) -> List[Dict]:
-        """Retrieves all papers containing a keyword in title or abstract.
-        
-        Args:
-            keyword: The keyword to search for
-            
-        Returns:
-            List of dictionaries containing paper details
-        """
-        
-        with self.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute('''
-                SELECT * FROM papers
-                WHERE title LIKE ? OR abstract LIKE ?
-                ORDER BY publication_date DESC
-            ''', (f'%{keyword}%', f'%{keyword}%'))
-            return [dict(row) for row in cursor.fetchall()]
-    
-    def get_papers_by_date_range(self, start_date: str, end_date: str) -> List[Dict]:
-        """Retrieves papers published within a date range.
-        
-        Args:
-            start_date: Start date in YYYY-MM-DD format
-            end_date: End date in YYYY-MM-DD format
-            
-        Returns:
-            List of dictionaries containing paper details
-        """
-        
-        with self.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute('''
-                SELECT * FROM papers
-                WHERE publication_date >= ? AND publication_date <= ?
-                ORDER BY publication_date DESC
-            ''', (start_date, end_date))
-            return [dict(row) for row in cursor.fetchall()]
+                raise   
+
     
     def get_paper_by_pmid(self, pmid: str) -> Optional[Dict]:
-        """Retrieves a specific paper by its PMID.
+        """
+        Retrieves a specific paper by its PMID.
         
         Args:
             pmid: PubMed ID of the paper
@@ -285,8 +219,10 @@ class DatabaseManager:
             row = cursor.fetchone()
             return dict(row) if row else None
     
+
     def get_all_papers(self, limit: Optional[int] = None) -> List[Dict]:
-        """Retrieves all papers from the database.
+        """
+        Retrieves all papers from the database.
         
         Args:
             limit: Optional limit on number of papers to return
@@ -303,8 +239,10 @@ class DatabaseManager:
                 cursor.execute('SELECT * FROM papers ORDER BY publication_date DESC')
             return [dict(row) for row in cursor.fetchall()]
     
+
     def search_papers(self, query: str) -> List[Dict]:
-        """Full-text search across titles and abstracts.
+        """
+        Full-text search for a specific stringacross titles and abstracts.
         
         Args:
             query: Search query string
@@ -327,9 +265,11 @@ class DatabaseManager:
             ''', (f'%{query}%', f'%{query}%', f'%{query}%'))
             return [dict(row) for row in cursor.fetchall()]
     
+
     def update_paper_fulltext(self, pmid: str, has_fulltext: bool, 
                             fulltext_source: str = None, fulltext_path: str = None) -> bool:
-        """Updates fulltext information for an existing paper.
+        """
+        Updates fulltext information for an existing paper.
         
         Args:
             pmid: PubMed ID of the paper
@@ -351,8 +291,10 @@ class DatabaseManager:
             conn.commit()
             return cursor.rowcount > 0
     
+
     def get_papers_with_pmc_ids(self, limit: Optional[int] = None) -> List[Dict]:
-        """Retrieves papers that have PMC IDs but no fulltext yet.
+        """
+        Retrieves papers that have PMC IDs but no fulltext yet.
         
         Args:
             limit: Optional limit on number of papers to return
@@ -376,8 +318,10 @@ class DatabaseManager:
                 cursor.execute(query)
             return [dict(row) for row in cursor.fetchall()]
     
+
     def get_papers_with_doi_no_fulltext(self, limit: Optional[int] = None) -> List[Dict]:
-        """Retrieves papers that have DOIs but no fulltext yet (for Unpaywall check).
+        """
+        Retrieves papers that have DOIs but no fulltext yet (for Unpaywall check).
         
         Args:
             limit: Optional limit on number of papers to return
@@ -401,8 +345,10 @@ class DatabaseManager:
                 cursor.execute(query)
             return [dict(row) for row in cursor.fetchall()]
 
+
     def delete_paper(self, pmid: str) -> bool:
-        """Deletes a paper from the database.
+        """
+        Deletes a paper from the database.
         
         Args:
             pmid: PubMed ID of the paper to delete
@@ -417,10 +363,10 @@ class DatabaseManager:
             conn.commit()
             return cursor.rowcount > 0
     
-    #*  ============= NEW CORRELATION METHODS ============= 
     
     def insert_correlation(self, correlation: Dict) -> bool:
-        """Inserts a correlation into the database.
+        """
+        Inserts a correlation into the database.
         
         Args:
             correlation: Dictionary containing correlation details with keys:
@@ -433,7 +379,6 @@ class DatabaseManager:
                 - extraction_model (str): Model used for extraction
                 - Optional: effect_size, sample_size, study_duration, study_type,
                            dosage, population_details, supporting_quote
-        
         Returns:
             True if correlation was newly inserted, False if it already existed
         """
@@ -484,8 +429,10 @@ class DatabaseManager:
                 self.logger.error(f"Error inserting correlation: {e}")
                 raise
     
+
     def get_correlations_by_strain(self, strain: str) -> List[Dict]:
-        """Retrieves all correlations for a specific probiotic strain.
+        """
+        Retrieves all correlations for a specific probiotic strain.
         
         Args:
             strain: Name of the probiotic strain
@@ -505,8 +452,10 @@ class DatabaseManager:
             ''', (f'%{strain}%',))
             return [dict(row) for row in cursor.fetchall()]
     
+    
     def get_correlations_by_condition(self, condition: str) -> List[Dict]:
-        """Retrieves all correlations for a specific health condition.
+        """
+        Retrieves all correlations for a specific health condition.
         
         Args:
             condition: Name of the health condition
@@ -526,8 +475,10 @@ class DatabaseManager:
             ''', (f'%{condition}%',))
             return [dict(row) for row in cursor.fetchall()]
     
+
     def get_correlations_by_paper(self, paper_id: str) -> List[Dict]:
-        """Retrieves all correlations extracted from a specific paper.
+        """
+        Retrieves all correlations extracted from a specific paper.
         
         Args:
             paper_id: PMID of the paper
@@ -545,8 +496,10 @@ class DatabaseManager:
             ''', (paper_id,))
             return [dict(row) for row in cursor.fetchall()]
     
+
     def get_unprocessed_papers(self, extraction_model: str, limit: Optional[int] = None) -> List[Dict]:
-        """Retrieves papers that haven't been processed by a specific extraction model.
+        """
+        Retrieves papers that haven't been processed by a specific extraction model.
         
         Args:
             extraction_model: Name of the extraction model
@@ -574,8 +527,10 @@ class DatabaseManager:
                 
             return [dict(row) for row in cursor.fetchall()]
     
+
     def aggregate_correlations(self, min_papers: int = 2) -> List[Dict]:
-        """Aggregates correlations across multiple papers for the same strain-condition pair.
+        """
+        Aggregates correlations across multiple papers for the same strain-condition pair.
         
         Args:
             min_papers: Minimum number of papers required to include in results
@@ -607,82 +562,6 @@ class DatabaseManager:
             ''', (min_papers,))
             
             return [dict(row) for row in cursor.fetchall()]
-    
-    def get_database_stats(self) -> Dict:
-        """Retrieves statistics about the database contents including correlations.
-        
-        Returns:
-            Dictionary containing counts and date ranges
-        """
-        
-        with self.get_connection() as conn:
-            cursor = conn.cursor()
-            
-            stats = {}
-            
-            #* Count total papers
-            cursor.execute('SELECT COUNT(*) FROM papers')
-            stats['total_papers'] = cursor.fetchone()[0]
-            
-            #* Count total correlations
-            cursor.execute('SELECT COUNT(*) FROM correlations')
-            stats['total_correlations'] = cursor.fetchone()[0]
-            
-            #* Count unique strains
-            cursor.execute('SELECT COUNT(DISTINCT probiotic_strain) FROM correlations')
-            stats['unique_strains'] = cursor.fetchone()[0]
-            
-            #* Count unique conditions
-            cursor.execute('SELECT COUNT(DISTINCT health_condition) FROM correlations')
-            stats['unique_conditions'] = cursor.fetchone()[0]
-            
-            #* Get date range of publications
-            cursor.execute('''
-                SELECT MIN(publication_date), MAX(publication_date)
-                FROM papers
-            ''')
-            min_date, max_date = cursor.fetchone()
-            stats['date_range'] = f"{min_date} to {max_date}" if min_date else "No papers yet"
-            
-            #* Count papers by journal
-            cursor.execute('''
-                SELECT journal, COUNT(*) as count
-                FROM papers
-                GROUP BY journal
-                ORDER BY count DESC
-                LIMIT 10
-            ''')
-            stats['top_journals'] = [(row[0], row[1]) for row in cursor.fetchall()]
-            
-            #* Get recent papers count
-            cursor.execute('''
-                SELECT COUNT(*) FROM papers
-                WHERE datetime(created_at) >= datetime('now', '-7 days')
-            ''')
-            stats['papers_added_last_week'] = cursor.fetchone()[0]
-            
-            #* Top studied strain-condition pairs
-            cursor.execute('''
-                SELECT probiotic_strain, health_condition, COUNT(DISTINCT paper_id) as count
-                FROM correlations
-                GROUP BY probiotic_strain, health_condition
-                ORDER BY count DESC
-                LIMIT 10
-            ''')
-            stats['top_strain_condition_pairs'] = [
-                {'strain': row[0], 'condition': row[1], 'papers': row[2]} 
-                for row in cursor.fetchall()
-            ]
-            
-            #* Correlation type distribution
-            cursor.execute('''
-                SELECT correlation_type, COUNT(*) as count
-                FROM correlations
-                GROUP BY correlation_type
-            ''')
-            stats['correlation_types'] = dict(cursor.fetchall())
-            
-            return stats
             
                 
     def get_correlations_for_verification(self, limit: int = 10) -> List[Dict]:
@@ -758,4 +637,82 @@ class DatabaseManager:
                 conn.rollback()
                 self.logger.error(f"Error updating human review: {e}")
                 return False          
-                    
+
+
+    #* ============= DATABASE STATISTICS METHOD ============= 
+    def get_database_stats(self) -> Dict:
+        """
+        Retrieves statistics about the database contents including correlations.
+        
+        Returns:
+            Dictionary containing counts and date ranges
+        """
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            
+            stats = {}
+            
+            #* Count total papers
+            cursor.execute('SELECT COUNT(*) FROM papers')
+            stats['total_papers'] = cursor.fetchone()[0]
+            
+            #* Count total correlations
+            cursor.execute('SELECT COUNT(*) FROM correlations')
+            stats['total_correlations'] = cursor.fetchone()[0]
+            
+            #* Count unique strains
+            cursor.execute('SELECT COUNT(DISTINCT probiotic_strain) FROM correlations')
+            stats['unique_strains'] = cursor.fetchone()[0]
+            
+            #* Count unique conditions
+            cursor.execute('SELECT COUNT(DISTINCT health_condition) FROM correlations')
+            stats['unique_conditions'] = cursor.fetchone()[0]
+            
+            #* Get date range of publications
+            cursor.execute('''
+                SELECT MIN(publication_date), MAX(publication_date)
+                FROM papers
+            ''')
+            min_date, max_date = cursor.fetchone()
+            stats['date_range'] = f"{min_date} to {max_date}" if min_date else "No papers yet"
+            
+            #* Count papers by journal
+            cursor.execute('''
+                SELECT journal, COUNT(*) as count
+                FROM papers
+                GROUP BY journal
+                ORDER BY count DESC
+                LIMIT 10
+            ''')
+            stats['top_journals'] = [(row[0], row[1]) for row in cursor.fetchall()]
+            
+            #* Get recent papers count
+            cursor.execute('''
+                SELECT COUNT(*) FROM papers
+                WHERE datetime(created_at) >= datetime('now', '-7 days')
+            ''')
+            stats['papers_added_last_week'] = cursor.fetchone()[0]
+            
+            #* Top studied strain-condition pairs
+            cursor.execute('''
+                SELECT probiotic_strain, health_condition, COUNT(DISTINCT paper_id) as count
+                FROM correlations
+                GROUP BY probiotic_strain, health_condition
+                ORDER BY count DESC
+                LIMIT 10
+            ''')
+            stats['top_strain_condition_pairs'] = [
+                {'strain': row[0], 'condition': row[1], 'papers': row[2]} 
+                for row in cursor.fetchall()
+            ]
+            
+            #* Correlation type distribution
+            cursor.execute('''
+                SELECT correlation_type, COUNT(*) as count
+                FROM correlations
+                GROUP BY correlation_type
+            ''')
+            stats['correlation_types'] = dict(cursor.fetchall())
+            
+            return stats             
