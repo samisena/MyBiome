@@ -2,44 +2,25 @@
  constipation, diarhea.
 
 
--> Add a variable that is the strength of the evidence: randomized trial 
-vs observational study
-
-
 Quality assurance workflow: first model extracts → validation catches issues 
 → second model verifies problematic extractions → humans review what both 
 models couldn't handle.
 
 
 Next steps:
-1. Integrate local LLMs into the workflow (requires 64GB of RAM PC)
-2. Use free paper APIs (unpaywall,semantic scholar)
-    Citation analyzer: Identifies the most cited/influential papers in your field
-    Related paper discovery: Finds papers you might miss with keyword-only search
-    Author network analysis: Identifies key researchers in probiotic research
-    Impact scoring: Prioritizes papers by citation count and influence
-        1. Add Unpaywall to your existing PubMed workflow
-        2.Add Semantic Scholar for paper prioritization
-3. Start processing papers in batches (processing many papers at once): 10-20 due to 8gb ram limitation
+1. Get a new PC
+2. Integrate local LLMs into the workflow
+3. Collect free papers
+4. Start processing papers in batches (processing many papers at once)
 
-
-Abstratc only Strategy:
-Key relationships are almost always mentioned in abstracts
-Can process 3-5x more papers in the same time
-More comprehensive database faster
 
 Hybrid Strategy:
 Process ALL papers with abstracts (baseline data)
 ENHANCE the subset with full text when available
 Two-tier relationship confidence scoring (abstract only vs full text)
-Best of both worlds, but more complex
-
-For each paper:
-1. Always extract from abstract (your current approach)
-2. Check Unpaywall (quick API call)
-3. If full text available → run additional extraction
-4. Store both abstract-based and full-text-based relationships
-5. Flag full-text relationships as "high confidence"
 
 
-Check if full_text retriver class has rate limiting for the API calls.
+-> Citation analyzer: Identifies the most cited/influential papers in your field
+-> Related paper discovery: Finds papers you might miss with keyword-only search
+-> Author network analysis: Identifies key researchers in probiotic research
+-> Impact scoring: Prioritizes papers by citation count and influence
