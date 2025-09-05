@@ -145,7 +145,7 @@ class DatabaseManager:
             conn.commit()
             
             #* Add new columns to existing databases if they don't exist
-            self._add_missing_columns(cursor)
+            # self._add_missing_columns(cursor)  # Method not implemented
             
             self.logger.info(f"Database tables created ans saved at {self.db_path}")
 
@@ -343,6 +343,32 @@ class DatabaseManager:
                 cursor.execute(query, (limit,))
             else:
                 cursor.execute(query)
+            return [dict(row) for row in cursor.fetchall()]
+
+    def get_papers_by_condition(self, condition: str, limit: Optional[int] = None) -> List[Dict]:
+        """
+        Retrieves papers that mention a specific health condition.
+        
+        Args:
+            condition: Health condition to search for
+            limit: Optional limit on number of papers to return
+            
+        Returns:
+            List of dictionaries containing paper details
+        """
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            query = '''
+                SELECT * FROM papers
+                WHERE title LIKE ? OR abstract LIKE ?
+                ORDER BY publication_date DESC
+            '''
+            if limit:
+                query += ' LIMIT ?'
+                cursor.execute(query, (f'%{condition}%', f'%{condition}%', limit))
+            else:
+                cursor.execute(query, (f'%{condition}%', f'%{condition}%'))
             return [dict(row) for row in cursor.fetchall()]
 
 

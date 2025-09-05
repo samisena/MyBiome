@@ -298,7 +298,8 @@ class ProbioticAnalyzer:
         self.logger.info(f"\n=== Extraction Complete ===")
         self.logger.info(f"Papers processed: {results['successful_papers']}/{results['total_papers']}")
         self.logger.info(f"Correlations found: {results['total_correlations']}")
-        self.logger.info(f"Average cost per paper: ${results['average_cost_per_paper']:.4f}")
+        self.logger.info(f"Total input tokens used: {self.total_input_tokens}")
+        self.logger.info(f"Total output tokens used: {self.total_output_tokens}")
         
         return results
         

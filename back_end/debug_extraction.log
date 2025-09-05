@@ -1,0 +1,212 @@
+2025-09-03 17:52:54,994 - __main__ - INFO - Starting comprehensive LLM extraction debugging...
+2025-09-03 17:52:54,994 - __main__ - INFO - === TESTING API KEYS ===
+2025-09-03 17:52:55,000 - __main__ - INFO - === TESTING DATABASE CONNECTION ===
+2025-09-03 17:52:55,002 - database_manager - INFO - Database tables created ans saved at C:\Users\samis\OneDrive\Bureau\My_Biome\back_end\data\processed\pubmed_research.db
+2025-09-03 17:52:55,007 - __main__ - INFO - Title: Antibiotics and Probiotics for Irritable Bowel Syndrome.
+2025-09-03 17:52:55,007 - __main__ - INFO - Abstract length: 1691
+2025-09-03 17:52:55,007 - __main__ - INFO - Abstract preview: Irritable bowel syndrome (IBS) is a disorder of a gut-brain interaction characterised by abdominal pain and a change in stool form or frequency. Current symptom-based definitions and the classificatio...
+2025-09-03 17:52:55,008 - __main__ - INFO - === TESTING PROMPT GENERATION ===
+2025-09-03 17:52:55,010 - database_manager - INFO - Database tables created ans saved at C:\Users\samis\OneDrive\Bureau\My_Biome\back_end\data\processed\pubmed_research.db
+2025-09-03 17:52:55,147 - __main__ - INFO - Generated prompt length: 2706
+2025-09-03 17:52:55,147 - __main__ - INFO - === FULL PROMPT ===
+2025-09-03 17:52:55,147 - __main__ - INFO - Extract correlations between probiotic strains and health conditions from this paper.
+
+    Title: Antibiotics and Probiotics for Irritable Bowel Syndrome.
+    Abstract: Irritable bowel syndrome (IBS) is a disorder of a gut-brain interaction characterised by abdominal pain and a change in stool form or frequency. Current symptom-based definitions and the classification of IBS promote heterogeneity amongst patients, meaning that there may be several different pathophysiological abnormalities leading to similar symptoms. Although our understanding of IBS is incomplete, there are several indicators that the microbiome may be involved in a subset of patients. Techniques including a faecal sample analysis, colonic biopsies, duodenal aspirates or surrogate markers, such as breath testing, have been used to examine the gut microbiota in individuals with IBS. Because of a lack of a clear definition of what constitutes a healthy gut microbiota, and the fact that alterations in gut microbiota have only been shown to be associated with IBS, a causal relationship is yet to be established. We discuss several hypotheses as to how dysbiosis may be responsible for IBS symptoms, as well as potential treatment strategies. We review the current evidence for the use of antibiotics and probiotics to alter the microbiome in an attempt to improve IBS symptoms. Rifaximin, a non-absorbable antibiotic, is the most studied antibiotic and has now been licensed for use in IBS with diarrhoea in the USA, but the drug remains unavailable in many countries for this indication. Current evidence also suggests that certain probiotics, including Lactobacillus plantarum DSM 9843 and Bifidobacterium bifidum MIMBb75, may be efficacious in some patients with IBS. Finally, we describe the future challenges facing us in our attempt to modulate the microbiome to treat IBS.
+
+    CRITICAL: Return ONLY a JSON array. Do not include any text, explanations, or thinking before or after the JSON.
+
+    For each probiotic-health condition pair found, create a JSON object with these fields:
+    - probiotic_strain: specific strain name (e.g., "Lactobacillus rhamnosus GG")
+    - health_condition: specific condition studied
+    - correlation_type: "positive" | "negative" | "neutral" | "inconclusive"
+    - correlation_strength: 0.0 to 1.0
+    - study_type: study design (e.g., "RCT", "meta_analysis")
+    - sample_size: integer or null
+    - study_duration: string or null
+    - dosage: string or null
+    - confidence_score: 0.0 to 1.0
+    - supporting_quote: exact quote from abstract
+
+    Return format - JSON array only: [{"probiotic_strain":"...","health_condition":"...",...}]
+
+    If no correlations found, return: []
+2025-09-03 17:52:55,148 - __main__ - INFO - === END PROMPT ===
+2025-09-03 17:52:55,152 - __main__ - INFO - === TESTING JSON PARSING ===
+2025-09-03 17:52:55,156 - database_manager - INFO - Database tables created ans saved at C:\Users\samis\OneDrive\Bureau\My_Biome\back_end\data\processed\pubmed_research.db
+2025-09-03 17:52:55,178 - __main__ - INFO - Testing with good JSON response:
+2025-09-03 17:52:55,178 - __main__ - INFO - [{"probiotic_strain": "Lactobacillus plantarum DSM 9843", "health_condition": "IBS", "correlation_type": "positive", "correlation_strength": 0.7, "confidence_score": 0.8, "supporting_quote": "may be efficacious in some patients with IBS"}]
+2025-09-03 17:52:55,178 - probiotic_analyzer - INFO - Raw LLM output for test_pmid (first 500 chars):
+2025-09-03 17:52:55,178 - probiotic_analyzer - INFO - [{"probiotic_strain": "Lactobacillus plantarum DSM 9843", "health_condition": "IBS", "correlation_type": "positive", "correlation_strength": 0.7, "confidence_score": 0.8, "supporting_quote": "may be efficacious in some patients with IBS"}]
+2025-09-03 17:52:55,178 - probiotic_analyzer - INFO - After strip (first 200 chars): [{"probiotic_strain": "Lactobacillus plantarum DSM 9843", "health_condition": "IBS", "correlation_type": "positive", "correlation_strength": 0.7, "confidence_score": 0.8, "supporting_quote": "may be e
+2025-09-03 17:52:55,178 - probiotic_analyzer - INFO - Final cleaned text (first 200 chars): [{"probiotic_strain": "Lactobacillus plantarum DSM 9843", "health_condition": "IBS", "correlation_type": "positive", "correlation_strength": 0.7, "confidence_score": 0.8, "supporting_quote": "may be e
+2025-09-03 17:52:55,178 - probiotic_analyzer - INFO - Length of cleaned text: 239
+2025-09-03 17:52:55,178 - probiotic_analyzer - INFO - Successfully parsed 1 correlations for test_pmid
+2025-09-03 17:52:55,178 - __main__ - INFO - Parsed result: 1 correlations
+2025-09-03 17:52:55,178 - __main__ - INFO -   - Lactobacillus plantarum DSM 9843 -> IBS (positive)
+2025-09-03 17:52:55,178 - __main__ - INFO - 
+Testing with empty response:
+2025-09-03 17:52:55,179 - probiotic_analyzer - INFO - Raw LLM output for test_pmid (first 500 chars):
+2025-09-03 17:52:55,179 - probiotic_analyzer - INFO - []
+2025-09-03 17:52:55,179 - probiotic_analyzer - INFO - After strip (first 200 chars): []
+2025-09-03 17:52:55,179 - probiotic_analyzer - INFO - Final cleaned text (first 200 chars): []
+2025-09-03 17:52:55,179 - probiotic_analyzer - INFO - Length of cleaned text: 2
+2025-09-03 17:52:55,179 - probiotic_analyzer - INFO - Successfully parsed 0 correlations for test_pmid
+2025-09-03 17:52:55,179 - __main__ - INFO - Empty response parsed: 0 correlations
+2025-09-03 17:52:55,181 - __main__ - INFO - === TESTING LLM CONFIGURATIONS ===
+2025-09-03 17:52:55,182 - __main__ - INFO - Gemini config:
+2025-09-03 17:52:55,182 - __main__ - INFO -   API Key present: True
+2025-09-03 17:52:55,182 - __main__ - INFO -   Base URL: https://generativelanguage.googleapis.com/v1beta/openai/
+2025-09-03 17:52:55,182 - __main__ - INFO -   Model: gemini-1.5-flash
+2025-09-03 17:52:55,182 - __main__ - INFO - DeepSeek config:
+2025-09-03 17:52:55,182 - __main__ - INFO -   API Key present: True
+2025-09-03 17:52:55,182 - __main__ - INFO -   Base URL: https://openrouter.ai/api/v1
+2025-09-03 17:52:55,182 - __main__ - INFO -   Model: deepseek/deepseek-chat
+2025-09-03 17:52:55,182 - __main__ - INFO - 
+============================================================
+2025-09-03 17:52:55,182 - __main__ - INFO - TESTING LIVE API CALLS
+2025-09-03 17:52:55,184 - __main__ - INFO - ============================================================
+2025-09-03 17:52:55,184 - __main__ - INFO - === TESTING GEMINI API CALL ===
+2025-09-03 17:52:55,186 - database_manager - INFO - Database tables created ans saved at C:\Users\samis\OneDrive\Bureau\My_Biome\back_end\data\processed\pubmed_research.db
+2025-09-03 17:52:55,204 - __main__ - INFO - Paper PMID: 37184752
+2025-09-03 17:52:55,204 - __main__ - INFO - Paper title: Antibiotics and Probiotics for Irritable Bowel Syndrome.
+2025-09-03 17:52:55,205 - __main__ - INFO - Abstract length: 1691
+2025-09-03 17:52:55,205 - __main__ - INFO - Making API call...
+2025-09-03 17:52:55,594 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-beaef03a-0214-4d48-a518-8f5c0a4515d2', 'json_data': {'messages': [{'role': 'system', 'content': 'You are a JSON-only response system. Output ONLY valid JSON arrays with no additional text, explanations, or markdown formatting. Do not include thinking or reasoning in your response.'}, {'role': 'user', 'content': 'Extract correlations between probiotic strains and health conditions from this paper.\n\n    Title: Antibiotics and Probiotics for Irritable Bowel Syndrome.\n    Abstract: Irritable bowel syndrome (IBS) is a disorder of a gut-brain interaction characterised by abdominal pain and a change in stool form or frequency. Current symptom-based definitions and the classification of IBS promote heterogeneity amongst patients, meaning that there may be several different pathophysiological abnormalities leading to similar symptoms. Although our understanding of IBS is incomplete, there are several indicators that the microbiome may be involved in a subset of patients. Techniques including a faecal sample analysis, colonic biopsies, duodenal aspirates or surrogate markers, such as breath testing, have been used to examine the gut microbiota in individuals with IBS. Because of a lack of a clear definition of what constitutes a healthy gut microbiota, and the fact that alterations in gut microbiota have only been shown to be associated with IBS, a causal relationship is yet to be established. We discuss several hypotheses as to how dysbiosis may be responsible for IBS symptoms, as well as potential treatment strategies. We review the current evidence for the use of antibiotics and probiotics to alter the microbiome in an attempt to improve IBS symptoms. Rifaximin, a non-absorbable antibiotic, is the most studied antibiotic and has now been licensed for use in IBS with diarrhoea in the USA, but the drug remains unavailable in many countries for this indication. Current evidence also suggests that certain probiotics, including Lactobacillus plantarum DSM 9843 and Bifidobacterium bifidum MIMBb75, may be efficacious in some patients with IBS. Finally, we describe the future challenges facing us in our attempt to modulate the microbiome to treat IBS.\n\n    CRITICAL: Return ONLY a JSON array. Do not include any text, explanations, or thinking before or after the JSON.\n\n    For each probiotic-health condition pair found, create a JSON object with these fields:\n    - probiotic_strain: specific strain name (e.g., "Lactobacillus rhamnosus GG")\n    - health_condition: specific condition studied\n    - correlation_type: "positive" | "negative" | "neutral" | "inconclusive"\n    - correlation_strength: 0.0 to 1.0\n    - study_type: study design (e.g., "RCT", "meta_analysis")\n    - sample_size: integer or null\n    - study_duration: string or null\n    - dosage: string or null\n    - confidence_score: 0.0 to 1.0\n    - supporting_quote: exact quote from abstract\n\n    Return format - JSON array only: [{"probiotic_strain":"...","health_condition":"...",...}]\n\n    If no correlations found, return: []'}], 'model': 'gemini-1.5-flash', 'max_tokens': 2048, 'temperature': 0.3}}
+2025-09-03 17:52:55,663 - openai._base_client - DEBUG - Sending HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
+2025-09-03 17:52:55,663 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-09-03 17:52:55,738 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001F7829BD4E0>
+2025-09-03 17:52:55,738 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001F782369140> server_hostname='generativelanguage.googleapis.com' timeout=5.0
+2025-09-03 17:52:55,785 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001F7829BD330>
+2025-09-03 17:52:55,785 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-09-03 17:52:55,786 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-09-03 17:52:55,787 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-09-03 17:52:55,788 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-09-03 17:52:55,788 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-09-03 17:53:03,554 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json'), (b'P3P', b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Wed, 03 Sep 2025 16:53:03 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=7742'), (b'Set-Cookie', b'NID=525=B0ljZMbCY-wGX6iqiLFJtmhD4_oSeM6EiCH7CTdujj5perhxX4i6OdVuO4MHPC0c_yzvqLCD8TwfFouC2uXLUSstHtdKRioGSXvlJFfa2NVo3V8SE-d6hfdkZ9rdryxopaSm92ofGypo_L2x1cTt4_4wIks-hz5BP1987IVBAd_SgCQ-yYk; expires=Thu, 05-Mar-2026 16:52:56 GMT; path=/; domain=.generativelanguage.googleapis.com; HttpOnly'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Expires', b'Wed, 03 Sep 2025 16:53:03 GMT'), (b'Cache-Control', b'private'), (b'Transfer-Encoding', b'chunked')])
+2025-09-03 17:53:03,556 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-03 17:53:03,557 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-09-03 17:53:03,559 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-09-03 17:53:03,559 - httpcore.http11 - DEBUG - response_closed.started
+2025-09-03 17:53:03,559 - httpcore.http11 - DEBUG - response_closed.complete
+2025-09-03 17:53:03,560 - openai._base_client - DEBUG - HTTP Response: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "200 OK" Headers([('content-type', 'application/json'), ('p3p', 'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), ('vary', 'Origin'), ('vary', 'X-Origin'), ('vary', 'Referer'), ('content-encoding', 'gzip'), ('date', 'Wed, 03 Sep 2025 16:53:03 GMT'), ('server', 'scaffolding on HTTPServer2'), ('x-xss-protection', '0'), ('x-frame-options', 'SAMEORIGIN'), ('x-content-type-options', 'nosniff'), ('server-timing', 'gfet4t7; dur=7742'), ('set-cookie', 'NID=525=B0ljZMbCY-wGX6iqiLFJtmhD4_oSeM6EiCH7CTdujj5perhxX4i6OdVuO4MHPC0c_yzvqLCD8TwfFouC2uXLUSstHtdKRioGSXvlJFfa2NVo3V8SE-d6hfdkZ9rdryxopaSm92ofGypo_L2x1cTt4_4wIks-hz5BP1987IVBAd_SgCQ-yYk; expires=Thu, 05-Mar-2026 16:52:56 GMT; path=/; domain=.generativelanguage.googleapis.com; HttpOnly'), ('alt-svc', 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), ('expires', 'Wed, 03 Sep 2025 16:53:03 GMT'), ('cache-control', 'private'), ('transfer-encoding', 'chunked')])
+2025-09-03 17:53:03,560 - openai._base_client - DEBUG - request_id: None
+2025-09-03 17:53:03,576 - probiotic_analyzer - INFO - Tokens used for 37184752: 611 in, 323 out
+2025-09-03 17:53:03,576 - probiotic_analyzer - INFO - Raw LLM output for 37184752 (first 500 chars):
+2025-09-03 17:53:03,577 - probiotic_analyzer - INFO - ```json
+[
+  {
+    "probiotic_strain": "Lactobacillus plantarum DSM 9843",
+    "health_condition": "Irritable Bowel Syndrome",
+    "correlation_type": "positive",
+    "correlation_strength": 0.5,
+    "study_type": "null",
+    "sample_size": null,
+    "study_duration": null,
+    "dosage": null,
+    "confidence_score": 0.6,
+    "supporting_quote": "Current evidence also suggests that certain probiotics, including Lactobacillus plantarum DSM 9843 and Bifidobacterium bifidum MIMBb75, may be efficacio
+2025-09-03 17:53:03,577 - probiotic_analyzer - INFO - After strip (first 200 chars): ```json
+[
+  {
+    "probiotic_strain": "Lactobacillus plantarum DSM 9843",
+    "health_condition": "Irritable Bowel Syndrome",
+    "correlation_type": "positive",
+    "correlation_strength": 0.5,
+    "
+2025-09-03 17:53:03,577 - probiotic_analyzer - INFO - Found ```json markers, extracting...
+2025-09-03 17:53:03,577 - probiotic_analyzer - INFO - Final cleaned text (first 200 chars): 
+[
+  {
+    "probiotic_strain": "Lactobacillus plantarum DSM 9843",
+    "health_condition": "Irritable Bowel Syndrome",
+    "correlation_type": "positive",
+    "correlation_strength": 0.5,
+    "study_t
+2025-09-03 17:53:03,579 - probiotic_analyzer - INFO - Length of cleaned text: 1055
+2025-09-03 17:53:03,579 - probiotic_analyzer - INFO - Successfully parsed 2 correlations for 37184752
+2025-09-03 17:53:03,579 - probiotic_analyzer - INFO - Extracted 2 correlations from 37184752
+2025-09-03 17:53:03,579 - __main__ - INFO - API call completed. Returned 2 correlations
+2025-09-03 17:53:03,579 - __main__ - INFO - Correlations found:
+2025-09-03 17:53:03,579 - __main__ - INFO -   1. Lactobacillus plantarum DSM 9843 -> Irritable Bowel Syndrome
+2025-09-03 17:53:03,579 - __main__ - INFO -       Type: positive
+2025-09-03 17:53:03,580 - __main__ - INFO -       Confidence: 0.6
+2025-09-03 17:53:03,580 - __main__ - INFO -   2. Bifidobacterium bifidum MIMBb75 -> Irritable Bowel Syndrome
+2025-09-03 17:53:03,580 - __main__ - INFO -       Type: positive
+2025-09-03 17:53:03,580 - __main__ - INFO -       Confidence: 0.6
+2025-09-03 17:53:03,580 - __main__ - INFO - === TESTING DEEPSEEK API CALL ===
+2025-09-03 17:53:03,582 - database_manager - INFO - Database tables created ans saved at C:\Users\samis\OneDrive\Bureau\My_Biome\back_end\data\processed\pubmed_research.db
+2025-09-03 17:53:03,599 - __main__ - INFO - Paper PMID: 37184752
+2025-09-03 17:53:03,599 - __main__ - INFO - Paper title: Antibiotics and Probiotics for Irritable Bowel Syndrome.
+2025-09-03 17:53:03,599 - __main__ - INFO - Abstract length: 1691
+2025-09-03 17:53:03,599 - __main__ - INFO - Making API call...
+2025-09-03 17:53:03,600 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-87a28079-6b27-4b6c-9f0c-09aaf94e6dac', 'json_data': {'messages': [{'role': 'system', 'content': 'You are a JSON-only response system. Output ONLY valid JSON arrays with no additional text, explanations, or markdown formatting. Do not include thinking or reasoning in your response.'}, {'role': 'user', 'content': 'Extract correlations between probiotic strains and health conditions from this paper.\n\n    Title: Antibiotics and Probiotics for Irritable Bowel Syndrome.\n    Abstract: Irritable bowel syndrome (IBS) is a disorder of a gut-brain interaction characterised by abdominal pain and a change in stool form or frequency. Current symptom-based definitions and the classification of IBS promote heterogeneity amongst patients, meaning that there may be several different pathophysiological abnormalities leading to similar symptoms. Although our understanding of IBS is incomplete, there are several indicators that the microbiome may be involved in a subset of patients. Techniques including a faecal sample analysis, colonic biopsies, duodenal aspirates or surrogate markers, such as breath testing, have been used to examine the gut microbiota in individuals with IBS. Because of a lack of a clear definition of what constitutes a healthy gut microbiota, and the fact that alterations in gut microbiota have only been shown to be associated with IBS, a causal relationship is yet to be established. We discuss several hypotheses as to how dysbiosis may be responsible for IBS symptoms, as well as potential treatment strategies. We review the current evidence for the use of antibiotics and probiotics to alter the microbiome in an attempt to improve IBS symptoms. Rifaximin, a non-absorbable antibiotic, is the most studied antibiotic and has now been licensed for use in IBS with diarrhoea in the USA, but the drug remains unavailable in many countries for this indication. Current evidence also suggests that certain probiotics, including Lactobacillus plantarum DSM 9843 and Bifidobacterium bifidum MIMBb75, may be efficacious in some patients with IBS. Finally, we describe the future challenges facing us in our attempt to modulate the microbiome to treat IBS.\n\n    CRITICAL: Return ONLY a JSON array. Do not include any text, explanations, or thinking before or after the JSON.\n\n    For each probiotic-health condition pair found, create a JSON object with these fields:\n    - probiotic_strain: specific strain name (e.g., "Lactobacillus rhamnosus GG")\n    - health_condition: specific condition studied\n    - correlation_type: "positive" | "negative" | "neutral" | "inconclusive"\n    - correlation_strength: 0.0 to 1.0\n    - study_type: study design (e.g., "RCT", "meta_analysis")\n    - sample_size: integer or null\n    - study_duration: string or null\n    - dosage: string or null\n    - confidence_score: 0.0 to 1.0\n    - supporting_quote: exact quote from abstract\n\n    Return format - JSON array only: [{"probiotic_strain":"...","health_condition":"...",...}]\n\n    If no correlations found, return: []'}], 'model': 'deepseek/deepseek-chat', 'max_tokens': 2048, 'temperature': 0.3}}
+2025-09-03 17:53:03,601 - openai._base_client - DEBUG - Sending HTTP Request: POST https://openrouter.ai/api/v1/chat/completions
+2025-09-03 17:53:03,603 - httpcore.connection - DEBUG - connect_tcp.started host='openrouter.ai' port=443 local_address=None timeout=5.0 socket_options=None
+2025-09-03 17:53:03,646 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001F7829BF940>
+2025-09-03 17:53:03,646 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001F7829952C0> server_hostname='openrouter.ai' timeout=5.0
+2025-09-03 17:53:03,679 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001F7829BF6D0>
+2025-09-03 17:53:03,679 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-09-03 17:53:03,679 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-09-03 17:53:03,679 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-09-03 17:53:03,680 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-09-03 17:53:03,680 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-09-03 17:53:05,901 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 03 Sep 2025 16:53:06 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Access-Control-Allow-Origin', b'*'), (b'Vary', b'Accept-Encoding'), (b'Permissions-Policy', b'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")'), (b'Referrer-Policy', b'no-referrer, strict-origin-when-cross-origin'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9796c2dcfe209931-MAD')])
+2025-09-03 17:53:05,903 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-03 17:53:05,904 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-09-03 17:53:17,882 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-09-03 17:53:17,882 - httpcore.http11 - DEBUG - response_closed.started
+2025-09-03 17:53:17,882 - httpcore.http11 - DEBUG - response_closed.complete
+2025-09-03 17:53:17,883 - openai._base_client - DEBUG - HTTP Response: POST https://openrouter.ai/api/v1/chat/completions "200 OK" Headers({'date': 'Wed, 03 Sep 2025 16:53:06 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'content-encoding': 'gzip', 'access-control-allow-origin': '*', 'vary': 'Accept-Encoding', 'permissions-policy': 'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")', 'referrer-policy': 'no-referrer, strict-origin-when-cross-origin', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '9796c2dcfe209931-MAD'})
+2025-09-03 17:53:17,883 - openai._base_client - DEBUG - request_id: None
+2025-09-03 17:53:17,885 - probiotic_analyzer - INFO - Tokens used for 37184752: 608 in, 304 out
+2025-09-03 17:53:17,885 - probiotic_analyzer - INFO - Raw LLM output for 37184752 (first 500 chars):
+2025-09-03 17:53:17,885 - probiotic_analyzer - INFO - ```json
+[
+    {
+        "probiotic_strain": "Lactobacillus plantarum DSM 9843",
+        "health_condition": "Irritable Bowel Syndrome (IBS)",
+        "correlation_type": "positive",
+        "correlation_strength": 0.7,
+        "study_type": "RCT",
+        "sample_size": null,
+        "study_duration": null,
+        "dosage": null,
+        "confidence_score": 0.8,
+        "supporting_quote": "Current evidence also suggests that certain probiotics, including Lactobacillus plantarum DSM 9843 and Bi
+2025-09-03 17:53:17,886 - probiotic_analyzer - INFO - After strip (first 200 chars): ```json
+[
+    {
+        "probiotic_strain": "Lactobacillus plantarum DSM 9843",
+        "health_condition": "Irritable Bowel Syndrome (IBS)",
+        "correlation_type": "positive",
+        "correlati
+2025-09-03 17:53:17,886 - probiotic_analyzer - INFO - Found ```json markers, extracting...
+2025-09-03 17:53:17,886 - probiotic_analyzer - INFO - Final cleaned text (first 200 chars): 
+[
+    {
+        "probiotic_strain": "Lactobacillus plantarum DSM 9843",
+        "health_condition": "Irritable Bowel Syndrome (IBS)",
+        "correlation_type": "positive",
+        "correlation_stre
+2025-09-03 17:53:17,886 - probiotic_analyzer - INFO - Length of cleaned text: 1153
+2025-09-03 17:53:17,887 - probiotic_analyzer - INFO - Successfully parsed 2 correlations for 37184752
+2025-09-03 17:53:17,887 - probiotic_analyzer - INFO - Extracted 2 correlations from 37184752
+2025-09-03 17:53:17,887 - __main__ - INFO - API call completed. Returned 2 correlations
+2025-09-03 17:53:17,887 - __main__ - INFO - Correlations found:
+2025-09-03 17:53:17,887 - __main__ - INFO -   1. Lactobacillus plantarum DSM 9843 -> Irritable Bowel Syndrome (IBS)
+2025-09-03 17:53:17,888 - __main__ - INFO -       Type: positive
+2025-09-03 17:53:17,888 - __main__ - INFO -       Confidence: 0.8
+2025-09-03 17:53:17,888 - __main__ - INFO -   2. Bifidobacterium bifidum MIMBb75 -> Irritable Bowel Syndrome (IBS)
+2025-09-03 17:53:17,888 - __main__ - INFO -       Type: positive
+2025-09-03 17:53:17,889 - __main__ - INFO -       Confidence: 0.8
+2025-09-03 17:53:17,889 - __main__ - INFO - 
+============================================================
+2025-09-03 17:53:17,889 - __main__ - INFO - FINAL SUMMARY
+2025-09-03 17:53:17,889 - __main__ - INFO - ============================================================
+2025-09-03 17:53:17,890 - __main__ - INFO - Gemini correlations found: 2
+2025-09-03 17:53:17,890 - __main__ - INFO - DeepSeek correlations found: 2
+2025-09-03 17:53:17,928 - httpcore.connection - DEBUG - close.started
+2025-09-03 17:53:17,929 - httpcore.connection - DEBUG - close.complete
+2025-09-03 17:53:17,929 - httpcore.connection - DEBUG - close.started
+2025-09-03 17:53:17,929 - httpcore.connection - DEBUG - close.complete
