@@ -10,7 +10,6 @@ from src.data.database_manager import DatabaseManager
 @dataclass #automaticaly creates a constructor that includes several methods like __init__
 class LLMConfig:
     """ Information about the LLM """
-    api_key: str      #api key to acess the LLM
     base_url: str     #base url of the LLM
     model_name: str   
     temperature: float  #temperature setting (0: most predictable, 1: most creative)
@@ -32,7 +31,7 @@ class ProbioticAnalyzer:
 
         #* The OpenAI client is used to interact with LLMs via their APIs (not juts GPTs)
         self.client = OpenAI(
-            api_key = config.api_key,
+            api_key = "not-needed",  # Ollama doesn't require a real API key
             base_url = config.base_url
         )
 
