@@ -8,10 +8,13 @@ models couldn't handle.
 
 
 Next steps:
-1. Get a new PC
-2. Integrate local LLMs into the workflow
-3. Collect free papers
-4. Start processing papers in batches (processing many papers at once)
+1. Get a new PC (check)
+2. Integrate local LLMs into the workflow 
+3. Ask Claude Code to read the entire repo and identify 5-10 key improvements for more efficiency / less redundancy
+4. Think how to optimize max papers collected, max tokens allowed and the number of papers per batch
+5. Add database check and skip papers already there
+6. Is it faster to collect all papers first then process them?
+7. Add a way to stop paper correlation extraction and resume where we left off
 
 
 Hybrid Strategy:
