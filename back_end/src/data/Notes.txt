@@ -1,4 +1,4 @@
--> Start analyzing papers in batches using free LLMs such as Grok. Focus on the big 5: IBS, IBD, GERD,
+-> Start analyzing papers in. Focus on the big 5: IBS, IBD, GERD,
  constipation, diarhea.
 
 
@@ -8,14 +8,15 @@ models couldn't handle.
 
 
 Next steps:
-1. Get a new PC (check)
-2. Integrate local LLMs into the workflow 
-3. Ask Claude Code to read the entire repo and identify 5-10 key improvements for more efficiency / less redundancy
-4. Think how to optimize max papers collected, max tokens allowed and the number of papers per batch
-5. Add database check and skip papers already there
-6. Is it faster to collect all papers first then process them?
-7. Add a way to stop paper correlation extraction and resume where we left off
+Add a way to stop paper correlation extraction and resume where we left off
 
+
+-> Only llama 3.1 process full texts because it has a large
+context window
+
+-> The models are outputing different correlations.
+I'm going to need to do some manual reviwe.
+Followed by some fine tuning (NVIDIA CEO advice)
 
 Hybrid Strategy:
 Process ALL papers with abstracts (baseline data)
@@ -23,6 +24,7 @@ ENHANCE the subset with full text when available
 Two-tier relationship confidence scoring (abstract only vs full text)
 
 
+Claude recommendations
 -> Citation analyzer: Identifies the most cited/influential papers in your field
 -> Related paper discovery: Finds papers you might miss with keyword-only search
 -> Author network analysis: Identifies key researchers in probiotic research
