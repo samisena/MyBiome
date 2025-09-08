@@ -37,11 +37,12 @@ class EnhancedProbioticAnalyzer:
         self.client = client_manager.get_llm_client(self.config)
         
         # Large context model for full-text papers
-        self.fulltext_config = config.get_llm_config(
+        self.fulltext_config = LLMConfig(
             model_name="llama3.1:8b",
             base_url="http://localhost:11434/v1",
             max_tokens=4000,
-            temperature=0.1
+            temperature=0.1,
+            api_key="not-needed"
         )
         self.fulltext_client = client_manager.get_llm_client(self.fulltext_config)
         
@@ -83,36 +84,29 @@ class EnhancedProbioticAnalyzer:
         
         paper_content = "\n\n".join(content_sections)
         
-        return f"""Extract correlations between probiotic strains and health conditions from this research paper.
+        return f"""You are a biomedical expert. Extract probiotic-health correlations from this paper as a JSON array.
 
-PAPER DETAILS:
+PAPER:
 {paper_content}
 
-INSTRUCTIONS:
-- Return ONLY a valid JSON array
-- No additional text, explanations, or markdown formatting
-- Each correlation must be a JSON object with these exact fields:
-  * probiotic_strain: specific strain name (e.g., "Lactobacillus rhamnosus GG")
-  * health_condition: specific condition studied (e.g., "irritable bowel syndrome")
-  * correlation_type: "positive" | "negative" | "neutral" | "inconclusive"
-  * correlation_strength: number between 0.0 and 1.0
-  * confidence_score: number between 0.0 and 1.0
-  * study_type: study design (e.g., "RCT", "meta_analysis", "observational")
-  * sample_size: integer or null
-  * study_duration: string or null
-  * dosage: string or null
-  * supporting_quote: exact quote from the abstract
+Return ONLY valid JSON. No extra text. Each correlation needs these fields:
+- probiotic_strain: strain name or "..." if complex
+- health_condition: condition name  
+- correlation_type: "positive", "negative", "neutral", or "inconclusive"
+- correlation_strength: number 0.0-1.0 or null
+- confidence_score: number 0.0-1.0 or null  
+- study_type: type of study or null
+- sample_size: number or null
+- study_duration: duration or null
+- dosage: dose info or null
+- supporting_quote: relevant quote from text
 
-VALIDATION RULES:
-- Only include clear probiotic-health correlations
-- correlation_strength and confidence_score must be between 0.0-1.0
-- Use specific strain names when mentioned
-- supporting_quote must be verbatim from the abstract
+Examples:
+[{{"probiotic_strain":"Lactobacillus rhamnosus GG","health_condition":"irritable bowel syndrome","correlation_type":"positive","correlation_strength":0.8,"confidence_score":0.9,"study_type":"RCT","sample_size":100,"study_duration":"8 weeks","dosage":"10^9 CFU/day","supporting_quote":"LGG significantly improved IBS symptoms"}}]
 
-EXPECTED FORMAT:
-[{{"probiotic_strain":"...","health_condition":"...","correlation_type":"...","correlation_strength":0.8,"confidence_score":0.9,"study_type":"RCT","sample_size":100,"study_duration":"8 weeks","dosage":"10^9 CFU/day","supporting_quote":"exact quote from abstract"}}]
+[{{"probiotic_strain":"...","health_condition":"constipation","correlation_type":"inconclusive","correlation_strength":null,"confidence_score":null,"study_type":"meta_analysis","sample_size":null,"study_duration":null,"dosage":null,"supporting_quote":"insufficient evidence for probiotics"}}]
 
-If no correlations found, return: []"""
+Return [] if no correlations found."""
     
     @retry_with_backoff(max_retries=3, exceptions=(Exception,))
     def extract_correlations(self, paper: Dict) -> List[Dict]:

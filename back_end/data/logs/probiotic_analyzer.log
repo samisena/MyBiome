@@ -1,0 +1,416 @@
+2025-09-08 17:43:14,076 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: llama3.1:8b
+2025-09-08 17:43:14,076 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:43:17,116 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: cniongolo/biomistral:latest
+2025-09-08 17:43:17,116 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:43:20,149 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: qwen2.5:7b
+2025-09-08 17:43:20,149 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:43:23,161 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: gemma2:9b
+2025-09-08 17:43:23,165 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:44:39,719 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: llama3.1:8b
+2025-09-08 17:44:39,719 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:44:39,719 - src.data.probiotic_analyzer_enhanced - INFO - Starting extraction for 5 papers (batch size: 10)
+2025-09-08 17:44:39,719 - src.data.probiotic_analyzer_enhanced - INFO - Processing batch 1/1 (5 papers)
+2025-09-08 17:44:39,719 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 1/5: 39159626
+2025-09-08 17:44:39,719 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:44:39,719 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:44:40,729 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:44:40,730 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:44:42,744 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:44:42,744 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:44:46,760 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:44:46,760 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:44:46,760 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39159626: no such column: updated_at
+2025-09-08 17:44:46,760 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 2/5: 39060738
+2025-09-08 17:44:46,762 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:44:46,762 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:44:47,762 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:44:47,763 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:44:49,774 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:44:49,774 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:44:53,775 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:44:53,775 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:44:53,775 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39060738: no such column: updated_at
+2025-09-08 17:44:53,775 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 3/5: 39197422
+2025-09-08 17:44:53,775 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:44:53,775 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:44:54,785 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:44:54,786 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:44:56,789 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:44:56,789 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:45:00,803 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:45:00,803 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:45:00,803 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39197422: no such column: updated_at
+2025-09-08 17:45:00,803 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 4/5: 39060737
+2025-09-08 17:45:00,805 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:45:00,806 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:45:01,806 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:45:01,806 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:45:03,821 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:45:03,821 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:45:07,836 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:45:07,837 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:45:07,837 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39060737: no such column: updated_at
+2025-09-08 17:45:07,837 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 5/5: 37541528
+2025-09-08 17:45:07,837 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:45:07,838 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:45:08,853 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:45:08,854 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:45:10,869 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:45:10,870 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:45:14,884 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:45:14,884 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:45:14,884 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 37541528: no such column: updated_at
+2025-09-08 17:45:14,884 - src.data.probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-08 17:45:14,884 - src.data.probiotic_analyzer_enhanced - INFO - Papers processed: -5/5 (-100.0%)
+2025-09-08 17:45:14,884 - src.data.probiotic_analyzer_enhanced - INFO - Correlations found: 0
+2025-09-08 17:45:14,884 - src.data.probiotic_analyzer_enhanced - INFO - Token usage: 0 total
+2025-09-08 17:45:14,885 - src.data.probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 35.17s
+2025-09-08 17:45:14,894 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: cniongolo/biomistral:latest
+2025-09-08 17:45:14,894 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:45:14,894 - src.data.probiotic_analyzer_enhanced - INFO - Starting extraction for 5 papers (batch size: 10)
+2025-09-08 17:45:14,894 - src.data.probiotic_analyzer_enhanced - INFO - Processing batch 1/1 (5 papers)
+2025-09-08 17:45:14,894 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 1/5: 39159626
+2025-09-08 17:45:14,894 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:45:14,894 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:45:15,900 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:45:15,900 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:45:17,901 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:45:17,902 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:45:21,915 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:45:21,915 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:45:21,916 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39159626: no such column: updated_at
+2025-09-08 17:45:21,916 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 2/5: 39060738
+2025-09-08 17:45:21,916 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:45:21,917 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:45:22,930 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:45:22,930 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:45:24,930 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:45:24,930 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:45:28,945 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:45:28,945 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:45:28,945 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39060738: no such column: updated_at
+2025-09-08 17:45:28,946 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 3/5: 39197422
+2025-09-08 17:45:28,946 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:45:28,946 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:45:29,961 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:45:29,962 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:45:31,963 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:45:31,963 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:45:35,975 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:45:35,975 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:45:35,975 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39197422: no such column: updated_at
+2025-09-08 17:45:35,975 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 4/5: 39060737
+2025-09-08 17:45:35,975 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:45:35,977 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:45:36,993 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:45:36,994 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:45:39,009 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:45:39,010 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:45:43,024 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:45:43,024 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:45:43,024 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39060737: no such column: updated_at
+2025-09-08 17:45:43,024 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 5/5: 37541528
+2025-09-08 17:45:43,024 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:45:43,026 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:45:44,039 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:45:44,039 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:45:46,041 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:45:46,041 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:45:50,054 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:45:50,054 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:45:50,054 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 37541528: no such column: updated_at
+2025-09-08 17:45:50,054 - src.data.probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-08 17:45:50,055 - src.data.probiotic_analyzer_enhanced - INFO - Papers processed: -5/5 (-100.0%)
+2025-09-08 17:45:50,055 - src.data.probiotic_analyzer_enhanced - INFO - Correlations found: 0
+2025-09-08 17:45:50,055 - src.data.probiotic_analyzer_enhanced - INFO - Token usage: 0 total
+2025-09-08 17:45:50,055 - src.data.probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 35.16s
+2025-09-08 17:45:50,065 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: qwen2.5:7b
+2025-09-08 17:45:50,065 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:45:50,065 - src.data.probiotic_analyzer_enhanced - INFO - Starting extraction for 5 papers (batch size: 10)
+2025-09-08 17:45:50,065 - src.data.probiotic_analyzer_enhanced - INFO - Processing batch 1/1 (5 papers)
+2025-09-08 17:45:50,065 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 1/5: 39159626
+2025-09-08 17:45:50,065 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:45:50,065 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:45:51,073 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:45:51,073 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:45:53,086 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:45:53,087 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:45:57,101 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:45:57,102 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:45:57,102 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39159626: no such column: updated_at
+2025-09-08 17:45:57,102 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 2/5: 39060738
+2025-09-08 17:45:57,103 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:45:57,103 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:45:58,107 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:45:58,108 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:46:00,117 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:46:00,118 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:46:04,134 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:46:04,134 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:46:04,135 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39060738: no such column: updated_at
+2025-09-08 17:46:04,135 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 3/5: 39197422
+2025-09-08 17:46:04,135 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:46:04,135 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:46:05,147 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:46:05,148 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:46:07,149 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:46:07,149 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:46:11,165 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:46:11,166 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:46:11,166 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39197422: no such column: updated_at
+2025-09-08 17:46:11,167 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 4/5: 39060737
+2025-09-08 17:46:11,167 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:46:11,167 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:46:12,179 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:46:12,179 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:46:14,179 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:46:14,179 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:46:18,196 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:46:18,196 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:46:18,196 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39060737: no such column: updated_at
+2025-09-08 17:46:18,196 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 5/5: 37541528
+2025-09-08 17:46:18,196 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:46:18,197 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:46:19,211 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:46:19,212 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:46:21,222 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:46:21,222 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:46:25,225 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:46:25,225 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:46:25,225 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 37541528: no such column: updated_at
+2025-09-08 17:46:25,226 - src.data.probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-08 17:46:25,226 - src.data.probiotic_analyzer_enhanced - INFO - Papers processed: -5/5 (-100.0%)
+2025-09-08 17:46:25,226 - src.data.probiotic_analyzer_enhanced - INFO - Correlations found: 0
+2025-09-08 17:46:25,226 - src.data.probiotic_analyzer_enhanced - INFO - Token usage: 0 total
+2025-09-08 17:46:25,226 - src.data.probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 35.16s
+2025-09-08 17:46:25,231 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: gemma2:9b
+2025-09-08 17:46:25,231 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:46:25,231 - src.data.probiotic_analyzer_enhanced - INFO - Starting extraction for 5 papers (batch size: 10)
+2025-09-08 17:46:25,231 - src.data.probiotic_analyzer_enhanced - INFO - Processing batch 1/1 (5 papers)
+2025-09-08 17:46:25,231 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 1/5: 39159626
+2025-09-08 17:46:25,231 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:46:25,231 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:46:26,243 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:46:26,244 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:46:28,258 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:46:28,259 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:46:32,271 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:46:32,272 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:46:32,272 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39159626: no such column: updated_at
+2025-09-08 17:46:32,272 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 2/5: 39060738
+2025-09-08 17:46:32,273 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:46:32,273 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:46:33,274 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:46:33,275 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:46:35,291 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:46:35,291 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:46:39,304 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060738: no such column: updated_at
+2025-09-08 17:46:39,305 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:46:39,306 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39060738: no such column: updated_at
+2025-09-08 17:46:39,306 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 3/5: 39197422
+2025-09-08 17:46:39,306 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:46:39,307 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:46:40,319 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:46:40,319 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:46:42,322 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:46:42,322 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:46:46,335 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39197422: no such column: updated_at
+2025-09-08 17:46:46,335 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:46:46,336 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39197422: no such column: updated_at
+2025-09-08 17:46:46,336 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 4/5: 39060737
+2025-09-08 17:46:46,337 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:46:46,337 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:46:47,351 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:46:47,351 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:46:49,352 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:46:49,352 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:46:53,366 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39060737: no such column: updated_at
+2025-09-08 17:46:53,366 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:46:53,368 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 39060737: no such column: updated_at
+2025-09-08 17:46:53,368 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 5/5: 37541528
+2025-09-08 17:46:53,368 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:46:53,369 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:46:54,383 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:46:54,383 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:46:56,384 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:46:56,384 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:47:00,400 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 37541528: no such column: updated_at
+2025-09-08 17:47:00,400 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:47:00,400 - src.data.probiotic_analyzer_enhanced - ERROR - Failed to process paper 37541528: no such column: updated_at
+2025-09-08 17:47:00,400 - src.data.probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-08 17:47:00,400 - src.data.probiotic_analyzer_enhanced - INFO - Papers processed: -5/5 (-100.0%)
+2025-09-08 17:47:00,400 - src.data.probiotic_analyzer_enhanced - INFO - Correlations found: 0
+2025-09-08 17:47:00,400 - src.data.probiotic_analyzer_enhanced - INFO - Token usage: 0 total
+2025-09-08 17:47:00,400 - src.data.probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 35.17s
+2025-09-08 17:51:58,236 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: deepseek-llm:7b-chat
+2025-09-08 17:51:58,236 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:51:58,236 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:51:58,236 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 1 failed for extract_correlations: no such column: updated_at. Retrying in 1.0s...
+2025-09-08 17:51:59,249 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:51:59,249 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 2 failed for extract_correlations: no such column: updated_at. Retrying in 2.0s...
+2025-09-08 17:52:01,264 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:52:01,264 - src.data.probiotic_analyzer_enhanced - WARNING - Attempt 3 failed for extract_correlations: no such column: updated_at. Retrying in 4.0s...
+2025-09-08 17:52:05,276 - src.data.probiotic_analyzer_enhanced - ERROR - Error extracting correlations from 39159626: no such column: updated_at
+2025-09-08 17:52:05,276 - src.data.probiotic_analyzer_enhanced - ERROR - All 4 attempts failed for extract_correlations: no such column: updated_at
+2025-09-08 17:54:03,822 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: llama3.1:8b
+2025-09-08 17:54:03,822 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:54:17,970 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39159626
+2025-09-08 17:55:15,481 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: llama3.1:8b
+2025-09-08 17:55:15,481 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:55:15,481 - src.data.probiotic_analyzer_enhanced - INFO - Starting extraction for 5 papers (batch size: 10)
+2025-09-08 17:55:15,481 - src.data.probiotic_analyzer_enhanced - INFO - Processing batch 1/1 (5 papers)
+2025-09-08 17:55:15,481 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 1/5: 39159626
+2025-09-08 17:55:23,488 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39159626
+2025-09-08 17:55:23,993 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 2/5: 39060738
+2025-09-08 17:55:29,736 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39060738
+2025-09-08 17:55:30,243 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 3/5: 39197422
+2025-09-08 17:55:30,947 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 39197422
+2025-09-08 17:55:31,452 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 4/5: 39060737
+2025-09-08 17:55:52,596 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Limited but yet encouraging evidence exists for L....
+2025-09-08 17:55:52,596 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 4 correlations from 39060737
+2025-09-08 17:55:53,118 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 5/5: 37541528
+2025-09-08 17:56:02,900 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 37541528
+2025-09-08 17:56:02,905 - src.data.probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-08 17:56:02,905 - src.data.probiotic_analyzer_enhanced - INFO - Papers processed: 4/5 (80.0%)
+2025-09-08 17:56:02,906 - src.data.probiotic_analyzer_enhanced - INFO - Correlations found: 8
+2025-09-08 17:56:02,906 - src.data.probiotic_analyzer_enhanced - INFO - Token usage: 4338 total
+2025-09-08 17:56:02,906 - src.data.probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 47.43s
+2025-09-08 17:56:02,918 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: cniongolo/biomistral:latest
+2025-09-08 17:56:02,918 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:56:02,918 - src.data.probiotic_analyzer_enhanced - INFO - Starting extraction for 5 papers (batch size: 10)
+2025-09-08 17:56:02,918 - src.data.probiotic_analyzer_enhanced - INFO - Processing batch 1/1 (5 papers)
+2025-09-08 17:56:02,918 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 1/5: 39159626
+2025-09-08 17:56:11,310 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 39159626
+2025-09-08 17:56:11,813 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 2/5: 39060738
+2025-09-08 17:56:12,785 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 39060738
+2025-09-08 17:56:13,292 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 3/5: 39197422
+2025-09-08 17:56:14,406 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 39197422
+2025-09-08 17:56:14,920 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 4/5: 39060737
+2025-09-08 17:56:15,896 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 39060737
+2025-09-08 17:56:16,403 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 5/5: 37541528
+2025-09-08 17:56:17,203 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 37541528
+2025-09-08 17:56:17,207 - src.data.probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-08 17:56:17,207 - src.data.probiotic_analyzer_enhanced - INFO - Papers processed: 0/5 (0.0%)
+2025-09-08 17:56:17,207 - src.data.probiotic_analyzer_enhanced - INFO - Correlations found: 0
+2025-09-08 17:56:17,207 - src.data.probiotic_analyzer_enhanced - INFO - Token usage: 4212 total
+2025-09-08 17:56:17,207 - src.data.probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 14.29s
+2025-09-08 17:56:17,215 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: qwen2.5:7b
+2025-09-08 17:56:17,215 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:56:17,215 - src.data.probiotic_analyzer_enhanced - INFO - Starting extraction for 5 papers (batch size: 10)
+2025-09-08 17:56:17,215 - src.data.probiotic_analyzer_enhanced - INFO - Processing batch 1/1 (5 papers)
+2025-09-08 17:56:17,215 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 1/5: 39159626
+2025-09-08 17:56:24,948 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 39159626
+2025-09-08 17:56:25,451 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 2/5: 39060738
+2025-09-08 17:56:26,105 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 39060738
+2025-09-08 17:56:26,615 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 3/5: 39197422
+2025-09-08 17:56:27,300 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 39197422
+2025-09-08 17:56:27,806 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 4/5: 39060737
+2025-09-08 17:56:52,600 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 4 correlations from 39060737
+2025-09-08 17:56:53,108 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 5/5: 37541528
+2025-09-08 17:56:53,606 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 37541528
+2025-09-08 17:56:53,609 - src.data.probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-08 17:56:53,609 - src.data.probiotic_analyzer_enhanced - INFO - Papers processed: 1/5 (20.0%)
+2025-09-08 17:56:53,609 - src.data.probiotic_analyzer_enhanced - INFO - Correlations found: 4
+2025-09-08 17:56:53,609 - src.data.probiotic_analyzer_enhanced - INFO - Token usage: 3944 total
+2025-09-08 17:56:53,609 - src.data.probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 36.39s
+2025-09-08 17:56:53,619 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: gemma2:9b
+2025-09-08 17:56:53,619 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 17:56:53,619 - src.data.probiotic_analyzer_enhanced - INFO - Starting extraction for 5 papers (batch size: 10)
+2025-09-08 17:56:53,619 - src.data.probiotic_analyzer_enhanced - INFO - Processing batch 1/1 (5 papers)
+2025-09-08 17:56:53,619 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 1/5: 39159626
+2025-09-08 17:57:02,879 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 39159626
+2025-09-08 17:57:03,393 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 2/5: 39060738
+2025-09-08 17:57:13,487 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39060738
+2025-09-08 17:57:13,992 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 3/5: 39197422
+2025-09-08 17:57:22,715 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39197422
+2025-09-08 17:57:23,231 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 4/5: 39060737
+2025-09-08 17:58:16,518 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 4 correlations from 39060737
+2025-09-08 17:58:17,042 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 5/5: 37541528
+2025-09-08 17:58:30,746 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 37541528
+2025-09-08 17:58:30,753 - src.data.probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-08 17:58:30,753 - src.data.probiotic_analyzer_enhanced - INFO - Papers processed: 4/5 (80.0%)
+2025-09-08 17:58:30,754 - src.data.probiotic_analyzer_enhanced - INFO - Correlations found: 8
+2025-09-08 17:58:30,754 - src.data.probiotic_analyzer_enhanced - INFO - Token usage: 4352 total
+2025-09-08 17:58:30,754 - src.data.probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 97.14s
+2025-09-08 18:02:48,718 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: cniongolo/biomistral:latest
+2025-09-08 18:02:48,718 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 18:02:54,492 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 39159626
+2025-09-08 18:03:54,641 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: cniongolo/biomistral:latest
+2025-09-08 18:03:54,641 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 18:09:48,271 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: llama3.1:8b
+2025-09-08 18:09:48,271 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 18:10:15,211 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: gemma2:9b
+2025-09-08 18:10:15,211 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 18:16:53,502 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: llama3.1:8b
+2025-09-08 18:16:53,502 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 18:16:53,502 - src.data.probiotic_analyzer_enhanced - INFO - Starting extraction for 10 papers (batch size: 10)
+2025-09-08 18:16:53,502 - src.data.probiotic_analyzer_enhanced - INFO - Processing batch 1/1 (10 papers)
+2025-09-08 18:16:53,502 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 1/10: 39159626
+2025-09-08 18:17:02,333 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: insufficient evidence for probiotics...
+2025-09-08 18:17:02,333 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39159626
+2025-09-08 18:17:02,848 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 2/10: 39060738
+2025-09-08 18:17:09,032 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39060738
+2025-09-08 18:17:09,544 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 3/10: 39197422
+2025-09-08 18:17:38,829 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 7 correlations from 39197422
+2025-09-08 18:17:39,370 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 4/10: 39060737
+2025-09-08 18:17:57,430 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Limited but yet encouraging evidence exists for L....
+2025-09-08 18:17:57,430 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 4 correlations from 39060737
+2025-09-08 18:17:57,945 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 5/10: 37541528
+2025-09-08 18:18:14,079 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Bifidobacterium bifidum significantly improved IBS...
+2025-09-08 18:18:14,079 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Lactobacillus acidophilus significantly improved I...
+2025-09-08 18:18:14,079 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Bifidobacterium lactis significantly improved IBS ...
+2025-09-08 18:18:14,079 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved IBS symptoms...
+2025-09-08 18:18:14,079 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: insufficient evidence for probiotics...
+2025-09-08 18:18:14,079 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 5 correlations from 37541528
+2025-09-08 18:18:14,596 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 6/10: 37184752
+2025-09-08 18:18:23,441 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 37184752
+2025-09-08 18:18:23,957 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 7/10: 37686889
+2025-09-08 18:18:39,410 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: BL significantly improved IBS symptoms...
+2025-09-08 18:18:39,411 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LA significantly improved IBS symptoms...
+2025-09-08 18:18:39,411 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: ST significantly improved IBS symptoms...
+2025-09-08 18:18:39,411 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: BB significantly improved IBS symptoms...
+2025-09-08 18:18:39,411 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 5 correlations from 37686889
+2025-09-08 18:18:39,923 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 8/10: 37049488
+2025-09-08 18:19:00,385 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved IBS symptoms...
+2025-09-08 18:19:00,385 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: insufficient evidence for probiotics...
+2025-09-08 18:19:00,385 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 6 correlations from 37049488
+2025-09-08 18:19:00,896 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 9/10: 36925458
+2025-09-08 18:19:09,154 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 36925458
+2025-09-08 18:19:09,659 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 10/10: 37078654
+2025-09-08 18:19:15,375 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 37078654
+2025-09-08 18:19:15,380 - src.data.probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-08 18:19:15,380 - src.data.probiotic_analyzer_enhanced - INFO - Papers processed: 10/10 (100.0%)
+2025-09-08 18:19:15,380 - src.data.probiotic_analyzer_enhanced - INFO - Correlations found: 34
+2025-09-08 18:19:15,380 - src.data.probiotic_analyzer_enhanced - INFO - Token usage: 9474 total
+2025-09-08 18:19:15,380 - src.data.probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 141.88s
+2025-09-08 18:19:15,390 - src.data.probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with default model: gemma2:9b
+2025-09-08 18:19:15,390 - src.data.probiotic_analyzer_enhanced - INFO - Full-text model configured: llama3.1:8b
+2025-09-08 18:19:15,390 - src.data.probiotic_analyzer_enhanced - INFO - Starting extraction for 10 papers (batch size: 10)
+2025-09-08 18:19:15,392 - src.data.probiotic_analyzer_enhanced - INFO - Processing batch 1/1 (10 papers)
+2025-09-08 18:19:15,392 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 1/10: 39159626
+2025-09-08 18:19:29,434 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39159626
+2025-09-08 18:19:29,950 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 2/10: 39060738
+2025-09-08 18:19:38,577 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39060738
+2025-09-08 18:19:39,096 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 3/10: 39197422
+2025-09-08 18:19:46,561 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39197422
+2025-09-08 18:19:47,064 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 4/10: 39060737
+2025-09-08 18:20:39,737 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 4 correlations from 39060737
+2025-09-08 18:20:40,242 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 5/10: 37541528
+2025-09-08 18:20:41,167 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 37541528
+2025-09-08 18:20:41,669 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 6/10: 37184752
+2025-09-08 18:20:58,036 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: certain probiotics, including Lactobacillus planta...
+2025-09-08 18:20:58,036 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 37184752
+2025-09-08 18:20:58,558 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 7/10: 37686889
+2025-09-08 18:21:05,732 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 37686889
+2025-09-08 18:21:06,250 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 8/10: 37049488
+2025-09-08 18:21:07,525 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 37049488
+2025-09-08 18:21:08,032 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 9/10: 36925458
+2025-09-08 18:21:15,794 - src.data.probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Recently, novel therapies with a high safety profi...
+2025-09-08 18:21:15,794 - src.data.probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 36925458
+2025-09-08 18:21:16,303 - src.data.probiotic_analyzer_enhanced - INFO - Processing paper 10/10: 37078654
+2025-09-08 18:21:17,184 - src.data.probiotic_analyzer_enhanced - INFO - No correlations extracted from 37078654
+2025-09-08 18:21:17,187 - src.data.probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-08 18:21:17,187 - src.data.probiotic_analyzer_enhanced - INFO - Papers processed: 7/10 (70.0%)
+2025-09-08 18:21:17,187 - src.data.probiotic_analyzer_enhanced - INFO - Correlations found: 11
+2025-09-08 18:21:17,187 - src.data.probiotic_analyzer_enhanced - INFO - Token usage: 7399 total
+2025-09-08 18:21:17,187 - src.data.probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 121.80s

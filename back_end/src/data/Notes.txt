@@ -1,6 +1,10 @@
 -> Start analyzing papers in. Focus on the big 5: IBS, IBD, GERD,
  constipation, diarhea.
 
+-> Only use gemma (google) and llama (meta)
+
+-> llama perfroms best. gemma has trouble understanding the prompt
+-> Investigate if i should just use llama exclusively
 
 Quality assurance workflow: first model extracts → validation catches issues 
 → second model verifies problematic extractions → humans review what both 
@@ -14,9 +18,18 @@ Add a way to stop paper correlation extraction and resume where we left off
 -> Only llama 3.1 process full texts because it has a large
 context window
 
+
 -> The models are outputing different correlations.
 I'm going to need to do some manual reviwe.
 Followed by some fine tuning (NVIDIA CEO advice)
+
+Fine tuning approach:
+1. First, manually annotate 20-30 abstracts with your relationship triples
+2. Create a detailed prompt with 3-5 examples (few-shot)
+3. Run this on 500-1000 abstracts to generate synthetic labels
+4. Manually review and correct a subset (maybe 100-200)
+5. Use this for fine-tuning with LoRA (feasible on your A2000)
+
 
 Hybrid Strategy:
 Process ALL papers with abstracts (baseline data)

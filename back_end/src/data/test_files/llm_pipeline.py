@@ -9,9 +9,9 @@ from typing import Dict, List, Optional
 from enum import Enum
 from dotenv import load_dotenv
 
-from src.data.pubmed_collector import PubMedCollector
-from src.data.database_manager import DatabaseManager
-from src.data.probiotic_analyzer import ProbioticAnalyzer, LLMConfig
+from src.data.pubmed_collector_enhanced import EnhancedPubMedCollector as PubMedCollector
+from src.data.database_manager_enhanced import EnhancedDatabaseManager as DatabaseManager
+from src.data.probiotic_analyzer_enhanced import EnhancedProbioticAnalyzer as ProbioticAnalyzer, LLMConfig
 
 # Load environment variables
 load_dotenv()
@@ -66,10 +66,10 @@ class OllamaConfig:
         """
 
         return LLMConfig(
-            base_url = base_url,
-            model_name= model.value,
-            temperature= temperature,
-            max_tokens= max_tokens
+            base_url=base_url,
+            model_name=model.value,
+            temperature=temperature,
+            max_tokens=max_tokens
         )
     
 

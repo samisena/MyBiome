@@ -1,0 +1,295 @@
+2025-09-08 17:26:20,382 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:26:20,382 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:27:08,295 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:27:08,295 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:27:35,165 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:27:35,165 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:28:17,310 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:28:17,310 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:28:35,036 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:28:42,548 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:28:50,362 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:28:58,194 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:36:39,892 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:36:39,892 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:36:57,403 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:37:04,969 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:37:12,853 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:37:20,671 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:38:50,596 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:38:50,596 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:39:08,363 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:39:15,877 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:39:23,704 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:39:31,555 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:42:33,168 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:42:33,168 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:42:50,616 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:42:58,276 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:43:06,180 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:43:14,029 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:43:58,879 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:43:58,879 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:44:16,478 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:23,993 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:31,835 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:39,664 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:39,719 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:39,719 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:40,729 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:40,729 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:42,744 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:42,744 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:46,760 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:46,760 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:46,762 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:46,762 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:47,762 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:47,762 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:49,774 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:49,774 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:53,775 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:53,775 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:53,775 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:53,775 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:54,785 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:54,786 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:56,789 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:44:56,789 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:00,803 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:00,803 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:00,805 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:00,805 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:01,806 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:01,806 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:03,821 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:03,821 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:07,836 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:07,836 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:07,837 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:07,837 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:08,853 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:08,854 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:10,869 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:10,869 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:14,883 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:14,884 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:14,894 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:14,894 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:15,900 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:15,900 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:17,901 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:17,901 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:21,915 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:21,915 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:21,916 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:21,917 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:22,930 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:22,930 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:24,930 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:24,930 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:28,945 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:28,945 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:28,946 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:28,946 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:29,961 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:29,962 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:31,963 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:31,963 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:35,975 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:35,975 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:35,975 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:35,975 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:36,993 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:36,993 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:39,009 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:39,010 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:43,024 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:43,024 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:43,024 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:43,026 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:44,039 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:44,039 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:46,040 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:46,041 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:50,054 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:50,054 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:50,065 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:50,065 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:51,072 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:51,073 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:53,086 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:53,086 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:57,101 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:57,102 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:57,103 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:57,103 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:58,107 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:45:58,107 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:00,117 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:00,118 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:04,134 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:04,134 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:04,135 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:04,135 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:05,147 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:05,148 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:07,149 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:07,149 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:11,165 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:11,166 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:11,167 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:11,167 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:12,179 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:12,179 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:14,179 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:14,179 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:18,196 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:18,196 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:18,196 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:18,197 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:19,211 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:19,212 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:21,222 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:21,222 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:25,225 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:25,225 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:25,231 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:25,231 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:26,243 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:26,244 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:28,258 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:28,258 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:32,271 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:32,272 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:32,272 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:32,273 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:33,274 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:33,275 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:35,290 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:35,291 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:39,304 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:39,305 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:39,306 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:39,307 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:40,319 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:40,319 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:42,322 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:42,322 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:46,335 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:46,335 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:46,336 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:46,337 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:47,351 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:47,351 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:49,352 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:49,352 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:53,366 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:53,366 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:53,368 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:53,369 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:54,383 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:54,383 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:56,384 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:46:56,384 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:47:00,399 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:47:00,400 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:51:31,821 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:51:31,822 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:51:57,604 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:51:57,604 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:51:58,236 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:51:58,236 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:51:59,248 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:51:59,249 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:52:01,263 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:52:01,264 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:52:05,276 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:52:05,276 - src.data.database_manager_enhanced - ERROR - Database connection error: no such column: updated_at
+2025-09-08 17:54:03,217 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:54:03,217 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:54:34,531 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 17:54:34,532 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 17:55:23,493 - src.data.database_manager_enhanced - INFO - Inserted correlation: Probiotics - chronic constipation
+2025-09-08 17:55:29,740 - src.data.database_manager_enhanced - INFO - Inserted correlation: Saccharomyces boulardii CNCM I-745 - Clostridioides difficile infections
+2025-09-08 17:55:52,600 - src.data.database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus reuteri DSM 17938 - infantile colic
+2025-09-08 17:55:52,600 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium animalis subsp. lactis BB-12 - infantile colic
+2025-09-08 17:55:52,603 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lacticaseibacillus rhamnosus GG - irritable bowel syndrome
+2025-09-08 17:55:52,604 - src.data.database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus reuteri DSM 17938 - functional abdominal pain
+2025-09-08 17:56:02,905 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum - irritable bowel syndrome
+2025-09-08 17:56:02,905 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-08 17:56:52,600 - src.data.database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus reuteri DSM 17938 - infantile colic
+2025-09-08 17:56:52,600 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium animalis subsp. lactis BB-12 - infantile colic
+2025-09-08 17:56:52,600 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lacticaseibacillus rhamnosus GG (LGG) - irritable bowel syndrome
+2025-09-08 17:56:52,606 - src.data.database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus reuteri DSM 17938 - functional abdominal pain (FAP)
+2025-09-08 17:57:13,492 - src.data.database_manager_enhanced - INFO - Inserted correlation: Saccharomyces boulardii CNCM I-745 - Clostridioides difficile infections
+2025-09-08 17:57:22,721 - src.data.database_manager_enhanced - INFO - Inserted correlation: probiotics - chronic diarrhea
+2025-09-08 17:58:16,524 - src.data.database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus (L.) reuteri DSM 17938 - infantile colic
+2025-09-08 17:58:16,525 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium animalis subsp. lactis BB-12 - infantile colic
+2025-09-08 17:58:16,527 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lacticaseibacillus rhamnosus GG (LGG) - irritable bowel syndrome
+2025-09-08 17:58:16,527 - src.data.database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus (L.) reuteri DSM 17938 - functional abdominal pain
+2025-09-08 17:58:30,752 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - irritable bowel syndrome
+2025-09-08 17:58:30,753 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - irritable bowel syndrome
+2025-09-08 18:01:41,991 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 18:01:41,991 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 18:02:48,104 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 18:02:48,104 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 18:03:54,022 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 18:03:54,022 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 18:09:47,614 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 18:09:47,614 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 18:13:15,796 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 18:13:15,798 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 18:15:10,762 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 18:15:10,762 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 18:15:36,778 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-08 18:15:36,778 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-08 18:15:42,763 - src.data.database_manager_enhanced - INFO - Inserted new paper: 34203002
+2025-09-08 18:15:42,765 - src.data.database_manager_enhanced - INFO - Inserted new paper: 32054443
+2025-09-08 18:15:42,766 - src.data.database_manager_enhanced - INFO - Inserted new paper: 36014888
+2025-09-08 18:15:42,766 - src.data.database_manager_enhanced - INFO - Inserted new paper: 37686889
+2025-09-08 18:17:02,341 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - constipation
+2025-09-08 18:17:09,035 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - Clostridioides difficile infections
+2025-09-08 18:17:38,860 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - chronic diarrhea
+2025-09-08 18:17:38,862 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - drug-induced diarrhea
+2025-09-08 18:17:38,863 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - food-induced diarrhea
+2025-09-08 18:17:38,863 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - systemic disease-associated diarrhea
+2025-09-08 18:17:38,863 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - infection-associated diarrhea
+2025-09-08 18:17:38,863 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - organic disease-associated diarrhea
+2025-09-08 18:17:38,863 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - bile acid diarrhea
+2025-09-08 18:17:57,435 - src.data.database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus reuteri DSM 17938 - infantile colic
+2025-09-08 18:17:57,436 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - constipation
+2025-09-08 18:17:57,437 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - functional abdominal pain (FAP)
+2025-09-08 18:17:57,437 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - irritable bowel syndrome (IBS)
+2025-09-08 18:18:14,083 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum - irritable bowel syndrome
+2025-09-08 18:18:14,083 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lactobacillus acidophilus - irritable bowel syndrome
+2025-09-08 18:18:14,083 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium lactis - irritable bowel syndrome
+2025-09-08 18:18:14,088 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-08 18:18:14,089 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - constipation
+2025-09-08 18:18:23,446 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lactobacillus plantarum DSM 9843 - irritable bowel syndrome
+2025-09-08 18:18:23,446 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum MIMBb75 - irritable bowel syndrome
+2025-09-08 18:18:39,415 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium lactis - irritable bowel syndrome
+2025-09-08 18:18:39,415 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lactobacillus acidophilus - irritable bowel syndrome
+2025-09-08 18:18:39,415 - src.data.database_manager_enhanced - INFO - Inserted correlation: Streptococcus thermophilus - irritable bowel syndrome
+2025-09-08 18:18:39,418 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum - irritable bowel syndrome
+2025-09-08 18:18:39,418 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - irritable bowel syndrome
+2025-09-08 18:19:00,390 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-08 18:19:00,391 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - constipation
+2025-09-08 18:19:00,391 - src.data.database_manager_enhanced - INFO - Inserted correlation: prebiotics - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-08 18:19:00,392 - src.data.database_manager_enhanced - INFO - Inserted correlation: inulin - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-08 18:19:00,393 - src.data.database_manager_enhanced - INFO - Inserted correlation: functional foods - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-08 18:19:00,394 - src.data.database_manager_enhanced - INFO - Inserted correlation: symbiotics - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-08 18:19:09,157 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - functional constipation
+2025-09-08 18:19:09,158 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - functional constipation
+2025-09-08 18:19:15,380 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - functional constipation symptoms
+2025-09-08 18:19:29,439 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - chronic constipation
+2025-09-08 18:19:38,583 - src.data.database_manager_enhanced - INFO - Inserted correlation: Saccharomyces boulardii CNCM I-745 - Clostridioides difficile infection
+2025-09-08 18:19:46,561 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - chronic diarrhea
+2025-09-08 18:20:39,738 - src.data.database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus (L.) reuteri DSM 17938 - infantile colic
+2025-09-08 18:20:39,738 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium animalis subsp. lactis BB-12 - infantile colic
+2025-09-08 18:20:39,738 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lacticaseibacillus rhamnosus GG (LGG) - irritable bowel syndrome
+2025-09-08 18:20:39,738 - src.data.database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus (L.) reuteri DSM 17938 - functional abdominal pain (FAP)
+2025-09-08 18:20:58,040 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lactobacillus plantarum DSM 9843 - IBS
+2025-09-08 18:20:58,043 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum MIMBb75 - IBS
+2025-09-08 18:21:05,736 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - IBS Symptom Severity Scale
+2025-09-08 18:21:15,799 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - constipation

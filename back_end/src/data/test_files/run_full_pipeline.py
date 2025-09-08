@@ -10,9 +10,9 @@ from typing import Dict, List, Optional
 from enum import Enum
 from dotenv import load_dotenv
 
-from src.data.pubmed_collector import PubMedCollector
-from src.data.database_manager import DatabaseManager
-from src.data.probiotic_analyzer import ProbioticAnalyzer, LLMConfig
+from src.data.pubmed_collector_enhanced import PubMedCollector
+from src.data.database_manager_enhanced import DatabaseManager
+from src.data.probiotic_analyzer_enhanced import ProbioticAnalyzer, LLMConfig
 from src.data.test_files.llm_pipeline import LLMPipeline, OllamaConfig, OllamaModel
 
 #* Configure logging to save log hisotry to 'llm_pipeline_test.log'
