@@ -450,3 +450,186 @@
 2025-09-09 20:39:52,357 - database_manager_enhanced - ERROR - Database connection error: 'charmap' codec can't encode character '\u2192' in position 37: character maps to <undefined>
 2025-09-09 20:40:56,103 - database_manager_enhanced - INFO - Database tables and indexes created successfully
 2025-09-09 20:40:56,103 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 16:45:14,435 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-10 16:45:14,435 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 16:45:43,492 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-10 16:45:43,492 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 16:45:43,492 - database_manager_enhanced - INFO - Removed 20 placeholder correlations from database
+2025-09-10 16:45:55,483 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-10 16:45:55,483 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 16:45:55,483 - database_manager_enhanced - INFO - No placeholder correlations found
+2025-09-10 16:55:01,140 - data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-10 16:55:01,140 - data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 16:55:01,148 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-10 16:55:01,148 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 16:55:26,060 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-10 16:55:26,060 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 16:55:56,030 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-10 16:55:56,030 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 35419092
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 22314561
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 37541528
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 35433498
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 37184752
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 34203002
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 32054443
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 36014888
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 37686889
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 39060737
+2025-09-10 16:55:59,802 - database_manager_enhanced - INFO - Inserted new paper: 35951774
+2025-09-10 16:55:59,812 - database_manager_enhanced - INFO - Inserted new paper: 37049488
+2025-09-10 16:55:59,812 - database_manager_enhanced - INFO - Inserted new paper: 30294792
+2025-09-10 16:55:59,813 - database_manager_enhanced - INFO - Inserted new paper: 38999862
+2025-09-10 16:55:59,814 - database_manager_enhanced - INFO - Inserted new paper: 28483500
+2025-09-10 16:55:59,814 - database_manager_enhanced - INFO - Inserted new paper: 31480656
+2025-09-10 16:55:59,815 - database_manager_enhanced - INFO - Inserted new paper: 31122802
+2025-09-10 16:55:59,815 - database_manager_enhanced - INFO - Inserted new paper: 33903147
+2025-09-10 16:55:59,816 - database_manager_enhanced - INFO - Inserted new paper: 28274108
+2025-09-10 16:55:59,816 - database_manager_enhanced - INFO - Inserted new paper: 34578939
+2025-09-10 16:55:59,817 - database_manager_enhanced - INFO - Inserted new paper: 25070051
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 39940404
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 36269141
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 38331656
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 34365915
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 38717445
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 37868345
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 32635661
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 32019158
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 29688915
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 33183883
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 32326347
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 33545934
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 36362056
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 38653808
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 28625832
+2025-09-10 16:55:59,818 - database_manager_enhanced - INFO - Inserted new paper: 33652763
+2025-09-10 16:55:59,828 - database_manager_enhanced - INFO - Inserted new paper: 40546150
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 38700306
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 39126817
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 30845384
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 32277872
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 23384803
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 26819502
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 27161354
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 34904950
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 38658619
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 20890316
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 21872090
+2025-09-10 16:55:59,829 - database_manager_enhanced - INFO - Inserted new paper: 33978391
+2025-09-10 16:58:17,067 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-10 16:58:17,067 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 17:02:03,254 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-10 17:02:03,254 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 17:02:15,744 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:02:22,027 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:02:33,819 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:02:33,821 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:02:49,846 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium Lactis (BLa80) - irritable bowel syndrome
+2025-09-10 17:02:49,846 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium Lactis (BLa80) - irritable bowel syndrome symptoms severity
+2025-09-10 17:02:49,852 - database_manager_enhanced - INFO - Inserted correlation: Acacia fiber (AF) - constipation-predominant irritable bowel syndrome symptoms
+2025-09-10 17:02:56,464 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium lactis Bb12 - irritable bowel syndrome
+2025-09-10 17:03:18,452 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum - irritable bowel syndrome
+2025-09-10 17:03:18,452 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus - irritable bowel syndrome
+2025-09-10 17:03:18,452 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium - irritable bowel syndrome
+2025-09-10 17:03:18,452 - database_manager_enhanced - INFO - Inserted correlation: Bacillus - irritable bowel syndrome
+2025-09-10 17:03:45,092 - database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus reuteri DSM 17938 - infantile colic
+2025-09-10 17:03:45,092 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium animalis subsp. lactis BB-12 - infantile colic
+2025-09-10 17:03:45,092 - database_manager_enhanced - INFO - Inserted correlation: Lacticaseibacillus rhamnosus GG - irritable bowel syndrome (IBS)
+2025-09-10 17:03:45,092 - database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus reuteri DSM 17938 - functional abdominal pain (FAP)
+2025-09-10 17:05:29,346 - database_manager_enhanced - INFO - Inserted correlation: Escherichia strains - irritable bowel syndrome (IBS)
+2025-09-10 17:05:29,348 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus strains - irritable bowel syndrome (IBS)
+2025-09-10 17:05:29,349 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus plantarum 299V - irritable bowel syndrome (IBS)
+2025-09-10 17:05:29,350 - database_manager_enhanced - INFO - Inserted correlation: combination probiotics - irritable bowel syndrome (IBS)
+2025-09-10 17:05:29,351 - database_manager_enhanced - INFO - Inserted correlation: LacClean Gold S - irritable bowel syndrome (IBS)
+2025-09-10 17:05:29,351 - database_manager_enhanced - INFO - Inserted correlation: Duolac 7s - irritable bowel syndrome (IBS)
+2025-09-10 17:05:29,352 - database_manager_enhanced - INFO - Inserted correlation: Bacillus strains - irritable bowel syndrome (IBS)
+2025-09-10 17:05:29,354 - database_manager_enhanced - INFO - Inserted correlation: Saccharomyces cerevisae I-3856 - abdominal pain
+2025-09-10 17:05:29,354 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium strains - abdominal pain
+2025-09-10 17:05:29,354 - database_manager_enhanced - INFO - Inserted correlation: combination probiotics - abdominal bloating or distension
+2025-09-10 17:05:29,356 - database_manager_enhanced - INFO - Inserted correlation: Bacillus strains - abdominal bloating or distension
+2025-09-10 17:05:29,356 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus strains - abdominal pain
+2025-09-10 17:05:29,358 - database_manager_enhanced - INFO - Inserted correlation: Saccharomyces cerevisae I-3856 - abdominal pain
+2025-09-10 17:05:29,358 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium strains - abdominal pain
+2025-09-10 17:05:29,360 - database_manager_enhanced - INFO - Inserted correlation: combination probiotics - abdominal bloating or distension
+2025-09-10 17:05:29,360 - database_manager_enhanced - INFO - Inserted correlation: Bacillus strains - abdominal bloating or distension
+2025-09-10 17:05:29,362 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus strains - abdominal pain
+2025-09-10 17:05:29,362 - database_manager_enhanced - INFO - Inserted correlation: Saccharomyces cerevisae I-3856 - abdominal pain
+2025-09-10 17:05:29,364 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium strains - abdominal pain
+2025-09-10 17:05:29,364 - database_manager_enhanced - INFO - Inserted correlation: combination probiotics - abdominal bloating or distension
+2025-09-10 17:05:29,366 - database_manager_enhanced - INFO - Inserted correlation: Bacillus strains - abdominal bloating or distension
+2025-09-10 17:05:29,366 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus strains - abdominal pain
+2025-09-10 17:05:29,368 - database_manager_enhanced - INFO - Inserted correlation: Saccharomyces cerevisae I-3856 - abdominal pain
+2025-09-10 17:05:29,368 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium strains - abdominal pain
+2025-09-10 17:05:29,370 - database_manager_enhanced - INFO - Inserted correlation: combination probiotics - abdominal bloating or distension
+2025-09-10 17:05:29,370 - database_manager_enhanced - INFO - Inserted correlation: Bacillus strains - abdominal bloating or distension
+2025-09-10 17:05:35,026 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:05:42,440 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:05:52,922 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus plantarum DSM 9843 - irritable bowel syndrome
+2025-09-10 17:05:52,923 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum MIMBb75 - irritable bowel syndrome
+2025-09-10 17:06:00,903 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-10 17:06:00,905 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-10 17:06:05,310 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - irritable bowel syndrome
+2025-09-10 17:06:20,512 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - chronic visceral pain
+2025-09-10 17:06:20,513 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - inflammatory pain (endometriosis)
+2025-09-10 17:06:20,513 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus acidophilus - migraine attacks
+2025-09-10 17:06:25,147 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - small intestinal bacterial overgrowth (SIBO)
+2025-09-10 17:06:30,560 - database_manager_enhanced - INFO - Inserted correlation: Bacillus subtilis BS50 - gastrointestinal symptoms
+2025-09-10 17:06:41,619 - database_manager_enhanced - INFO - Inserted correlation: VSL#3 (contains Bifidobacterium breve UCC2003, Streptococcus thermophilus, Lactobacillus acidophilus, Lactobacillus plantarum, Lactobacillus paracasei, Lactobacillus delbrueckii subsp. bulgaricus, Bifidobacterium longum, Streptococcus boulardii) - irritable bowel syndrome
+2025-09-10 17:06:51,353 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - nonalcoholic fatty liver disease (NAFLD)
+2025-09-10 17:06:51,353 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome (IBS)
+2025-09-10 17:06:57,671 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - irritable bowel syndrome
+2025-09-10 17:07:04,169 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - irritable bowel syndrome
+2025-09-10 17:07:13,655 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - irritable bowel syndrome
+2025-09-10 17:07:13,657 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:07:24,082 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium lactis B420 - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-10 17:07:24,083 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus acidophilus LA-14 - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-10 17:07:31,467 - database_manager_enhanced - INFO - Inserted correlation: Bacillus coagulans LBSC - irritable bowel syndrome (IBS)
+2025-09-10 17:07:41,206 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum MIMBb75 - irritable bowel syndrome (IBS)
+2025-09-10 17:07:55,823 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:07:55,825 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - migraine headache
+2025-09-10 17:07:55,825 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus acidophilus - migraine headache
+2025-09-10 17:08:10,093 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:08:10,093 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - irritable bowel syndrome
+2025-09-10 17:08:10,095 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus acidophilus - irritable bowel syndrome
+2025-09-10 17:08:28,994 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium - irritable bowel syndrome
+2025-09-10 17:08:28,994 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - irritable bowel syndrome
+2025-09-10 17:08:28,996 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:08:34,361 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - irritable bowel syndrome
+2025-09-10 17:08:39,348 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - irritable bowel syndrome
+2025-09-10 17:08:50,573 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - irritable bowel syndrome
+2025-09-10 17:08:50,573 - database_manager_enhanced - INFO - Inserted correlation: multistrain probiotic formulation - irritable bowel syndrome
+2025-09-10 17:09:23,271 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum NCC3001 - depression
+2025-09-10 17:09:23,272 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum NCC3001 - anxiety
+2025-09-10 17:09:23,272 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum NCC3001 - irritable bowel syndrome (IBS)
+2025-09-10 17:09:23,274 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum NCC3001 - quality of life
+2025-09-10 17:09:23,276 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum NCC3001 - brain activity
+2025-09-10 17:09:23,276 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum NCC3001 - methylamines and aromatic amino acids metabolites
+2025-09-10 17:09:23,278 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum NCC3001 - depression
+2025-09-10 17:09:32,670 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:09:32,670 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - irritable bowel syndrome
+2025-09-10 17:09:41,449 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:09:41,451 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:10:02,140 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium lactis BB12 - irritable bowel syndrome
+2025-09-10 17:10:02,141 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:10:02,142 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum Bb12 - inflammatory bowel disease
+2025-09-10 17:10:02,142 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus acidophilus NCFM - necrotizing enterocolitis
+2025-09-10 17:10:02,142 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium lactis HN019 - atopic diseases
+2025-09-10 17:10:02,145 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - antibiotic-associated diarrhoea
+2025-09-10 17:10:23,964 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:10:23,966 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:10:23,968 - database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium longum BB536 - chronic idiopathic constipation
+2025-09-10 17:10:34,837 - database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-10 17:10:49,636 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-10 17:10:49,636 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 18:28:40,197 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-10 18:28:40,197 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 18:28:46,836 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-10 18:28:46,836 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 18:29:19,207 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-10 18:29:19,207 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 18:29:25,275 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-10 18:29:25,285 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 18:29:31,220 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-10 18:29:31,220 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-10 18:29:38,141 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-10 18:29:38,141 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db

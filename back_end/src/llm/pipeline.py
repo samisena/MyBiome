@@ -13,11 +13,11 @@ current_dir = Path(__file__).parent
 if str(current_dir) not in sys.path:
     sys.path.insert(0, str(current_dir))
 
-from config import config, setup_logging
-from database_manager_enhanced import database_manager
-from pubmed_collector_enhanced import EnhancedPubMedCollector  
-from probiotic_analyzer_enhanced import EnhancedProbioticAnalyzer
-from utils import log_execution_time, format_duration, calculate_success_rate
+from ..data.config import config, setup_logging
+from ..paper_collection.database_manager import database_manager
+from ..paper_collection.pubmed_collector import EnhancedPubMedCollector  
+from .probiotic_analyzer import EnhancedProbioticAnalyzer
+from ..data.utils import log_execution_time, format_duration, calculate_success_rate
 
 logger = setup_logging(__name__, 'enhanced_pipeline.log')
 

@@ -155,3 +155,11 @@
 2025-09-09 20:22:39,429 - paper_parser_enhanced - INFO - Database operations: 0 new, 50 existing
 2025-09-09 20:22:39,430 - paper_parser_enhanced - INFO - parse_metadata_file completed in 0.05s
 2025-09-09 20:40:56,670 - paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-10 16:55:26,645 - paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-10 16:55:56,613 - paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-10 16:55:59,752 - paper_parser_enhanced - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757519759.xml
+2025-09-10 16:55:59,796 - paper_parser_enhanced - INFO - Found 50 articles in XML
+2025-09-10 16:55:59,796 - paper_parser_enhanced - INFO - Processing batch 1/1 (50 articles)
+2025-09-10 16:55:59,829 - paper_parser_enhanced - INFO - Parsing completed: 50 papers parsed
+2025-09-10 16:55:59,829 - paper_parser_enhanced - INFO - Database operations: 50 new, 0 existing
+2025-09-10 16:55:59,829 - paper_parser_enhanced - INFO - parse_metadata_file completed in 0.08s

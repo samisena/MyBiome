@@ -10,7 +10,7 @@ This document describes the enhanced architecture that improves efficiency, remo
 - Path management with automatic directory creation
 - Configuration validation
 
-### 2. **Connection Pooling** (`database_manager_enhanced.py`)
+### 2. **Connection Pooling** (`database_manager.py`)
 - SQLite connection pool for better performance
 - Thread-safe database operations
 - Enhanced schema with processing status tracking
@@ -56,7 +56,7 @@ src/data/
 To migrate from the original architecture to the enhanced version:
 
 ```python
-from src.data.migrate_to_enhanced import main as run_migration
+# Migration step no longer needed
 
 # Run migration (safe to run multiple times)
 success = run_migration()
@@ -73,7 +73,7 @@ The migration will:
 ### Basic Research Pipeline
 
 ```python
-from src.data.enhanced_pipeline import EnhancedResearchPipeline
+from src.data.pipeline import EnhancedResearchPipeline
 
 # Initialize pipeline
 pipeline = EnhancedResearchPipeline()
@@ -92,7 +92,7 @@ pipeline.print_pipeline_summary()
 ### Data Collection Only
 
 ```python
-from src.data.pubmed_collector_enhanced import EnhancedPubMedCollector
+from src.data.pubmed_collector import EnhancedPubMedCollector
 
 collector = EnhancedPubMedCollector()
 
@@ -107,7 +107,7 @@ results = collector.bulk_collect_conditions(
 ### Analysis Only
 
 ```python
-from src.data.probiotic_analyzer_enhanced import EnhancedProbioticAnalyzer
+from src.data.probiotic_analyzer import EnhancedProbioticAnalyzer
 from src.data.config import config
 
 # Use custom LLM configuration
@@ -207,7 +207,7 @@ The enhanced system provides comprehensive logging:
 
 4. **Start Using Enhanced Components**:
    ```python
-   from src.data.enhanced_pipeline import EnhancedResearchPipeline
+   from src.data.pipeline import EnhancedResearchPipeline
    pipeline = EnhancedResearchPipeline()
    ```
 

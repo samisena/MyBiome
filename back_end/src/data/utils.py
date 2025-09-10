@@ -166,6 +166,32 @@ def validate_correlation_data(correlation: Dict) -> Dict:
         if field not in correlation or not correlation[field]:
             raise ValidationError(f"Missing required field: {field}")
     
+    # Check for placeholder values that should not be saved to database
+    placeholder_patterns = ['...', 'N/A', 'n/a', 'NA', 'na', 'null', 'NULL', 
+                           'unknown', 'Unknown', 'UNKNOWN', 'placeholder', 
+                           'Placeholder', 'PLACEHOLDER', 'TBD', 'tbd', 'TODO', 'todo',
+                           'probiotics', 'Probiotics', 'PROBIOTICS', 
+                           'various strains', 'multiple strains', 'various probiotics',
+                           'multiple probiotics']
+    
+    probiotic_strain = str(correlation['probiotic_strain']).strip()
+    health_condition = str(correlation['health_condition']).strip()
+    
+    # Check if probiotic strain is a placeholder
+    if probiotic_strain in placeholder_patterns or len(probiotic_strain) < 3:
+        raise ValidationError(f"Invalid probiotic strain placeholder: '{probiotic_strain}'")
+    
+    # Check if health condition is a placeholder  
+    if health_condition in placeholder_patterns or len(health_condition) < 3:
+        raise ValidationError(f"Invalid health condition placeholder: '{health_condition}'")
+    
+    # Additional checks for common placeholder patterns
+    if probiotic_strain.lower().startswith(('unknown', 'placeholder', 'various', 'multiple')):
+        raise ValidationError(f"Probiotic strain appears to be a placeholder: '{probiotic_strain}'")
+    
+    if health_condition.lower().startswith(('unknown', 'placeholder', 'various', 'multiple')):
+        raise ValidationError(f"Health condition appears to be a placeholder: '{health_condition}'")
+    
     # Validate correlation type
     valid_types = ['positive', 'negative', 'neutral', 'inconclusive']
     if correlation['correlation_type'] not in valid_types:

@@ -928,3 +928,199 @@
 2025-09-09 20:25:13,167 - fulltext_retriever_enhanced - INFO - Success rate: 25.0%
 2025-09-09 20:25:13,167 - fulltext_retriever_enhanced - INFO - process_papers_batch completed in 22.76s
 2025-09-09 20:40:56,670 - fulltext_retriever_enhanced - INFO - Enhanced fulltext retriever initialized
+2025-09-10 16:55:26,645 - fulltext_retriever_enhanced - INFO - Enhanced fulltext retriever initialized
+2025-09-10 16:55:56,613 - fulltext_retriever_enhanced - INFO - Enhanced fulltext retriever initialized
+2025-09-10 16:55:59,829 - fulltext_retriever_enhanced - INFO - Processing 20 papers for fulltext retrieval
+2025-09-10 16:55:59,829 - fulltext_retriever_enhanced - INFO - Found 20 potential fulltext candidates
+2025-09-10 16:55:59,829 - fulltext_retriever_enhanced - INFO - Processing batch 1/1 (20 papers)
+2025-09-10 16:55:59,829 - fulltext_retriever_enhanced - INFO - Processing fulltext for 35419092: Diet, fibers, and probiotics for irritable bowel syndrome....
+2025-09-10 16:55:59,829 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 35419092 (PMC ID: PMC8999090)
+2025-09-10 16:56:00,166 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 35419092 (DOI: 10.25122/jml-2022-0028)
+2025-09-10 16:56:02,812 - fulltext_retriever_enhanced - INFO - Successfully retrieved Unpaywall PDF for 35419092
+2025-09-10 16:56:02,815 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 2.99s
+2025-09-10 16:56:02,815 - fulltext_retriever_enhanced - INFO - Processing fulltext for 37541528: Efficacy of Probiotics in Irritable Bowel Syndrome: Systematic Review and Meta-a...
+2025-09-10 16:56:02,815 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 37541528 (DOI: 10.1053/j.gastro.2023.07.018)
+2025-09-10 16:56:06,356 - fulltext_retriever_enhanced - INFO - No full text retrieved for 37541528: No open access full text found
+2025-09-10 16:56:06,356 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.54s
+2025-09-10 16:56:06,356 - fulltext_retriever_enhanced - INFO - Processing fulltext for 35433498: Efficacy of Probiotics for Irritable Bowel Syndrome: A Systematic Review and Net...
+2025-09-10 16:56:06,358 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 35433498 (PMC ID: PMC9010660)
+2025-09-10 16:56:06,660 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 35433498 (DOI: 10.3389/fcimb.2022.859967)
+2025-09-10 16:56:09,920 - fulltext_retriever_enhanced - INFO - Successfully retrieved Unpaywall PDF for 35433498
+2025-09-10 16:56:09,920 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.56s
+2025-09-10 16:56:09,920 - fulltext_retriever_enhanced - INFO - Processing fulltext for 37184752: Antibiotics and Probiotics for Irritable Bowel Syndrome....
+2025-09-10 16:56:09,920 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 37184752 (PMC ID: 7196022)
+2025-09-10 16:56:10,215 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 37184752 (DOI: 10.1007/s40265-023-01871-y)
+2025-09-10 16:56:10,342 - fulltext_retriever_enhanced - INFO - No full text retrieved for 37184752: No open access full text found
+2025-09-10 16:56:10,342 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 0.42s
+2025-09-10 16:56:10,342 - fulltext_retriever_enhanced - INFO - Processing fulltext for 34203002: Probiotics, Prebiotics, and Synbiotics: Implications and Beneficial Effects agai...
+2025-09-10 16:56:10,342 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 34203002 (PMC ID: PMC8233736)
+2025-09-10 16:56:10,529 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 34203002 (DOI: 10.3390/nu13062112)
+2025-09-10 16:56:14,624 - fulltext_retriever_enhanced - INFO - No full text retrieved for 34203002: No open access full text found
+2025-09-10 16:56:14,624 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 4.28s
+2025-09-10 16:56:14,624 - fulltext_retriever_enhanced - INFO - Processing fulltext for 32054443: Gut-brain Axis and migraine headache: a comprehensive review....
+2025-09-10 16:56:14,624 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 32054443 (PMC ID: PMC7020496)
+2025-09-10 16:56:14,949 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 32054443 (DOI: 10.1186/s10194-020-1078-9)
+2025-09-10 16:56:18,569 - fulltext_retriever_enhanced - INFO - Successfully retrieved Unpaywall PDF for 32054443
+2025-09-10 16:56:18,572 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.95s
+2025-09-10 16:56:18,572 - fulltext_retriever_enhanced - INFO - Processing fulltext for 36014888: Efficacy of an Irritable Bowel Syndrome Diet in the Treatment of Small Intestina...
+2025-09-10 16:56:18,572 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 36014888 (PMC ID: PMC9412469)
+2025-09-10 16:56:18,873 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 36014888 (DOI: 10.3390/nu14163382)
+2025-09-10 16:56:22,242 - fulltext_retriever_enhanced - INFO - No full text retrieved for 36014888: No open access full text found
+2025-09-10 16:56:22,242 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.67s
+2025-09-10 16:56:22,242 - fulltext_retriever_enhanced - INFO - Processing fulltext for 37686889: Outcome-Specific Efficacy of Different Probiotic Strains and Mixtures in Irritab...
+2025-09-10 16:56:22,242 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 37686889 (PMC ID: PMC10490209)
+2025-09-10 16:56:22,541 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 37686889 (DOI: 10.3390/nu15173856)
+2025-09-10 16:56:25,856 - fulltext_retriever_enhanced - INFO - No full text retrieved for 37686889: No open access full text found
+2025-09-10 16:56:25,856 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.61s
+2025-09-10 16:56:25,856 - fulltext_retriever_enhanced - INFO - Processing fulltext for 39060737: Probiotics in Functional Gastrointestinal Disorders....
+2025-09-10 16:56:25,856 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 39060737 (PMC ID: 4225660)
+2025-09-10 16:56:26,170 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 39060737 (DOI: 10.1007/978-3-031-58572-2_10)
+2025-09-10 16:56:26,308 - fulltext_retriever_enhanced - INFO - No full text retrieved for 39060737: No open access full text found
+2025-09-10 16:56:26,308 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 0.45s
+2025-09-10 16:56:26,308 - fulltext_retriever_enhanced - INFO - Processing fulltext for 35951774: The double-edged sword of probiotic supplementation on gut microbiota structure ...
+2025-09-10 16:56:26,308 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 35951774 (PMC ID: PMC9373750)
+2025-09-10 16:56:26,475 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 35951774 (DOI: 10.1080/19490976.2022.2108655)
+2025-09-10 16:56:27,309 - fulltext_retriever_enhanced - INFO - No full text retrieved for 35951774: No open access full text found
+2025-09-10 16:56:27,309 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 1.00s
+2025-09-10 16:56:27,309 - fulltext_retriever_enhanced - INFO - Processing fulltext for 37049488: Constipation-Predominant Irritable Bowel Syndrome (IBS-C): Effects of Different ...
+2025-09-10 16:56:27,309 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 37049488 (PMC ID: PMC10096616)
+2025-09-10 16:56:27,437 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 37049488 (DOI: 10.3390/nu15071647)
+2025-09-10 16:56:31,502 - fulltext_retriever_enhanced - INFO - No full text retrieved for 37049488: No open access full text found
+2025-09-10 16:56:31,502 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 4.19s
+2025-09-10 16:56:31,502 - fulltext_retriever_enhanced - INFO - Processing fulltext for 30294792: Systematic review with meta-analysis: the efficacy of prebiotics, probiotics, sy...
+2025-09-10 16:56:31,502 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 30294792 (DOI: 10.1111/apt.15001)
+2025-09-10 16:56:34,917 - fulltext_retriever_enhanced - INFO - No full text retrieved for 30294792: No open access full text found
+2025-09-10 16:56:34,918 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.42s
+2025-09-10 16:56:34,918 - fulltext_retriever_enhanced - INFO - Processing fulltext for 38999862: The Efficacy of Probiotics, Prebiotics, Synbiotics, and Fecal Microbiota Transpl...
+2025-09-10 16:56:34,918 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 38999862 (PMC ID: PMC11243554)
+2025-09-10 16:56:35,217 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 38999862 (DOI: 10.3390/nu16132114)
+2025-09-10 16:56:35,372 - fulltext_retriever_enhanced - INFO - No full text retrieved for 38999862: No open access full text found
+2025-09-10 16:56:35,372 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 0.45s
+2025-09-10 16:56:35,372 - fulltext_retriever_enhanced - INFO - Processing fulltext for 28483500: Probiotic Bifidobacterium longum NCC3001 Reduces Depression Scores and Alters Br...
+2025-09-10 16:56:35,372 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 28483500 (DOI: 10.1053/j.gastro.2017.05.003)
+2025-09-10 16:56:36,380 - fulltext_retriever_enhanced - INFO - No full text retrieved for 28483500: No open access full text found
+2025-09-10 16:56:36,380 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 1.01s
+2025-09-10 16:56:36,381 - fulltext_retriever_enhanced - INFO - Processing fulltext for 31480656: Probiotics in Irritable Bowel Syndrome: An Up-to-Date Systematic Review....
+2025-09-10 16:56:36,381 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 31480656 (PMC ID: PMC6769995)
+2025-09-10 16:56:36,689 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 31480656 (DOI: 10.3390/nu11092048)
+2025-09-10 16:56:40,578 - fulltext_retriever_enhanced - INFO - No full text retrieved for 31480656: No open access full text found
+2025-09-10 16:56:40,578 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 4.20s
+2025-09-10 16:56:40,578 - fulltext_retriever_enhanced - INFO - Processing fulltext for 31122802: The influence of the brain-gut axis in inflammatory bowel disease and possible i...
+2025-09-10 16:56:40,578 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 31122802 (DOI: 10.1016/S2468-1253(19)30089-5)
+2025-09-10 16:56:40,716 - fulltext_retriever_enhanced - INFO - No full text retrieved for 31122802: No open access full text found
+2025-09-10 16:56:40,716 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 0.14s
+2025-09-10 16:56:40,716 - fulltext_retriever_enhanced - INFO - Processing fulltext for 33903147: British Society of Gastroenterology guidelines on the management of irritable bo...
+2025-09-10 16:56:40,716 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 33903147 (DOI: 10.1136/gutjnl-2021-324598)
+2025-09-10 16:56:46,771 - fulltext_retriever_enhanced - INFO - Successfully retrieved Unpaywall PDF for 33903147
+2025-09-10 16:56:46,776 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 6.06s
+2025-09-10 16:56:46,776 - fulltext_retriever_enhanced - INFO - Processing fulltext for 28274108: Small Intestinal Bacterial Overgrowth and Irritable Bowel Syndrome: A Bridge bet...
+2025-09-10 16:56:46,776 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 28274108 (PMC ID: PMC5347643)
+2025-09-10 16:56:47,097 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 28274108 (DOI: 10.5009/gnl16126)
+2025-09-10 16:56:53,932 - fulltext_retriever_enhanced - INFO - No full text retrieved for 28274108: No open access full text found
+2025-09-10 16:56:53,933 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 7.16s
+2025-09-10 16:56:53,933 - fulltext_retriever_enhanced - INFO - Processing fulltext for 34578939: Irritable Bowel Syndrome, Depression, and Neurodegeneration: A Bidirectional Com...
+2025-09-10 16:56:53,933 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 34578939 (PMC ID: PMC8468817)
+2025-09-10 16:56:54,239 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 34578939 (DOI: 10.3390/nu13093061)
+2025-09-10 16:56:57,564 - fulltext_retriever_enhanced - INFO - No full text retrieved for 34578939: No open access full text found
+2025-09-10 16:56:57,564 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.63s
+2025-09-10 16:56:57,564 - fulltext_retriever_enhanced - INFO - Processing fulltext for 25070051: Efficacy of prebiotics, probiotics, and synbiotics in irritable bowel syndrome a...
+2025-09-10 16:56:57,564 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 25070051 (DOI: 10.1038/ajg.2014.202)
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - No full text retrieved for 25070051: No open access full text found
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 0.13s
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - === Fulltext Retrieval Summary ===
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - Total papers: 20
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - Fulltext candidates: 20
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - Successful PMC retrievals: 0
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - Successful Unpaywall retrievals: 4
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - Failed retrievals: 16
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - Success rate: 20.0%
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - process_papers_batch completed in 57.87s
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - Processing 20 papers for fulltext retrieval
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - Found 20 potential fulltext candidates
+2025-09-10 16:56:57,696 - fulltext_retriever_enhanced - INFO - Processing batch 1/1 (20 papers)
+2025-09-10 16:56:57,697 - fulltext_retriever_enhanced - INFO - Processing fulltext for 39940404: Low-FODMAP Diet for Irritable Bowel Syndrome: Insights from Microbiome....
+2025-09-10 16:56:57,697 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 39940404 (PMC ID: PMC11819959)
+2025-09-10 16:56:57,993 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 39940404 (DOI: 10.3390/nu17030544)
+2025-09-10 16:56:58,715 - fulltext_retriever_enhanced - INFO - No full text retrieved for 39940404: No open access full text found
+2025-09-10 16:56:58,716 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 1.02s
+2025-09-10 16:56:58,716 - fulltext_retriever_enhanced - INFO - Processing fulltext for 36269141: The probiotic...
+2025-09-10 16:56:58,716 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 36269141 (PMC ID: PMC9590435)
+2025-09-10 16:56:58,825 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 36269141 (DOI: 10.1080/19490976.2022.2122668)
+2025-09-10 16:56:59,731 - fulltext_retriever_enhanced - INFO - No full text retrieved for 36269141: No open access full text found
+2025-09-10 16:56:59,731 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 1.02s
+2025-09-10 16:56:59,731 - fulltext_retriever_enhanced - INFO - Processing fulltext for 38331656: Evaluation of the efficacy of probiotics as treatment in irritable bowel syndrom...
+2025-09-10 16:56:59,731 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 38331656 (DOI: 10.1016/j.endien.2024.01.003)
+2025-09-10 16:57:00,728 - fulltext_retriever_enhanced - INFO - No full text retrieved for 38331656: No open access full text found
+2025-09-10 16:57:00,728 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 1.00s
+2025-09-10 16:57:00,728 - fulltext_retriever_enhanced - INFO - Processing fulltext for 34365915: No title available...
+2025-09-10 16:57:00,728 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 34365915 (DOI: 10.3920/BM2020.0191)
+2025-09-10 16:57:05,528 - fulltext_retriever_enhanced - INFO - No full text retrieved for 34365915: No open access full text found
+2025-09-10 16:57:05,529 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 4.80s
+2025-09-10 16:57:05,529 - fulltext_retriever_enhanced - INFO - Processing fulltext for 38717445: Metabolome-associated psychological comorbidities improvement in irritable bowel...
+2025-09-10 16:57:05,529 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 38717445 (PMC ID: PMC11085950)
+2025-09-10 16:57:05,840 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 38717445 (DOI: 10.1080/19490976.2024.2347715)
+2025-09-10 16:57:05,989 - fulltext_retriever_enhanced - INFO - No full text retrieved for 38717445: No open access full text found
+2025-09-10 16:57:05,989 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 0.46s
+2025-09-10 16:57:05,989 - fulltext_retriever_enhanced - INFO - Processing fulltext for 37868345: Review of microbiota gut brain axis and innate immunity in inflammatory and infe...
+2025-09-10 16:57:05,989 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 37868345 (PMC ID: PMC10585369)
+2025-09-10 16:57:06,144 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 37868345 (DOI: 10.3389/fcimb.2023.1282431)
+2025-09-10 16:57:09,638 - fulltext_retriever_enhanced - INFO - Successfully retrieved Unpaywall PDF for 37868345
+2025-09-10 16:57:09,641 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.65s
+2025-09-10 16:57:09,641 - fulltext_retriever_enhanced - INFO - Processing fulltext for 32635661: The Effectiveness of Synbiotic Preparation Containing...
+2025-09-10 16:57:09,641 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 32635661 (PMC ID: PMC7400954)
+2025-09-10 16:57:09,939 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 32635661 (DOI: 10.3390/nu12071999)
+2025-09-10 16:57:13,287 - fulltext_retriever_enhanced - INFO - No full text retrieved for 32635661: No open access full text found
+2025-09-10 16:57:13,287 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.65s
+2025-09-10 16:57:13,287 - fulltext_retriever_enhanced - INFO - Processing fulltext for 32019158: No title available...
+2025-09-10 16:57:13,287 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 32019158 (PMC ID: PMC7071206)
+2025-09-10 16:57:13,611 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 32019158 (DOI: 10.3390/nu12020363)
+2025-09-10 16:57:16,936 - fulltext_retriever_enhanced - INFO - No full text retrieved for 32019158: No open access full text found
+2025-09-10 16:57:16,936 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.65s
+2025-09-10 16:57:16,936 - fulltext_retriever_enhanced - INFO - Processing fulltext for 29688915: Clinical and Microbiological Effect of a Multispecies Probiotic Supplementation ...
+2025-09-10 16:57:16,936 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 29688915 (PMC ID: PMC6382041)
+2025-09-10 16:57:17,265 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 29688915 (DOI: 10.1097/MCG.0000000000001023)
+2025-09-10 16:57:20,203 - fulltext_retriever_enhanced - INFO - Successfully retrieved Unpaywall PDF for 29688915
+2025-09-10 16:57:20,206 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.27s
+2025-09-10 16:57:20,206 - fulltext_retriever_enhanced - INFO - Processing fulltext for 33183883: Gut microbiota associations with diet in irritable bowel syndrome and the effect...
+2025-09-10 16:57:20,206 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 33183883 (DOI: 10.1016/j.clnu.2020.10.013)
+2025-09-10 16:57:20,341 - fulltext_retriever_enhanced - INFO - No full text retrieved for 33183883: No open access full text found
+2025-09-10 16:57:20,343 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 0.14s
+2025-09-10 16:57:20,343 - fulltext_retriever_enhanced - INFO - Processing fulltext for 32326347: Efficacy of...
+2025-09-10 16:57:20,343 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 32326347 (PMC ID: PMC7230591)
+2025-09-10 16:57:20,652 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 32326347 (DOI: 10.3390/nu12041159)
+2025-09-10 16:57:24,567 - fulltext_retriever_enhanced - INFO - No full text retrieved for 32326347: No open access full text found
+2025-09-10 16:57:24,567 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 4.22s
+2025-09-10 16:57:24,567 - fulltext_retriever_enhanced - INFO - Processing fulltext for 33545934: Efficacy and safety of Bacillus coagulans LBSC in irritable bowel syndrome: A pr...
+2025-09-10 16:57:24,567 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 33545934 (PMC ID: PMC7837859)
+2025-09-10 16:57:24,885 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 33545934 (DOI: 10.1097/MD.0000000000023641)
+2025-09-10 16:57:25,016 - fulltext_retriever_enhanced - INFO - No full text retrieved for 33545934: No open access full text found
+2025-09-10 16:57:25,016 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 0.45s
+2025-09-10 16:57:25,016 - fulltext_retriever_enhanced - INFO - Processing fulltext for 36362056: The Role of the Human Microbiome in the Pathogenesis of Pain....
+2025-09-10 16:57:25,016 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 36362056 (PMC ID: PMC9659276)
+2025-09-10 16:57:25,184 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 36362056 (DOI: 10.3390/ijms232113267)
+2025-09-10 16:57:29,232 - fulltext_retriever_enhanced - INFO - No full text retrieved for 36362056: No open access full text found
+2025-09-10 16:57:29,232 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 4.22s
+2025-09-10 16:57:29,232 - fulltext_retriever_enhanced - INFO - Processing fulltext for 38653808: Acacia fiber or probiotic supplements to relieve gastrointestinal complaints in ...
+2025-09-10 16:57:29,232 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 38653808 (PMC ID: PMC11329592)
+2025-09-10 16:57:29,565 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 38653808 (DOI: 10.1007/s00394-024-03398-8)
+2025-09-10 16:57:37,973 - fulltext_retriever_enhanced - INFO - Successfully retrieved Unpaywall PDF for 38653808
+2025-09-10 16:57:37,975 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 8.74s
+2025-09-10 16:57:37,975 - fulltext_retriever_enhanced - INFO - Processing fulltext for 28625832: A Diet Low in FODMAPs Reduces Symptoms in Patients With Irritable Bowel Syndrome...
+2025-09-10 16:57:37,975 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 28625832 (DOI: 10.1053/j.gastro.2017.06.010)
+2025-09-10 16:57:39,996 - fulltext_retriever_enhanced - INFO - Successfully retrieved Unpaywall PDF for 28625832
+2025-09-10 16:57:39,996 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 2.02s
+2025-09-10 16:57:39,996 - fulltext_retriever_enhanced - INFO - Processing fulltext for 33652763: The Effectiveness and Safety of Multi-Strain Probiotic Preparation in Patients w...
+2025-09-10 16:57:39,996 - fulltext_retriever_enhanced - INFO - Attempting PMC retrieval for 33652763 (PMC ID: PMC7996889)
+2025-09-10 16:57:40,335 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 33652763 (DOI: 10.3390/nu13030756)
+2025-09-10 16:57:43,696 - fulltext_retriever_enhanced - INFO - No full text retrieved for 33652763: No open access full text found
+2025-09-10 16:57:43,697 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 3.70s
+2025-09-10 16:57:43,697 - fulltext_retriever_enhanced - INFO - Processing fulltext for 38700306: Dysbiosis in Irritable Bowel Syndrome....
+2025-09-10 16:57:43,697 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 38700306 (DOI: 10.59556/japi.71.0353)
+2025-09-10 16:57:43,830 - fulltext_retriever_enhanced - INFO - No full text retrieved for 38700306: No open access full text found
+2025-09-10 16:57:43,830 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 0.13s
+2025-09-10 16:57:43,830 - fulltext_retriever_enhanced - INFO - Processing fulltext for 39126817: Interplay of yoga, physical activity, and probiotics in irritable bowel syndrome...
+2025-09-10 16:57:43,830 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 39126817 (DOI: 10.1016/j.ctcp.2024.101892)
+2025-09-10 16:57:44,849 - fulltext_retriever_enhanced - INFO - No full text retrieved for 39126817: No open access full text found
+2025-09-10 16:57:44,850 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 1.02s
+2025-09-10 16:57:44,850 - fulltext_retriever_enhanced - INFO - Processing fulltext for 30845384: [Irritable Bowel Syndrome]....
+2025-09-10 16:57:44,850 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 30845384 (DOI: 10.4166/kjg.2019.73.2.84)

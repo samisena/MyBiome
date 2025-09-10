@@ -19,8 +19,8 @@ current_dir = Path(__file__).parent
 if str(current_dir) not in sys.path:
     sys.path.insert(0, str(current_dir))
 
-from config import config, setup_logging
-from utils import validate_paper_data, validate_correlation_data, ValidationError
+from ..data.config import config, setup_logging
+from ..data.utils import validate_paper_data, validate_correlation_data, ValidationError
 
 logger = setup_logging(__name__, 'database.log')
 
@@ -507,6 +507,69 @@ class EnhancedDatabaseManager:
             ]
             
             return stats
+    
+    def clean_placeholder_correlations(self) -> Dict[str, int]:
+        """
+        Remove correlations with placeholder probiotic strains from the database.
+        
+        Returns:
+            Dictionary with count of removed entries
+        """
+        placeholder_patterns = ['...', 'N/A', 'n/a', 'NA', 'na', 'null', 'NULL', 
+                               'unknown', 'Unknown', 'UNKNOWN', 'placeholder', 
+                               'Placeholder', 'PLACEHOLDER', 'TBD', 'tbd', 'TODO', 'todo',
+                               'probiotics', 'Probiotics', 'PROBIOTICS',
+                               'various strains', 'multiple strains', 'various probiotics',
+                               'multiple probiotics']
+        
+        try:
+            with self.get_connection() as conn:
+                cursor = conn.cursor()
+                
+                # Count entries to be removed
+                placeholders = "', '".join(placeholder_patterns)
+                count_query = f"""
+                    SELECT COUNT(*) FROM correlations 
+                    WHERE probiotic_strain IN ('{placeholders}')
+                    OR LENGTH(TRIM(probiotic_strain)) < 3
+                    OR LOWER(probiotic_strain) LIKE 'unknown%'
+                    OR LOWER(probiotic_strain) LIKE 'placeholder%'
+                    OR LOWER(probiotic_strain) LIKE 'various%'
+                    OR LOWER(probiotic_strain) LIKE 'multiple%'
+                    OR LOWER(health_condition) IN ('{placeholders.lower()}')
+                    OR LENGTH(TRIM(health_condition)) < 3
+                """
+                
+                cursor.execute(count_query)
+                count_to_remove = cursor.fetchone()[0]
+                
+                if count_to_remove == 0:
+                    logger.info("No placeholder correlations found")
+                    return {'removed_count': 0}
+                
+                # Remove placeholder entries
+                delete_query = f"""
+                    DELETE FROM correlations 
+                    WHERE probiotic_strain IN ('{placeholders}')
+                    OR LENGTH(TRIM(probiotic_strain)) < 3
+                    OR LOWER(probiotic_strain) LIKE 'unknown%'
+                    OR LOWER(probiotic_strain) LIKE 'placeholder%'
+                    OR LOWER(probiotic_strain) LIKE 'various%'
+                    OR LOWER(probiotic_strain) LIKE 'multiple%'
+                    OR LOWER(health_condition) IN ('{placeholders.lower()}')
+                    OR LENGTH(TRIM(health_condition)) < 3
+                """
+                
+                cursor.execute(delete_query)
+                removed_count = cursor.rowcount
+                conn.commit()
+                
+                logger.info(f"Removed {removed_count} placeholder correlations from database")
+                return {'removed_count': removed_count}
+                
+        except Exception as e:
+            logger.error(f"Error cleaning placeholder correlations: {e}")
+            return {'removed_count': 0, 'error': str(e)}
     
     def close(self):
         """Close all database connections."""

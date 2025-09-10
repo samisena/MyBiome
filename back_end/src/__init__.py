@@ -7,18 +7,18 @@ __version__ = "3.0.0"
 from .data.config import config, setup_logging
 
 # Main pipeline classes
-from .data.enhanced_pipeline import EnhancedResearchPipeline
-from .data.enhanced_resumable_pipeline import EnhancedResumablePipeline
+from .llm.pipeline import EnhancedResearchPipeline
+# from .data.enhanced_resumable_pipeline import EnhancedResumablePipeline  # File not found
 
 # Database and data management
-from .data.database_manager_enhanced import EnhancedDatabaseManager, database_manager
+from .paper_collection.database_manager import EnhancedDatabaseManager, database_manager
 from .data.api_clients import APIClientManager, client_manager
 
 # Processing modules
-from .data.pubmed_collector_enhanced import EnhancedPubMedCollector
-from .data.probiotic_analyzer_enhanced import EnhancedProbioticAnalyzer
-from .data.paper_parser_enhanced import EnhancedPubmedParser
-from .data.fulltext_retriever_enhanced import EnhancedFullTextRetriever
+from .paper_collection.pubmed_collector import EnhancedPubMedCollector
+from .llm.probiotic_analyzer import EnhancedProbioticAnalyzer
+from .paper_collection.paper_parser import EnhancedPubmedParser
+from .paper_collection.fulltext_retriever import EnhancedFullTextRetriever
 
 # Utilities
 from .data.utils import (
@@ -29,7 +29,7 @@ from .data.utils import (
 
 __all__ = [
     'config', 'setup_logging',
-    'EnhancedResearchPipeline', 'EnhancedResumablePipeline',
+    'EnhancedResearchPipeline',  # 'EnhancedResumablePipeline',
     'EnhancedDatabaseManager', 'database_manager',
     'APIClientManager', 'client_manager',
     'EnhancedPubMedCollector', 'EnhancedProbioticAnalyzer',

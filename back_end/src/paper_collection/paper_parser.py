@@ -13,9 +13,9 @@ current_dir = Path(__file__).parent
 if str(current_dir) not in sys.path:
     sys.path.insert(0, str(current_dir))
 
-from config import config, setup_logging
-from database_manager_enhanced import database_manager
-from utils import log_execution_time, batch_process
+from ..data.config import config, setup_logging
+from .database_manager import database_manager
+from ..data.utils import log_execution_time, batch_process
 
 logger = setup_logging(__name__, 'paper_parser.log')
 

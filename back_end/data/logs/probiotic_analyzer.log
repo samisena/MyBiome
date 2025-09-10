@@ -564,3 +564,164 @@
 2025-09-09 20:20:04,281 - probiotic_analyzer_enhanced - INFO - Processing paper 2/2: 39159626
 2025-09-09 20:22:35,587 - probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with model: llama3.1:8b
 2025-09-09 20:40:56,717 - probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with model: llama3.1:8b
+2025-09-10 17:02:03,955 - probiotic_analyzer_enhanced - INFO - Enhanced analyzer initialized with model: llama3.1:8b
+2025-09-10 17:02:03,955 - probiotic_analyzer_enhanced - INFO - Found 50 unprocessed papers
+2025-09-10 17:02:03,955 - probiotic_analyzer_enhanced - INFO - Starting extraction for 50 papers (batch size: 5)
+2025-09-10 17:02:03,955 - probiotic_analyzer_enhanced - INFO - Processing batch 1/10 (5 papers)
+2025-09-10 17:02:03,955 - probiotic_analyzer_enhanced - INFO - Processing paper 1/50: 40546150
+2025-09-10 17:02:15,741 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 40546150
+2025-09-10 17:02:16,256 - probiotic_analyzer_enhanced - INFO - Processing paper 2/50: 39940404
+2025-09-10 17:02:22,024 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 39940404
+2025-09-10 17:02:22,542 - probiotic_analyzer_enhanced - INFO - Processing paper 3/50: 39126817
+2025-09-10 17:02:33,815 - probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 39126817
+2025-09-10 17:02:34,333 - probiotic_analyzer_enhanced - INFO - Processing paper 4/50: 38653808
+2025-09-10 17:02:34,335 - probiotic_analyzer_enhanced - INFO - Using full-text content for paper 38653808
+2025-09-10 17:02:49,725 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Stool frequency significantly improved in the Prob...
+2025-09-10 17:02:49,725 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Stool frequency significantly improved in the AF g...
+2025-09-10 17:02:49,725 - probiotic_analyzer_enhanced - INFO - Extracted 3 correlations from 38653808
+2025-09-10 17:02:50,360 - probiotic_analyzer_enhanced - INFO - Processing paper 5/50: 38999862
+2025-09-10 17:02:56,461 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Bifidobacterium lactis Bb12 significantly improved...
+2025-09-10 17:02:56,461 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 38999862
+2025-09-10 17:02:57,474 - probiotic_analyzer_enhanced - INFO - Processing batch 2/10 (5 papers)
+2025-09-10 17:02:57,474 - probiotic_analyzer_enhanced - INFO - Processing paper 6/50: 38658619
+2025-09-10 17:02:58,469 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 38658619
+2025-09-10 17:02:58,974 - probiotic_analyzer_enhanced - INFO - Processing paper 7/50: 38331656
+2025-09-10 17:03:18,452 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: At the individual level, Lactobacillus could be us...
+2025-09-10 17:03:18,452 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: At the individual level, Bifidobacterium could be ...
+2025-09-10 17:03:18,452 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: At the individual level, Bacillus could be useful ...
+2025-09-10 17:03:18,452 - probiotic_analyzer_enhanced - INFO - Extracted 4 correlations from 38331656
+2025-09-10 17:03:18,958 - probiotic_analyzer_enhanced - INFO - Processing paper 8/50: 38717445
+2025-09-10 17:03:19,611 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 38717445
+2025-09-10 17:03:20,117 - probiotic_analyzer_enhanced - INFO - Processing paper 9/50: 39060737
+2025-09-10 17:03:45,088 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Limited but yet encouraging evidence exists for L....
+2025-09-10 17:03:45,088 - probiotic_analyzer_enhanced - INFO - Extracted 4 correlations from 39060737
+2025-09-10 17:03:45,593 - probiotic_analyzer_enhanced - INFO - Processing paper 10/50: 37541528
+2025-09-10 17:05:29,341 - probiotic_analyzer_enhanced - INFO - Extracted 26 correlations from 37541528
+2025-09-10 17:05:30,379 - probiotic_analyzer_enhanced - INFO - Processing batch 3/10 (5 papers)
+2025-09-10 17:05:30,379 - probiotic_analyzer_enhanced - INFO - Processing paper 11/50: 37686889
+2025-09-10 17:05:35,021 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved IBS symptoms...
+2025-09-10 17:05:35,021 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 37686889
+2025-09-10 17:05:35,526 - probiotic_analyzer_enhanced - INFO - Processing paper 12/50: 38700306
+2025-09-10 17:05:42,437 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: The remedial modalities in the existing literature...
+2025-09-10 17:05:42,437 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 38700306
+2025-09-10 17:05:42,940 - probiotic_analyzer_enhanced - INFO - Processing paper 13/50: 37184752
+2025-09-10 17:05:52,917 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Lactobacillus plantarum DSM 9843 may be efficaciou...
+2025-09-10 17:05:52,917 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Bifidobacterium bifidum MIMBb75 may be efficacious...
+2025-09-10 17:05:52,917 - probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 37184752
+2025-09-10 17:05:53,437 - probiotic_analyzer_enhanced - INFO - Processing paper 14/50: 37049488
+2025-09-10 17:06:00,899 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved IBS symptoms....
+2025-09-10 17:06:00,899 - probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 37049488
+2025-09-10 17:06:01,418 - probiotic_analyzer_enhanced - INFO - Processing paper 15/50: 37868345
+2025-09-10 17:06:01,420 - probiotic_analyzer_enhanced - INFO - Using full-text content for paper 37868345
+2025-09-10 17:06:05,308 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: B. longum BB536 has been shown to improve IBS symp...
+2025-09-10 17:06:05,308 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 37868345
+2025-09-10 17:06:06,317 - probiotic_analyzer_enhanced - INFO - Processing batch 4/10 (5 papers)
+2025-09-10 17:06:06,317 - probiotic_analyzer_enhanced - INFO - Processing paper 16/50: 36362056
+2025-09-10 17:06:20,507 - probiotic_analyzer_enhanced - INFO - Extracted 3 correlations from 36362056
+2025-09-10 17:06:21,028 - probiotic_analyzer_enhanced - INFO - Processing paper 17/50: 36014888
+2025-09-10 17:06:25,145 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 36014888
+2025-09-10 17:06:25,659 - probiotic_analyzer_enhanced - INFO - Processing paper 18/50: 35419092
+2025-09-10 17:06:25,663 - probiotic_analyzer_enhanced - INFO - Using full-text content for paper 35419092
+2025-09-10 17:06:26,405 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 35419092
+2025-09-10 17:06:26,921 - probiotic_analyzer_enhanced - INFO - Processing paper 19/50: 36269141
+2025-09-10 17:06:30,556 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 36269141
+2025-09-10 17:06:31,075 - probiotic_analyzer_enhanced - INFO - Processing paper 20/50: 35951774
+2025-09-10 17:06:31,075 - probiotic_analyzer_enhanced - WARNING - Paper 35951774 has very short abstract (2 chars)
+2025-09-10 17:06:32,075 - probiotic_analyzer_enhanced - INFO - Processing batch 5/10 (5 papers)
+2025-09-10 17:06:32,075 - probiotic_analyzer_enhanced - INFO - Processing paper 21/50: 35433498
+2025-09-10 17:06:32,078 - probiotic_analyzer_enhanced - INFO - Using full-text content for paper 35433498
+2025-09-10 17:06:32,840 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 35433498
+2025-09-10 17:06:33,356 - probiotic_analyzer_enhanced - INFO - Processing paper 22/50: 34904950
+2025-09-10 17:06:41,615 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 34904950
+2025-09-10 17:06:42,121 - probiotic_analyzer_enhanced - INFO - Processing paper 23/50: 33978391
+2025-09-10 17:06:51,348 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved IBS symptoms...
+2025-09-10 17:06:51,348 - probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 33978391
+2025-09-10 17:06:51,868 - probiotic_analyzer_enhanced - INFO - Processing paper 24/50: 34365915
+2025-09-10 17:06:51,868 - probiotic_analyzer_enhanced - WARNING - Paper 34365915 has very short abstract (59 chars)
+2025-09-10 17:06:52,369 - probiotic_analyzer_enhanced - INFO - Processing paper 25/50: 34578939
+2025-09-10 17:06:57,666 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 34578939
+2025-09-10 17:06:58,677 - probiotic_analyzer_enhanced - INFO - Processing batch 6/10 (5 papers)
+2025-09-10 17:06:58,677 - probiotic_analyzer_enhanced - INFO - Processing paper 26/50: 33903147
+2025-09-10 17:06:58,680 - probiotic_analyzer_enhanced - INFO - Using full-text content for paper 33903147
+2025-09-10 17:06:59,504 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 33903147
+2025-09-10 17:07:00,014 - probiotic_analyzer_enhanced - INFO - Processing paper 27/50: 34203002
+2025-09-10 17:07:04,165 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Bifidobacterium longum BB536 significantly improve...
+2025-09-10 17:07:04,165 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 34203002
+2025-09-10 17:07:04,678 - probiotic_analyzer_enhanced - INFO - Processing paper 28/50: 33183883
+2025-09-10 17:07:13,651 - probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 33183883
+2025-09-10 17:07:14,160 - probiotic_analyzer_enhanced - INFO - Processing paper 29/50: 33652763
+2025-09-10 17:07:24,076 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: B420 significantly improved IBS-D symptoms...
+2025-09-10 17:07:24,076 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LA-14 significantly improved IBS-D symptoms...
+2025-09-10 17:07:24,076 - probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 33652763
+2025-09-10 17:07:24,588 - probiotic_analyzer_enhanced - INFO - Processing paper 30/50: 33545934
+2025-09-10 17:07:31,463 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 33545934
+2025-09-10 17:07:32,472 - probiotic_analyzer_enhanced - INFO - Processing batch 7/10 (5 papers)
+2025-09-10 17:07:32,472 - probiotic_analyzer_enhanced - INFO - Processing paper 31/50: 32635661
+2025-09-10 17:07:33,061 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 32635661
+2025-09-10 17:07:33,568 - probiotic_analyzer_enhanced - INFO - Processing paper 32/50: 32277872
+2025-09-10 17:07:41,203 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Patients were allocated to receive either two plac...
+2025-09-10 17:07:41,204 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 32277872
+2025-09-10 17:07:41,718 - probiotic_analyzer_enhanced - INFO - Processing paper 33/50: 32326347
+2025-09-10 17:07:42,312 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 32326347
+2025-09-10 17:07:42,832 - probiotic_analyzer_enhanced - INFO - Processing paper 34/50: 32054443
+2025-09-10 17:07:42,840 - probiotic_analyzer_enhanced - INFO - Using full-text content for paper 32054443
+2025-09-10 17:07:55,819 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved IBS symptoms...
+2025-09-10 17:07:55,819 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: BB536 has beneficial effects on gut microbiota and...
+2025-09-10 17:07:55,819 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Lactobacillus acidophilus has antimicrobial impact...
+2025-09-10 17:07:55,819 - probiotic_analyzer_enhanced - INFO - Extracted 3 correlations from 32054443
+2025-09-10 17:07:56,330 - probiotic_analyzer_enhanced - INFO - Processing paper 35/50: 32019158
+2025-09-10 17:07:56,942 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 32019158
+2025-09-10 17:07:57,947 - probiotic_analyzer_enhanced - INFO - Processing batch 8/10 (5 papers)
+2025-09-10 17:07:57,947 - probiotic_analyzer_enhanced - INFO - Processing paper 36/50: 31480656
+2025-09-10 17:08:10,087 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved IBS symptoms...
+2025-09-10 17:08:10,087 - probiotic_analyzer_enhanced - INFO - Extracted 3 correlations from 31480656
+2025-09-10 17:08:10,605 - probiotic_analyzer_enhanced - INFO - Processing paper 37/50: 31122802
+2025-09-10 17:08:11,487 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 31122802
+2025-09-10 17:08:11,990 - probiotic_analyzer_enhanced - INFO - Processing paper 38/50: 29688915
+2025-09-10 17:08:11,993 - probiotic_analyzer_enhanced - INFO - Using full-text content for paper 29688915
+2025-09-10 17:08:28,990 - probiotic_analyzer_enhanced - INFO - Extracted 3 correlations from 29688915
+2025-09-10 17:08:29,501 - probiotic_analyzer_enhanced - INFO - Processing paper 39/50: 30845384
+2025-09-10 17:08:34,356 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: Bifidobacterium longum BB536 significantly improve...
+2025-09-10 17:08:34,357 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 30845384
+2025-09-10 17:08:34,866 - probiotic_analyzer_enhanced - INFO - Processing paper 40/50: 30294792
+2025-09-10 17:08:39,341 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 30294792
+2025-09-10 17:08:40,363 - probiotic_analyzer_enhanced - INFO - Processing batch 9/10 (5 papers)
+2025-09-10 17:08:40,363 - probiotic_analyzer_enhanced - INFO - Processing paper 41/50: 28625832
+2025-09-10 17:08:40,367 - probiotic_analyzer_enhanced - INFO - Using full-text content for paper 28625832
+2025-09-10 17:08:50,569 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: The probiotic formulation increased numbers of Bif...
+2025-09-10 17:08:50,569 - probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 28625832
+2025-09-10 17:08:51,077 - probiotic_analyzer_enhanced - INFO - Processing paper 42/50: 28483500
+2025-09-10 17:09:23,266 - probiotic_analyzer_enhanced - INFO - Extracted 7 correlations from 28483500
+2025-09-10 17:09:23,783 - probiotic_analyzer_enhanced - INFO - Processing paper 43/50: 28274108
+2025-09-10 17:09:32,668 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved IBS symptoms...
+2025-09-10 17:09:32,668 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: BB536 has been shown to improve IBS symptoms...
+2025-09-10 17:09:32,668 - probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 28274108
+2025-09-10 17:09:33,181 - probiotic_analyzer_enhanced - INFO - Processing paper 44/50: 26819502
+2025-09-10 17:09:41,447 - probiotic_analyzer_enhanced - INFO - Extracted 2 correlations from 26819502
+2025-09-10 17:09:41,954 - probiotic_analyzer_enhanced - INFO - Processing paper 45/50: 27161354
+2025-09-10 17:10:02,135 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: B. lactis BB12 significantly improved IBS symptoms...
+2025-09-10 17:10:02,135 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved IBS symptoms...
+2025-09-10 17:10:02,135 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: B. bifidum Bb12 significantly improved IBD symptom...
+2025-09-10 17:10:02,135 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: L. acidophilus NCFM significantly improved NEC sym...
+2025-09-10 17:10:02,135 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: B. lactis HN019 significantly improved atopic symp...
+2025-09-10 17:10:02,137 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved AAD symptoms...
+2025-09-10 17:10:02,137 - probiotic_analyzer_enhanced - INFO - Extracted 6 correlations from 27161354
+2025-09-10 17:10:03,150 - probiotic_analyzer_enhanced - INFO - Processing batch 10/10 (5 papers)
+2025-09-10 17:10:03,150 - probiotic_analyzer_enhanced - INFO - Processing paper 46/50: 25070051
+2025-09-10 17:10:23,961 - probiotic_analyzer_enhanced - WARNING - Correlation 2 validation failed for 25070051: correlation_strength must be between 0.0 and 1.0
+2025-09-10 17:10:23,961 - probiotic_analyzer_enhanced - INFO - Extracted 3 correlations from 25070051
+2025-09-10 17:10:24,478 - probiotic_analyzer_enhanced - INFO - Processing paper 47/50: 23384803
+2025-09-10 17:10:25,196 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 23384803
+2025-09-10 17:10:25,713 - probiotic_analyzer_enhanced - INFO - Processing paper 48/50: 22314561
+2025-09-10 17:10:34,833 - probiotic_analyzer_enhanced - WARNING - Supporting quote may not match abstract: LGG significantly improved IBS symptoms...
+2025-09-10 17:10:34,833 - probiotic_analyzer_enhanced - WARNING - Correlation 1 validation failed for 22314561: Missing required field: health_condition
+2025-09-10 17:10:34,833 - probiotic_analyzer_enhanced - INFO - Extracted 1 correlations from 22314561
+2025-09-10 17:10:35,342 - probiotic_analyzer_enhanced - INFO - Processing paper 49/50: 21872090
+2025-09-10 17:10:35,989 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 21872090
+2025-09-10 17:10:36,492 - probiotic_analyzer_enhanced - INFO - Processing paper 50/50: 20890316
+2025-09-10 17:10:37,202 - probiotic_analyzer_enhanced - INFO - No correlations extracted from 20890316
+2025-09-10 17:10:37,206 - probiotic_analyzer_enhanced - INFO - === Extraction Summary ===
+2025-09-10 17:10:37,206 - probiotic_analyzer_enhanced - INFO - Papers processed: 36/50 (72.0%)
+2025-09-10 17:10:37,206 - probiotic_analyzer_enhanced - INFO - Correlations found: 99
+2025-09-10 17:10:37,206 - probiotic_analyzer_enhanced - INFO - Token usage: 48526 total
+2025-09-10 17:10:37,206 - probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 513.25s

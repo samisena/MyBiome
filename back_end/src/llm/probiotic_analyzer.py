@@ -14,10 +14,10 @@ current_dir = Path(__file__).parent
 if str(current_dir) not in sys.path:
     sys.path.insert(0, str(current_dir))
 
-from config import config, setup_logging, LLMConfig
-from api_clients import client_manager
-from database_manager_enhanced import database_manager
-from utils import (log_execution_time, retry_with_backoff, parse_json_safely,
+from ..data.config import config, setup_logging, LLMConfig
+from ..data.api_clients import client_manager
+from ..paper_collection.database_manager import database_manager
+from ..data.utils import (log_execution_time, retry_with_backoff, parse_json_safely,
                    validate_correlation_data, ValidationError, batch_process, read_fulltext_content)
 
 logger = setup_logging(__name__, 'probiotic_analyzer.log')
@@ -84,8 +84,8 @@ PAPER:
 {paper_content}
 
 Return ONLY valid JSON. No extra text. Each correlation needs these fields:
-- probiotic_strain: strain name or "..." if complex
-- health_condition: condition name  
+- probiotic_strain: specific strain name (e.g., "Lactobacillus rhamnosus GG") - MUST be a valid strain name, not a placeholder
+- health_condition: specific condition name  
 - correlation_type: "positive", "negative", "neutral", or "inconclusive"
 - correlation_strength: number 0.0-1.0 or null
 - confidence_score: number 0.0-1.0 or null  
@@ -95,12 +95,18 @@ Return ONLY valid JSON. No extra text. Each correlation needs these fields:
 - dosage: dose info or null
 - supporting_quote: relevant quote from text
 
-Examples:
+IMPORTANT RULES:
+- ONLY extract correlations where you can identify specific probiotic strain names
+- DO NOT use placeholders like "...", "various probiotics", "multiple strains", "probiotics", etc.
+- If specific strain names are not mentioned, skip that correlation entirely
+- Each probiotic_strain must be a real, specific strain (genus + species + strain identifier when available)
+- Examples of valid strain names: "Lactobacillus rhamnosus GG", "Bifidobacterium longum BB536", "Lactobacillus acidophilus"
+- Examples of INVALID entries to avoid: "...", "probiotics", "various strains", "multiple probiotics"
+
+Example of valid extraction:
 [{{"probiotic_strain":"Lactobacillus rhamnosus GG","health_condition":"irritable bowel syndrome","correlation_type":"positive","correlation_strength":0.8,"confidence_score":0.9,"study_type":"RCT","sample_size":100,"study_duration":"8 weeks","dosage":"10^9 CFU/day","supporting_quote":"LGG significantly improved IBS symptoms"}}]
 
-[{{"probiotic_strain":"...","health_condition":"constipation","correlation_type":"inconclusive","correlation_strength":null,"confidence_score":null,"study_type":"meta_analysis","sample_size":null,"study_duration":null,"dosage":null,"supporting_quote":"insufficient evidence for probiotics"}}]
-
-Return [] if no correlations found."""
+Return [] if no specific strain names are found or no correlations can be extracted."""
     
     @retry_with_backoff(max_retries=3, exceptions=(Exception,))
     def extract_correlations(self, paper: Dict) -> List[Dict]:

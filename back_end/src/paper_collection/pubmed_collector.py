@@ -13,12 +13,12 @@ current_dir = Path(__file__).parent
 if str(current_dir) not in sys.path:
     sys.path.insert(0, str(current_dir))
 
-from config import config, setup_logging
-from api_clients import client_manager
-from database_manager_enhanced import database_manager
-from paper_parser_enhanced import EnhancedPubmedParser
-from fulltext_retriever_enhanced import EnhancedFullTextRetriever
-from utils import log_execution_time, batch_process, safe_file_write
+from ..data.config import config, setup_logging
+from ..data.api_clients import client_manager
+from .database_manager import database_manager
+from .paper_parser import EnhancedPubmedParser
+from .fulltext_retriever import EnhancedFullTextRetriever
+from ..data.utils import log_execution_time, batch_process, safe_file_write
 
 logger = setup_logging(__name__, 'pubmed_collector.log')
 
