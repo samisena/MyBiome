@@ -3,16 +3,10 @@ Example usage of the enhanced MyBiome data pipeline.
 This demonstrates how to use the new architecture effectively.
 """
 
-import sys
 from pathlib import Path
 
-# Add project root to path
-project_root = Path(__file__).parent.parent.parent
-sys.path.append(str(project_root))
-
-from src.data.config import config, setup_logging
-from src.data.enhanced_pipeline import EnhancedResearchPipeline
-from src.data.migrate_to_enhanced import main as run_migration
+from config import config, setup_logging
+from enhanced_pipeline import EnhancedResearchPipeline
 
 
 def example_basic_research():
@@ -47,7 +41,7 @@ def example_data_collection_only():
     """Example: Just collect papers without analysis."""
     print("\n=== Example: Data Collection Only ===")
     
-    from src.data.pubmed_collector_enhanced import EnhancedPubMedCollector
+    from .pubmed_collector_enhanced import EnhancedPubMedCollector
     
     collector = EnhancedPubMedCollector()
     
@@ -71,7 +65,7 @@ def example_analysis_only():
     """Example: Analyze existing papers in database."""
     print("\n=== Example: Analysis Only ===")
     
-    from src.data.probiotic_analyzer_enhanced import EnhancedProbioticAnalyzer
+    from .probiotic_analyzer_enhanced import EnhancedProbioticAnalyzer
     
     # Create analyzer with custom configuration
     custom_config = config.get_llm_config(
@@ -99,7 +93,7 @@ def example_database_exploration():
     """Example: Explore database contents."""
     print("\n=== Example: Database Exploration ===")
     
-    from src.data.database_manager_enhanced import database_manager
+    from .database_manager_enhanced import database_manager
     
     # Get comprehensive statistics
     stats = database_manager.get_database_stats()
@@ -177,7 +171,7 @@ def main():
     try:
         # Skip migration for basic testing - just ensure database is ready
         print("Skipping migration - testing core functionality...")
-        from src.data.database_manager_enhanced import database_manager
+        from .database_manager_enhanced import database_manager
         print(f"Database ready: {database_manager.db_path}")
         migration_success = True
         

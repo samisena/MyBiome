@@ -11,9 +11,16 @@ from typing import List, Dict, Optional, Any
 from datetime import datetime
 from queue import Queue, Empty
 from dataclasses import dataclass
+import sys
+from pathlib import Path
 
-from .config import config, setup_logging
-from .utils import validate_paper_data, validate_correlation_data, ValidationError
+# Add the current directory to sys.path for imports
+current_dir = Path(__file__).parent
+if str(current_dir) not in sys.path:
+    sys.path.insert(0, str(current_dir))
+
+from config import config, setup_logging
+from utils import validate_paper_data, validate_correlation_data, ValidationError
 
 logger = setup_logging(__name__, 'database.log')
 
@@ -417,6 +424,32 @@ class EnhancedDatabaseManager:
             conn.commit()
             return cursor.rowcount > 0
     
+    def get_papers_by_condition(self, condition: str, limit: Optional[int] = None) -> List[Dict]:
+        """Get papers related to a specific health condition."""
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            
+            # Search for papers containing the condition in title, abstract, or keywords
+            query = '''
+                SELECT * FROM papers 
+                WHERE (LOWER(title) LIKE LOWER(?) 
+                       OR LOWER(abstract) LIKE LOWER(?) 
+                       OR LOWER(keywords) LIKE LOWER(?))
+                  AND abstract IS NOT NULL 
+                  AND abstract != ''
+                ORDER BY publication_date DESC
+            '''
+            
+            condition_pattern = f"%{condition}%"
+            params = [condition_pattern, condition_pattern, condition_pattern]
+            
+            if limit:
+                query += ' LIMIT ?'
+                params.append(limit)
+            
+            cursor.execute(query, params)
+            return [dict(row) for row in cursor.fetchall()]
+
     def get_database_stats(self) -> Dict[str, Any]:
         """Get comprehensive database statistics."""
         with self.get_connection() as conn:

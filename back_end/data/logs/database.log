@@ -293,3 +293,160 @@
 2025-09-08 18:20:58,043 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum MIMBb75 - IBS
 2025-09-08 18:21:05,736 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - IBS Symptom Severity Scale
 2025-09-08 18:21:15,799 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - constipation
+2025-09-09 18:09:30,568 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:09:30,568 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:10:45,781 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:10:45,781 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:11:38,959 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:11:38,959 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:13:02,819 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:13:02,819 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:13:33,041 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:13:33,041 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:13:43,277 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:13:43,277 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:14:09,224 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:14:09,224 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:14:51,510 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:14:51,510 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:16:26,978 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:16:26,978 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:32:02,378 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:32:02,378 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:32:07,967 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:32:07,967 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:32:17,123 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:32:17,123 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:32:23,113 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:32:23,114 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:47:22,372 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:47:22,372 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at c:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:57:36,916 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:57:36,916 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:57:44,575 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:57:44,575 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 18:58:01,502 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 18:58:01,502 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:08:42,961 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:08:42,961 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:08:48,377 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:08:48,377 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:10:16,460 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:10:16,460 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:11:42,956 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:11:42,956 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:12:09,431 - src.data.database_manager_enhanced - INFO - Inserted correlation: Limosilactobacillus reuteri DSM 17938 - infantile colic
+2025-09-09 19:12:09,432 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - constipation
+2025-09-09 19:12:09,432 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - functional abdominal pain (FAP)
+2025-09-09 19:12:09,434 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - irritable bowel syndrome (IBS)
+2025-09-09 19:12:22,455 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum - irritable bowel syndrome
+2025-09-09 19:12:22,456 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-09 19:12:22,457 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium lactis - irritable bowel syndrome
+2025-09-09 19:12:22,458 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - constipation
+2025-09-09 19:12:32,066 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lactobacillus plantarum DSM 9843 - irritable bowel syndrome
+2025-09-09 19:12:32,067 - src.data.database_manager_enhanced - INFO - Inserted correlation: Bifidobacterium bifidum MIMBb75 - irritable bowel syndrome
+2025-09-09 19:12:38,589 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - irritable bowel syndrome
+2025-09-09 19:12:51,865 - src.data.database_manager_enhanced - INFO - Inserted correlation: Lactobacillus rhamnosus GG - irritable bowel syndrome
+2025-09-09 19:12:51,867 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - constipation
+2025-09-09 19:12:51,868 - src.data.database_manager_enhanced - INFO - Inserted correlation: prebiotics - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-09 19:12:51,868 - src.data.database_manager_enhanced - INFO - Inserted correlation: ... - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-09 19:16:40,323 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:16:40,323 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:16:46,323 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:16:46,323 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:40:49,084 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:40:49,084 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:40:54,082 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:40:54,082 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:41:26,969 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:41:26,970 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:42:31,543 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:42:31,543 - database_manager_enhanced - INFO - Enhanced database manager initialized at c:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:43:01,239 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:43:01,239 - database_manager_enhanced - INFO - Enhanced database manager initialized at c:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:45:18,080 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:45:18,080 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:47:58,437 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:47:58,437 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:50:05,563 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:50:05,563 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:51:29,900 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:51:29,901 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:54:13,344 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 19:54:13,344 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 19:54:17,132 - database_manager_enhanced - INFO - Inserted new paper: 35951774
+2025-09-09 19:54:17,137 - database_manager_enhanced - INFO - Inserted new paper: 30294792
+2025-09-09 19:54:17,138 - database_manager_enhanced - INFO - Inserted new paper: 38999862
+2025-09-09 19:54:17,139 - database_manager_enhanced - INFO - Inserted new paper: 28483500
+2025-09-09 19:54:17,139 - database_manager_enhanced - INFO - Inserted new paper: 31480656
+2025-09-09 19:54:17,140 - database_manager_enhanced - INFO - Inserted new paper: 31122802
+2025-09-09 19:54:17,141 - database_manager_enhanced - INFO - Inserted new paper: 33903147
+2025-09-09 19:54:17,142 - database_manager_enhanced - INFO - Inserted new paper: 28274108
+2025-09-09 19:54:17,143 - database_manager_enhanced - INFO - Inserted new paper: 34578939
+2025-09-09 19:54:17,143 - database_manager_enhanced - INFO - Inserted new paper: 25070051
+2025-09-09 19:54:17,145 - database_manager_enhanced - INFO - Inserted new paper: 39940404
+2025-09-09 19:54:17,146 - database_manager_enhanced - INFO - Inserted new paper: 36269141
+2025-09-09 19:54:17,147 - database_manager_enhanced - INFO - Inserted new paper: 38331656
+2025-09-09 19:54:17,148 - database_manager_enhanced - INFO - Inserted new paper: 34365915
+2025-09-09 19:54:17,148 - database_manager_enhanced - INFO - Inserted new paper: 38717445
+2025-09-09 19:54:17,149 - database_manager_enhanced - INFO - Inserted new paper: 37868345
+2025-09-09 19:54:17,150 - database_manager_enhanced - INFO - Inserted new paper: 32635661
+2025-09-09 19:54:17,151 - database_manager_enhanced - INFO - Inserted new paper: 32019158
+2025-09-09 19:54:17,151 - database_manager_enhanced - INFO - Inserted new paper: 29688915
+2025-09-09 19:54:17,152 - database_manager_enhanced - INFO - Inserted new paper: 33183883
+2025-09-09 19:54:17,152 - database_manager_enhanced - INFO - Inserted new paper: 32326347
+2025-09-09 19:54:17,152 - database_manager_enhanced - INFO - Inserted new paper: 33545934
+2025-09-09 19:54:17,152 - database_manager_enhanced - INFO - Inserted new paper: 36362056
+2025-09-09 19:54:17,152 - database_manager_enhanced - INFO - Inserted new paper: 38653808
+2025-09-09 19:54:17,152 - database_manager_enhanced - INFO - Inserted new paper: 28625832
+2025-09-09 19:54:17,158 - database_manager_enhanced - INFO - Inserted new paper: 33652763
+2025-09-09 19:54:17,159 - database_manager_enhanced - INFO - Inserted new paper: 40546150
+2025-09-09 19:54:17,160 - database_manager_enhanced - INFO - Inserted new paper: 39126817
+2025-09-09 19:54:17,161 - database_manager_enhanced - INFO - Inserted new paper: 38700306
+2025-09-09 19:54:17,162 - database_manager_enhanced - INFO - Inserted new paper: 30845384
+2025-09-09 19:54:17,162 - database_manager_enhanced - INFO - Inserted new paper: 32277872
+2025-09-09 19:54:17,163 - database_manager_enhanced - INFO - Inserted new paper: 23384803
+2025-09-09 19:54:17,165 - database_manager_enhanced - INFO - Inserted new paper: 26819502
+2025-09-09 19:54:17,165 - database_manager_enhanced - INFO - Inserted new paper: 27161354
+2025-09-09 19:54:17,166 - database_manager_enhanced - INFO - Inserted new paper: 34904950
+2025-09-09 19:54:17,167 - database_manager_enhanced - INFO - Inserted new paper: 38658619
+2025-09-09 19:54:17,168 - database_manager_enhanced - INFO - Inserted new paper: 20890316
+2025-09-09 19:54:17,168 - database_manager_enhanced - INFO - Inserted new paper: 21872090
+2025-09-09 19:54:17,169 - database_manager_enhanced - INFO - Inserted new paper: 33978391
+2025-09-09 20:00:39,547 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:00:39,547 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:08:59,172 - src.data.database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:08:59,172 - src.data.database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:08:59,176 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:08:59,176 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:09:32,885 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:09:32,885 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:09:42,070 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:09:42,070 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:12:17,146 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:12:17,146 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:19:28,843 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:19:28,843 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:19:30,699 - database_manager_enhanced - INFO - Inserted new paper: 32300799
+2025-09-09 20:19:30,699 - database_manager_enhanced - INFO - Inserted new paper: 37168869
+2025-09-09 20:19:54,529 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:19:54,529 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:20:03,270 - database_manager_enhanced - INFO - Inserted correlation: ... - irritable bowel syndrome
+2025-09-09 20:20:03,272 - database_manager_enhanced - INFO - Inserted correlation: ... - irritable bowel syndrome
+2025-09-09 20:22:34,944 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:22:34,944 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:29:46,630 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:29:46,630 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:30:07,951 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:30:07,951 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:37:02,393 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:37:02,393 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:38:04,861 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:38:04,861 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:39:00,672 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:39:00,672 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:39:52,356 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:39:52,356 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-09 20:39:52,357 - database_manager_enhanced - ERROR - Database connection error: 'charmap' codec can't encode character '\u2192' in position 37: character maps to <undefined>
+2025-09-09 20:40:56,103 - database_manager_enhanced - INFO - Database tables and indexes created successfully
+2025-09-09 20:40:56,103 - database_manager_enhanced - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db

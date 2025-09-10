@@ -1,27 +1,28 @@
--> Start analyzing papers in. Focus on the big 5: IBS, IBD, GERD,
+-> Some probiotic relationships are extarcted as ...
+-> Figure out a technique to fix this (double checking?)
+-> Include a way for papers to be skipped if they don't
+discuss probiotics instead of inserting ...
+-> remove token output limit in case there are numerous
+strains mentioned
+-> Ask the LLM to first count the number of probiotics mentioned
+then study them while making sure it didnt study
+the same probiotic twice, and that it didn't miss any 
+of the ones it counted
+
+
+
+-> Start analyzing papers in batches. Focus on the big 5: IBS, IBD, GERD,
  constipation, diarhea.
 
--> Only use gemma (google) and llama (meta)
+-> Focus on llama only for now (meta)
 
--> llama perfroms best. gemma has trouble understanding the prompt
--> Investigate if i should just use llama exclusively
+-> The pipeline checks 4 times for free papers which wastes time. 2 checks are enough, otherwise it's a paywall issue.
 
 Quality assurance workflow: first model extracts → validation catches issues 
 → second model verifies problematic extractions → humans review what both 
 models couldn't handle.
 
-
-Next steps:
-Add a way to stop paper correlation extraction and resume where we left off
-
-
--> Only llama 3.1 process full texts because it has a large
-context window
-
-
--> The models are outputing different correlations.
-I'm going to need to do some manual reviwe.
-Followed by some fine tuning (NVIDIA CEO advice)
+-> Manually review about 100 examples and do some fine tuning (NVIDIA CEO advice)
 
 Fine tuning approach:
 1. First, manually annotate 20-30 abstracts with your relationship triples

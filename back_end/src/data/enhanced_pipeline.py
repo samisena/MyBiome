@@ -6,12 +6,18 @@ This replaces the scattered pipeline logic with a centralized, efficient approac
 import time
 from typing import List, Dict, Optional, Any
 from pathlib import Path
+import sys
 
-from .config import config, setup_logging
-from .database_manager_enhanced import database_manager
-from .pubmed_collector_enhanced import EnhancedPubMedCollector  
-from .probiotic_analyzer_enhanced import EnhancedProbioticAnalyzer
-from .utils import log_execution_time, format_duration, calculate_success_rate
+# Add the current directory to sys.path for imports
+current_dir = Path(__file__).parent
+if str(current_dir) not in sys.path:
+    sys.path.insert(0, str(current_dir))
+
+from config import config, setup_logging
+from database_manager_enhanced import database_manager
+from pubmed_collector_enhanced import EnhancedPubMedCollector  
+from probiotic_analyzer_enhanced import EnhancedProbioticAnalyzer
+from utils import log_execution_time, format_duration, calculate_success_rate
 
 logger = setup_logging(__name__, 'enhanced_pipeline.log')
 

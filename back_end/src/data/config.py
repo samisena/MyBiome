@@ -32,7 +32,8 @@ class DatabaseConfig:
 class APIConfig:
     """API configuration settings."""
     ncbi_api_key: Optional[str] = None
-    email: str = "your_email@example.com"
+    email: str = "samisena@outlook" \
+    ".com"
     pubmed_base_url: str = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
     pmc_base_url: str = "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi"
     unpaywall_base_url: str = "https://api.unpaywall.org/v2"
@@ -54,7 +55,7 @@ class APIConfig:
 class LLMConfig:
     """LLM configuration settings."""
     base_url: str = "http://localhost:11434/v1"
-    model_name: str = "deepseek-llm:7b-chat"
+    model_name: str = "llama3.1:8b"
     temperature: float = 0.3
     max_tokens: int = 4096
     api_key: str = "not-needed"  # For local Ollama
@@ -173,6 +174,20 @@ def setup_logging(name: str, log_file: Optional[str] = None,
         logger.addHandler(file_handler)
     
     return logger
+
+
+# Import management functionality
+def ensure_project_in_path():
+    """Ensure the project root is in sys.path for imports."""
+    import sys
+    project_root_str = str(project_root)
+    if project_root_str not in sys.path:
+        sys.path.insert(0, project_root_str)
+
+
+def get_module_path(*components):
+    """Get a module path relative to the project root."""
+    return ".".join(["back_end", "src"] + list(components))
 
 
 # Global configuration instance

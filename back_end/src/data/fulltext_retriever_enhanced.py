@@ -5,11 +5,17 @@ This replaces the original fulltext_retriever.py with better efficiency.
 
 from typing import Dict, Optional, List, Any
 from pathlib import Path
+import sys
 
-from .config import config, setup_logging
-from .api_clients import client_manager
-from .database_manager_enhanced import database_manager
-from .utils import log_execution_time, batch_process, safe_file_write
+# Add the current directory to sys.path for imports
+current_dir = Path(__file__).parent
+if str(current_dir) not in sys.path:
+    sys.path.insert(0, str(current_dir))
+
+from config import config, setup_logging
+from api_clients import client_manager
+from database_manager_enhanced import database_manager
+from utils import log_execution_time, batch_process, safe_file_write
 
 logger = setup_logging(__name__, 'fulltext_retriever.log')
 

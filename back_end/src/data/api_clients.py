@@ -7,9 +7,16 @@ import time
 import requests
 from typing import Dict, Optional, Any
 from openai import OpenAI
+from pathlib import Path
+import sys
 
-from .config import config, LLMConfig, setup_logging
-from .utils import rate_limit, retry_with_backoff
+# Add the current directory to sys.path for imports
+current_dir = Path(__file__).parent
+if str(current_dir) not in sys.path:
+    sys.path.insert(0, str(current_dir))
+
+from config import config, LLMConfig, setup_logging
+from utils import rate_limit, retry_with_backoff
 
 logger = setup_logging(__name__)
 
@@ -73,7 +80,7 @@ class PubMedAPIClient:
             self.session.params = {'api_key': self.api_key}
     
     @rate_limit(0.5)  # 2 requests per second max
-    @retry_with_backoff(max_retries=3, exceptions=(requests.RequestException,))
+    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
     def search_papers(self, query: str, min_year: int = 2000, 
                      max_results: int = 100) -> Dict[str, Any]:
         """Search for papers using PubMed API."""
@@ -104,7 +111,7 @@ class PubMedAPIClient:
         }
     
     @rate_limit(0.5)
-    @retry_with_backoff(max_retries=3, exceptions=(requests.RequestException,))
+    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
     def fetch_papers(self, pmid_list: list) -> str:
         """Fetch paper metadata using PubMed API."""
         if not pmid_list:
@@ -135,7 +142,7 @@ class PMCAPIClient:
         self.session = requests.Session()
     
     @rate_limit(0.5)
-    @retry_with_backoff(max_retries=3, exceptions=(requests.RequestException,))
+    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
     def get_fulltext_info(self, pmc_id: str) -> Optional[Dict[str, Any]]:
         """Get fulltext availability info from PMC."""
         clean_pmc_id = pmc_id.replace('PMC', '') if pmc_id.startswith('PMC') else pmc_id
@@ -179,7 +186,7 @@ class PMCAPIClient:
             return None
     
     @rate_limit(0.5)
-    @retry_with_backoff(max_retries=3, exceptions=(requests.RequestException,))
+    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
     def download_fulltext(self, xml_url: str) -> Optional[str]:
         """Download fulltext XML from PMC."""
         response = self.session.get(xml_url, timeout=60)
@@ -198,7 +205,7 @@ class UnpaywallAPIClient:
         self.session = requests.Session()
     
     @rate_limit(1.0)  # 1 request per second max
-    @retry_with_backoff(max_retries=3, exceptions=(requests.RequestException,))
+    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
     def check_open_access(self, doi: str) -> Optional[Dict[str, Any]]:
         """Check if paper is open access via Unpaywall."""
         # Clean DOI
@@ -246,7 +253,7 @@ class UnpaywallAPIClient:
         
         return None
     
-    @retry_with_backoff(max_retries=3, exceptions=(requests.RequestException,))
+    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
     def download_pdf(self, pdf_url: str) -> Optional[bytes]:
         """Download PDF from URL."""
         time.sleep(1)  # Be polite

@@ -49,3 +49,109 @@
 2025-09-08 18:15:42,766 - src.data.paper_parser_enhanced - INFO - Parsing completed: 10 papers parsed
 2025-09-08 18:15:42,766 - src.data.paper_parser_enhanced - INFO - Database operations: 4 new, 6 existing
 2025-09-08 18:15:42,768 - src.data.paper_parser_enhanced - INFO - parse_metadata_file completed in 0.03s
+2025-09-09 18:09:31,311 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:10:46,379 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:10:46,428 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:10:46,428 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:10:46,457 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:10:46,458 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:10:46,459 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:10:46,459 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:11:39,548 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:11:39,602 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:11:39,604 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:11:39,618 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:11:39,618 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:11:39,619 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:11:39,619 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:11:39,620 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:03,402 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:03,457 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:03,458 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:03,474 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:03,474 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:03,475 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:03,475 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:03,477 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:33,636 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:33,694 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:33,694 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:33,709 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:33,710 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:33,710 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:33,711 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:33,712 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:43,858 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:43,923 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:43,924 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:43,940 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:43,940 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:43,940 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:43,940 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:13:43,943 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:14:09,796 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:14:52,064 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:14:52,126 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:14:52,127 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:14:52,141 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:14:52,142 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:14:52,143 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:14:52,144 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:14:52,144 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:32:23,119 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:47:22,901 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:47:22,960 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:47:22,969 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:47:22,976 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:47:22,991 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 19:10:16,507 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 19:10:17,920 - src.data.paper_parser_enhanced - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757441417.xml
+2025-09-09 19:10:17,935 - src.data.paper_parser_enhanced - INFO - Found 5 articles in XML
+2025-09-09 19:10:17,935 - src.data.paper_parser_enhanced - INFO - Processing batch 1/1 (5 articles)
+2025-09-09 19:10:17,935 - src.data.paper_parser_enhanced - INFO - Parsing completed: 5 papers parsed
+2025-09-09 19:10:17,935 - src.data.paper_parser_enhanced - INFO - Database operations: 0 new, 5 existing
+2025-09-09 19:10:17,935 - src.data.paper_parser_enhanced - INFO - parse_metadata_file completed in 0.02s
+2025-09-09 19:11:42,999 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 19:11:44,173 - src.data.paper_parser_enhanced - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757441504.xml
+2025-09-09 19:11:44,183 - src.data.paper_parser_enhanced - INFO - Found 5 articles in XML
+2025-09-09 19:11:44,183 - src.data.paper_parser_enhanced - INFO - Processing batch 1/1 (5 articles)
+2025-09-09 19:11:44,183 - src.data.paper_parser_enhanced - INFO - Parsing completed: 5 papers parsed
+2025-09-09 19:11:44,183 - src.data.paper_parser_enhanced - INFO - Database operations: 0 new, 5 existing
+2025-09-09 19:11:44,183 - src.data.paper_parser_enhanced - INFO - parse_metadata_file completed in 0.01s
+2025-09-09 19:54:13,930 - paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 19:54:17,077 - paper_parser_enhanced - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757444057.xml
+2025-09-09 19:54:17,127 - paper_parser_enhanced - INFO - Found 50 articles in XML
+2025-09-09 19:54:17,128 - paper_parser_enhanced - INFO - Processing batch 1/1 (50 articles)
+2025-09-09 19:54:17,170 - paper_parser_enhanced - INFO - Parsing completed: 50 papers parsed
+2025-09-09 19:54:17,170 - paper_parser_enhanced - INFO - Database operations: 39 new, 11 existing
+2025-09-09 19:54:17,170 - paper_parser_enhanced - INFO - parse_metadata_file completed in 0.09s
+2025-09-09 20:00:40,093 - paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 20:00:44,629 - paper_parser_enhanced - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757444444.xml
+2025-09-09 20:00:44,671 - paper_parser_enhanced - INFO - Found 50 articles in XML
+2025-09-09 20:00:44,671 - paper_parser_enhanced - INFO - Processing batch 1/1 (50 articles)
+2025-09-09 20:00:44,671 - paper_parser_enhanced - INFO - Parsing completed: 50 papers parsed
+2025-09-09 20:00:44,671 - paper_parser_enhanced - INFO - Database operations: 0 new, 50 existing
+2025-09-09 20:00:44,679 - paper_parser_enhanced - INFO - parse_metadata_file completed in 0.05s
+2025-09-09 20:12:17,803 - paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 20:12:19,154 - paper_parser_enhanced - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757445139.xml
+2025-09-09 20:12:19,168 - paper_parser_enhanced - INFO - Found 5 articles in XML
+2025-09-09 20:12:19,168 - paper_parser_enhanced - INFO - Processing batch 1/1 (5 articles)
+2025-09-09 20:12:19,169 - paper_parser_enhanced - INFO - Parsing completed: 5 papers parsed
+2025-09-09 20:12:19,169 - paper_parser_enhanced - INFO - Database operations: 0 new, 5 existing
+2025-09-09 20:12:19,169 - paper_parser_enhanced - INFO - parse_metadata_file completed in 0.01s
+2025-09-09 20:19:29,421 - paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 20:19:30,682 - paper_parser_enhanced - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757445570.xml
+2025-09-09 20:19:30,682 - paper_parser_enhanced - INFO - Found 2 articles in XML
+2025-09-09 20:19:30,682 - paper_parser_enhanced - INFO - Processing batch 1/1 (2 articles)
+2025-09-09 20:19:30,699 - paper_parser_enhanced - INFO - Parsing completed: 2 papers parsed
+2025-09-09 20:19:30,699 - paper_parser_enhanced - INFO - Database operations: 2 new, 0 existing
+2025-09-09 20:19:30,699 - paper_parser_enhanced - INFO - parse_metadata_file completed in 0.02s
+2025-09-09 20:19:55,108 - paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 20:22:35,535 - paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 20:22:39,377 - paper_parser_enhanced - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757445759.xml
+2025-09-09 20:22:39,423 - paper_parser_enhanced - INFO - Found 50 articles in XML
+2025-09-09 20:22:39,423 - paper_parser_enhanced - INFO - Processing batch 1/1 (50 articles)
+2025-09-09 20:22:39,429 - paper_parser_enhanced - INFO - Parsing completed: 50 papers parsed
+2025-09-09 20:22:39,429 - paper_parser_enhanced - INFO - Database operations: 0 new, 50 existing
+2025-09-09 20:22:39,430 - paper_parser_enhanced - INFO - parse_metadata_file completed in 0.05s
+2025-09-09 20:40:56,670 - paper_parser_enhanced - INFO - Enhanced PubMed parser initialized

@@ -6,11 +6,18 @@ This replaces the original probiotic_analyzer.py with better error handling and 
 import time
 from typing import Dict, List, Optional
 from dataclasses import dataclass
+import sys
+from pathlib import Path
 
-from .config import config, setup_logging, LLMConfig
-from .api_clients import client_manager
-from .database_manager_enhanced import database_manager
-from .utils import (log_execution_time, retry_with_backoff, parse_json_safely,
+# Add the current directory to sys.path for imports
+current_dir = Path(__file__).parent
+if str(current_dir) not in sys.path:
+    sys.path.insert(0, str(current_dir))
+
+from config import config, setup_logging, LLMConfig
+from api_clients import client_manager
+from database_manager_enhanced import database_manager
+from utils import (log_execution_time, retry_with_backoff, parse_json_safely,
                    validate_correlation_data, ValidationError, batch_process, read_fulltext_content)
 
 logger = setup_logging(__name__, 'probiotic_analyzer.log')
@@ -36,22 +43,14 @@ class EnhancedProbioticAnalyzer:
         # Get LLM client from centralized manager
         self.client = client_manager.get_llm_client(self.config)
         
-        # Large context model for full-text papers
-        self.fulltext_config = LLMConfig(
-            model_name="llama3.1:8b",
-            base_url="http://localhost:11434/v1",
-            max_tokens=4000,
-            temperature=0.1,
-            api_key="not-needed"
-        )
-        self.fulltext_client = client_manager.get_llm_client(self.fulltext_config)
+        # Use the same configuration for all papers (Llama 3.1 8b can handle both abstracts and full-text)
+        # No need for separate fulltext configuration
         
         # Token tracking
         self.total_input_tokens = 0
         self.total_output_tokens = 0
         
-        logger.info(f"Enhanced analyzer initialized with default model: {self.config.model_name}")
-        logger.info(f"Full-text model configured: {self.fulltext_config.model_name}")
+        logger.info(f"Enhanced analyzer initialized with model: {self.config.model_name}")
     
     def create_extraction_prompt(self, paper: Dict) -> str:
         """
@@ -68,19 +67,14 @@ class EnhancedProbioticAnalyzer:
         content_sections.append(f"Title: {paper['title']}")
         content_sections.append(f"Abstract: {paper['abstract']}")
         
-        # Add full-text if available - no truncation since we'll use Llama 3.1 8B
-        has_fulltext = False
+        # Add full-text if available - Llama 3.1 8B handles both abstracts and full-text well
         if paper.get('has_fulltext') and paper.get('fulltext_path'):
             fulltext_content = read_fulltext_content(paper['fulltext_path'])
             if fulltext_content:
                 content_sections.append(f"Full Text: {fulltext_content}")
-                has_fulltext = True
-                logger.info(f"Using full-text content for paper {paper.get('pmid', 'unknown')} - will use large context model")
+                logger.info(f"Using full-text content for paper {paper.get('pmid', 'unknown')}")
             else:
                 logger.warning(f"Could not read full-text for paper {paper.get('pmid', 'unknown')}")
-        
-        # Store whether this paper has full-text for model selection
-        paper['_uses_fulltext'] = has_fulltext
         
         paper_content = "\n\n".join(content_sections)
         
@@ -137,19 +131,12 @@ Return [] if no correlations found."""
             # Create prompt
             prompt = self.create_extraction_prompt(paper)
             
-            # Select appropriate model and client based on whether full-text is used
-            if paper.get('_uses_fulltext', False):
-                client_to_use = self.fulltext_client
-                config_to_use = self.fulltext_config
-                logger.info(f"Using large context model {config_to_use.model_name} for full-text paper {pmid}")
-            else:
-                client_to_use = self.client
-                config_to_use = self.config
-                logger.debug(f"Using default model {config_to_use.model_name} for abstract-only paper {pmid}")
+            # Use single model (Llama 3.1 8b) for all papers
+            logger.debug(f"Using {self.config.model_name} for paper {pmid}")
             
             # Call LLM API
-            response = client_to_use.chat.completions.create(
-                model=config_to_use.model_name,
+            response = self.client.chat.completions.create(
+                model=self.config.model_name,
                 messages=[
                     {
                         "role": "system",
@@ -157,8 +144,8 @@ Return [] if no correlations found."""
                     },
                     {"role": "user", "content": prompt}
                 ],
-                temperature=config_to_use.temperature,
-                max_tokens=config_to_use.max_tokens
+                temperature=self.config.temperature,
+                max_tokens=self.config.max_tokens
             )
             
             # Extract response
@@ -179,7 +166,7 @@ Return [] if no correlations found."""
             correlations = parse_json_safely(response_text, pmid)
             
             # Validate and enhance correlations
-            validated_correlations = self._validate_and_enhance_correlations(correlations, paper, config_to_use)
+            validated_correlations = self._validate_and_enhance_correlations(correlations, paper, self.config)
             
             if validated_correlations:
                 logger.info(f"Extracted {len(validated_correlations)} correlations from {pmid}")

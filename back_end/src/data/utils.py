@@ -11,8 +11,14 @@ import re
 import xml.etree.ElementTree as ET
 from typing import Any, Callable, Dict, List, Optional, TypeVar, Union
 from pathlib import Path
+import sys
 
-from .config import setup_logging
+# Add the current directory to sys.path for imports
+current_dir = Path(__file__).parent
+if str(current_dir) not in sys.path:
+    sys.path.insert(0, str(current_dir))
+
+from config import setup_logging
 
 F = TypeVar('F', bound=Callable[..., Any])
 

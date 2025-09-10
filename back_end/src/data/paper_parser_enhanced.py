@@ -6,10 +6,16 @@ This replaces the original paper_parser.py with better architecture.
 import xml.etree.ElementTree as ET
 from typing import List, Dict, Optional
 from pathlib import Path
+import sys
 
-from .config import config, setup_logging
-from .database_manager_enhanced import database_manager
-from .utils import log_execution_time, batch_process
+# Add the current directory to sys.path for imports
+current_dir = Path(__file__).parent
+if str(current_dir) not in sys.path:
+    sys.path.insert(0, str(current_dir))
+
+from config import config, setup_logging
+from database_manager_enhanced import database_manager
+from utils import log_execution_time, batch_process
 
 logger = setup_logging(__name__, 'paper_parser.log')
 

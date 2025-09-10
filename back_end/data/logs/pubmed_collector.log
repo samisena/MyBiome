@@ -84,3 +84,165 @@
 2025-09-08 18:16:53,454 - src.data.pubmed_collector_enhanced - INFO - Fulltext processing completed: {'total_candidates': 9, 'processed': 9, 'successful_pmc': 0, 'successful_unpaywall': 0, 'failed': 9, 'errors': ['35419092: No open access full text found', '37541528: No open access full text found', '35433498: No open access full text found', '37184752: No open access full text found', '34203002: No open access full text found', '32054443: No open access full text found', '36014888: No open access full text found', '37686889: No open access full text found', '39060737: No open access full text found']}
 2025-09-08 18:16:53,455 - src.data.pubmed_collector_enhanced - INFO - Collection completed successfully: Successfully collected 10 papers
 2025-09-08 18:16:53,455 - src.data.pubmed_collector_enhanced - INFO - collect_probiotics_by_condition completed in 72.57s
+2025-09-09 18:09:31,311 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:10:46,380 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:10:46,428 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:10:46,428 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:10:46,457 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:10:46,458 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:10:46,459 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:10:46,459 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:11:39,548 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:11:39,602 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:11:39,604 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:11:39,618 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:11:39,618 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:11:39,619 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:11:39,619 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:11:39,621 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:03,403 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:03,457 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:03,458 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:03,474 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:03,474 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:03,475 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:03,475 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:03,477 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:33,636 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:33,694 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:33,694 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:33,709 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:33,710 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:33,710 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:33,711 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:33,712 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:43,858 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:43,923 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:43,925 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:43,940 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:43,940 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:43,940 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:43,940 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:13:43,943 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:14:09,796 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:14:52,064 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:14:52,127 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:14:52,127 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:14:52,141 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:14:52,142 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:14:52,144 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:14:52,144 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:14:52,145 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:32:23,119 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:47:22,901 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:47:22,960 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:47:22,971 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:47:22,978 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 18:47:22,991 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 19:10:16,507 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 19:10:16,557 - src.data.pubmed_collector_enhanced - INFO - Starting bulk collection for 1 conditions
+2025-09-09 19:10:16,557 - src.data.pubmed_collector_enhanced - INFO - Processing condition 1/1: IBS
+2025-09-09 19:10:16,557 - src.data.pubmed_collector_enhanced - INFO - Starting collection for condition: IBS
+2025-09-09 19:10:16,557 - src.data.pubmed_collector_enhanced - INFO - Using query: ("IBS"[Title/Abstract] OR "IBS"[MeSH Terms]) AND (probiotic*[Title/Abstract] OR "Probiotics"[MeSH Terms] OR lactobacillus[Title/Abstract] OR bifidobacterium[Title/Abstract] OR "lactic acid bacteria"[Title/Abstract] OR saccharomyces[Title/Abstract] OR synbiotic*[Title/Abstract] OR "Bacillus subtilis"[Title/Abstract] OR "Streptococcus thermophilus"[Title/Abstract])
+2025-09-09 19:10:17,390 - src.data.pubmed_collector_enhanced - INFO - search_papers completed in 0.83s
+2025-09-09 19:10:17,920 - src.data.pubmed_collector_enhanced - INFO - Saved metadata for 5 papers to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757441417.xml
+2025-09-09 19:10:17,920 - src.data.pubmed_collector_enhanced - INFO - fetch_papers_metadata completed in 0.53s
+2025-09-09 19:10:17,951 - src.data.pubmed_collector_enhanced - INFO - Collection completed successfully: Successfully collected 5 papers
+2025-09-09 19:10:17,951 - src.data.pubmed_collector_enhanced - INFO - collect_probiotics_by_condition completed in 1.39s
+2025-09-09 19:10:17,952 - src.data.pubmed_collector_enhanced - INFO - Bulk collection results saved to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\bulk_collection_results_1757441417.json
+2025-09-09 19:10:17,952 - src.data.pubmed_collector_enhanced - INFO - Bulk collection completed: 5 papers across 1 conditions
+2025-09-09 19:10:17,952 - src.data.pubmed_collector_enhanced - INFO - bulk_collect_conditions completed in 1.39s
+2025-09-09 19:11:42,999 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 19:11:43,062 - src.data.pubmed_collector_enhanced - INFO - Starting bulk collection for 1 conditions
+2025-09-09 19:11:43,062 - src.data.pubmed_collector_enhanced - INFO - Processing condition 1/1: IBS
+2025-09-09 19:11:43,062 - src.data.pubmed_collector_enhanced - INFO - Starting collection for condition: IBS
+2025-09-09 19:11:43,062 - src.data.pubmed_collector_enhanced - INFO - Using query: ("IBS"[Title/Abstract] OR "IBS"[MeSH Terms]) AND (probiotic*[Title/Abstract] OR "Probiotics"[MeSH Terms] OR lactobacillus[Title/Abstract] OR bifidobacterium[Title/Abstract] OR "lactic acid bacteria"[Title/Abstract] OR saccharomyces[Title/Abstract] OR synbiotic*[Title/Abstract] OR "Bacillus subtilis"[Title/Abstract] OR "Streptococcus thermophilus"[Title/Abstract])
+2025-09-09 19:11:43,660 - src.data.pubmed_collector_enhanced - INFO - search_papers completed in 0.60s
+2025-09-09 19:11:44,173 - src.data.pubmed_collector_enhanced - INFO - Saved metadata for 5 papers to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757441504.xml
+2025-09-09 19:11:44,173 - src.data.pubmed_collector_enhanced - INFO - fetch_papers_metadata completed in 0.51s
+2025-09-09 19:11:44,183 - src.data.pubmed_collector_enhanced - INFO - Collection completed successfully: Successfully collected 5 papers
+2025-09-09 19:11:44,183 - src.data.pubmed_collector_enhanced - INFO - collect_probiotics_by_condition completed in 1.12s
+2025-09-09 19:11:44,183 - src.data.pubmed_collector_enhanced - INFO - Bulk collection results saved to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\bulk_collection_results_1757441504.json
+2025-09-09 19:11:44,183 - src.data.pubmed_collector_enhanced - INFO - Bulk collection completed: 5 papers across 1 conditions
+2025-09-09 19:11:44,183 - src.data.pubmed_collector_enhanced - INFO - bulk_collect_conditions completed in 1.12s
+2025-09-09 19:54:13,930 - pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 19:54:13,997 - pubmed_collector_enhanced - INFO - Starting bulk collection for 1 conditions
+2025-09-09 19:54:13,998 - pubmed_collector_enhanced - INFO - Processing condition 1/1: [IBS,]
+2025-09-09 19:54:13,998 - pubmed_collector_enhanced - INFO - Starting collection for condition: [IBS,]
+2025-09-09 19:54:13,998 - pubmed_collector_enhanced - INFO - Using query: ("[IBS,]"[Title/Abstract] OR "[IBS,]"[MeSH Terms]) AND (probiotic*[Title/Abstract] OR "Probiotics"[MeSH Terms] OR lactobacillus[Title/Abstract] OR bifidobacterium[Title/Abstract] OR "lactic acid bacteria"[Title/Abstract] OR saccharomyces[Title/Abstract] OR synbiotic*[Title/Abstract] OR "Bacillus subtilis"[Title/Abstract] OR "Streptococcus thermophilus"[Title/Abstract])
+2025-09-09 19:54:14,791 - pubmed_collector_enhanced - INFO - search_papers completed in 0.79s
+2025-09-09 19:54:17,077 - pubmed_collector_enhanced - INFO - Saved metadata for 50 papers to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757444057.xml
+2025-09-09 19:54:17,077 - pubmed_collector_enhanced - INFO - fetch_papers_metadata completed in 2.29s
+2025-09-09 19:54:17,170 - pubmed_collector_enhanced - INFO - Attempting fulltext retrieval for 50 papers...
+2025-09-09 19:54:17,170 - pubmed_collector_enhanced - INFO - Found 48 papers with fulltext potential
+2025-09-09 19:54:17,170 - pubmed_collector_enhanced - INFO - Processing fulltext batch 1/3
+2025-09-09 20:00:40,093 - pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 20:00:40,167 - pubmed_collector_enhanced - INFO - Starting bulk collection for 1 conditions
+2025-09-09 20:00:40,167 - pubmed_collector_enhanced - INFO - Processing condition 1/1: [IBS,]
+2025-09-09 20:00:40,168 - pubmed_collector_enhanced - INFO - Starting collection for condition: [IBS,]
+2025-09-09 20:00:40,168 - pubmed_collector_enhanced - INFO - Using query: ("[IBS,]"[Title/Abstract] OR "[IBS,]"[MeSH Terms]) AND (probiotic*[Title/Abstract] OR "Probiotics"[MeSH Terms] OR lactobacillus[Title/Abstract] OR bifidobacterium[Title/Abstract] OR "lactic acid bacteria"[Title/Abstract] OR saccharomyces[Title/Abstract] OR synbiotic*[Title/Abstract] OR "Bacillus subtilis"[Title/Abstract] OR "Streptococcus thermophilus"[Title/Abstract])
+2025-09-09 20:00:40,765 - pubmed_collector_enhanced - INFO - search_papers completed in 0.60s
+2025-09-09 20:00:44,629 - pubmed_collector_enhanced - INFO - Saved metadata for 50 papers to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757444444.xml
+2025-09-09 20:00:44,629 - pubmed_collector_enhanced - INFO - fetch_papers_metadata completed in 3.86s
+2025-09-09 20:00:44,679 - pubmed_collector_enhanced - INFO - Attempting fulltext retrieval for 50 papers...
+2025-09-09 20:00:44,680 - pubmed_collector_enhanced - INFO - Found 48 papers with fulltext potential
+2025-09-09 20:00:44,681 - pubmed_collector_enhanced - INFO - Processing fulltext batch 1/3
+2025-09-09 20:02:59,848 - pubmed_collector_enhanced - INFO - Processing fulltext batch 2/3
+2025-09-09 20:04:58,363 - pubmed_collector_enhanced - INFO - Processing fulltext batch 3/3
+2025-09-09 20:05:31,373 - pubmed_collector_enhanced - INFO - Fulltext processing completed: {'total_candidates': 48, 'processed': 48, 'successful_pmc': 0, 'successful_unpaywall': 11, 'failed': 37, 'errors': ['37541528: No open access full text found', '37184752: No open access full text found', '34203002: No open access full text found', '36014888: No open access full text found', '37686889: No open access full text found', '39060737: No open access full text found', '35951774: No open access full text found', '37049488: No open access full text found', '30294792: No open access full text found', '38999862: No open access full text found', '28483500: No open access full text found', '31480656: No open access full text found', '31122802: No open access full text found', '28274108: No open access full text found', '34578939: No open access full text found', '25070051: No open access full text found', '39940404: No open access full text found', '36269141: No open access full text found', '38331656: No open access full text found', '34365915: No open access full text found', '38717445: No open access full text found', '32635661: No open access full text found', '32019158: No open access full text found', '33183883: No open access full text found', '32326347: No open access full text found', '33545934: No open access full text found', '36362056: No open access full text found', '33652763: No open access full text found', '39126817: No open access full text found', '38700306: No open access full text found', '32277872: No open access full text found', '23384803: No open access full text found', '26819502: No open access full text found', '27161354: No open access full text found', '20890316: No open access full text found', '21872090: No open access full text found', '33978391: No open access full text found']}
+2025-09-09 20:05:31,373 - pubmed_collector_enhanced - INFO - Collection completed successfully: Successfully collected 50 papers
+2025-09-09 20:05:31,373 - pubmed_collector_enhanced - INFO - collect_probiotics_by_condition completed in 291.21s
+2025-09-09 20:05:31,374 - pubmed_collector_enhanced - INFO - Bulk collection results saved to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\bulk_collection_results_1757444731.json
+2025-09-09 20:05:31,374 - pubmed_collector_enhanced - INFO - Bulk collection completed: 50 papers across 1 conditions
+2025-09-09 20:05:31,375 - pubmed_collector_enhanced - INFO - bulk_collect_conditions completed in 291.21s
+2025-09-09 20:12:17,803 - pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 20:12:17,861 - pubmed_collector_enhanced - INFO - Starting bulk collection for 1 conditions
+2025-09-09 20:12:17,861 - pubmed_collector_enhanced - INFO - Processing condition 1/1: IBS
+2025-09-09 20:12:17,862 - pubmed_collector_enhanced - INFO - Starting collection for condition: IBS
+2025-09-09 20:12:17,862 - pubmed_collector_enhanced - INFO - Using query: ("IBS"[Title/Abstract] OR "IBS"[MeSH Terms]) AND (probiotic*[Title/Abstract] OR "Probiotics"[MeSH Terms] OR lactobacillus[Title/Abstract] OR bifidobacterium[Title/Abstract] OR "lactic acid bacteria"[Title/Abstract] OR saccharomyces[Title/Abstract] OR synbiotic*[Title/Abstract] OR "Bacillus subtilis"[Title/Abstract] OR "Streptococcus thermophilus"[Title/Abstract])
+2025-09-09 20:12:18,495 - pubmed_collector_enhanced - INFO - search_papers completed in 0.63s
+2025-09-09 20:12:19,154 - pubmed_collector_enhanced - INFO - Saved metadata for 5 papers to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757445139.xml
+2025-09-09 20:12:19,154 - pubmed_collector_enhanced - INFO - fetch_papers_metadata completed in 0.66s
+2025-09-09 20:12:19,169 - pubmed_collector_enhanced - INFO - Attempting fulltext retrieval for 5 papers...
+2025-09-09 20:12:19,169 - pubmed_collector_enhanced - INFO - Found 4 papers with fulltext potential
+2025-09-09 20:12:19,169 - pubmed_collector_enhanced - INFO - Processing fulltext batch 1/1
+2025-09-09 20:12:37,291 - pubmed_collector_enhanced - INFO - Fulltext processing completed: {'total_candidates': 4, 'processed': 4, 'successful_pmc': 0, 'successful_unpaywall': 2, 'failed': 2, 'errors': ['37541528: No open access full text found', '37184752: No open access full text found']}
+2025-09-09 20:12:37,291 - pubmed_collector_enhanced - INFO - Collection completed successfully: Successfully collected 5 papers
+2025-09-09 20:12:37,291 - pubmed_collector_enhanced - INFO - collect_probiotics_by_condition completed in 19.43s
+2025-09-09 20:12:37,291 - pubmed_collector_enhanced - INFO - Bulk collection results saved to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\bulk_collection_results_1757445157.json
+2025-09-09 20:12:37,291 - pubmed_collector_enhanced - INFO - Bulk collection completed: 5 papers across 1 conditions
+2025-09-09 20:12:37,291 - pubmed_collector_enhanced - INFO - bulk_collect_conditions completed in 19.43s
+2025-09-09 20:19:29,421 - pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 20:19:29,474 - pubmed_collector_enhanced - INFO - Starting bulk collection for 1 conditions
+2025-09-09 20:19:29,474 - pubmed_collector_enhanced - INFO - Processing condition 1/1: test
+2025-09-09 20:19:29,474 - pubmed_collector_enhanced - INFO - Starting collection for condition: test
+2025-09-09 20:19:29,474 - pubmed_collector_enhanced - INFO - Using query: ("test"[Title/Abstract] OR "test"[MeSH Terms]) AND (probiotic*[Title/Abstract] OR "Probiotics"[MeSH Terms] OR lactobacillus[Title/Abstract] OR bifidobacterium[Title/Abstract] OR "lactic acid bacteria"[Title/Abstract] OR saccharomyces[Title/Abstract] OR synbiotic*[Title/Abstract] OR "Bacillus subtilis"[Title/Abstract] OR "Streptococcus thermophilus"[Title/Abstract])
+2025-09-09 20:19:30,199 - pubmed_collector_enhanced - INFO - search_papers completed in 0.73s
+2025-09-09 20:19:30,682 - pubmed_collector_enhanced - INFO - Saved metadata for 2 papers to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757445570.xml
+2025-09-09 20:19:30,682 - pubmed_collector_enhanced - INFO - fetch_papers_metadata completed in 0.48s
+2025-09-09 20:19:30,699 - pubmed_collector_enhanced - INFO - Collection completed successfully: Successfully collected 2 papers
+2025-09-09 20:19:30,699 - pubmed_collector_enhanced - INFO - collect_probiotics_by_condition completed in 1.23s
+2025-09-09 20:19:30,699 - pubmed_collector_enhanced - INFO - Bulk collection results saved to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\bulk_collection_results_1757445570.json
+2025-09-09 20:19:30,699 - pubmed_collector_enhanced - INFO - Bulk collection completed: 2 papers across 1 conditions
+2025-09-09 20:19:30,699 - pubmed_collector_enhanced - INFO - bulk_collect_conditions completed in 1.23s
+2025-09-09 20:19:55,108 - pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 20:22:35,535 - pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
+2025-09-09 20:22:35,614 - pubmed_collector_enhanced - INFO - Starting bulk collection for 1 conditions
+2025-09-09 20:22:35,614 - pubmed_collector_enhanced - INFO - Processing condition 1/1: [IBS,]
+2025-09-09 20:22:35,614 - pubmed_collector_enhanced - INFO - Starting collection for condition: [IBS,]
+2025-09-09 20:22:35,614 - pubmed_collector_enhanced - INFO - Using query: ("[IBS,]"[Title/Abstract] OR "[IBS,]"[MeSH Terms]) AND (probiotic*[Title/Abstract] OR "Probiotics"[MeSH Terms] OR lactobacillus[Title/Abstract] OR bifidobacterium[Title/Abstract] OR "lactic acid bacteria"[Title/Abstract] OR saccharomyces[Title/Abstract] OR synbiotic*[Title/Abstract] OR "Bacillus subtilis"[Title/Abstract] OR "Streptococcus thermophilus"[Title/Abstract])
+2025-09-09 20:22:36,220 - pubmed_collector_enhanced - INFO - search_papers completed in 0.60s
+2025-09-09 20:22:39,377 - pubmed_collector_enhanced - INFO - Saved metadata for 50 papers to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757445759.xml
+2025-09-09 20:22:39,377 - pubmed_collector_enhanced - INFO - fetch_papers_metadata completed in 3.16s
+2025-09-09 20:22:39,431 - pubmed_collector_enhanced - INFO - Attempting fulltext retrieval for 50 papers...
+2025-09-09 20:22:39,432 - pubmed_collector_enhanced - INFO - Found 48 papers with fulltext potential
+2025-09-09 20:22:39,432 - pubmed_collector_enhanced - INFO - Processing fulltext batch 1/3
+2025-09-09 20:23:38,786 - pubmed_collector_enhanced - INFO - Processing fulltext batch 2/3
+2025-09-09 20:24:50,411 - pubmed_collector_enhanced - INFO - Processing fulltext batch 3/3
+2025-09-09 20:25:13,167 - pubmed_collector_enhanced - INFO - Fulltext processing completed: {'total_candidates': 48, 'processed': 48, 'successful_pmc': 0, 'successful_unpaywall': 11, 'failed': 37, 'errors': ['37541528: No open access full text found', '37184752: No open access full text found', '34203002: No open access full text found', '36014888: No open access full text found', '37686889: No open access full text found', '39060737: No open access full text found', '35951774: No open access full text found', '37049488: No open access full text found', '30294792: No open access full text found', '38999862: No open access full text found', '28483500: No open access full text found', '31480656: No open access full text found', '31122802: No open access full text found', '28274108: No open access full text found', '34578939: No open access full text found', '25070051: No open access full text found', '39940404: No open access full text found', '36269141: No open access full text found', '38331656: No open access full text found', '34365915: No open access full text found', '38717445: No open access full text found', '32635661: No open access full text found', '32019158: No open access full text found', '33183883: No open access full text found', '32326347: No open access full text found', '33545934: No open access full text found', '36362056: No open access full text found', '33652763: No open access full text found', '39126817: No open access full text found', '38700306: No open access full text found', '32277872: No open access full text found', '23384803: No open access full text found', '26819502: No open access full text found', '27161354: No open access full text found', '20890316: No open access full text found', '21872090: No open access full text found', '33978391: No open access full text found']}
+2025-09-09 20:25:13,167 - pubmed_collector_enhanced - INFO - Collection completed successfully: Successfully collected 50 papers
+2025-09-09 20:25:13,168 - pubmed_collector_enhanced - INFO - collect_probiotics_by_condition completed in 157.55s
+2025-09-09 20:25:13,169 - pubmed_collector_enhanced - INFO - Bulk collection results saved to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\bulk_collection_results_1757445913.json
+2025-09-09 20:25:13,169 - pubmed_collector_enhanced - INFO - Bulk collection completed: 50 papers across 1 conditions
+2025-09-09 20:25:13,169 - pubmed_collector_enhanced - INFO - bulk_collect_conditions completed in 157.55s
+2025-09-09 20:40:56,670 - pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized

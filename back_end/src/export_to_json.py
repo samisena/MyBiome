@@ -13,7 +13,7 @@ from typing import Dict, List, Any
 def get_database_path() -> str:
     """Get the path to the SQLite database."""
     script_dir = Path(__file__).parent
-    db_path = script_dir.parent.parent / "data" / "processed" / "pubmed_research.db"
+    db_path = script_dir.parent / "data" / "processed" / "pubmed_research.db"
     return str(db_path)
 
 def get_output_path() -> str:

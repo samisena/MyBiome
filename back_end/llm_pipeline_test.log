@@ -1600,3 +1600,6 @@
 2025-09-08 18:21:17,192 - __main__ - INFO - Four model comparison completed successfully!
 2025-09-08 18:21:17,192 - __main__ - INFO - Results saved to: C:\Users\samis\Desktop\MyBiome\back_end\src\data\test_files\four_model_comparison_results_1757352077.json
 2025-09-08 18:21:17,192 - __main__ - INFO - ============================================================
+2025-09-09 18:32:23,119 - src.data.paper_parser_enhanced - INFO - Enhanced PubMed parser initialized
+2025-09-09 18:32:23,119 - src.data.fulltext_retriever_enhanced - INFO - Enhanced fulltext retriever initialized
+2025-09-09 18:32:23,119 - src.data.pubmed_collector_enhanced - INFO - Enhanced PubMed collector initialized
