@@ -1,35 +1,36 @@
--> Some probiotic relationships are extarcted as ...
--> Figure out a technique to fix this (double checking?)
--> Include a way for papers to be skipped if they don't
-discuss probiotics instead of inserting ...
--> remove token output limit in case there are numerous
+LLm:
+-> When the LLM doesn't find any probiotics it tends to default
+to lactobacillus rhamnosus GG
+
+-> Give google's Gemma2 9B a second try 
+
+-> Try CPU offloading so that I can run larger models
+
+-> Experiment with new models: gemma 2 9B, llama 3.2 13B and 20B,
+    Qwen 2.5 14B and 32B, Mixtral 8x7B
+
+-> Remove token output limit in case there are numerous
 strains mentioned
+
 -> Ask the LLM to first count the number of probiotics mentioned
 then study them while making sure it didnt study
 the same probiotic twice, and that it didn't miss any 
 of the ones it counted
 
+-> Consider side chaining tasks: first extract key terms from abstarct, then a seperate prompt turns that into JSON 
+format
 
 
--> Start analyzing papers in batches. Focus on the big 5: IBS, IBD, GERD,
- constipation, diarhea.
+Paper search:
+-> Search Medline as well as pubmed and Embase
 
--> Focus on llama only for now (meta)
+-> Start analyzing papers in batches.
 
--> The pipeline checks 4 times for free papers which wastes time. 2 checks are enough, otherwise it's a paywall issue.
 
 Quality assurance workflow: first model extracts → validation catches issues 
 → second model verifies problematic extractions → humans review what both 
 models couldn't handle.
 
--> Manually review about 100 examples and do some fine tuning (NVIDIA CEO advice)
-
-Fine tuning approach:
-1. First, manually annotate 20-30 abstracts with your relationship triples
-2. Create a detailed prompt with 3-5 examples (few-shot)
-3. Run this on 500-1000 abstracts to generate synthetic labels
-4. Manually review and correct a subset (maybe 100-200)
-5. Use this for fine-tuning with LoRA (feasible on your A2000)
 
 
 Hybrid Strategy:
@@ -38,7 +39,6 @@ ENHANCE the subset with full text when available
 Two-tier relationship confidence scoring (abstract only vs full text)
 
 
-Claude recommendations
 -> Citation analyzer: Identifies the most cited/influential papers in your field
 -> Related paper discovery: Finds papers you might miss with keyword-only search
 -> Author network analysis: Identifies key researchers in probiotic research

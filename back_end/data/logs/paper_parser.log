@@ -163,3 +163,55 @@
 2025-09-10 16:55:59,829 - paper_parser_enhanced - INFO - Parsing completed: 50 papers parsed
 2025-09-10 16:55:59,829 - paper_parser_enhanced - INFO - Database operations: 50 new, 0 existing
 2025-09-10 16:55:59,829 - paper_parser_enhanced - INFO - parse_metadata_file completed in 0.08s
+2025-09-11 17:02:59,674 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
+2025-09-11 17:05:16,969 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
+2025-09-11 17:06:27,288 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
+2025-09-11 17:06:46,863 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
+2025-09-11 17:06:46,863 - src.paper_collection.paper_parser - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757348906.xml
+2025-09-11 17:06:46,865 - src.paper_collection.paper_parser - INFO - Found 5 articles in XML
+2025-09-11 17:06:46,865 - src.paper_collection.paper_parser - INFO - Processing batch 1/1 (5 articles)
+2025-09-11 17:06:46,865 - src.paper_collection.paper_parser - INFO - Parsing completed: 5 papers parsed
+2025-09-11 17:06:46,865 - src.paper_collection.paper_parser - INFO - Database operations: 0 new, 5 existing
+2025-09-11 17:06:46,865 - src.paper_collection.paper_parser - INFO - parse_metadata_file completed in 0.00s
+2025-09-11 17:06:46,870 - src.paper_collection.paper_parser - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757349409.xml
+2025-09-11 17:06:46,870 - src.paper_collection.paper_parser - INFO - Found 5 articles in XML
+2025-09-11 17:06:46,870 - src.paper_collection.paper_parser - INFO - Processing batch 1/1 (5 articles)
+2025-09-11 17:06:46,870 - src.paper_collection.paper_parser - INFO - Parsing completed: 5 papers parsed
+2025-09-11 17:06:46,870 - src.paper_collection.paper_parser - INFO - Database operations: 0 new, 5 existing
+2025-09-11 17:06:46,870 - src.paper_collection.paper_parser - INFO - parse_metadata_file completed in 0.00s
+2025-09-11 17:06:46,870 - src.paper_collection.paper_parser - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757349540.xml
+2025-09-11 17:06:46,875 - src.paper_collection.paper_parser - INFO - Found 5 articles in XML
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Processing batch 1/1 (5 articles)
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Parsing completed: 5 papers parsed
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Database operations: 0 new, 5 existing
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - parse_metadata_file completed in 0.01s
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757349762.xml
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Found 5 articles in XML
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Processing batch 1/1 (5 articles)
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Parsing completed: 5 papers parsed
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Database operations: 0 new, 5 existing
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - parse_metadata_file completed in 0.00s
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757349848.xml
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Found 5 articles in XML
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Processing batch 1/1 (5 articles)
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Parsing completed: 5 papers parsed
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Database operations: 0 new, 5 existing
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - parse_metadata_file completed in 0.00s
+2025-09-11 17:06:46,876 - src.paper_collection.paper_parser - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757350483.xml
+2025-09-11 17:06:46,885 - src.paper_collection.paper_parser - INFO - Found 5 articles in XML
+2025-09-11 17:06:46,885 - src.paper_collection.paper_parser - INFO - Processing batch 1/1 (5 articles)
+2025-09-11 17:06:46,885 - src.paper_collection.paper_parser - INFO - Parsing completed: 5 papers parsed
+2025-09-11 17:06:46,885 - src.paper_collection.paper_parser - INFO - Database operations: 0 new, 5 existing
+2025-09-11 17:06:46,885 - src.paper_collection.paper_parser - INFO - parse_metadata_file completed in 0.01s
+2025-09-11 17:06:46,885 - src.paper_collection.paper_parser - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757351742.xml
+2025-09-11 17:06:46,885 - src.paper_collection.paper_parser - INFO - Found 10 articles in XML
+2025-09-11 17:06:46,885 - src.paper_collection.paper_parser - INFO - Processing batch 1/1 (10 articles)
+2025-09-11 17:06:46,890 - src.paper_collection.paper_parser - INFO - Parsing completed: 10 papers parsed
+2025-09-11 17:06:46,890 - src.paper_collection.paper_parser - INFO - Database operations: 0 new, 10 existing
+2025-09-11 17:06:46,890 - src.paper_collection.paper_parser - INFO - parse_metadata_file completed in 0.01s
+2025-09-11 17:06:46,892 - src.paper_collection.paper_parser - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1757519759.xml
+2025-09-11 17:06:46,906 - src.paper_collection.paper_parser - INFO - Found 50 articles in XML
+2025-09-11 17:06:46,906 - src.paper_collection.paper_parser - INFO - Processing batch 1/1 (50 articles)
+2025-09-11 17:06:46,911 - src.paper_collection.paper_parser - INFO - Parsing completed: 50 papers parsed
+2025-09-11 17:06:46,911 - src.paper_collection.paper_parser - INFO - Database operations: 0 new, 50 existing
+2025-09-11 17:06:46,913 - src.paper_collection.paper_parser - INFO - parse_metadata_file completed in 0.02s

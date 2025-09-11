@@ -173,7 +173,7 @@ class EnhancedPubmedParser:
             return None
     
     def _extract_abstract(self, article_meta: ET.Element) -> str:
-        """Extract abstract text, handling structured abstracts."""
+        """Extract abstract text, handling structured abstracts and HTML tags."""
         abstract_parts = []
         
         # Try to find structured abstract first
@@ -186,7 +186,9 @@ class EnhancedPubmedParser:
                 # Structured abstract
                 for text_elem in abstract_texts:
                     label = text_elem.get('Label', '').strip()
-                    content = text_elem.text.strip() if text_elem.text else ''
+                    # Use itertext() to get all text including text after child elements
+                    content_parts = list(text_elem.itertext())
+                    content = ''.join(content_parts).strip()
                     
                     if content:
                         if label:
@@ -194,10 +196,11 @@ class EnhancedPubmedParser:
                         else:
                             abstract_parts.append(content)
             elif len(abstract_texts) == 1:
-                # Simple abstract
-                content = abstract_texts[0].text
+                # Simple abstract - use itertext() to get complete text including after HTML tags
+                content_parts = list(abstract_texts[0].itertext())
+                content = ''.join(content_parts).strip()
                 if content:
-                    abstract_parts.append(content.strip())
+                    abstract_parts.append(content)
         
         return ' '.join(abstract_parts) if abstract_parts else ''
     

@@ -633,3 +633,33 @@
 2025-09-10 18:29:31,220 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
 2025-09-10 18:29:38,141 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
 2025-09-10 18:29:38,141 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 16:42:28,806 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 16:42:28,807 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 16:44:24,090 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 16:44:24,090 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 16:44:33,333 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 16:44:33,333 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 16:44:33,360 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: review_notes
+2025-09-11 16:45:12,731 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 16:45:12,731 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 16:49:28,885 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 16:49:28,885 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 16:51:26,519 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 16:51:26,519 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 16:53:39,736 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 16:53:39,736 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 17:01:31,028 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 17:01:31,028 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 17:02:59,661 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 17:02:59,661 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 17:05:16,942 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 17:05:16,942 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 17:05:16,969 - src.paper_collection.database_manager - ERROR - Database connection error: 'charmap' codec can't encode character '\u202f' in position 86: character maps to <undefined>
+2025-09-11 17:06:27,282 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 17:06:27,282 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 17:06:46,857 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 17:06:46,857 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 17:08:45,225 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 17:08:45,225 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
+2025-09-11 17:11:41,592 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-11 17:11:41,592 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\pubmed_research.db
