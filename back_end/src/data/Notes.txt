@@ -1,45 +1,35 @@
 LLm:
--> When the LLM doesn't find any probiotics it tends to default
-to lactobacillus rhamnosus GG
-
--> Give google's Gemma2 9B a second try 
-
--> Try CPU offloading so that I can run larger models
-
--> Experiment with new models: gemma 2 9B, llama 3.2 13B and 20B,
-    Qwen 2.5 14B and 32B, Mixtral 8x7B
-
 -> Remove token output limit in case there are numerous
 strains mentioned
-
--> Ask the LLM to first count the number of probiotics mentioned
-then study them while making sure it didnt study
-the same probiotic twice, and that it didn't miss any 
-of the ones it counted
 
 -> Consider side chaining tasks: first extract key terms from abstarct, then a seperate prompt turns that into JSON 
 format
 
-
-Paper search:
--> Search Medline as well as pubmed and Embase
-
--> Start analyzing papers in batches.
-
+-> Investigate why out of 50 papers only 2 correlations were extracted.
 
 Quality assurance workflow: first model extracts → validation catches issues 
 → second model verifies problematic extractions → humans review what both 
-models couldn't handle.
-
-
+models couldn't handle. (Check)
 
 Hybrid Strategy:
 Process ALL papers with abstracts (baseline data)
-ENHANCE the subset with full text when available
+ENHANCE the subset with full text when available. (Use powerful models)
 Two-tier relationship confidence scoring (abstract only vs full text)
 
+
+
+Paper search:
+-> Search Medline and Embase as well as pubmed
+
+-> Start analyzing papers in batches overnight
 
 -> Citation analyzer: Identifies the most cited/influential papers in your field
 -> Related paper discovery: Finds papers you might miss with keyword-only search
 -> Author network analysis: Identifies key researchers in probiotic research
 -> Impact scoring: Prioritizes papers by citation count and influence
+
+
+
+
+
+
