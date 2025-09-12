@@ -1124,3 +1124,4 @@
 2025-09-10 16:57:44,850 - fulltext_retriever_enhanced - INFO - check_and_retrieve_fulltext completed in 1.02s
 2025-09-10 16:57:44,850 - fulltext_retriever_enhanced - INFO - Processing fulltext for 30845384: [Irritable Bowel Syndrome]....
 2025-09-10 16:57:44,850 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 30845384 (DOI: 10.4166/kjg.2019.73.2.84)
+2025-09-12 20:28:20,885 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized

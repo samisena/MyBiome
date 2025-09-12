@@ -215,3 +215,5 @@
 2025-09-11 17:06:46,911 - src.paper_collection.paper_parser - INFO - Parsing completed: 50 papers parsed
 2025-09-11 17:06:46,911 - src.paper_collection.paper_parser - INFO - Database operations: 0 new, 50 existing
 2025-09-11 17:06:46,913 - src.paper_collection.paper_parser - INFO - parse_metadata_file completed in 0.02s
+2025-09-12 20:27:54,910 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
+2025-09-12 20:28:20,885 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized

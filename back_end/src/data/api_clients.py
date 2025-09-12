@@ -1,278 +1,211 @@
 """
-Centralized API client management for external services.
-This module provides singleton clients with proper configuration and rate limiting.
+Simplified API clients for external services.
 """
 
 import time
 import requests
-from typing import Dict, Optional, Any
+from typing import Dict, List, Optional
 from openai import OpenAI
-from pathlib import Path
-import sys
-
-# Add the current directory to sys.path for imports
-current_dir = Path(__file__).parent
-if str(current_dir) not in sys.path:
-    sys.path.insert(0, str(current_dir))
-
-from config import config, LLMConfig, setup_logging
-from utils import rate_limit, retry_with_backoff
+from config import config, setup_logging
 
 logger = setup_logging(__name__)
 
 
-class APIClientManager:
-    """Singleton manager for API clients."""
+def api_request(url: str, params: Dict = None, headers: Dict = None, 
+               timeout: int = None, retries: int = 3) -> requests.Response:
+    """
+    Simple API request with retries.
+    """
+    timeout = timeout or config.api_timeout
     
-    _instance = None
-    _clients = {}
-    
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-        return cls._instance
-    
-    def get_pubmed_client(self) -> 'PubMedAPIClient':
-        """Get or create PubMed API client."""
-        if 'pubmed' not in self._clients:
-            self._clients['pubmed'] = PubMedAPIClient()
-        return self._clients['pubmed']
-    
-    def get_pmc_client(self) -> 'PMCAPIClient':
-        """Get or create PMC API client."""
-        if 'pmc' not in self._clients:
-            self._clients['pmc'] = PMCAPIClient()
-        return self._clients['pmc']
-    
-    def get_unpaywall_client(self) -> 'UnpaywallAPIClient':
-        """Get or create Unpaywall API client."""
-        if 'unpaywall' not in self._clients:
-            self._clients['unpaywall'] = UnpaywallAPIClient()
-        return self._clients['unpaywall']
-    
-    def get_llm_client(self, llm_config: Optional[LLMConfig] = None) -> OpenAI:
-        """Get or create LLM client."""
-        if llm_config is None:
-            llm_config = config.llm
+    for attempt in range(retries):
+        try:
+            time.sleep(config.api_delay)  # Simple rate limiting
+            response = requests.get(url, params=params, headers=headers, timeout=timeout)
+            response.raise_for_status()
+            return response
             
-        client_key = f"llm_{llm_config.base_url}_{llm_config.model_name}"
-        
-        if client_key not in self._clients:
-            self._clients[client_key] = OpenAI(
-                api_key=llm_config.api_key,
-                base_url=llm_config.base_url
-            )
-            logger.info(f"Created LLM client for {llm_config.model_name} at {llm_config.base_url}")
-        
-        return self._clients[client_key]
+        except requests.exceptions.RequestException as e:
+            if attempt == retries - 1:
+                logger.error(f"API request failed after {retries} attempts: {e}")
+                raise
+            logger.warning(f"API request failed (attempt {attempt + 1}): {e}")
+            time.sleep(1.0 * (attempt + 1))  # Exponential backoff
 
 
-class PubMedAPIClient:
-    """Wrapper for PubMed API with rate limiting and error handling."""
+class PubMedAPI:
+    """Simple PubMed API client."""
     
     def __init__(self):
-        self.base_url = config.api.pubmed_base_url
-        self.api_key = config.api.ncbi_api_key
-        self.session = requests.Session()
-        
-        # Set up session headers
-        if self.api_key:
-            self.session.params = {'api_key': self.api_key}
+        self.base_url = config.pubmed_base_url
+        self.api_key = config.ncbi_api_key
+        self.email = config.email
     
-    @rate_limit(0.5)  # 2 requests per second max
-    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
-    def search_papers(self, query: str, min_year: int = 2000, 
-                     max_results: int = 100) -> Dict[str, Any]:
-        """Search for papers using PubMed API."""
-        search_url = f"{self.base_url}esearch.fcgi"
-        
-        formatted_query = f"{query} AND {min_year}[PDAT]:3000[PDAT]"
-        
+    def search_papers(self, query: str, min_year: int, max_results: int) -> Dict:
+        """Search for papers."""
         params = {
             'db': 'pubmed',
-            'term': formatted_query,
+            'term': f"{query} AND {min_year}:3000[pdat]",
             'retmax': max_results,
             'retmode': 'json',
-            'sort': 'relevance'
+            'email': self.email
         }
         
-        response = self.session.get(search_url, params=params, 
-                                  timeout=config.api.api_timeout)
-        response.raise_for_status()
+        if self.api_key:
+            params['api_key'] = self.api_key
         
-        search_results = response.json()
-        pmid_list = search_results.get("esearchresult", {}).get("idlist", [])
-        
-        logger.info(f'Found {len(pmid_list)} papers for query: {query}')
-        return {
-            'pmids': pmid_list,
-            'count': len(pmid_list),
-            'query': formatted_query
-        }
-    
-    @rate_limit(0.5)
-    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
-    def fetch_papers(self, pmid_list: list) -> str:
-        """Fetch paper metadata using PubMed API."""
-        if not pmid_list:
-            return ""
-        
-        pmids = ",".join(str(pmid) for pmid in pmid_list)
-        fetch_url = f"{self.base_url}efetch.fcgi"
-        
-        params = {
-            'db': 'pubmed',
-            'id': pmids,
-            'retmode': 'xml'
-        }
-        
-        response = self.session.get(fetch_url, params=params, 
-                                  timeout=config.api.api_timeout)
-        response.raise_for_status()
-        
-        logger.info(f"Fetched metadata for {len(pmid_list)} papers")
-        return response.text
-
-
-class PMCAPIClient:
-    """Wrapper for PMC API with rate limiting and error handling."""
-    
-    def __init__(self):
-        self.base_url = config.api.pmc_base_url
-        self.session = requests.Session()
-    
-    @rate_limit(0.5)
-    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
-    def get_fulltext_info(self, pmc_id: str) -> Optional[Dict[str, Any]]:
-        """Get fulltext availability info from PMC."""
-        clean_pmc_id = pmc_id.replace('PMC', '') if pmc_id.startswith('PMC') else pmc_id
-        
-        params = {'id': f'PMC{clean_pmc_id}'}
-        
-        response = self.session.get(self.base_url, params=params, 
-                                  timeout=config.api.api_timeout)
-        response.raise_for_status()
-        
-        # Parse XML and extract download links
-        import xml.etree.ElementTree as ET
-        
-        try:
-            root = ET.fromstring(response.content)
-            
-            # Check for errors
-            error = root.find('.//error')
-            if error is not None:
-                logger.warning(f"PMC API error for {pmc_id}: {error.text}")
-                return None
-            
-            # Find XML download link
-            records = root.findall('.//record')
-            for record in records:
-                links = record.findall('.//link')
-                for link in links:
-                    format_attr = link.get('format', '')
-                    href = link.get('href', '')
-                    if 'xml' in format_attr.lower() and href:
-                        return {
-                            'pmc_id': pmc_id,
-                            'xml_url': href,
-                            'available': True
-                        }
-            
-            return None
-            
-        except ET.ParseError as e:
-            logger.error(f"Error parsing PMC response for {pmc_id}: {e}")
-            return None
-    
-    @rate_limit(0.5)
-    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
-    def download_fulltext(self, xml_url: str) -> Optional[str]:
-        """Download fulltext XML from PMC."""
-        response = self.session.get(xml_url, timeout=60)
-        response.raise_for_status()
-        
-        logger.info(f"Downloaded fulltext from {xml_url}")
-        return response.text
-
-
-class UnpaywallAPIClient:
-    """Wrapper for Unpaywall API with rate limiting and error handling."""
-    
-    def __init__(self):
-        self.base_url = config.api.unpaywall_base_url
-        self.email = config.api.email
-        self.session = requests.Session()
-    
-    @rate_limit(1.0)  # 1 request per second max
-    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
-    def check_open_access(self, doi: str) -> Optional[Dict[str, Any]]:
-        """Check if paper is open access via Unpaywall."""
-        # Clean DOI
-        clean_doi = doi.strip()
-        if clean_doi.startswith('http'):
-            clean_doi = '/'.join(clean_doi.split('/')[-2:])
-        
-        url = f"{self.base_url}/{clean_doi}"
-        params = {'email': self.email}
-        
-        response = self.session.get(url, params=params, 
-                                  timeout=config.api.api_timeout)
-        
-        if response.status_code == 404:
-            logger.info(f"DOI {doi} not found in Unpaywall")
-            return None
-        
-        response.raise_for_status()
+        url = f"{self.base_url}esearch.fcgi"
+        response = api_request(url, params)
         data = response.json()
         
-        if not data.get('is_oa', False):
-            logger.info(f"Paper {doi} is not open access")
-            return None
+        return {
+            'pmids': data.get('esearchresult', {}).get('idlist', []),
+            'count': int(data.get('esearchresult', {}).get('count', 0))
+        }
+    
+    def fetch_papers(self, pmids: List[str]) -> str:
+        """Fetch paper metadata."""
+        params = {
+            'db': 'pubmed',
+            'id': ','.join(pmids),
+            'retmode': 'xml',
+            'email': self.email
+        }
         
-        # Find best PDF URL
-        pdf_url = None
-        best_oa_location = data.get('best_oa_location')
-        if best_oa_location and best_oa_location.get('url_for_pdf'):
-            pdf_url = best_oa_location['url_for_pdf']
-        else:
-            # Check other locations
-            for location in data.get('oa_locations', []):
-                if location.get('url_for_pdf'):
-                    pdf_url = location['url_for_pdf']
-                    break
+        if self.api_key:
+            params['api_key'] = self.api_key
         
-        if pdf_url:
-            logger.info(f"Found open access PDF for {doi}: {pdf_url}")
-            return {
-                'doi': doi,
-                'is_oa': True,
-                'pdf_url': pdf_url,
-                'host_type': best_oa_location.get('host_type') if best_oa_location else None
-            }
+        url = f"{self.base_url}efetch.fcgi"
+        response = api_request(url, params)
+        return response.text
+
+
+class PMCAPI:
+    """Simple PMC API client."""
+    
+    def __init__(self):
+        self.base_url = config.pmc_base_url
+    
+    def get_fulltext_url(self, pmc_id: str) -> Optional[str]:
+        """Get fulltext URL for PMC article."""
+        params = {
+            'id': pmc_id,
+            'format': 'json'
+        }
+        
+        try:
+            response = api_request(self.base_url, params)
+            data = response.json()
+            
+            records = data.get('OA', {}).get('records', [])
+            if records:
+                link = records[0].get('link', [])
+                if link:
+                    return link[0].get('href')
+                    
+        except Exception as e:
+            logger.error(f"Error getting PMC fulltext URL: {e}")
         
         return None
+
+
+class UnpaywallAPI:
+    """Simple Unpaywall API client."""
     
-    @retry_with_backoff(max_retries=1, exceptions=(requests.RequestException,))
-    def download_pdf(self, pdf_url: str) -> Optional[bytes]:
-        """Download PDF from URL."""
-        time.sleep(1)  # Be polite
+    def __init__(self):
+        self.base_url = config.unpaywall_base_url
+        self.email = config.email
+    
+    def get_paper_info(self, doi: str) -> Optional[Dict]:
+        """Get paper info from Unpaywall."""
+        if not doi:
+            return None
+            
+        url = f"{self.base_url}/{doi}"
+        params = {'email': self.email}
         
-        response = self.session.get(pdf_url, timeout=60, stream=True)
-        response.raise_for_status()
-        
-        # Check if response is actually a PDF
-        content_type = response.headers.get('content-type', '').lower()
-        if 'pdf' not in content_type and 'application/octet-stream' not in content_type:
-            # Check the actual content
-            content = response.content
-            if not content.startswith(b'%PDF'):
-                logger.warning(f"Downloaded content is not a PDF from {pdf_url}")
-                return None
-        
-        logger.info(f"Downloaded PDF from {pdf_url}")
-        return response.content
+        try:
+            response = api_request(url, params)
+            return response.json()
+            
+        except Exception as e:
+            logger.error(f"Error getting Unpaywall info: {e}")
+            return None
 
 
-# Global client manager instance
+class LLMClient:
+    """Simple LLM client."""
+    
+    def __init__(self, model_name: str = None):
+        self.model_name = model_name or config.llm_model
+        self.base_url = config.llm_base_url
+        self.client = OpenAI(
+            base_url=self.base_url,
+            api_key="not-needed"
+        )
+    
+    def generate(self, prompt: str, temperature: float = None, 
+                max_tokens: int = None) -> Dict:
+        """Generate text using LLM."""
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=temperature or config.llm_temperature,
+                max_tokens=max_tokens or config.llm_max_tokens
+            )
+            
+            return {
+                'content': response.choices[0].message.content,
+                'usage': {
+                    'prompt_tokens': response.usage.prompt_tokens,
+                    'completion_tokens': response.usage.completion_tokens,
+                    'total_tokens': response.usage.total_tokens
+                }
+            }
+            
+        except Exception as e:
+            logger.error(f"LLM generation failed: {e}")
+            raise
+
+
+# Simple factory functions instead of singleton manager
+def get_pubmed_client() -> PubMedAPI:
+    """Get PubMed API client."""
+    return PubMedAPI()
+
+
+def get_pmc_client() -> PMCAPI:
+    """Get PMC API client."""
+    return PMCAPI()
+
+
+def get_unpaywall_client() -> UnpaywallAPI:
+    """Get Unpaywall API client."""
+    return UnpaywallAPI()
+
+
+def get_llm_client(model_name: str = None) -> LLMClient:
+    """Get LLM client."""
+    return LLMClient(model_name)
+
+
+# Backward compatibility
+class APIClientManager:
+    """Backward compatibility wrapper."""
+    
+    def get_pubmed_client(self):
+        return get_pubmed_client()
+    
+    def get_pmc_client(self):
+        return get_pmc_client()
+    
+    def get_unpaywall_client(self):
+        return get_unpaywall_client()
+    
+    def get_llm_client(self, llm_config):
+        return get_llm_client(llm_config.model_name)
+
+
+# Global instance for backward compatibility
 client_manager = APIClientManager()

@@ -8,7 +8,8 @@
       "Bash(mkdir:*)",
       "Bash(find:*)",
       "Bash(python:*)",
-      "Bash(sqlite3:*)"
+      "Bash(sqlite3:*)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []

@@ -725,3 +725,4 @@
 2025-09-10 17:10:37,206 - probiotic_analyzer_enhanced - INFO - Correlations found: 99
 2025-09-10 17:10:37,206 - probiotic_analyzer_enhanced - INFO - Token usage: 48526 total
 2025-09-10 17:10:37,206 - probiotic_analyzer_enhanced - INFO - process_papers_batch completed in 513.25s
+2025-09-12 20:28:20,893 - src.llm.probiotic_analyzer - INFO - Enhanced analyzer initialized with model: llama3.1:8b

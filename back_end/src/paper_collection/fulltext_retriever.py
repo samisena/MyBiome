@@ -1,6 +1,5 @@
 """
-Enhanced fulltext retriever with improved architecture and centralized API management.
-This replaces the original fulltext_retriever.py with better efficiency.
+Fulltext retriever with improved architecture and centralized API management.
 """
 
 from typing import Dict, Optional, List, Any
@@ -20,7 +19,7 @@ from ..data.utils import log_execution_time, batch_process, safe_file_write
 logger = setup_logging(__name__, 'fulltext_retriever.log')
 
 
-class EnhancedFullTextRetriever:
+class FullTextRetriever:
     """
     Enhanced fulltext retriever using centralized API clients and improved error handling.
     """

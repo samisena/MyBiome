@@ -1,6 +1,5 @@
 """
-Enhanced main pipeline that demonstrates the improved architecture.
-This replaces the scattered pipeline logic with a centralized, efficient approach.
+Main pipeline that demonstrates the improved architecture.
 """
 
 import time
@@ -15,29 +14,38 @@ if str(current_dir) not in sys.path:
 
 from ..data.config import config, setup_logging
 from ..paper_collection.database_manager import database_manager
-from ..paper_collection.pubmed_collector import EnhancedPubMedCollector  
-from .probiotic_analyzer import EnhancedProbioticAnalyzer
+from ..paper_collection.pubmed_collector import PubMedCollector  
+from .probiotic_analyzer import ProbioticAnalyzer
+from .consensus_analyzer import MultiLLMConsensusAnalyzer
 from ..data.utils import log_execution_time, format_duration, calculate_success_rate
 
 logger = setup_logging(__name__, 'enhanced_pipeline.log')
 
 
-class EnhancedResearchPipeline:
+class ResearchPipeline:
     """
     Centralized research pipeline with improved architecture and efficiency.
-    Demonstrates the benefits of the enhanced system design.
     """
     
-    def __init__(self, llm_config=None):
+    def __init__(self, use_consensus=True, llm_config=None):
         """
         Initialize the enhanced pipeline.
         
         Args:
-            llm_config: Optional LLM configuration override
+            use_consensus: Whether to use multi-LLM consensus analysis (default: True)
+            llm_config: Optional LLM configuration override (for backward compatibility)
         """
         self.db_manager = database_manager
-        self.collector = EnhancedPubMedCollector(self.db_manager)
-        self.analyzer = EnhancedProbioticAnalyzer(llm_config, self.db_manager)
+        self.collector = PubMedCollector(self.db_manager)
+        
+        # Initialize analyzers - use consensus by default, fallback to single LLM
+        self.use_consensus = use_consensus
+        if use_consensus:
+            self.analyzer = MultiLLMConsensusAnalyzer(db_manager=self.db_manager)
+            logger.info("Pipeline initialized with multi-LLM consensus analysis")
+        else:
+            self.analyzer = ProbioticAnalyzer(llm_config, self.db_manager)
+            logger.info("Pipeline initialized with single-LLM analysis")
         
         self.results = {
             'pipeline_start_time': time.time(),
@@ -105,18 +113,18 @@ class EnhancedResearchPipeline:
     
     @log_execution_time
     def analyze_correlations(self, limit_papers: Optional[int] = None,
-                           batch_size: int = 15) -> Dict[str, Any]:
+                           batch_size: int = None) -> Dict[str, Any]:
         """
         Analyze papers for probiotic-health correlations.
         
         Args:
             limit_papers: Optional limit on number of papers to process
-            batch_size: Number of papers to process in each batch
+            batch_size: Number of papers to process in each batch (auto-adjusted for consensus)
             
         Returns:
             Analysis results summary
         """
-        logger.info("Starting correlation analysis")
+        logger.info(f"Starting correlation analysis ({'consensus' if self.use_consensus else 'single-LLM'})")
         stage_start = time.time()
         
         try:
@@ -137,12 +145,22 @@ class EnhancedResearchPipeline:
             
             logger.info(f"Found {len(unprocessed_papers)} unprocessed papers")
             
-            # Process papers with enhanced analyzer
-            analysis_results = self.analyzer.process_papers_batch(
-                papers=unprocessed_papers,
-                save_to_db=True,
-                batch_size=batch_size
-            )
+            # Set appropriate batch size based on analyzer type
+            if batch_size is None:
+                batch_size = 5 if self.use_consensus else 15  # Smaller batches for consensus (multiple LLMs per paper)
+            
+            # Process papers with appropriate analyzer
+            if self.use_consensus:
+                analysis_results = self.analyzer.process_papers_batch(
+                    papers=unprocessed_papers,
+                    batch_size=batch_size
+                )
+            else:
+                analysis_results = self.analyzer.process_papers_batch(
+                    papers=unprocessed_papers,
+                    save_to_db=True,
+                    batch_size=batch_size
+                )
             
             # Calculate success rate
             success_rate = calculate_success_rate(
@@ -150,19 +168,37 @@ class EnhancedResearchPipeline:
                 analysis_results['total_papers']
             )
             
-            stage_results = {
-                'papers_available': len(unprocessed_papers),
-                'papers_processed': analysis_results['successful_papers'],
-                'failed_papers': len(analysis_results['failed_papers']),
-                'correlations_extracted': analysis_results['total_correlations'],
-                'success_rate': success_rate,
-                'token_usage': analysis_results['token_usage'],
-                'stage_duration': time.time() - stage_start
-            }
+            # Build stage results based on analyzer type
+            if self.use_consensus:
+                stage_results = {
+                    'papers_available': len(unprocessed_papers),
+                    'papers_processed': analysis_results['successful_papers'],
+                    'failed_papers': len(analysis_results['failed_papers']),
+                    'agreed_correlations': analysis_results['total_agreed_correlations'],
+                    'conflicts': analysis_results['total_conflicts'],
+                    'papers_needing_review': analysis_results['papers_needing_review'],
+                    'success_rate': success_rate,
+                    'token_usage': analysis_results['token_usage'],
+                    'stage_duration': time.time() - stage_start,
+                    'analysis_type': 'consensus'
+                }
+                
+                logger.info(f"Consensus analysis completed: {analysis_results['total_agreed_correlations']} agreed correlations, {analysis_results['total_conflicts']} conflicts from {analysis_results['successful_papers']} papers")
+            else:
+                stage_results = {
+                    'papers_available': len(unprocessed_papers),
+                    'papers_processed': analysis_results['successful_papers'],
+                    'failed_papers': len(analysis_results['failed_papers']),
+                    'correlations_extracted': analysis_results['total_correlations'],
+                    'success_rate': success_rate,
+                    'token_usage': analysis_results['token_usage'],
+                    'stage_duration': time.time() - stage_start,
+                    'analysis_type': 'single_llm'
+                }
+                
+                logger.info(f"Single-LLM analysis completed: {analysis_results['total_correlations']} correlations from {analysis_results['successful_papers']} papers")
             
             self.results['stages']['correlation_analysis'] = stage_results
-            
-            logger.info(f"Analysis completed: {analysis_results['total_correlations']} correlations from {analysis_results['successful_papers']} papers")
             return stage_results
             
         except Exception as e:
@@ -172,7 +208,8 @@ class EnhancedResearchPipeline:
                 'papers_processed': 0,
                 'correlations_extracted': 0,
                 'success_rate': 0.0,
-                'stage_duration': time.time() - stage_start
+                'stage_duration': time.time() - stage_start,
+                'analysis_type': 'consensus' if self.use_consensus else 'single_llm'
             }
             self.results['stages']['correlation_analysis'] = error_results
             return error_results
@@ -374,8 +411,8 @@ class EnhancedResearchPipeline:
             # Stage 2: Correlation Analysis
             logger.info("Stage 2: Correlation Analysis")
             analysis_results = self.analyze_correlations(
-                limit_papers=analyze_limit,
-                batch_size=15
+                limit_papers=analyze_limit
+                # batch_size is auto-determined based on analyzer type
             )
             
             # Stage 3: Research Insights
@@ -415,12 +452,25 @@ class EnhancedResearchPipeline:
         collection = final_results['stages'].get('data_collection', {})
         analysis = final_results['stages'].get('correlation_analysis', {})
         
+        # Handle both consensus and single-LLM analysis results
+        if analysis.get('analysis_type') == 'consensus':
+            correlations_metric = analysis.get('agreed_correlations', 0)
+            extra_metrics = {
+                'conflicts': analysis.get('conflicts', 0),
+                'papers_needing_review': analysis.get('papers_needing_review', 0)
+            }
+        else:
+            correlations_metric = analysis.get('correlations_extracted', 0)
+            extra_metrics = {}
+        
         final_results['summary'] = {
             'conditions_processed': collection.get('successful_conditions', 0),
             'papers_collected': collection.get('total_papers_collected', 0),
             'papers_analyzed': analysis.get('papers_processed', 0),
-            'correlations_found': analysis.get('correlations_extracted', 0),
-            'overall_success': not error and collection.get('total_papers_collected', 0) > 0
+            'correlations_found': correlations_metric,
+            'analysis_type': analysis.get('analysis_type', 'unknown'),
+            'overall_success': not error and collection.get('total_papers_collected', 0) > 0,
+            **extra_metrics
         }
         
         self.results['final_results'] = final_results
@@ -442,11 +492,18 @@ class EnhancedResearchPipeline:
         
         # Summary statistics  
         summary = final_results.get('summary', {})
-        print(f"\nSUMMARY STATISTICS:")
+        analysis_type = summary.get('analysis_type', 'unknown')
+        print(f"\nSUMMARY STATISTICS ({analysis_type.upper()}):")
         print(f"  Conditions Processed: {summary.get('conditions_processed', 0)}")
         print(f"  Papers Collected: {summary.get('papers_collected', 0)}")
         print(f"  Papers Analyzed: {summary.get('papers_analyzed', 0)}")
-        print(f"  Correlations Found: {summary.get('correlations_found', 0)}")
+        
+        if analysis_type == 'consensus':
+            print(f"  Agreed Correlations: {summary.get('correlations_found', 0)}")
+            print(f"  Conflicts: {summary.get('conflicts', 0)}")
+            print(f"  Papers Needing Review: {summary.get('papers_needing_review', 0)}")
+        else:
+            print(f"  Correlations Found: {summary.get('correlations_found', 0)}")
         
         # Stage details
         stages = final_results.get('stages', {})
@@ -459,13 +516,22 @@ class EnhancedResearchPipeline:
         
         if 'correlation_analysis' in stages:
             ca = stages['correlation_analysis'] 
-            print(f"\nCORRELATION ANALYSIS:")
+            analysis_type = ca.get('analysis_type', 'unknown')
+            print(f"\nCORRELATION ANALYSIS ({analysis_type.upper()}):")
             print(f"  Duration: {format_duration(ca.get('stage_duration', 0))}")
             print(f"  Success Rate: {ca.get('success_rate', 0):.1f}%")
             
             token_usage = ca.get('token_usage', {})
             if token_usage:
-                print(f"  Token Usage: {token_usage.get('total_tokens', 0):,}")
+                if isinstance(token_usage, dict) and any(isinstance(v, dict) for v in token_usage.values()):
+                    # Multi-model token usage (consensus)
+                    print(f"  Token Usage by Model:")
+                    for model, usage in token_usage.items():
+                        if isinstance(usage, dict):
+                            print(f"    {model}: {usage.get('total_tokens', 0):,}")
+                else:
+                    # Single model token usage
+                    print(f"  Token Usage: {token_usage.get('total_tokens', 0):,}")
         
         # Research insights
         insights = final_results.get('research_insights', {})

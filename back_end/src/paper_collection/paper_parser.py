@@ -1,6 +1,5 @@
 """
-Enhanced paper parser with improved efficiency and error handling.
-This replaces the original paper_parser.py with better architecture.
+Paper parser with improved efficiency and error handling.
 """
 
 import xml.etree.ElementTree as ET
@@ -20,7 +19,7 @@ from ..data.utils import log_execution_time, batch_process
 logger = setup_logging(__name__, 'paper_parser.log')
 
 
-class EnhancedPubmedParser:
+class PubmedParser:
     """
     Enhanced PubMed XML parser with improved error handling and batch processing.
     Uses dependency injection for database management.

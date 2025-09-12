@@ -1,6 +1,5 @@
 """
-Enhanced PubMed collector with improved architecture and efficiency.
-This replaces the original pubmed_collector.py with better error handling and modularity.
+PubMed collector with improved architecture and efficiency.
 """
 
 import time
@@ -16,17 +15,16 @@ if str(current_dir) not in sys.path:
 from ..data.config import config, setup_logging
 from ..data.api_clients import client_manager
 from .database_manager import database_manager
-from .paper_parser import EnhancedPubmedParser
-from .fulltext_retriever import EnhancedFullTextRetriever
+from .paper_parser import PubmedParser
+from .fulltext_retriever import FullTextRetriever
 from ..data.utils import log_execution_time, batch_process, safe_file_write
 
 logger = setup_logging(__name__, 'pubmed_collector.log')
 
 
-class EnhancedPubMedCollector:
+class PubMedCollector:
     """
-    Enhanced PubMed collector with centralized configuration and improved efficiency.
-    Uses dependency injection for database and API clients.
+    PubMed collector with centralized configuration.
     """
     
     def __init__(self, db_manager=None, parser=None, fulltext_retriever=None):
@@ -40,8 +38,8 @@ class EnhancedPubMedCollector:
         """
         # Use dependency injection or defaults
         self.db_manager = db_manager or database_manager
-        self.parser = parser or EnhancedPubmedParser(self.db_manager)
-        self.fulltext_retriever = fulltext_retriever or EnhancedFullTextRetriever(self.db_manager)
+        self.parser = parser or PubmedParser(self.db_manager)
+        self.fulltext_retriever = fulltext_retriever or FullTextRetriever(self.db_manager)
         
         # Get API client
         self.pubmed_client = client_manager.get_pubmed_client()

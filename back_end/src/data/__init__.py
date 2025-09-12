@@ -3,7 +3,7 @@ Data processing modules for MyBiome pipeline.
 """
 
 # Configuration and core utilities
-from .config import config, setup_logging, LLMConfig, DatabaseConfig, APIConfig, PathConfig, Config
+from .config import config, setup_logging, LLMConfig, MultiLLMConfig, DatabaseConfig, APIConfig, PathConfig, Config
 from .utils import (
     ValidationError, validate_paper_data, validate_correlation_data,
     log_execution_time, retry_with_backoff, rate_limit,
@@ -14,7 +14,7 @@ from .utils import (
 # API and database management
 from .api_clients import (
     APIClientManager, client_manager,
-    PubMedAPIClient, PMCAPIClient, UnpaywallAPIClient
+    PubMedAPI, PMCAPI, UnpaywallAPI
 )
 # Database manager is now in paper_collection
 # from .database_manager import EnhancedDatabaseManager, database_manager
@@ -31,7 +31,7 @@ from .api_clients import (
 
 __all__ = [
     # Configuration
-    'config', 'setup_logging', 'LLMConfig', 'DatabaseConfig', 'APIConfig', 'PathConfig', 'Config',
+    'config', 'setup_logging', 'LLMConfig', 'MultiLLMConfig', 'DatabaseConfig', 'APIConfig', 'PathConfig', 'Config',
     
     # Utilities
     'ValidationError', 'validate_paper_data', 'validate_correlation_data',
@@ -41,7 +41,7 @@ __all__ = [
     
     # API clients (still in data)
     'APIClientManager', 'client_manager',
-    'PubMedAPIClient', 'PMCAPIClient', 'UnpaywallAPIClient',
+    'PubMedAPI', 'PMCAPI', 'UnpaywallAPI',
     
     # Database and processing modules moved to other folders
     # 'EnhancedDatabaseManager', 'database_manager',

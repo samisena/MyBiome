@@ -1,6 +1,5 @@
 """
-Enhanced database manager with connection pooling and dependency injection support.
-This replaces the original database_manager.py with improved efficiency and architecture.
+Database manager with connection pooling and improved efficiency.
 """
 
 import sqlite3
@@ -102,10 +101,9 @@ class ConnectionPool:
             self._total_connections = 0
 
 
-class EnhancedDatabaseManager:
+class DatabaseManager:
     """
-    Enhanced database manager with connection pooling, better error handling,
-    and validation. Designed to be used as a singleton via dependency injection.
+    Database manager with connection pooling and validation.
     """
     
     _instance = None
@@ -410,7 +408,7 @@ class EnhancedDatabaseManager:
     
     def update_paper_processing_status(self, pmid: str, status: str) -> bool:
         """Update paper processing status."""
-        valid_statuses = ['pending', 'processing', 'processed', 'failed']
+        valid_statuses = ['pending', 'processing', 'processed', 'failed', 'needs_review']
         if status not in valid_statuses:
             raise ValueError(f"Invalid status: {status}")
         
@@ -579,4 +577,4 @@ class EnhancedDatabaseManager:
 
 
 # Global instance for dependency injection
-database_manager = EnhancedDatabaseManager()
+database_manager = DatabaseManager()

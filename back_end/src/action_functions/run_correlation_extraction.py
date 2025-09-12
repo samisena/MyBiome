@@ -16,7 +16,7 @@ sys.path.insert(0, str(back_end_dir))
 
 try:
     from src.paper_collection.database_manager import database_manager
-    from src.llm.probiotic_analyzer import EnhancedProbioticAnalyzer
+    from src.llm.probiotic_analyzer import ProbioticAnalyzer
     from src.data.config import config, setup_logging
 except ImportError as e:
     print(f"Import error: {e}")
@@ -29,7 +29,7 @@ def run_correlation_extraction(limit: int = None, batch_size: int = 5):
         print("=== Running Correlation Extraction ===")
         
         # Initialize analyzer with default LLM configuration
-        analyzer = EnhancedProbioticAnalyzer()
+        analyzer = ProbioticAnalyzer()
         
         # Get papers that need processing
         model_name = config.llm.model_name

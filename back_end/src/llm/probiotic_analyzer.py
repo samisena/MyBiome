@@ -1,6 +1,5 @@
 """
-Enhanced probiotic analyzer with improved architecture and efficiency.
-This replaces the original probiotic_analyzer.py with better error handling and modularity.
+Probiotic analyzer with improved architecture and efficiency.
 """
 
 import time
@@ -23,10 +22,9 @@ from ..data.utils import (log_execution_time, retry_with_backoff, parse_json_saf
 logger = setup_logging(__name__, 'probiotic_analyzer.log')
 
 
-class EnhancedProbioticAnalyzer:
+class ProbioticAnalyzer:
     """
-    Enhanced probiotic analyzer with centralized configuration and improved efficiency.
-    Uses dependency injection and centralized API client management.
+    Probiotic analyzer with centralized configuration and improved efficiency.
     """
     
     def __init__(self, llm_config: Optional[LLMConfig] = None, db_manager=None):

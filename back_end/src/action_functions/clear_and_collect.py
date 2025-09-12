@@ -17,7 +17,7 @@ sys.path.insert(0, str(back_end_dir))
 
 try:
     from src.paper_collection.database_manager import database_manager
-    from src.paper_collection.pubmed_collector import EnhancedPubMedCollector
+    from src.paper_collection.pubmed_collector import PubMedCollector
     from src.data.config import config, setup_logging
 except ImportError as e:
     print(f"Import error: {e}")
@@ -58,7 +58,7 @@ def collect_papers(search_term: str, max_papers: int = 50):
     try:
         print(f"\nCollecting {max_papers} papers for search term: '{search_term}'")
         
-        collector = EnhancedPubMedCollector(database_manager)
+        collector = PubMedCollector(database_manager)
         
         # Use the collection method for probiotic studies
         results = collector.collect_probiotics_by_condition(
