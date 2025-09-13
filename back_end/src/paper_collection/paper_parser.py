@@ -7,14 +7,10 @@ from typing import List, Dict, Optional
 from pathlib import Path
 import sys
 
-# Add the current directory to sys.path for imports
-current_dir = Path(__file__).parent
-if str(current_dir) not in sys.path:
-    sys.path.insert(0, str(current_dir))
-
-from ..data.config import config, setup_logging
-from .database_manager import database_manager
-from ..data.utils import log_execution_time, batch_process
+from src.data.config import config, setup_logging
+from src.paper_collection.database_manager import database_manager
+from src.data.utils import log_execution_time, batch_process
+from src.data.validators import validation_manager
 
 logger = setup_logging(__name__, 'paper_parser.log')
 

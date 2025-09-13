@@ -30,22 +30,32 @@ def clear_database():
         with database_manager.get_connection() as conn:
             cursor = conn.cursor()
             
-            # Clear correlations first (due to foreign key constraints)
-            cursor.execute("DELETE FROM correlations")
-            correlations_deleted = cursor.rowcount
+            # Clear interventions first (due to foreign key constraints)
+            cursor.execute("DELETE FROM interventions")
+            interventions_deleted = cursor.rowcount
+            
+            cursor.execute("DELETE FROM intervention_extractions")
+            extractions_deleted = cursor.rowcount
+            
+            cursor.execute("DELETE FROM intervention_consensus")
+            consensus_deleted = cursor.rowcount
             
             # Clear papers
             cursor.execute("DELETE FROM papers")
             papers_deleted = cursor.rowcount
             
             # Reset auto-increment counters
-            cursor.execute("DELETE FROM sqlite_sequence WHERE name='correlations'")
+            cursor.execute("DELETE FROM sqlite_sequence WHERE name='interventions'")
+            cursor.execute("DELETE FROM sqlite_sequence WHERE name='intervention_extractions'")
+            cursor.execute("DELETE FROM sqlite_sequence WHERE name='intervention_consensus'")
             
             conn.commit()
             
             print(f"Database cleared:")
             print(f"  - {papers_deleted} papers deleted")
-            print(f"  - {correlations_deleted} correlations deleted")
+            print(f"  - {interventions_deleted} interventions deleted")
+            print(f"  - {extractions_deleted} extractions deleted")
+            print(f"  - {consensus_deleted} consensus records deleted")
             
             return True
             
@@ -60,10 +70,10 @@ def collect_papers(search_term: str, max_papers: int = 50):
         
         collector = PubMedCollector(database_manager)
         
-        # Use the collection method for probiotic studies
-        results = collector.collect_probiotics_by_condition(
+        # Use the collection method for intervention studies
+        results = collector.collect_interventions_by_condition(
             condition=search_term,
-            min_year=2000,
+            min_year=2010,
             max_results=max_papers,
             include_fulltext=True
         )
@@ -102,7 +112,7 @@ def main():
     print("\nStep 3: Final database statistics...")
     stats = database_manager.get_database_stats()
     print(f"Total papers in database: {stats.get('total_papers', 0)}")
-    print(f"Total correlations: {stats.get('total_correlations', 0)}")
+    print(f"Total interventions: {stats.get('total_interventions', 0)}")
     
     print("\n=== Process completed successfully! ===")
     return True

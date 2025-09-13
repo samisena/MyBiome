@@ -1,0 +1,3 @@
+2025-09-13 19:58:15,289 - src.data.error_handler - INFO - Error summary: {'circuit_breaker_states': {'test_service': 'closed'}, 'error_counts': {}, 'total_errors': 0}
+2025-09-13 20:00:43,589 - src.data.error_handler - INFO - Error summary: {'circuit_breaker_states': {'test_service': 'closed'}, 'error_counts': {}, 'total_errors': 0}
+2025-09-13 20:10:45,115 - src.data.error_handler - INFO - Error summary: {'circuit_breaker_states': {'test_service': 'closed'}, 'error_counts': {}, 'total_errors': 0}

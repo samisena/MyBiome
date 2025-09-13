@@ -13,13 +13,9 @@ from dataclasses import dataclass
 import sys
 from pathlib import Path
 
-# Add the current directory to sys.path for imports
-current_dir = Path(__file__).parent
-if str(current_dir) not in sys.path:
-    sys.path.insert(0, str(current_dir))
-
-from ..data.config import config, setup_logging
-from ..data.utils import validate_paper_data, validate_correlation_data, ValidationError
+from src.data.config import config, setup_logging
+from src.data.utils import validate_paper_data, ValidationError
+from src.interventions.validators import intervention_validator
 
 logger = setup_logging(__name__, 'database.log')
 
@@ -134,6 +130,9 @@ class DatabaseManager:
         # Create tables
         self.create_tables()
         
+        # Set up intervention categories
+        self.setup_intervention_categories()
+        
         logger.info(f"Enhanced database manager initialized at {self.db_path}")
         self._initialized = True
     
@@ -144,11 +143,11 @@ class DatabaseManager:
             yield conn
     
     def create_tables(self):
-        """Create all necessary database tables with optimized schema."""
+        """Create all necessary database tables with intervention-focused schema."""
         with self.get_connection() as conn:
             cursor = conn.cursor()
             
-            # Papers table with enhanced schema
+            # Papers table (unchanged structure)
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS papers (
                     pmid TEXT PRIMARY KEY,
@@ -168,29 +167,43 @@ class DatabaseManager:
                 )
             ''')
             
-            # Correlations table with enhanced validation tracking
+            # NEW: Intervention categories table
             cursor.execute('''
-                CREATE TABLE IF NOT EXISTS correlations (
+                CREATE TABLE IF NOT EXISTS intervention_categories (
+                    category TEXT PRIMARY KEY,
+                    display_name TEXT NOT NULL,
+                    description TEXT,
+                    validation_schema TEXT,  -- JSON schema for validation
+                    search_terms TEXT,       -- JSON array of search terms
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            ''')
+            
+            # NEW: Main interventions table (replaces correlations)
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS interventions (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     paper_id TEXT NOT NULL,
-                    probiotic_strain TEXT NOT NULL,
+                    intervention_category TEXT NOT NULL,
+                    intervention_name TEXT NOT NULL,
+                    intervention_details TEXT,  -- JSON object with category-specific fields
                     health_condition TEXT NOT NULL,
                     correlation_type TEXT CHECK(correlation_type IN ('positive', 'negative', 'neutral', 'inconclusive')),
                     correlation_strength REAL CHECK(correlation_strength >= 0 AND correlation_strength <= 1),
-                    effect_size TEXT,
+                    confidence_score REAL CHECK(confidence_score >= 0 AND confidence_score <= 1),
+                    
+                    -- Study details
                     sample_size INTEGER,
                     study_duration TEXT,
                     study_type TEXT,
-                    dosage TEXT,
                     population_details TEXT,
-                    confidence_score REAL CHECK(confidence_score >= 0 AND confidence_score <= 1),
                     supporting_quote TEXT,
                     
                     -- Extraction tracking
                     extraction_model TEXT NOT NULL,
                     extraction_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     
-                    -- Validation tracking
+                    -- Validation tracking  
                     validation_status TEXT DEFAULT 'pending' CHECK(validation_status IN ('pending', 'verified', 'conflicted', 'failed')),
                     validation_issues TEXT,
                     verification_model TEXT,
@@ -202,27 +215,35 @@ class DatabaseManager:
                     review_notes TEXT,
                     
                     FOREIGN KEY (paper_id) REFERENCES papers(pmid) ON DELETE CASCADE,
-                    UNIQUE(paper_id, probiotic_strain, health_condition, extraction_model)
+                    FOREIGN KEY (intervention_category) REFERENCES intervention_categories(category) ON DELETE RESTRICT,
+                    UNIQUE(paper_id, intervention_category, intervention_name, health_condition, extraction_model)
                 )
             ''')
             
+            
             # Create optimized indexes
             indexes = [
+                # Papers indexes
                 'CREATE INDEX IF NOT EXISTS idx_papers_date ON papers(publication_date)',
                 'CREATE INDEX IF NOT EXISTS idx_papers_journal ON papers(journal)',
                 'CREATE INDEX IF NOT EXISTS idx_papers_fulltext ON papers(has_fulltext)',
                 'CREATE INDEX IF NOT EXISTS idx_papers_processing ON papers(processing_status)',
                 
-                'CREATE INDEX IF NOT EXISTS idx_correlations_paper ON correlations(paper_id)',
-                'CREATE INDEX IF NOT EXISTS idx_correlations_strain ON correlations(probiotic_strain)',
-                'CREATE INDEX IF NOT EXISTS idx_correlations_condition ON correlations(health_condition)',
-                'CREATE INDEX IF NOT EXISTS idx_correlations_type ON correlations(correlation_type)',
-                'CREATE INDEX IF NOT EXISTS idx_correlations_validation ON correlations(validation_status)',
-                'CREATE INDEX IF NOT EXISTS idx_correlations_model ON correlations(extraction_model)',
+                # Interventions indexes  
+                'CREATE INDEX IF NOT EXISTS idx_interventions_paper ON interventions(paper_id)',
+                'CREATE INDEX IF NOT EXISTS idx_interventions_category ON interventions(intervention_category)',
+                'CREATE INDEX IF NOT EXISTS idx_interventions_name ON interventions(intervention_name)',
+                'CREATE INDEX IF NOT EXISTS idx_interventions_condition ON interventions(health_condition)',
+                'CREATE INDEX IF NOT EXISTS idx_interventions_type ON interventions(correlation_type)',
+                'CREATE INDEX IF NOT EXISTS idx_interventions_validation ON interventions(validation_status)',
+                'CREATE INDEX IF NOT EXISTS idx_interventions_model ON interventions(extraction_model)',
                 
                 # Composite indexes for common queries
-                'CREATE INDEX IF NOT EXISTS idx_strain_condition ON correlations(probiotic_strain, health_condition)',
-                'CREATE INDEX IF NOT EXISTS idx_paper_model ON correlations(paper_id, extraction_model)',
+                'CREATE INDEX IF NOT EXISTS idx_category_condition ON interventions(intervention_category, health_condition)',
+                'CREATE INDEX IF NOT EXISTS idx_intervention_condition ON interventions(intervention_name, health_condition)',
+                'CREATE INDEX IF NOT EXISTS idx_paper_category ON interventions(paper_id, intervention_category)',
+                'CREATE INDEX IF NOT EXISTS idx_paper_model ON interventions(paper_id, extraction_model)',
+                
             ]
             
             for index_sql in indexes:
@@ -303,37 +324,37 @@ class DatabaseManager:
             logger.error(f"Error inserting paper {paper.get('pmid', 'unknown')}: {e}")
             return False
     
-    def insert_correlation(self, correlation: Dict) -> bool:
-        """Insert a correlation with validation."""
+    def insert_intervention(self, intervention: Dict) -> bool:
+        """Insert an intervention with validation."""
         try:
-            # Validate correlation data
-            validated_corr = validate_correlation_data(correlation)
+            # Validate intervention data
+            validated_intervention = intervention_validator.validate_intervention(intervention)
             
             with self.get_connection() as conn:
                 cursor = conn.cursor()
                 
                 cursor.execute('''
-                    INSERT OR REPLACE INTO correlations
-                    (paper_id, probiotic_strain, health_condition, correlation_type,
-                     correlation_strength, effect_size, sample_size, study_duration,
-                     study_type, dosage, population_details, confidence_score,
+                    INSERT OR REPLACE INTO interventions
+                    (paper_id, intervention_category, intervention_name, intervention_details,
+                     health_condition, correlation_type, correlation_strength, confidence_score,
+                     sample_size, study_duration, study_type, population_details,
                      supporting_quote, extraction_model, validation_status)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
-                    validated_corr['paper_id'],
-                    validated_corr['probiotic_strain'],
-                    validated_corr['health_condition'],
-                    validated_corr['correlation_type'],
-                    validated_corr.get('correlation_strength'),
-                    validated_corr.get('effect_size'),
-                    validated_corr.get('sample_size'),
-                    validated_corr.get('study_duration'),
-                    validated_corr.get('study_type'),
-                    validated_corr.get('dosage'),
-                    validated_corr.get('population_details'),
-                    validated_corr.get('confidence_score'),
-                    validated_corr.get('supporting_quote'),
-                    validated_corr['extraction_model'],
+                    validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
+                    validated_intervention['intervention_category'],
+                    validated_intervention['intervention_name'],
+                    json.dumps(validated_intervention.get('intervention_details', {})),
+                    validated_intervention['health_condition'],
+                    validated_intervention['correlation_type'],
+                    validated_intervention.get('correlation_strength'),
+                    validated_intervention.get('confidence_score'),
+                    validated_intervention.get('sample_size'),
+                    validated_intervention.get('study_duration'),
+                    validated_intervention.get('study_type'),
+                    validated_intervention.get('population_details'),
+                    validated_intervention.get('supporting_quote'),
+                    validated_intervention['extraction_model'],
                     'pending'
                 ))
                 
@@ -341,16 +362,49 @@ class DatabaseManager:
                 conn.commit()
                 
                 if was_new:
-                    logger.info(f"Inserted correlation: {validated_corr['probiotic_strain']} - {validated_corr['health_condition']}")
+                    logger.info(f"Inserted intervention: {validated_intervention['intervention_category']} - {validated_intervention['intervention_name']} - {validated_intervention['health_condition']}")
                 
                 return was_new
                 
-        except ValidationError as e:
-            logger.error(f"Validation error for correlation: {e}")
+        except Exception as e:
+            logger.error(f"Validation error for intervention: {e}")
             return False
         except Exception as e:
-            logger.error(f"Error inserting correlation: {e}")
+            logger.error(f"Error inserting intervention: {e}")
             return False
+    
+    def setup_intervention_categories(self):
+        """Set up the intervention categories table with taxonomy data."""
+        from ..interventions.taxonomy import intervention_taxonomy
+        from ..interventions.search_terms import search_terms
+        
+        try:
+            with self.get_connection() as conn:
+                cursor = conn.cursor()
+                
+                for category_type, category_def in intervention_taxonomy.get_all_categories().items():
+                    # Get search terms for this category
+                    category_search_terms = search_terms.get_terms_for_category(category_type)
+                    
+                    cursor.execute('''
+                        INSERT OR REPLACE INTO intervention_categories
+                        (category, display_name, description, search_terms)
+                        VALUES (?, ?, ?, ?)
+                    ''', (
+                        category_type.value,
+                        category_def.display_name,
+                        category_def.description,
+                        json.dumps(category_search_terms)
+                    ))
+                
+                conn.commit()
+                logger.info(f"Set up {len(intervention_taxonomy.get_all_categories())} intervention categories")
+                return True
+                
+        except Exception as e:
+            logger.error(f"Error setting up intervention categories: {e}")
+            return False
+    
     
     def get_paper_by_pmid(self, pmid: str) -> Optional[Dict]:
         """Get a paper by PMID."""
@@ -384,14 +438,14 @@ class DatabaseManager:
     
     def get_papers_for_processing(self, extraction_model: str, 
                                 limit: Optional[int] = None) -> List[Dict]:
-        """Get papers that need processing by a specific model."""
+        """Get papers that need processing by a specific model (intervention extraction)."""
         with self.get_connection() as conn:
             cursor = conn.cursor()
             query = '''
                 SELECT p.*
                 FROM papers p
-                LEFT JOIN correlations c ON p.pmid = c.paper_id AND c.extraction_model = ?
-                WHERE c.id IS NULL 
+                LEFT JOIN interventions i ON p.pmid = i.paper_id AND i.extraction_model = ?
+                WHERE i.id IS NULL 
                   AND p.abstract IS NOT NULL 
                   AND p.abstract != ''
                   AND p.processing_status != 'failed'
@@ -449,7 +503,7 @@ class DatabaseManager:
             return [dict(row) for row in cursor.fetchall()]
 
     def get_database_stats(self) -> Dict[str, Any]:
-        """Get comprehensive database statistics."""
+        """Get comprehensive database statistics for intervention-focused system."""
         with self.get_connection() as conn:
             cursor = conn.cursor()
             
@@ -459,8 +513,8 @@ class DatabaseManager:
             cursor.execute('SELECT COUNT(*) FROM papers')
             stats['total_papers'] = cursor.fetchone()[0]
             
-            cursor.execute('SELECT COUNT(*) FROM correlations')
-            stats['total_correlations'] = cursor.fetchone()[0]
+            cursor.execute('SELECT COUNT(*) FROM interventions')
+            stats['total_interventions'] = cursor.fetchone()[0]
             
             # Processing status breakdown
             cursor.execute('''
@@ -470,13 +524,22 @@ class DatabaseManager:
             ''')
             stats['processing_status'] = dict(cursor.fetchall())
             
-            # Validation status breakdown
+            # Validation status breakdown for interventions
             cursor.execute('''
                 SELECT validation_status, COUNT(*) 
-                FROM correlations 
+                FROM interventions 
                 GROUP BY validation_status
             ''')
             stats['validation_status'] = dict(cursor.fetchall())
+            
+            # Intervention category breakdown
+            cursor.execute('''
+                SELECT intervention_category, COUNT(*) 
+                FROM interventions 
+                GROUP BY intervention_category
+                ORDER BY COUNT(*) DESC
+            ''')
+            stats['intervention_categories'] = dict(cursor.fetchall())
             
             # Date range
             cursor.execute('''
@@ -494,21 +557,34 @@ class DatabaseManager:
             # Top extraction models
             cursor.execute('''
                 SELECT extraction_model, COUNT(*) as count
-                FROM correlations
+                FROM interventions
                 GROUP BY extraction_model
                 ORDER BY count DESC
                 LIMIT 5
             ''')
             stats['top_extraction_models'] = [
-                {'model': row[0], 'correlations': row[1]} 
+                {'model': row[0], 'interventions': row[1]} 
+                for row in cursor.fetchall()
+            ]
+            
+            # Top health conditions
+            cursor.execute('''
+                SELECT health_condition, COUNT(*) as count
+                FROM interventions
+                GROUP BY health_condition
+                ORDER BY count DESC
+                LIMIT 10
+            ''')
+            stats['top_health_conditions'] = [
+                {'condition': row[0], 'interventions': row[1]}
                 for row in cursor.fetchall()
             ]
             
             return stats
     
-    def clean_placeholder_correlations(self) -> Dict[str, int]:
+    def clean_placeholder_interventions(self) -> Dict[str, int]:
         """
-        Remove correlations with placeholder probiotic strains from the database.
+        Remove interventions with placeholder names from the database.
         
         Returns:
             Dictionary with count of removed entries
@@ -516,9 +592,8 @@ class DatabaseManager:
         placeholder_patterns = ['...', 'N/A', 'n/a', 'NA', 'na', 'null', 'NULL', 
                                'unknown', 'Unknown', 'UNKNOWN', 'placeholder', 
                                'Placeholder', 'PLACEHOLDER', 'TBD', 'tbd', 'TODO', 'todo',
-                               'probiotics', 'Probiotics', 'PROBIOTICS',
-                               'various strains', 'multiple strains', 'various probiotics',
-                               'multiple probiotics']
+                               'intervention', 'treatment', 'therapy',
+                               'various', 'multiple', 'several', 'different']
         
         try:
             with self.get_connection() as conn:
@@ -527,13 +602,13 @@ class DatabaseManager:
                 # Count entries to be removed
                 placeholders = "', '".join(placeholder_patterns)
                 count_query = f"""
-                    SELECT COUNT(*) FROM correlations 
-                    WHERE probiotic_strain IN ('{placeholders}')
-                    OR LENGTH(TRIM(probiotic_strain)) < 3
-                    OR LOWER(probiotic_strain) LIKE 'unknown%'
-                    OR LOWER(probiotic_strain) LIKE 'placeholder%'
-                    OR LOWER(probiotic_strain) LIKE 'various%'
-                    OR LOWER(probiotic_strain) LIKE 'multiple%'
+                    SELECT COUNT(*) FROM interventions 
+                    WHERE intervention_name IN ('{placeholders}')
+                    OR LENGTH(TRIM(intervention_name)) < 3
+                    OR LOWER(intervention_name) LIKE 'unknown%'
+                    OR LOWER(intervention_name) LIKE 'placeholder%'
+                    OR LOWER(intervention_name) LIKE 'various%'
+                    OR LOWER(intervention_name) LIKE 'multiple%'
                     OR LOWER(health_condition) IN ('{placeholders.lower()}')
                     OR LENGTH(TRIM(health_condition)) < 3
                 """
@@ -542,18 +617,18 @@ class DatabaseManager:
                 count_to_remove = cursor.fetchone()[0]
                 
                 if count_to_remove == 0:
-                    logger.info("No placeholder correlations found")
+                    logger.info("No placeholder interventions found")
                     return {'removed_count': 0}
                 
                 # Remove placeholder entries
                 delete_query = f"""
-                    DELETE FROM correlations 
-                    WHERE probiotic_strain IN ('{placeholders}')
-                    OR LENGTH(TRIM(probiotic_strain)) < 3
-                    OR LOWER(probiotic_strain) LIKE 'unknown%'
-                    OR LOWER(probiotic_strain) LIKE 'placeholder%'
-                    OR LOWER(probiotic_strain) LIKE 'various%'
-                    OR LOWER(probiotic_strain) LIKE 'multiple%'
+                    DELETE FROM interventions 
+                    WHERE intervention_name IN ('{placeholders}')
+                    OR LENGTH(TRIM(intervention_name)) < 3
+                    OR LOWER(intervention_name) LIKE 'unknown%'
+                    OR LOWER(intervention_name) LIKE 'placeholder%'
+                    OR LOWER(intervention_name) LIKE 'various%'
+                    OR LOWER(intervention_name) LIKE 'multiple%'
                     OR LOWER(health_condition) IN ('{placeholders.lower()}')
                     OR LENGTH(TRIM(health_condition)) < 3
                 """
@@ -562,11 +637,11 @@ class DatabaseManager:
                 removed_count = cursor.rowcount
                 conn.commit()
                 
-                logger.info(f"Removed {removed_count} placeholder correlations from database")
+                logger.info(f"Removed {removed_count} placeholder interventions from database")
                 return {'removed_count': removed_count}
                 
         except Exception as e:
-            logger.error(f"Error cleaning placeholder correlations: {e}")
+            logger.error(f"Error cleaning placeholder interventions: {e}")
             return {'removed_count': 0, 'error': str(e)}
     
     def close(self):

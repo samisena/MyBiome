@@ -2,6 +2,8 @@ LLm:
 -> Remove token output limit in case there are numerous
 strains mentioned
 
+-> Strongly consider fine tuning as tasks become increasingly difficult for the LLM.
+
 -> Consider side chaining tasks: first extract key terms from abstarct, then a seperate prompt turns that into JSON 
 format
 
@@ -10,6 +12,7 @@ format
 Quality assurance workflow: first model extracts → validation catches issues 
 → second model verifies problematic extractions → humans review what both 
 models couldn't handle. (Check)
+-> This might not be the best practice. Check Notion AI folder for practices like voting.
 
 Hybrid Strategy:
 Process ALL papers with abstracts (baseline data)

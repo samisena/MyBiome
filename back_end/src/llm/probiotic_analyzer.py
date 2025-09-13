@@ -8,15 +8,10 @@ from dataclasses import dataclass
 import sys
 from pathlib import Path
 
-# Add the current directory to sys.path for imports
-current_dir = Path(__file__).parent
-if str(current_dir) not in sys.path:
-    sys.path.insert(0, str(current_dir))
-
-from ..data.config import config, setup_logging, LLMConfig
-from ..data.api_clients import client_manager
-from ..paper_collection.database_manager import database_manager
-from ..data.utils import (log_execution_time, retry_with_backoff, parse_json_safely,
+from src.data.config import config, setup_logging, LLMConfig
+from src.data.api_clients import client_manager
+from src.paper_collection.database_manager import database_manager
+from src.data.utils import (log_execution_time, retry_with_backoff, parse_json_safely,
                    validate_correlation_data, ValidationError, batch_process, read_fulltext_content)
 
 logger = setup_logging(__name__, 'probiotic_analyzer.log')

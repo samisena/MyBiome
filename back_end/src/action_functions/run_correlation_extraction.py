@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to run correlation extraction on papers in the database.
+Script to run intervention extraction on papers in the database.
 """
 
 import sys
@@ -16,27 +16,23 @@ sys.path.insert(0, str(back_end_dir))
 
 try:
     from src.paper_collection.database_manager import database_manager
-    from src.llm.probiotic_analyzer import ProbioticAnalyzer
+    from src.llm.dual_model_analyzer import DualModelAnalyzer
     from src.data.config import config, setup_logging
 except ImportError as e:
     print(f"Import error: {e}")
     print("Make sure you're running this from the back_end directory")
     sys.exit(1)
 
-def run_correlation_extraction(limit: int = None, batch_size: int = 5):
-    """Run correlation extraction on pending papers."""
+def run_intervention_extraction(limit: int = None, batch_size: int = 3):
+    """Run intervention extraction on pending papers using dual-model approach."""
     try:
-        print("=== Running Correlation Extraction ===")
+        print("=== Running Intervention Extraction (Dual-Model) ===")
         
-        # Initialize analyzer with default LLM configuration
-        analyzer = ProbioticAnalyzer()
+        # Initialize dual-model analyzer
+        analyzer = DualModelAnalyzer()
         
         # Get papers that need processing
-        model_name = config.llm.model_name
-        papers_to_process = database_manager.get_papers_for_processing(
-            extraction_model=model_name,
-            limit=limit
-        )
+        papers_to_process = analyzer.get_unprocessed_papers(limit)
         
         print(f"Found {len(papers_to_process)} papers to process")
         
@@ -50,23 +46,38 @@ def run_correlation_extraction(limit: int = None, batch_size: int = 5):
             batch_size=batch_size
         )
         
-        print("\nCorrelation Extraction Results:")
+        print("\nIntervention Extraction Results:")
         print(f"  Papers processed: {results.get('successful_papers', 0)}/{results.get('total_papers', 0)}")
-        print(f"  Papers failed: {results.get('failed_papers', 0)}")
-        print(f"  Total correlations found: {results.get('total_correlations', 0)}")
-        print(f"  Processing time: {results.get('total_time', 0):.2f} seconds")
+        print(f"  Papers failed: {len(results.get('failed_papers', []))}")
+        print(f"  Total interventions found: {results.get('total_interventions', 0)}")
+        
+        # Show interventions by category
+        categories = results.get('interventions_by_category', {})
+        if categories:
+            print("  Interventions by category:")
+            for category, count in categories.items():
+                if count > 0:
+                    print(f"    {category}: {count}")
+        
+        # Show model statistics
+        model_stats = results.get('model_statistics', {})
+        if model_stats:
+            print("  Model statistics:")
+            for model, stats in model_stats.items():
+                print(f"    {model}: {stats.get('interventions', 0)} interventions from {stats.get('papers', 0)} papers")
         
         # Show token usage if available
         token_usage = results.get('token_usage', {})
         if token_usage:
-            print(f"  Total tokens: {token_usage.get('total_tokens', 0):,}")
-            print(f"  Prompt tokens: {token_usage.get('prompt_tokens', 0):,}")
-            print(f"  Completion tokens: {token_usage.get('completion_tokens', 0):,}")
+            print("  Token usage by model:")
+            for model, usage in token_usage.items():
+                if isinstance(usage, dict):
+                    print(f"    {model}: {usage.get('total', 0):,} tokens")
         
         return results.get('successful_papers', 0) > 0
         
     except Exception as e:
-        print(f"Error during correlation extraction: {e}")
+        print(f"Error during intervention extraction: {e}")
         return False
 
 def show_final_stats():
@@ -75,7 +86,7 @@ def show_final_stats():
     
     stats = database_manager.get_database_stats()
     print(f"Total papers: {stats.get('total_papers', 0)}")
-    print(f"Total correlations: {stats.get('total_correlations', 0)}")
+    print(f"Total interventions: {stats.get('total_interventions', 0)}")
     print(f"Papers with fulltext: {stats.get('papers_with_fulltext', 0)}")
     
     print("\nProcessing Status:")
@@ -86,41 +97,50 @@ def show_final_stats():
     for status, count in stats.get('validation_status', {}).items():
         print(f"  {status}: {count}")
     
-    # Show some example correlations if any exist
-    if stats.get('total_correlations', 0) > 0:
-        print("\nSample Correlations:")
+    # Show intervention categories if any exist
+    categories = stats.get('intervention_categories', {})
+    if categories:
+        print("\nInterventions by Category:")
+        for category, count in categories.items():
+            print(f"  {category}: {count}")
+    
+    # Show some example interventions if any exist
+    if stats.get('total_interventions', 0) > 0:
+        print("\nSample Interventions:")
         with database_manager.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute('''
-                SELECT probiotic_strain, health_condition, correlation_type, 
-                       correlation_strength, confidence_score
-                FROM correlations 
+                SELECT intervention_category, intervention_name, health_condition, 
+                       correlation_type, correlation_strength, confidence_score
+                FROM interventions 
                 ORDER BY confidence_score DESC 
                 LIMIT 5
             ''')
             
             for row in cursor.fetchall():
-                print(f"  • {row[0]} → {row[1]} ({row[2]}, strength: {row[3]:.2f}, confidence: {row[4]:.2f})")
+                strength = f", strength: {row[4]:.2f}" if row[4] is not None else ""
+                confidence = f", confidence: {row[5]:.2f}" if row[5] is not None else ""
+                print(f"  • {row[0]}: {row[1]} → {row[2]} ({row[3]}{strength}{confidence})")
 
 def main():
-    """Main function to run correlation extraction."""
-    print("MyBiome Correlation Extraction")
-    print("=" * 40)
+    """Main function to run intervention extraction."""
+    print("MyBiome Intervention Extraction (Dual-Model)")
+    print("=" * 50)
     
     # Setup logging
-    logger = setup_logging(__name__, 'correlation_extraction.log')
+    logger = setup_logging(__name__, 'intervention_extraction.log')
     
     try:
-        # Run correlation extraction on all pending papers
-        success = run_correlation_extraction(
+        # Run intervention extraction on all pending papers
+        success = run_intervention_extraction(
             limit=None,  # Process all papers
-            batch_size=5  # Process in small batches to manage memory
+            batch_size=3  # Process in small batches for dual models
         )
         
         if success:
-            print("\n✅ Correlation extraction completed successfully!")
+            print("\n[SUCCESS] Intervention extraction completed successfully!")
         else:
-            print("\n❌ Correlation extraction failed or no correlations found")
+            print("\n[FAILED] Intervention extraction failed or no interventions found")
         
         # Show final statistics
         show_final_stats()
@@ -128,8 +148,8 @@ def main():
         return success
         
     except Exception as e:
-        logger.error(f"Correlation extraction failed: {e}")
-        print(f"❌ Correlation extraction failed: {e}")
+        logger.error(f"Intervention extraction failed: {e}")
+        print(f"[ERROR] Intervention extraction failed: {e}")
         return False
 
 if __name__ == "__main__":

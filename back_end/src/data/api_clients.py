@@ -1,36 +1,29 @@
 """
-Simplified API clients for external services.
+API clients with enhanced error handling for external services.
 """
 
 import time
 import requests
 from typing import Dict, List, Optional
 from openai import OpenAI
-from config import config, setup_logging
+from src.data.config import config, setup_logging
+from src.data.error_handler import handle_api_errors, ErrorContext, error_handler
 
 logger = setup_logging(__name__)
 
 
+@handle_api_errors("API request", max_retries=3)
 def api_request(url: str, params: Dict = None, headers: Dict = None, 
-               timeout: int = None, retries: int = 3) -> requests.Response:
+               timeout: int = None) -> requests.Response:
     """
-    Simple API request with retries.
+    Enhanced API request with comprehensive error handling.
     """
     timeout = timeout or config.api_timeout
+    time.sleep(config.api_delay)  # Rate limiting
     
-    for attempt in range(retries):
-        try:
-            time.sleep(config.api_delay)  # Simple rate limiting
-            response = requests.get(url, params=params, headers=headers, timeout=timeout)
-            response.raise_for_status()
-            return response
-            
-        except requests.exceptions.RequestException as e:
-            if attempt == retries - 1:
-                logger.error(f"API request failed after {retries} attempts: {e}")
-                raise
-            logger.warning(f"API request failed (attempt {attempt + 1}): {e}")
-            time.sleep(1.0 * (attempt + 1))  # Exponential backoff
+    response = requests.get(url, params=params, headers=headers, timeout=timeout)
+    response.raise_for_status()
+    return response
 
 
 class PubMedAPI:
@@ -41,6 +34,7 @@ class PubMedAPI:
         self.api_key = config.ncbi_api_key
         self.email = config.email
     
+    @handle_api_errors("PubMed search", max_retries=3)
     def search_papers(self, query: str, min_year: int, max_results: int) -> Dict:
         """Search for papers."""
         params = {
@@ -63,6 +57,7 @@ class PubMedAPI:
             'count': int(data.get('esearchresult', {}).get('count', 0))
         }
     
+    @handle_api_errors("PubMed fetch", max_retries=3)
     def fetch_papers(self, pmids: List[str]) -> str:
         """Fetch paper metadata."""
         params = {

@@ -7,45 +7,30 @@ from typing import List, Dict, Optional, Any
 from pathlib import Path
 import sys
 
-# Add the current directory to sys.path for imports
-current_dir = Path(__file__).parent
-if str(current_dir) not in sys.path:
-    sys.path.insert(0, str(current_dir))
-
-from ..data.config import config, setup_logging
-from ..paper_collection.database_manager import database_manager
-from ..paper_collection.pubmed_collector import PubMedCollector  
-from .probiotic_analyzer import ProbioticAnalyzer
-from .consensus_analyzer import MultiLLMConsensusAnalyzer
-from ..data.utils import log_execution_time, format_duration, calculate_success_rate
+from src.data.config import config, setup_logging
+from src.paper_collection.database_manager import database_manager
+from src.paper_collection.pubmed_collector import PubMedCollector  
+from src.llm.dual_model_analyzer import DualModelAnalyzer
+from src.data.utils import log_execution_time, format_duration, calculate_success_rate
 
 logger = setup_logging(__name__, 'enhanced_pipeline.log')
 
 
-class ResearchPipeline:
+class InterventionResearchPipeline:
     """
-    Centralized research pipeline with improved architecture and efficiency.
+    Intervention research pipeline with dual-model analysis.
+    Supports all intervention types: exercise, diet, supplements, medication, therapy, lifestyle.
     """
     
-    def __init__(self, use_consensus=True, llm_config=None):
+    def __init__(self):
         """
-        Initialize the enhanced pipeline.
-        
-        Args:
-            use_consensus: Whether to use multi-LLM consensus analysis (default: True)
-            llm_config: Optional LLM configuration override (for backward compatibility)
+        Initialize the intervention pipeline with dual-model analyzer.
         """
         self.db_manager = database_manager
         self.collector = PubMedCollector(self.db_manager)
         
-        # Initialize analyzers - use consensus by default, fallback to single LLM
-        self.use_consensus = use_consensus
-        if use_consensus:
-            self.analyzer = MultiLLMConsensusAnalyzer(db_manager=self.db_manager)
-            logger.info("Pipeline initialized with multi-LLM consensus analysis")
-        else:
-            self.analyzer = ProbioticAnalyzer(llm_config, self.db_manager)
-            logger.info("Pipeline initialized with single-LLM analysis")
+        # Initialize dual-model analyzer (gemma2:9b + qwen2.5:14b)
+        self.analyzer = DualModelAnalyzer()
         
         self.results = {
             'pipeline_start_time': time.time(),
@@ -53,14 +38,14 @@ class ResearchPipeline:
             'final_stats': {}
         }
         
-        logger.info("Enhanced research pipeline initialized")
+        logger.info("Intervention research pipeline initialized with dual-model analysis (gemma2:9b + qwen2.5:14b)")
     
     @log_execution_time
     def collect_research_data(self, conditions: List[str], 
                             max_papers_per_condition: int = 50,
                             include_fulltext: bool = True) -> Dict[str, Any]:
         """
-        Collect research papers for multiple health conditions.
+        Collect intervention research papers for multiple health conditions.
         
         Args:
             conditions: List of health conditions to research
@@ -70,11 +55,11 @@ class ResearchPipeline:
         Returns:
             Collection results summary
         """
-        logger.info(f"Starting data collection for {len(conditions)} conditions")
+        logger.info(f"Starting intervention data collection for {len(conditions)} conditions")
         stage_start = time.time()
         
         try:
-            # Collect papers using enhanced collector
+            # Collect papers using intervention-focused collector
             collection_results = self.collector.bulk_collect_conditions(
                 conditions=conditions,
                 max_results=max_papers_per_condition,
@@ -112,19 +97,19 @@ class ResearchPipeline:
             return error_results
     
     @log_execution_time
-    def analyze_correlations(self, limit_papers: Optional[int] = None,
-                           batch_size: int = None) -> Dict[str, Any]:
+    def analyze_interventions(self, limit_papers: Optional[int] = None,
+                             batch_size: int = 3) -> Dict[str, Any]:
         """
-        Analyze papers for probiotic-health correlations.
+        Analyze papers for health interventions using dual-model approach.
         
         Args:
             limit_papers: Optional limit on number of papers to process
-            batch_size: Number of papers to process in each batch (auto-adjusted for consensus)
+            batch_size: Number of papers to process in each batch (small for dual models)
             
         Returns:
             Analysis results summary
         """
-        logger.info(f"Starting correlation analysis ({'consensus' if self.use_consensus else 'single-LLM'})")
+        logger.info(f"Starting intervention analysis with dual-model approach")
         stage_start = time.time()
         
         try:
@@ -136,31 +121,21 @@ class ResearchPipeline:
                 stage_results = {
                     'papers_available': 0,
                     'papers_processed': 0,
-                    'correlations_extracted': 0,
+                    'interventions_extracted': 0,
                     'success_rate': 100.0,
                     'stage_duration': time.time() - stage_start
                 }
-                self.results['stages']['correlation_analysis'] = stage_results
+                self.results['stages']['intervention_analysis'] = stage_results
                 return stage_results
             
             logger.info(f"Found {len(unprocessed_papers)} unprocessed papers")
             
-            # Set appropriate batch size based on analyzer type
-            if batch_size is None:
-                batch_size = 5 if self.use_consensus else 15  # Smaller batches for consensus (multiple LLMs per paper)
-            
-            # Process papers with appropriate analyzer
-            if self.use_consensus:
-                analysis_results = self.analyzer.process_papers_batch(
-                    papers=unprocessed_papers,
-                    batch_size=batch_size
-                )
-            else:
-                analysis_results = self.analyzer.process_papers_batch(
-                    papers=unprocessed_papers,
-                    save_to_db=True,
-                    batch_size=batch_size
-                )
+            # Process papers with dual-model analyzer
+            analysis_results = self.analyzer.process_papers_batch(
+                papers=unprocessed_papers,
+                save_to_db=True,
+                batch_size=batch_size
+            )
             
             # Calculate success rate
             success_rate = calculate_success_rate(
@@ -168,50 +143,40 @@ class ResearchPipeline:
                 analysis_results['total_papers']
             )
             
-            # Build stage results based on analyzer type
-            if self.use_consensus:
-                stage_results = {
-                    'papers_available': len(unprocessed_papers),
-                    'papers_processed': analysis_results['successful_papers'],
-                    'failed_papers': len(analysis_results['failed_papers']),
-                    'agreed_correlations': analysis_results['total_agreed_correlations'],
-                    'conflicts': analysis_results['total_conflicts'],
-                    'papers_needing_review': analysis_results['papers_needing_review'],
-                    'success_rate': success_rate,
-                    'token_usage': analysis_results['token_usage'],
-                    'stage_duration': time.time() - stage_start,
-                    'analysis_type': 'consensus'
-                }
-                
-                logger.info(f"Consensus analysis completed: {analysis_results['total_agreed_correlations']} agreed correlations, {analysis_results['total_conflicts']} conflicts from {analysis_results['successful_papers']} papers")
-            else:
-                stage_results = {
-                    'papers_available': len(unprocessed_papers),
-                    'papers_processed': analysis_results['successful_papers'],
-                    'failed_papers': len(analysis_results['failed_papers']),
-                    'correlations_extracted': analysis_results['total_correlations'],
-                    'success_rate': success_rate,
-                    'token_usage': analysis_results['token_usage'],
-                    'stage_duration': time.time() - stage_start,
-                    'analysis_type': 'single_llm'
-                }
-                
-                logger.info(f"Single-LLM analysis completed: {analysis_results['total_correlations']} correlations from {analysis_results['successful_papers']} papers")
+            # Build stage results
+            stage_results = {
+                'papers_available': len(unprocessed_papers),
+                'papers_processed': analysis_results['successful_papers'],
+                'failed_papers': len(analysis_results['failed_papers']),
+                'interventions_extracted': analysis_results['total_interventions'],
+                'interventions_by_category': analysis_results['interventions_by_category'],
+                'model_statistics': analysis_results['model_statistics'],
+                'success_rate': success_rate,
+                'token_usage': analysis_results['token_usage'],
+                'stage_duration': time.time() - stage_start,
+                'analysis_type': 'dual_model'
+            }
             
-            self.results['stages']['correlation_analysis'] = stage_results
+            logger.info(f"Dual-model analysis completed: {analysis_results['total_interventions']} interventions from {analysis_results['successful_papers']} papers")
+            
+            # Log model statistics
+            for model, stats in analysis_results['model_statistics'].items():
+                logger.info(f"  {model}: {stats['interventions']} interventions from {stats['papers']} papers")
+            
+            self.results['stages']['intervention_analysis'] = stage_results
             return stage_results
             
         except Exception as e:
-            logger.error(f"Correlation analysis failed: {e}")
+            logger.error(f"Intervention analysis failed: {e}")
             error_results = {
                 'error': str(e),
                 'papers_processed': 0,
-                'correlations_extracted': 0,
+                'interventions_extracted': 0,
                 'success_rate': 0.0,
                 'stage_duration': time.time() - stage_start,
-                'analysis_type': 'consensus' if self.use_consensus else 'single_llm'
+                'analysis_type': 'dual_model'
             }
-            self.results['stages']['correlation_analysis'] = error_results
+            self.results['stages']['intervention_analysis'] = error_results
             return error_results
     
     def generate_research_insights(self) -> Dict[str, Any]:
@@ -408,11 +373,11 @@ class ResearchPipeline:
                 logger.warning("No papers collected, skipping analysis")
                 return self._compile_final_results(pipeline_start)
             
-            # Stage 2: Correlation Analysis
-            logger.info("Stage 2: Correlation Analysis")
-            analysis_results = self.analyze_correlations(
-                limit_papers=analyze_limit
-                # batch_size is auto-determined based on analyzer type
+            # Stage 2: Intervention Analysis
+            logger.info("Stage 2: Intervention Analysis")
+            analysis_results = self.analyze_interventions(
+                limit_papers=analyze_limit,
+                batch_size=3  # Small batch size for dual models
             )
             
             # Stage 3: Research Insights
@@ -450,27 +415,20 @@ class ResearchPipeline:
         
         # Add summary statistics
         collection = final_results['stages'].get('data_collection', {})
-        analysis = final_results['stages'].get('correlation_analysis', {})
+        analysis = final_results['stages'].get('intervention_analysis', {})
         
-        # Handle both consensus and single-LLM analysis results
-        if analysis.get('analysis_type') == 'consensus':
-            correlations_metric = analysis.get('agreed_correlations', 0)
-            extra_metrics = {
-                'conflicts': analysis.get('conflicts', 0),
-                'papers_needing_review': analysis.get('papers_needing_review', 0)
-            }
-        else:
-            correlations_metric = analysis.get('correlations_extracted', 0)
-            extra_metrics = {}
+        # Handle dual-model analysis results
+        interventions_metric = analysis.get('interventions_extracted', 0)
         
         final_results['summary'] = {
             'conditions_processed': collection.get('successful_conditions', 0),
             'papers_collected': collection.get('total_papers_collected', 0),
             'papers_analyzed': analysis.get('papers_processed', 0),
-            'correlations_found': correlations_metric,
-            'analysis_type': analysis.get('analysis_type', 'unknown'),
-            'overall_success': not error and collection.get('total_papers_collected', 0) > 0,
-            **extra_metrics
+            'interventions_found': interventions_metric,
+            'interventions_by_category': analysis.get('interventions_by_category', {}),
+            'model_statistics': analysis.get('model_statistics', {}),
+            'analysis_type': analysis.get('analysis_type', 'dual_model'),
+            'overall_success': not error and collection.get('total_papers_collected', 0) > 0
         }
         
         self.results['final_results'] = final_results
@@ -481,6 +439,9 @@ class ResearchPipeline:
         final_results = self.results.get('final_results', {})
         
         print("\n" + "=" * 80)
+    
+    def get_research_summary(self) -> Dict[str, Any]:
+        """Get a comprehensive research summary."""
         print("ENHANCED RESEARCH PIPELINE SUMMARY")
         print("=" * 80)
         
@@ -514,24 +475,36 @@ class ResearchPipeline:
             print(f"  Duration: {format_duration(dc.get('stage_duration', 0))}")
             print(f"  Success Rate: {dc.get('successful_conditions', 0)}/{dc.get('conditions_processed', 0)} conditions")
         
-        if 'correlation_analysis' in stages:
-            ca = stages['correlation_analysis'] 
-            analysis_type = ca.get('analysis_type', 'unknown')
-            print(f"\nCORRELATION ANALYSIS ({analysis_type.upper()}):")
-            print(f"  Duration: {format_duration(ca.get('stage_duration', 0))}")
-            print(f"  Success Rate: {ca.get('success_rate', 0):.1f}%")
+        if 'intervention_analysis' in stages:
+            ia = stages['intervention_analysis'] 
+            analysis_type = ia.get('analysis_type', 'unknown')
+            print(f"\nINTERVENTION ANALYSIS ({analysis_type.upper()}):")
+            print(f"  Duration: {format_duration(ia.get('stage_duration', 0))}")
+            print(f"  Success Rate: {ia.get('success_rate', 0):.1f}%")
             
-            token_usage = ca.get('token_usage', {})
+            # Show model statistics
+            model_stats = ia.get('model_statistics', {})
+            if model_stats:
+                print(f"  Model Statistics:")
+                for model, stats in model_stats.items():
+                    print(f"    {model}: {stats.get('interventions', 0)} interventions from {stats.get('papers', 0)} papers")
+            
+            # Show intervention categories
+            categories = ia.get('interventions_by_category', {})
+            if categories:
+                print(f"  Interventions by Category:")
+                for category, count in categories.items():
+                    if count > 0:
+                        print(f"    {category}: {count}")
+            
+            token_usage = ia.get('token_usage', {})
             if token_usage:
-                if isinstance(token_usage, dict) and any(isinstance(v, dict) for v in token_usage.values()):
-                    # Multi-model token usage (consensus)
-                    print(f"  Token Usage by Model:")
-                    for model, usage in token_usage.items():
-                        if isinstance(usage, dict):
-                            print(f"    {model}: {usage.get('total_tokens', 0):,}")
-                else:
-                    # Single model token usage
-                    print(f"  Token Usage: {token_usage.get('total_tokens', 0):,}")
+                print(f"  Token Usage by Model:")
+                for model, usage in token_usage.items():
+                    if isinstance(usage, dict):
+                        print(f"    {model}: {usage.get('total', 0):,}")
+                    else:
+                        print(f"    {model}: {usage:,}")
         
         # Research insights
         insights = final_results.get('research_insights', {})
@@ -539,7 +512,11 @@ class ResearchPipeline:
             overview = insights['database_overview']
             print(f"\nDATABASE OVERVIEW:")
             print(f"  Total Papers: {overview.get('total_papers', 0):,}")
-            print(f"  Total Correlations: {overview.get('total_correlations', 0):,}")
+            print(f"  Total Interventions: {overview.get('total_interventions', 0):,}")
             print(f"  Papers with Fulltext: {overview.get('papers_with_fulltext', 0):,}")
         
         print("\n" + "=" * 80)
+
+
+# Backward compatibility alias
+ResearchPipeline = InterventionResearchPipeline

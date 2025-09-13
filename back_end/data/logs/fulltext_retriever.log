@@ -1125,3 +1125,19 @@
 2025-09-10 16:57:44,850 - fulltext_retriever_enhanced - INFO - Processing fulltext for 30845384: [Irritable Bowel Syndrome]....
 2025-09-10 16:57:44,850 - fulltext_retriever_enhanced - INFO - Attempting Unpaywall check for 30845384 (DOI: 10.4166/kjg.2019.73.2.84)
 2025-09-12 20:28:20,885 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 19:01:28,672 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 19:01:28,672 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:14:05,830 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:14:05,831 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:14:18,230 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:14:18,230 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:17:10,356 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:17:10,356 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:17:35,485 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:17:35,485 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:25:02,629 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:25:02,629 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:25:30,875 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:32:50,739 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:33:01,884 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-13 20:33:01,884 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized

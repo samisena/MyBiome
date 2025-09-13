@@ -7,24 +7,21 @@ from typing import List, Dict, Any, Optional
 from pathlib import Path
 import sys
 
-# Add the current directory to sys.path for imports
-current_dir = Path(__file__).parent
-if str(current_dir) not in sys.path:
-    sys.path.insert(0, str(current_dir))
-
-from ..data.config import config, setup_logging
-from ..data.api_clients import client_manager
-from .database_manager import database_manager
-from .paper_parser import PubmedParser
-from .fulltext_retriever import FullTextRetriever
-from ..data.utils import log_execution_time, batch_process, safe_file_write
+from src.data.config import config, setup_logging
+from src.data.api_clients import client_manager
+from src.paper_collection.database_manager import database_manager
+from src.paper_collection.paper_parser import PubmedParser
+from src.paper_collection.fulltext_retriever import FullTextRetriever
+from src.data.utils import log_execution_time, batch_process, safe_file_write
+from src.interventions.search_terms import search_terms
 
 logger = setup_logging(__name__, 'pubmed_collector.log')
 
 
 class PubMedCollector:
     """
-    PubMed collector with centralized configuration.
+    PubMed collector for intervention studies with centralized configuration.
+    Supports collection for all intervention types (exercise, diet, supplements, etc.).
     """
     
     def __init__(self, db_manager=None, parser=None, fulltext_retriever=None):
@@ -111,26 +108,28 @@ class PubMedCollector:
             return None
     
     @log_execution_time
-    def collect_probiotics_by_condition(self, condition: str, min_year: int = 2000, 
-                                      max_results: int = 100, 
-                                      include_fulltext: bool = True) -> Dict[str, Any]:
+    def collect_interventions_by_condition(self, condition: str, min_year: int = 2010, 
+                                          max_results: int = 100, 
+                                          include_fulltext: bool = True,
+                                          include_study_filter: bool = True) -> Dict[str, Any]:
         """
-        Collect probiotic papers for a health condition with enhanced processing.
+        Collect intervention papers for a health condition with enhanced processing.
         
         Args:
             condition: Health condition to search for
             min_year: Minimum publication year
             max_results: Maximum number of papers
             include_fulltext: Whether to attempt fulltext retrieval
+            include_study_filter: Whether to filter for intervention studies
             
         Returns:
             Collection results dictionary
         """
-        logger.info(f"Starting collection for condition: {condition}")
+        logger.info(f"Starting intervention collection for condition: {condition}")
         
-        # Build enhanced search query
-        query = self._build_probiotic_query(condition)
-        logger.info(f"Using query: {query}")
+        # Build enhanced search query for interventions
+        query = self._build_intervention_query(condition, include_study_filter)
+        logger.info(f"Using intervention query: {query[:200]}...")  # Log first 200 chars
         
         try:
             # Step 1: Search for papers
@@ -198,30 +197,52 @@ class PubMedCollector:
                 "message": f"Collection failed: {str(e)}"
             }
     
-    def _build_probiotic_query(self, condition: str) -> str:
-        """Build an optimized search query for probiotics and health conditions."""
-        probiotic_terms = [
-            'probiotic*[Title/Abstract]',
-            '"Probiotics"[MeSH Terms]',
-            'lactobacillus[Title/Abstract]',
-            'bifidobacterium[Title/Abstract]',
-            '"lactic acid bacteria"[Title/Abstract]',
-            'saccharomyces[Title/Abstract]',
-            'synbiotic*[Title/Abstract]',
-            '"Bacillus subtilis"[Title/Abstract]',
-            '"Streptococcus thermophilus"[Title/Abstract]'
-        ]
+    def _build_intervention_query(self, condition: str, include_study_filter: bool = True) -> str:
+        """Build an optimized search query for health interventions and conditions."""
+        # Get comprehensive intervention terms from search_terms
+        intervention_query = search_terms.build_intervention_query_part()
         
+        # Build condition terms
         condition_terms = [
             f'"{condition}"[Title/Abstract]',
             f'"{condition}"[MeSH Terms]'
         ]
         
-        # Combine terms
-        probiotic_query = f"({' OR '.join(probiotic_terms)})"
         condition_query = f"({' OR '.join(condition_terms)})"
         
-        return f"{condition_query} AND {probiotic_query}"
+        # Build base query
+        base_query = f"{condition_query} AND {intervention_query}"
+        
+        # Add study type filter if requested
+        if include_study_filter:
+            study_filter = search_terms.build_study_type_filter()
+            base_query = f"{base_query} AND {study_filter}"
+        
+        return base_query
+    
+    # Backward compatibility method
+    def collect_probiotics_by_condition(self, condition: str, min_year: int = 2000, 
+                                      max_results: int = 100, 
+                                      include_fulltext: bool = True) -> Dict[str, Any]:
+        """
+        Backward compatibility method - redirects to intervention collection.
+        
+        Args:
+            condition: Health condition to search for
+            min_year: Minimum publication year
+            max_results: Maximum number of papers
+            include_fulltext: Whether to attempt fulltext retrieval
+            
+        Returns:
+            Collection results dictionary
+        """
+        logger.warning("collect_probiotics_by_condition is deprecated. Use collect_interventions_by_condition instead.")
+        return self.collect_interventions_by_condition(
+            condition=condition,
+            min_year=min_year,
+            max_results=max_results,
+            include_fulltext=include_fulltext
+        )
     
     def _process_fulltext_batch(self, papers: List[Dict]) -> Dict[str, Any]:
         """Process papers for fulltext retrieval in batches."""
@@ -297,7 +318,7 @@ class PubMedCollector:
             logger.info(f"Processing condition {i}/{len(conditions)}: {condition}")
             
             try:
-                result = self.collect_probiotics_by_condition(
+                result = self.collect_interventions_by_condition(
                     condition=condition,
                     max_results=max_results,
                     include_fulltext=include_fulltext
