@@ -1,6 +1,8 @@
 LLm:
 -> Remove token output limit in case there are numerous
-strains mentioned
+strains mentioned. (Why have a token limit in the first place?)
+
+-> Process papers with high popularity score first
 
 -> Strongly consider fine tuning as tasks become increasingly difficult for the LLM.
 
@@ -22,7 +24,15 @@ Two-tier relationship confidence scoring (abstract only vs full text)
 
 
 Paper search:
--> Search Medline and Embase as well as pubmed
+-> Semantic scholar AI (free): tool to find high impact papers.Papers that were cited many times.
++ AI paper influence score
++ Vector similairty to find similar papers
++ Structured extraction of key paper sections (methods and results)
++ Identifies key researchers in the field 
+
+-> The batch limit of semantic scholar is not 500. Its just 500 per 5 seconds for those who
+don't use an API key.
+-> Semantic search returns only 10 papers by default, we might want to increase that limit
 
 -> Start analyzing papers in batches overnight
 

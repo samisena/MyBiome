@@ -1,0 +1,2 @@
+2025-09-14 18:28:12,006 - __main__ - ERROR - Enrichment failed: local variable 'pipeline' referenced before assignment
+2025-09-14 18:28:23,433 - __main__ - ERROR - Enrichment failed: local variable 'enrichment' referenced before assignment

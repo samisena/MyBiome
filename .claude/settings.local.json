@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(python test_semantic_scholar.py:*)",
+      "Bash(python test:*)",
+      "Bash(sqlite3:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

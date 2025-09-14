@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 from src.data.config import config, setup_logging, LLMConfig
-from src.data.api_clients import client_manager
+from src.data.api_clients import get_llm_client
 from src.data.repositories import repository_manager
 from src.data.utils import (log_execution_time, retry_with_backoff, parse_json_safely,
                    batch_process)
@@ -37,8 +37,8 @@ class InterventionAnalyzer:
         self.config = llm_config or config.get_llm_config()
         self.repository_mgr = repository_mgr or repository_manager
         
-        # Get LLM client from centralized manager
-        self.client = client_manager.get_llm_client(self.config)
+        # Get LLM client from centralized function
+        self.client = get_llm_client(self.config.model_name)
         
         # Get validator and prompt service
         self.validator = intervention_validator

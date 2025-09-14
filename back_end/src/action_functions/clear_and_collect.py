@@ -108,12 +108,37 @@ def main():
         print("Failed to collect papers. Exiting.")
         return False
     
-    # Step 3: Show final stats
-    print("\nStep 3: Final database statistics...")
+    # Step 3: Run Semantic Scholar enrichment
+    print("\nStep 3: Running Semantic Scholar enrichment...")
+    try:
+        from src.paper_collection.semantic_scholar_enrichment import run_semantic_scholar_enrichment
+        s2_results = run_semantic_scholar_enrichment(limit=25)  # Limit for demo
+
+        enriched = s2_results['enrichment']['enriched_papers']
+        discovered = s2_results['discovery']['new_papers_found']
+        print(f"S2 enrichment completed: {enriched} papers enriched, {discovered} similar papers discovered")
+
+    except Exception as e:
+        print(f"S2 enrichment failed (continuing anyway): {e}")
+
+    # Step 4: Show final stats
+    print("\nStep 4: Final database statistics...")
     stats = database_manager.get_database_stats()
     print(f"Total papers in database: {stats.get('total_papers', 0)}")
     print(f"Total interventions: {stats.get('total_interventions', 0)}")
-    
+
+    # Show S2 stats if available
+    try:
+        with database_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('SELECT COUNT(*) FROM papers WHERE s2_processed = 1')
+            s2_processed = cursor.fetchone()[0]
+            cursor.execute('SELECT COUNT(*) FROM papers WHERE s2_paper_id IS NOT NULL')
+            s2_enriched = cursor.fetchone()[0]
+            print(f"Semantic Scholar: {s2_processed} processed, {s2_enriched} enriched")
+    except Exception:
+        pass
+
     print("\n=== Process completed successfully! ===")
     return True
 

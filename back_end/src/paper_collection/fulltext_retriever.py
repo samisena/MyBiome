@@ -7,7 +7,7 @@ from pathlib import Path
 import sys
 
 from src.data.config import config, setup_logging
-from src.data.api_clients import client_manager
+from src.data.api_clients import get_pmc_client, get_unpaywall_client
 from src.paper_collection.database_manager import database_manager
 from src.data.utils import log_execution_time, batch_process, safe_file_write
 
@@ -28,9 +28,9 @@ class FullTextRetriever:
         """
         self.db_manager = db_manager or database_manager
         
-        # Get API clients from centralized manager
-        self.pmc_client = client_manager.get_pmc_client()
-        self.unpaywall_client = client_manager.get_unpaywall_client()
+        # Get API clients from centralized functions
+        self.pmc_client = get_pmc_client()
+        self.unpaywall_client = get_unpaywall_client()
         
         # Directory configuration
         self.fulltext_dir = config.paths.fulltext_dir

@@ -8,7 +8,7 @@ from pathlib import Path
 import sys
 
 from src.data.config import config, setup_logging
-from src.data.api_clients import client_manager
+from src.data.api_clients import get_pubmed_client
 from src.paper_collection.database_manager import database_manager
 from src.paper_collection.paper_parser import PubmedParser
 from src.paper_collection.fulltext_retriever import FullTextRetriever
@@ -39,7 +39,7 @@ class PubMedCollector:
         self.fulltext_retriever = fulltext_retriever or FullTextRetriever(self.db_manager)
         
         # Get API client
-        self.pubmed_client = client_manager.get_pubmed_client()
+        self.pubmed_client = get_pubmed_client()
         
         # Configuration from central config
         self.metadata_dir = config.paths.metadata_dir

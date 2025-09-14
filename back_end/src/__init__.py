@@ -12,7 +12,6 @@ from .llm.pipeline import ResearchPipeline
 
 # Database and data management
 from .paper_collection.database_manager import DatabaseManager, database_manager
-from .data.api_clients import APIClientManager, client_manager
 
 # Processing modules
 from .paper_collection.pubmed_collector import PubMedCollector
@@ -31,7 +30,6 @@ __all__ = [
     'config', 'setup_logging',
     'ResearchPipeline',
     'DatabaseManager', 'database_manager',
-    'APIClientManager', 'client_manager',
     'PubMedCollector', 'ProbioticAnalyzer',
     'PubmedParser', 'FullTextRetriever',
     'ValidationError', 'validate_paper_data', 'validate_correlation_data',

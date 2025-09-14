@@ -147,7 +147,7 @@ class DatabaseManager:
         with self.get_connection() as conn:
             cursor = conn.cursor()
             
-            # Papers table (unchanged structure)
+            # Papers table with Semantic Scholar fields
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS papers (
                     pmid TEXT PRIMARY KEY,
@@ -162,6 +162,15 @@ class DatabaseManager:
                     fulltext_source TEXT,
                     fulltext_path TEXT,
                     processing_status TEXT DEFAULT 'pending',  -- pending, processed, failed
+
+                    -- Semantic Scholar fields
+                    s2_paper_id TEXT,  -- Semantic Scholar paper ID
+                    influence_score REAL,  -- Semantic Scholar influentialCitationCount
+                    citation_count INTEGER,  -- Total citations from S2
+                    tldr TEXT,  -- AI-generated summary from Semantic Scholar
+                    s2_embedding TEXT,  -- JSON array of embedding vector
+                    s2_processed BOOLEAN DEFAULT FALSE,  -- Track S2 enrichment status
+
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
@@ -265,6 +274,9 @@ class DatabaseManager:
                                     logger.error(f"Failed to add processing_status column: {e2}")
                     else:
                         raise
+
+            # Add Semantic Scholar columns if they don't exist
+            self._add_semantic_scholar_columns(cursor)
             
             # Add triggers for updated_at timestamps
             cursor.execute('''
@@ -277,6 +289,29 @@ class DatabaseManager:
             
             conn.commit()
             logger.info("Database tables and indexes created successfully")
+
+    def _add_semantic_scholar_columns(self, cursor):
+        """Add Semantic Scholar columns to existing papers table if they don't exist."""
+        s2_columns = [
+            ('s2_paper_id', 'TEXT'),
+            ('influence_score', 'REAL'),
+            ('citation_count', 'INTEGER'),
+            ('tldr', 'TEXT'),
+            ('s2_embedding', 'TEXT'),
+            ('s2_processed', 'BOOLEAN DEFAULT FALSE')
+        ]
+
+        for column_name, column_type in s2_columns:
+            try:
+                cursor.execute(f'ALTER TABLE papers ADD COLUMN {column_name} {column_type}')
+                logger.info(f"Added Semantic Scholar column: {column_name}")
+            except sqlite3.OperationalError as e:
+                if "duplicate column name" in str(e):
+                    # Column already exists, which is fine
+                    continue
+                else:
+                    logger.error(f"Failed to add S2 column {column_name}: {e}")
+                    raise
     
     def insert_paper(self, paper: Dict) -> bool:
         """Insert a paper with validation and enhanced error handling."""
