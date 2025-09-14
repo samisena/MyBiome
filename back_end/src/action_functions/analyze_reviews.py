@@ -22,7 +22,7 @@ except ImportError as e:
 
 def load_review_files() -> List[Dict]:
     """Load all review files from the reviews directory."""
-    reviews_dir = Path(config.database.path).parent / "reviews"
+    reviews_dir = Path(config.db_path).parent / "reviews"
     if not reviews_dir.exists():
         print("No reviews directory found.")
         return []
@@ -113,7 +113,7 @@ def export_training_data(reviews: List[Dict], output_file: str = None) -> None:
         print("No reviews to export.")
         return
     
-    reviews_dir = Path(config.database.path).parent / "reviews"
+    reviews_dir = Path(config.db_path).parent / "reviews"
     
     if output_file is None:
         output_file = reviews_dir / "training_data.jsonl"

@@ -118,7 +118,11 @@ class DatabaseManager:
         if hasattr(self, '_initialized'):
             return
             
-        self.db_config = db_config or config.database
+        self.db_config = db_config or type('DatabaseConfig', (), {
+            'name': config.db_name,
+            'path': config.db_path,
+            'max_connections': config.max_connections
+        })()
         self.db_path = self.db_config.path
         
         # Ensure directory exists

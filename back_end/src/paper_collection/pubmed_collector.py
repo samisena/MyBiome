@@ -42,7 +42,7 @@ class PubMedCollector:
         self.pubmed_client = get_pubmed_client()
         
         # Configuration from central config
-        self.metadata_dir = config.paths.metadata_dir
+        self.metadata_dir = config.metadata_dir
         
         logger.info("Enhanced PubMed collector initialized")
     

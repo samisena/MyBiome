@@ -34,7 +34,7 @@ class InterventionAnalyzer:
             llm_config: LLM configuration (optional, uses default if None)
             repository_mgr: Repository manager instance (optional, uses global if None)
         """
-        self.config = llm_config or config.get_llm_config()
+        self.config = llm_config or LLMConfig()
         self.repository_mgr = repository_mgr or repository_manager
         
         # Get LLM client from centralized function

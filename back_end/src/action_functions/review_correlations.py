@@ -43,11 +43,11 @@ class CorrelationReviewer:
     """Interactive correlation reviewer for manual validation."""
     
     def __init__(self):
-        self.db_path = config.database.path
+        self.db_path = config.db_path
         self.current_index = 0
         self.correlations = []
         self.review_session_id = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.reviews_dir = Path(config.database.path).parent / "reviews"
+        self.reviews_dir = Path(config.db_path).parent / "reviews"
         self.reviews_dir.mkdir(exist_ok=True)
         self.session_file = self.reviews_dir / f"review_session_{self.review_session_id}.jsonl"
         self.ensure_review_columns()

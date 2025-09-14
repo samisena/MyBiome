@@ -33,9 +33,9 @@ class FullTextRetriever:
         self.unpaywall_client = get_unpaywall_client()
         
         # Directory configuration
-        self.fulltext_dir = config.paths.fulltext_dir
-        self.pmc_dir = config.paths.pmc_dir
-        self.pdf_dir = config.paths.pdf_dir
+        self.fulltext_dir = config.fulltext_dir
+        self.pmc_dir = config.pmc_dir
+        self.pdf_dir = config.pdf_dir
         
         logger.info("Enhanced fulltext retriever initialized")
     

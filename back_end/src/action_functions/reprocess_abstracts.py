@@ -28,7 +28,7 @@ class AbstractReprocessor:
     
     def __init__(self):
         self.parser = EnhancedPubmedParser()
-        self.metadata_dir = config.paths.metadata_dir
+        self.metadata_dir = config.metadata_dir
         self.updated_count = 0
         self.skipped_count = 0
         self.error_count = 0

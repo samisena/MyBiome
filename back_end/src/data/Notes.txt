@@ -1,6 +1,9 @@
 LLm:
--> Remove token output limit in case there are numerous
-strains mentioned. (Why have a token limit in the first place?)
+-> Token limit is set to 4098 in config.py. Remove token output limit in case there 
+are numerous strains mentioned. (Why have a token limit in the first place?)
+
+-> In config.py why is: self.intervention_batch_size = 5
+    and self.max_papers_per_condition = 100 ?
 
 -> Process papers with high popularity score first
 

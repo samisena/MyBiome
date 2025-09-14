@@ -30,7 +30,7 @@ class ProbioticAnalyzer:
             llm_config: LLM configuration (optional, uses default if None)
             db_manager: Database manager instance (optional, uses global if None)
         """
-        self.config = llm_config or config.get_llm_config()
+        self.config = llm_config or LLMConfig()
         self.db_manager = db_manager or database_manager
         
         # Get LLM client from centralized function

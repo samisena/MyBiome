@@ -29,8 +29,8 @@ class PubmedParser:
             db_manager: Database manager instance (optional, uses global if None)
         """
         self.db_manager = db_manager or database_manager
-        self.metadata_dir = config.paths.metadata_dir
-        self.processed_dir = config.paths.processed_data
+        self.metadata_dir = config.metadata_dir
+        self.processed_dir = config.processed_data
         
         logger.info("Enhanced PubMed parser initialized")
     
