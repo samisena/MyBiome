@@ -12,8 +12,8 @@ from pathlib import Path
 from src.data.config import config, setup_logging, LLMConfig
 from src.data.api_clients import get_llm_client
 from src.data.repositories import repository_manager
-from src.data.utils import (log_execution_time, retry_with_backoff, parse_json_safely,
-                   batch_process)
+from src.data.utils import (parse_json_safely, batch_process)
+from src.data.error_handler import handle_llm_errors
 from src.interventions.validators import intervention_validator
 from src.llm.prompt_service import prompt_service
 
@@ -50,7 +50,7 @@ class InterventionAnalyzer:
         
         logger.info(f"Intervention analyzer initialized with model: {self.config.model_name}")
 
-    @retry_with_backoff(max_retries=3, exceptions=(Exception,))
+    @handle_llm_errors("extract interventions", max_retries=3)
     def extract_interventions(self, paper: Dict) -> List[Dict]:
         """
         Extract interventions from a single paper using the LLM.
@@ -131,7 +131,7 @@ class InterventionAnalyzer:
             self.repository_mgr.papers.update_processing_status(pmid, 'failed')
             return []
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def process_papers_batch(self, papers: List[Dict], save_to_db: bool = True,
                            show_progress: bool = True) -> Dict:
         """

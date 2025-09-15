@@ -12,7 +12,8 @@ from src.data.api_clients import get_pubmed_client
 from src.paper_collection.database_manager import database_manager
 from src.paper_collection.paper_parser import PubmedParser
 from src.paper_collection.fulltext_retriever import FullTextRetriever
-from src.data.utils import log_execution_time, batch_process, safe_file_write
+from src.data.utils import batch_process
+from pathlib import Path
 from src.interventions.search_terms import search_terms
 
 logger = setup_logging(__name__, 'pubmed_collector.log')
@@ -46,7 +47,7 @@ class PubMedCollector:
         
         logger.info("Enhanced PubMed collector initialized")
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def search_papers(self, query: str, min_year: int = 2000, 
                      max_results: int = 100) -> List[str]:
         """
@@ -68,7 +69,7 @@ class PubMedCollector:
             logger.error(f"Error searching PubMed: {e}")
             return []
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def fetch_papers_metadata(self, pmid_list: List[str]) -> Optional[Path]:
         """
         Fetch paper metadata and save to file.
@@ -96,18 +97,21 @@ class PubMedCollector:
             filename = f'pubmed_batch_{timestamp}.xml'
             metadata_file = self.metadata_dir / filename
             
-            if safe_file_write(metadata_file, xml_content):
+            try:
+                metadata_file.parent.mkdir(parents=True, exist_ok=True)
+                with open(metadata_file, 'w', encoding='utf-8') as f:
+                    f.write(xml_content)
                 logger.info(f"Saved metadata for {len(pmid_list)} papers to {metadata_file}")
                 return metadata_file
-            else:
-                logger.error("Failed to save metadata file")
+            except Exception as e:
+                logger.error(f"Error writing metadata file {metadata_file}: {e}")
                 return None
                 
         except Exception as e:
             logger.error(f"Error fetching papers metadata: {e}")
             return None
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def collect_interventions_by_condition(self, condition: str, min_year: int = 2010, 
                                           max_results: int = 100, 
                                           include_fulltext: bool = True,
@@ -220,29 +224,6 @@ class PubMedCollector:
         
         return base_query
     
-    # Backward compatibility method
-    def collect_probiotics_by_condition(self, condition: str, min_year: int = 2000, 
-                                      max_results: int = 100, 
-                                      include_fulltext: bool = True) -> Dict[str, Any]:
-        """
-        Backward compatibility method - redirects to intervention collection.
-        
-        Args:
-            condition: Health condition to search for
-            min_year: Minimum publication year
-            max_results: Maximum number of papers
-            include_fulltext: Whether to attempt fulltext retrieval
-            
-        Returns:
-            Collection results dictionary
-        """
-        logger.warning("collect_probiotics_by_condition is deprecated. Use collect_interventions_by_condition instead.")
-        return self.collect_interventions_by_condition(
-            condition=condition,
-            min_year=min_year,
-            max_results=max_results,
-            include_fulltext=include_fulltext
-        )
     
     def _process_fulltext_batch(self, papers: List[Dict]) -> Dict[str, Any]:
         """Process papers for fulltext retrieval in batches."""
@@ -292,7 +273,7 @@ class PubMedCollector:
         logger.info(f"Fulltext processing completed: {total_stats}")
         return total_stats
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def bulk_collect_conditions(self, conditions: List[str], 
                               max_results: int = 100,
                               include_fulltext: bool = True,
@@ -353,7 +334,13 @@ class PubMedCollector:
             "detailed_results": results
         }
         
-        if safe_file_write(results_file, str(summary)):
+        try:
+            results_file.parent.mkdir(parents=True, exist_ok=True)
+            with open(results_file, 'w', encoding='utf-8') as f:
+                f.write(str(summary))
+            logger.info(f"Collection summary saved to {results_file}")
+        except Exception as e:
+            logger.error(f"Error writing results file {results_file}: {e}")
             logger.info(f"Bulk collection results saved to {results_file}")
         
         logger.info(f"Bulk collection completed: {total_papers} papers across {len(conditions)} conditions")

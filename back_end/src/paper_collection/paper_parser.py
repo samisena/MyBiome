@@ -9,7 +9,7 @@ import sys
 
 from src.data.config import config, setup_logging
 from src.paper_collection.database_manager import database_manager
-from src.data.utils import log_execution_time, batch_process
+from src.data.utils import batch_process
 from src.data.validators import validation_manager
 
 logger = setup_logging(__name__, 'paper_parser.log')
@@ -34,7 +34,7 @@ class PubmedParser:
         
         logger.info("Enhanced PubMed parser initialized")
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def parse_metadata_file(self, file_path: str, batch_size: int = 50) -> List[Dict]:
         """
         Parse a single XML metadata file with batch processing.
@@ -311,7 +311,7 @@ class PubmedParser:
         
         return inserted, skipped
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def parse_all_metadata_files(self, pattern: str = "pubmed_batch_*.xml") -> List[Dict]:
         """
         Parse all XML files matching the pattern.

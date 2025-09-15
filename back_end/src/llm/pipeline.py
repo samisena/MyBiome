@@ -11,7 +11,7 @@ from src.data.config import config, setup_logging
 from src.paper_collection.database_manager import database_manager
 from src.paper_collection.pubmed_collector import PubMedCollector  
 from src.llm.dual_model_analyzer import DualModelAnalyzer
-from src.data.utils import log_execution_time, format_duration, calculate_success_rate
+from src.data.utils import format_duration, calculate_success_rate
 
 logger = setup_logging(__name__, 'enhanced_pipeline.log')
 
@@ -40,7 +40,7 @@ class InterventionResearchPipeline:
         
         logger.info("Intervention research pipeline initialized with dual-model analysis (gemma2:9b + qwen2.5:14b)")
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def collect_research_data(self, conditions: List[str], 
                             max_papers_per_condition: int = 50,
                             include_fulltext: bool = True) -> Dict[str, Any]:
@@ -96,7 +96,7 @@ class InterventionResearchPipeline:
             self.results['stages']['data_collection'] = error_results
             return error_results
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def analyze_interventions(self, limit_papers: Optional[int] = None,
                              batch_size: int = 3) -> Dict[str, Any]:
         """
@@ -337,7 +337,7 @@ class InterventionResearchPipeline:
             logger.error(f"Error assessing data quality: {e}")
             return {}
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def run_complete_pipeline(self, conditions: List[str],
                             max_papers_per_condition: int = 50,
                             include_fulltext: bool = True,

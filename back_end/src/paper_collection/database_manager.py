@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 from src.data.config import config, setup_logging
-from src.data.utils import validate_paper_data, ValidationError
+from src.data.validators import validation_manager
 from src.interventions.validators import intervention_validator
 
 logger = setup_logging(__name__, 'database.log')
@@ -321,7 +321,12 @@ class DatabaseManager:
         """Insert a paper with validation and enhanced error handling."""
         try:
             # Validate paper data
-            validated_paper = validate_paper_data(paper)
+            # Validate paper data
+            validation_result = validation_manager.validate_paper(paper)
+            if not validation_result.is_valid:
+                error_messages = [issue.message for issue in validation_result.errors]
+                raise ValueError(f"Paper validation failed: {'; '.join(error_messages)}")
+            validated_paper = validation_result.cleaned_data
             
             with self.get_connection() as conn:
                 cursor = conn.cursor()
@@ -356,7 +361,7 @@ class DatabaseManager:
                 
                 return was_new
                 
-        except ValidationError as e:
+        except ValueError as e:
             logger.error(f"Validation error for paper {paper.get('pmid', 'unknown')}: {e}")
             return False
         except Exception as e:

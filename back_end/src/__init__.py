@@ -21,10 +21,10 @@ from .paper_collection.fulltext_retriever import FullTextRetriever
 
 # Utilities
 from .data.utils import (
-    ValidationError, validate_paper_data, validate_correlation_data,
-    log_execution_time, retry_with_backoff, rate_limit, 
-    parse_json_safely, batch_process, safe_file_write
+    parse_json_safely, batch_process
 )
+from .data.validators import validation_manager
+from .data.error_handler import error_handler
 
 __all__ = [
     'config', 'setup_logging',
@@ -32,7 +32,5 @@ __all__ = [
     'DatabaseManager', 'database_manager',
     'PubMedCollector', 'ProbioticAnalyzer',
     'PubmedParser', 'FullTextRetriever',
-    'ValidationError', 'validate_paper_data', 'validate_correlation_data',
-    'log_execution_time', 'retry_with_backoff', 'rate_limit',
-    'parse_json_safely', 'batch_process', 'safe_file_write'
+    'parse_json_safely', 'batch_process', 'validation_manager', 'error_handler'
 ]

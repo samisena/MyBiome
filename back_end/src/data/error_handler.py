@@ -6,9 +6,9 @@ Provides robust error handling with retry logic and circuit breaker patterns.
 import time
 import requests
 from typing import Any, Callable, Dict, List, Optional, Tuple, Type, Union
-from functools import wraps
+from functools import wraps  #?Preserve original function name and docstrings when using decorators
 from dataclasses import dataclass
-from enum import Enum
+from enum import Enum #? tool for creating enumerations (named constants)
 import sys
 from pathlib import Path
 
@@ -16,18 +16,17 @@ from src.data.config import setup_logging
 
 logger = setup_logging(__name__, 'error_handler.log')
 
-
 class ErrorSeverity(Enum):
-    """Error severity levels."""
-    LOW = "low"
-    MEDIUM = "medium" 
-    HIGH = "high"
-    CRITICAL = "critical"
+    """We defined severity levels as Enumerations."""
+    LOW = 'low'
+    MEDIUM = 'medium'
+    HIGH = 'high'
+    CRITICAL = 'critical'
 
-
+#* Stores error metadata that occured during some operation
 @dataclass
 class ErrorContext:
-    """Context information for error handling."""
+    """ Context for Error Handling."""
     operation: str
     component: str
     paper_id: Optional[str] = None
@@ -36,16 +35,25 @@ class ErrorContext:
     max_retries: int = 3
     additional_info: Optional[Dict] = None
 
-
 class CircuitBreakerError(Exception):
     """Exception raised when circuit breaker is open."""
     pass
 
-
 class CircuitBreaker:
-    """Circuit breaker pattern for external services."""
+    """
+    Implementation of the Circuit breaker pattern for external services.
+    The circuit breaker has three states:
+        1. Closed - Normal operation; requests pass through
+        2. Open - Service is failing; requests are blocked immediately
+        3. Half-Open - Testing if service has recovered; allows one request through
     
+    """
     def __init__(self, failure_threshold: int = 5, recovery_timeout: int = 60):
+        """
+        Args:
+            failure_threshold: Number of failures before opening the circuit (default: 5)
+            recovery_timeout: Seconds to wait before attempting recovery (default: 60)
+        """
         self.failure_threshold = failure_threshold
         self.recovery_timeout = recovery_timeout
         self.failure_count = 0
@@ -83,7 +91,7 @@ class CircuitBreaker:
             logger.warning(f"Circuit breaker opened after {self.failure_count} failures")
 
 
-class EnhancedRetryHandler:
+class RetryHandler:
     """Enhanced retry handler with exponential backoff and jitter."""
     
     def __init__(self, max_retries: int = 3, base_delay: float = 1.0, 
@@ -131,14 +139,14 @@ class EnhancedRetryHandler:
                     return False
         
         return isinstance(exception, retry_exceptions)
-
-
+    
 class ErrorHandler:
-    """Centralized error handler for the system."""
+    """Centralized error handler for all major components of the pipeline.
+    That includes API errors and database connection errors."""
     
     def __init__(self):
         self.circuit_breakers = {}
-        self.retry_handler = EnhancedRetryHandler()
+        self.retry_handler = RetryHandler()
         self.error_counts = {}
         self.logger = logger
     
@@ -306,8 +314,7 @@ class ErrorHandler:
         
         self.logger.info(f"Error summary: {summary}")
         return summary
-
-
+    
 def with_error_handling(operation: str, component: str, max_retries: int = 3):
     """
     Decorator for adding comprehensive error handling to functions.
@@ -332,20 +339,17 @@ def with_error_handling(operation: str, component: str, max_retries: int = 3):
     return decorator
 
 
-# Global error handler instance
+#* Global error handler instance
 error_handler = ErrorHandler()
 
-
-# Convenience decorators for common use cases
+#* Convenience decorators for common use cases
 def handle_api_errors(operation: str, max_retries: int = 3):
     """Decorator for API operations."""
     return with_error_handling(operation, 'api', max_retries)
 
-
 def handle_database_errors(operation: str, max_retries: int = 2):
     """Decorator for database operations."""
     return with_error_handling(operation, 'database', max_retries)
-
 
 def handle_llm_errors(operation: str, max_retries: int = 3):
     """Decorator for LLM operations."""

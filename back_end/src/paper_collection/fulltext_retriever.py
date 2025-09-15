@@ -9,7 +9,7 @@ import sys
 from src.data.config import config, setup_logging
 from src.data.api_clients import get_pmc_client, get_unpaywall_client
 from src.paper_collection.database_manager import database_manager
-from src.data.utils import log_execution_time, batch_process, safe_file_write
+from src.data.utils import batch_process
 
 logger = setup_logging(__name__, 'fulltext_retriever.log')
 
@@ -39,7 +39,7 @@ class FullTextRetriever:
         
         logger.info("Enhanced fulltext retriever initialized")
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def check_and_retrieve_fulltext(self, paper: Dict) -> Dict[str, Any]:
         """
         Main method to check for and retrieve full text for a paper.
@@ -127,13 +127,17 @@ class FullTextRetriever:
             filename = f"PMC{clean_pmc_id}_fulltext.xml"
             file_path = self.pmc_dir / filename
             
-            if safe_file_write(file_path, xml_content):
+            try:
+                file_path.parent.mkdir(parents=True, exist_ok=True)
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(xml_content)
                 result['success'] = True
                 result['path'] = str(file_path)
                 logger.info(f"Successfully retrieved PMC fulltext for {pmid}")
-            else:
+            except Exception as e:
+                logger.error(f"Error writing fulltext file {file_path}: {e}")
                 result['error'] = "Failed to save PMC fulltext"
-            
+
             return result
             
         except Exception as e:
@@ -198,7 +202,7 @@ class FullTextRetriever:
             logger.error(f"Error updating fulltext info for {pmid}: {e}")
             return False
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def process_papers_batch(self, papers: List[Dict], 
                            batch_size: int = 25) -> Dict[str, Any]:
         """

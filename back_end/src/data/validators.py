@@ -1,6 +1,6 @@
 """
 Comprehensive input validation for the MyBiome system.
-Provides validation for papers, interventions, and API inputs.
+Provides validation for paper format, valid interventions, and API inputs.
 """
 
 import re

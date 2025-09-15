@@ -1,7 +1,6 @@
 """
 Repository classes for standardized database interactions.
-Implements repository pattern to abstract database operations.
-"""
+Reference methods from this file when needing to interact whith the database."""
 
 from typing import Dict, List, Optional, Any
 from abc import ABC, abstractmethod
@@ -13,18 +12,20 @@ from src.paper_collection.database_manager import database_manager
 
 logger = setup_logging(__name__, 'repositories.log')
 
-
+#! Repository Pattern
+#*This design ensures all repositories in your application follow the same structure 
+#* and implement required methods.
 class BaseRepository(ABC):
-    """Abstract base class for repository pattern."""
-    
-    def __init__(self, db_manager=None):
-        self.db_manager = db_manager or database_manager
+    """ Abstract Base Class for repository patterns.
+    Other repository classes will inherit from this to ensure consistent interface."""
+    def __init__(self):
+        """Initializes the repository with a datbase."""
+        self.db_manager = database_manager
     
     @abstractmethod
     def get_by_id(self, entity_id: str) -> Optional[Dict]:
         """Get entity by ID."""
-        pass
-
+        pass        
 
 class PaperRepository(BaseRepository):
     """Repository for paper-related database operations."""
@@ -58,8 +59,7 @@ class PaperRepository(BaseRepository):
                               fulltext_path: Optional[str] = None) -> bool:
         """Update paper fulltext availability."""
         return self.db_manager.update_paper_fulltext_status(pmid, has_fulltext, fulltext_path)
-
-
+    
 class InterventionRepository(BaseRepository):
     """Repository for intervention-related database operations."""
     
@@ -208,7 +208,7 @@ class RepositoryManager:
     """Manager class that provides access to all repositories."""
     
     def __init__(self, db_manager=None):
-        self.db_manager = db_manager or database_manager
+        self.db_manager = db_manager if db_manager is not None else database_manager
         self._papers = None
         self._interventions = None
         self._statistics = None
@@ -217,21 +217,21 @@ class RepositoryManager:
     def papers(self) -> PaperRepository:
         """Get paper repository."""
         if self._papers is None:
-            self._papers = PaperRepository(self.db_manager)
+            self._papers = PaperRepository()
         return self._papers
     
     @property
     def interventions(self) -> InterventionRepository:
         """Get intervention repository."""
         if self._interventions is None:
-            self._interventions = InterventionRepository(self.db_manager)
+            self._interventions = InterventionRepository()
         return self._interventions
     
     @property
     def statistics(self) -> StatisticsRepository:
         """Get statistics repository."""
         if self._statistics is None:
-            self._statistics = StatisticsRepository(self.db_manager)
+            self._statistics = StatisticsRepository()
         return self._statistics
     
     def get_connection(self):

@@ -5,9 +5,7 @@ Data processing modules for MyBiome pipeline.
 # Configuration and core utilities
 from .config import config, setup_logging, LLMConfig
 from .utils import (
-    ValidationError, validate_paper_data, validate_correlation_data,
-    log_execution_time, retry_with_backoff, rate_limit,
-    parse_json_safely, batch_process, safe_file_write, format_duration,
+    parse_json_safely, batch_process, format_duration,
     calculate_success_rate, read_fulltext_content
 )
 
@@ -26,9 +24,7 @@ __all__ = [
     'config', 'setup_logging', 'LLMConfig',
     
     # Utilities
-    'ValidationError', 'validate_paper_data', 'validate_correlation_data',
-    'log_execution_time', 'retry_with_backoff', 'rate_limit',
-    'parse_json_safely', 'batch_process', 'safe_file_write', 'format_duration',
+    'parse_json_safely', 'batch_process', 'format_duration',
     'calculate_success_rate', 'read_fulltext_content',
     
     # API clients

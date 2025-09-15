@@ -12,8 +12,8 @@ from pathlib import Path
 from src.data.config import config, setup_logging
 from src.data.api_clients import get_llm_client
 from src.data.repositories import repository_manager
-from src.data.utils import (log_execution_time, retry_with_backoff, parse_json_safely,
-                   batch_process)
+from src.data.utils import (parse_json_safely, batch_process)
+from src.data.error_handler import handle_llm_errors
 from src.interventions.validators import intervention_validator
 from src.llm.prompt_service import prompt_service
 
@@ -70,7 +70,7 @@ class DualModelAnalyzer:
         logger.info(f"Dual-model analyzer initialized with: {list(self.models.keys())}")
     
 
-    @retry_with_backoff(max_retries=3, exceptions=(Exception,))
+    @handle_llm_errors("extract with single model", max_retries=3)
     def extract_with_single_model(self, paper: Dict, model_name: str) -> ModelResult:
         """
         Extract interventions using a single model.
@@ -150,7 +150,7 @@ class DualModelAnalyzer:
                 error=str(e)
             )
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def extract_interventions(self, paper: Dict) -> Dict[str, Any]:
         """
         Extract interventions from a single paper using both models.
@@ -252,7 +252,7 @@ class DualModelAnalyzer:
         
         return validated
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def process_papers_batch(self, papers: List[Dict], save_to_db: bool = True,
                            batch_size: int = 3) -> Dict[str, Any]:
         """

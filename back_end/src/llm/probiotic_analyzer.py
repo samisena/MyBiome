@@ -11,8 +11,9 @@ from pathlib import Path
 from src.data.config import config, setup_logging, LLMConfig
 from src.data.api_clients import get_llm_client
 from src.paper_collection.database_manager import database_manager
-from src.data.utils import (log_execution_time, retry_with_backoff, parse_json_safely,
-                   validate_correlation_data, ValidationError, batch_process, read_fulltext_content)
+from src.data.utils import (parse_json_safely, batch_process, read_fulltext_content)
+from src.data.validators import validation_manager
+from src.data.error_handler import handle_llm_errors
 
 logger = setup_logging(__name__, 'probiotic_analyzer.log')
 
@@ -101,7 +102,7 @@ Example of valid extraction:
 
 Return [] if no specific strain names are found or no correlations can be extracted."""
     
-    @retry_with_backoff(max_retries=3, exceptions=(Exception,))
+    @handle_llm_errors("extract correlations", max_retries=3)
     def extract_correlations(self, paper: Dict) -> List[Dict]:
         """
         Extract correlations from a single paper using the LLM.
@@ -204,15 +205,21 @@ Return [] if no specific strain names are found or no correlations can be extrac
                 corr['paper_id'] = paper['pmid']
                 corr['extraction_model'] = (config_used or self.config).model_name
                 
-                # Validate using utility function
-                validated_corr = validate_correlation_data(corr)
+                # Validate using validation manager
+                # Note: Using intervention validation for probiotic correlations
+                # as they have similar structure
+                validation_result = validation_manager.validate_intervention(corr)
+                if not validation_result.is_valid:
+                    error_messages = [issue.message for issue in validation_result.errors]
+                    raise ValueError(f"Correlation validation failed: {'; '.join(error_messages)}")
+                validated_corr = validation_result.cleaned_data
                 
                 # Additional validation
                 self._validate_supporting_quote(validated_corr, paper.get('abstract', ''))
                 
                 validated.append(validated_corr)
                 
-            except ValidationError as e:
+            except ValueError as e:
                 logger.warning(f"Correlation {i} validation failed for {paper['pmid']}: {e}")
                 continue
             except Exception as e:
@@ -230,7 +237,7 @@ Return [] if no specific strain names are found or no correlations can be extrac
             if supporting_quote.lower() not in abstract.lower():
                 logger.warning(f"Supporting quote may not match abstract: {supporting_quote[:50]}...")
     
-    @log_execution_time
+    # Removed @log_execution_time - use error_handler.py decorators instead
     def process_papers_batch(self, papers: List[Dict], save_to_db: bool = True,
                            batch_size: int = 10) -> Dict:
         """
