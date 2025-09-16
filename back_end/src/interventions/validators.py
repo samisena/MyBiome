@@ -34,92 +34,61 @@ class InterventionValidator:
     def validate_intervention(self, intervention_data: Dict[str, Any]) -> Dict[str, Any]:
         """
         Validate a complete intervention record using enhanced validation.
-        
+
         Args:
             intervention_data: Dictionary containing intervention information
-            
+
         Returns:
             Validated and cleaned intervention dictionary
-            
+
         Raises:
             ValidationError: If validation fails
         """
         # Use new validation system first
         result = validation_manager.validate_intervention(intervention_data)
-        
+
         if not result.is_valid:
             error_messages = [f"{issue.field}: {issue.message}" for issue in result.errors]
             raise ValidationError(f"Intervention validation failed: {'; '.join(error_messages)}")
-        
-        # Continue with category-specific validation
+
+        # Continue with category-specific validation using cleaned data
         validated_data = result.cleaned_data.copy()
-        
+
         # Log any warnings
         if result.warnings:
             validation_manager.log_validation_issues(result, "intervention validation")
-        # Basic required fields
-        required_base_fields = [
-            'intervention_category', 'intervention_name', 'health_condition',
-            'correlation_type', 'extraction_model'
-        ]
         
-        for field in required_base_fields:
-            if field not in intervention_data or not intervention_data[field]:
-                raise ValidationError(f"Missing required base field: {field}")
-        
-        # Validate intervention category
-        category = self._validate_category(intervention_data['intervention_category'])
-        
+        # Validate intervention category using cleaned data
+        category = self._validate_category(validated_data['intervention_category'])
+
         # Validate intervention name
         intervention_name = self._validate_intervention_name(
-            intervention_data['intervention_name'], category
+            validated_data['intervention_name'], category
         )
-        
-        # Validate health condition
-        health_condition = self._validate_health_condition(
-            intervention_data['health_condition']
-        )
-        
-        # Validate correlation type
-        correlation_type = self._validate_correlation_type(
-            intervention_data['correlation_type']
-        )
-        
-        # Build validated intervention
-        validated = {
+
+        # Update validated data with category-specific validation
+        validated_data.update({
             'intervention_category': category.value,
-            'intervention_name': intervention_name,
-            'health_condition': health_condition,
-            'correlation_type': correlation_type,
-            'extraction_model': str(intervention_data['extraction_model']).strip()
-        }
-        
+            'intervention_name': intervention_name
+        })
+
+        # Validate subcategory if provided
+        if 'intervention_subcategory' in validated_data:
+            validated_subcategory = self._validate_subcategory(
+                validated_data['intervention_subcategory'], category
+            )
+            if validated_subcategory:
+                validated_data['intervention_subcategory'] = validated_subcategory
+
         # Validate intervention details (category-specific)
-        if 'intervention_details' in intervention_data:
-            validated['intervention_details'] = self._validate_intervention_details(
-                intervention_data['intervention_details'], category
+        if 'intervention_details' in validated_data:
+            validated_data['intervention_details'] = self._validate_intervention_details(
+                validated_data['intervention_details'], category
             )
-        
-        # Validate optional numeric fields
-        for field in ['correlation_strength', 'confidence_score']:
-            if field in intervention_data and intervention_data[field] is not None:
-                validated[field] = self._validate_numeric_field(
-                    intervention_data[field], field, 0.0, 1.0
-                )
-        
-        # Validate sample size
-        if 'sample_size' in intervention_data and intervention_data[field] is not None:
-            validated['sample_size'] = self._validate_sample_size(
-                intervention_data['sample_size']
-            )
-        
-        # Validate text fields
-        for field in ['supporting_quote', 'study_type', 'study_duration', 
-                     'dosage', 'population_details']:
-            if field in intervention_data and intervention_data[field]:
-                validated[field] = str(intervention_data[field]).strip()
-        
-        return validated
+
+        # Additional category-specific validations can be added here
+
+        return validated_data
     
     def _validate_category(self, category_str: str) -> InterventionType:
         """Validate intervention category."""
@@ -152,7 +121,26 @@ class InterventionValidator:
         self._validate_name_for_category(name_clean, category)
         
         return name_clean
-    
+
+    def _validate_subcategory(self, subcategory: str, category: InterventionType) -> Optional[str]:
+        """Validate intervention subcategory against allowed values for the category."""
+        if not subcategory or not isinstance(subcategory, str):
+            return None
+
+        subcategory_clean = subcategory.strip().lower()
+
+        # Get allowed subcategories for this category
+        category_def = self.taxonomy.get_category(category)
+        allowed_subcategories = [sub.lower() for sub in category_def.subcategories]
+
+        if subcategory_clean not in allowed_subcategories:
+            raise ValidationError(
+                f"Invalid subcategory '{subcategory}' for {category.value}. "
+                f"Allowed: {category_def.subcategories}"
+            )
+
+        return subcategory_clean
+
     def _validate_name_for_category(self, name: str, category: InterventionType):
         """Apply category-specific name validation rules."""
         name_lower = name.lower()
@@ -188,6 +176,22 @@ class InterventionValidator:
             ]
             if name_lower in generic_med_terms:
                 raise ValidationError(f"Medication name too generic: '{name}'")
+
+        elif category == InterventionType.SURGERY:
+            # Should not be too generic
+            generic_surgery_terms = [
+                'surgery', 'operation', 'procedure', 'surgical'
+            ]
+            if name_lower in generic_surgery_terms:
+                raise ValidationError(f"Surgery name too generic: '{name}'")
+
+        elif category == InterventionType.TEST:
+            # Should not be too generic
+            generic_test_terms = [
+                'test', 'testing', 'diagnostic', 'diagnosis', 'screening'
+            ]
+            if name_lower in generic_test_terms:
+                raise ValidationError(f"Test name too generic: '{name}'")
     
     def _validate_health_condition(self, condition: str) -> str:
         """Validate health condition."""

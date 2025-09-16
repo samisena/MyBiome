@@ -119,14 +119,19 @@ class PMCAPI:
         return None
     
 
-def get_pubmed_client() -> PMCAPI:
-    """Geth the PMCI API client."""
+def get_pubmed_client() -> PubMedAPI:
+    """Get the PubMed API client."""
+    return PubMedAPI()
+
+def get_pmc_client() -> PMCAPI:
+    """Get the PMC API client."""
     return PMCAPI()
 
 class UnpaywallAPI:
     """ Unpaywall API Client."""
     def __init__(self):
         self.base_url = config.unpaywall_base_url
+        self.email = config.email
 
      #? Uses manual try-except instead of @handle_api_errors
     def get_paper_info(self, doi:str) -> Optional[Dict]:

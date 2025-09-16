@@ -203,7 +203,81 @@ class InterventionSearchTerms:
                 'behavior modification[Title/Abstract]'
             ]
         }
-        
+
+        # TEST terms
+        terms[InterventionType.TEST] = {
+            'primary': [
+                'test[Title/Abstract]',
+                'testing[Title/Abstract]',
+                'diagnostic[Title/Abstract]',
+                'diagnosis[Title/Abstract]',
+                'screening[Title/Abstract]',
+                '"Diagnostic Tests, Routine"[MeSH Terms]',
+                '"Laboratory Techniques and Procedures"[MeSH Terms]',
+                '"Mass Screening"[MeSH Terms]'
+            ],
+            'specific': [
+                'blood test[Title/Abstract]',
+                'breath test[Title/Abstract]',
+                'stool test[Title/Abstract]',
+                'urine test[Title/Abstract]',
+                'genetic test[Title/Abstract]',
+                'biomarker[Title/Abstract]',
+                'laboratory test[Title/Abstract]',
+                'lab test[Title/Abstract]',
+                'serology[Title/Abstract]',
+                'biochemistry[Title/Abstract]',
+                'hematology[Title/Abstract]',
+                'endoscopy[Title/Abstract]',
+                'colonoscopy[Title/Abstract]',
+                'biopsy[Title/Abstract]',
+                'imaging[Title/Abstract]',
+                'MRI[Title/Abstract]',
+                'CT scan[Title/Abstract]',
+                'ultrasound[Title/Abstract]',
+                'X-ray[Title/Abstract]',
+                'functional test[Title/Abstract]',
+                'stress test[Title/Abstract]',
+                'allergy test[Title/Abstract]',
+                'microbiome analysis[Title/Abstract]',
+                'metabolomics[Title/Abstract]',
+                'proteomics[Title/Abstract]',
+                'genomics[Title/Abstract]'
+            ]
+        }
+
+        # SURGERY terms
+        terms[InterventionType.SURGERY] = {
+            'primary': [
+                'surgery[Title/Abstract]',
+                'surgical procedure[Title/Abstract]',
+                'operation[Title/Abstract]',
+                'surgical intervention[Title/Abstract]',
+                '"Surgical Procedures, Operative"[MeSH Terms]',
+                '"Surgery"[MeSH Terms]'
+            ],
+            'specific': [
+                'laparoscopic surgery[Title/Abstract]',
+                'endoscopic surgery[Title/Abstract]',
+                'minimally invasive surgery[Title/Abstract]',
+                'robotic surgery[Title/Abstract]',
+                'open surgery[Title/Abstract]',
+                'bariatric surgery[Title/Abstract]',
+                'cardiac surgery[Title/Abstract]',
+                'neurosurgery[Title/Abstract]',
+                'orthopedic surgery[Title/Abstract]',
+                'transplant surgery[Title/Abstract]',
+                'reconstructive surgery[Title/Abstract]',
+                'surgical resection[Title/Abstract]',
+                'arthroscopic surgery[Title/Abstract]',
+                'coronary bypass[Title/Abstract]',
+                'cholecystectomy[Title/Abstract]',
+                'appendectomy[Title/Abstract]',
+                'mastectomy[Title/Abstract]',
+                'hysterectomy[Title/Abstract]'
+            ]
+        }
+
         return terms
     
     def get_terms_for_category(self, category: InterventionType, 

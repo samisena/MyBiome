@@ -103,6 +103,12 @@ Examples: cognitive behavioral therapy, physical therapy, massage, acupuncture
 **LIFESTYLE** ({category_descriptions['lifestyle']}):
 Examples: sleep hygiene, stress management, smoking cessation, social support
 
+**SURGERY** ({category_descriptions['surgery']}):
+Examples: laparoscopic surgery, cardiac surgery, bariatric surgery, joint replacement
+
+**EMERGING** ({category_descriptions['emerging']}):
+Examples: gene therapy, digital therapeutics, precision medicine, AI-guided interventions
+
 Return ONLY valid JSON. No extra text. Each intervention needs these fields:
 - intervention_category: one of [{', '.join(f'"{cat}"' for cat in categories)}]
 - intervention_name: specific intervention name (e.g., "Mediterranean diet", "aerobic exercise")
@@ -121,6 +127,7 @@ IMPORTANT RULES:
 - DO NOT use placeholders like "...", "intervention", "treatment", "therapy" (too generic)
 - Each intervention_name must be specific (e.g., "cognitive behavioral therapy" not just "therapy")
 - Match intervention_category correctly (exercise interventions go in "exercise", not "therapy")
+- Use "emerging" category for novel interventions that don't fit existing categories (include proposed_category and category_rationale in intervention_details)
 - Include intervention_details with category-specific information when available
 - If no specific interventions are mentioned, return []
 

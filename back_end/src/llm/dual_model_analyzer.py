@@ -45,17 +45,21 @@ class DualModelAnalyzer:
         """
         self.repository_mgr = repository_mgr or repository_manager
         
-        # Fixed model configuration
+        # Enhanced model configuration with dynamic token limits
         self.models = {
             'gemma2:9b': {
                 'client': get_llm_client('gemma2:9b'),
                 'temperature': 0.3,
-                'max_tokens': 4096
+                'max_tokens': None,  # No limit - will be calculated dynamically
+                'max_context': 32768,  # Model's maximum context length
+                'recommended_max_output': 16384  # Reasonable upper bound for output
             },
             'qwen2.5:14b': {
                 'client': get_llm_client('qwen2.5:14b'),
                 'temperature': 0.3,
-                'max_tokens': 4096
+                'max_tokens': None,  # No limit - will be calculated dynamically
+                'max_context': 32768,  # Model's maximum context length
+                'recommended_max_output': 16384  # Reasonable upper bound for output
             }
         }
         
@@ -67,8 +71,132 @@ class DualModelAnalyzer:
         self.token_usage = {model_name: {'input': 0, 'output': 0, 'total': 0} 
                            for model_name in self.models.keys()}
         
+        # GPU optimization settings
+        self.gpu_optimization = self._initialize_gpu_optimization()
+
         logger.info(f"Dual-model analyzer initialized with: {list(self.models.keys())}")
-    
+        logger.info(f"GPU optimization: {self.gpu_optimization}")
+
+    def _initialize_gpu_optimization(self) -> Dict[str, Any]:
+        """Initialize GPU optimization settings."""
+        try:
+            import psutil
+            try:
+                import torch
+            except ImportError:
+                torch = None
+        except ImportError:
+            logger.warning("GPU optimization libraries not available, using conservative settings")
+            return {
+                'gpu_available': False,
+                'gpu_memory_gb': 0,
+                'optimal_batch_size': 3,
+                'memory_threshold': 0.8
+            }
+
+        gpu_available = torch and torch.cuda.is_available()
+
+        if gpu_available:
+            gpu_memory_gb = torch.cuda.get_device_properties(0).total_memory / (1024**3)
+            # Estimate optimal batch size based on GPU memory
+            # Rule of thumb: ~1GB per model instance + ~0.5GB per batch item
+            model_memory_overhead = 2.0  # GB for both models
+            available_for_batching = gpu_memory_gb * 0.8 - model_memory_overhead  # 80% utilization
+            optimal_batch_size = max(1, int(available_for_batching / 0.5))
+        else:
+            gpu_memory_gb = 0
+            optimal_batch_size = 2  # Conservative for CPU
+
+        optimization_config = {
+            'gpu_available': gpu_available,
+            'gpu_memory_gb': gpu_memory_gb,
+            'system_ram_gb': psutil.virtual_memory().total / (1024**3),
+            'optimal_batch_size': min(optimal_batch_size, 10),  # Cap at 10 for stability
+            'memory_threshold': 0.85,  # 85% memory usage threshold
+            'enable_sequential_processing': gpu_memory_gb < 12  # Use sequential for smaller GPUs
+        }
+
+        return optimization_config
+
+    def _calculate_dynamic_max_tokens(self, prompt: str, model_config: Dict) -> int:
+        """
+        Calculate dynamic max_tokens based on input length and model capabilities.
+
+        Args:
+            prompt: The input prompt
+            model_config: Model configuration dictionary
+
+        Returns:
+            Optimal max_tokens for this request
+        """
+        # Rough estimation: 1 token ≈ 4 characters for English text
+        estimated_input_tokens = len(prompt) // 4
+
+        # Calculate available context space
+        max_context = model_config.get('max_context', 32768)
+        recommended_max_output = model_config.get('recommended_max_output', 16384)
+
+        # Leave buffer for system message and response formatting
+        buffer_tokens = 500
+        available_for_output = max_context - estimated_input_tokens - buffer_tokens
+
+        # Use the minimum of available space and recommended max output
+        dynamic_max_tokens = min(available_for_output, recommended_max_output)
+
+        # Ensure we have at least a reasonable minimum
+        dynamic_max_tokens = max(dynamic_max_tokens, 2048)
+
+        logger.debug(f"Dynamic token calculation: input_est={estimated_input_tokens}, "
+                    f"available={available_for_output}, final={dynamic_max_tokens}")
+
+        return dynamic_max_tokens
+
+    def _monitor_gpu_memory(self) -> Dict[str, float]:
+        """Monitor current GPU memory usage."""
+        try:
+            import torch
+            if torch.cuda.is_available():
+                allocated = torch.cuda.memory_allocated(0) / (1024**3)  # GB
+                reserved = torch.cuda.memory_reserved(0) / (1024**3)  # GB
+                total = torch.cuda.get_device_properties(0).total_memory / (1024**3)  # GB
+                return {
+                    'allocated_gb': allocated,
+                    'reserved_gb': reserved,
+                    'total_gb': total,
+                    'utilization': (reserved / total) if total > 0 else 0
+                }
+        except:
+            pass
+        return {'allocated_gb': 0, 'reserved_gb': 0, 'total_gb': 0, 'utilization': 0}
+
+    def _should_use_sequential_processing(self, batch_size: int) -> bool:
+        """Determine if we should use sequential model processing."""
+        gpu_mem = self._monitor_gpu_memory()
+
+        # Use sequential processing if:
+        # 1. Explicitly enabled in config
+        # 2. GPU memory utilization is high
+        # 3. Batch size is large
+        return (
+            self.gpu_optimization.get('enable_sequential_processing', False) or
+            gpu_mem['utilization'] > self.gpu_optimization.get('memory_threshold', 0.85) or
+            batch_size > 5
+        )
+
+    def _optimize_batch_size_for_memory(self, requested_batch_size: int) -> int:
+        """Optimize batch size based on current memory usage."""
+        gpu_mem = self._monitor_gpu_memory()
+        optimal_batch = self.gpu_optimization.get('optimal_batch_size', 3)
+
+        # If GPU memory is getting tight, reduce batch size
+        if gpu_mem['utilization'] > 0.7:
+            return min(requested_batch_size, max(1, optimal_batch // 2))
+
+        # If we have plenty of memory, allow larger batches
+        if gpu_mem['utilization'] < 0.5:
+            return min(requested_batch_size, optimal_batch * 2)
+
+        return min(requested_batch_size, optimal_batch)
 
     @handle_llm_errors("extract with single model", max_retries=3)
     def extract_with_single_model(self, paper: Dict, model_name: str) -> ModelResult:
@@ -91,10 +219,13 @@ class DualModelAnalyzer:
             
             # Create prompt using shared service
             prompt = self.prompt_service.create_extraction_prompt(paper)
-            
-            logger.debug(f"Using {model_name} for paper {pmid}")
-            
-            # Call LLM API
+
+            # Calculate dynamic max_tokens
+            dynamic_max_tokens = self._calculate_dynamic_max_tokens(prompt, model_config)
+
+            logger.debug(f"Using {model_name} for paper {pmid} with max_tokens={dynamic_max_tokens}")
+
+            # Call LLM API with dynamic token limit
             response = client.chat.completions.create(
                 model=model_name,
                 messages=[
@@ -105,7 +236,7 @@ class DualModelAnalyzer:
                     {"role": "user", "content": prompt}
                 ],
                 temperature=model_config['temperature'],
-                max_tokens=model_config['max_tokens']
+                max_tokens=dynamic_max_tokens
             )
             
             # Extract response
@@ -150,7 +281,6 @@ class DualModelAnalyzer:
                 error=str(e)
             )
     
-    # Removed @log_execution_time - use error_handler.py decorators instead
     def extract_interventions(self, paper: Dict) -> Dict[str, Any]:
         """
         Extract interventions from a single paper using both models.
@@ -254,22 +384,34 @@ class DualModelAnalyzer:
     
     # Removed @log_execution_time - use error_handler.py decorators instead
     def process_papers_batch(self, papers: List[Dict], save_to_db: bool = True,
-                           batch_size: int = 3) -> Dict[str, Any]:
+                           batch_size: int = None) -> Dict[str, Any]:
         """
-        Process multiple papers with both models.
-        
+        Process multiple papers with both models using GPU-optimized batching.
+
         Args:
             papers: List of paper dictionaries
             save_to_db: Whether to save results to database
-            batch_size: Number of papers to process in each batch (small for dual models)
-            
+            batch_size: Number of papers to process in each batch (auto-optimized if None)
+
         Returns:
             Processing results summary
         """
-        logger.info(f"Starting dual-model intervention extraction for {len(papers)} papers (batch size: {batch_size})")
-        
+        # Optimize batch size based on GPU memory if not specified
+        if batch_size is None:
+            batch_size = self.gpu_optimization.get('optimal_batch_size', 3)
+
+        # Further optimize based on current memory usage
+        optimized_batch_size = self._optimize_batch_size_for_memory(batch_size)
+        use_sequential = self._should_use_sequential_processing(optimized_batch_size)
+
+        gpu_mem = self._monitor_gpu_memory()
+        logger.info(f"Starting GPU-optimized intervention extraction for {len(papers)} papers")
+        logger.info(f"Batch size: {optimized_batch_size} (requested: {batch_size})")
+        logger.info(f"Sequential processing: {use_sequential}")
+        logger.info(f"GPU memory: {gpu_mem['utilization']:.1%} utilized ({gpu_mem['reserved_gb']:.1f}GB/{gpu_mem['total_gb']:.1f}GB)")
+
         # Process in batches for better resource management
-        batches = batch_process(papers, batch_size)
+        batches = batch_process(papers, optimized_batch_size)
         
         all_results = []
         failed_papers = []
@@ -372,7 +514,7 @@ class DualModelAnalyzer:
         )
     
     def process_unprocessed_papers(self, limit: Optional[int] = None,
-                                 batch_size: int = 3) -> Dict:
+                                 batch_size: int = None) -> Dict:
         """Process all unprocessed papers with both models."""
         papers = self.get_unprocessed_papers(limit)
         

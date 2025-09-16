@@ -903,3 +903,45 @@
 2025-09-15 16:48:04,274 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
 2025-09-15 16:48:04,278 - src.paper_collection.database_manager - INFO - Set up 6 intervention categories
 2025-09-15 16:48:04,278 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 17:49:23,274 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 17:49:23,277 - src.paper_collection.database_manager - INFO - Set up 7 intervention categories
+2025-09-16 17:49:23,277 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 17:49:30,311 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 17:49:30,313 - src.paper_collection.database_manager - INFO - Set up 7 intervention categories
+2025-09-16 17:49:30,313 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:26:06,274 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:26:06,281 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:26:06,281 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:26:16,855 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:26:16,860 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:26:16,860 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:26:24,046 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:26:24,051 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:26:24,051 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:33:55,202 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:33:55,206 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:33:55,206 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:34:54,292 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:34:54,296 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:34:54,297 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:43:53,247 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:43:53,247 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:43:53,247 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:51:17,804 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:51:17,806 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:51:17,806 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:52:48,864 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:52:48,867 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:52:48,867 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:53:05,338 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:53:05,343 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:53:05,343 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:53:34,377 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:53:34,377 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:53:34,377 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 18:53:40,984 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 18:53:40,989 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 18:53:40,989 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-16 19:02:21,708 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-16 19:02:21,708 - src.paper_collection.database_manager - INFO - Set up 9 intervention categories
+2025-09-16 19:02:21,708 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db

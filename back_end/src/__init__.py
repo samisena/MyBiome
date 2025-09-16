@@ -15,7 +15,7 @@ from .paper_collection.database_manager import DatabaseManager, database_manager
 
 # Processing modules
 from .paper_collection.pubmed_collector import PubMedCollector
-from .llm.probiotic_analyzer import ProbioticAnalyzer
+# from .llm.probiotic_analyzer import ProbioticAnalyzer  # Module removed
 from .paper_collection.paper_parser import PubmedParser
 from .paper_collection.fulltext_retriever import FullTextRetriever
 
@@ -30,7 +30,7 @@ __all__ = [
     'config', 'setup_logging',
     'ResearchPipeline',
     'DatabaseManager', 'database_manager',
-    'PubMedCollector', 'ProbioticAnalyzer',
+    'PubMedCollector',
     'PubmedParser', 'FullTextRetriever',
     'parse_json_safely', 'batch_process', 'validation_manager', 'error_handler'
 ]
