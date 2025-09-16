@@ -111,3 +111,26 @@
 2025-09-14 18:28:37,849 - src.paper_collection.semantic_scholar_enrichment - WARNING - Skipping similar paper discovery - no papers were enriched
 2025-09-14 18:28:37,849 - src.paper_collection.semantic_scholar_enrichment - INFO - Full S2 enrichment pipeline completed in 0.0s
 2025-09-14 18:28:37,849 - src.paper_collection.semantic_scholar_enrichment - INFO - Results: 0 enriched, 0 new papers discovered
+2025-09-16 19:41:24,020 - src.paper_collection.semantic_scholar_enrichment - INFO - Starting full Semantic Scholar enrichment pipeline
+2025-09-16 19:41:24,020 - src.paper_collection.semantic_scholar_enrichment - INFO - === Step 1: Enriching existing papers ===
+2025-09-16 19:41:24,020 - src.paper_collection.semantic_scholar_enrichment - INFO - Starting Semantic Scholar enrichment of existing papers
+2025-09-16 19:41:24,020 - src.paper_collection.semantic_scholar_enrichment - INFO - Found 10 papers to enrich with Semantic Scholar data
+2025-09-16 19:41:24,560 - src.paper_collection.semantic_scholar_enrichment - INFO - Progress: 9/10 papers processed
+2025-09-16 19:41:25,569 - src.paper_collection.semantic_scholar_enrichment - INFO - S2 enrichment completed: 9 enriched, 0 failed
+2025-09-16 19:41:25,569 - src.paper_collection.semantic_scholar_enrichment - INFO - === Step 2: Discovering similar papers ===
+2025-09-16 19:41:25,569 - src.paper_collection.semantic_scholar_enrichment - INFO - Starting similar paper discovery via Semantic Scholar
+2025-09-16 19:41:25,570 - src.paper_collection.semantic_scholar_enrichment - INFO - Using 11 papers as seeds for similarity search
+2025-09-16 19:41:26,337 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 25646566: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:25646566/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
+2025-09-16 19:41:27,123 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 33486083: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:33486083/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
+2025-09-16 19:41:27,936 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 40908534: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:40908534/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
+2025-09-16 19:41:27,936 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 40904246: Circuit breaker open for get_similar_papers
+2025-09-16 19:41:27,937 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 40891151: Circuit breaker open for get_similar_papers
+2025-09-16 19:41:27,937 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 40851355: Circuit breaker open for get_similar_papers
+2025-09-16 19:41:27,937 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 40786128: Circuit breaker open for get_similar_papers
+2025-09-16 19:41:27,937 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 40765115: Circuit breaker open for get_similar_papers
+2025-09-16 19:41:27,937 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 40728847: Circuit breaker open for get_similar_papers
+2025-09-16 19:41:27,937 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 40712106: Circuit breaker open for get_similar_papers
+2025-09-16 19:41:27,937 - src.paper_collection.semantic_scholar_enrichment - WARNING - Failed to get similar papers for PMID 40706614: Circuit breaker open for get_similar_papers
+2025-09-16 19:41:27,937 - src.paper_collection.semantic_scholar_enrichment - INFO - Similar paper discovery completed: 0 new papers found, 0 duplicates skipped
+2025-09-16 19:41:27,937 - src.paper_collection.semantic_scholar_enrichment - INFO - Full S2 enrichment pipeline completed in 3.9s
+2025-09-16 19:41:27,937 - src.paper_collection.semantic_scholar_enrichment - INFO - Results: 9 enriched, 0 new papers discovered

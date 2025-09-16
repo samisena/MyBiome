@@ -15,6 +15,7 @@ from src.data.repositories import repository_manager
 from src.data.utils import (parse_json_safely, batch_process)
 from src.data.error_handler import handle_llm_errors
 from src.interventions.validators import intervention_validator
+from src.interventions.taxonomy import InterventionType
 from src.llm.prompt_service import prompt_service
 
 logger = setup_logging(__name__, 'dual_model_analyzer.log')
@@ -225,39 +226,37 @@ class DualModelAnalyzer:
 
             logger.debug(f"Using {model_name} for paper {pmid} with max_tokens={dynamic_max_tokens}")
 
-            # Call LLM API with dynamic token limit
-            response = client.chat.completions.create(
-                model=model_name,
-                messages=[
-                    {
-                        "role": "system",
-                        "content": self.prompt_service.create_system_message()
-                    },
-                    {"role": "user", "content": prompt}
-                ],
+            # Combine system message and user prompt
+            system_message = self.prompt_service.create_system_message()
+            full_prompt = f"{system_message}\n\n{prompt}"
+
+            # Call LLM using the client's generate method
+            response = client.generate(
+                prompt=full_prompt,
                 temperature=model_config['temperature'],
                 max_tokens=dynamic_max_tokens
             )
-            
+
             # Extract response
-            response_text = response.choices[0].message.content
+            response_text = response.get('content', '')
             extraction_time = time.time() - start_time
-            
-            # Track token usage
+
+            # Track token usage (if available in response)
             token_usage = {}
-            if hasattr(response, 'usage'):
+            if 'usage' in response:
+                usage = response['usage']
                 token_usage = {
-                    'input_tokens': response.usage.prompt_tokens,
-                    'output_tokens': response.usage.completion_tokens,
-                    'total_tokens': response.usage.total_tokens
+                    'input_tokens': usage.get('prompt_tokens', 0),
+                    'output_tokens': usage.get('completion_tokens', 0),
+                    'total_tokens': usage.get('total_tokens', 0)
                 }
-                
+
                 # Update running totals
-                self.token_usage[model_name]['input'] += response.usage.prompt_tokens
-                self.token_usage[model_name]['output'] += response.usage.completion_tokens
-                self.token_usage[model_name]['total'] += response.usage.total_tokens
+                self.token_usage[model_name]['input'] += usage.get('prompt_tokens', 0)
+                self.token_usage[model_name]['output'] += usage.get('completion_tokens', 0)
+                self.token_usage[model_name]['total'] += usage.get('total_tokens', 0)
                 
-                logger.debug(f"Tokens used for {pmid} with {model_name}: {response.usage.prompt_tokens} in, {response.usage.completion_tokens} out")
+                logger.debug(f"Tokens used for {pmid} with {model_name}: {usage.get('prompt_tokens', 0)} in, {usage.get('completion_tokens', 0)} out")
             
             # Parse JSON response
             interventions = parse_json_safely(response_text, f"{pmid}_{model_name}")
@@ -340,7 +339,7 @@ class DualModelAnalyzer:
             logger.info(f"Paper {pmid} processed - Total interventions: {len(all_interventions)}, Model counts: {model_counts}")
             
             # Update processing status
-            status = 'processed' if all_interventions else 'no_interventions'
+            status = 'processed' if all_interventions else 'processed'  # Both cases are 'processed'
             self.repository_mgr.papers.update_processing_status(pmid, status)
             
             return paper_results

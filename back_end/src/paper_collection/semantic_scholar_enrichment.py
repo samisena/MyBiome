@@ -380,6 +380,39 @@ class SemanticScholarEnricher:
             ''', (pmid,))
             return cursor.fetchone() is not None
 
+    def _enrich_single_paper(self, paper: Dict) -> EnrichmentStats:
+        """Enrich a single paper with S2 data."""
+        stats = EnrichmentStats()
+        stats.total_papers = 1
+
+        try:
+            pmid = paper['pmid']
+
+            # Use DOI if available, otherwise PMID
+            paper_id = paper.get('doi', pmid)
+
+            # Get S2 data for this paper
+            s2_paper = self.s2_client.get_paper(paper_id)
+
+            if s2_paper:
+                success = self._update_paper_with_s2_data(pmid, s2_paper)
+                if success:
+                    stats.enriched_papers = 1
+                else:
+                    stats.failed_papers = 1
+                    stats.errors.append(f"Failed to update {pmid} with S2 data")
+            else:
+                # Mark as processed even if no S2 data found
+                self._mark_paper_s2_processed(pmid)
+                stats.failed_papers = 1
+                stats.errors.append(f"No S2 data found for {pmid}")
+
+        except Exception as e:
+            stats.failed_papers = 1
+            stats.errors.append(f"Error enriching {paper.get('pmid', 'unknown')}: {str(e)}")
+
+        return stats
+
     def _convert_s2_to_paper_format(self, s2_paper: Dict) -> Optional[Dict]:
         """Convert Semantic Scholar paper format to our paper format."""
         try:
@@ -419,7 +452,8 @@ class SemanticScholarEnricher:
 
                 # Default values
                 'has_fulltext': False,
-                'processing_status': 'pending'
+                'processing_status': 'pending',
+                'discovery_source': 'semantic_scholar'
             }
 
             return paper

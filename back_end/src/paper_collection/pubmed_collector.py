@@ -112,119 +112,394 @@ class PubMedCollector:
             return None
     
     # Removed @log_execution_time - use error_handler.py decorators instead
-    def collect_interventions_by_condition(self, condition: str, min_year: int = 2010, 
-                                          max_results: int = 100, 
+    def collect_interventions_by_condition(self, condition: str, min_year: int = 2010,
+                                          max_results: int = 100,
                                           include_fulltext: bool = True,
-                                          include_study_filter: bool = True) -> Dict[str, Any]:
+                                          include_study_filter: bool = True,
+                                          use_interleaved_s2: bool = True) -> Dict[str, Any]:
         """
         Collect intervention papers for a health condition with enhanced processing.
-        
+        Now supports interleaved Semantic Scholar discovery: each PubMed paper immediately
+        triggers discovery of 5 similar papers.
+
         Args:
             condition: Health condition to search for
             min_year: Minimum publication year
-            max_results: Maximum number of papers
+            max_results: Maximum number of seed papers from PubMed (will find ~5x more via S2)
             include_fulltext: Whether to attempt fulltext retrieval
             include_study_filter: Whether to filter for intervention studies
-            
+            use_interleaved_s2: Whether to use interleaved S2 discovery (1 paper -> 5 similar papers)
+
         Returns:
-            Collection results dictionary
+            Collection results dictionary with PubMed and S2 discovery stats
         """
         logger.info(f"Starting intervention collection for condition: {condition}")
-        
+        if use_interleaved_s2:
+            logger.info(f"Target: {max_results} PubMed seed papers (expecting ~{max_results * 6} total with S2 discovery)")
+        else:
+            logger.info(f"Target: {max_results} NEW papers (excluding existing ones)")
+
         # Build enhanced search query for interventions
         query = self._build_intervention_query(condition, include_study_filter)
         logger.info(f"Using intervention query: {query[:200]}...")  # Log first 200 chars
-        
+
         try:
-            # Step 1: Search for papers
-            pmid_list = self.search_papers(query, min_year, max_results)
-            
-            if not pmid_list:
-                return {
-                    "condition": condition,
-                    "paper_count": 0,
-                    "status": "no_results",
-                    "message": "No papers found matching criteria"
-                }
-            
-            # Step 2: Fetch metadata
-            metadata_file = self.fetch_papers_metadata(pmid_list)
-            
-            if not metadata_file:
-                return {
-                    "condition": condition,
-                    "paper_count": len(pmid_list),
-                    "status": "fetch_failed",
-                    "message": "Failed to fetch paper metadata"
-                }
-            
-            # Step 3: Parse and store papers
-            papers = self.parser.parse_metadata_file(str(metadata_file))
-            
-            if not papers:
-                return {
-                    "condition": condition,
-                    "paper_count": 0,
-                    "status": "parse_failed",
-                    "metadata_file": str(metadata_file),
-                    "message": "Failed to parse paper metadata"
-                }
-            
-            # Step 4: Retrieve fulltext if requested
-            fulltext_stats = None
-            if include_fulltext:
-                logger.info(f"Attempting fulltext retrieval for {len(papers)} papers...")
-                fulltext_stats = self._process_fulltext_batch(papers)
-            
-            # Step 5: Build result
-            result = {
-                "condition": condition,
-                "paper_count": len(papers),
-                "papers_stored": len(papers),
-                "metadata_file": str(metadata_file),
-                "status": "success",
-                "message": f"Successfully collected {len(papers)} papers"
-            }
-            
-            if fulltext_stats:
-                result["fulltext_stats"] = fulltext_stats
-            
-            logger.info(f"Collection completed successfully: {result['message']}")
-            return result
-            
+            if use_interleaved_s2:
+                return self._collect_with_interleaved_s2(
+                    condition, query, min_year, max_results, include_fulltext
+                )
+            else:
+                return self._collect_traditional_batch(
+                    condition, query, min_year, max_results, include_fulltext
+                )
+
         except Exception as e:
             logger.error(f"Error in collection process: {e}")
             return {
                 "condition": condition,
                 "paper_count": 0,
+                "new_papers_count": 0,
                 "status": "error",
                 "message": f"Collection failed: {str(e)}"
             }
     
     def _build_intervention_query(self, condition: str, include_study_filter: bool = True) -> str:
         """Build an optimized search query for health interventions and conditions."""
-        # Get comprehensive intervention terms from search_terms
-        intervention_query = search_terms.build_intervention_query_part()
-        
+        # Use a simplified intervention query to avoid URL length issues
+        # Focus on most common intervention terms
+        intervention_terms = [
+            'intervention[Title/Abstract]',
+            'treatment[Title/Abstract]',
+            'therapy[Title/Abstract]',
+            'exercise[Title/Abstract]',
+            'diet[Title/Abstract]',
+            'medication[Title/Abstract]',
+            'supplement[Title/Abstract]',
+            '"Drug Therapy"[MeSH Terms]',
+            '"Exercise"[MeSH Terms]',
+            '"Diet Therapy"[MeSH Terms]',
+            '"Behavioral Intervention"[MeSH Terms]'
+        ]
+
+        intervention_query = f"({' OR '.join(intervention_terms)})"
+
         # Build condition terms
         condition_terms = [
             f'"{condition}"[Title/Abstract]',
             f'"{condition}"[MeSH Terms]'
         ]
-        
+
         condition_query = f"({' OR '.join(condition_terms)})"
-        
+
         # Build base query
         base_query = f"{condition_query} AND {intervention_query}"
-        
+
         # Add study type filter if requested
         if include_study_filter:
-            study_filter = search_terms.build_study_type_filter()
+            study_filter_terms = [
+                '"Randomized Controlled Trial"[Publication Type]',
+                '"Clinical Trial"[Publication Type]',
+                'randomized[Title/Abstract]',
+                'controlled trial[Title/Abstract]',
+                'RCT[Title/Abstract]'
+            ]
+            study_filter = f"({' OR '.join(study_filter_terms)})"
             base_query = f"{base_query} AND {study_filter}"
-        
+
         return base_query
-    
-    
+
+    def _search_papers_with_offset(self, query: str, min_year: int, max_results: int, offset: int = 0) -> List[str]:
+        """
+        Search for papers with pagination support.
+
+        Args:
+            query: Search query string
+            min_year: Minimum publication year
+            max_results: Maximum number of results
+            offset: Starting position for results (for pagination)
+
+        Returns:
+            List of PMIDs
+        """
+        try:
+            # Most PubMed clients don't support direct offset, so we'll use retstart parameter
+            # if available, or fetch a larger batch and slice it
+            if hasattr(self.pubmed_client, 'search_papers_with_offset'):
+                result = self.pubmed_client.search_papers_with_offset(query, min_year, max_results, offset)
+                return result['pmids']
+            else:
+                # Fallback: fetch larger batch and slice
+                # This is less efficient but works with basic clients
+                fetch_size = max_results + offset
+                result = self.pubmed_client.search_papers(query, min_year, min(fetch_size, 10000))
+                pmids = result['pmids']
+                return pmids[offset:offset + max_results] if len(pmids) > offset else []
+
+        except Exception as e:
+            logger.error(f"Error searching PubMed with offset: {e}")
+            return []
+
+    def _filter_existing_papers(self, pmid_list: List[str]) -> List[str]:
+        """
+        Filter out PMIDs that already exist in the database.
+
+        Args:
+            pmid_list: List of PMIDs to check
+
+        Returns:
+            List of PMIDs that don't exist in the database
+        """
+        if not pmid_list:
+            return []
+
+        try:
+            with self.db_manager.get_connection() as conn:
+                cursor = conn.cursor()
+
+                # Create placeholders for the IN clause
+                placeholders = ','.join(['?'] * len(pmid_list))
+                query = f'SELECT pmid FROM papers WHERE pmid IN ({placeholders})'
+
+                cursor.execute(query, pmid_list)
+                existing_pmids = {row[0] for row in cursor.fetchall()}
+
+                # Return PMIDs that are NOT in the existing set
+                new_pmids = [pmid for pmid in pmid_list if pmid not in existing_pmids]
+
+                logger.debug(f"Filtered {len(pmid_list)} PMIDs: {len(existing_pmids)} existing, {len(new_pmids)} new")
+                return new_pmids
+
+        except Exception as e:
+            logger.error(f"Error filtering existing papers: {e}")
+            # If we can't check, return all PMIDs and let the database handle duplicates
+            return pmid_list
+
+    def _collect_with_interleaved_s2(self, condition: str, query: str, min_year: int,
+                                   max_results: int, include_fulltext: bool) -> Dict[str, Any]:
+        """
+        Collect papers using interleaved Semantic Scholar discovery.
+        For each PubMed paper collected, immediately find 5 similar papers.
+        """
+        logger.info("Using interleaved Semantic Scholar discovery workflow")
+
+        # Import S2 enricher here to avoid circular imports
+        from src.paper_collection.semantic_scholar_enrichment import SemanticScholarEnricher
+        s2_enricher = SemanticScholarEnricher(self.db_manager)
+
+        # Statistics tracking
+        pubmed_papers = []
+        s2_papers = []
+        total_papers_searched = 0
+        search_offset = 0
+        metadata_files = []
+
+        # Search for papers one by one and process immediately
+        for seed_count in range(max_results):
+            # Step 1: Get the next PubMed paper
+            pmid_list = self._search_papers_with_offset(query, min_year, 10, search_offset)
+
+            if not pmid_list:
+                logger.info(f"No more papers found after {seed_count} seed papers")
+                break
+
+            total_papers_searched += len(pmid_list)
+
+            # Filter out existing papers
+            new_pmids = self._filter_existing_papers(pmid_list)
+
+            if not new_pmids:
+                search_offset += len(pmid_list)
+                continue
+
+            # Take the first new paper as our seed
+            seed_pmid = new_pmids[0]
+
+            # Step 2: Fetch and parse the seed paper
+            metadata_file = self.fetch_papers_metadata([seed_pmid])
+
+            if not metadata_file:
+                search_offset += len(pmid_list)
+                continue
+
+            batch_papers = self.parser.parse_metadata_file(str(metadata_file))
+
+            if not batch_papers:
+                search_offset += len(pmid_list)
+                continue
+
+            seed_paper = batch_papers[0]
+            pubmed_papers.append(seed_paper)
+            metadata_files.append(str(metadata_file))
+
+            logger.info(f"Seed {seed_count + 1}/{max_results}: Collected paper {seed_pmid}")
+
+            # Step 3: Immediately enrich the seed paper with S2 data
+            try:
+                enrichment_stats = s2_enricher._enrich_single_paper(seed_paper)
+                if enrichment_stats.enriched_papers > 0:
+                    logger.info(f"  [OK] Enriched with S2 data")
+                else:
+                    logger.info(f"  [FAIL] S2 enrichment failed")
+            except Exception as e:
+                logger.warning(f"  [FAIL] S2 enrichment failed: {e}")
+
+            # Step 4: Find 5 similar papers via S2
+            try:
+                similar_papers = s2_enricher.s2_client.get_similar_papers(seed_pmid, limit=5)
+
+                if similar_papers:
+                    # Convert S2 papers to our format and filter duplicates
+                    converted_papers = []
+                    for s2_paper in similar_papers:
+                        converted = s2_enricher._convert_s2_to_paper_format(s2_paper)
+                        if converted and not s2_enricher._is_duplicate_paper(converted):
+                            converted_papers.append(converted)
+
+                    # Add the similar papers to database
+                    if converted_papers:
+                        inserted_count, failed_count = self.db_manager.insert_papers_batch(converted_papers)
+                        s2_papers.extend(converted_papers[:inserted_count])  # Only count actually inserted papers
+                        logger.info(f"  [S2] Found {len(similar_papers)} similar papers, added {inserted_count} new ones")
+                    else:
+                        logger.info(f"  [S2] Found {len(similar_papers)} similar papers, all were duplicates")
+                else:
+                    logger.info(f"  [S2] No similar papers found")
+
+            except Exception as e:
+                logger.warning(f"  [S2] Similar paper discovery failed: {e}")
+
+            # Step 5: Process fulltext if requested (for seed paper only)
+            if include_fulltext and batch_papers:
+                fulltext_stats = self._process_fulltext_batch(batch_papers)
+
+            search_offset += len(pmid_list)
+
+            # Rate limiting between iterations
+            time.sleep(0.5)
+
+        # Build comprehensive results
+        total_papers = len(pubmed_papers) + len(s2_papers)
+
+        result = {
+            "condition": condition,
+            "paper_count": total_papers,
+            "pubmed_papers": len(pubmed_papers),
+            "s2_similar_papers": len(s2_papers),
+            "papers_stored": total_papers,
+            "total_papers_searched": total_papers_searched,
+            "metadata_files": metadata_files,
+            "interleaved_workflow": True,
+            "status": "success" if len(pubmed_papers) >= max_results else "partial_success",
+            "message": f"Interleaved collection: {len(pubmed_papers)} PubMed seed papers + {len(s2_papers)} S2 similar papers = {total_papers} total papers"
+        }
+
+        logger.info(f"Interleaved collection completed: {result['message']}")
+        return result
+
+    def _collect_traditional_batch(self, condition: str, query: str, min_year: int,
+                                 max_results: int, include_fulltext: bool) -> Dict[str, Any]:
+        """
+        Traditional batch collection method (original logic).
+        """
+        # [This would contain the original batch collection logic we had before]
+        # For now, let's implement a simplified version
+        logger.info("Using traditional batch collection workflow")
+
+        new_papers_collected = 0
+        total_papers_processed = 0
+        search_batch_size = max_results * 2  # Start with 2x to account for duplicates
+        max_search_attempts = 5
+        search_offset = 0
+
+        all_new_papers = []
+        metadata_files = []
+
+        for attempt in range(max_search_attempts):
+            if new_papers_collected >= max_results:
+                break
+
+            remaining_needed = max_results - new_papers_collected
+            current_search_size = min(search_batch_size, remaining_needed * 3)  # 3x buffer
+
+            logger.info(f"Search attempt {attempt + 1}: looking for {current_search_size} papers (need {remaining_needed} more new papers)")
+
+            # Step 1: Search for papers with offset
+            pmid_list = self._search_papers_with_offset(query, min_year, current_search_size, search_offset)
+
+            if not pmid_list:
+                logger.info("No more papers found in search")
+                break
+
+            # Filter out papers that already exist in our database
+            new_pmids = self._filter_existing_papers(pmid_list)
+            logger.info(f"Found {len(pmid_list)} papers, {len(new_pmids)} are new")
+
+            if not new_pmids:
+                search_offset += len(pmid_list)
+                continue
+
+            # Only process the number we actually need
+            pmids_to_process = new_pmids[:remaining_needed]
+
+            # Step 2: Fetch metadata
+            metadata_file = self.fetch_papers_metadata(pmids_to_process)
+
+            if not metadata_file:
+                logger.warning(f"Failed to fetch metadata for batch {attempt + 1}")
+                search_offset += len(pmid_list)
+                continue
+
+            # Step 3: Parse and store papers
+            batch_papers = self.parser.parse_metadata_file(str(metadata_file))
+
+            if batch_papers:
+                all_new_papers.extend(batch_papers)
+                metadata_files.append(str(metadata_file))
+                new_papers_collected += len(batch_papers)
+                total_papers_processed += len(pmid_list)
+
+                logger.info(f"Batch {attempt + 1}: Added {len(batch_papers)} new papers. Total new: {new_papers_collected}/{max_results}")
+
+            search_offset += len(pmid_list)
+
+            # If we didn't get as many new papers as expected, increase search size for next attempt
+            if len(batch_papers) < len(pmids_to_process) * 0.8:
+                search_batch_size = int(search_batch_size * 1.5)
+
+        if not all_new_papers:
+            return {
+                "condition": condition,
+                "paper_count": 0,
+                "new_papers_count": 0,
+                "status": "no_results",
+                "message": "No new papers found matching criteria"
+            }
+
+        # Step 4: Retrieve fulltext if requested
+        fulltext_stats = None
+        if include_fulltext:
+            logger.info(f"Attempting fulltext retrieval for {len(all_new_papers)} new papers...")
+            fulltext_stats = self._process_fulltext_batch(all_new_papers)
+
+        # Step 5: Build result
+        result = {
+            "condition": condition,
+            "paper_count": len(all_new_papers),
+            "new_papers_count": len(all_new_papers),
+            "papers_stored": len(all_new_papers),
+            "total_papers_searched": total_papers_processed,
+            "metadata_files": metadata_files,
+            "interleaved_workflow": False,
+            "status": "success" if new_papers_collected >= max_results else "partial_success",
+            "message": f"Successfully collected {len(all_new_papers)} new papers (target: {max_results})"
+        }
+
+        if fulltext_stats:
+            result["fulltext_stats"] = fulltext_stats
+
+        logger.info(f"Traditional collection completed: {result['message']}")
+        return result
+
     def _process_fulltext_batch(self, papers: List[Dict]) -> Dict[str, Any]:
         """Process papers for fulltext retrieval in batches."""
         # Filter papers that have PMC IDs or DOIs

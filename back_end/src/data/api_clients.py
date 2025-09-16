@@ -290,7 +290,7 @@ class LLMClient:
                 max_tokens=max_tokens or config.llm_max_tokens               
             )
             return{
-                'content':response.choice[0].message.content,
+                'content':response.choices[0].message.content,
                 'usage': {
                     'prompt_tokens': response.usage.prompt_tokens,
                     'completion_tokens': response.usage.completion_tokens,

@@ -158,7 +158,8 @@ class PubmedParser:
                 'keywords': keywords,
                 'has_fulltext': False,  # Will be updated by fulltext retriever
                 'fulltext_source': None,
-                'fulltext_path': None
+                'fulltext_path': None,
+                'discovery_source': 'pubmed'
             }
             
             return paper

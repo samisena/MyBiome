@@ -166,6 +166,7 @@ class DatabaseManager:
                     fulltext_source TEXT,
                     fulltext_path TEXT,
                     processing_status TEXT DEFAULT 'pending',  -- pending, processed, failed
+                    discovery_source TEXT DEFAULT 'pubmed',  -- pubmed, semantic_scholar, reference_following
 
                     -- Semantic Scholar fields
                     s2_paper_id TEXT,  -- Semantic Scholar paper ID
@@ -302,7 +303,8 @@ class DatabaseManager:
             ('citation_count', 'INTEGER'),
             ('tldr', 'TEXT'),
             ('s2_embedding', 'TEXT'),
-            ('s2_processed', 'BOOLEAN DEFAULT FALSE')
+            ('s2_processed', 'BOOLEAN DEFAULT FALSE'),
+            ('discovery_source', 'TEXT DEFAULT \'pubmed\'')
         ]
 
         for column_name, column_type in s2_columns:
@@ -333,9 +335,9 @@ class DatabaseManager:
                 
                 cursor.execute('''
                     INSERT OR IGNORE INTO papers
-                    (pmid, title, abstract, journal, publication_date, doi, pmc_id, 
-                     keywords, has_fulltext, fulltext_source, fulltext_path, processing_status)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    (pmid, title, abstract, journal, publication_date, doi, pmc_id,
+                     keywords, has_fulltext, fulltext_source, fulltext_path, processing_status, discovery_source)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_paper['pmid'],
                     validated_paper['title'],
@@ -348,7 +350,8 @@ class DatabaseManager:
                     validated_paper['has_fulltext'],
                     validated_paper['fulltext_source'],
                     validated_paper['fulltext_path'],
-                    'pending'
+                    'pending',
+                    validated_paper.get('discovery_source', 'pubmed')
                 ))
                 
                 was_new = cursor.rowcount > 0
@@ -367,6 +370,31 @@ class DatabaseManager:
         except Exception as e:
             logger.error(f"Error inserting paper {paper.get('pmid', 'unknown')}: {e}")
             return False
+
+    def insert_papers_batch(self, papers: List[Dict]) -> tuple[int, int]:
+        """
+        Insert multiple papers efficiently.
+
+        Args:
+            papers: List of paper dictionaries
+
+        Returns:
+            Tuple of (inserted_count, failed_count)
+        """
+        inserted_count = 0
+        failed_count = 0
+
+        for paper in papers:
+            try:
+                if self.insert_paper(paper):
+                    inserted_count += 1
+                else:
+                    failed_count += 1
+            except Exception as e:
+                logger.error(f"Error inserting paper {paper.get('pmid', 'unknown')}: {e}")
+                failed_count += 1
+
+        return inserted_count, failed_count
     
     def insert_intervention(self, intervention: Dict) -> bool:
         """Insert an intervention with validation."""
@@ -480,20 +508,24 @@ class DatabaseManager:
             cursor.execute(query, params)
             return [dict(row) for row in cursor.fetchall()]
     
-    def get_papers_for_processing(self, extraction_model: str, 
+    def get_papers_for_processing(self, extraction_model: str,
                                 limit: Optional[int] = None) -> List[Dict]:
-        """Get papers that need processing by a specific model (intervention extraction)."""
+        """Get papers that need processing by a specific model (intervention extraction).
+        Papers are prioritized by influence score, then citation count, then publication date."""
         with self.get_connection() as conn:
             cursor = conn.cursor()
             query = '''
                 SELECT p.*
                 FROM papers p
                 LEFT JOIN interventions i ON p.pmid = i.paper_id AND i.extraction_model = ?
-                WHERE i.id IS NULL 
-                  AND p.abstract IS NOT NULL 
+                WHERE i.id IS NULL
+                  AND p.abstract IS NOT NULL
                   AND p.abstract != ''
-                  AND p.processing_status != 'failed'
-                ORDER BY p.publication_date DESC
+                  AND (p.processing_status IS NULL OR p.processing_status != 'failed')
+                ORDER BY
+                    COALESCE(p.influence_score, 0) DESC,
+                    COALESCE(p.citation_count, 0) DESC,
+                    p.publication_date DESC
             '''
             
             params = [extraction_model]

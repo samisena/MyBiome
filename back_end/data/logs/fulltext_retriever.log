@@ -1142,3 +1142,215 @@
 2025-09-13 20:33:01,884 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
 2025-09-13 20:33:01,884 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
 2025-09-14 18:23:11,709 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-16 19:40:33,248 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-16 19:41:21,605 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing 10 papers for fulltext retrieval
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Found 10 potential fulltext candidates
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (10 papers)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40929652: Comparative effectiveness and safety of probiotics with psychotropic potential i...
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40929652 (DOI: 10.1097/MEG.0000000000003062)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40929652: No open access full text found
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40908534: First Real-World Evidence of an AI-Enhanced Digital Collaborative Care Model to ...
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40908534 (DOI: 10.1111/nmo.70144)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40908534: No open access full text found
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40904246: Median arcuate ligament syndrome: challenges, comorbidities, and controversies....
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40904246 (DOI: 10.1097/MOP.0000000000001503)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40904246: No open access full text found
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40891151: Safety, tolerability, and preliminary effects of cricket chitin for adults with ...
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40891151 (DOI: 10.1039/d5fo01540e)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40891151: No open access full text found
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40851355: A Randomized Waitlist-Controlled Trial of a Positive Psychology Intervention for...
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40851355 (DOI: 10.1111/nmo.70146)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40851355: No open access full text found
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40786128: Randomized, Placebo-Controlled, Double-Blind 8-Week Trial on the Efficacy of A P...
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 40786128 (PMC ID: PMC12335029)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40786128 (DOI: 10.1002/jgh3.70250)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40786128: No open access full text found
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40765115: Effects of a Low FODMAP Diet in Inflammatory Bowel Disease and Patient Experienc...
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 40765115 (PMC ID: PMC12326053)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40765115 (DOI: 10.1111/jhn.70106)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40765115: No open access full text found
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40728847: The Effects of Progressive Muscle Relaxation Exercises on Symptom Severity and Q...
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40728847 (DOI: 10.1097/SGA.0000000000000879)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40728847: No open access full text found
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40712106: Efficacy and Safety of the Enterosorbent Silicolgel in Irritable Bowel Syndrome,...
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40712106 (DOI: 10.1111/nmo.70118)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40712106: No open access full text found
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40706614: Effect of gluten and wheat on symptoms and behaviours in adults with irritable b...
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40706614 (DOI: 10.1016/S2468-1253(25)00090-1)
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40706614: No open access full text found
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Total papers: 10
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 10
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 10
+2025-09-16 19:41:24,004 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:55:39,967 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-16 19:55:44,016 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:55:44,016 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:55:44,016 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:55:44,016 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40693198: Effects of a polyphenol-rich extract blend, probiotics, and hydrolyzed fiber on ...
+2025-09-16 19:55:44,016 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 40693198 (PMC ID: PMC12277158)
+2025-09-16 19:55:44,016 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40693198 (DOI: 10.3389/fnut.2025.1603011)
+2025-09-16 19:55:44,021 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40693198: No open access full text found
+2025-09-16 19:55:44,021 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:55:44,021 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:55:44,021 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:55:44,021 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:55:44,021 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:55:44,021 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:55:44,021 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:56:25,743 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-16 19:56:28,803 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:56:28,803 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:56:28,803 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:56:28,803 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40956259: Frailty and Effects of Semaglutide in Obesity-Related HFpEF: Findings From the S...
+2025-09-16 19:56:28,804 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40956259 (DOI: 10.1016/j.jchf.2025.102610)
+2025-09-16 19:56:28,807 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40956259: No open access full text found
+2025-09-16 19:56:28,808 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:56:28,808 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:56:28,808 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:56:28,808 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:56:28,808 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:56:28,808 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:56:28,808 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:56:33,020 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:56:33,020 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:56:33,020 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:56:33,020 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40949788: Selective serotonin reuptake inhibitors and glucose metabolism in Alzheimer's di...
+2025-09-16 19:56:33,020 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 40949788 (PMC ID: PMC12423674)
+2025-09-16 19:56:33,020 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40949788 (DOI: 10.1016/j.metop.2025.100389)
+2025-09-16 19:56:33,032 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40949788: No open access full text found
+2025-09-16 19:56:33,032 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:56:33,032 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:56:33,032 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:56:33,032 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:56:33,032 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:56:33,032 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:56:33,032 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:59:12,787 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40692549: Randomised controlled trial: nutritional supplements to relieve irritable bowel ...
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 40692549 (PMC ID: PMC12278178)
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40692549 (DOI: 10.1017/jns.2025.10021)
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40692549: No open access full text found
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:59:16,526 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:59:19,778 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:59:19,778 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:59:19,778 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:59:19,778 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40550724: Efficacy of a single low dose of esketamine for patients with irritable bowel sy...
+2025-09-16 19:59:19,778 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 40550724 (PMC ID: PMC12186029)
+2025-09-16 19:59:19,778 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40550724 (DOI: 10.1136/bmjopen-2025-099793)
+2025-09-16 19:59:19,782 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40550724: No open access full text found
+2025-09-16 19:59:19,782 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:59:19,782 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:59:19,782 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:59:19,782 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:59:19,782 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:59:19,782 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:59:19,782 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:59:23,124 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:59:23,124 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:59:23,124 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:59:23,124 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40365365: Exploring the Impact of Yoga Intervention on Psychological Symptoms in Irritable...
+2025-09-16 19:59:23,124 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 40365365 (PMC ID: PMC12068461)
+2025-09-16 19:59:23,124 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40365365 (DOI: 10.4103/ijoy.ijoy_200_24)
+2025-09-16 19:59:23,127 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40365365: No open access full text found
+2025-09-16 19:59:23,127 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:59:23,127 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:59:23,127 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:59:23,127 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:59:23,127 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:59:23,127 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:59:23,127 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:59:26,373 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:59:26,373 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:59:26,373 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:59:26,373 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40262961: Effects of Spirulina platensis supplementation on quality of life, severity of d...
+2025-09-16 19:59:26,373 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 40262961 (PMC ID: PMC12015699)
+2025-09-16 19:59:26,373 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40262961 (DOI: 10.1136/bmjopen-2024-086521)
+2025-09-16 19:59:26,376 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40262961: No open access full text found
+2025-09-16 19:59:26,376 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:59:26,376 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:59:26,376 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:59:26,377 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:59:26,377 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:59:26,377 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:59:26,377 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 39988545: Low FODMAP diet in children with functional abdominal pain disorders. Is it alwa...
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 39988545 (DOI: 10.1016/j.arcped.2024.12.008)
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 39988545: No open access full text found
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:59:29,974 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:59:33,762 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:59:33,762 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:59:33,762 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:59:33,762 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 39875940: Self-administered active versus sham acupressure for diarrhea predominant irrita...
+2025-09-16 19:59:33,762 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 39875940 (PMC ID: PMC11776273)
+2025-09-16 19:59:33,762 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 39875940 (DOI: 10.1186/s12912-024-02594-5)
+2025-09-16 19:59:33,765 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 39875940: No open access full text found
+2025-09-16 19:59:33,765 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:59:33,765 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:59:33,765 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:59:33,765 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:59:33,765 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:59:33,765 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:59:33,765 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:59:37,315 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:59:37,315 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:59:37,315 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:59:37,315 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 39780334: Probiotics Combined With Trimebutine for the Treatment of Irritable Bowel Syndro...
+2025-09-16 19:59:37,315 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 39780334 (DOI: 10.1111/jgh.16858)
+2025-09-16 19:59:37,320 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 39780334: No open access full text found
+2025-09-16 19:59:37,321 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:59:37,321 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:59:37,321 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:59:37,321 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:59:37,321 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:59:37,321 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:59:37,321 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:59:40,529 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:59:40,529 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:59:40,529 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:59:40,529 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 39631208: Quality and quantity of carbohydrates, faecal short-chain fatty acids and gastro...
+2025-09-16 19:59:40,529 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 39631208 (DOI: 10.1016/j.clnu.2024.11.041)
+2025-09-16 19:59:40,533 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 39631208: No open access full text found
+2025-09-16 19:59:40,533 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:59:40,533 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:59:40,533 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:59:40,533 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:59:40,533 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:59:40,533 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:59:40,533 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 19:59:44,284 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-16 19:59:44,284 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-16 19:59:44,284 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-16 19:59:44,284 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 39493642: Mirtazapine for gastrointestinal and neuropsychological symptoms in older adults...
+2025-09-16 19:59:44,284 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 39493642 (PMC ID: PMC11526313)
+2025-09-16 19:59:44,284 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 39493642 (DOI: 10.1177/17562848241278125)
+2025-09-16 19:59:44,292 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 39493642: No open access full text found
+2025-09-16 19:59:44,292 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-16 19:59:44,292 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-16 19:59:44,292 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-16 19:59:44,292 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-16 19:59:44,292 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-16 19:59:44,292 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-16 19:59:44,292 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-16 20:41:06,925 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized

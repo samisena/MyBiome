@@ -5,7 +5,18 @@
       "Bash(python test_semantic_scholar.py:*)",
       "Bash(python test:*)",
       "Bash(sqlite3:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(git log:*)",
+      "Bash(find:*)",
+      "Bash(ollama ps:*)",
+      "Bash(nvidia-smi:*)",
+      "Bash(ollama run:*)",
+      "Bash(ollama list:*)",
+      "Bash(set)",
+      "Bash(export OLLAMA_GPU_LAYERS=-1)",
+      "Bash(ollama stop:*)",
+      "Bash(time ollama run:*)",
+      "Bash(taskkill:*)"
     ],
     "deny": [],
     "ask": []
