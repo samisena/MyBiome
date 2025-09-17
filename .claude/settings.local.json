@@ -16,7 +16,13 @@
       "Bash(export OLLAMA_GPU_LAYERS=-1)",
       "Bash(ollama stop:*)",
       "Bash(time ollama run:*)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Bash(echo $OLLAMA_GPU_LAYERS)",
+      "Bash(export OLLAMA_GPU_LAYERS=50)",
+      "Bash(export OLLAMA_GPU_LAYERS=30)",
+      "Bash(chcp:*)",
+      "Bash(pip install:*)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []

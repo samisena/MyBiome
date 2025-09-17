@@ -14,7 +14,7 @@ sys.path.insert(0, str(src_dir))
 
 try:
     from src.paper_collection.database_manager import database_manager
-    from src.paper_collection.paper_parser import EnhancedPubmedParser
+    from src.paper_collection.paper_parser import PubmedParser
     from src.data.config import config, setup_logging
 except ImportError as e:
     print(f"Import error: {e}")
@@ -27,7 +27,7 @@ class AbstractReprocessor:
     """Re-process existing XML files to get complete abstracts."""
     
     def __init__(self):
-        self.parser = EnhancedPubmedParser()
+        self.parser = PubmedParser()
         self.metadata_dir = config.metadata_dir
         self.updated_count = 0
         self.skipped_count = 0

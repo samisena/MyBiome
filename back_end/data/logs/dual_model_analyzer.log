@@ -368,3 +368,230 @@
 2025-09-16 20:53:37,667 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 6 interventions from 2 papers
 2025-09-16 20:53:37,667 - src.llm.dual_model_analyzer - INFO - Interventions by category:
 2025-09-16 20:53:37,667 - src.llm.dual_model_analyzer - INFO -   diet: 13
+2025-09-17 18:10:36,723 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 18:10:36,723 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': None, 'gpu_memory_gb': 0, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 2, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 18:10:36,732 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 5 papers
+2025-09-17 18:10:36,733 - src.llm.dual_model_analyzer - INFO - Batch size: 4 (requested: 5)
+2025-09-17 18:10:36,733 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 18:10:36,733 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/0.0GB)
+2025-09-17 18:10:36,733 - src.llm.dual_model_analyzer - INFO - Processing batch 1/2 (4 papers)
+2025-09-17 18:10:36,733 - src.llm.dual_model_analyzer - INFO - Processing paper 1/5: 33486083
+2025-09-17 18:10:36,734 - src.llm.dual_model_analyzer - WARNING - Paper 33486083 has very short abstract (41 chars)
+2025-09-17 18:10:36,734 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with gemma2:9b
+2025-09-17 18:15:50,276 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 18:15:50,276 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': None, 'gpu_memory_gb': 0, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 2, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 18:17:19,196 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 18:17:19,196 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': None, 'gpu_memory_gb': 0, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 2, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 18:17:19,199 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 1 papers
+2025-09-17 18:17:19,199 - src.llm.dual_model_analyzer - INFO - Batch size: 1 (requested: 1)
+2025-09-17 18:17:19,199 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 18:17:19,199 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/0.0GB)
+2025-09-17 18:17:19,199 - src.llm.dual_model_analyzer - INFO - Processing batch 1/1 (1 papers)
+2025-09-17 18:17:19,199 - src.llm.dual_model_analyzer - INFO - Processing paper 1/1: 33486083
+2025-09-17 18:17:19,199 - src.llm.dual_model_analyzer - WARNING - Paper 33486083 has very short abstract (41 chars)
+2025-09-17 18:17:19,203 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with gemma2:9b
+2025-09-17 18:17:25,977 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with qwen2.5:14b
+2025-09-17 18:17:34,065 - src.llm.dual_model_analyzer - INFO - Paper 33486083 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 18:17:34,067 - src.llm.dual_model_analyzer - INFO - === Dual-Model Extraction Summary ===
+2025-09-17 18:17:34,067 - src.llm.dual_model_analyzer - INFO - Papers processed: 1/1 (100.0%)
+2025-09-17 18:17:34,067 - src.llm.dual_model_analyzer - INFO - Total interventions found: 0
+2025-09-17 18:17:34,067 - src.llm.dual_model_analyzer - INFO - Model statistics:
+2025-09-17 18:17:34,067 - src.llm.dual_model_analyzer - INFO -   gemma2:9b: 0 interventions from 0 papers
+2025-09-17 18:17:34,067 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 0 interventions from 0 papers
+2025-09-17 18:17:34,067 - src.llm.dual_model_analyzer - INFO - Interventions by category:
+2025-09-17 18:28:00,422 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 18:28:00,422 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': None, 'gpu_memory_gb': 0, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 2, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 18:28:37,442 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 18:28:37,442 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': None, 'gpu_memory_gb': 0, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 2, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 18:28:37,807 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 3 papers
+2025-09-17 18:28:37,807 - src.llm.dual_model_analyzer - INFO - Batch size: 1 (requested: 1)
+2025-09-17 18:28:37,807 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 18:28:37,807 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/0.0GB)
+2025-09-17 18:28:37,807 - src.llm.dual_model_analyzer - INFO - Processing batch 1/3 (1 papers)
+2025-09-17 18:28:37,807 - src.llm.dual_model_analyzer - INFO - Processing paper 1/3: 33486083
+2025-09-17 18:28:37,807 - src.llm.dual_model_analyzer - WARNING - Paper 33486083 has very short abstract (41 chars)
+2025-09-17 18:28:37,811 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with gemma2:9b
+2025-09-17 18:28:42,274 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with qwen2.5:14b
+2025-09-17 18:28:50,465 - src.llm.dual_model_analyzer - INFO - Paper 33486083 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 18:28:52,478 - src.llm.dual_model_analyzer - INFO - Processing batch 2/3 (1 papers)
+2025-09-17 18:28:52,478 - src.llm.dual_model_analyzer - INFO - Processing paper 2/3: 40904246
+2025-09-17 18:28:52,482 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with gemma2:9b
+2025-09-17 18:28:59,303 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with qwen2.5:14b
+2025-09-17 18:29:08,421 - src.llm.dual_model_analyzer - INFO - Paper 40904246 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 18:29:10,436 - src.llm.dual_model_analyzer - INFO - Processing batch 3/3 (1 papers)
+2025-09-17 18:29:10,436 - src.llm.dual_model_analyzer - INFO - Processing paper 3/3: 40956259
+2025-09-17 18:29:10,437 - src.llm.dual_model_analyzer - INFO - Processing 40956259 with gemma2:9b
+2025-09-17 18:29:40,565 - src.llm.dual_model_analyzer - WARNING - Intervention 1 validation failed for 40956259 with gemma2:9b: Intervention validation failed: correlation_type: Required field 'correlation_type' is empty; correlation_type: Field 'correlation_type' has invalid value 'None'. Must be one of: ['positive', 'negative', 'neutral', 'inconclusive']
+2025-09-17 18:29:41,069 - src.llm.dual_model_analyzer - INFO - Processing 40956259 with qwen2.5:14b
+2025-09-17 18:30:10,090 - src.llm.dual_model_analyzer - INFO - Paper 40956259 processed - Total interventions: 2, Model counts: {'gemma2:9b': 1, 'qwen2.5:14b': 1}
+2025-09-17 18:30:10,096 - src.llm.dual_model_analyzer - INFO - === Dual-Model Extraction Summary ===
+2025-09-17 18:30:10,096 - src.llm.dual_model_analyzer - INFO - Papers processed: 3/3 (100.0%)
+2025-09-17 18:30:10,096 - src.llm.dual_model_analyzer - INFO - Total interventions found: 2
+2025-09-17 18:30:10,096 - src.llm.dual_model_analyzer - INFO - Model statistics:
+2025-09-17 18:30:10,096 - src.llm.dual_model_analyzer - INFO -   gemma2:9b: 1 interventions from 1 papers
+2025-09-17 18:30:10,096 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 1 interventions from 1 papers
+2025-09-17 18:30:10,096 - src.llm.dual_model_analyzer - INFO - Interventions by category:
+2025-09-17 18:30:10,096 - src.llm.dual_model_analyzer - INFO -   medication: 2
+2025-09-17 18:35:15,810 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 18:35:15,810 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': None, 'gpu_memory_gb': 0, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 2, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 18:35:15,815 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 1 papers
+2025-09-17 18:35:15,815 - src.llm.dual_model_analyzer - INFO - Batch size: 1 (requested: 1)
+2025-09-17 18:35:15,815 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 18:35:15,815 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/0.0GB)
+2025-09-17 18:35:15,815 - src.llm.dual_model_analyzer - INFO - Processing batch 1/1 (1 papers)
+2025-09-17 18:35:15,815 - src.llm.dual_model_analyzer - INFO - Processing paper 1/1: 33486083
+2025-09-17 18:35:15,816 - src.llm.dual_model_analyzer - WARNING - Paper 33486083 has very short abstract (41 chars)
+2025-09-17 18:35:15,819 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with gemma2:9b
+2025-09-17 18:35:22,465 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with qwen2.5:14b
+2025-09-17 18:35:30,777 - src.llm.dual_model_analyzer - INFO - Paper 33486083 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 18:35:30,780 - src.llm.dual_model_analyzer - INFO - === Dual-Model Extraction Summary ===
+2025-09-17 18:35:30,780 - src.llm.dual_model_analyzer - INFO - Papers processed: 1/1 (100.0%)
+2025-09-17 18:35:30,780 - src.llm.dual_model_analyzer - INFO - Total interventions found: 0
+2025-09-17 18:35:30,780 - src.llm.dual_model_analyzer - INFO - Model statistics:
+2025-09-17 18:35:30,780 - src.llm.dual_model_analyzer - INFO -   gemma2:9b: 0 interventions from 0 papers
+2025-09-17 18:35:30,781 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 0 interventions from 0 papers
+2025-09-17 18:35:30,781 - src.llm.dual_model_analyzer - INFO - Interventions by category:
+2025-09-17 18:35:31,790 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 1 papers
+2025-09-17 18:35:31,790 - src.llm.dual_model_analyzer - INFO - Batch size: 1 (requested: 1)
+2025-09-17 18:35:31,790 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 18:35:31,790 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/0.0GB)
+2025-09-17 18:35:31,790 - src.llm.dual_model_analyzer - INFO - Processing batch 1/1 (1 papers)
+2025-09-17 18:35:31,790 - src.llm.dual_model_analyzer - INFO - Processing paper 1/1: 33486083
+2025-09-17 18:35:31,790 - src.llm.dual_model_analyzer - WARNING - Paper 33486083 has very short abstract (41 chars)
+2025-09-17 18:35:31,793 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with gemma2:9b
+2025-09-17 18:35:38,641 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with qwen2.5:14b
+2025-09-17 18:35:47,146 - src.llm.dual_model_analyzer - INFO - Paper 33486083 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 18:35:47,148 - src.llm.dual_model_analyzer - INFO - === Dual-Model Extraction Summary ===
+2025-09-17 18:35:47,148 - src.llm.dual_model_analyzer - INFO - Papers processed: 1/1 (100.0%)
+2025-09-17 18:35:47,148 - src.llm.dual_model_analyzer - INFO - Total interventions found: 0
+2025-09-17 18:35:47,150 - src.llm.dual_model_analyzer - INFO - Model statistics:
+2025-09-17 18:35:47,150 - src.llm.dual_model_analyzer - INFO -   gemma2:9b: 0 interventions from 0 papers
+2025-09-17 18:35:47,150 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 0 interventions from 0 papers
+2025-09-17 18:35:47,150 - src.llm.dual_model_analyzer - INFO - Interventions by category:
+2025-09-17 18:35:48,166 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 1 papers
+2025-09-17 18:35:48,166 - src.llm.dual_model_analyzer - INFO - Batch size: 1 (requested: 1)
+2025-09-17 18:35:48,166 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 18:35:48,166 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/0.0GB)
+2025-09-17 18:35:48,166 - src.llm.dual_model_analyzer - INFO - Processing batch 1/1 (1 papers)
+2025-09-17 18:35:48,166 - src.llm.dual_model_analyzer - INFO - Processing paper 1/1: 33486083
+2025-09-17 18:35:48,166 - src.llm.dual_model_analyzer - WARNING - Paper 33486083 has very short abstract (41 chars)
+2025-09-17 18:35:48,170 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with gemma2:9b
+2025-09-17 18:35:55,020 - src.llm.dual_model_analyzer - INFO - Processing 33486083 with qwen2.5:14b
+2025-09-17 18:36:03,325 - src.llm.dual_model_analyzer - INFO - Paper 33486083 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 18:36:03,328 - src.llm.dual_model_analyzer - INFO - === Dual-Model Extraction Summary ===
+2025-09-17 18:36:03,328 - src.llm.dual_model_analyzer - INFO - Papers processed: 1/1 (100.0%)
+2025-09-17 18:36:03,328 - src.llm.dual_model_analyzer - INFO - Total interventions found: 0
+2025-09-17 18:36:03,328 - src.llm.dual_model_analyzer - INFO - Model statistics:
+2025-09-17 18:36:03,328 - src.llm.dual_model_analyzer - INFO -   gemma2:9b: 0 interventions from 0 papers
+2025-09-17 18:36:03,328 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 0 interventions from 0 papers
+2025-09-17 18:36:03,328 - src.llm.dual_model_analyzer - INFO - Interventions by category:
+2025-09-17 18:52:55,393 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 18:52:55,393 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': None, 'gpu_memory_gb': 0, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 2, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 18:52:55,397 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 1 papers
+2025-09-17 18:52:55,397 - src.llm.dual_model_analyzer - INFO - Batch size: 1 (requested: 1)
+2025-09-17 18:52:55,397 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 18:52:55,397 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/0.0GB)
+2025-09-17 18:52:55,397 - src.llm.dual_model_analyzer - INFO - Processing batch 1/1 (1 papers)
+2025-09-17 18:52:55,397 - src.llm.dual_model_analyzer - INFO - Processing paper 1/1: 40904246
+2025-09-17 18:52:55,399 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with gemma2:9b
+2025-09-17 18:53:02,329 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with qwen2.5:14b
+2025-09-17 18:53:11,818 - src.llm.dual_model_analyzer - INFO - Paper 40904246 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 18:53:11,819 - src.llm.dual_model_analyzer - INFO - === Dual-Model Extraction Summary ===
+2025-09-17 18:53:11,819 - src.llm.dual_model_analyzer - INFO - Papers processed: 1/1 (100.0%)
+2025-09-17 18:53:11,819 - src.llm.dual_model_analyzer - INFO - Total interventions found: 0
+2025-09-17 18:53:11,819 - src.llm.dual_model_analyzer - INFO - Model statistics:
+2025-09-17 18:53:11,819 - src.llm.dual_model_analyzer - INFO -   gemma2:9b: 0 interventions from 0 papers
+2025-09-17 18:53:11,821 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 0 interventions from 0 papers
+2025-09-17 18:53:11,821 - src.llm.dual_model_analyzer - INFO - Interventions by category:
+2025-09-17 18:53:44,005 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 18:53:44,005 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': None, 'gpu_memory_gb': 0, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 2, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 18:53:44,007 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 1 papers
+2025-09-17 18:53:44,007 - src.llm.dual_model_analyzer - INFO - Batch size: 1 (requested: 1)
+2025-09-17 18:53:44,007 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 18:53:44,007 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/0.0GB)
+2025-09-17 18:53:44,009 - src.llm.dual_model_analyzer - INFO - Processing batch 1/1 (1 papers)
+2025-09-17 18:53:44,009 - src.llm.dual_model_analyzer - INFO - Processing paper 1/1: 40904246
+2025-09-17 18:53:44,012 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with gemma2:9b
+2025-09-17 18:53:51,447 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with qwen2.5:14b
+2025-09-17 18:54:00,895 - src.llm.dual_model_analyzer - INFO - Paper 40904246 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 18:54:00,897 - src.llm.dual_model_analyzer - INFO - === Dual-Model Extraction Summary ===
+2025-09-17 18:54:00,897 - src.llm.dual_model_analyzer - INFO - Papers processed: 1/1 (100.0%)
+2025-09-17 18:54:00,897 - src.llm.dual_model_analyzer - INFO - Total interventions found: 0
+2025-09-17 18:54:00,897 - src.llm.dual_model_analyzer - INFO - Model statistics:
+2025-09-17 18:54:00,899 - src.llm.dual_model_analyzer - INFO -   gemma2:9b: 0 interventions from 0 papers
+2025-09-17 18:54:00,899 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 0 interventions from 0 papers
+2025-09-17 18:54:00,899 - src.llm.dual_model_analyzer - INFO - Interventions by category:
+2025-09-17 19:10:28,819 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 19:10:28,819 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 8, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 19:10:28,823 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 3 papers
+2025-09-17 19:10:28,823 - src.llm.dual_model_analyzer - INFO - Batch size: 5 (requested: 5)
+2025-09-17 19:10:28,823 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 19:10:28,823 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/8.0GB)
+2025-09-17 19:10:28,823 - src.llm.dual_model_analyzer - INFO - Processing batch 1/1 (3 papers)
+2025-09-17 19:10:28,823 - src.llm.dual_model_analyzer - INFO - Processing paper 1/3: 40904246
+2025-09-17 19:10:28,827 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with gemma2:9b
+2025-09-17 19:10:35,969 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with qwen2.5:14b
+2025-09-17 19:10:45,572 - src.llm.dual_model_analyzer - INFO - Paper 40904246 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 19:10:46,581 - src.llm.dual_model_analyzer - INFO - Processing paper 2/3: 40908534
+2025-09-17 19:10:46,584 - src.llm.dual_model_analyzer - INFO - Processing 40908534 with gemma2:9b
+2025-09-17 19:11:26,023 - src.llm.dual_model_analyzer - WARNING - Intervention 0 validation failed for 40908534 with gemma2:9b: Intervention validation failed: intervention_name: Intervention name 'brain-gut behavioral therapy (BGBT)' appears to be a placeholder
+2025-09-17 19:11:26,023 - src.llm.dual_model_analyzer - WARNING - Intervention 2 validation failed for 40908534 with gemma2:9b: Intervention validation failed: intervention_category: Field 'intervention_category' has invalid value 'emerging'. Must be one of: ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle']
+2025-09-17 19:11:26,538 - src.llm.dual_model_analyzer - INFO - Processing 40908534 with qwen2.5:14b
+2025-09-17 19:13:00,718 - src.llm.dual_model_analyzer - WARNING - Intervention 1 validation failed for 40908534 with qwen2.5:14b: Intervention validation failed: intervention_name: Intervention name 'brain-gut behavioral therapy (BGBT)' appears to be a placeholder
+2025-09-17 19:13:00,718 - src.llm.dual_model_analyzer - WARNING - Intervention 2 validation failed for 40908534 with qwen2.5:14b: Intervention validation failed: intervention_category: Field 'intervention_category' has invalid value 'emerging'. Must be one of: ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle']
+2025-09-17 19:13:01,227 - src.llm.dual_model_analyzer - INFO - Paper 40908534 processed - Total interventions: 2, Model counts: {'gemma2:9b': 1, 'qwen2.5:14b': 1}
+2025-09-17 19:13:02,235 - src.llm.dual_model_analyzer - INFO - Processing paper 3/3: 40949788
+2025-09-17 19:13:02,239 - src.llm.dual_model_analyzer - INFO - Processing 40949788 with gemma2:9b
+2025-09-17 19:13:41,364 - src.llm.dual_model_analyzer - WARNING - Intervention 1 validation failed for 40949788 with gemma2:9b: Intervention validation failed: health_condition: Required field 'health_condition' is empty; health_condition: Field 'health_condition' must be a string
+2025-09-17 19:13:41,873 - src.llm.dual_model_analyzer - INFO - Processing 40949788 with qwen2.5:14b
+2025-09-17 19:15:01,828 - src.llm.dual_model_analyzer - INFO - Paper 40949788 processed - Total interventions: 4, Model counts: {'gemma2:9b': 1, 'qwen2.5:14b': 3}
+2025-09-17 19:15:01,839 - src.llm.dual_model_analyzer - INFO - === Dual-Model Extraction Summary ===
+2025-09-17 19:15:01,839 - src.llm.dual_model_analyzer - INFO - Papers processed: 3/3 (100.0%)
+2025-09-17 19:15:01,839 - src.llm.dual_model_analyzer - INFO - Total interventions found: 6
+2025-09-17 19:15:01,839 - src.llm.dual_model_analyzer - INFO - Model statistics:
+2025-09-17 19:15:01,839 - src.llm.dual_model_analyzer - INFO -   gemma2:9b: 2 interventions from 2 papers
+2025-09-17 19:15:01,839 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 4 interventions from 2 papers
+2025-09-17 19:15:01,839 - src.llm.dual_model_analyzer - INFO - Interventions by category:
+2025-09-17 19:15:01,839 - src.llm.dual_model_analyzer - INFO -   diet: 2
+2025-09-17 19:15:01,839 - src.llm.dual_model_analyzer - INFO -   medication: 4
+2025-09-17 19:16:21,748 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 19:16:21,749 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 19:21:33,791 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 19:21:33,791 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 19:21:37,265 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 19:21:37,265 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 19:21:37,361 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 1 papers
+2025-09-17 19:21:37,361 - src.llm.dual_model_analyzer - INFO - Batch size: 1 (requested: 1)
+2025-09-17 19:21:37,361 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 19:21:37,361 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/8.0GB)
+2025-09-17 19:21:37,361 - src.llm.dual_model_analyzer - INFO - Processing batch 1/1 (1 papers)
+2025-09-17 19:21:37,361 - src.llm.dual_model_analyzer - INFO - Processing paper 1/1: 40904246
+2025-09-17 19:21:37,365 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with gemma2:9b
+2025-09-17 19:21:44,345 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with qwen2.5:14b
+2025-09-17 19:21:53,840 - src.llm.dual_model_analyzer - INFO - Paper 40904246 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 19:21:53,842 - src.llm.dual_model_analyzer - INFO - === Dual-Model Extraction Summary ===
+2025-09-17 19:21:53,842 - src.llm.dual_model_analyzer - INFO - Papers processed: 1/1 (100.0%)
+2025-09-17 19:21:53,842 - src.llm.dual_model_analyzer - INFO - Total interventions found: 0
+2025-09-17 19:21:53,842 - src.llm.dual_model_analyzer - INFO - Model statistics:
+2025-09-17 19:21:53,842 - src.llm.dual_model_analyzer - INFO -   gemma2:9b: 0 interventions from 0 papers
+2025-09-17 19:21:53,842 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 0 interventions from 0 papers
+2025-09-17 19:21:53,842 - src.llm.dual_model_analyzer - INFO - Interventions by category:
+2025-09-17 19:22:05,477 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 19:22:05,477 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 19:27:49,102 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 19:27:49,102 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 19:27:49,201 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 2 papers
+2025-09-17 19:27:49,201 - src.llm.dual_model_analyzer - INFO - Batch size: 2 (requested: 2)
+2025-09-17 19:27:49,202 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-17 19:27:49,202 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/8.0GB)
+2025-09-17 19:27:49,202 - src.llm.dual_model_analyzer - INFO - Processing batch 1/1 (2 papers)
+2025-09-17 19:27:49,202 - src.llm.dual_model_analyzer - INFO - Processing paper 1/2: 40904246
+2025-09-17 19:27:49,206 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with gemma2:9b
+2025-09-17 19:27:56,119 - src.llm.dual_model_analyzer - INFO - Processing 40904246 with qwen2.5:14b
+2025-09-17 19:28:05,602 - src.llm.dual_model_analyzer - INFO - Paper 40904246 processed - Total interventions: 0, Model counts: {'gemma2:9b': 0, 'qwen2.5:14b': 0}
+2025-09-17 19:28:06,620 - src.llm.dual_model_analyzer - INFO - Processing paper 2/2: 40929652
+2025-09-17 19:28:06,622 - src.llm.dual_model_analyzer - INFO - Processing 40929652 with gemma2:9b
+2025-09-17 19:30:04,532 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 19:30:04,532 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-17 19:30:12,637 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-17 19:30:12,637 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}

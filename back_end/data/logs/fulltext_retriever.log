@@ -1354,3 +1354,18 @@
 2025-09-16 19:59:44,292 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
 2025-09-16 19:59:44,292 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
 2025-09-16 20:41:06,925 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 18:10:36,616 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 18:15:50,199 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 18:17:19,122 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 18:28:00,373 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 18:28:37,378 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 18:35:15,736 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 18:52:55,320 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 18:53:43,928 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 19:10:26,960 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 19:21:31,915 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 19:21:35,548 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 19:22:03,571 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 19:27:47,401 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 19:30:02,589 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-17 19:30:10,796 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized

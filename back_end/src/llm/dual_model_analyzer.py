@@ -91,7 +91,7 @@ class DualModelAnalyzer:
             return {
                 'gpu_available': False,
                 'gpu_memory_gb': 0,
-                'optimal_batch_size': 3,
+                'optimal_batch_size': 5,  # Use same optimal batch size even without PyTorch
                 'memory_threshold': 0.8
             }
 
@@ -99,20 +99,18 @@ class DualModelAnalyzer:
 
         if gpu_available:
             gpu_memory_gb = torch.cuda.get_device_properties(0).total_memory / (1024**3)
-            # Estimate optimal batch size based on GPU memory
-            # Rule of thumb: ~1GB per model instance + ~0.5GB per batch item
-            model_memory_overhead = 2.0  # GB for both models
-            available_for_batching = gpu_memory_gb * 0.8 - model_memory_overhead  # 80% utilization
-            optimal_batch_size = max(1, int(available_for_batching / 0.5))
+            # Hard-coded optimal batch size based on empirical testing
+            # Batch size 5 provides optimal performance for 8GB GPU with Gemma2:9b + Qwen2.5:14b
+            optimal_batch_size = 5  # Empirically determined optimal value
         else:
             gpu_memory_gb = 0
-            optimal_batch_size = 2  # Conservative for CPU
+            optimal_batch_size = 5  # Use same optimal batch size for consistency
 
         optimization_config = {
             'gpu_available': gpu_available,
             'gpu_memory_gb': gpu_memory_gb,
             'system_ram_gb': psutil.virtual_memory().total / (1024**3),
-            'optimal_batch_size': min(optimal_batch_size, 10),  # Cap at 10 for stability
+            'optimal_batch_size': optimal_batch_size,  # Use hard-coded value
             'memory_threshold': 0.85,  # 85% memory usage threshold
             'enable_sequential_processing': gpu_memory_gb < 12  # Use sequential for smaller GPUs
         }
@@ -503,14 +501,41 @@ class DualModelAnalyzer:
                 logger.error(f"Error saving intervention: {e}")
     
     def get_unprocessed_papers(self, limit: Optional[int] = None) -> List[Dict]:
-        """Get papers that haven't been processed yet."""
-        # Since we're using multiple models, we need papers that haven't been processed by ANY model yet
-        # For simplicity, we'll check against one of the models
-        model_name = list(self.models.keys())[0]  # Use first model as reference
-        return self.repository_mgr.papers.get_unprocessed_papers(
-            extraction_model=model_name,
-            limit=limit
-        )
+        """Get papers that haven't been processed by ALL models yet."""
+        # Get papers that haven't been processed by ANY of our models
+        # This ensures we don't reprocess papers that have already been analyzed
+        with self.repository_mgr.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+
+            # Create a list of model names for the query
+            model_names = list(self.models.keys())
+            placeholders = ','.join(['?' for _ in model_names])
+
+            query = f'''
+                SELECT DISTINCT p.*
+                FROM papers p
+                WHERE p.abstract IS NOT NULL
+                  AND p.abstract != ''
+                  AND (p.processing_status IS NULL OR p.processing_status != 'failed')
+                  AND p.pmid NOT IN (
+                      SELECT DISTINCT paper_id
+                      FROM interventions
+                      WHERE extraction_model IN ({placeholders})
+                  )
+                ORDER BY
+                    COALESCE(p.influence_score, 0) DESC,
+                    COALESCE(p.citation_count, 0) DESC,
+                    p.publication_date DESC
+            '''
+
+            if limit:
+                query += f' LIMIT {limit}'
+
+            cursor.execute(query, model_names)
+            columns = [desc[0] for desc in cursor.description]
+            papers = [dict(zip(columns, row)) for row in cursor.fetchall()]
+
+            return papers
     
     def process_unprocessed_papers(self, limit: Optional[int] = None,
                                  batch_size: int = None) -> Dict:
