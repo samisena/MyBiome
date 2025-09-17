@@ -18,7 +18,7 @@ sys.path.insert(0, str(back_end_dir))
 try:
     from src.paper_collection.database_manager import database_manager
     from src.paper_collection.pubmed_collector import PubMedCollector
-    from src.data.config import config, setup_logging
+    from src.data.config import setup_logging
 except ImportError as e:
     print(f"Import error: {e}")
     print("Make sure you're running this from the back_end directory")

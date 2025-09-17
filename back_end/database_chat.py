@@ -6,11 +6,9 @@ A simple terminal interface to browse research paper abstracts and their extract
 """
 
 import sys
-import os
 from pathlib import Path
-from typing import Dict, List, Optional, Any
+from typing import List, Dict, Optional, Any
 import json
-import importlib.util
 import re
 
 # Set UTF-8 encoding for Windows console
@@ -37,12 +35,12 @@ except Exception as e:
 class DatabaseChatbot:
     """Simple chatbot for browsing abstracts and interventions."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.db = database_manager if DATABASE_AVAILABLE else None
         self.database_available = DATABASE_AVAILABLE
-        self.last_papers_list = []  # Store last paper list for navigation
+        self.last_papers_list: List[Dict] = []  # Store last paper list for navigation
 
-    def start(self):
+    def start(self) -> None:
         """Start the interactive chat session."""
         print("\n" + "="*60)
         print("🧠 MyBiome LLM Performance Reviewer")
@@ -51,7 +49,7 @@ class DatabaseChatbot:
         print("\nType 'help' for commands or 'quit' to exit.")
         self.main_loop()
 
-    def main_loop(self):
+    def main_loop(self) -> None:
         """Main interactive loop."""
         while True:
             try:

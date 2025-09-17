@@ -4,9 +4,6 @@ Reference methods from this file when needing to interact whith the database."""
 
 from typing import Dict, List, Optional, Any
 from abc import ABC, abstractmethod
-import sys
-from pathlib import Path
-
 from src.data.config import setup_logging
 from src.paper_collection.database_manager import database_manager
 

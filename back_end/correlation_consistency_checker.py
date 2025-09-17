@@ -7,8 +7,6 @@ Correlation Consistency Checker - Identify logical inconsistencies in interventi
 import sys
 from pathlib import Path
 from typing import Dict, List, Tuple, Set
-import re
-
 # Add the src directory to Python path
 src_dir = Path(__file__).parent / "src"
 sys.path.insert(0, str(src_dir))

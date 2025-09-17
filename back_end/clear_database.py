@@ -4,7 +4,6 @@ Script to clear the pubmed_research.db database.
 """
 
 import sys
-import sqlite3
 from pathlib import Path
 
 # Add the src directory to Python path

@@ -3,16 +3,11 @@ Utility functions and decorators for the MyBiome data pipeline.
 This module contains common patterns abstracted from the main modules.
 """
 
-import time
 import json
-import functools
-import logging
 import re
 import xml.etree.ElementTree as ET
 from typing import Any, Callable, Dict, List, Optional, TypeVar, Union
 from pathlib import Path
-import sys
-
 from src.data.config import setup_logging
 
 F = TypeVar('F', bound=Callable[..., Any])

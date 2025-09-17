@@ -3,7 +3,7 @@ import requests  #API request module
 from typing import Dict, List, Optional
 from openai import OpenAI
 from src.data.config import config, setup_logging
-from src.data.error_handler import handle_api_errors, ErrorContext, error_handler
+from src.data.error_handler import handle_api_errors, handle_llm_errors
 
 logger = setup_logging(__name__)  #logs will show 'api_clients' as the module's name
 
@@ -25,7 +25,7 @@ def api_request(url:str, params: Dict = None, headers: Dict = None,
 
 class PubMedAPI:
     """ PubMed API client. """
-    def __init__(self):
+    def __init__(self) -> None:
         self.base_url = config.pubmed_base_url
         self.api_key = config.ncbi_api_key
         self.email = config.email  #pubmed requires an email
@@ -88,10 +88,10 @@ class PubMedAPI:
 
 class PMCAPI:
     """ PMC API client. """
-    def __init__(self):
+    def __init__(self) -> None:
         self.base_url = config.pmc_base_url
 
-    #? Uses manual try-except instead of @handle_api_errors
+    @handle_api_errors("PMC fulltext retrieval", max_retries=3)
     def get_fulltext_url(self, pmc_id: str) -> Optional[str]:
         """Get full text for a given PMC article.
         Args:
@@ -101,20 +101,16 @@ class PMCAPI:
         """
         params ={
             'id': pmc_id,
-            'format': 'json'            
+            'format': 'json'
         }
 
-        try:
-            response = api_request(self.base_url, params)
-            data = response.json()  #JSON to Python ditionary
-            records = data.get('OA', {}).get('records', [])  #gets the keywords
-            if records:
-                link = records[0].get('link', [])
-                if link:
-                    return link[0].get('href')
-
-        except Exception as e:
-            logger.error(f"Error getting PMC fulltext URL: {e}")
+        response = api_request(self.base_url, params)
+        data = response.json()  #JSON to Python ditionary
+        records = data.get('OA', {}).get('records', [])  #gets the keywords
+        if records:
+            link = records[0].get('link', [])
+            if link:
+                return link[0].get('href')
 
         return None
     
@@ -129,11 +125,11 @@ def get_pmc_client() -> PMCAPI:
 
 class UnpaywallAPI:
     """ Unpaywall API Client."""
-    def __init__(self):
+    def __init__(self) -> None:
         self.base_url = config.unpaywall_base_url
         self.email = config.email
 
-     #? Uses manual try-except instead of @handle_api_errors
+    @handle_api_errors("Unpaywall paper retrieval", max_retries=3)
     def get_paper_info(self, doi:str) -> Optional[Dict]:
         """ Get paper info from Unpaywall.
         Args:
@@ -147,12 +143,8 @@ class UnpaywallAPI:
         url = f"{self.base_url}/{doi}"
         params = {'email':self.email}
 
-        try:
-            response = api_request(url, params)
-            return response.json()  
-        except Exception as e:
-            logger.error(f"Error getting Unpaywall info: {e}")
-            return None
+        response = api_request(url, params)
+        return response.json()
         
 
 def get_unpaywall_client() -> UnpaywallAPI:
@@ -163,7 +155,7 @@ class SemanticScholarAPI:
     """ Semantic Scholar API client for paper enrichnment and discovery.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.base_url = "https://api.semanticscholar.org/graph/v1"
         self.headers = {
             'Accept': 'application/json',
@@ -271,39 +263,35 @@ def get_semantic_scholar_client() -> SemanticScholarAPI:
 
 class LLMClient:
     """ OpenAI Client for LLM interactions."""
-    def __init__(self, model_name:str =None):
-        self.model_name = model_name or config.llm_model
+    def __init__(self, model_name: Optional[str] = None) -> None:
+        self.model_name = model_name or "gemma2:9b"  # Default model
         self.base_url = config.llm_base_url
         self.client = OpenAI(
             base_url=self.base_url,
             api_key='not_needed'
         )
 
-    def generate(self, prompt:str, temperature: float = None,
-                 max_tokens:int = None):
+    @handle_llm_errors("LLM text generation", max_retries=2)
+    def generate(self, prompt: str, temperature: Optional[float] = None,
+                 max_tokens: Optional[int] = None) -> Dict:
         """Generate text output from LLM."""
-        try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[{"role":"user", "content":prompt}],
-                temperature=temperature or config.llm_temperature,
-                max_tokens=max_tokens or config.llm_max_tokens               
-            )
-            return{
-                'content':response.choices[0].message.content,
-                'usage': {
-                    'prompt_tokens': response.usage.prompt_tokens,
-                    'completion_tokens': response.usage.completion_tokens,
-                    'total_tokens': response.usage.total_tokens
-                }
+        response = self.client.chat.completions.create(
+            model=self.model_name,
+            messages=[{"role":"user", "content":prompt}],
+            temperature=temperature or config.llm_temperature,
+            max_tokens=max_tokens or config.llm_max_tokens
+        )
+        return{
+            'content':response.choices[0].message.content,
+            'usage': {
+                'prompt_tokens': response.usage.prompt_tokens,
+                'completion_tokens': response.usage.completion_tokens,
+                'total_tokens': response.usage.total_tokens
             }
-
-        except Exception as e:
-            logger.error(f'LLM output generation failed: {e}')
-            raise
+        }
 
 
-def get_llm_client(model_name: str = None) -> LLMClient:
+def get_llm_client(model_name: Optional[str] = None) -> LLMClient:
     """Get LLM client."""
     return LLMClient(model_name)
 
