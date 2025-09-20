@@ -1369,3 +1369,4 @@
 2025-09-17 19:27:47,401 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
 2025-09-17 19:30:02,589 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
 2025-09-17 19:30:10,796 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-20 19:31:23,964 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized

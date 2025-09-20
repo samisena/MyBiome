@@ -237,8 +237,11 @@ class InterventionValidator(BaseValidator):
     """Validator for intervention data."""
     
     REQUIRED_FIELDS = ['intervention_category', 'intervention_name', 'health_condition', 'correlation_type']
-    VALID_CATEGORIES = ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle']
+    VALID_CATEGORIES = ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle', 'surgery', 'test', 'emerging']
     VALID_CORRELATION_TYPES = ['positive', 'negative', 'neutral', 'inconclusive']
+    VALID_DELIVERY_METHODS = ['oral', 'injection', 'topical', 'inhalation', 'behavioral', 'digital', 'surgical', 'intravenous', 'sublingual', 'rectal', 'transdermal']
+    VALID_SEVERITY_LEVELS = ['mild', 'moderate', 'severe']
+    VALID_COST_CATEGORIES = ['low', 'medium', 'high']
     
     def validate(self, intervention_data: Dict) -> ValidationResult:
         """Validate intervention data."""
@@ -322,6 +325,37 @@ class InterventionValidator(BaseValidator):
                     severity=ValidationSeverity.WARNING,
                     value=model
                 ))
+
+        # Optional new fields validation
+        if 'delivery_method' in intervention_data and intervention_data['delivery_method']:
+            delivery_method = intervention_data['delivery_method'].lower() if isinstance(intervention_data['delivery_method'], str) else intervention_data['delivery_method']
+            issues.extend(self.validate_enum_value(
+                delivery_method,
+                'delivery_method',
+                self.VALID_DELIVERY_METHODS
+            ))
+
+        if 'severity' in intervention_data and intervention_data['severity']:
+            severity = intervention_data['severity'].lower() if isinstance(intervention_data['severity'], str) else intervention_data['severity']
+            issues.extend(self.validate_enum_value(
+                severity,
+                'severity',
+                self.VALID_SEVERITY_LEVELS
+            ))
+
+        if 'cost_category' in intervention_data and intervention_data['cost_category']:
+            cost_category = intervention_data['cost_category'].lower() if isinstance(intervention_data['cost_category'], str) else intervention_data['cost_category']
+            issues.extend(self.validate_enum_value(
+                cost_category,
+                'cost_category',
+                self.VALID_COST_CATEGORIES
+            ))
+
+        # Adverse effects validation (just check it's reasonable length)
+        if 'adverse_effects' in intervention_data and intervention_data['adverse_effects']:
+            issues.extend(self.validate_string_length(
+                intervention_data['adverse_effects'], 'adverse_effects', max_length=1000
+            ))
         
         # Determine if validation passed
         is_valid = len([issue for issue in issues if issue.severity in [ValidationSeverity.ERROR, ValidationSeverity.CRITICAL]]) == 0

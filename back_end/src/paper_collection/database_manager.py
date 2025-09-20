@@ -212,6 +212,12 @@ class DatabaseManager:
                     study_type TEXT,
                     population_details TEXT,
                     supporting_quote TEXT,
+
+                    -- Additional optional fields for enhanced dataset
+                    delivery_method TEXT,
+                    severity TEXT CHECK(severity IN ('mild', 'moderate', 'severe')),
+                    adverse_effects TEXT,
+                    cost_category TEXT CHECK(cost_category IN ('low', 'medium', 'high')),
                     
                     -- Extraction tracking
                     extraction_model TEXT NOT NULL,
@@ -282,6 +288,9 @@ class DatabaseManager:
 
             # Add Semantic Scholar columns if they don't exist
             self._add_semantic_scholar_columns(cursor)
+
+            # Add new optional fields to interventions table if they don't exist
+            self._add_optional_intervention_columns(cursor)
             
             # Add triggers for updated_at timestamps
             cursor.execute('''
@@ -317,6 +326,27 @@ class DatabaseManager:
                     continue
                 else:
                     logger.error(f"Failed to add S2 column {column_name}: {e}")
+                    raise
+
+    def _add_optional_intervention_columns(self, cursor):
+        """Add optional intervention columns to existing interventions table if they don't exist."""
+        optional_columns = [
+            ('delivery_method', 'TEXT'),
+            ('severity', 'TEXT CHECK(severity IN (\'mild\', \'moderate\', \'severe\'))'),
+            ('adverse_effects', 'TEXT'),
+            ('cost_category', 'TEXT CHECK(cost_category IN (\'low\', \'medium\', \'high\'))')
+        ]
+
+        for column_name, column_type in optional_columns:
+            try:
+                cursor.execute(f'ALTER TABLE interventions ADD COLUMN {column_name} {column_type}')
+                logger.info(f"Added optional intervention column: {column_name}")
+            except sqlite3.OperationalError as e:
+                if "duplicate column name" in str(e):
+                    # Column already exists, which is fine
+                    continue
+                else:
+                    logger.error(f"Failed to add intervention column {column_name}: {e}")
                     raise
     
     def insert_paper(self, paper: Dict) -> bool:
@@ -410,8 +440,9 @@ class DatabaseManager:
                     (paper_id, intervention_category, intervention_name, intervention_details,
                      health_condition, correlation_type, correlation_strength, confidence_score,
                      sample_size, study_duration, study_type, population_details,
-                     supporting_quote, extraction_model, validation_status)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                     supporting_quote, delivery_method, severity, adverse_effects, cost_category,
+                     extraction_model, validation_status)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
@@ -426,6 +457,10 @@ class DatabaseManager:
                     validated_intervention.get('study_type'),
                     validated_intervention.get('population_details'),
                     validated_intervention.get('supporting_quote'),
+                    validated_intervention.get('delivery_method'),
+                    validated_intervention.get('severity'),
+                    validated_intervention.get('adverse_effects'),
+                    validated_intervention.get('cost_category'),
                     validated_intervention['extraction_model'],
                     'pending'
                 ))

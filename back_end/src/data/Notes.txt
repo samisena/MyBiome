@@ -1,27 +1,20 @@
 
-Code Review:
--> search_terms.py, are these the only terms? or is the LLM allowed to extract new ones
-that aren't mentioned explicitely.
+-> Only full text metadata gets saved to the database
+Actual text gets saved as JSON files.
+-> We're not at the stage where we are ready to process full texts yet
+
+-> Graph will need to be updated periodically when new data is added
 
 LLm:
--> Token limit is set to 4098 in config.py. Remove token output limit in case there 
-are numerous strains mentioned. (Why have a token limit in the first place?)
+
+-> Consider fine tuning
 
 -> In config.py why is: self.intervention_batch_size = 5
     and self.max_papers_per_condition = 100 ?
 
--> Process papers with high popularity score first
-
--> Strongly consider fine tuning as tasks become increasingly difficult for the LLM.
-
--> Consider side chaining tasks: first extract key terms from abstarct, then a seperate prompt turns that into JSON 
-format
-
--> Investigate why out of 50 papers only 2 correlations were extracted.
-
 Quality assurance workflow: first model extracts → validation catches issues 
 → second model verifies problematic extractions → humans review what both 
-models couldn't handle. (Check)
+models couldn't handle.
 -> This might not be the best practice. Check Notion AI folder for practices like voting.
 
 Hybrid Strategy:
@@ -31,26 +24,7 @@ Two-tier relationship confidence scoring (abstract only vs full text)
 
 
 
-Paper search:
--> Semantic scholar AI (free): tool to find high impact papers.Papers that were cited many times.
-+ AI paper influence score
-+ Vector similairty to find similar papers
-+ Structured extraction of key paper sections (methods and results)
-+ Identifies key researchers in the field 
 
--> The batch limit of semantic scholar is not 500. Its just 500 per 5 seconds for those who
-don't use an API key.
--> Semantic search returns only 10 papers by default, we might want to increase that limit
-
--> Start analyzing papers in batches overnight
-
--> Citation analyzer: Identifies the most cited/influential papers in your field
--> Related paper discovery: Finds papers you might miss with keyword-only search
--> Author network analysis: Identifies key researchers in probiotic research
--> Impact scoring: Prioritizes papers by citation count and influence
-
--> Only full text metadata gets saved to the database
-Actual text gets saved as JSON files.
 
 
 

@@ -116,10 +116,14 @@ Return ONLY valid JSON. No extra text. Each intervention needs these fields:
 - health_condition: specific condition being treated
 - correlation_type: "positive", "negative", "neutral", or "inconclusive"
 - correlation_strength: number 0.0-1.0 or null
-- confidence_score: number 0.0-1.0 or null  
+- confidence_score: number 0.0-1.0 or null
 - study_type: type of study or null
 - sample_size: number or null
 - study_duration: duration or null
+- delivery_method: how intervention was delivered ("oral", "injection", "topical", "inhalation", "behavioral", "digital", etc.) or null
+- severity: condition severity level ("mild", "moderate", "severe") or null
+- adverse_effects: any reported side effects or complications or null
+- cost_category: cost level ("low", "medium", "high") or null
 - supporting_quote: relevant quote from text
 
 IMPORTANT RULES:
@@ -148,6 +152,10 @@ Example of valid extraction:
   "study_type": "randomized controlled trial",
   "sample_size": 120,
   "study_duration": "12 weeks",
+  "delivery_method": "behavioral",
+  "severity": "moderate",
+  "adverse_effects": "mild fatigue initially",
+  "cost_category": "low",
   "supporting_quote": "Participants in the aerobic exercise group showed significant improvement in depression scores"
 }}]
 
