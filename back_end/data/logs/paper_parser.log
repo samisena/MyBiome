@@ -437,3 +437,17 @@
 2025-09-17 19:30:02,589 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
 2025-09-17 19:30:10,796 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
 2025-09-20 19:31:23,963 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
+2025-09-21 20:14:53,103 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
+2025-09-21 20:21:16,790 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
+2025-09-21 20:35:26,416 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
+2025-09-21 20:37:52,703 - src.paper_collection.paper_parser - INFO - Enhanced PubMed parser initialized
+2025-09-21 20:37:54,669 - src.paper_collection.paper_parser - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1758483474.xml
+2025-09-21 20:37:54,669 - src.paper_collection.paper_parser - INFO - Found 1 articles in XML
+2025-09-21 20:37:54,669 - src.paper_collection.paper_parser - INFO - Processing batch 1/1 (1 articles)
+2025-09-21 20:37:54,686 - src.paper_collection.paper_parser - INFO - Parsing completed: 1 papers parsed
+2025-09-21 20:37:54,686 - src.paper_collection.paper_parser - INFO - Database operations: 1 new, 0 existing
+2025-09-21 20:37:57,971 - src.paper_collection.paper_parser - INFO - Starting to parse: C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1758483477.xml
+2025-09-21 20:37:57,982 - src.paper_collection.paper_parser - INFO - Found 1 articles in XML
+2025-09-21 20:37:57,982 - src.paper_collection.paper_parser - INFO - Processing batch 1/1 (1 articles)
+2025-09-21 20:37:57,986 - src.paper_collection.paper_parser - INFO - Parsing completed: 1 papers parsed
+2025-09-21 20:37:57,986 - src.paper_collection.paper_parser - INFO - Database operations: 1 new, 0 existing

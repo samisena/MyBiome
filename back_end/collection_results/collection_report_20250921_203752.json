@@ -1,0 +1,145 @@
+{
+  "session_info": {
+    "session_id": "20250921_203752",
+    "start_time": "2025-09-21T20:37:52.703135",
+    "end_time": "2025-09-21T20:38:04.565102",
+    "total_duration": "0:00:11.861967",
+    "total_duration_hours": 0.0032944355555555556,
+    "restart_count": 0
+  },
+  "configuration": {
+    "conditions": [
+      "heart disease"
+    ],
+    "target_papers_per_condition": 2,
+    "min_year": 2015,
+    "max_year": null,
+    "use_interleaved_s2": true,
+    "include_fulltext": true,
+    "traditional_mode": false,
+    "batch_size_collection": 50,
+    "collection_interval": 5,
+    "network_retry_delays": [
+      30,
+      60,
+      120,
+      300,
+      600,
+      900
+    ],
+    "max_consecutive_failures": 10,
+    "api_timeout": 30,
+    "session_file": "collection_session.json",
+    "auto_save_interval": 60,
+    "checkpoint_interval": 10,
+    "output_dir": "collection_results",
+    "save_intermediate": true,
+    "export_formats": [
+      "json"
+    ],
+    "overnight_mode": false,
+    "auto_restart_on_error": true,
+    "enable_status_reporting": true
+  },
+  "global_statistics": {
+    "total_papers_collected": 2,
+    "total_papers_enriched": 0,
+    "total_conditions": 1,
+    "conditions_completed": 1,
+    "network_failures": 0,
+    "api_calls_made": 1
+  },
+  "network_statistics": {
+    "consecutive_failures": 0,
+    "total_retries": 0
+  },
+  "condition_summary": {
+    "total_conditions": 1,
+    "completed_conditions": 1,
+    "failed_conditions": 0,
+    "success_rate": 100.0
+  },
+  "condition_details": {
+    "heart disease": {
+      "status": "completed",
+      "papers_collected": 2,
+      "target_papers": 2,
+      "progress_percent": 100.0,
+      "duration": "0:00:11.858980",
+      "collection_stats": {
+        "pubmed_papers": 2,
+        "s2_papers": 0,
+        "total_searched": 20,
+        "expansion_factor": 1.0
+      },
+      "failures": 0,
+      "last_error": null
+    }
+  },
+  "database_summary": {
+    "total_papers": 76,
+    "total_interventions": 22,
+    "processing_status": {
+      "pending": 11,
+      "processed": 63,
+      "processing": 2
+    },
+    "validation_status": {
+      "pending": 22
+    },
+    "intervention_categories": {
+      "diet": 16,
+      "medication": 6
+    },
+    "date_range": "2010-10 to 2025-10-01",
+    "papers_with_fulltext": 0,
+    "top_extraction_models": [
+      {
+        "model": "qwen2.5:14b",
+        "interventions": 12
+      },
+      {
+        "model": "gemma2:9b",
+        "interventions": 10
+      }
+    ],
+    "top_health_conditions": [
+      {
+        "condition": "irritable bowel syndrome (IBS)",
+        "interventions": 9
+      },
+      {
+        "condition": "Irritable Bowel Syndrome (IBS)",
+        "interventions": 5
+      },
+      {
+        "condition": "Alzheimer's disease and related dementias",
+        "interventions": 3
+      },
+      {
+        "condition": "obesity-related HFpEF",
+        "interventions": 2
+      },
+      {
+        "condition": "Alzheimer's disease (AD)",
+        "interventions": 1
+      },
+      {
+        "condition": "IBS",
+        "interventions": 1
+      },
+      {
+        "condition": "cardiovascular disease",
+        "interventions": 1
+      }
+    ],
+    "knowledge_graph_nodes": 0,
+    "knowledge_graph_edges": 0,
+    "bayesian_analyses": 0,
+    "treatment_recommendations": 0,
+    "research_gaps": 0,
+    "data_mining_sessions": 0,
+    "s2_processed": 11,
+    "s2_enriched": 10
+  }
+}

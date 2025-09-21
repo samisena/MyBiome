@@ -27,7 +27,10 @@
       "Bash(mv:*)",
       "Bash(PYTHONPATH=. python pipelines/paper_collector.py --help)",
       "Bash(PYTHONPATH=. python src/paper_collection/database_migration.py --migrate)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(PYTHONPATH=. python pipelines/paper_collector.py --conditions \"irritable bowel syndrome,heart disease,arthritis,diabetes,depression\" --papers_per_condition 4 --max_year 2024)",
+      "Bash(PYTHONPATH=. python pipelines/paper_collector.py --conditions \"irritable bowel syndrome,heart disease,arthritis,diabetes,depression\" --max-papers 4)",
+      "Bash(PYTHONPATH=. python:*)"
     ],
     "deny": [],
     "ask": []

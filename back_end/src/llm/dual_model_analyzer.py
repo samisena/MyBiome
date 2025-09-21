@@ -8,6 +8,8 @@ from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
 import sys
 from pathlib import Path
+from collections import defaultdict
+import json
 
 from src.data.config import config, setup_logging
 from src.data.api_clients import get_llm_client
@@ -29,6 +31,30 @@ class ModelResult:
     extraction_time: float
     token_usage: Dict
     error: Optional[str] = None
+
+
+@dataclass
+class ConsensusResult:
+    """Result from consensus analysis of multiple model extractions."""
+    intervention_name: str
+    health_condition: str
+    intervention_category: str
+    correlation_type: str
+
+    # Consensus fields
+    consensus_confidence: float
+    model_agreement: str  # 'full', 'partial', 'single', 'conflict'
+    models_contributing: List[str]
+
+    # Aggregated evidence
+    avg_confidence_score: float
+    confidence_range: str
+    avg_correlation_strength: float
+    strength_range: str
+
+    # Best values from contributing models
+    final_intervention: Dict  # The consensus intervention data
+    raw_extractions: List[Dict]  # All original extractions for debugging
 
 
 class DualModelAnalyzer:
@@ -324,12 +350,17 @@ class DualModelAnalyzer:
                 # Small delay between model calls
                 time.sleep(0.5)
             
+            # Create consensus interventions from all model results
+            consensus_interventions = self._create_consensus_interventions(all_interventions, paper)
+
             # Compile results
             paper_results = {
                 'pmid': pmid,
                 'models': model_results,
-                'total_interventions': len(all_interventions),
-                'interventions': all_interventions
+                'total_interventions': len(consensus_interventions),
+                'interventions': consensus_interventions,  # Use consensus for database
+                'raw_interventions': all_interventions,   # Keep raw for debugging
+                'consensus_summary': self._generate_consensus_summary(consensus_interventions)
             }
             
             # Log results
@@ -556,3 +587,209 @@ class DualModelAnalyzer:
         
         logger.info(f"Found {len(papers)} unprocessed papers")
         return self.process_papers_batch(papers, save_to_db=True, batch_size=batch_size)
+
+    def _create_consensus_interventions(self, all_interventions: List[Dict], paper: Dict) -> List[Dict]:
+        """
+        Create consensus interventions from multiple model extractions.
+
+        Args:
+            all_interventions: All interventions from all models
+            paper: Source paper information
+
+        Returns:
+            List of consensus interventions for database storage
+        """
+        if not all_interventions:
+            return []
+
+        # Group interventions by (intervention_name, health_condition, category)
+        grouped_interventions = defaultdict(list)
+
+        for intervention in all_interventions:
+            # Create a normalized key for grouping
+            key = self._create_intervention_key(intervention)
+            grouped_interventions[key].append(intervention)
+
+        # Create consensus for each group
+        consensus_interventions = []
+        for key, intervention_group in grouped_interventions.items():
+            consensus = self._create_consensus_intervention(intervention_group, paper)
+            consensus_interventions.append(consensus)
+
+        logger.debug(f"Paper {paper.get('pmid')}: {len(all_interventions)} raw → {len(consensus_interventions)} consensus interventions")
+        return consensus_interventions
+
+    def _create_intervention_key(self, intervention: Dict) -> str:
+        """Create a normalized key for grouping similar interventions."""
+        intervention_name = self._normalize_intervention_name(intervention.get('intervention_name', ''))
+        health_condition = self._normalize_condition_name(intervention.get('health_condition', ''))
+        category = intervention.get('intervention_category', 'unknown')
+
+        return f"{intervention_name}|{health_condition}|{category}"
+
+    def _normalize_intervention_name(self, name: str) -> str:
+        """Normalize intervention names for comparison."""
+        if not name:
+            return ""
+
+        # Convert to lowercase and remove extra spaces
+        normalized = name.lower().strip()
+
+        # Handle common variations
+        synonyms = {
+            'probiotics': ['probiotic', 'probiotics', 'probiotic supplements'],
+            'exercise': ['physical activity', 'exercise', 'physical exercise'],
+            'meditation': ['mindfulness', 'meditation', 'mindfulness meditation'],
+            'omega-3': ['omega 3', 'omega-3', 'fish oil', 'omega-3 fatty acids'],
+            'vitamin d': ['vitamin d3', 'vitamin d', 'cholecalciferol'],
+            'magnesium': ['magnesium supplement', 'magnesium', 'mg supplement']
+        }
+
+        # Find canonical form
+        for canonical, variants in synonyms.items():
+            if normalized in [v.lower() for v in variants]:
+                return canonical
+
+        return normalized
+
+    def _normalize_condition_name(self, condition: str) -> str:
+        """Normalize condition names for comparison."""
+        if not condition:
+            return ""
+
+        # Convert to lowercase and remove extra spaces
+        normalized = condition.lower().strip()
+
+        # Handle common variations
+        synonyms = {
+            'ibs': ['irritable bowel syndrome', 'ibs', 'irritable bowel'],
+            'crohns disease': ['crohn\'s disease', 'crohns disease', 'crohn disease'],
+            'depression': ['major depression', 'depression', 'depressive disorder'],
+            'anxiety': ['anxiety disorder', 'anxiety', 'generalized anxiety'],
+            'diabetes': ['type 2 diabetes', 'diabetes mellitus', 'diabetes']
+        }
+
+        # Find canonical form
+        for canonical, variants in synonyms.items():
+            if normalized in [v.lower() for v in variants]:
+                return canonical
+
+        return normalized
+
+    def _create_consensus_intervention(self, intervention_group: List[Dict], paper: Dict) -> Dict:
+        """
+        Create a single consensus intervention from a group of similar interventions.
+
+        Args:
+            intervention_group: List of similar interventions from different models
+            paper: Source paper information
+
+        Returns:
+            Consensus intervention dictionary for database storage
+        """
+        if len(intervention_group) == 1:
+            # Single model result
+            intervention = intervention_group[0].copy()
+            intervention['consensus_confidence'] = 0.60
+            intervention['model_agreement'] = 'single'
+            intervention['models_contributing'] = [intervention.get('extraction_model', 'unknown')]
+            return intervention
+
+        # Multiple models found this intervention
+        models_contributing = [i.get('extraction_model', 'unknown') for i in intervention_group]
+
+        # Check for full agreement
+        if self._check_full_agreement(intervention_group):
+            # Both models agree completely
+            consensus = intervention_group[0].copy()  # Use first as base
+            consensus['consensus_confidence'] = 0.95
+            consensus['model_agreement'] = 'full'
+            consensus['models_contributing'] = models_contributing
+
+            # Average numerical values
+            consensus['confidence_score'] = self._average_scores([i.get('confidence_score') for i in intervention_group])
+            consensus['correlation_strength'] = self._average_scores([i.get('correlation_strength') for i in intervention_group])
+
+        else:
+            # Partial agreement - merge intelligently
+            consensus = self._merge_with_weighted_average(intervention_group)
+            consensus['consensus_confidence'] = 0.75
+            consensus['model_agreement'] = 'partial'
+            consensus['models_contributing'] = models_contributing
+
+        # Add metadata for tracking
+        consensus['raw_extraction_count'] = len(intervention_group)
+        consensus['models_used'] = ','.join(sorted(models_contributing))
+
+        logger.debug(f"Consensus created: {consensus.get('intervention_name')} -> {consensus.get('health_condition')} "
+                    f"(agreement: {consensus['model_agreement']}, confidence: {consensus['consensus_confidence']:.2f})")
+
+        return consensus
+
+    def _check_full_agreement(self, interventions: List[Dict]) -> bool:
+        """Check if interventions represent full agreement between models."""
+        if len(interventions) < 2:
+            return False
+
+        first = interventions[0]
+
+        for intervention in interventions[1:]:
+            # Check key fields for agreement
+            if (intervention.get('correlation_type') != first.get('correlation_type') or
+                abs((intervention.get('confidence_score', 0) or 0) - (first.get('confidence_score', 0) or 0)) > 0.2 or
+                abs((intervention.get('correlation_strength', 0) or 0) - (first.get('correlation_strength', 0) or 0)) > 0.2):
+                return False
+
+        return True
+
+    def _merge_with_weighted_average(self, interventions: List[Dict]) -> Dict:
+        """Merge interventions using weighted averages and best values."""
+        # Use the intervention with highest confidence as base
+        base_intervention = max(interventions,
+                              key=lambda x: x.get('confidence_score', 0) or 0)
+        consensus = base_intervention.copy()
+
+        # Average numerical scores
+        consensus['confidence_score'] = self._average_scores([i.get('confidence_score') for i in interventions])
+        consensus['correlation_strength'] = self._average_scores([i.get('correlation_strength') for i in interventions])
+
+        # Use most common correlation type
+        correlation_types = [i.get('correlation_type') for i in interventions if i.get('correlation_type')]
+        if correlation_types:
+            consensus['correlation_type'] = max(set(correlation_types), key=correlation_types.count)
+
+        # Combine supporting quotes
+        quotes = [i.get('supporting_quote', '') for i in interventions if i.get('supporting_quote')]
+        if quotes:
+            consensus['supporting_quote'] = ' | '.join(quotes)
+
+        return consensus
+
+    def _average_scores(self, scores: List[Optional[float]]) -> Optional[float]:
+        """Calculate average of numeric scores, handling None values."""
+        valid_scores = [s for s in scores if s is not None]
+        if not valid_scores:
+            return None
+        return sum(valid_scores) / len(valid_scores)
+
+    def _generate_consensus_summary(self, consensus_interventions: List[Dict]) -> Dict:
+        """Generate summary statistics for consensus interventions."""
+        if not consensus_interventions:
+            return {}
+
+        agreement_counts = {}
+        model_usage = defaultdict(int)
+
+        for intervention in consensus_interventions:
+            agreement = intervention.get('model_agreement', 'unknown')
+            agreement_counts[agreement] = agreement_counts.get(agreement, 0) + 1
+
+            for model in intervention.get('models_contributing', []):
+                model_usage[model] += 1
+
+        return {
+            'total_consensus_interventions': len(consensus_interventions),
+            'agreement_breakdown': agreement_counts,
+            'model_usage': dict(model_usage),
+            'avg_consensus_confidence': self._average_scores([i.get('consensus_confidence') for i in consensus_interventions])
+        }

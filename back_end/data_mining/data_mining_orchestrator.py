@@ -70,10 +70,10 @@ try:
     from treatment_recommendation_engine import TreatmentRecommendationEngine
     from research_gaps import ResearchGapIdentification
     from innovation_tracking_system import InnovationTrackingSystem
-    from biological_patterns import BiologicalPatternAnalyzer
+    from biological_patterns import BiologicalPatternDiscovery
     from condition_similarity_mapping import ConditionSimilarityMapper
-    from power_combinations import PowerCombinationAnalyzer
-    from failed_interventions import FailedInterventionAnalyzer
+    from power_combinations import PowerCombinationAnalysis
+    from failed_interventions import FailedInterventionCatalog
     from correlation_consistency_checker import CorrelationConsistencyChecker
 
 except ImportError as e:
@@ -553,7 +553,7 @@ class DataMiningOrchestrator:
 
         try:
             logger.info("Analyzing biological patterns...")
-            self.pattern_analyzer = BiologicalPatternAnalyzer(self.knowledge_graph)
+            self.pattern_analyzer = BiologicalPatternDiscovery(self.knowledge_graph)
 
             # Run pattern analysis
             patterns = self.pattern_analyzer.analyze_all_patterns()

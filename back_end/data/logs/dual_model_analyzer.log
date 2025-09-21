@@ -595,3 +595,42 @@
 2025-09-17 19:30:04,532 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
 2025-09-17 19:30:12,637 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
 2025-09-17 19:30:12,637 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-21 20:04:55,692 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-21 20:04:55,692 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-21 20:05:09,698 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-21 20:05:09,698 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-21 20:24:24,425 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-21 20:24:24,425 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-21 20:25:00,774 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-21 20:25:00,774 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-21 20:25:00,778 - src.llm.dual_model_analyzer - INFO - Processing 25646566 with gemma2:9b
+2025-09-21 20:26:34,982 - src.llm.dual_model_analyzer - INFO - Processing 25646566 with qwen2.5:14b
+2025-09-21 20:27:30,148 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-21 20:27:30,149 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-21 20:41:18,906 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-21 20:41:18,906 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-21 20:41:18,911 - src.llm.dual_model_analyzer - INFO - Processing 40953879 with gemma2:9b
+2025-09-21 20:41:43,851 - src.llm.dual_model_analyzer - INFO - Processing 40953879 with qwen2.5:14b
+2025-09-21 20:42:25,478 - src.llm.dual_model_analyzer - INFO - Paper 40953879 processed - Total interventions: 2, Model counts: {'gemma2:9b': 1, 'qwen2.5:14b': 1}
+2025-09-21 20:42:49,342 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-21 20:42:49,342 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-21 20:44:44,853 - src.llm.dual_model_analyzer - INFO - Dual-model analyzer initialized with: ['gemma2:9b', 'qwen2.5:14b']
+2025-09-21 20:44:44,853 - src.llm.dual_model_analyzer - INFO - GPU optimization: {'gpu_available': True, 'gpu_memory_gb': 7.99566650390625, 'system_ram_gb': 63.45771789550781, 'optimal_batch_size': 5, 'memory_threshold': 0.85, 'enable_sequential_processing': True}
+2025-09-21 20:44:44,863 - src.llm.dual_model_analyzer - INFO - Starting GPU-optimized intervention extraction for 1 papers
+2025-09-21 20:44:44,863 - src.llm.dual_model_analyzer - INFO - Batch size: 5 (requested: 5)
+2025-09-21 20:44:44,863 - src.llm.dual_model_analyzer - INFO - Sequential processing: True
+2025-09-21 20:44:44,863 - src.llm.dual_model_analyzer - INFO - GPU memory: 0.0% utilized (0.0GB/8.0GB)
+2025-09-21 20:44:44,863 - src.llm.dual_model_analyzer - INFO - Processing batch 1/1 (1 papers)
+2025-09-21 20:44:44,863 - src.llm.dual_model_analyzer - INFO - Processing paper 1/1: 40953879
+2025-09-21 20:44:44,866 - src.llm.dual_model_analyzer - INFO - Processing 40953879 with gemma2:9b
+2025-09-21 20:45:26,774 - src.llm.dual_model_analyzer - INFO - Processing 40953879 with qwen2.5:14b
+2025-09-21 20:46:15,231 - src.llm.dual_model_analyzer - INFO - Paper 40953879 processed - Total interventions: 3, Model counts: {'gemma2:9b': 2, 'qwen2.5:14b': 1}
+2025-09-21 20:46:15,237 - src.llm.dual_model_analyzer - INFO - === Dual-Model Extraction Summary ===
+2025-09-21 20:46:15,237 - src.llm.dual_model_analyzer - INFO - Papers processed: 1/1 (100.0%)
+2025-09-21 20:46:15,237 - src.llm.dual_model_analyzer - INFO - Total interventions found: 2
+2025-09-21 20:46:15,237 - src.llm.dual_model_analyzer - INFO - Model statistics:
+2025-09-21 20:46:15,237 - src.llm.dual_model_analyzer - INFO -   gemma2:9b: 2 interventions from 1 papers
+2025-09-21 20:46:15,237 - src.llm.dual_model_analyzer - INFO -   qwen2.5:14b: 1 interventions from 1 papers
+2025-09-21 20:46:15,237 - src.llm.dual_model_analyzer - INFO - Interventions by category:
+2025-09-21 20:46:15,237 - src.llm.dual_model_analyzer - INFO -   medication: 1
+2025-09-21 20:46:15,237 - src.llm.dual_model_analyzer - INFO -   emerging: 1

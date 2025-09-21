@@ -52,3 +52,149 @@
 2025-09-16 19:59:40,529 - src.data.error_handler - ERROR - Operation Semantic scholar similar papers failed permanently: Unhandled error: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:39631208/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
 2025-09-16 19:59:44,284 - src.data.error_handler - ERROR - Operation API request failed permanently: Unhandled error: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:39493642/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
 2025-09-16 19:59:44,284 - src.data.error_handler - ERROR - Operation Semantic scholar similar papers failed permanently: Unhandled error: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:39493642/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
+2025-09-21 20:21:16,794 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:21:16,797 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:21:16,804 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:21:16,809 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:21:16,809 - src.data.error_handler - WARNING - Circuit breaker opened after 5 failures
+2025-09-21 20:21:16,809 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:21:21,823 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:21,828 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:21,831 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:21,835 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:21,838 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:26,853 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:26,857 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:26,860 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:26,864 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:26,868 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:31,886 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:31,890 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:31,893 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:31,897 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:31,900 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:36,917 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:36,921 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:36,921 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:36,921 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:36,932 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:41,948 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:41,948 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:41,948 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:41,948 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:41,964 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:46,981 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:46,985 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:46,985 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:46,985 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:46,995 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:52,014 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:52,018 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:52,018 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:52,018 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:52,028 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:57,043 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:57,047 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:57,052 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:57,057 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:21:57,062 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:02,075 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:02,078 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:02,079 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:02,079 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:02,091 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:07,103 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:07,106 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:07,106 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:07,106 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:07,106 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:12,120 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:12,123 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:12,127 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:12,132 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:12,138 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:17,153 - src.data.error_handler - WARNING - Circuit breaker opened after 6 failures
+2025-09-21 20:22:17,153 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:22:17,153 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:17,153 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:17,153 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:17,153 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:22,184 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:22,184 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:22,184 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:22,184 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:22,200 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:27,212 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:27,217 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:27,217 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:27,217 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:27,217 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:32,232 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:32,236 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:32,237 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:32,237 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:32,247 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:37,262 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:37,262 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:37,262 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:37,262 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:37,277 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:42,294 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:42,298 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:42,299 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:42,299 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:42,299 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:47,326 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:47,328 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:47,332 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:47,332 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:47,332 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:52,358 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:52,361 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:52,361 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:52,361 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:52,361 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:57,390 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:57,390 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:57,390 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:57,390 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:22:57,407 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:02,422 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:02,426 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:02,428 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:02,433 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:02,438 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:07,452 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:07,452 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:07,452 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:07,452 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:07,452 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:12,484 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:12,488 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:12,488 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:12,488 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:23:12,488 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:35:26,422 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:35:31,434 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:35:36,449 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:35:41,465 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:35:46,479 - src.data.error_handler - WARNING - Circuit breaker opened after 5 failures
+2025-09-21 20:35:46,479 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:35:51,491 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:35:56,506 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:36:01,525 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:36:06,537 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:36:11,551 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:36:16,568 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:36:21,583 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:36:26,597 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:36:31,617 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:36:36,627 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:36:41,643 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:36:46,658 - src.data.error_handler - WARNING - Circuit breaker opened after 6 failures
+2025-09-21 20:36:46,658 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:36:51,674 - src.data.error_handler - ERROR - Operation PubMed search failed permanently: Unknown error: Circuit breaker open for search_papers
+2025-09-21 20:37:55,503 - src.data.error_handler - ERROR - Operation API request failed permanently: Unhandled error: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:40969554/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
+2025-09-21 20:37:55,503 - src.data.error_handler - ERROR - Operation Semantic scholar similar papers failed permanently: Unhandled error: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:40969554/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
+2025-09-21 20:37:59,034 - src.data.error_handler - ERROR - Operation API request failed permanently: Unhandled error: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:40953879/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
+2025-09-21 20:37:59,034 - src.data.error_handler - ERROR - Operation Semantic scholar similar papers failed permanently: Unhandled error: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:40953879/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5

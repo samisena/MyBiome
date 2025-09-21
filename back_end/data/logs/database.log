@@ -1673,3 +1673,244 @@
 2025-09-21 19:48:09,029 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
 2025-09-21 19:48:09,029 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
 2025-09-21 19:48:09,029 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:04:52,971 - src.paper_collection.database_manager - INFO - Added optional intervention column: consensus_confidence
+2025-09-21 20:04:52,971 - src.paper_collection.database_manager - INFO - Added optional intervention column: model_agreement
+2025-09-21 20:04:52,971 - src.paper_collection.database_manager - INFO - Added optional intervention column: models_used
+2025-09-21 20:04:52,971 - src.paper_collection.database_manager - INFO - Added optional intervention column: raw_extraction_count
+2025-09-21 20:04:52,971 - src.paper_collection.database_manager - INFO - Added optional intervention column: models_contributing
+2025-09-21 20:04:52,971 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:04:52,971 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:04:52,971 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:04:52,971 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:05:08,072 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:05:08,072 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:05:08,072 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:05:08,072 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:14:53,095 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:14:53,096 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:14:53,096 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:14:53,096 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:17:00,857 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:17:00,857 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:17:00,857 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:17:00,857 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:20:19,418 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:20:19,418 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:20:19,418 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:20:19,418 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:20:23,691 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:20:23,691 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:20:23,691 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:20:23,691 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:20:28,482 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:20:28,482 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:20:28,482 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:20:28,482 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:20:28,491 - src.paper_collection.database_manager - ERROR - Database connection error: cannot commit - no transaction is active
+2025-09-21 20:21:16,776 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:21:16,777 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:21:16,777 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:21:16,777 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:21:16,797 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:16,797 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:16,806 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:16,809 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:16,817 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:21,825 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:21,829 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:21,832 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:21,836 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:21,840 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:26,855 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:26,858 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:26,862 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:26,865 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:26,869 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:31,887 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:31,891 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:31,895 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:31,898 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:31,902 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:36,919 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:36,921 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:36,921 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:36,921 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:36,933 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:41,948 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:41,948 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:41,948 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:41,948 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:41,964 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:46,982 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:46,985 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:46,985 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:46,985 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:46,996 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:52,015 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:52,018 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:52,018 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:52,018 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:52,028 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:57,045 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:57,049 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:57,054 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:57,059 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:21:57,065 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:02,076 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:02,079 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:02,079 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:02,079 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:02,091 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:07,105 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:07,106 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:07,106 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:07,106 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:07,106 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:12,123 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:12,127 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:12,127 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:12,134 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:12,139 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:17,153 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:17,153 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:17,153 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:17,153 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:17,168 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:22,184 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:22,184 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:22,184 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:22,184 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:22,201 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:27,214 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:27,217 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:27,217 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:27,217 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:27,217 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:32,233 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:32,237 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:32,237 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:32,237 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:32,247 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:37,262 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:37,262 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:37,262 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:37,262 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:37,278 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:42,296 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:42,299 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:42,299 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:42,299 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:42,299 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:47,326 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:47,330 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:47,332 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:47,332 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:47,341 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:52,360 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:52,361 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:52,361 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:52,361 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:52,374 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:57,390 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:57,390 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:57,390 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:57,390 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:22:57,409 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:02,424 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:02,428 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:02,431 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:02,435 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:02,439 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:07,452 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:07,452 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:07,452 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:07,452 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:07,468 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:12,485 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:12,488 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:12,488 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:12,488 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:12,500 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:23:38,059 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:23:38,059 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:23:38,059 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:23:38,059 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:24:22,862 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:24:22,862 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:24:22,862 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:24:22,862 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:24:59,170 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:24:59,171 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:24:59,171 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:24:59,171 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:27:28,482 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:27:28,483 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:27:28,483 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:27:28,483 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:27:42,764 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:27:42,765 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:27:42,765 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:27:42,765 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:34:53,578 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:34:53,578 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:34:53,578 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:34:53,578 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:35:26,405 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:35:26,406 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:35:26,406 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:35:26,406 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:35:26,423 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:35:31,436 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:35:36,449 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:35:41,466 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:35:46,479 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:35:51,493 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:35:56,509 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:01,525 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:06,539 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:11,553 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:16,570 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:21,584 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:26,597 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:31,619 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:36,627 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:41,644 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:46,660 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:36:51,676 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-21 20:37:52,697 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:37:52,697 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:37:52,697 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:37:52,698 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:37:54,686 - src.paper_collection.database_manager - INFO - Inserted new paper: 40969554
+2025-09-21 20:37:57,986 - src.paper_collection.database_manager - INFO - Inserted new paper: 40953879
+2025-09-21 20:41:17,313 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:41:17,313 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:41:17,313 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:41:17,313 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:42:47,687 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:42:47,687 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:42:47,687 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:42:47,687 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:44:43,175 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:44:43,175 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:44:43,175 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:44:43,175 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:46:15,236 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - AI-enhanced CHD management platform (AIM-CHD) - coronary heart disease (CHD)
+2025-09-21 20:46:15,237 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - lipid-lowering medications - coronary heart disease (CHD)
+2025-09-21 20:46:29,636 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:46:29,636 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:46:29,636 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:46:29,636 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:46:54,426 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:46:54,426 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:46:54,426 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:46:54,426 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:47:00,094 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:47:00,094 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:47:00,094 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:47:00,094 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:47:06,471 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 20:47:06,474 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 20:47:06,474 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 20:47:06,474 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 20:47:07,627 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.publication_year

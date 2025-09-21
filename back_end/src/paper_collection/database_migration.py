@@ -511,35 +511,35 @@ def main():
         if args.migrate:
             print("Starting database migration...")
             if migration.migrate():
-                print("✅ Migration completed successfully")
+                print("Migration completed successfully")
 
                 # Auto-validate after migration
                 print("Validating migration...")
                 validation = migration.validate_migration()
                 if validation['success']:
-                    print("✅ Validation passed")
+                    print("Validation passed")
                 else:
-                    print("❌ Validation failed:")
+                    print("Validation failed:")
                     for error in validation['errors']:
                         print(f"  - {error}")
                     return 1
             else:
-                print("❌ Migration failed")
+                print("Migration failed")
                 return 1
 
         elif args.rollback is not None:
             print(f"Rolling back to version {args.rollback}...")
             if migration.rollback(args.rollback):
-                print("✅ Rollback completed successfully")
+                print("Rollback completed successfully")
             else:
-                print("❌ Rollback failed")
+                print("Rollback failed")
                 return 1
 
         elif args.validate:
             print("Validating database...")
             validation = migration.validate_migration()
 
-            print(f"Validation result: {'✅ PASSED' if validation['success'] else '❌ FAILED'}")
+            print(f"Validation result: {'PASSED' if validation['success'] else 'FAILED'}")
 
             if validation['errors']:
                 print("Errors:")
@@ -562,7 +562,7 @@ def main():
             status = migration.get_status()
 
             if 'error' in status:
-                print(f"❌ Error: {status['error']}")
+                print(f"Error: {status['error']}")
                 return 1
 
             print(f"Database: {status['database_path']}")
@@ -584,7 +584,7 @@ def main():
         print("\nOperation interrupted by user")
         return 1
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")
         logger.error(f"Migration error: {e}")
         logger.error(traceback.format_exc())
         return 1

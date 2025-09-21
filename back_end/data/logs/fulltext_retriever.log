@@ -1370,3 +1370,34 @@
 2025-09-17 19:30:02,589 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
 2025-09-17 19:30:10,796 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
 2025-09-20 19:31:23,964 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-21 20:14:53,103 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-21 20:21:16,790 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-21 20:35:26,417 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-21 20:37:52,703 - src.paper_collection.fulltext_retriever - INFO - Enhanced fulltext retriever initialized
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 40969554 (PMC ID: PMC12440967)
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40969554 (DOI: 10.3389/fcimb.2025.1673959)
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40969554: No open access full text found
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-21 20:37:55,503 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Processing 1 papers for fulltext retrieval
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Found 1 potential fulltext candidates
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Processing batch 1/1 (1 papers)
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Processing fulltext for 40953879: Effectiveness of an AI-enhanced management system for coronary heart disease (AI...
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Attempting PMC retrieval for 40953879 (PMC ID: PMC12434780)
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Attempting Unpaywall check for 40953879 (DOI: 10.1136/bmjopen-2025-105597)
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - No full text retrieved for 40953879: No open access full text found
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - === Fulltext Retrieval Summary ===
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Total papers: 1
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Fulltext candidates: 1
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Successful PMC retrievals: 0
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Successful Unpaywall retrievals: 0
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Failed retrievals: 1
+2025-09-21 20:37:59,034 - src.paper_collection.fulltext_retriever - INFO - Success rate: 0.0%

@@ -5,6 +5,21 @@ Actual text gets saved as JSON files.
 
 -> Graph will need to be updated periodically when new data is added
 
+-> Dynamic taxonomy expansion based on discovered
+interventions
+
+-> Integration with medical ontologies (MeSH,
+SNOMED)
+
+-> human-in-the-loop validation
+
+-> Consider PostgreSQL for better concurrency
+
+-> Finalize the dual LLM approach (voting etc)
+
+-> Check if the LLMs consensus handles captioning overlap 'ibs' 'IBS' 
+
+
 LLm:
 
 -> Consider fine tuning

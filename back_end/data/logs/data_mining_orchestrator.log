@@ -1,0 +1,22 @@
+2025-09-21 20:47:07,626 - __main__ - INFO - Starting complete data mining pipeline
+2025-09-21 20:47:07,627 - __main__ - INFO - Starting stage: knowledge_graph
+2025-09-21 20:47:07,627 - __main__ - INFO - Building medical knowledge graph...
+2025-09-21 20:47:07,627 - __main__ - ERROR - Failed stage: knowledge_graph - no such column: p.publication_year
+2025-09-21 20:47:07,629 - __main__ - ERROR - Pipeline failed: no such column: p.publication_year
+2025-09-21 20:47:07,631 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\samis\Desktop\MyBiome\back_end\data_mining\data_mining_orchestrator.py", line 286, in run_complete_pipeline
+    self._build_knowledge_graph()
+  File "C:\Users\samis\Desktop\MyBiome\back_end\data_mining\data_mining_orchestrator.py", line 371, in _build_knowledge_graph
+    cursor = conn.execute(query, params)
+sqlite3.OperationalError: no such column: p.publication_year
+
+2025-09-21 20:47:07,631 - __main__ - ERROR - Pipeline failed: no such column: p.publication_year
+2025-09-21 20:47:07,631 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\samis\Desktop\MyBiome\back_end\data_mining\data_mining_orchestrator.py", line 926, in main
+    orchestrator.run_complete_pipeline()
+  File "C:\Users\samis\Desktop\MyBiome\back_end\data_mining\data_mining_orchestrator.py", line 286, in run_complete_pipeline
+    self._build_knowledge_graph()
+  File "C:\Users\samis\Desktop\MyBiome\back_end\data_mining\data_mining_orchestrator.py", line 371, in _build_knowledge_graph
+    cursor = conn.execute(query, params)
+sqlite3.OperationalError: no such column: p.publication_year
+

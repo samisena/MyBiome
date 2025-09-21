@@ -236,7 +236,7 @@ class DatabaseManager:
                     
                     FOREIGN KEY (paper_id) REFERENCES papers(pmid) ON DELETE CASCADE,
                     FOREIGN KEY (intervention_category) REFERENCES intervention_categories(category) ON DELETE RESTRICT,
-                    UNIQUE(paper_id, intervention_category, intervention_name, health_condition, extraction_model)
+                    UNIQUE(paper_id, intervention_category, intervention_name, health_condition)  -- Consensus: one record per intervention-condition pair per paper
                 )
             ''')
             
@@ -337,7 +337,14 @@ class DatabaseManager:
             ('delivery_method', 'TEXT'),
             ('severity', 'TEXT CHECK(severity IN (\'mild\', \'moderate\', \'severe\'))'),
             ('adverse_effects', 'TEXT'),
-            ('cost_category', 'TEXT CHECK(cost_category IN (\'low\', \'medium\', \'high\'))')
+            ('cost_category', 'TEXT CHECK(cost_category IN (\'low\', \'medium\', \'high\'))'),
+
+            # Consensus tracking fields
+            ('consensus_confidence', 'REAL CHECK(consensus_confidence >= 0 AND consensus_confidence <= 1)'),
+            ('model_agreement', 'TEXT CHECK(model_agreement IN (\'full\', \'partial\', \'single\', \'conflict\'))'),
+            ('models_used', 'TEXT'),  # Comma-separated list of contributing models
+            ('raw_extraction_count', 'INTEGER DEFAULT 1'),  # Number of original extractions
+            ('models_contributing', 'TEXT')  # JSON array of contributing model details
         ]
 
         for column_name, column_type in optional_columns:
@@ -526,8 +533,9 @@ class DatabaseManager:
                      health_condition, correlation_type, correlation_strength, confidence_score,
                      sample_size, study_duration, study_type, population_details,
                      supporting_quote, delivery_method, severity, adverse_effects, cost_category,
-                     extraction_model, validation_status)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                     extraction_model, validation_status, consensus_confidence, model_agreement,
+                     models_used, raw_extraction_count, models_contributing)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
@@ -546,8 +554,13 @@ class DatabaseManager:
                     validated_intervention.get('severity'),
                     validated_intervention.get('adverse_effects'),
                     validated_intervention.get('cost_category'),
-                    validated_intervention['extraction_model'],
-                    'pending'
+                    validated_intervention.get('extraction_model', 'consensus'),
+                    'pending',
+                    validated_intervention.get('consensus_confidence'),
+                    validated_intervention.get('model_agreement'),
+                    validated_intervention.get('models_used'),
+                    validated_intervention.get('raw_extraction_count', 1),
+                    json.dumps(validated_intervention.get('models_contributing', []))
                 ))
                 
                 was_new = cursor.rowcount > 0

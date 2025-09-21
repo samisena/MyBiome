@@ -48,16 +48,17 @@ class PubMedCollector:
         logger.info("Enhanced PubMed collector initialized")
     
     # Removed @log_execution_time - use error_handler.py decorators instead
-    def search_papers(self, query: str, min_year: int = 2000, 
-                     max_results: int = 100) -> List[str]:
+    def search_papers(self, query: str, min_year: int = 2000,
+                     max_year: Optional[int] = None, max_results: int = 100) -> List[str]:
         """
         Search for papers using the centralized PubMed client.
         
         Args:
             query: Search query string
             min_year: Minimum publication year
+            max_year: Maximum publication year (optional)
             max_results: Maximum number of results
-            
+
         Returns:
             List of PMIDs
         """
@@ -113,6 +114,7 @@ class PubMedCollector:
     
     # Removed @log_execution_time - use error_handler.py decorators instead
     def collect_interventions_by_condition(self, condition: str, min_year: int = 2010,
+                                          max_year: Optional[int] = None,
                                           max_results: int = 100,
                                           include_fulltext: bool = True,
                                           include_study_filter: bool = True,
@@ -146,11 +148,11 @@ class PubMedCollector:
         try:
             if use_interleaved_s2:
                 return self._collect_with_interleaved_s2(
-                    condition, query, min_year, max_results, include_fulltext
+                    condition, query, min_year, max_year, max_results, include_fulltext
                 )
             else:
                 return self._collect_traditional_batch(
-                    condition, query, min_year, max_results, include_fulltext
+                    condition, query, min_year, max_year, max_results, include_fulltext
                 )
 
         except Exception as e:
@@ -208,7 +210,8 @@ class PubMedCollector:
 
         return base_query
 
-    def _search_papers_with_offset(self, query: str, min_year: int, max_results: int, offset: int = 0) -> List[str]:
+    def _search_papers_with_offset(self, query: str, min_year: int, max_results: int,
+                                   max_year: Optional[int] = None, offset: int = 0) -> List[str]:
         """
         Search for papers with pagination support.
 
@@ -275,7 +278,7 @@ class PubMedCollector:
             return pmid_list
 
     def _collect_with_interleaved_s2(self, condition: str, query: str, min_year: int,
-                                   max_results: int, include_fulltext: bool) -> Dict[str, Any]:
+                                   max_year: Optional[int], max_results: int, include_fulltext: bool) -> Dict[str, Any]:
         """
         Collect papers using interleaved Semantic Scholar discovery.
         For each PubMed paper collected, immediately find 5 similar papers.
@@ -296,7 +299,7 @@ class PubMedCollector:
         # Search for papers one by one and process immediately
         for seed_count in range(max_results):
             # Step 1: Get the next PubMed paper
-            pmid_list = self._search_papers_with_offset(query, min_year, 10, search_offset)
+            pmid_list = self._search_papers_with_offset(query, min_year, 10, max_year, search_offset)
 
             if not pmid_list:
                 logger.info(f"No more papers found after {seed_count} seed papers")
@@ -397,7 +400,7 @@ class PubMedCollector:
         return result
 
     def _collect_traditional_batch(self, condition: str, query: str, min_year: int,
-                                 max_results: int, include_fulltext: bool) -> Dict[str, Any]:
+                                 max_year: Optional[int], max_results: int, include_fulltext: bool) -> Dict[str, Any]:
         """
         Traditional batch collection method (original logic).
         """
@@ -424,7 +427,7 @@ class PubMedCollector:
             logger.info(f"Search attempt {attempt + 1}: looking for {current_search_size} papers (need {remaining_needed} more new papers)")
 
             # Step 1: Search for papers with offset
-            pmid_list = self._search_papers_with_offset(query, min_year, current_search_size, search_offset)
+            pmid_list = self._search_papers_with_offset(query, min_year, current_search_size, max_year, search_offset)
 
             if not pmid_list:
                 logger.info("No more papers found in search")

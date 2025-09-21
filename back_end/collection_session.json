@@ -1,0 +1,70 @@
+{
+  "session_id": "20250921_203752",
+  "config": {
+    "conditions": [
+      "heart disease"
+    ],
+    "target_papers_per_condition": 2,
+    "min_year": 2015,
+    "max_year": null,
+    "use_interleaved_s2": true,
+    "include_fulltext": true,
+    "traditional_mode": false,
+    "batch_size_collection": 50,
+    "collection_interval": 5,
+    "network_retry_delays": [
+      30,
+      60,
+      120,
+      300,
+      600,
+      900
+    ],
+    "max_consecutive_failures": 10,
+    "api_timeout": 30,
+    "session_file": "collection_session.json",
+    "auto_save_interval": 60,
+    "checkpoint_interval": 10,
+    "output_dir": "collection_results",
+    "save_intermediate": true,
+    "export_formats": [
+      "json"
+    ],
+    "overnight_mode": false,
+    "auto_restart_on_error": true,
+    "enable_status_reporting": true
+  },
+  "conditions_progress": {
+    "heart disease": {
+      "condition": "heart disease",
+      "target_papers": 2,
+      "papers_collected": 2,
+      "papers_enriched": 0,
+      "last_batch_size": 2,
+      "start_time": "2025-09-21T20:37:52.703135",
+      "completion_time": "2025-09-21T20:38:04.562115",
+      "status": "completed",
+      "consecutive_failures": 0,
+      "last_error": null,
+      "collection_stats": {
+        "pubmed_papers": 2,
+        "s2_papers": 0,
+        "total_searched": 20,
+        "expansion_factor": 1.0
+      }
+    }
+  },
+  "global_stats": {
+    "total_papers_collected": 2,
+    "total_papers_enriched": 0,
+    "total_conditions": 1,
+    "conditions_completed": 1,
+    "network_failures": 0,
+    "api_calls_made": 1
+  },
+  "start_time": "2025-09-21T20:37:52.703135",
+  "last_update": "2025-09-21T20:38:04.564103",
+  "is_active": false,
+  "total_runtime_hours": 0.0032944355555555556,
+  "restart_count": 0
+}

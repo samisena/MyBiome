@@ -418,3 +418,992 @@
 2025-09-17 19:30:02,589 - src.paper_collection.pubmed_collector - INFO - Enhanced PubMed collector initialized
 2025-09-17 19:30:10,796 - src.paper_collection.pubmed_collector - INFO - Enhanced PubMed collector initialized
 2025-09-20 19:31:23,964 - src.paper_collection.pubmed_collector - INFO - Enhanced PubMed collector initialized
+2025-09-21 20:14:53,103 - src.paper_collection.pubmed_collector - INFO - Enhanced PubMed collector initialized
+2025-09-21 20:21:16,790 - src.paper_collection.pubmed_collector - INFO - Enhanced PubMed collector initialized
+2025-09-21 20:21:16,794 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:21:16,794 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:16,794 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:21:16,794 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:16,794 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:21:16,794 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:16,794 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:16,797 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:21:16,797 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:16,797 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:21:16,797 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:16,797 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:21:16,797 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:16,797 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:16,804 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:21:16,804 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:16,804 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:21:16,804 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:16,804 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:21:16,804 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:16,804 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:16,809 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:21,823 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:21:21,823 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:21,823 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:21:21,823 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:21,823 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:21,823 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:21,823 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:21,827 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:21:21,827 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:21,827 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:21:21,828 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:21,828 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:21,828 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:21,828 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:21,831 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:21:21,831 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:21,831 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:21:21,831 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:21,831 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:21,831 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:21,831 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:21,834 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:21:21,834 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:21,835 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:21:21,835 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:21,835 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:21,835 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:21,835 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:21,838 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:21:21,838 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:21,838 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:21:21,838 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:21,838 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:21,838 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:21,838 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:26,853 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:21:26,853 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:26,853 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:21:26,853 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:26,853 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:26,853 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:26,853 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:26,857 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:21:26,857 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:26,857 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:21:26,857 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:26,857 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:26,857 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:26,857 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:26,860 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:21:26,860 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:26,860 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:21:26,860 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:26,860 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:26,860 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:26,860 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:26,864 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:21:26,864 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:26,864 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:21:26,864 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:26,864 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:26,864 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:26,864 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:26,867 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:21:26,868 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:26,868 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:21:26,868 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:26,868 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:26,868 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:26,868 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:31,885 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:21:31,885 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:31,886 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:21:31,886 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:31,886 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:31,886 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:31,886 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:31,890 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:21:31,890 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:31,890 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:21:31,890 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:31,890 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:31,890 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:31,890 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:31,893 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:21:31,893 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:31,893 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:21:31,893 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:31,894 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:31,894 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:31,894 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:31,897 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:21:31,897 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:31,897 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:21:31,897 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:31,897 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:31,897 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:31,897 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:31,900 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:21:31,900 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:31,900 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:21:31,900 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:31,900 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:31,900 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:31,900 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:36,917 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:21:36,917 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:36,917 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:21:36,917 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:36,917 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:36,917 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:36,917 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:36,921 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:36,932 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:21:36,932 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:36,932 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:21:36,932 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:36,932 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:36,932 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:36,932 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:41,948 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:41,963 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:21:41,964 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:41,964 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:21:41,964 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:41,964 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:41,964 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:41,964 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:46,980 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:21:46,981 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:46,981 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:21:46,981 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:46,981 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:46,981 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:46,981 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:46,984 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:46,985 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:46,995 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:21:46,995 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:46,995 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:21:46,995 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:46,995 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:46,995 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:46,995 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:52,012 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:21:52,014 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:52,014 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:21:52,014 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:52,014 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:52,014 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:52,014 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:52,017 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:52,018 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:52,028 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:21:52,028 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:52,028 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:21:52,028 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:52,028 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:52,028 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:52,028 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:57,042 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:21:57,042 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:57,043 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:21:57,043 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:57,043 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:57,043 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:57,043 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:57,047 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:21:57,047 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:57,047 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:21:57,047 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:57,048 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:57,048 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:57,048 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:57,052 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:21:57,052 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:57,052 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:21:57,052 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:57,052 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:57,052 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:57,052 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:57,057 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:21:57,057 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:57,057 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:21:57,057 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:57,057 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:57,057 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:57,057 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:21:57,062 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:21:57,062 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:21:57,062 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:21:57,062 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:21:57,062 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:21:57,062 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:21:57,062 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:02,074 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:02,074 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:02,074 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:02,075 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:02,075 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:02,075 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:02,075 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:02,078 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:02,078 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:02,078 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:02,078 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:02,079 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:02,091 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:02,091 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:02,091 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:02,091 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:02,091 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:02,091 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:02,091 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:07,103 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:07,103 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:07,103 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:07,103 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:07,103 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:07,103 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:07,103 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:07,106 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:12,120 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:12,120 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:12,120 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:12,120 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:12,120 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:12,120 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:12,120 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:12,123 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:12,123 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:12,123 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:12,123 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:12,123 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:12,123 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:12,123 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:12,127 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:12,127 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:12,127 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:12,127 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:12,127 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:12,127 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:12,127 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:12,132 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:12,132 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:12,132 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:12,132 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:12,132 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:12,132 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:12,132 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:12,137 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:12,137 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:12,138 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:12,138 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:12,138 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:12,138 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:12,138 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:17,153 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:22,184 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:22,200 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:22,200 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:22,200 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:22,200 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:22,200 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:22,200 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:22,200 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:27,212 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:27,212 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:27,212 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:27,212 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:27,212 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:27,212 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:27,212 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:27,217 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:32,232 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:32,232 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:32,232 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:32,232 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:32,232 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:32,232 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:32,232 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:32,236 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:32,236 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:32,236 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:32,236 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:32,236 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:32,236 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:32,236 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:32,237 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:32,247 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:32,247 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:32,247 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:37,262 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:37,277 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:37,277 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:37,277 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:37,277 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:37,277 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:37,277 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:37,277 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:42,294 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:42,294 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:42,294 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:42,294 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:42,294 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:42,295 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:42,295 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:42,298 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:42,298 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:42,298 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:42,298 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:42,298 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:42,298 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:42,298 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:42,299 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:47,326 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:47,326 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:47,326 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:47,326 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:47,326 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:47,326 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:47,326 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:47,328 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:47,328 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:47,328 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:47,328 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:47,328 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:47,328 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:47,328 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:47,332 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:52,358 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:52,358 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:52,358 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:52,358 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:52,358 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:52,359 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:52,359 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:52,361 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:57,390 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:22:57,406 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:22:57,407 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:22:57,407 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:22:57,407 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:22:57,407 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:22:57,407 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:22:57,407 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:02,422 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:23:02,422 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:02,422 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:23:02,422 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:02,422 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:02,422 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:02,422 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:02,426 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:23:02,426 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:02,426 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:23:02,426 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:02,426 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:02,426 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:02,426 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:02,428 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:23:02,428 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:02,428 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:23:02,428 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:02,428 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:02,431 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:02,431 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:02,433 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:23:02,433 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:02,433 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:23:02,433 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:02,433 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:02,433 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:02,433 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:02,437 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:23:02,438 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:02,438 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:23:02,438 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:02,438 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:02,438 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:02,438 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:07,452 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:12,484 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: irritable bowel syndrome
+2025-09-21 20:23:12,484 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:12,484 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("irritable bowel syndrome"[Title/Abstract] OR "irritable bowel syndrome"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstr...
+2025-09-21 20:23:12,484 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:12,484 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:12,484 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:12,484 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: arthritis
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("arthritis"[Title/Abstract] OR "arthritis"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] O...
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: diabetes
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("diabetes"[Title/Abstract] OR "diabetes"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract] OR ...
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: depression
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Target: 4 PubMed seed papers (expecting ~24 total with S2 discovery)
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("depression"[Title/Abstract] OR "depression"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abstract]...
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:23:12,488 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:35:26,417 - src.paper_collection.pubmed_collector - INFO - Enhanced PubMed collector initialized
+2025-09-21 20:35:26,422 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:35:26,422 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:35:26,422 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:35:26,422 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:35:26,422 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:35:26,422 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:35:26,422 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:35:31,434 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:35:31,434 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:35:31,434 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:35:31,434 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:35:31,434 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:35:31,434 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:35:31,435 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:35:36,449 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:35:36,449 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:35:36,449 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:35:36,449 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:35:36,449 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:35:36,449 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:35:36,449 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:35:41,465 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:35:41,465 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:35:41,465 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:35:41,465 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:35:41,465 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:35:41,465 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:35:41,465 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:35:46,479 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:35:46,479 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:35:46,479 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:35:46,479 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:35:46,479 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:35:46,479 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:35:46,479 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:35:51,491 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:35:51,491 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:35:51,491 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:35:51,491 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:35:51,491 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:35:51,492 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:35:51,492 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:35:56,506 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:35:56,506 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:35:56,506 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:35:56,506 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:35:56,506 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:35:56,506 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:35:56,507 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:01,525 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:01,525 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:01,525 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:01,525 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:01,525 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:36:01,525 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:01,525 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:06,536 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:06,537 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:06,537 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:06,537 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:06,537 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:36:06,537 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:06,537 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:11,551 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:11,551 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:11,551 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:11,551 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:11,551 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:36:11,552 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:11,552 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:16,568 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:16,568 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:16,568 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:16,568 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:16,568 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:36:16,568 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:16,568 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:21,582 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:21,582 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:21,583 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:21,583 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:21,583 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:36:21,583 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:21,583 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:26,597 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:26,597 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:26,597 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:26,597 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:26,597 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:36:26,597 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:26,597 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:31,614 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:31,614 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:31,617 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:31,617 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:31,617 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:36:31,617 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:31,617 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:36,627 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:36,627 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:36,627 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:36,627 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:36,627 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:36:36,627 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:36,627 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:41,643 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:41,643 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:41,643 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:41,643 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:41,643 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:36:41,643 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:41,643 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:46,658 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:46,658 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:46,658 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:46,658 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:46,658 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: PubMedAPI.search_papers() got an unexpected keyword argument 'max_year'
+2025-09-21 20:36:46,658 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:46,658 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:36:51,674 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:36:51,674 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:36:51,674 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:36:51,674 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:36:51,674 - src.paper_collection.pubmed_collector - ERROR - Error searching PubMed with offset: Circuit breaker open for search_papers
+2025-09-21 20:36:51,674 - src.paper_collection.pubmed_collector - INFO - No more papers found after 0 seed papers
+2025-09-21 20:36:51,674 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 0 PubMed seed papers + 0 S2 similar papers = 0 total papers
+2025-09-21 20:37:52,703 - src.paper_collection.pubmed_collector - INFO - Enhanced PubMed collector initialized
+2025-09-21 20:37:52,703 - src.paper_collection.pubmed_collector - INFO - Starting intervention collection for condition: heart disease
+2025-09-21 20:37:52,703 - src.paper_collection.pubmed_collector - INFO - Target: 2 PubMed seed papers (expecting ~12 total with S2 discovery)
+2025-09-21 20:37:52,703 - src.paper_collection.pubmed_collector - INFO - Using intervention query: ("heart disease"[Title/Abstract] OR "heart disease"[MeSH Terms]) AND (intervention[Title/Abstract] OR treatment[Title/Abstract] OR therapy[Title/Abstract] OR exercise[Title/Abstract] OR diet[Title/Abs...
+2025-09-21 20:37:52,703 - src.paper_collection.pubmed_collector - INFO - Using interleaved Semantic Scholar discovery workflow
+2025-09-21 20:37:54,669 - src.paper_collection.pubmed_collector - INFO - Saved metadata for 1 papers to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1758483474.xml
+2025-09-21 20:37:54,687 - src.paper_collection.pubmed_collector - INFO - Seed 1/2: Collected paper 40969554
+2025-09-21 20:37:54,687 - src.paper_collection.pubmed_collector - INFO -   [FAIL] S2 enrichment failed
+2025-09-21 20:37:55,503 - src.paper_collection.pubmed_collector - WARNING -   [S2] Similar paper discovery failed: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:40969554/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
+2025-09-21 20:37:55,503 - src.paper_collection.pubmed_collector - INFO - Found 1 papers with fulltext potential
+2025-09-21 20:37:55,503 - src.paper_collection.pubmed_collector - INFO - Processing fulltext batch 1/1
+2025-09-21 20:37:55,503 - src.paper_collection.pubmed_collector - INFO - Fulltext processing completed: {'total_candidates': 1, 'processed': 1, 'successful_pmc': 0, 'successful_unpaywall': 0, 'failed': 1, 'errors': ['40969554: No open access full text found']}
+2025-09-21 20:37:57,971 - src.paper_collection.pubmed_collector - INFO - Saved metadata for 1 papers to C:\Users\samis\Desktop\MyBiome\back_end\data\raw\metadata\pubmed_batch_1758483477.xml
+2025-09-21 20:37:57,986 - src.paper_collection.pubmed_collector - INFO - Seed 2/2: Collected paper 40953879
+2025-09-21 20:37:57,986 - src.paper_collection.pubmed_collector - INFO -   [FAIL] S2 enrichment failed
+2025-09-21 20:37:59,034 - src.paper_collection.pubmed_collector - WARNING -   [S2] Similar paper discovery failed: 404 Client Error: Not Found for url: https://api.semanticscholar.org/graph/v1/paper/PMID:40953879/recommendations?fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Cjournal%2CcitationCount%2Ctldr&limit=5
+2025-09-21 20:37:59,034 - src.paper_collection.pubmed_collector - INFO - Found 1 papers with fulltext potential
+2025-09-21 20:37:59,034 - src.paper_collection.pubmed_collector - INFO - Processing fulltext batch 1/1
+2025-09-21 20:37:59,034 - src.paper_collection.pubmed_collector - INFO - Fulltext processing completed: {'total_candidates': 1, 'processed': 1, 'successful_pmc': 0, 'successful_unpaywall': 0, 'failed': 1, 'errors': ['40953879: No open access full text found']}
+2025-09-21 20:37:59,549 - src.paper_collection.pubmed_collector - INFO - Interleaved collection completed: Interleaved collection: 2 PubMed seed papers + 0 S2 similar papers = 2 total papers

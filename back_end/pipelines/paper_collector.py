@@ -198,7 +198,7 @@ class NetworkResilienceManager:
             try:
                 result = operation_func(*args, **kwargs)
                 if self.consecutive_failures > 0:
-                    logger.info(f"✅ {operation_name} recovered after {self.consecutive_failures} failures")
+                    logger.info(f"SUCCESS: {operation_name} recovered after {self.consecutive_failures} failures")
                 self.consecutive_failures = 0
                 return result
 
@@ -207,7 +207,7 @@ class NetworkResilienceManager:
                 self.total_retries += 1
                 delay = self.retry_delays[min(attempt, len(self.retry_delays) - 1)]
 
-                logger.warning(f"⚠️ {operation_name} failed (attempt {attempt + 1}): {e}")
+                logger.warning(f"WARNING: {operation_name} failed (attempt {attempt + 1}): {e}")
 
                 if attempt < len(self.retry_delays) - 1:
                     logger.info(f"⏳ Retrying {operation_name} in {delay} seconds...")
@@ -264,8 +264,8 @@ class SessionManager:
         self.session = session
         self.save_session()
 
-        logger.info(f"📋 Created new collection session: {session_id}")
-        logger.info(f"🎯 Target: {len(config.conditions)} conditions, {config.target_papers_per_condition} papers each")
+        logger.info(f"Created new collection session: {session_id}")
+        logger.info(f"Target: {len(config.conditions)} conditions, {config.target_papers_per_condition} papers each")
 
         return session
 
@@ -311,7 +311,7 @@ class SessionManager:
             )
 
             self.session = session
-            logger.info(f"📋 Loaded existing session: {session.session_id}")
+            logger.info(f"Loaded existing session: {session.session_id}")
             return session
 
         except Exception as e:
@@ -411,7 +411,7 @@ class PaperCollector:
                 session = self.session_manager.load_existing_session()
                 if session:
                     session.restart_count += 1
-                    logger.info(f"🔄 Resuming session (restart #{session.restart_count})")
+                    logger.info(f"Resuming session (restart #{session.restart_count})")
                 else:
                     logger.warning("No existing session found, creating new one")
                     session = self.session_manager.create_new_session(self.config)
@@ -421,13 +421,13 @@ class PaperCollector:
             # Start auto-save
             self._start_auto_save()
 
-            logger.info("🎯 Starting paper collection campaign")
-            logger.info(f"📊 Conditions: {list(session.conditions_progress.keys())}")
+            logger.info("Starting paper collection campaign")
+            logger.info(f"Conditions: {list(session.conditions_progress.keys())}")
 
             # Main collection loop
             while not self.shutdown_requested:
                 if self._is_campaign_complete(session):
-                    logger.info("🎉 Collection campaign completed successfully!")
+                    logger.info("Collection campaign completed successfully!")
                     break
 
                 # Process each condition
@@ -454,7 +454,7 @@ class PaperCollector:
 
                         # Auto-restart logic
                         if self.config.auto_restart_on_error:
-                            logger.info("🔄 Auto-restart enabled, continuing with next condition...")
+                            logger.info("Auto-restart enabled, continuing with next condition...")
                             continue
                         else:
                             raise
@@ -476,7 +476,7 @@ class PaperCollector:
             logger.error(traceback.format_exc())
 
             if self.config.auto_restart_on_error:
-                logger.info("🔄 Auto-restart triggered due to critical error")
+                logger.info("Auto-restart triggered due to critical error")
                 time.sleep(60)  # Brief pause before restart
                 return self.run_collection_campaign(resume=True)
             else:
@@ -499,23 +499,23 @@ class PaperCollector:
         progress = session.conditions_progress[condition]
 
         if progress.status == 'completed':
-            logger.debug(f"✅ Condition '{condition}' already completed, skipping")
+            logger.debug(f"Condition '{condition}' already completed, skipping")
             return
 
         if progress.status == 'failed':
-            logger.debug(f"❌ Condition '{condition}' marked as failed, skipping")
+            logger.debug(f"Condition '{condition}' marked as failed, skipping")
             return
 
         if progress.is_complete:
             progress.status = 'completed'
             progress.completion_time = datetime.now()
             session.global_stats['conditions_completed'] += 1
-            logger.info(f"🎉 Condition '{condition}' completed successfully!")
+            logger.info(f"Condition '{condition}' completed successfully!")
             self.session_manager.update_condition_progress(condition, progress)
             return
 
-        logger.info(f"🔬 Processing condition: {condition}")
-        logger.info(f"📊 Progress: {progress.papers_collected}/{progress.target_papers} "
+        logger.info(f"Processing condition: {condition}")
+        logger.info(f"Progress: {progress.papers_collected}/{progress.target_papers} "
                    f"({progress.progress_percent:.1f}%)")
 
         # Start timing if first collection
@@ -541,7 +541,7 @@ class PaperCollector:
         """Collect papers for a specific condition with network resilience."""
         progress = session.conditions_progress[condition]
 
-        logger.info(f"📚 Collecting {batch_size} papers for '{condition}'...")
+        logger.info(f"Collecting {batch_size} papers for '{condition}'...")
 
         def collection_operation():
             return self.collector.collect_interventions_by_condition(
@@ -580,7 +580,7 @@ class PaperCollector:
 
             session.global_stats['total_papers_collected'] += papers_collected
 
-            logger.info(f"📚 Collected {papers_collected} papers for '{condition}' "
+            logger.info(f"Collected {papers_collected} papers for '{condition}' "
                        f"({progress.papers_collected}/{progress.target_papers})")
 
             # Reset failure count on success
@@ -669,7 +669,7 @@ class PaperCollector:
 
     def _generate_final_report(self, session: CollectionSession) -> Dict[str, Any]:
         """Generate comprehensive final report."""
-        logger.info("📋 Generating final collection report...")
+        logger.info("Generating final collection report...")
 
         # Calculate overall statistics
         total_duration = datetime.now() - self.session_start
@@ -723,10 +723,10 @@ class PaperCollector:
         if 'csv' in self.config.export_formats:
             self._export_csv_summary(report, session.session_id)
 
-        logger.info(f"📋 Final report saved to {report_file}")
-        logger.info(f"🎯 Campaign completed: {len(completed_conditions)}/{len(session.conditions_progress)} conditions successful")
-        logger.info(f"📊 Total papers collected: {session.global_stats['total_papers_collected']}")
-        logger.info(f"⏱️ Total duration: {total_duration}")
+        logger.info(f"Final report saved to {report_file}")
+        logger.info(f"Campaign completed: {len(completed_conditions)}/{len(session.conditions_progress)} conditions successful")
+        logger.info(f"Total papers collected: {session.global_stats['total_papers_collected']}")
+        logger.info(f"Total duration: {total_duration}")
 
         return report
 
@@ -773,7 +773,7 @@ class PaperCollector:
                         details['duration'] or 'N/A'
                     ])
 
-            logger.info(f"📊 CSV summary exported to {csv_file}")
+            logger.info(f"CSV summary exported to {csv_file}")
 
         except Exception as e:
             logger.error(f"Failed to export CSV summary: {e}")
@@ -935,7 +935,7 @@ def main():
             return True
 
         # Run collection
-        logger.info("🚀 Starting unified paper collection")
+        logger.info("Starting unified paper collection")
         report = collector.run_collection_campaign(resume=args.resume)
 
         # Print summary
