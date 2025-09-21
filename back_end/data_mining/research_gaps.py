@@ -6,14 +6,33 @@ multiple evidence sources. Acts as a "recommendation engine for medical research
 to identify promising areas for study among thousands of possible combinations.
 """
 
+import sys
+from pathlib import Path
 import numpy as np
 import pandas as pd
 from typing import Dict, List, Tuple, Optional, Any, Set
 from dataclasses import dataclass
 from collections import defaultdict, Counter
 import math
+from datetime import datetime
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Add src to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+try:
+    from src.paper_collection.data_mining_repository import (
+        DataMiningRepository,
+        ResearchGap as DBResearchGap
+    )
+    from src.data.config import setup_logging
+except ImportError as e:
+    print(f"Warning: Could not import database components: {e}")
+    DataMiningRepository = None
+    DBResearchGap = None
+
+logger = setup_logging(__name__, 'research_gaps.log') if 'setup_logging' in globals() else None
 
 
 @dataclass

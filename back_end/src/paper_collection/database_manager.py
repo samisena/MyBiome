@@ -15,7 +15,7 @@ from pathlib import Path
 
 from src.data.config import config, setup_logging
 from src.data.validators import validation_manager
-from src.interventions.validators import intervention_validator
+from src.interventions.category_validators import category_validator
 
 logger = setup_logging(__name__, 'database.log')
 
@@ -294,13 +294,16 @@ class DatabaseManager:
             
             # Add triggers for updated_at timestamps
             cursor.execute('''
-                CREATE TRIGGER IF NOT EXISTS update_papers_timestamp 
+                CREATE TRIGGER IF NOT EXISTS update_papers_timestamp
                 AFTER UPDATE ON papers
                 BEGIN
                     UPDATE papers SET updated_at = CURRENT_TIMESTAMP WHERE pmid = NEW.pmid;
                 END
             ''')
-            
+
+            # Check if we need to create data mining tables
+            self._create_data_mining_tables_if_needed(cursor)
+
             conn.commit()
             logger.info("Database tables and indexes created successfully")
 
@@ -348,6 +351,88 @@ class DatabaseManager:
                 else:
                     logger.error(f"Failed to add intervention column {column_name}: {e}")
                     raise
+
+    def _create_data_mining_tables_if_needed(self, cursor):
+        """Create data mining tables if they don't exist."""
+        try:
+            # Check if data mining tables exist
+            cursor.execute("""
+                SELECT name FROM sqlite_master
+                WHERE type='table' AND name='knowledge_graph_nodes'
+            """)
+
+            if cursor.fetchone():
+                logger.debug("Data mining tables already exist")
+                return
+
+            # Read and execute the enhanced schema
+            schema_path = Path(__file__).parent / "enhanced_database_schema.sql"
+            if schema_path.exists():
+                with open(schema_path, 'r') as f:
+                    schema_sql = f.read()
+
+                # Execute schema in parts to handle any errors
+                statements = [stmt.strip() for stmt in schema_sql.split(';') if stmt.strip()]
+                for statement in statements:
+                    if statement:
+                        try:
+                            cursor.execute(statement)
+                        except sqlite3.OperationalError as e:
+                            if "table" in str(e) and "already exists" in str(e):
+                                continue  # Table already exists
+                            else:
+                                logger.warning(f"Error executing schema statement: {e}")
+                                continue
+
+                logger.info("Data mining tables created successfully")
+            else:
+                logger.warning("Enhanced database schema file not found")
+
+        except Exception as e:
+            logger.error(f"Error creating data mining tables: {e}")
+
+    def get_data_mining_connection(self):
+        """Get a connection specifically for data mining operations."""
+        return self.get_connection()
+
+    def check_data_mining_tables_exist(self) -> bool:
+        """Check if data mining tables exist in the database."""
+        required_tables = [
+            'knowledge_graph_nodes', 'knowledge_graph_edges', 'bayesian_scores',
+            'treatment_recommendations', 'research_gaps', 'innovation_tracking',
+            'biological_patterns', 'condition_similarities', 'intervention_combinations',
+            'failed_interventions', 'data_mining_sessions'
+        ]
+
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+
+            for table in required_tables:
+                cursor.execute("""
+                    SELECT name FROM sqlite_master
+                    WHERE type='table' AND name=?
+                """, (table,))
+
+                if not cursor.fetchone():
+                    return False
+
+            return True
+
+    def initialize_data_mining_schema(self) -> bool:
+        """Initialize data mining schema if not already present."""
+        if self.check_data_mining_tables_exist():
+            logger.info("Data mining tables already exist")
+            return True
+
+        try:
+            with self.get_connection() as conn:
+                cursor = conn.cursor()
+                self._create_data_mining_tables_if_needed(cursor)
+                conn.commit()
+                return True
+        except Exception as e:
+            logger.error(f"Failed to initialize data mining schema: {e}")
+            return False
     
     def insert_paper(self, paper: Dict) -> bool:
         """Insert a paper with validation and enhanced error handling."""
@@ -430,7 +515,7 @@ class DatabaseManager:
         """Insert an intervention with validation."""
         try:
             # Validate intervention data
-            validated_intervention = intervention_validator.validate_intervention(intervention)
+            validated_intervention = category_validator.validate_intervention(intervention)
             
             with self.get_connection() as conn:
                 cursor = conn.cursor()
@@ -690,7 +775,39 @@ class DatabaseManager:
                 {'condition': row[0], 'interventions': row[1]}
                 for row in cursor.fetchall()
             ]
-            
+
+            # Data mining stats (if tables exist)
+            if self.check_data_mining_tables_exist():
+                try:
+                    # Knowledge graph stats
+                    cursor.execute('SELECT COUNT(*) FROM knowledge_graph_nodes')
+                    stats['knowledge_graph_nodes'] = cursor.fetchone()[0]
+
+                    cursor.execute('SELECT COUNT(*) FROM knowledge_graph_edges')
+                    stats['knowledge_graph_edges'] = cursor.fetchone()[0]
+
+                    # Bayesian analysis stats
+                    cursor.execute('SELECT COUNT(*) FROM bayesian_scores')
+                    stats['bayesian_analyses'] = cursor.fetchone()[0]
+
+                    # Treatment recommendations
+                    cursor.execute('SELECT COUNT(*) FROM treatment_recommendations')
+                    stats['treatment_recommendations'] = cursor.fetchone()[0]
+
+                    # Research gaps
+                    cursor.execute('SELECT COUNT(*) FROM research_gaps')
+                    stats['research_gaps'] = cursor.fetchone()[0]
+
+                    # Data mining sessions
+                    cursor.execute('SELECT COUNT(*) FROM data_mining_sessions')
+                    stats['data_mining_sessions'] = cursor.fetchone()[0]
+
+                except Exception as e:
+                    logger.warning(f"Error getting data mining stats: {e}")
+                    stats['data_mining_error'] = str(e)
+            else:
+                stats['data_mining_tables'] = 'not_available'
+
             return stats
     
     def clean_placeholder_interventions(self) -> Dict[str, int]:

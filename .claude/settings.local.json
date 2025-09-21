@@ -22,7 +22,12 @@
       "Bash(export OLLAMA_GPU_LAYERS=30)",
       "Bash(chcp:*)",
       "Bash(pip install:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(PYTHONPATH=. python pipelines/paper_collector.py --help)",
+      "Bash(PYTHONPATH=. python src/paper_collection/database_migration.py --migrate)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

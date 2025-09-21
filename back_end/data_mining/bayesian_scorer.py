@@ -7,9 +7,25 @@ aren't automatically penalized.
 """
 
 import math
-from typing import Dict, Union, Tuple
+import sys
+from pathlib import Path
+from typing import Dict, Union, Tuple, Optional
 from scipy import stats
 import numpy as np
+from datetime import datetime
+
+# Add src to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+try:
+    from src.paper_collection.data_mining_repository import DataMiningRepository, BayesianScore
+    from src.data.config import setup_logging
+except ImportError as e:
+    print(f"Warning: Could not import database components: {e}")
+    DataMiningRepository = None
+    BayesianScore = None
+
+logger = setup_logging(__name__, 'bayesian_scorer.log') if 'setup_logging' in globals() else None
 
 
 class BayesianEvidenceScorer:
@@ -18,16 +34,31 @@ class BayesianEvidenceScorer:
     using Bayesian statistics with Beta distribution priors.
     """
 
-    def __init__(self, alpha_prior: float = 1.0, beta_prior: float = 1.0):
+    def __init__(self, alpha_prior: float = 1.0, beta_prior: float = 1.0,
+                 save_to_database: bool = True, analysis_model: str = "bayesian_v1"):
         """
         Initialize the Bayesian scorer with Beta distribution priors.
 
         Args:
             alpha_prior: Prior for positive outcomes (default: 1.0 = uniform prior)
             beta_prior: Prior for negative outcomes (default: 1.0 = uniform prior)
+            save_to_database: Whether to save analysis results to database
+            analysis_model: Model identifier for tracking analysis versions
         """
         self.alpha_prior = alpha_prior
         self.beta_prior = beta_prior
+        self.save_to_database = save_to_database
+        self.analysis_model = analysis_model
+
+        # Initialize database repository if available
+        self.repository = None
+        if save_to_database and DataMiningRepository:
+            try:
+                self.repository = DataMiningRepository()
+            except Exception as e:
+                if logger:
+                    logger.warning(f"Could not initialize database repository: {e}")
+                self.save_to_database = False
 
     def score_intervention(
         self,
@@ -102,12 +133,32 @@ class BayesianEvidenceScorer:
             alpha_posterior, beta_posterior, relevant_evidence
         )
 
-        return {
+        result = {
             'score': round(score, 2),
             'conservative_score': round(conservative_score, 2),
             'confidence': round(confidence, 2),
             'evidence_count': total_evidence
         }
+
+        # Save to database if we have intervention/condition names and database is available
+        if (isinstance(positive, str) and self.save_to_database and
+            self.repository and BayesianScore):
+            try:
+                self._save_bayesian_score(
+                    intervention_name=intervention_name,
+                    condition_name=condition_name,
+                    positive_count=pos_count,
+                    negative_count=neg_count,
+                    neutral_count=neut_count,
+                    alpha_posterior=alpha_posterior,
+                    beta_posterior=beta_posterior,
+                    result=result
+                )
+            except Exception as e:
+                if logger:
+                    logger.warning(f"Failed to save Bayesian score to database: {e}")
+
+        return result
 
     def _calculate_confidence(
         self,
@@ -258,3 +309,115 @@ class BayesianEvidenceScorer:
                     neutral_count += 1
 
         return positive_count, negative_count, neutral_count
+
+    def _save_bayesian_score(self, intervention_name: str, condition_name: str,
+                           positive_count: int, negative_count: int, neutral_count: int,
+                           alpha_posterior: float, beta_posterior: float,
+                           result: Dict) -> None:
+        """Save Bayesian analysis results to the database."""
+        try:
+            # Calculate credible interval (95% by default)
+            credible_lower = stats.beta.ppf(0.025, alpha_posterior, beta_posterior)
+            credible_upper = stats.beta.ppf(0.975, alpha_posterior, beta_posterior)
+
+            # Calculate Bayes factor (relative to neutral hypothesis)
+            # Using evidence strength relative to no effect
+            bayes_factor = self._calculate_bayes_factor(
+                positive_count, negative_count, alpha_posterior, beta_posterior
+            )
+
+            bayesian_score = BayesianScore(
+                intervention_name=intervention_name,
+                condition_name=condition_name,
+                posterior_mean=result['score'],
+                posterior_variance=self._calculate_posterior_variance(alpha_posterior, beta_posterior),
+                credible_interval_lower=credible_lower,
+                credible_interval_upper=credible_upper,
+                bayes_factor=bayes_factor,
+                positive_evidence_count=positive_count,
+                negative_evidence_count=negative_count,
+                neutral_evidence_count=neutral_count,
+                total_studies=positive_count + negative_count + neutral_count,
+                alpha_prior=self.alpha_prior,
+                beta_prior=self.beta_prior,
+                confidence_adjusted_score=result['conservative_score'],
+                analysis_model=self.analysis_model,
+                analysis_timestamp=datetime.now()
+            )
+
+            self.repository.save_bayesian_score(bayesian_score)
+
+            if logger:
+                logger.info(f"Saved Bayesian score for {intervention_name} -> {condition_name}")
+
+        except Exception as e:
+            if logger:
+                logger.error(f"Error saving Bayesian score: {e}")
+            raise
+
+    def _calculate_posterior_variance(self, alpha: float, beta: float) -> float:
+        """Calculate posterior variance for Beta distribution."""
+        return (alpha * beta) / ((alpha + beta) ** 2 * (alpha + beta + 1))
+
+    def _calculate_bayes_factor(self, positive: int, negative: int,
+                              alpha_posterior: float, beta_posterior: float) -> float:
+        """Calculate Bayes factor comparing evidence strength to neutral hypothesis."""
+        if positive + negative == 0:
+            return 1.0  # No evidence = no preference
+
+        # Simple Bayes factor based on posterior vs uniform prior
+        # Higher values indicate stronger evidence for effectiveness
+        posterior_odds = alpha_posterior / beta_posterior
+        prior_odds = self.alpha_prior / self.beta_prior
+
+        return min(posterior_odds / prior_odds, 100.0)  # Cap at 100 for numerical stability
+
+    def score_all_interventions_for_condition(self, condition: str,
+                                            knowledge_graph=None,
+                                            min_evidence: int = 1) -> Dict[str, Dict]:
+        """
+        Score all interventions for a given condition and save to database.
+
+        Args:
+            condition: Health condition name
+            knowledge_graph: MedicalKnowledgeGraph instance
+            min_evidence: Minimum evidence count to include intervention
+
+        Returns:
+            Dictionary mapping intervention names to scores
+        """
+        if not knowledge_graph:
+            raise ValueError("knowledge_graph is required")
+
+        results = {}
+
+        try:
+            # Get all interventions for this condition from knowledge graph
+            interventions = knowledge_graph.get_interventions_for_condition(condition)
+
+            for intervention in interventions:
+                intervention_name = intervention if isinstance(intervention, str) else intervention.get('name', str(intervention))
+
+                try:
+                    # Get evidence counts
+                    pos_count, neg_count, neut_count = self._extract_evidence_counts(
+                        intervention_name, condition, knowledge_graph
+                    )
+
+                    total_evidence = pos_count + neg_count + neut_count
+                    if total_evidence >= min_evidence:
+                        score_result = self.score_intervention(
+                            intervention_name, condition, knowledge_graph=knowledge_graph
+                        )
+                        results[intervention_name] = score_result
+
+                except Exception as e:
+                    if logger:
+                        logger.warning(f"Error scoring {intervention_name} for {condition}: {e}")
+                    continue
+
+        except Exception as e:
+            if logger:
+                logger.error(f"Error scoring interventions for {condition}: {e}")
+
+        return results

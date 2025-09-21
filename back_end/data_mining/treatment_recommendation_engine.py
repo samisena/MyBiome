@@ -15,16 +15,35 @@ Key Features:
 
 import numpy as np
 import pandas as pd
+import sys
+from pathlib import Path
 from typing import Dict, List, Tuple, Optional, Any, Set
 from dataclasses import dataclass
 from collections import defaultdict, Counter
 import math
 import random
+from datetime import datetime
+
+# Add src to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+try:
+    from src.paper_collection.data_mining_repository import (
+        DataMiningRepository,
+        TreatmentRecommendation as DBTreatmentRecommendation
+    )
+    from src.data.config import setup_logging
+except ImportError as e:
+    print(f"Warning: Could not import database components: {e}")
+    DataMiningRepository = None
+    DBTreatmentRecommendation = None
+
+logger = setup_logging(__name__, 'treatment_recommendation.log') if 'setup_logging' in globals() else None
 
 
 @dataclass
-class TreatmentRecommendation:
-    """Individual treatment recommendation with scoring details."""
+class RecommendationResult:
+    """Individual treatment recommendation with scoring details (internal use)."""
     intervention: str
     final_score: float
     confidence: float
@@ -55,7 +74,9 @@ class TreatmentRecommendationEngine:
     def __init__(self,
                  explore_rate: float = 0.20,
                  min_confidence_threshold: float = 0.3,
-                 diversity_bonus: float = 0.1):
+                 diversity_bonus: float = 0.1,
+                 save_to_database: bool = True,
+                 generation_model: str = "recommendation_engine_v1"):
         """
         Initialize treatment recommendation engine.
 
@@ -63,10 +84,24 @@ class TreatmentRecommendationEngine:
             explore_rate: Exploration bonus rate for emerging treatments (default 20%)
             min_confidence_threshold: Minimum confidence for recommendations
             diversity_bonus: Bonus for treatment diversity
+            save_to_database: Whether to save recommendations to database
+            generation_model: Model identifier for tracking recommendation versions
         """
         self.explore_rate = explore_rate
         self.min_confidence_threshold = min_confidence_threshold
         self.diversity_bonus = diversity_bonus
+        self.save_to_database = save_to_database
+        self.generation_model = generation_model
+
+        # Initialize database repository if available
+        self.repository = None
+        if save_to_database and DataMiningRepository:
+            try:
+                self.repository = DataMiningRepository()
+            except Exception as e:
+                if logger:
+                    logger.warning(f"Could not initialize database repository: {e}")
+                self.save_to_database = False
 
         # Evidence type weights
         self.evidence_weights = {
@@ -95,7 +130,7 @@ class TreatmentRecommendationEngine:
                            power_combinations,
                            failed_interventions,
                            patient_profile: Optional[Dict] = None,
-                           top_n: int = 10) -> List[TreatmentRecommendation]:
+                           top_n: int = 10) -> List[RecommendationResult]:
         """
         Generate treatment recommendations for a given condition.
 
@@ -147,7 +182,17 @@ class TreatmentRecommendationEngine:
             reverse=True
         )
 
-        return sorted_recommendations[:top_n]
+        top_recommendations = sorted_recommendations[:top_n]
+
+        # Save recommendations to database if enabled
+        if self.save_to_database and self.repository and DBTreatmentRecommendation:
+            try:
+                self._save_recommendations_to_database(condition, top_recommendations)
+            except Exception as e:
+                if logger:
+                    logger.warning(f"Failed to save recommendations to database: {e}")
+
+        return top_recommendations
 
     def _gather_candidate_interventions(self,
                                       condition: str,
@@ -196,7 +241,7 @@ class TreatmentRecommendationEngine:
                           fundamental_functions,
                           research_gaps,
                           power_combinations,
-                          patient_profile: Optional[Dict] = None) -> Optional[TreatmentRecommendation]:
+                          patient_profile: Optional[Dict] = None) -> Optional[RecommendationResult]:
         """Score an individual intervention using multiple evidence pathways."""
 
         evidence_scores = {}
@@ -271,7 +316,7 @@ class TreatmentRecommendationEngine:
         classification = self._classify_intervention(total_evidence, overall_confidence)
 
         # Create recommendation
-        recommendation = TreatmentRecommendation(
+        recommendation = RecommendationResult(
             intervention=intervention,
             final_score=base_score,  # Will be updated with exploration bonus
             confidence=overall_confidence,
@@ -431,7 +476,7 @@ class TreatmentRecommendationEngine:
 
         return 'experimental'
 
-    def _apply_exploration_bonuses(self, recommendations: List[TreatmentRecommendation]) -> List[TreatmentRecommendation]:
+    def _apply_exploration_bonuses(self, recommendations: List[RecommendationResult]) -> List[RecommendationResult]:
         """Apply exploration bonuses to emerging treatments."""
 
         for recommendation in recommendations:
@@ -455,7 +500,7 @@ class TreatmentRecommendationEngine:
 
         return recommendations
 
-    def get_treatment_explanation(self, recommendation: TreatmentRecommendation) -> str:
+    def get_treatment_explanation(self, recommendation: RecommendationResult) -> str:
         """Generate detailed explanation for a treatment recommendation."""
 
         explanation_parts = []
@@ -489,7 +534,7 @@ class TreatmentRecommendationEngine:
 
         return ' | '.join(explanation_parts)
 
-    def analyze_recommendation_diversity(self, recommendations: List[TreatmentRecommendation]) -> Dict[str, Any]:
+    def analyze_recommendation_diversity(self, recommendations: List[RecommendationResult]) -> Dict[str, Any]:
         """Analyze diversity of recommendations."""
 
         # Classification diversity
@@ -514,7 +559,7 @@ class TreatmentRecommendationEngine:
             'exploration_rate_applied': np.mean([r.exploration_bonus for r in recommendations])
         }
 
-    def validate_recommendations(self, recommendations: List[TreatmentRecommendation]) -> Dict[str, Any]:
+    def validate_recommendations(self, recommendations: List[RecommendationResult]) -> Dict[str, Any]:
         """Validate recommendation quality and consistency."""
 
         issues = []
@@ -541,6 +586,55 @@ class TreatmentRecommendationEngine:
             'total_recommendations': len(recommendations),
             'score_range': (min(scores) if scores else 0, max(scores) if scores else 0)
         }
+
+    def _save_recommendations_to_database(self, condition: str,
+                                        recommendations: List[RecommendationResult]) -> None:
+        """Save treatment recommendations to the database."""
+        try:
+            for rank, rec in enumerate(recommendations, 1):
+                # Map evidence strength based on classification and confidence
+                evidence_strength_mapping = {
+                    'established': 'strong' if rec.confidence > 0.7 else 'moderate',
+                    'emerging_promising': 'moderate' if rec.confidence > 0.6 else 'weak',
+                    'moderate_evidence': 'moderate',
+                    'experimental': 'weak'
+                }
+                evidence_strength = evidence_strength_mapping.get(rec.classification, 'weak')
+
+                # Create database recommendation object
+                db_recommendation = DBTreatmentRecommendation(
+                    condition_name=condition,
+                    recommended_intervention=rec.intervention,
+                    recommendation_rank=rank,
+                    confidence_score=rec.confidence,
+                    evidence_strength=evidence_strength,
+                    supporting_studies_count=rec.evidence_count,
+                    recommendation_rationale=rec.explanation,
+                    generation_model=self.generation_model,
+                    model_version="1.0",
+                    generated_at=datetime.now()
+                )
+
+                # Add optional fields if available
+                if hasattr(rec, 'mechanism_matches') and rec.mechanism_matches:
+                    db_recommendation.contraindications = f"Based on mechanisms: {', '.join(rec.mechanism_matches[:3])}"
+
+                if hasattr(rec, 'similar_conditions') and rec.similar_conditions:
+                    db_recommendation.population_specificity = f"Evidence from similar conditions: {', '.join(rec.similar_conditions[:3])}"
+
+                if hasattr(rec, 'risk_factors') and rec.risk_factors:
+                    db_recommendation.interaction_warnings = f"Consider risk factors: {', '.join(rec.risk_factors[:3])}"
+
+                # Save to database
+                self.repository.save_treatment_recommendation(db_recommendation)
+
+            if logger:
+                logger.info(f"Saved {len(recommendations)} recommendations for {condition}")
+
+        except Exception as e:
+            if logger:
+                logger.error(f"Error saving recommendations to database: {e}")
+            raise
 
 
 def create_demo_data():

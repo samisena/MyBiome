@@ -1615,3 +1615,61 @@
 2025-09-20 21:32:03,780 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
 2025-09-20 21:32:03,780 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
 2025-09-20 21:32:03,780 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:39:53,829 - src.paper_collection.database_manager - WARNING - Error executing schema statement: incomplete input
+2025-09-21 19:39:53,829 - src.paper_collection.database_manager - WARNING - Error executing schema statement: cannot commit - no transaction is active
+2025-09-21 19:39:53,829 - src.paper_collection.database_manager - WARNING - Error executing schema statement: incomplete input
+2025-09-21 19:39:53,829 - src.paper_collection.database_manager - WARNING - Error executing schema statement: cannot commit - no transaction is active
+2025-09-21 19:39:53,829 - src.paper_collection.database_manager - INFO - Data mining tables created successfully
+2025-09-21 19:39:53,829 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:39:53,829 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:39:53,829 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:39:53,829 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:40:00,111 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:40:00,111 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:40:00,111 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:40:00,111 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:40:05,134 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:40:05,134 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:40:05,134 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:40:05,134 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:40:05,158 - src.paper_collection.database_manager - ERROR - Database connection error: cannot commit - no transaction is active
+2025-09-21 19:40:20,769 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:40:20,769 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:40:20,769 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:40:20,769 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:45:40,539 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:45:40,539 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:45:40,539 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:45:40,539 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:45:46,177 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:45:46,177 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:45:46,177 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:45:46,177 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:45:52,180 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:45:52,180 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:45:52,180 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:45:52,180 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:46:28,310 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:46:28,311 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:46:28,311 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:46:28,311 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:47:00,205 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:47:00,205 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:47:00,205 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:47:00,205 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:47:05,487 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:47:05,488 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:47:05,488 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:47:05,488 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:47:33,589 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:47:33,589 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:47:33,589 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:47:33,589 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:48:03,480 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:48:03,480 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:48:03,480 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:48:03,480 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-21 19:48:09,028 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-21 19:48:09,029 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-21 19:48:09,029 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-21 19:48:09,029 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db

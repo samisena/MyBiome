@@ -5,11 +5,31 @@ Creates a comprehensive graph structure that preserves all evidence types
 and metadata, enabling bidirectional queries for conditions and interventions.
 """
 
+import sys
+from pathlib import Path
 from typing import Dict, List, Set, Tuple, Optional, Any, Union
 from dataclasses import dataclass, field
 from collections import defaultdict
 import json
 from datetime import datetime
+
+# Add src to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+try:
+    from src.paper_collection.data_mining_repository import (
+        DataMiningRepository,
+        KnowledgeGraphNode,
+        KnowledgeGraphEdge
+    )
+    from src.data.config import setup_logging
+except ImportError as e:
+    print(f"Warning: Could not import database components: {e}")
+    DataMiningRepository = None
+    KnowledgeGraphNode = None
+    KnowledgeGraphEdge = None
+
+logger = setup_logging(__name__, 'knowledge_graph.log') if 'setup_logging' in globals() else None
 
 
 @dataclass
@@ -92,7 +112,7 @@ class MedicalKnowledgeGraph:
         'unsure': 0.3      # Slight positive signal
     }
 
-    def __init__(self):
+    def __init__(self, save_to_database: bool = True):
         """Initialize empty medical knowledge graph."""
         # Multi-edge storage: source -> target -> list of edges
         self.forward_edges: Dict[str, Dict[str, List[GraphEdge]]] = defaultdict(lambda: defaultdict(list))
@@ -100,6 +120,17 @@ class MedicalKnowledgeGraph:
 
         # Node metadata
         self.nodes: Dict[str, Dict[str, Any]] = {}
+
+        # Database integration
+        self.save_to_database = save_to_database
+        self.repository = None
+        if save_to_database and DataMiningRepository:
+            try:
+                self.repository = DataMiningRepository()
+            except Exception as e:
+                if logger:
+                    logger.warning(f"Could not initialize database repository: {e}")
+                self.save_to_database = False
 
         # Edge type tracking
         self.edge_types: Set[str] = set()
@@ -130,6 +161,14 @@ class MedicalKnowledgeGraph:
             **metadata
         }
         self.stats['total_nodes'] = len(self.nodes)
+
+        # Save to database if enabled
+        if self.save_to_database and self.repository and KnowledgeGraphNode:
+            try:
+                self._save_node_to_database(node_id, node_type, metadata)
+            except Exception as e:
+                if logger:
+                    logger.warning(f"Failed to save node to database: {e}")
 
     def add_evidence(
         self,
@@ -170,6 +209,14 @@ class MedicalKnowledgeGraph:
             self.add_node(source, 'intervention')
         if target not in self.nodes:
             self.add_node(target, 'condition')
+
+        # Save to database if enabled
+        if self.save_to_database and self.repository and KnowledgeGraphEdge:
+            try:
+                self._save_edge_to_database(edge)
+            except Exception as e:
+                if logger:
+                    logger.warning(f"Failed to save edge to database: {e}")
 
     def query_treatments_for_condition(
         self,
@@ -381,3 +428,60 @@ class MedicalKnowledgeGraph:
 
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(export_data, f, indent=2, ensure_ascii=False)
+
+    def _save_node_to_database(self, node_id: str, node_type: str, metadata: Dict[str, Any]) -> None:
+        """Save a knowledge graph node to the database."""
+        try:
+            db_node = KnowledgeGraphNode(
+                node_id=node_id,
+                node_type=node_type,
+                node_name=metadata.get('name', node_id),
+                node_data=metadata,
+                created_at=datetime.now()
+            )
+            self.repository.save_knowledge_graph_node(db_node)
+
+            if logger:
+                logger.debug(f"Saved node to database: {node_id}")
+
+        except Exception as e:
+            if logger:
+                logger.error(f"Error saving node to database: {e}")
+            raise
+
+    def _save_edge_to_database(self, edge: GraphEdge) -> None:
+        """Save a knowledge graph edge to the database."""
+        try:
+            # Generate unique edge ID
+            edge_id = f"{edge.source}_{edge.target}_{edge.evidence.study_id}_{edge.edge_type}"
+
+            db_edge = KnowledgeGraphEdge(
+                edge_id=edge_id,
+                source_node_id=edge.source,
+                target_node_id=edge.target,
+                edge_type=edge.edge_type,
+                edge_weight=edge.evidence.weight,
+                evidence_type=edge.evidence.evidence_type,
+                confidence=edge.evidence.confidence,
+                study_id=edge.evidence.study_id,
+                study_title=edge.evidence.title,
+                sample_size=edge.evidence.sample_size,
+                study_design=edge.evidence.study_design,
+                publication_year=edge.evidence.publication_year,
+                journal=edge.evidence.journal,
+                doi=edge.evidence.doi,
+                effect_size=edge.evidence.effect_size,
+                p_value=edge.evidence.p_value,
+                generation_model="knowledge_graph_v1",
+                generation_version="1.0",
+                created_at=datetime.now()
+            )
+            self.repository.save_knowledge_graph_edge(db_edge)
+
+            if logger:
+                logger.debug(f"Saved edge to database: {edge_id}")
+
+        except Exception as e:
+            if logger:
+                logger.error(f"Error saving edge to database: {e}")
+            raise

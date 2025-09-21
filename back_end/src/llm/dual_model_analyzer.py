@@ -14,7 +14,7 @@ from src.data.api_clients import get_llm_client
 from src.data.repositories import repository_manager
 from src.data.utils import (parse_json_safely, batch_process)
 from src.data.error_handler import handle_llm_errors
-from src.interventions.validators import intervention_validator
+from src.interventions.category_validators import category_validator
 from src.interventions.taxonomy import InterventionType
 from src.llm.prompt_service import prompt_service
 
@@ -65,7 +65,7 @@ class DualModelAnalyzer:
         }
         
         # Get validator and prompt service
-        self.validator = intervention_validator
+        self.validator = category_validator
         self.prompt_service = prompt_service
         
         # Token tracking per model

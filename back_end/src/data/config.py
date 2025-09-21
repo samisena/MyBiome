@@ -54,7 +54,11 @@ class UnifiedConfig:
         self.intervention_categories = [
             "exercise", "diet", "supplement", "medication", "therapy", "lifestyle"
         ]
+        # Processing batch size: Number of papers processed per LLM batch
+        # Small batches (5) provide better error recovery and thermal management
         self.intervention_batch_size = 5
+        # Collection target: Maximum papers collected per health condition
+        # Higher values (100) ensure comprehensive coverage while managing API limits
         self.max_papers_per_condition = 100       
   
         #* Creates the directories
