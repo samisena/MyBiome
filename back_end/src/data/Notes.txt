@@ -27,8 +27,8 @@ LLm:
 -> In config.py why is: self.intervention_batch_size = 5
     and self.max_papers_per_condition = 100 ?
 
-Quality assurance workflow: first model extracts → validation catches issues 
-→ second model verifies problematic extractions → humans review what both 
+Quality assurance workflow: first model extracts → validation catches issues
+→ second model verifies problematic extractions → humans review what both
 models couldn't handle.
 -> This might not be the best practice. Check Notion AI folder for practices like voting.
 
@@ -36,6 +36,26 @@ Hybrid Strategy:
 Process ALL papers with abstracts (baseline data)
 ENHANCE the subset with full text when available. (Use powerful models)
 Two-tier relationship confidence scoring (abstract only vs full text)
+
+IMPORTANT TODO - DELIVERY METHOD TAXONOMY FIX:
+September 22, 2025 - Fixed delivery method validation taxonomy to include:
+- acupuncture/needling methods
+- nasal/intranasal delivery
+- enema/rectal applications
+- subcutaneous/intramuscular injections
+- neuromodulation/electrical stimulation
+- local applications
+
+ACTION REQUIRED BEFORE DATA MINING:
+Re-process papers that had validation failures for delivery methods before
+the taxonomy fix. These papers (processed before paper ~110 in current
+batch) may have had valid interventions rejected due to restrictive
+delivery method validation. Consider re-running LLM extraction on papers
+with intervention_count = 0 where validation failures occurred.
+
+Query to identify affected papers:
+SELECT paper_id FROM papers WHERE processed_date < '2025-09-22 16:30:00'
+AND paper_id NOT IN (SELECT DISTINCT paper_id FROM interventions)
 
 
 

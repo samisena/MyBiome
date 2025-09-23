@@ -1,12 +1,16 @@
 {
-  "session_id": "20250921_203752",
+  "session_id": "20250922_100615",
   "config": {
     "conditions": [
-      "heart disease"
+      "irritable bowel syndrome",
+      "heart disease",
+      "arthritis",
+      "diabetes",
+      "depression"
     ],
-    "target_papers_per_condition": 2,
+    "target_papers_per_condition": 40,
     "min_year": 2015,
-    "max_year": null,
+    "max_year": 2024,
     "use_interleaved_s2": true,
     "include_fulltext": true,
     "traditional_mode": false,
@@ -35,36 +39,108 @@
     "enable_status_reporting": true
   },
   "conditions_progress": {
-    "heart disease": {
-      "condition": "heart disease",
-      "target_papers": 2,
-      "papers_collected": 2,
+    "irritable bowel syndrome": {
+      "condition": "irritable bowel syndrome",
+      "target_papers": 40,
+      "papers_collected": 40,
       "papers_enriched": 0,
-      "last_batch_size": 2,
-      "start_time": "2025-09-21T20:37:52.703135",
-      "completion_time": "2025-09-21T20:38:04.562115",
+      "last_batch_size": 40,
+      "start_time": "2025-09-22T10:06:15.588609",
+      "completion_time": "2025-09-22T10:18:16.425403",
       "status": "completed",
       "consecutive_failures": 0,
       "last_error": null,
       "collection_stats": {
-        "pubmed_papers": 2,
+        "pubmed_papers": 40,
         "s2_papers": 0,
-        "total_searched": 20,
+        "total_searched": 400,
+        "expansion_factor": 1.0
+      }
+    },
+    "heart disease": {
+      "condition": "heart disease",
+      "target_papers": 40,
+      "papers_collected": 40,
+      "papers_enriched": 0,
+      "last_batch_size": 40,
+      "start_time": "2025-09-22T10:08:37.296029",
+      "completion_time": "2025-09-22T10:18:16.427904",
+      "status": "completed",
+      "consecutive_failures": 0,
+      "last_error": null,
+      "collection_stats": {
+        "pubmed_papers": 40,
+        "s2_papers": 0,
+        "total_searched": 400,
+        "expansion_factor": 1.0
+      }
+    },
+    "arthritis": {
+      "condition": "arthritis",
+      "target_papers": 40,
+      "papers_collected": 40,
+      "papers_enriched": 0,
+      "last_batch_size": 40,
+      "start_time": "2025-09-22T10:11:11.509116",
+      "completion_time": "2025-09-22T10:18:16.429923",
+      "status": "completed",
+      "consecutive_failures": 0,
+      "last_error": null,
+      "collection_stats": {
+        "pubmed_papers": 40,
+        "s2_papers": 0,
+        "total_searched": 400,
+        "expansion_factor": 1.0
+      }
+    },
+    "diabetes": {
+      "condition": "diabetes",
+      "target_papers": 40,
+      "papers_collected": 40,
+      "papers_enriched": 0,
+      "last_batch_size": 40,
+      "start_time": "2025-09-22T10:13:35.490443",
+      "completion_time": "2025-09-22T10:18:16.431931",
+      "status": "completed",
+      "consecutive_failures": 0,
+      "last_error": null,
+      "collection_stats": {
+        "pubmed_papers": 40,
+        "s2_papers": 0,
+        "total_searched": 400,
+        "expansion_factor": 1.0
+      }
+    },
+    "depression": {
+      "condition": "depression",
+      "target_papers": 40,
+      "papers_collected": 40,
+      "papers_enriched": 0,
+      "last_batch_size": 40,
+      "start_time": "2025-09-22T10:15:53.205912",
+      "completion_time": "2025-09-22T10:18:16.431931",
+      "status": "completed",
+      "consecutive_failures": 0,
+      "last_error": null,
+      "collection_stats": {
+        "pubmed_papers": 40,
+        "s2_papers": 0,
+        "total_searched": 400,
         "expansion_factor": 1.0
       }
     }
   },
   "global_stats": {
-    "total_papers_collected": 2,
+    "total_papers_collected": 200,
     "total_papers_enriched": 0,
-    "total_conditions": 1,
-    "conditions_completed": 1,
+    "total_conditions": 5,
+    "conditions_completed": 5,
     "network_failures": 0,
-    "api_calls_made": 1
+    "api_calls_made": 5
   },
-  "start_time": "2025-09-21T20:37:52.703135",
-  "last_update": "2025-09-21T20:38:04.564103",
+  "start_time": "2025-09-22T10:06:15.574785",
+  "last_update": "2025-09-22T10:18:16.431931",
   "is_active": false,
-  "total_runtime_hours": 0.0032944355555555556,
+  "total_runtime_hours": 0.2002380961111111,
   "restart_count": 0
 }

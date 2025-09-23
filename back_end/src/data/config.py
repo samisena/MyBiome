@@ -131,7 +131,7 @@ def setup_logging(name: str, log_file: Optional[str] = None,
     # File handler if specified
     if log_file:
         log_path = config.logs_dir / log_file
-        file_handler = logging.FileHandler(log_path)
+        file_handler = logging.FileHandler(log_path, encoding='utf-8')
         file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
     

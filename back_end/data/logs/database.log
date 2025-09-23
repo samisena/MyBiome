@@ -1914,3 +1914,1242 @@
 2025-09-21 20:47:06,474 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
 2025-09-21 20:47:06,474 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
 2025-09-21 20:47:07,627 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.publication_year
+2025-09-22 10:03:50,555 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 10:03:50,556 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 10:03:50,556 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 10:03:50,556 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 10:03:56,072 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 10:03:56,072 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 10:03:56,072 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 10:03:56,072 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 10:04:01,778 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 10:04:01,778 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 10:04:01,778 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 10:04:01,778 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 10:04:01,805 - src.paper_collection.database_manager - ERROR - Database connection error: cannot commit - no transaction is active
+2025-09-22 10:04:08,516 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 10:04:08,516 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 10:04:08,516 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 10:04:08,516 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 10:04:11,286 - src.paper_collection.database_manager - INFO - Inserted new paper: 40965701
+2025-09-22 10:04:14,551 - src.paper_collection.database_manager - INFO - Inserted new paper: 40670172
+2025-09-22 10:04:18,037 - src.paper_collection.database_manager - INFO - Inserted new paper: 40614809
+2025-09-22 10:04:21,275 - src.paper_collection.database_manager - INFO - Inserted new paper: 40444524
+2025-09-22 10:04:24,792 - src.paper_collection.database_manager - INFO - Inserted new paper: 40325655
+2025-09-22 10:04:28,017 - src.paper_collection.database_manager - INFO - Inserted new paper: 40240267
+2025-09-22 10:04:31,248 - src.paper_collection.database_manager - INFO - Inserted new paper: 40035292
+2025-09-22 10:04:34,463 - src.paper_collection.database_manager - INFO - Inserted new paper: 39880320
+2025-09-22 10:04:39,053 - src.paper_collection.database_manager - INFO - Inserted new paper: 39830577
+2025-09-22 10:04:42,425 - src.paper_collection.database_manager - INFO - Inserted new paper: 39701047
+2025-09-22 10:04:45,618 - src.paper_collection.database_manager - INFO - Inserted new paper: 39576289
+2025-09-22 10:04:48,873 - src.paper_collection.database_manager - INFO - Inserted new paper: 39438126
+2025-09-22 10:04:52,398 - src.paper_collection.database_manager - INFO - Inserted new paper: 39308964
+2025-09-22 10:04:55,998 - src.paper_collection.database_manager - INFO - Inserted new paper: 39143474
+2025-09-22 10:04:59,313 - src.paper_collection.database_manager - INFO - Inserted new paper: 39084197
+2025-09-22 10:05:02,880 - src.paper_collection.database_manager - INFO - Inserted new paper: 38892659
+2025-09-22 10:05:06,105 - src.paper_collection.database_manager - INFO - Inserted new paper: 38729390
+2025-09-22 10:05:09,379 - src.paper_collection.database_manager - INFO - Inserted new paper: 38646212
+2025-09-22 10:05:12,542 - src.paper_collection.database_manager - INFO - Inserted new paper: 38479039
+2025-09-22 10:05:16,114 - src.paper_collection.database_manager - INFO - Inserted new paper: 38267863
+2025-09-22 10:05:19,640 - src.paper_collection.database_manager - INFO - Inserted new paper: 38172498
+2025-09-22 10:05:22,872 - src.paper_collection.database_manager - INFO - Inserted new paper: 38092540
+2025-09-22 10:05:26,454 - src.paper_collection.database_manager - INFO - Inserted new paper: 37922308
+2025-09-22 10:05:30,868 - src.paper_collection.database_manager - INFO - Inserted new paper: 37774212
+2025-09-22 10:05:34,950 - src.paper_collection.database_manager - INFO - Inserted new paper: 37668173
+2025-09-22 10:05:38,544 - src.paper_collection.database_manager - INFO - Inserted new paper: 37436844
+2025-09-22 10:05:42,048 - src.paper_collection.database_manager - INFO - Inserted new paper: 37330253
+2025-09-22 10:05:45,542 - src.paper_collection.database_manager - INFO - Inserted new paper: 37249280
+2025-09-22 10:05:48,780 - src.paper_collection.database_manager - INFO - Inserted new paper: 37031468
+2025-09-22 10:05:52,054 - src.paper_collection.database_manager - ERROR - Validation error for paper 36854637: Paper validation failed: Required field 'abstract' is empty; Field 'abstract' must be at least 50 characters (got 0)
+2025-09-22 10:05:55,634 - src.paper_collection.database_manager - ERROR - Validation error for paper 36647164: Paper validation failed: Required field 'abstract' is empty; Field 'abstract' must be at least 50 characters (got 0)
+2025-09-22 10:05:59,281 - src.paper_collection.database_manager - INFO - Inserted new paper: 36556059
+2025-09-22 10:06:02,870 - src.paper_collection.database_manager - INFO - Inserted new paper: 36405622
+2025-09-22 10:06:15,571 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 10:06:15,572 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 10:06:15,572 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 10:06:15,572 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 10:06:17,585 - src.paper_collection.database_manager - INFO - Inserted new paper: 40935632
+2025-09-22 10:06:20,919 - src.paper_collection.database_manager - INFO - Inserted new paper: 40639240
+2025-09-22 10:06:24,173 - src.paper_collection.database_manager - INFO - Inserted new paper: 40581866
+2025-09-22 10:06:27,860 - src.paper_collection.database_manager - INFO - Inserted new paper: 40441496
+2025-09-22 10:06:31,426 - src.paper_collection.database_manager - INFO - Inserted new paper: 40316434
+2025-09-22 10:06:34,640 - src.paper_collection.database_manager - INFO - Inserted new paper: 40190543
+2025-09-22 10:06:37,888 - src.paper_collection.database_manager - INFO - Inserted new paper: 39968993
+2025-09-22 10:06:41,424 - src.paper_collection.database_manager - INFO - Inserted new paper: 39870963
+2025-09-22 10:06:44,689 - src.paper_collection.database_manager - INFO - Inserted new paper: 39822393
+2025-09-22 10:06:48,088 - src.paper_collection.database_manager - INFO - Inserted new paper: 39689011
+2025-09-22 10:06:51,732 - src.paper_collection.database_manager - INFO - Inserted new paper: 39560589
+2025-09-22 10:06:55,288 - src.paper_collection.database_manager - INFO - Inserted new paper: 39413891
+2025-09-22 10:06:58,613 - src.paper_collection.database_manager - INFO - Inserted new paper: 39308538
+2025-09-22 10:07:01,933 - src.paper_collection.database_manager - INFO - Inserted new paper: 39138906
+2025-09-22 10:07:08,176 - src.paper_collection.database_manager - INFO - Inserted new paper: 39065261
+2025-09-22 10:07:11,420 - src.paper_collection.database_manager - INFO - Inserted new paper: 38873474
+2025-09-22 10:07:15,028 - src.paper_collection.database_manager - INFO - Inserted new paper: 38717025
+2025-09-22 10:07:18,594 - src.paper_collection.database_manager - INFO - Inserted new paper: 38643782
+2025-09-22 10:07:21,889 - src.paper_collection.database_manager - INFO - Inserted new paper: 38456188
+2025-09-22 10:07:25,476 - src.paper_collection.database_manager - INFO - Inserted new paper: 38211604
+2025-09-22 10:07:28,769 - src.paper_collection.database_manager - INFO - Inserted new paper: 38149073
+2025-09-22 10:07:32,339 - src.paper_collection.database_manager - INFO - Inserted new paper: 38084725
+2025-09-22 10:07:36,022 - src.paper_collection.database_manager - INFO - Inserted new paper: 37918930
+2025-09-22 10:07:39,295 - src.paper_collection.database_manager - INFO - Inserted new paper: 37772692
+2025-09-22 10:07:42,889 - src.paper_collection.database_manager - INFO - Inserted new paper: 37649852
+2025-09-22 10:07:46,834 - src.paper_collection.database_manager - INFO - Inserted new paper: 37430435
+2025-09-22 10:07:50,039 - src.paper_collection.database_manager - INFO - Inserted new paper: 37328079
+2025-09-22 10:07:53,293 - src.paper_collection.database_manager - INFO - Inserted new paper: 37247177
+2025-09-22 10:07:56,748 - src.paper_collection.database_manager - INFO - Inserted new paper: 36994979
+2025-09-22 10:08:00,307 - src.paper_collection.database_manager - ERROR - Validation error for paper 36854637: Paper validation failed: Required field 'abstract' is empty; Field 'abstract' must be at least 50 characters (got 0)
+2025-09-22 10:08:03,609 - src.paper_collection.database_manager - ERROR - Validation error for paper 36647164: Paper validation failed: Required field 'abstract' is empty; Field 'abstract' must be at least 50 characters (got 0)
+2025-09-22 10:08:07,136 - src.paper_collection.database_manager - INFO - Inserted new paper: 36537785
+2025-09-22 10:08:10,653 - src.paper_collection.database_manager - INFO - Inserted new paper: 36394933
+2025-09-22 10:08:14,018 - src.paper_collection.database_manager - INFO - Inserted new paper: 36341232
+2025-09-22 10:08:17,744 - src.paper_collection.database_manager - INFO - Inserted new paper: 36251040
+2025-09-22 10:08:21,044 - src.paper_collection.database_manager - INFO - Inserted new paper: 36144420
+2025-09-22 10:08:24,635 - src.paper_collection.database_manager - INFO - Inserted new paper: 35975404
+2025-09-22 10:08:28,543 - src.paper_collection.database_manager - INFO - Inserted new paper: 35804433
+2025-09-22 10:08:32,141 - src.paper_collection.database_manager - INFO - Inserted new paper: 35721806
+2025-09-22 10:08:35,705 - src.paper_collection.database_manager - INFO - Inserted new paper: 35633978
+2025-09-22 10:08:37,292 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-22 10:08:39,268 - src.paper_collection.database_manager - INFO - Inserted new paper: 40976676
+2025-09-22 10:08:42,847 - src.paper_collection.database_manager - INFO - Inserted new paper: 40957012
+2025-09-22 10:08:46,567 - src.paper_collection.database_manager - INFO - Inserted new paper: 40919347
+2025-09-22 10:08:49,918 - src.paper_collection.database_manager - INFO - Inserted new paper: 40888584
+2025-09-22 10:08:53,474 - src.paper_collection.database_manager - INFO - Inserted new paper: 40865597
+2025-09-22 10:08:58,351 - src.paper_collection.database_manager - INFO - Inserted new paper: 40797398
+2025-09-22 10:09:01,999 - src.paper_collection.database_manager - INFO - Inserted new paper: 40736085
+2025-09-22 10:09:05,245 - src.paper_collection.database_manager - INFO - Inserted new paper: 40642821
+2025-09-22 10:09:08,568 - src.paper_collection.database_manager - INFO - Inserted new paper: 40600020
+2025-09-22 10:09:12,485 - src.paper_collection.database_manager - INFO - Inserted new paper: 40567237
+2025-09-22 10:09:15,814 - src.paper_collection.database_manager - INFO - Inserted new paper: 40531488
+2025-09-22 10:09:19,597 - src.paper_collection.database_manager - INFO - Inserted new paper: 40480674
+2025-09-22 10:09:22,910 - src.paper_collection.database_manager - INFO - Inserted new paper: 40436492
+2025-09-22 10:09:30,781 - src.paper_collection.database_manager - INFO - Inserted new paper: 40391929
+2025-09-22 10:09:34,937 - src.paper_collection.database_manager - INFO - Inserted new paper: 40368575
+2025-09-22 10:09:38,650 - src.paper_collection.database_manager - INFO - Inserted new paper: 40307001
+2025-09-22 10:09:42,125 - src.paper_collection.database_manager - INFO - Inserted new paper: 40262346
+2025-09-22 10:09:45,411 - src.paper_collection.database_manager - INFO - Inserted new paper: 40202346
+2025-09-22 10:09:48,609 - src.paper_collection.database_manager - INFO - Inserted new paper: 40152886
+2025-09-22 10:09:52,208 - src.paper_collection.database_manager - INFO - Inserted new paper: 40122713
+2025-09-22 10:09:55,514 - src.paper_collection.database_manager - INFO - Inserted new paper: 40087560
+2025-09-22 10:09:59,307 - src.paper_collection.database_manager - INFO - Inserted new paper: 40035059
+2025-09-22 10:10:02,579 - src.paper_collection.database_manager - INFO - Inserted new paper: 39987431
+2025-09-22 10:10:06,243 - src.paper_collection.database_manager - INFO - Inserted new paper: 39959628
+2025-09-22 10:10:09,628 - src.paper_collection.database_manager - INFO - Inserted new paper: 39932306
+2025-09-22 10:10:13,048 - src.paper_collection.database_manager - INFO - Inserted new paper: 39899189
+2025-09-22 10:10:16,746 - src.paper_collection.database_manager - INFO - Inserted new paper: 39839644
+2025-09-22 10:10:20,157 - src.paper_collection.database_manager - INFO - Inserted new paper: 39809303
+2025-09-22 10:10:23,723 - src.paper_collection.database_manager - INFO - Inserted new paper: 39726778
+2025-09-22 10:10:27,354 - src.paper_collection.database_manager - INFO - Inserted new paper: 39701718
+2025-09-22 10:10:31,036 - src.paper_collection.database_manager - INFO - Inserted new paper: 39678880
+2025-09-22 10:10:34,677 - src.paper_collection.database_manager - INFO - Inserted new paper: 39611306
+2025-09-22 10:10:38,912 - src.paper_collection.database_manager - INFO - Inserted new paper: 39565463
+2025-09-22 10:10:42,753 - src.paper_collection.database_manager - INFO - Inserted new paper: 39531353
+2025-09-22 10:10:46,297 - src.paper_collection.database_manager - INFO - Inserted new paper: 39499548
+2025-09-22 10:10:50,329 - src.paper_collection.database_manager - INFO - Inserted new paper: 39454044
+2025-09-22 10:10:54,724 - src.paper_collection.database_manager - INFO - Inserted new paper: 39424598
+2025-09-22 10:10:58,147 - src.paper_collection.database_manager - INFO - Inserted new paper: 39365658
+2025-09-22 10:11:06,760 - src.paper_collection.database_manager - INFO - Inserted new paper: 39337063
+2025-09-22 10:11:10,225 - src.paper_collection.database_manager - INFO - Inserted new paper: 39297855
+2025-09-22 10:11:11,507 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-22 10:11:13,472 - src.paper_collection.database_manager - INFO - Inserted new paper: 40971670
+2025-09-22 10:11:17,063 - src.paper_collection.database_manager - INFO - Inserted new paper: 40953957
+2025-09-22 10:11:20,325 - src.paper_collection.database_manager - INFO - Inserted new paper: 40925721
+2025-09-22 10:11:23,507 - src.paper_collection.database_manager - INFO - Inserted new paper: 40913838
+2025-09-22 10:11:26,909 - src.paper_collection.database_manager - INFO - Inserted new paper: 40898048
+2025-09-22 10:11:30,902 - src.paper_collection.database_manager - INFO - Inserted new paper: 40878862
+2025-09-22 10:11:34,819 - src.paper_collection.database_manager - INFO - Inserted new paper: 40862177
+2025-09-22 10:11:38,070 - src.paper_collection.database_manager - INFO - Inserted new paper: 40846208
+2025-09-22 10:11:42,148 - src.paper_collection.database_manager - INFO - Inserted new paper: 40815363
+2025-09-22 10:11:45,720 - src.paper_collection.database_manager - INFO - Inserted new paper: 40790488
+2025-09-22 10:11:50,400 - src.paper_collection.database_manager - INFO - Inserted new paper: 40759562
+2025-09-22 10:11:53,963 - src.paper_collection.database_manager - INFO - Inserted new paper: 40742006
+2025-09-22 10:11:57,401 - src.paper_collection.database_manager - INFO - Inserted new paper: 40718270
+2025-09-22 10:12:00,955 - src.paper_collection.database_manager - INFO - Inserted new paper: 40699284
+2025-09-22 10:12:04,539 - src.paper_collection.database_manager - INFO - Inserted new paper: 40690163
+2025-09-22 10:12:08,152 - src.paper_collection.database_manager - INFO - Inserted new paper: 40665284
+2025-09-22 10:12:12,080 - src.paper_collection.database_manager - INFO - Inserted new paper: 40647239
+2025-09-22 10:12:15,738 - src.paper_collection.database_manager - INFO - Inserted new paper: 40631545
+2025-09-22 10:12:20,082 - src.paper_collection.database_manager - INFO - Inserted new paper: 40605100
+2025-09-22 10:12:24,646 - src.paper_collection.database_manager - INFO - Inserted new paper: 40585786
+2025-09-22 10:12:27,973 - src.paper_collection.database_manager - INFO - Inserted new paper: 40552853
+2025-09-22 10:12:31,318 - src.paper_collection.database_manager - INFO - Inserted new paper: 40537225
+2025-09-22 10:12:34,956 - src.paper_collection.database_manager - INFO - Inserted new paper: 40514763
+2025-09-22 10:12:38,178 - src.paper_collection.database_manager - INFO - Inserted new paper: 40493525
+2025-09-22 10:12:41,449 - src.paper_collection.database_manager - INFO - Inserted new paper: 40469886
+2025-09-22 10:12:44,760 - src.paper_collection.database_manager - INFO - Inserted new paper: 40455462
+2025-09-22 10:12:47,914 - src.paper_collection.database_manager - INFO - Inserted new paper: 40436210
+2025-09-22 10:12:51,574 - src.paper_collection.database_manager - INFO - Inserted new paper: 40419885
+2025-09-22 10:12:55,049 - src.paper_collection.database_manager - INFO - Inserted new paper: 40398540
+2025-09-22 10:12:58,608 - src.paper_collection.database_manager - INFO - Inserted new paper: 40380042
+2025-09-22 10:13:02,233 - src.paper_collection.database_manager - INFO - Inserted new paper: 40356209
+2025-09-22 10:13:05,827 - src.paper_collection.database_manager - INFO - Inserted new paper: 40342737
+2025-09-22 10:13:09,287 - src.paper_collection.database_manager - INFO - Inserted new paper: 40315212
+2025-09-22 10:13:12,909 - src.paper_collection.database_manager - INFO - Inserted new paper: 40295308
+2025-09-22 10:13:16,198 - src.paper_collection.database_manager - INFO - Inserted new paper: 40280230
+2025-09-22 10:13:19,471 - src.paper_collection.database_manager - INFO - Inserted new paper: 40264639
+2025-09-22 10:13:23,071 - src.paper_collection.database_manager - INFO - Inserted new paper: 40250139
+2025-09-22 10:13:26,777 - src.paper_collection.database_manager - INFO - Inserted new paper: 40232317
+2025-09-22 10:13:30,179 - src.paper_collection.database_manager - INFO - Inserted new paper: 40200237
+2025-09-22 10:13:33,815 - src.paper_collection.database_manager - INFO - Inserted new paper: 40186935
+2025-09-22 10:13:35,488 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-22 10:13:37,550 - src.paper_collection.database_manager - INFO - Inserted new paper: 40976254
+2025-09-22 10:13:40,781 - src.paper_collection.database_manager - INFO - Inserted new paper: 40968755
+2025-09-22 10:13:43,965 - src.paper_collection.database_manager - INFO - Inserted new paper: 40962631
+2025-09-22 10:13:47,554 - src.paper_collection.database_manager - INFO - Inserted new paper: 40958692
+2025-09-22 10:13:50,927 - src.paper_collection.database_manager - INFO - Inserted new paper: 40951542
+2025-09-22 10:13:54,116 - src.paper_collection.database_manager - INFO - Inserted new paper: 40946346
+2025-09-22 10:13:57,425 - src.paper_collection.database_manager - INFO - Inserted new paper: 40939781
+2025-09-22 10:14:00,828 - src.paper_collection.database_manager - INFO - Inserted new paper: 40935153
+2025-09-22 10:14:04,119 - src.paper_collection.database_manager - INFO - Inserted new paper: 40930617
+2025-09-22 10:14:07,288 - src.paper_collection.database_manager - INFO - Inserted new paper: 40921316
+2025-09-22 10:14:11,556 - src.paper_collection.database_manager - INFO - Inserted new paper: 40916045
+2025-09-22 10:14:15,013 - src.paper_collection.database_manager - INFO - Inserted new paper: 40909368
+2025-09-22 10:14:18,659 - src.paper_collection.database_manager - INFO - Inserted new paper: 40901288
+2025-09-22 10:14:22,178 - src.paper_collection.database_manager - INFO - Inserted new paper: 40897521
+2025-09-22 10:14:25,442 - src.paper_collection.database_manager - INFO - Inserted new paper: 40892411
+2025-09-22 10:14:28,772 - src.paper_collection.database_manager - INFO - Inserted new paper: 40886179
+2025-09-22 10:14:32,415 - src.paper_collection.database_manager - INFO - Inserted new paper: 40869873
+2025-09-22 10:14:35,653 - src.paper_collection.database_manager - INFO - Inserted new paper: 40876528
+2025-09-22 10:14:39,250 - src.paper_collection.database_manager - INFO - Inserted new paper: 40854839
+2025-09-22 10:14:42,755 - src.paper_collection.database_manager - INFO - Inserted new paper: 40852006
+2025-09-22 10:14:46,229 - src.paper_collection.database_manager - INFO - Inserted new paper: 40852343
+2025-09-22 10:14:49,427 - src.paper_collection.database_manager - INFO - Inserted new paper: 40840822
+2025-09-22 10:14:53,014 - src.paper_collection.database_manager - INFO - Inserted new paper: 40834249
+2025-09-22 10:14:57,164 - src.paper_collection.database_manager - INFO - Inserted new paper: 40828321
+2025-09-22 10:15:00,423 - src.paper_collection.database_manager - INFO - Inserted new paper: 40824470
+2025-09-22 10:15:03,856 - src.paper_collection.database_manager - INFO - Inserted new paper: 40820495
+2025-09-22 10:15:07,143 - src.paper_collection.database_manager - INFO - Inserted new paper: 40812266
+2025-09-22 10:15:10,480 - src.paper_collection.database_manager - INFO - Inserted new paper: 40806442
+2025-09-22 10:15:13,754 - src.paper_collection.database_manager - INFO - Inserted new paper: 40803668
+2025-09-22 10:15:17,383 - src.paper_collection.database_manager - INFO - Inserted new paper: 40796840
+2025-09-22 10:15:20,697 - src.paper_collection.database_manager - INFO - Inserted new paper: 40786860
+2025-09-22 10:15:24,162 - src.paper_collection.database_manager - INFO - Inserted new paper: 40782191
+2025-09-22 10:15:27,676 - src.paper_collection.database_manager - INFO - Inserted new paper: 40772068
+2025-09-22 10:15:30,921 - src.paper_collection.database_manager - INFO - Inserted new paper: 40763842
+2025-09-22 10:15:34,593 - src.paper_collection.database_manager - INFO - Inserted new paper: 40756511
+2025-09-22 10:15:37,955 - src.paper_collection.database_manager - INFO - Inserted new paper: 40751398
+2025-09-22 10:15:41,458 - src.paper_collection.database_manager - INFO - Inserted new paper: 40745313
+2025-09-22 10:15:44,673 - src.paper_collection.database_manager - INFO - Inserted new paper: 40737655
+2025-09-22 10:15:48,215 - src.paper_collection.database_manager - INFO - Inserted new paper: 40731782
+2025-09-22 10:15:51,922 - src.paper_collection.database_manager - INFO - Inserted new paper: 40725690
+2025-09-22 10:15:53,203 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-22 10:15:55,154 - src.paper_collection.database_manager - INFO - Inserted new paper: 40976665
+2025-09-22 10:15:58,382 - src.paper_collection.database_manager - INFO - Inserted new paper: 40968365
+2025-09-22 10:16:01,714 - src.paper_collection.database_manager - INFO - Inserted new paper: 40963258
+2025-09-22 10:16:04,963 - src.paper_collection.database_manager - INFO - Inserted new paper: 40959182
+2025-09-22 10:16:08,637 - src.paper_collection.database_manager - INFO - Inserted new paper: 40953132
+2025-09-22 10:16:11,816 - src.paper_collection.database_manager - INFO - Inserted new paper: 40945770
+2025-09-22 10:16:15,398 - src.paper_collection.database_manager - INFO - Inserted new paper: 40939031
+2025-09-22 10:16:18,723 - src.paper_collection.database_manager - INFO - Inserted new paper: 40933935
+2025-09-22 10:16:22,247 - src.paper_collection.database_manager - INFO - Inserted new paper: 40930915
+2025-09-22 10:16:25,822 - src.paper_collection.database_manager - INFO - Inserted new paper: 40926883
+2025-09-22 10:16:29,301 - src.paper_collection.database_manager - INFO - Inserted new paper: 40922285
+2025-09-22 10:16:32,881 - src.paper_collection.database_manager - INFO - Inserted new paper: 40913094
+2025-09-22 10:16:36,427 - src.paper_collection.database_manager - INFO - Inserted new paper: 40907712
+2025-09-22 10:16:39,704 - src.paper_collection.database_manager - INFO - Inserted new paper: 40904092
+2025-09-22 10:16:43,308 - src.paper_collection.database_manager - INFO - Inserted new paper: 40900112
+2025-09-22 10:16:46,618 - src.paper_collection.database_manager - INFO - Inserted new paper: 40898308
+2025-09-22 10:16:50,206 - src.paper_collection.database_manager - INFO - Inserted new paper: 40894014
+2025-09-22 10:16:53,489 - src.paper_collection.database_manager - INFO - Inserted new paper: 40890852
+2025-09-22 10:16:57,057 - src.paper_collection.database_manager - INFO - Inserted new paper: 40887510
+2025-09-22 10:17:01,015 - src.paper_collection.database_manager - INFO - Inserted new paper: 40884738
+2025-09-22 10:17:04,397 - src.paper_collection.database_manager - INFO - Inserted new paper: 40866835
+2025-09-22 10:17:08,274 - src.paper_collection.database_manager - INFO - Inserted new paper: 40876652
+2025-09-22 10:17:11,562 - src.paper_collection.database_manager - INFO - Inserted new paper: 40875502
+2025-09-22 10:17:14,952 - src.paper_collection.database_manager - INFO - Inserted new paper: 40859513
+2025-09-22 10:17:18,291 - src.paper_collection.database_manager - INFO - Inserted new paper: 40862111
+2025-09-22 10:17:21,676 - src.paper_collection.database_manager - INFO - Inserted new paper: 40858059
+2025-09-22 10:17:24,888 - src.paper_collection.database_manager - INFO - Inserted new paper: 40844124
+2025-09-22 10:17:28,484 - src.paper_collection.database_manager - INFO - Inserted new paper: 40848897
+2025-09-22 10:17:31,760 - src.paper_collection.database_manager - INFO - Inserted new paper: 40844815
+2025-09-22 10:17:35,324 - src.paper_collection.database_manager - INFO - Inserted new paper: 40837797
+2025-09-22 10:17:39,038 - src.paper_collection.database_manager - INFO - Inserted new paper: 40834426
+2025-09-22 10:17:42,255 - src.paper_collection.database_manager - INFO - Inserted new paper: 40826895
+2025-09-22 10:17:45,792 - src.paper_collection.database_manager - INFO - Inserted new paper: 40823226
+2025-09-22 10:17:49,403 - src.paper_collection.database_manager - INFO - Inserted new paper: 40819070
+2025-09-22 10:17:53,004 - src.paper_collection.database_manager - INFO - Inserted new paper: 40815829
+2025-09-22 10:17:56,655 - src.paper_collection.database_manager - INFO - Inserted new paper: 40811685
+2025-09-22 10:18:00,274 - src.paper_collection.database_manager - INFO - Inserted new paper: 40804563
+2025-09-22 10:18:03,601 - src.paper_collection.database_manager - INFO - Inserted new paper: 40796531
+2025-09-22 10:18:06,956 - src.paper_collection.database_manager - INFO - Inserted new paper: 40791639
+2025-09-22 10:18:10,157 - src.paper_collection.database_manager - INFO - Inserted new paper: 40783853
+2025-09-22 10:18:11,411 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.id
+2025-09-22 10:21:29,494 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 10:21:29,495 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 10:21:29,495 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 10:21:29,495 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 10:21:37,453 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 10:21:37,453 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 10:21:37,453 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 10:21:37,454 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 10:22:21,870 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 10:22:21,870 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 10:22:21,871 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 10:22:21,871 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 10:24:28,419 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 10:24:28,420 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 10:24:28,420 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 10:24:28,420 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 10:26:10,453 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - weight management plus exercise training - obesity
+2025-09-22 10:26:10,453 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - educational sessions on healthy diets - obesity
+2025-09-22 10:27:44,072 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - methotrexate - rheumatoid arthritis
+2025-09-22 10:27:44,072 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sulfasalazine - rheumatoid arthritis
+2025-09-22 10:30:11,038 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - arthroscopic lavage - adult native knee septic arthritis
+2025-09-22 10:30:11,038 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - open arthrotomy - adult native knee septic arthritis
+2025-09-22 10:30:11,040 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - repeated joint aspiration - adult native knee septic arthritis
+2025-09-22 10:33:51,200 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - psychoeducation - postpartum depression
+2025-09-22 10:33:51,201 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - brexanolone - postpartum depression
+2025-09-22 10:33:51,202 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - zuranolone - postpartum depression
+2025-09-22 10:33:51,204 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - psychoeducation - postpartum depression
+2025-09-22 10:33:51,204 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - AI-assisted screening tools - postpartum depression
+2025-09-22 10:33:51,205 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - family-inclusive strategies - postpartum depression
+2025-09-22 10:35:26,452 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupuncture - irritable bowel syndrome (IBS-D)
+2025-09-22 10:38:00,984 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - Healthy Eating Index (HEI) - rheumatoid arthritis
+2025-09-22 10:38:00,984 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - healthy dietary pattern - rheumatoid arthritis
+2025-09-22 10:38:00,984 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - anti-inflammatory diet - rheumatoid arthritis
+2025-09-22 10:38:00,984 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - Mediterranean diet - rheumatoid arthritis
+2025-09-22 10:38:00,994 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - HEI (Healthy Eating Index) diet - rheumatoid arthritis
+2025-09-22 10:40:35,305 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - other therapies - knee osteoarthritis (KOA)
+2025-09-22 10:40:35,316 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Fu's subcutaneous needling (FSN) - knee osteoarthritis
+2025-09-22 10:40:35,316 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - electroacupuncture - knee osteoarthritis
+2025-09-22 10:40:35,316 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupuncture - knee osteoarthritis
+2025-09-22 10:41:41,924 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - guselkumab - psoriatic arthritis (PsA)
+2025-09-22 10:44:19,389 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - counselling services - ischaemic heart disease
+2025-09-22 10:44:19,389 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - PHR app - ischaemic heart disease
+2025-09-22 10:45:42,052 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - curcumin capsules - fatigue
+2025-09-22 10:45:42,052 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - placebo capsules - fatigue
+2025-09-22 10:45:42,052 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - curcumin - fatigue and musculoskeletal health in postmenopausal women
+2025-09-22 10:47:56,258 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - finerenone - chronic kidney disease
+2025-09-22 10:47:56,258 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - empagliflozin - chronic kidney disease
+2025-09-22 10:47:56,258 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - GLP-1 receptor agonist (GLP-1 RA) - type 2 diabetes and chronic kidney disease
+2025-09-22 10:49:01,998 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - Faecal microbiota transplantation (FMT) - type 1 diabetes and severe diabetic gastroenteropathy
+2025-09-22 10:51:07,060 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - high-intensity interval training (HIIT) - rheumatoid arthritis
+2025-09-22 10:51:07,060 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - strength exercise - rheumatoid arthritis
+2025-09-22 10:52:44,114 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - iCanQuit smoking cessation app - cigarette smoking
+2025-09-22 10:52:44,114 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - QuitGuide smoking cessation app - cigarette smoking
+2025-09-22 10:52:44,114 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - US Clinical Practice Guidelines-based smoking cessation app - cigarette smoking
+2025-09-22 10:54:38,203 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Cerament G (gentamicin) - diabetic foot osteomyelitis
+2025-09-22 10:54:38,205 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Cerament V (vancomycin) - diabetic foot osteomyelitis
+2025-09-22 10:55:48,867 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - statins - cardiovascular disease (CVD)
+2025-09-22 10:55:48,867 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - statins - type 1 diabetes mellitus (T1DM)
+2025-09-22 10:59:06,588 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - quetiapine extended release - treatment-resistant depression
+2025-09-22 10:59:06,588 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - oral antidepressant (OAD) - treatment-resistant depression
+2025-09-22 10:59:06,588 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - esketamine nasal spray - treatment-resistant depression (TRD)
+2025-09-22 10:59:06,588 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - quetiapine extended release - treatment-resistant depression (TRD)
+2025-09-22 11:00:26,477 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - guselkumab - psoriatic arthritis
+2025-09-22 11:00:26,477 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - tumour necrosis factor inhibitors (TNFi) - psoriatic arthritis
+2025-09-22 11:00:26,477 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - guselkumab - psoriatic arthritis (PsA)
+2025-09-22 11:01:29,217 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - Physical Exercise Program - ADHD, stress, anxiety, depression
+2025-09-22 11:01:29,219 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - physical exercise - ADHD
+2025-09-22 11:03:18,113 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - chiglitazar - type 2 diabetes mellitus (T2DM)
+2025-09-22 11:03:18,115 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sitagliptin - type 2 diabetes mellitus (T2DM)
+2025-09-22 11:04:37,925 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - SGLT2 inhibitors - cardiovascular diseases
+2025-09-22 11:04:37,927 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - SGLT2 inhibitors - heart failure
+2025-09-22 11:04:37,927 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - SGLT2 inhibitors - renal outcomes
+2025-09-22 11:04:37,931 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - SGLT2 inhibitors - type 2 diabetes mellitus (T2DM)
+2025-09-22 11:06:39,334 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - total knee arthroplasty (TKA) - end-stage knee osteoarthritis
+2025-09-22 11:06:39,334 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - delayed anticoagulation group - postoperative bleeding after total knee arthroplasty (TKA)
+2025-09-22 11:09:33,204 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - carbohydrate-restricted diets (CRDs) - cardiovascular health
+2025-09-22 11:12:27,209 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - tirzepatide - obesity
+2025-09-22 11:14:00,358 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - vitamin D - type 2 diabetes
+2025-09-22 11:14:00,358 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - metformin - type 2 diabetes
+2025-09-22 11:14:45,677 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - shared decision-making model - critically ill pregnant patients
+2025-09-22 11:16:57,961 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sertraline - depression
+2025-09-22 11:16:57,961 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - bupropion - depression
+2025-09-22 11:16:57,961 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - placebo - depression
+2025-09-22 11:18:42,041 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - intravenous ketamine - treatment-resistant depression (TRD)
+2025-09-22 11:19:47,966 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - butyrate enema - hypertension
+2025-09-22 11:24:06,086 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - colchicine - acute calcium pyrophosphate (CPP) crystal arthritis
+2025-09-22 11:24:06,089 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - prednisone - acute calcium pyrophosphate (CPP) crystal arthritis
+2025-09-22 11:24:06,089 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - colchicine - acute calcium pyrophosphate arthritis
+2025-09-22 11:24:06,089 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - prednisone - acute calcium pyrophosphate arthritis
+2025-09-22 11:26:28,476 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Affect Regulation Training - major depressive disorder (MDD)
+2025-09-22 11:27:46,615 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - health and well-being coaching - psychosocial needs
+2025-09-22 11:27:46,615 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - social prescribing - psychosocial needs
+2025-09-22 11:28:46,743 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - surgical left atrial appendage occlusion (SLAAO) - valvular heart disease without atrial fibrillation
+2025-09-22 11:30:10,215 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - low-dose glucagon - exercise-induced hypoglycemia in type 1 diabetes
+2025-09-22 11:30:10,215 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - low-dose glucagon - type 1 diabetes (T1D)
+2025-09-22 11:32:32,325 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - structured progressive exercise - patellofemoral pain syndrome
+2025-09-22 11:32:32,325 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - digital therapeutics MORA Cure PFP - patellofemoral pain syndrome
+2025-09-22 11:35:10,403 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - cognitive behavioral techniques - fear of cancer recurrence
+2025-09-22 11:37:16,728 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - protein-hydrolyzed lactose-free A1A2 milk - milk sensitivity
+2025-09-22 11:37:16,729 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - protein-hydrolyzed lactose-free A2 milk - milk sensitivity
+2025-09-22 11:38:23,648 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - melatonin - functional dyspepsia
+2025-09-22 11:39:39,582 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - JCM-16021 - abdominal pain in diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 11:39:39,584 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Fecal microbiota transplantation (FMT) - abdominal pain
+2025-09-22 11:39:39,585 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - herbal medicine JCM-16021 - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 11:41:36,199 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - moxibustion - rheumatoid arthritis
+2025-09-22 11:43:55,184 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - tai chi - knee osteoarthritis
+2025-09-22 11:43:55,184 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - yoga - knee osteoarthritis
+2025-09-22 11:43:55,184 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - qigong - knee osteoarthritis
+2025-09-22 11:43:55,184 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - mind-body exercise - knee osteoarthritis
+2025-09-22 11:45:30,275 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - Time-restricted eating (TRE) - type 2 diabetes
+2025-09-22 11:46:38,671 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - bilberry supplementation - cardio-metabolic health
+2025-09-22 11:46:38,671 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Vaccinium myrtillus supplementation - cardiometabolic health, cardiovascular disease, type 2 diabetes
+2025-09-22 11:50:10,146 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - transcranial photobiomodulation (tPBM) - mild cognitive impairment due to Alzheimer's disease
+2025-09-22 11:51:08,253 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antidepressants - bipolar depression
+2025-09-22 11:51:08,260 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antidepressants - bipolar disorder
+2025-09-22 11:54:13,526 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - ticagrelor - high-risk patients undergoing complex percutaneous coronary intervention
+2025-09-22 11:54:13,528 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - aspirin - high-risk patients undergoing complex percutaneous coronary intervention
+2025-09-22 11:54:13,528 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - clopidogrel - high-risk patients undergoing complex percutaneous coronary intervention
+2025-09-22 11:54:13,530 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - ticagrelor - high-risk patients undergoing complex PCI
+2025-09-22 11:54:13,530 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - aspirin - high-risk patients undergoing complex PCI
+2025-09-22 11:54:13,530 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - clopidogrel - high-risk patients undergoing complex PCI
+2025-09-22 11:55:19,635 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - repetitive transcranial magnetic stimulation (rTMS) - fibromyalgia syndrome (FMS)
+2025-09-22 11:58:20,262 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - structured education and exercise training - COPD
+2025-09-22 11:59:50,473 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - Trans-Radial Access (TRA) - Chronic Coronary Disease
+2025-09-22 11:59:50,474 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - Trans-Femoral Access - Chronic Coronary Disease
+2025-09-22 12:00:53,429 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Eye Movement Desensitization and Reprocessing (EMDR) - Posttraumatic Stress Disorder (PTSD)
+2025-09-22 12:00:53,432 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Eye Movement Desensitization and Reprocessing (EMDR) - Post-traumatic Stress Disorder (PTSD)
+2025-09-22 12:06:53,372 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium longum - irritable bowel syndrome (IBS)
+2025-09-22 12:06:53,373 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Saccharomyces - irritable bowel syndrome (IBS)
+2025-09-22 12:06:53,375 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Clostridium butyricum - irritable bowel syndrome (IBS)
+2025-09-22 12:06:53,376 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium lactis - irritable bowel syndrome (IBS)
+2025-09-22 12:06:53,378 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus acidophilus - irritable bowel syndrome (IBS)
+2025-09-22 12:06:53,379 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus casei strain Shirota - irritable bowel syndrome (IBS)
+2025-09-22 12:06:53,380 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus plantarum - irritable bowel syndrome (IBS)
+2025-09-22 12:06:53,385 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Probiotic combinations - irritable bowel syndrome (IBS)
+2025-09-22 12:06:53,387 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Placebo - irritable bowel syndrome (IBS)
+2025-09-22 12:08:24,089 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - flecainide - arrhythmia
+2025-09-22 12:08:24,093 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - flecainide - stable coronary artery disease without active ischemia and preserved ventricular function
+2025-09-22 12:08:24,094 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - flecainide - arrhythmogenic right ventricular CM
+2025-09-22 12:08:24,095 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - flecainide - premature ventricular complex-induced CM
+2025-09-22 12:08:24,097 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - flecainide - structural heart disease
+2025-09-22 12:10:42,643 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - Teaching Kitchen program - type 2 diabetes
+2025-09-22 12:10:42,644 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - nutritional education - type 2 diabetes
+2025-09-22 12:10:42,645 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - evidence-based lectures on nutrition - type 2 diabetes
+2025-09-22 12:10:42,646 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - physical activity - type 2 diabetes
+2025-09-22 12:10:42,647 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - sleep - type 2 diabetes
+2025-09-22 12:10:42,649 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - mindfulness - type 2 diabetes
+2025-09-22 12:12:31,169 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - lumateperone 42 mg - major depressive disorder (MDD)
+2025-09-22 12:14:28,223 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - exercise - psychological distress
+2025-09-22 12:14:28,224 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - Exercise therapies - chronic obstructive pulmonary disease with psychological distress
+2025-09-22 12:16:13,118 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - methadone - opioid use disorder
+2025-09-22 12:16:13,119 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - ketamine - opioid use disorder
+2025-09-22 12:16:13,121 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - methadone - opioid use disorder (OUD)
+2025-09-22 12:18:13,520 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - cognitive training (CT) - cognitive deficits, anxiety, depression
+2025-09-22 12:18:13,521 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - cognitive training (CT) - post-acute sequelae of SARS-CoV-2 infection (PASC) with cognitive complaints
+2025-09-22 12:19:36,090 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - dapagliflozin - kidney function decline in heart transplant recipients
+2025-09-22 12:19:36,090 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - placebo - kidney function decline in heart transplant recipients
+2025-09-22 12:21:10,974 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - Partial substitution of red and processed meat with non-soy legumes - cardiovascular diseases
+2025-09-22 12:23:38,887 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - quetiapine - anxiety disorder
+2025-09-22 12:23:38,889 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sertraline - anxiety disorder
+2025-09-22 12:23:38,889 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - quetiapine - bipolar disorder
+2025-09-22 12:23:38,891 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sertraline - bipolar disorder
+2025-09-22 12:23:38,891 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - zolpidem - bipolar disorder
+2025-09-22 12:26:46,999 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - multi-joint resistance exercises - type 2 diabetes
+2025-09-22 12:26:46,999 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - single-joint resistance exercises - type 2 diabetes
+2025-09-22 12:26:46,999 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - resistance training - type 2 diabetes (T2DM)
+2025-09-22 12:28:38,858 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - potassium chloride (KCL) - diabetic ketoacidosis
+2025-09-22 12:28:38,904 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - subcutaneous (SC) insulin - diabetic ketoacidosis
+2025-09-22 12:28:38,904 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - potassium chloride (KCL) - diabetic ketoacidosis (DKA)
+2025-09-22 12:32:20,881 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - strengthening of accessory breathing muscles and diaphragm - Post-acute Sequelae of SARS-CoV-2 infection (PASC)
+2025-09-22 12:32:20,886 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - resistance conditioning - Post-acute Sequelae of SARS-CoV-2 infection (PASC)
+2025-09-22 12:32:20,886 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - aerobic conditioning - Post-acute Sequelae of SARS-CoV-2 infection (PASC)
+2025-09-22 12:32:20,886 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - neuropsychological and cognitive remediation - Post-acute Sequelae of SARS-CoV-2 infection (PASC)
+2025-09-22 12:32:20,886 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - strengthening of accessory breathing muscles and diaphragm - PASC
+2025-09-22 12:32:20,892 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - resistance conditioning - PASC
+2025-09-22 12:32:20,893 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - aerobic conditioning - PASC
+2025-09-22 12:32:20,895 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - neuropsychological and cognitive remediation - PASC
+2025-09-22 12:33:18,671 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antidiabetic drugs - type 2 diabetes (T2D)
+2025-09-22 12:35:53,140 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - non-communicable diseases (NCDs)
+2025-09-22 12:37:20,390 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - Breastfeeding Aiding Tool app - exclusive breastfeeding (EBF)
+2025-09-22 12:37:20,390 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - WeChat group consultation - exclusive breastfeeding (EBF)
+2025-09-22 12:41:44,961 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - cilostazol (CTZ) - carotid atherosclerosis
+2025-09-22 12:41:44,965 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - extract of Ginkgo biloba (EGb) - carotid atherosclerosis
+2025-09-22 12:41:44,965 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - aspirin (ASA) - carotid atherosclerosis
+2025-09-22 12:41:44,965 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - cilostazol - carotid atherosclerosis in patients with type 2 diabetes mellitus
+2025-09-22 12:41:44,965 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - extract of Ginkgo biloba - carotid atherosclerosis in patients with type 2 diabetes mellitus
+2025-09-22 12:41:44,965 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - aspirin - carotid atherosclerosis in patients with type 2 diabetes mellitus
+2025-09-22 12:42:56,570 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - behavioral activation (BA) - depression
+2025-09-22 12:42:56,570 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - positive health behaviors (PHBs) - cardiometabolic risk
+2025-09-22 12:42:56,570 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - behavioral activation (BA) - depression, cardiometabolic risk factors
+2025-09-22 12:44:35,111 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - warm saltwater hand-foot baths - rheumatoid arthritis
+2025-09-22 12:44:35,111 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - warm water hand-foot baths - rheumatoid arthritis
+2025-09-22 12:44:35,111 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - warm saltwater baths - rheumatoid arthritis
+2025-09-22 12:44:35,111 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - warm water baths - rheumatoid arthritis
+2025-09-22 12:46:34,823 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - DWP16001 - diabetes mellitus
+2025-09-22 12:50:38,953 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - prediabetes
+2025-09-22 12:50:38,955 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - synbiotics - type 2 diabetes mellitus
+2025-09-22 12:52:03,673 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - quality nursing service - coronary artery disease
+2025-09-22 12:52:03,673 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - routine nursing service - coronary artery disease
+2025-09-22 12:52:03,673 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - quality nursing service - coronary artery disease
+2025-09-22 12:55:08,815 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sarilumab - rheumatoid arthritis
+2025-09-22 12:55:08,815 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - adalimumab - rheumatoid arthritis
+2025-09-22 12:55:08,817 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - methotrexate - rheumatoid arthritis
+2025-09-22 12:56:36,648 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - finerenone - heart failure (HFmrEF or HFpEF)
+2025-09-22 12:56:36,648 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - finerenone - heart failure (HF) and mildly reduced ejection fraction (HFmrEF) or with HF and preserved ejection fraction (HFpEF)
+2025-09-22 12:57:57,146 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Kiwifruit extract - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-22 12:57:57,150 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Placebo - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-22 12:59:57,415 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - inflammatory bowel disease (IBD)
+2025-09-22 12:59:57,415 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - irritable bowel syndrome (IBS)
+2025-09-22 12:59:57,415 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - inflammatory bowel disease
+2025-09-22 12:59:57,415 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - irritable bowel syndrome
+2025-09-22 13:01:11,538 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - intensive blood pressure control - cardiovascular disease (CVD)
+2025-09-22 13:03:33,113 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - home-based physical exercise - stable CVD
+2025-09-22 13:03:33,113 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - cognitive training - stable CVD
+2025-09-22 13:04:04,763 - src.paper_collection.database_manager - INFO - Inserted intervention: test - shear wave elastography (SWE) - progressive pulmonary fibrosis (PPF)
+2025-09-22 13:06:36,943 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - stress management - metabolic syndrome-associated hip or knee osteoarthritis (MSOA)
+2025-09-22 13:06:36,943 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - whole-food plant-based diet - rheumatoid arthritis, osteoarthritis
+2025-09-22 13:06:36,943 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - physical activity - rheumatoid arthritis, osteoarthritis
+2025-09-22 13:06:36,943 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - sleep and stress management - rheumatoid arthritis, osteoarthritis
+2025-09-22 13:08:08,958 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Metformin - Gestational Diabetes Mellitus (GDM)
+2025-09-22 13:08:08,958 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Insulin - Gestational Diabetes Mellitus (GDM)
+2025-09-22 13:10:38,847 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - empagliflozin - type 2 diabetes mellitus
+2025-09-22 13:10:38,847 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sitagliptin - type 2 diabetes mellitus
+2025-09-22 13:10:38,847 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - metformin - type 2 diabetes mellitus
+2025-09-22 13:11:37,204 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - Time-Restricted Eating (TRE) - Type 2 diabetes
+2025-09-22 13:12:44,039 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Silicolgel - Irritable Bowel Syndrome (IBS)
+2025-09-22 13:12:44,039 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Silicolgel - Irritable Bowel Syndrome (IBS-D and IBS-M)
+2025-09-22 13:16:59,794 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - moxibustion - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 13:18:25,760 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - benzylpenicillin (penicillin G) - syphilis
+2025-09-22 13:18:25,760 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - benzylpenicillin (penicillin G) - rheumatic heart disease
+2025-09-22 13:22:00,582 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - polyunsaturated fatty acid-rich fish consumption - gout
+2025-09-22 13:22:00,582 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - regular physical activity - gout
+2025-09-22 13:22:00,586 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - increased vegetable intake - gout
+2025-09-22 13:22:00,588 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - high purine intake (especially animal sources) - gout
+2025-09-22 13:22:00,588 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - excessive alcohol consumption - gout
+2025-09-22 13:22:00,588 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - obesity - gout
+2025-09-22 13:22:00,588 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - dietary changes - gout
+2025-09-22 13:22:00,588 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - polyunsaturated fatty acid-rich fish - gout
+2025-09-22 13:22:00,588 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - regular physical activity - gout
+2025-09-22 13:22:00,588 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - high purine diet (animal sources) - gout
+2025-09-22 13:23:25,661 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - methotrexate - inflammatory knee osteoarthritis
+2025-09-22 13:23:25,664 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - placebo - inflammatory knee osteoarthritis
+2025-09-22 13:23:25,664 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - methotrexate - inflammatory knee osteoarthritis with effusion-synovitis
+2025-09-22 13:27:05,978 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - methotrexate (MTX) - rheumatoid arthritis
+2025-09-22 13:27:05,978 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - CTLA-4Ig - rheumatoid arthritis
+2025-09-22 13:27:05,978 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - anti-tumor necrosis factor - rheumatoid arthritis
+2025-09-22 13:27:05,989 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - anti-interleukin-6 receptor - rheumatoid arthritis
+2025-09-22 13:27:05,989 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - prednisolone - rheumatoid arthritis
+2025-09-22 13:27:05,989 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - CTLA-4Ig with methotrexate (MTX) - early rheumatoid arthritis
+2025-09-22 13:27:05,992 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - anti-tumor necrosis factor - early rheumatoid arthritis
+2025-09-22 13:27:05,992 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - anti-interleukin-6 receptor - early rheumatoid arthritis
+2025-09-22 13:27:05,992 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - prednisolone - early rheumatoid arthritis
+2025-09-22 13:28:45,052 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - game-based exercises - oligoarticular juvenile arthritis (JIA)
+2025-09-22 13:28:45,056 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - game-based exercises - oligoarticular juvenile idiopathic arthritis
+2025-09-22 13:28:45,056 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - home exercise program - oligoarticular juvenile idiopathic arthritis
+2025-09-22 13:30:14,297 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - MM-II - knee osteoarthritis pain
+2025-09-22 13:30:14,297 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - placebo - knee osteoarthritis pain
+2025-09-22 13:32:06,028 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - once-weekly insulin icodec - type 2 diabetes mellitus (T2DM)
+2025-09-22 13:32:06,028 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - once-daily insulin glargine U100 - type 2 diabetes mellitus (T2DM)
+2025-09-22 13:36:27,952 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - whole blueberries - osteoarthritis
+2025-09-22 13:38:22,625 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - empagliflozin - type 2 diabetes
+2025-09-22 13:38:22,627 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - high-protein diet - sarcopenia risk
+2025-09-22 13:38:22,627 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - GLP-1-based therapies - weight management
+2025-09-22 13:39:55,305 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - esketamine - irritable bowel syndrome (IBS)
+2025-09-22 13:39:55,305 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - tricyclic antidepressants - IBS
+2025-09-22 13:39:55,305 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - tricyclic antidepressants - irritable bowel syndrome (IBS)
+2025-09-22 13:41:36,833 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - exercise training (ET) - knee osteoarthritis
+2025-09-22 13:41:36,833 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - hydroxymethylbutyrate (HMB) and undenatured type-II collagen (UC-II) - knee osteoarthritis
+2025-09-22 13:41:36,842 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - oral nutrition supplementation enriched with hydroxymethylbutyrate (HMB) and undenatured type-II collagen (UC-II) - knee osteoarthritis
+2025-09-22 13:46:10,487 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - high-intensity interval training (HIIT) - HR-QoL
+2025-09-22 13:46:10,487 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - moderate-intensity training (MIT) - HR-QoL
+2025-09-22 13:46:10,491 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - high-intensity interval training (HIIT) - coronary artery disease
+2025-09-22 13:46:10,491 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - high-intensity interval training (HIIT) + resistance (HIIT + R) - coronary artery disease
+2025-09-22 13:46:10,491 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - moderate-intensity training (MIT) - coronary artery disease
+2025-09-22 13:46:10,491 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - moderate-intensity training (MIT) + resistance (MIT + R) - coronary artery disease
+2025-09-22 13:46:10,491 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - stretching-toning-balance training - coronary artery disease
+2025-09-22 13:46:10,491 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - in-person exercise - coronary artery disease
+2025-09-22 13:47:50,151 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - therapeutic education programme (PTEP) - coronary heart disease
+2025-09-22 13:47:50,153 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - physical activity - coronary heart disease
+2025-09-22 13:55:12,942 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - otilonium bromide - irritable bowel syndrome (IBS)
+2025-09-22 13:55:12,942 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - FODMAP-lowering diet - irritable bowel syndrome (IBS)
+2025-09-22 13:56:51,530 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - dexmedetomidine (DEX) - congenital heart disease (CHD)
+2025-09-22 13:56:51,530 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - normal saline - congenital heart disease (CHD)
+2025-09-22 13:56:51,538 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - dexmedetomidine (DEX) - congenital heart disease (CHD) during cardiac surgery with cardiopulmonary bypass
+2025-09-22 13:59:43,815 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - ankle arthrodesis - end-stage ankle arthritis
+2025-09-22 13:59:43,815 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - ankle arthrodesis - end-stage ankle arthritis, post-traumatic deformities, inflammatory conditions, congenital deformities, neurogenic deformities
+2025-09-22 14:02:30,257 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Cilostazol - rheumatoid arthritis
+2025-09-22 14:02:30,257 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - methotrexate - rheumatoid arthritis
+2025-09-22 14:04:21,720 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - knee extensor muscle strength (MVIC) - knee osteoarthritis
+2025-09-22 14:07:12,211 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - complete revascularization (CR) - ST-segment elevation myocardial infarction (STEMI) with multivessel disease (MVD)
+2025-09-22 14:07:12,218 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - incomplete revascularization (IR) - ST-segment elevation myocardial infarction (STEMI) with multivessel disease (MVD)
+2025-09-22 14:07:12,220 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - physiology-guided complete revascularization (CR) - ST-segment elevation myocardial infarction (STEMI) with multivessel disease (MVD)
+2025-09-22 14:07:12,221 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - complete revascularization (CR) - ST-segment elevation myocardial infarction with multivessel disease
+2025-09-22 14:08:45,900 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Western medicine - ankylosing spondylitis
+2025-09-22 14:08:45,907 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupuncture - ankylosing spondylitis
+2025-09-22 14:10:26,102 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - tirzepatide - type 2 diabetes
+2025-09-22 14:13:14,721 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - ebastine - refractory irritable bowel syndrome (IBS)
+2025-09-22 14:13:14,721 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - flupentixol and melitracen - refractory irritable bowel syndrome (IBS)
+2025-09-22 14:18:37,053 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - beta-blockers - extrasystoles or ventricular tachycardia
+2025-09-22 14:18:37,063 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - amiodarone - ventricular tachycardia
+2025-09-22 14:18:37,063 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - flecainide - ventricular tachycardia
+2025-09-22 14:18:37,063 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sotalol - ventricular tachycardia
+2025-09-22 14:18:37,068 - src.paper_collection.database_manager - INFO - Inserted intervention: test - ARVC risk calculator - Arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:18:37,068 - src.paper_collection.database_manager - INFO - Inserted intervention: test - ECG (long-term) - Arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:18:37,072 - src.paper_collection.database_manager - INFO - Inserted intervention: test - echocardiography - Arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:18:37,072 - src.paper_collection.database_manager - INFO - Inserted intervention: test - magnetic resonance imaging - Arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:18:37,073 - src.paper_collection.database_manager - INFO - Inserted intervention: test - genetic tests - Arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:18:37,074 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - restriction of sports participation - Arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:18:37,075 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - catheter ablation - recurrent ventricular tachyarrhythmia
+2025-09-22 14:18:37,076 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - defibrillator implantation - survived sudden cardiac death
+2025-09-22 14:18:37,077 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - amiodarone - arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:18:37,077 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - flecainide - arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:18:37,077 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sotalol - arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:18:37,077 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - catheter ablation - arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:18:37,082 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - implantable cardioverter-defibrillator (ICD) - arrhythmogenic right ventricular cardiomyopathy (ARVC)
+2025-09-22 14:21:38,760 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupuncture - irritable bowel syndrome (IBS)
+2025-09-22 14:21:38,766 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupressure - irritable bowel syndrome (IBS)
+2025-09-22 14:21:38,766 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - reflexology - irritable bowel syndrome (IBS)
+2025-09-22 14:21:38,769 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - traditional Chinese spinal orthopaedic manipulation - irritable bowel syndrome (IBS)
+2025-09-22 14:21:38,769 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Tuina - irritable bowel syndrome (IBS)
+2025-09-22 14:22:40,791 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - self-management training - rheumatoid arthritis
+2025-09-22 14:22:40,791 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - self-management training - rheumatoid arthritis
+2025-09-22 14:25:24,591 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - patient education - coronary artery disease
+2025-09-22 14:25:24,593 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - stress management techniques - coronary artery disease
+2025-09-22 14:25:24,593 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - respiratory muscle training - coronary artery disease
+2025-09-22 14:25:24,595 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - nutritional guidance - coronary artery disease
+2025-09-22 14:27:27,648 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - neuromuscular control exercise program - knee osteoarthritis
+2025-09-22 14:28:42,815 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Spirulina capsules - Irritable bowel syndrome (IBS)
+2025-09-22 14:28:42,815 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Placebo - Irritable bowel syndrome (IBS)
+2025-09-22 14:28:42,815 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Spirulina platensis - constipation-predominant irritable bowel syndrome (IBS)
+2025-09-22 14:29:41,169 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Kinesio taping (KT) - knee osteoarthritis (KOA)
+2025-09-22 14:32:21,557 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - functional abdominal pain disorders (FAPD)
+2025-09-22 14:36:23,768 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Antispasmodics - Irritable bowel syndrome
+2025-09-22 14:36:23,768 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Transit modifiers - Irritable bowel syndrome
+2025-09-22 14:36:23,768 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - Diets - Irritable bowel syndrome
+2025-09-22 14:36:23,777 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Probiotics - Irritable bowel syndrome
+2025-09-22 14:36:23,777 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - Physical activity - Irritable bowel syndrome
+2025-09-22 14:36:23,777 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Hypnosis - Irritable bowel syndrome
+2025-09-22 14:36:23,777 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Therapeutic education - Irritable bowel syndrome
+2025-09-22 14:36:23,777 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - diets - irritable bowel syndrome (IBS)
+2025-09-22 14:36:23,777 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 14:36:23,777 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - physical activity - irritable bowel syndrome (IBS)
+2025-09-22 14:36:23,777 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - hypnosis - irritable bowel syndrome (IBS)
+2025-09-22 14:36:23,777 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - therapeutic education - irritable bowel syndrome (IBS)
+2025-09-22 14:36:23,787 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antispasmodics - irritable bowel syndrome (IBS)
+2025-09-22 14:36:23,789 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - transit modifiers - irritable bowel syndrome (IBS)
+2025-09-22 14:37:23,547 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - eccentric exercise - rheumatoid arthritis (RA)
+2025-09-22 14:39:05,789 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - diltiazem - permanent atrial fibrillation
+2025-09-22 14:39:05,789 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - metoprolol - permanent atrial fibrillation
+2025-09-22 14:43:32,730 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - PCSK9 inhibitors - aortic stenosis (AS)
+2025-09-22 14:43:32,730 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - ezetimibe - aortic stenosis (AS)
+2025-09-22 14:43:32,733 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - bempedoic acid - aortic stenosis (AS)
+2025-09-22 14:43:32,733 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - statins - aortic stenosis (AS)
+2025-09-22 14:43:32,737 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - fenofibrates - aortic stenosis (AS)
+2025-09-22 14:43:32,739 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - APOC3 inhibitors - aortic stenosis (AS)
+2025-09-22 14:45:26,526 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - trimebutine - Irritable Bowel Syndrome (IBS)
+2025-09-22 14:45:26,526 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 14:45:26,526 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - compound Lactobacillus capsules - irritable bowel syndrome (IBS)
+2025-09-22 14:46:46,049 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - gut microbiota regulation
+2025-09-22 14:46:46,051 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - normal diet - gut microbiota regulation
+2025-09-22 14:46:46,053 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - intestinal flora regulation
+2025-09-22 14:47:57,199 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sodium-glucose co-transporter-2 inhibitors (SGLT2i) - heart failure
+2025-09-22 14:47:57,203 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - SGLT2 inhibitors (SGLT2i) - heart failure with significant valvular heart disease
+2025-09-22 14:49:43,045 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Coprinus comatus nanogels - rheumatoid arthritis
+2025-09-22 14:49:43,045 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sodium diclofenac - rheumatoid arthritis
+2025-09-22 14:51:20,986 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - vasopressin - septic shock
+2025-09-22 14:51:20,986 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - norepinephrine - septic shock
+2025-09-22 14:53:15,796 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - irritable bowel syndrome (IBS)
+2025-09-22 14:53:15,798 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - fructan reintroduction - irritable bowel syndrome (IBS)
+2025-09-22 14:53:15,798 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - galacto-oligosaccharides (GOS) reintroduction - irritable bowel syndrome (IBS)
+2025-09-22 14:53:15,801 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - FODMAP elimination diet - Irritable Bowel Syndrome (IBS)
+2025-09-22 14:53:15,801 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - selective FODMAP restriction diet - Irritable Bowel Syndrome (IBS)
+2025-09-22 14:54:30,319 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - fasudil hydrochloride - coronary heart disease (CHD)
+2025-09-22 14:54:30,319 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - fasudil hydrochloride - diabetes, coronary heart disease (CHD)
+2025-09-22 14:56:15,919 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low-FODMAP diet - Irritable Bowel Syndrome (IBS)
+2025-09-22 14:56:15,921 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 14:57:36,701 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - active acupressure - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 14:57:36,701 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - sham acupressure - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 14:57:36,701 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupressure - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 14:58:54,920 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Western medicine - Irritable Bowel Syndrome (IBS)
+2025-09-22 14:58:54,920 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupuncture - Irritable Bowel Syndrome (IBS)
+2025-09-22 15:03:07,765 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - grain-free diet with potatoes and peas (GF + PPo) - cardiac function
+2025-09-22 15:03:07,765 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - grain-inclusive diet with peas and pea fiber (G + PPF) - cardiac function
+2025-09-22 15:03:07,765 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - grain-inclusive diet without peas or potatoes (G) - cardiac function
+2025-09-22 15:03:07,771 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - grain-free diet with potatoes (GF + Po) - cardiac function
+2025-09-22 15:04:25,212 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - flaxseed oil supplement (FOS) - type 2 diabetes
+2025-09-22 15:04:25,212 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - safflower oil supplementation (SOS) - type 2 diabetes
+2025-09-22 15:06:55,006 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - higher-carbohydrate lower-fat diet with refined carbohydrate sources (acellular diet, A-HCLF) - obesity and mild GI symptoms
+2025-09-22 15:06:55,006 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - higher-carbohydrate lower-fat diet with minimally refined carbohydrate sources (cellular diet, C-HCLF) - obesity and mild GI symptoms
+2025-09-22 15:06:55,006 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low-carbohydrate high-fat diet (LCHF) - obesity and mild GI symptoms
+2025-09-22 15:09:24,056 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotic formulation - irritable bowel syndrome (IBS)
+2025-09-22 15:09:24,056 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - partially hydrolyzed guar gum (PHGG) - irritable bowel syndrome (IBS)
+2025-09-22 15:09:24,056 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - polyphenol-rich fruit extracts blend - irritable bowel syndrome (IBS)
+2025-09-22 15:09:24,064 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - polyphenol-rich extract blend - irritable bowel syndrome (IBS)
+2025-09-22 15:09:24,064 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 15:12:18,133 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - resistant starch - irritable bowel syndrome (IBS)
+2025-09-22 15:12:18,134 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - pea fibre - irritable bowel syndrome (IBS)
+2025-09-22 15:12:18,135 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - chondroitin sulfate - irritable bowel syndrome (IBS)
+2025-09-22 15:12:18,137 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - protein hydrolysate - irritable bowel syndrome (IBS)
+2025-09-22 15:12:18,137 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - placebo - irritable bowel syndrome (IBS)
+2025-09-22 15:13:55,065 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - yoga - irritable bowel syndrome (IBS)
+2025-09-22 15:17:46,548 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin (RF) - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:17:46,553 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - ciprofloxacin (CF) - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:17:46,553 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - neomycin - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:17:46,556 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - sulfamethoxazole-trimethoprim - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:17:46,558 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - metronidazole (MZ) - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:17:46,560 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:17:46,561 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - ciprofloxacin - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:17:46,563 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - metronidazole - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:18:49,303 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - tenapanor - irritable bowel syndrome with constipation (IBS-C)
+2025-09-22 15:21:54,818 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - SIBO
+2025-09-22 15:21:54,821 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - metronidazole - SIBO
+2025-09-22 15:21:54,823 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - ciprofloxacin - SIBO
+2025-09-22 15:21:54,823 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diets - SIBO
+2025-09-22 15:21:54,823 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - SIBO
+2025-09-22 15:21:54,827 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:21:54,829 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - metronidazole - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:21:54,831 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - ciprofloxacin - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:21:54,833 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:21:54,834 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 15:23:31,498 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Guanxin Shutong (GXST) capsule - angina pectoris of coronary heart disease
+2025-09-22 15:23:31,498 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Western medicine - angina pectoris of coronary heart disease
+2025-09-22 15:23:31,501 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Guanxin Shutong capsule - coronary heart disease angina pectoris
+2025-09-22 15:23:31,501 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - conventional Western medicine - coronary heart disease angina pectoris
+2025-09-22 15:25:42,669 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - celecoxib 200 mg - knee osteoarthritis
+2025-09-22 15:25:42,669 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - topical analgesic - knee osteoarthritis
+2025-09-22 15:25:42,669 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - hot pack - knee osteoarthritis
+2025-09-22 15:25:42,669 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - celecoxib - knee osteoarthritis
+2025-09-22 15:28:45,931 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - closed kinetic chain exercise (CKCE) - knee osteoarthritis (OA)
+2025-09-22 15:28:45,931 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - closed kinetic chain exercises (CKCE) - knee osteoarthritis (OA)
+2025-09-22 15:30:55,506 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - Park-Based Exercise Program - serious mental illness
+2025-09-22 15:30:55,506 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - park-based exercise - serious mental illness (SMI)
+2025-09-22 15:31:50,969 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - intermittent fasting - type 2 diabetes
+2025-09-22 15:31:50,969 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - intermittent fasting - type 2 diabetes mellitus (T2DM)
+2025-09-22 15:32:49,476 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - social media-based patient education - COVID-19 fear, self-care in diabetic patients
+2025-09-22 15:32:49,476 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - social media-based patient education - diabetes
+2025-09-22 15:33:56,917 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - autologous concentrated growth factor (ACGF) - pressure ulcers
+2025-09-22 15:36:07,171 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - aerobic exercise - depression
+2025-09-22 15:37:18,177 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupuncture - diminished ovarian reserve
+2025-09-22 15:40:01,168 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - psilocybin - depression and anxiety associated with life threatening illness
+2025-09-22 15:40:01,168 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - niacin (active placebo) - depression and anxiety associated with life threatening illness
+2025-09-22 15:41:37,787 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupuncture - Chronic Insomnia Disorder (CID)
+2025-09-22 15:43:01,902 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Transcutaneous auricular vagus nerve stimulation (taVNS) - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-22 15:43:01,902 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - sham-taVNS - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-22 15:45:24,619 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - bisacodyl - constipation
+2025-09-22 15:45:24,621 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - hyoscine - constipation
+2025-09-22 15:45:24,622 - src.paper_collection.database_manager - INFO - Inserted intervention: test - oral macrogol challenge - constipation
+2025-09-22 15:45:24,622 - src.paper_collection.database_manager - INFO - Inserted intervention: test - high-resolution colonic manometry (HRCM) - constipation
+2025-09-22 15:45:24,625 - src.paper_collection.database_manager - INFO - Inserted intervention: test - MRI - constipation
+2025-09-22 15:47:01,255 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - capsaicin - irritable bowel syndrome (IBS)
+2025-09-22 15:47:01,255 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - menthol - irritable bowel syndrome (IBS)
+2025-09-22 15:48:02,035 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 15:49:10,843 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupoint application - irritable bowel syndrome (IBS)
+2025-09-22 15:49:10,843 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - western medicine - irritable bowel syndrome (IBS)
+2025-09-22 15:51:45,087 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - exercise - pulmonary embolism
+2025-09-22 15:51:45,087 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - rehabilitation exercise - pulmonary embolism
+2025-09-22 15:52:55,851 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - physical activity (PA) - cardiovascular disease risk
+2025-09-22 15:54:12,817 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupuncture - irritable bowel syndrome with diarrhea (IBS-D) comorbid with anxiety and depression
+2025-09-22 15:56:00,740 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - evolocumab - heterozygous familial hypercholesterolaemia
+2025-09-22 15:56:00,740 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - evolocumab - heterozygous familial hypercholesterolaemia (HeFH)
+2025-09-22 15:57:13,866 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - remote exercise rehabilitation - coronary heart disease
+2025-09-22 15:59:15,136 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - online yoga - irritable bowel syndrome (IBS)
+2025-09-22 15:59:15,136 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 15:59:15,141 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - placebo - irritable bowel syndrome (IBS)
+2025-09-22 16:01:03,042 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - placebo - coronary heart disease with angina pectoris after percutaneous coronary intervention
+2025-09-22 16:01:03,042 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - traditional Chinese medicine (TCM) - coronary heart disease with angina pectoris after percutaneous coronary intervention
+2025-09-22 16:01:03,042 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - traditional Chinese medicine (TCM) - coronary heart disease with angina pectoris after percutaneous coronary intervention
+2025-09-22 16:02:13,748 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - GORE CARDIOFORM ASD Occluder implantation - ostium secundum atrial septal defect (ASD)
+2025-09-22 16:03:32,033 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - stepped-care mental health program (I-InTERACT-North) - congenital heart disease
+2025-09-22 16:05:24,209 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low carbohydrate diet - irritable bowel syndrome (IBS)
+2025-09-22 16:05:24,210 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - irritable bowel syndrome (IBS)
+2025-09-22 16:05:24,211 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - diet low in total carbohydrates - irritable bowel syndrome (IBS)
+2025-09-22 16:05:24,212 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - FODMAP diet combined with traditional IBS dietary advice - irritable bowel syndrome (IBS)
+2025-09-22 16:08:50,044 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - propofol + sufentanil - transperineal prostate biopsy in elderly men
+2025-09-22 16:08:50,046 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - remimazolam + sufentanil - transperineal prostate biopsy in elderly men
+2025-09-22 16:08:50,046 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - remimazolam + alfentanil - transperineal prostate biopsy in elderly men
+2025-09-22 16:11:53,003 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - microbiome-based artificial intelligence-assisted personalized diet (PD) - irritable bowel syndrome (IBS)
+2025-09-22 16:11:53,003 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols diet (FODMAP) - irritable bowel syndrome (IBS)
+2025-09-22 16:11:53,007 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - microbiome-based artificial intelligence-assisted personalized diet (PD) - Irritable Bowel Syndrome
+2025-09-22 16:11:53,009 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols diet (FODMAP) - Irritable Bowel Syndrome
+2025-09-22 16:12:33,080 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Chinese herbal medicine (CHM) - irritable bowel syndrome (IBS)
+2025-09-22 16:14:38,814 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Acacia fiber - irritable bowel syndrome with predominant constipation (IBS-C)
+2025-09-22 16:14:38,816 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Probiotic Bifidobacterium Lactis (BLa80) - irritable bowel syndrome with predominant constipation (IBS-C)
+2025-09-22 16:14:38,818 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Acacia fiber - irritable bowel syndrome with predominant constipation complaints (IBS-C)
+2025-09-22 16:14:38,818 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotic Bifidobacterium Lactis (BLa80) - irritable bowel syndrome with predominant constipation complaints (IBS-C)
+2025-09-22 16:15:51,007 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - synbiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:15:51,009 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:15:51,009 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - synbiotics - Irritable Bowel Syndrome
+2025-09-22 16:18:34,243 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:18:34,243 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - prebiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:18:34,243 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - synbiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:18:34,247 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Fecal Microbiota Transplantation (FMT) - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:18:34,247 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - Fecal Microbiota Transplantation (FMT) - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:19:55,682 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - co-micronized palmitoylethanolamide (PEA)/polydatin (PD) - irritable bowel syndrome (IBS)
+2025-09-22 16:19:55,682 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - placebo - irritable bowel syndrome (IBS)
+2025-09-22 16:21:33,431 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low-FODMAPs diet - irritable bowel syndrome (IBS)
+2025-09-22 16:21:33,434 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 16:26:44,823 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low-FODMAP diet - IBS
+2025-09-22 16:26:44,823 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotic administration - IBS
+2025-09-22 16:26:44,823 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - fecal microbiota transplantation (FMT) - IBS
+2025-09-22 16:26:44,828 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - Low-FODMAP diet - irritable bowel syndrome (IBS)
+2025-09-22 16:26:44,830 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotic administration - irritable bowel syndrome (IBS)
+2025-09-22 16:26:44,830 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - fecal microbiota transplantation (FMT) - irritable bowel syndrome (IBS)
+2025-09-22 16:28:14,465 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus acidophilus LA-5 and Lactobacillus paracasei L. CASEI-01 - depression in irritable bowel syndrome
+2025-09-22 16:29:20,417 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - Faecal microbiota transplantation (FMT) - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:29:20,417 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Faecal microbiota transplantation (FMT) - IBS
+2025-09-22 16:30:19,690 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - gastrointestinal symptoms related to cancer treatment
+2025-09-22 16:31:39,887 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - linaclotide - functional constipation
+2025-09-22 16:31:39,887 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - placebo - functional constipation
+2025-09-22 16:31:39,887 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - linaclotide - functional constipation in paediatric patients
+2025-09-22 16:34:55,731 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - ondansetron - low anterior resection syndrome (LARS)
+2025-09-22 16:34:55,731 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - placebo - low anterior resection syndrome (LARS)
+2025-09-22 16:34:55,731 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antidiarrheal drugs - low anterior resection syndrome (LARS)
+2025-09-22 16:34:55,740 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - behavioral and dietary modifications - low anterior resection syndrome (LARS)
+2025-09-22 16:34:55,740 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - neuromodulation - low anterior resection syndrome (LARS)
+2025-09-22 16:34:55,740 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - enemas - low anterior resection syndrome (LARS)
+2025-09-22 16:36:36,480 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low-FODMAP diet - irritable bowel syndrome (IBS)
+2025-09-22 16:36:36,482 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus rhamnosus probiotic - irritable bowel syndrome (IBS)
+2025-09-22 16:36:36,483 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - FODMAP diet - irritable bowel syndrome (IBS)
+2025-09-22 16:36:36,483 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 16:37:31,757 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupuncture - functional gastrointestinal disorders (FGIDs)
+2025-09-22 16:38:49,511 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - eHealth self-management program - irritable bowel syndrome (IBS)
+2025-09-22 16:38:49,511 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - eHealth self-management program - irritable bowel syndrome (IBS)
+2025-09-22 16:41:34,890 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus - irritable bowel syndrome (IBS)
+2025-09-22 16:41:34,896 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium - irritable bowel syndrome (IBS)
+2025-09-22 16:41:34,898 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bacillus - irritable bowel syndrome (IBS)
+2025-09-22 16:41:34,900 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - 2 Lactobacillus strains, one Bifidobacterium and one Streptococcus - irritable bowel syndrome (IBS)
+2025-09-22 16:41:34,900 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome
+2025-09-22 16:43:36,819 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Mirtazapine - IBS symptoms (diarrhea, insomnia, migraine headache, nausea, poor appetite)
+2025-09-22 16:43:36,821 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Anticholinergics - IBS
+2025-09-22 16:43:36,822 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Anti-spasmodics - IBS
+2025-09-22 16:43:36,824 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Tricyclic Antidepressants (TCAs) - IBS
+2025-09-22 16:43:36,824 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - mirtazapine - irritable bowel syndrome (IBS)
+2025-09-22 16:46:34,841 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Limosilactobacillus (L.) reuteri DSM 17938 - infantile colic
+2025-09-22 16:46:34,843 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium animalis subsp. lactis BB-12 - infantile colic
+2025-09-22 16:46:34,843 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lacticaseibacillus rhamnosus GG (LGG) - IBS
+2025-09-22 16:46:34,843 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - L. reuteri DSM 17938 - functional abdominal pain (FAP)
+2025-09-22 16:46:34,848 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lacticaseibacillus rhamnosus GG (LGG) - irritable bowel syndrome (IBS)
+2025-09-22 16:46:34,848 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Limosilactobacillus (L.) reuteri DSM 17938 - functional abdominal pain (FAP)
+2025-09-22 16:47:54,558 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium longum (BL) NCC3001 - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:47:54,558 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - placebo - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:47:54,568 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium longum NCC3001 - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:48:49,930 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - Tryptophan restriction - Irritable Bowel Syndrome (IBS)
+2025-09-22 16:50:29,764 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - faecal microbiota transplantation (FMT) - irritable bowel syndrome with predominant diarrhoea (IBS-D)
+2025-09-22 16:55:11,338 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - education/nondirective support - irritable bowel syndrome (IBS)
+2025-09-22 16:55:11,338 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - cognitive reappraisal - irritable bowel syndrome (IBS)
+2025-09-22 16:55:11,338 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - education/nondirective support - irritable bowel syndrome (IBS)
+2025-09-22 16:57:46,521 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antihypertensives - cardiovascular disease
+2025-09-22 16:57:46,521 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - statins - cardiovascular disease
+2025-09-22 16:57:46,521 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - acetylsalicylic acid - cardiovascular disease
+2025-09-22 17:03:40,156 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Danhong injection (DH) - coronary heart disease (CHD)
+2025-09-22 17:03:40,156 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Danshenchuanxiongqin injection (DSCXQ) - coronary heart disease (CHD)
+2025-09-22 17:03:40,162 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Dansenduofensuanyan injection (DSDFSY) - coronary heart disease (CHD)
+2025-09-22 17:03:40,162 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Guanxinning injection (GXN) - coronary heart disease (CHD)
+2025-09-22 17:03:40,162 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Sodium Tanshinone IIA Sulfonate injection (STS) - coronary heart disease (CHD)
+2025-09-22 17:03:40,162 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Xiangdan injection (XD) - coronary heart disease (CHD)
+2025-09-22 17:03:40,162 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Danhong injection (DH) - coronary heart disease
+2025-09-22 17:03:40,162 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Danshen injection (DS) - coronary heart disease
+2025-09-22 17:03:40,172 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Danshenchuanxiongqin injection (DSCXQ) - coronary heart disease
+2025-09-22 17:03:40,172 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Dansenduofensuanyan injection (DSDFSY) - coronary heart disease
+2025-09-22 17:03:40,172 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Danshenfen injection (DSFZ) - coronary heart disease
+2025-09-22 17:03:40,179 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Fufang Danshen injection (FFDS) - coronary heart disease
+2025-09-22 17:03:40,179 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Guanxinning injection (GXN) - coronary heart disease
+2025-09-22 17:03:40,185 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Sodium Tanshinone IIA Sulfonate injection (STS) - coronary heart disease
+2025-09-22 17:03:40,185 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Xiangdan injection (XD) - coronary heart disease
+2025-09-22 17:03:40,189 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Shenxiongputaotang injection (SXPTT) - coronary heart disease
+2025-09-22 17:06:24,877 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - pinaverium bromide suspension - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 17:06:24,877 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acupuncture - diarrhea-predominant irritable bowel syndrome
+2025-09-22 17:06:24,877 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - moxibustion - diarrhea-predominant irritable bowel syndrome
+2025-09-22 17:06:24,877 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - pinaverium bromide - diarrhea-predominant irritable bowel syndrome
+2025-09-22 17:12:02,030 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - kombucha enriched with inulin and vitamins - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-22 17:12:02,032 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - kombucha-based drink enriched with inulin and vitamins - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-22 17:13:35,078 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - tailored diet - food intolerance
+2025-09-22 17:13:35,080 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - standard fivefold elimination diet - food intolerance
+2025-09-22 17:13:35,080 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - confocal laser endomicroscopy-based selective single-elimination diet - food intolerance
+2025-09-22 17:19:11,833 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Escherichia strains - irritable bowel syndrome (IBS)
+2025-09-22 17:19:11,833 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus strains - irritable bowel syndrome (IBS)
+2025-09-22 17:19:11,833 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus plantarum 299V - irritable bowel syndrome (IBS)
+2025-09-22 17:19:11,833 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - combination probiotics - irritable bowel syndrome (IBS)
+2025-09-22 17:19:11,833 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - LacClean Gold S - irritable bowel syndrome (IBS)
+2025-09-22 17:19:11,833 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Duolac 7s - irritable bowel syndrome (IBS)
+2025-09-22 17:19:11,833 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bacillus strains - irritable bowel syndrome (IBS)
+2025-09-22 17:19:11,843 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Saccharomyces cerevisae I-3856 - irritable bowel syndrome (IBS)
+2025-09-22 17:19:11,843 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium strains - irritable bowel syndrome (IBS)
+2025-09-22 17:19:11,843 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 17:20:19,166 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - tenapanor - irritable bowel syndrome with constipation (IBS-C)
+2025-09-22 17:21:14,650 - src.paper_collection.database_manager - INFO - Inserted intervention: surgery - sacral nerve stimulation - non-constipated irritable bowel syndrome
+2025-09-22 17:21:14,650 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - sacral nerve stimulation - irritable bowel syndrome (IBS)
+2025-09-22 17:23:05,819 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus acidophilus DDS-1 - Irritable Bowel Syndrome (IBS)
+2025-09-22 17:23:05,828 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - mixture containing five probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 17:23:05,828 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bacillus coagulans MTCC 5856 - Irritable Bowel Syndrome (IBS)
+2025-09-22 17:23:05,828 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bacillus coagulans Unique IS2 - Irritable Bowel Syndrome (IBS)
+2025-09-22 17:23:05,828 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Saccharomyces cerevisiae CNCM I-3856 - diarrhea-predominant IBS (IBS-D)
+2025-09-22 17:23:05,828 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 17:27:41,249 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols (FODMAP) diet - irritable bowel syndrome (IBS)
+2025-09-22 17:27:41,249 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - irritable bowel syndrome (IBS)
+2025-09-22 17:27:41,249 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - neomycin - irritable bowel syndrome (IBS)
+2025-09-22 17:27:41,255 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 17:27:41,255 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - prebiotics - irritable bowel syndrome (IBS)
+2025-09-22 17:27:41,255 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - fecal microbiota transplantation (FMT) - irritable bowel syndrome (IBS)
+2025-09-22 17:27:41,255 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - serum-derived bovine immunoglobulin (SBI) - irritable bowel syndrome (IBS)
+2025-09-22 17:27:41,255 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - FODMAP diet - Irritable Bowel Syndrome (IBS)
+2025-09-22 17:27:41,255 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - fecal microbiota transplantation (FMT) - Irritable Bowel Syndrome (IBS)
+2025-09-22 17:27:41,262 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - serum-derived bovine immunoglobulin (SBI) - Irritable Bowel Syndrome (IBS)
+2025-09-22 17:29:17,135 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 17:29:17,137 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - prebiotics - irritable bowel syndrome (IBS)
+2025-09-22 17:29:17,137 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - synbiotics - irritable bowel syndrome (IBS)
+2025-09-22 17:31:02,149 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - nonspecific comparator emphasizing education and support - irritable bowel syndrome (IBS)
+2025-09-22 17:34:01,003 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - 2 green kiwifruits per day - constipation
+2025-09-22 17:34:01,003 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - green kiwifruit consumption - functional constipation
+2025-09-22 17:34:01,003 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - green kiwifruit consumption - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-22 17:34:01,003 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - psyllium consumption - functional constipation
+2025-09-22 17:34:01,003 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - psyllium consumption - constipation-predominant irritable bowel syndrome (IBS-C)
+2025-09-22 17:36:18,260 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Rifaximin - IBS with diarrhoea
+2025-09-22 17:36:18,262 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus plantarum DSM 9843 - IBS
+2025-09-22 17:36:18,263 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium bifidum MIMBb75 - IBS
+2025-09-22 17:36:18,264 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - irritable bowel syndrome (IBS)
+2025-09-22 17:36:18,265 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus plantarum DSM 9843 - irritable bowel syndrome (IBS)
+2025-09-22 17:36:18,267 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium bifidum MIMBb75 - irritable bowel syndrome (IBS)
+2025-09-22 17:40:22,312 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - cold/spicy/fried restricted diet (CSF res diet) - IBS-D
+2025-09-22 17:40:22,320 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - IgG positive restricted diet (IgG res diet) - IBS-D
+2025-09-22 17:40:22,322 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacteria (probiotic) - IBS-D
+2025-09-22 17:40:22,322 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - combination of cold/spicy/fried restricted diet (CSF res diet) and IgG positive restricted diet (IgG res diet) - IBS-D
+2025-09-22 17:40:22,324 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotic - IBS-D
+2025-09-22 17:41:25,199 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 17:44:29,646 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - fiber intake - IBS-C
+2025-09-22 17:44:29,646 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - fiber intake - Irritable Bowel Syndrome with Constipation (IBS-C)
+2025-09-22 17:44:29,646 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - soluble fiber (inulin) - Irritable Bowel Syndrome with Constipation (IBS-C)
+2025-09-22 17:44:29,657 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - prebiotics - Irritable Bowel Syndrome with Constipation (IBS-C)
+2025-09-22 17:44:29,657 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome with Constipation (IBS-C)
+2025-09-22 17:44:29,657 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - symbiotics - Irritable Bowel Syndrome with Constipation (IBS-C)
+2025-09-22 17:48:04,712 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - inflammatory and infective diseases
+2025-09-22 17:48:04,712 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - prebiotics - inflammatory and infective diseases
+2025-09-22 17:48:04,712 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - synbiotics - inflammatory and infective diseases
+2025-09-22 17:48:04,722 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - postbiotics - inflammatory and infective diseases
+2025-09-22 17:48:04,722 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antibiotics - inflammatory and infective diseases
+2025-09-22 17:48:04,722 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - fecal microbiota transplantation (FMT) - inflammatory and infective diseases
+2025-09-22 17:48:04,722 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - fecal microbiota transplantation (FMT) - inflammatory and infective diseases
+2025-09-22 17:49:43,184 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - Prolong-life-with-nine-turn-method (Yan Nian Jiu Zhuan) Qigong - chronic fatigue syndrome
+2025-09-22 17:51:19,230 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - plecanatide 3 mg - irritable bowel syndrome with constipation (IBS-C)
+2025-09-22 17:51:19,230 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - plecanatide 6 mg - irritable bowel syndrome with constipation (IBS-C)
+2025-09-22 17:51:19,235 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - plecanatide - irritable bowel syndrome with constipation (IBS-C)
+2025-09-22 17:52:28,384 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - peppermint oil - functional dyspepsia
+2025-09-22 17:52:28,386 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - peppermint oil - irritable bowel syndrome
+2025-09-22 17:52:28,387 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - peppermint oil - functional gastrointestinal disorders (FGIDs)
+2025-09-22 17:53:42,273 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - weight loss through lifestyle modifications - nonalcoholic fatty liver disease (NAFLD)
+2025-09-22 17:53:42,279 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - lifestyle modifications - nonalcoholic fatty liver disease (NAFLD)
+2025-09-22 17:55:19,375 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus gasseri LA806 - IBS
+2025-09-22 17:55:19,379 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus gasseri LA806 - IBS (Irritable Bowel Syndrome)
+2025-09-22 17:56:38,261 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - vibegron - irritable bowel syndrome (IBS)
+2025-09-22 17:56:38,263 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - placebo - irritable bowel syndrome (IBS)
+2025-09-22 17:57:48,349 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 17:57:48,357 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - placebo - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 17:59:46,296 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - FODMAP diet - visceral pain
+2025-09-22 17:59:46,301 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - visceral pain
+2025-09-22 17:59:46,301 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - fecal microbiota transplantation - visceral pain
+2025-09-22 17:59:46,304 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - FODMAP diet - visceral pain, functional gastrointestinal disorders
+2025-09-22 17:59:46,304 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - visceral pain, functional gastrointestinal disorders
+2025-09-22 17:59:46,310 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - fecal microbiota transplantation - visceral pain, functional gastrointestinal disorders
+2025-09-22 18:02:08,736 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - Fecal Microbiota Transplantation (FMT) - irritable bowel syndrome (IBS)
+2025-09-22 18:02:08,736 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - Anaerobically Cultivated Human Intestinal Microbiota (ACHIM) - irritable bowel syndrome (IBS)
+2025-09-22 18:02:08,740 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - anaerobically cultivated human intestinal microbiota (ACHIM) - irritable bowel syndrome
+2025-09-22 18:02:08,740 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - donor-fecal microbiota transplantation (FMT) - irritable bowel syndrome
+2025-09-22 18:02:08,743 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - placebo - irritable bowel syndrome
+2025-09-22 18:04:36,208 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - SIBO
+2025-09-22 18:04:36,214 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - soluble fiber supplementation - IBS, SIBO
+2025-09-22 18:04:36,216 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antibiotics - SIBO
+2025-09-22 18:04:36,216 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - SIBO
+2025-09-22 18:04:36,217 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 18:04:36,217 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - soluble fiber supplementation - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 18:04:36,217 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antibiotics - small intestinal bacterial overgrowth (SIBO)
+2025-09-22 18:05:55,112 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - amitriptyline - irritable bowel syndrome (IBS)
+2025-09-22 18:05:55,112 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - placebo - irritable bowel syndrome (IBS)
+2025-09-22 18:07:56,912 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 18:07:56,920 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - fibers - irritable bowel syndrome (IBS)
+2025-09-22 18:07:56,920 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Fibers - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:10:26,685 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - B.coagulans - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:10:26,689 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - L.plantarum - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:10:26,689 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - L.acidophilus - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:10:26,691 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:10:26,691 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bacillus coagulans - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:10:26,691 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus plantarum - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:10:26,691 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus acidophilus - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:11:44,490 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotic co-supplementation - H. pylori infection
+2025-09-22 18:11:44,494 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Helicobacter pylori infection
+2025-09-22 18:11:44,494 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antibiotics - Helicobacter pylori infection
+2025-09-22 18:12:59,063 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bacillus subtilis BS50 - gas-related gastrointestinal symptoms
+2025-09-22 18:15:33,240 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - inulin enriched kombucha drink - constipation-predominant irritable bowel syndrome (IBS)
+2025-09-22 18:15:33,240 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - water - constipation-predominant irritable bowel syndrome (IBS)
+2025-09-22 18:15:33,244 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - kombucha-based drink enriched with inulin and vitamins - constipation-predominant irritable bowel syndrome (IBS)
+2025-09-22 18:18:36,883 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - post-infectious irritable bowel syndrome (PI-IBS)
+2025-09-22 18:18:36,884 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Otilonium Bromide - post-infectious irritable bowel syndrome (PI-IBS)
+2025-09-22 18:18:36,884 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - multi-strain probiotic - post-infectious irritable bowel syndrome (PI-IBS)
+2025-09-22 18:18:36,884 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Otilonium Bromide - post-infectious irritable bowel syndrome (PI-IBS)
+2025-09-22 18:20:45,940 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - standard kimchi - irritable bowel syndrome (IBS)
+2025-09-22 18:20:45,940 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - dead nano-sized Lactobacillus plantarum nF1 (nLp) added to standard kimchi - irritable bowel syndrome (IBS)
+2025-09-22 18:20:45,940 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - functional kimchi - irritable bowel syndrome (IBS)
+2025-09-22 18:20:45,945 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - kimchi consumption - irritable bowel syndrome (IBS)
+2025-09-22 18:20:45,945 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus plantarum nF1 (nLp) - irritable bowel syndrome (IBS)
+2025-09-22 18:21:47,742 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - dance and yoga - functional abdominal pain disorders
+2025-09-22 18:21:47,744 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - dance and yoga - functional abdominal pain disorders (FAPDs)
+2025-09-22 18:23:31,008 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - web-based low-FODMAP diet (LFD) - irritable bowel syndrome (IBS)
+2025-09-22 18:23:31,008 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - VSL#3 - irritable bowel syndrome (IBS)
+2025-09-22 18:24:21,645 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - gastrointestinal diseases
+2025-09-22 18:25:38,518 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactiplantibacillus plantarum 299v - irritable bowel syndrome (IBS)
+2025-09-22 18:25:38,527 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactiplantibacillus plantarum 299v - iron absorption and iron status
+2025-09-22 18:25:38,527 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactiplantibacillus plantarum 299v (LP299V®) - irritable bowel syndrome
+2025-09-22 18:26:31,486 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - IBS
+2025-09-22 18:26:31,488 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:27:29,314 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - dietary therapies - IBS
+2025-09-22 18:27:29,314 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - pharmacological therapies - IBS
+2025-09-22 18:27:29,314 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - psychological therapies - IBS
+2025-09-22 18:29:27,361 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:29:27,361 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - prebiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:29:27,370 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - synbiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:31:02,622 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - irritable bowel syndrome (IBS)
+2025-09-22 18:31:02,622 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 18:31:02,625 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet (LFD) - irritable bowel syndrome (IBS)
+2025-09-22 18:32:06,915 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - multi-strain probiotic - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 18:32:06,915 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - multi-strain probiotic preparation - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 18:33:10,022 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bacillus coagulans LBSC - irritable bowel syndrome (IBS)
+2025-09-22 18:36:05,500 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - heat-inactivated Bifidobacterium bifidum MIMBb75 (SYN-HI-001) - irritable bowel syndrome (IBS)
+2025-09-22 18:38:02,567 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus paracasei HA-196 - irritable bowel syndrome (IBS)
+2025-09-22 18:38:02,567 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium longum R0175 - irritable bowel syndrome (IBS)
+2025-09-22 18:38:02,576 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - placebo - irritable bowel syndrome (IBS)
+2025-09-22 18:38:02,578 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus paracasei HA-196 (L. paracasei) - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:38:02,578 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium longum R0175 (B. longum) - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:42:22,746 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - gluten-free diet - migraine headache
+2025-09-22 18:42:22,746 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - high fiber diet - migraine headache
+2025-09-22 18:42:22,746 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low glycemic index diet - migraine headache
+2025-09-22 18:42:22,757 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - vitamin D supplementation - migraine headache
+2025-09-22 18:42:22,759 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - omega-3 supplementation - migraine headache
+2025-09-22 18:42:22,761 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - migraine headache
+2025-09-22 18:42:22,761 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - weight loss - migraine headache
+2025-09-22 18:42:22,761 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antibiotics (for Helicobacter pylori eradication) - migraine headache
+2025-09-22 18:42:22,761 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - gluten-free diet - migraine
+2025-09-22 18:42:22,767 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - fiber consumption - migraine
+2025-09-22 18:42:22,774 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low glycemic index diet - migraine
+2025-09-22 18:42:22,776 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - vitamin D - migraine
+2025-09-22 18:42:22,776 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - omega-3 - migraine
+2025-09-22 18:42:22,777 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - migraine
+2025-09-22 18:42:22,777 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - weight loss dietary plans - migraine
+2025-09-22 18:44:09,799 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Lactobacillus acidophilus DDS-1 - irritable bowel syndrome (IBS)
+2025-09-22 18:44:09,799 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium animalis subsp. lactis UABla-12 - irritable bowel syndrome (IBS)
+2025-09-22 18:45:06,563 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotic supplements - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:46:37,708 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - psychological therapies - inflammatory bowel disease (IBD)
+2025-09-22 18:46:37,710 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antidepressants - inflammatory bowel disease (IBD)
+2025-09-22 18:47:45,257 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - multispecies probiotic mixture - celiac disease with IBS-type symptoms
+2025-09-22 18:47:45,259 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - celiac disease with irritable bowel syndrome-type symptoms
+2025-09-22 18:49:37,656 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - diet low in fermentable oligosaccharides, disaccharides, monosaccharides, and polyols - IBS
+2025-09-22 18:49:37,662 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - IBS
+2025-09-22 18:49:37,665 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - IBS
+2025-09-22 18:49:37,666 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - diet low in fermentable oligosaccharides, disaccharides, monosaccharides, and polyols - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:49:37,666 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:49:37,666 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - Irritable Bowel Syndrome (IBS)
+2025-09-22 18:51:10,849 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 18:51:10,852 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - non-constipated IBS
+2025-09-22 18:51:10,853 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - non-constipated irritable bowel syndrome (IBS)
+2025-09-22 18:52:49,180 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - low FODMAP diet - irritable bowel syndrome (IBS)
+2025-09-22 18:52:49,180 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - multistrain probiotic formulation - irritable bowel syndrome (IBS)
+2025-09-22 18:54:09,163 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Bifidobacterium longum NCC3001 (BL) - depression
+2025-09-22 18:56:41,909 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antibiotics - SIBO
+2025-09-22 18:56:41,909 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - SIBO
+2025-09-22 18:56:41,909 - src.paper_collection.database_manager - INFO - Inserted intervention: test - glucose hydrogen breath test - SIBO
+2025-09-22 18:56:41,909 - src.paper_collection.database_manager - INFO - Inserted intervention: test - lactulose hydrogen breath test - SIBO
+2025-09-22 18:56:41,919 - src.paper_collection.database_manager - INFO - Inserted intervention: test - quantitative jejunal aspirate culture - SIBO
+2025-09-22 18:56:41,919 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 18:56:41,919 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antibiotics - irritable bowel syndrome (IBS)
+2025-09-22 18:59:05,757 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - IBS
+2025-09-22 18:59:05,757 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - neomycin - IBS
+2025-09-22 18:59:05,761 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - IBS
+2025-09-22 18:59:05,761 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 18:59:05,761 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antibiotics - irritable bowel syndrome (IBS)
+2025-09-22 18:59:05,761 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - neomycin - irritable bowel syndrome (IBS)
+2025-09-22 18:59:05,761 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - rifaximin - irritable bowel syndrome (IBS)
+2025-09-22 19:02:04,114 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - live bacteria - dysbiotic microbiota
+2025-09-22 19:02:04,114 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - substances that aim at increasing populations of bacteria - dysbiotic microbiota
+2025-09-22 19:02:04,114 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome
+2025-09-22 19:02:04,120 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - inflammatory bowel disease
+2025-09-22 19:02:04,120 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - necrotizing enterocolitis
+2025-09-22 19:02:04,120 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - atopic and allergic diseases
+2025-09-22 19:02:04,124 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - antibiotic-associated diarrhea
+2025-09-22 19:02:04,124 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - infectious diarrhea
+2025-09-22 19:05:12,241 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome (IBS)
+2025-09-22 19:05:12,241 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - chronic idiopathic constipation (CIC)
+2025-09-22 19:05:12,241 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - synbiotics - chronic idiopathic constipation (CIC)
+2025-09-22 19:05:12,247 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - prebiotics - irritable bowel syndrome (IBS)
+2025-09-22 19:05:12,247 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - prebiotics - chronic idiopathic constipation (CIC)
+2025-09-22 19:05:12,249 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - synbiotics - irritable bowel syndrome (IBS)
+2025-09-22 19:09:14,423 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - Dietary manipulations - IBS-D
+2025-09-22 19:09:14,425 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Probiotics - IBS-D
+2025-09-22 19:09:14,425 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Tricyclic agents - IBS-D
+2025-09-22 19:09:14,427 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Antibiotics - IBS-D
+2025-09-22 19:09:14,430 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Serotonin antagonists - IBS-D
+2025-09-22 19:09:14,431 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Anti-diarrhoeal agents - IBS-D
+2025-09-22 19:09:14,434 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - dietary manipulations - irritable bowel syndrome - diarrhea (IBS-D)
+2025-09-22 19:09:14,434 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - irritable bowel syndrome - diarrhea (IBS-D)
+2025-09-22 19:09:14,434 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - tricyclic agents - irritable bowel syndrome - diarrhea (IBS-D)
+2025-09-22 19:09:14,434 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antibiotics - irritable bowel syndrome - diarrhea (IBS-D)
+2025-09-22 19:09:14,441 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - serotonin antagonists - irritable bowel syndrome - diarrhea (IBS-D)
+2025-09-22 19:09:14,442 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - anti-diarrhoeal agents - irritable bowel syndrome - diarrhea (IBS-D)
+2025-09-22 19:13:01,617 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - proton pump inhibitors - GERD
+2025-09-22 19:13:01,618 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - Helicobacter pylori-infection eradication - peptic ulcer disease
+2025-09-22 19:13:01,618 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - melatonin - stress-induced lesions in the gastrointestinal tract
+2025-09-22 19:13:01,618 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - stress-induced disorders in both the upper and lower gastrointestinal tract
+2025-09-22 19:13:01,628 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - proton pump inhibitors - peptic ulcer disease
+2025-09-22 19:13:01,628 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - antibiotics - Helicobacter pylori-infection
+2025-09-22 19:13:01,628 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - probiotics - stress-induced disorders
+2025-09-22 19:13:01,632 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - dietary alterations - IBS
+2025-09-22 19:13:01,632 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - education and reassurance - IBS
+2025-09-22 19:13:01,632 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - effective patient-physician relationship - IBS
+2025-09-22 19:15:51,474 - src.paper_collection.database_manager - INFO - Inserted intervention: diet - dietary alterations - IBS
+2025-09-22 19:15:51,474 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - patient-centered care - IBS
+2025-09-22 19:16:54,085 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - progressive muscle relaxation - irritable bowel syndrome (IBS)
+2025-09-22 19:16:54,091 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - progressive muscle relaxation exercises - irritable bowel syndrome (IBS)
+2025-09-22 19:18:09,037 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 19:18:09,037 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 19:18:09,037 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 19:18:09,037 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 19:18:34,619 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 19:18:34,619 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 19:18:34,619 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 19:18:34,619 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 19:18:45,848 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 19:18:45,848 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 19:18:45,848 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 19:18:45,848 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 19:18:53,591 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 19:18:53,592 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 19:18:53,592 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 19:18:53,592 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 19:18:54,691 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: p.publication_year
+2025-09-22 19:19:03,846 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 19:19:03,846 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 19:19:03,846 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 19:19:03,846 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 19:19:44,968 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 19:19:44,968 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 19:19:44,968 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 19:19:44,968 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 19:19:46,028 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: i.condition
+2025-09-22 19:19:55,837 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 19:19:55,838 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 19:19:55,838 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 19:19:55,838 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 19:20:08,094 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 19:20:08,094 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 19:20:08,094 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 19:20:08,094 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 19:20:09,163 - src.paper_collection.database_manager - ERROR - Database connection error: no such column: i.evidence_type
+2025-09-22 19:20:40,145 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 19:20:40,145 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 19:20:40,145 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 19:20:40,145 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 19:21:03,511 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 19:21:03,511 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 19:21:03,511 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 19:21:03,512 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:26:44,989 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:26:44,989 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:26:44,989 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:26:44,989 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:27:00,075 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:27:00,076 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:27:00,076 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:27:00,076 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:27:13,046 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:27:13,046 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:27:13,046 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:27:13,046 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:27:35,704 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:27:35,704 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:27:35,704 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:27:35,704 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:27:55,541 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:27:55,545 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:27:55,545 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:27:55,545 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:29:21,186 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - secukinumab - enthesitis-related arthritis
+2025-09-22 20:30:47,332 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:30:47,333 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:30:47,333 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:30:47,333 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:31:00,430 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - repetitive transcranial magnetic stimulation (rTMS) - chronic neuropathic pain
+2025-09-22 20:31:00,430 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - repetitive transcranial magnetic stimulation (rTMS) - major depressive disorder
+2025-09-22 20:31:03,549 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:31:03,550 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:31:03,550 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:31:03,550 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:32:41,217 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - transcranial direct current stimulation (tDCS) - knee osteoarthritis
+2025-09-22 20:32:41,219 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - aquatic therapy - knee osteoarthritis
+2025-09-22 20:33:41,283 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:33:41,293 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:33:41,293 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:33:41,293 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:33:50,078 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - mobile message-based intervention - uncontrolled type 2 diabetes
+2025-09-22 20:33:50,079 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - mobile message-based intervention - uncontrolled type 2 diabetes with cardiovascular disease risk factors
+2025-09-22 20:38:21,977 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:38:21,978 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:38:21,978 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:38:21,978 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:39:47,382 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - nurse-led peer support intervention - psychological distress
+2025-09-22 20:39:47,382 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - standard care - psychological distress
+2025-09-22 20:39:47,382 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - nurse-led peer support intervention - acute myocardial infarction (AMI)
+2025-09-22 20:41:08,771 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - Gain Life intervention - depression
+2025-09-22 20:41:08,772 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Gain Life intervention - depression
+2025-09-22 20:41:21,979 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:41:21,980 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:41:21,980 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:41:21,980 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:42:06,637 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:42:06,639 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:42:06,640 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:42:06,640 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:42:20,857 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:42:20,857 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:42:20,857 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:42:20,857 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:43:17,024 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - social-media-based mental health interventions - anxiety
+2025-09-22 20:43:17,026 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - social-media-based mental health interventions - depression
+2025-09-22 20:43:17,027 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - social-media-based mental health interventions - stress
+2025-09-22 20:43:55,640 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:43:55,640 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:43:55,641 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:43:55,641 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:44:04,042 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:44:04,043 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:44:04,043 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:44:04,043 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:44:23,310 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:44:23,311 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:44:23,311 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:44:23,311 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:44:47,076 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:44:47,076 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:44:47,078 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:44:47,078 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:45:10,008 - src.paper_collection.database_manager - INFO - Database tables and indexes created successfully
+2025-09-22 20:45:10,008 - src.paper_collection.database_manager - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-22 20:45:10,008 - src.paper_collection.database_manager - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-22 20:45:10,008 - src.paper_collection.database_manager - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-22 20:46:40,720 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - testosterone therapy (TTh) - metabolic syndrome
+2025-09-22 20:49:01,589 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - transcranial direct current stimulation (tDCS) - mild knee osteoarthritis (KOA)
+2025-09-22 20:49:01,589 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - transcutaneous electrical nerve stimulation (TENS) - mild knee osteoarthritis (KOA)
+2025-09-22 20:49:01,597 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - transcutaneous electrical nerve stimulation (TENS) - mild knee osteoarthritis
+2025-09-22 20:49:01,599 - src.paper_collection.database_manager - INFO - Inserted intervention: emerging - transcranial direct current stimulation (tDCS) - mild knee osteoarthritis
+2025-09-22 20:49:57,198 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - mobile-based postpartum lifestyle intervention - prediabetes
+2025-09-22 20:49:57,200 - src.paper_collection.database_manager - INFO - Inserted intervention: lifestyle - mobile-based postpartum lifestyle intervention - prediabetes after gestational diabetes mellitus (GDM)
+2025-09-22 20:52:24,899 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - usual care with medication - diabetes and hypertension
+2025-09-22 21:01:49,526 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - acute neck pain
+2025-09-22 21:01:49,526 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - chronic non-specific low back pain
+2025-09-22 21:01:49,531 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - low back pain in pregnancy
+2025-09-22 21:01:49,532 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - chronic non-oncologic pain
+2025-09-22 21:01:49,532 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - premature infants
+2025-09-22 21:01:49,532 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - chronic neck pain
+2025-09-22 21:01:49,532 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - postpartum low back pain
+2025-09-22 21:01:49,537 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - migraine
+2025-09-22 21:01:49,538 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - irritable bowel syndrome
+2025-09-22 21:01:49,538 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - otitis media
+2025-09-22 21:01:49,538 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - acute non-specific low back pain
+2025-09-22 21:01:49,538 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - fibromyalgia
+2025-09-22 21:01:49,543 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - headaches of various causes
+2025-09-22 21:01:49,543 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - lower urinary tract symptoms
+2025-09-22 21:01:49,543 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - osteopathic treatment - cerebral palsy
+2025-09-22 21:03:04,102 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - physiotherapy - ankylosing spondylitis
+2025-09-22 21:07:35,078 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - placebo - symptomatic peripheral artery disease (PAD)
+2025-09-22 21:07:35,080 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - semaglutide - peripheral artery disease, type 2 diabetes
+2025-09-22 21:08:55,340 - src.paper_collection.database_manager - INFO - Inserted intervention: medication - baricitinib - rheumatoid arthritis
+2025-09-22 21:13:00,784 - src.paper_collection.database_manager - INFO - Inserted intervention: exercise - cardiac rehabilitation program - coronary heart disease
+2025-09-22 21:19:28,309 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - acceptance and commitment therapy (ACT) - irritable bowel syndrome
+2025-09-22 21:19:28,309 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - transdiagnostic treatment - irritable bowel syndrome
+2025-09-22 21:23:20,720 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Shuganjianpi Therapy (SGJP) - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 21:23:20,720 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Jianpi Therapy (JP) - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 21:23:20,720 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Shugan Therapy (SG) - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 21:23:20,728 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Jianpiwenshen Therapy (JPWS) - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 21:23:20,730 - src.paper_collection.database_manager - INFO - Inserted intervention: therapy - Shuganjianpiwenshen Therapy (SGJPWS) - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 21:23:20,730 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Shuganjianpi Therapy (SGJP) - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 21:23:20,732 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Jianpi Therapy (JP) - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 21:23:20,732 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Shugan Therapy (SG) - diarrhea-predominant irritable bowel syndrome (IBS-D)
+2025-09-22 21:23:20,734 - src.paper_collection.database_manager - INFO - Inserted intervention: supplement - Jianpiwenshen Therapy (JPWS) - diarrhea-predominant irritable bowel syndrome (IBS-D)

@@ -239,7 +239,7 @@ class InterventionValidator(BaseValidator):
     REQUIRED_FIELDS = ['intervention_category', 'intervention_name', 'health_condition', 'correlation_type']
     VALID_CATEGORIES = ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle', 'surgery', 'test', 'emerging']
     VALID_CORRELATION_TYPES = ['positive', 'negative', 'neutral', 'inconclusive']
-    VALID_DELIVERY_METHODS = ['oral', 'injection', 'topical', 'inhalation', 'behavioral', 'digital', 'surgical', 'intravenous', 'sublingual', 'rectal', 'transdermal']
+    VALID_DELIVERY_METHODS = ['oral', 'injection', 'topical', 'inhalation', 'behavioral', 'digital', 'surgical', 'intravenous', 'sublingual', 'rectal', 'transdermal', 'acupuncture', 'nasal', 'nasal spray', 'intranasal', 'enema', 'subcutaneous', 'intramuscular', 'needling', 'local application', 'neuromodulation', 'electrical stimulation', 'subcutaneous injection', 'acupuncture needles', 'blunt-tipped needles at non-acupoints', 'educational', 'supervised', 'counseling', 'oral capsules or colonoscopy']
     VALID_SEVERITY_LEVELS = ['mild', 'moderate', 'severe']
     VALID_COST_CATEGORIES = ['low', 'medium', 'high']
     
@@ -264,8 +264,8 @@ class InterventionValidator(BaseValidator):
             name = intervention_data['intervention_name']
             issues.extend(self.validate_string_length(name, 'intervention_name', min_length=2, max_length=200))
             
-            # Check for placeholder values
-            placeholder_patterns = ['...', 'intervention', 'treatment', 'therapy', 'unknown', 'n/a']
+            # Check for placeholder values - only reject obvious placeholders
+            placeholder_patterns = ['...', 'unknown', 'n/a', 'na', 'null', 'none']
             if any(placeholder in name.lower() for placeholder in placeholder_patterns):
                 issues.append(ValidationIssue(
                     field='intervention_name',

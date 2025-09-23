@@ -9,7 +9,7 @@ from src.interventions.taxonomy import InterventionType, intervention_taxonomy
 from src.data.validators import validation_manager, ValidationResult
 
 
-class CategoryCategoryValidationError(Exception):
+class CategoryValidationError(Exception):
     """Custom exception for category-specific intervention validation errors."""
     pass
 
@@ -27,8 +27,8 @@ class CategorySpecificValidator:
             '...', 'N/A', 'n/a', 'NA', 'na', 'null', 'NULL', 'none', 'None',
             'unknown', 'Unknown', 'UNKNOWN', 'placeholder', 'Placeholder', 'PLACEHOLDER',
             'TBD', 'tbd', 'TODO', 'todo', 'not specified', 'not available',
-            'various', 'multiple', 'several', 'different', 'mixed',
-            'intervention', 'treatment', 'therapy'  # Too generic
+            'various', 'multiple', 'several', 'different', 'mixed'
+            # Removed overly broad: 'intervention', 'treatment', 'therapy'
         }
     
     def validate_intervention(self, intervention_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -49,7 +49,7 @@ class CategorySpecificValidator:
 
         if not result.is_valid:
             error_messages = [f"{issue.field}: {issue.message}" for issue in result.errors]
-            raise CategoryCategoryValidationError(f"Intervention validation failed: {'; '.join(error_messages)}")
+            raise CategoryValidationError(f"Intervention validation failed: {'; '.join(error_messages)}")
 
         # Continue with category-specific validation using cleaned data
         validated_data = result.cleaned_data.copy()
@@ -93,29 +93,29 @@ class CategorySpecificValidator:
     def _validate_category(self, category_str: str) -> InterventionType:
         """Validate intervention category."""
         if not category_str or not isinstance(category_str, str):
-            raise CategoryCategoryValidationError("Intervention category is required")
+            raise CategoryValidationError("Intervention category is required")
         
         category_clean = category_str.strip().lower()
         
         try:
             return InterventionType(category_clean)
         except ValueError:
-            raise CategoryCategoryValidationError(f"Invalid intervention category: '{category_str}'")
+            raise CategoryValidationError(f"Invalid intervention category: '{category_str}'")
     
     def _validate_intervention_name(self, name: str, category: InterventionType) -> str:
         """Validate intervention name with category-specific rules."""
         if not name or not isinstance(name, str):
-            raise CategoryCategoryValidationError("Intervention name is required")
+            raise CategoryValidationError("Intervention name is required")
         
         name_clean = name.strip()
         
         # Check for placeholders
         if self._is_placeholder(name_clean):
-            raise CategoryCategoryValidationError(f"Intervention name appears to be a placeholder: '{name_clean}'")
+            raise CategoryValidationError(f"Intervention name appears to be a placeholder: '{name_clean}'")
         
         # Minimum length check
         if len(name_clean) < 3:
-            raise CategoryCategoryValidationError(f"Intervention name too short: '{name_clean}'")
+            raise CategoryValidationError(f"Intervention name too short: '{name_clean}'")
         
         # Category-specific validation
         self._validate_name_for_category(name_clean, category)
@@ -146,49 +146,51 @@ class CategorySpecificValidator:
         name_lower = name.lower()
         
         if category == InterventionType.EXERCISE:
-            # Should contain exercise-related terms
+            # Expanded exercise-related terms (more permissive)
             exercise_indicators = [
-                'exercise', 'training', 'activity', 'aerobic', 'resistance', 
+                'exercise', 'training', 'activity', 'aerobic', 'resistance',
                 'strength', 'cardio', 'yoga', 'pilates', 'walking', 'running',
-                'cycling', 'swimming', 'workout', 'fitness'
+                'cycling', 'swimming', 'workout', 'fitness', 'physical', 'movement',
+                'therapy', 'rehabilitation', 'stretching', 'balance', 'mobility'
             ]
             if not any(indicator in name_lower for indicator in exercise_indicators):
                 # Allow if it's a specific exercise name
                 specific_exercises = [
                     'hiit', 'crossfit', 'zumba', 'tai chi', 'qigong', 'dance',
-                    'boxing', 'martial arts', 'climbing', 'rowing'
+                    'boxing', 'martial arts', 'climbing', 'rowing', 'physiotherapy',
+                    'aquatic', 'balance', 'stretching', 'flexibility'
                 ]
                 if not any(exercise in name_lower for exercise in specific_exercises):
                     raise CategoryValidationError(f"Exercise intervention name should contain exercise-related terms: '{name}'")
         
         elif category == InterventionType.SUPPLEMENT:
-            # Should not be too generic
+            # Should not be too generic - only reject single word generic terms
             generic_supplement_terms = [
-                'supplement', 'supplementation', 'nutraceutical', 'pill', 'capsule'
+                'supplement', 'supplementation', 'pill', 'capsule'
             ]
             if name_lower in generic_supplement_terms:
                 raise CategoryValidationError(f"Supplement name too generic: '{name}'")
         
         elif category == InterventionType.MEDICATION:
-            # Should not be too generic
+            # Should not be too generic - only reject very generic single terms
             generic_med_terms = [
-                'medication', 'drug', 'medicine', 'pharmaceutical', 'pill'
+                'medication', 'drug', 'medicine', 'pill'
             ]
             if name_lower in generic_med_terms:
                 raise CategoryValidationError(f"Medication name too generic: '{name}'")
 
         elif category == InterventionType.SURGERY:
-            # Should not be too generic
+            # Should not be too generic - only reject very basic terms
             generic_surgery_terms = [
-                'surgery', 'operation', 'procedure', 'surgical'
+                'surgery', 'operation'
             ]
             if name_lower in generic_surgery_terms:
                 raise CategoryValidationError(f"Surgery name too generic: '{name}'")
 
         elif category == InterventionType.TEST:
-            # Should not be too generic
+            # Should not be too generic - only reject very basic terms
             generic_test_terms = [
-                'test', 'testing', 'diagnostic', 'diagnosis', 'screening'
+                'test', 'testing'
             ]
             if name_lower in generic_test_terms:
                 raise CategoryValidationError(f"Test name too generic: '{name}'")

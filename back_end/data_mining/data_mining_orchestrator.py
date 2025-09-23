@@ -345,26 +345,26 @@ class DataMiningOrchestrator:
                     # Filter by specific conditions
                     placeholders = ','.join(['?' for _ in self.config.conditions])
                     query = f"""
-                    SELECT DISTINCT p.pmid, p.title, p.publication_year,
-                           i.intervention_name, i.condition, i.evidence_type,
+                    SELECT DISTINCT p.pmid, p.title, substr(p.publication_date, 1, 4),
+                           i.intervention_name, i.health_condition, i.evidence_type,
                            i.confidence_score, i.sample_size, i.study_design
                     FROM papers p
                     JOIN interventions i ON p.id = i.paper_id
-                    WHERE i.condition IN ({placeholders})
-                    AND p.publication_year >= ?
-                    ORDER BY p.publication_year DESC
+                    WHERE i.health_condition IN ({placeholders})
+                    AND substr(p.publication_date, 1, 4) >= ?
+                    ORDER BY CAST(substr(p.publication_date, 1, 4) AS INTEGER) DESC
                     """
                     params = list(self.config.conditions) + [self.config.min_year]
                 else:
                     # Get all data
                     query = """
-                    SELECT DISTINCT p.pmid, p.title, p.publication_year,
-                           i.intervention_name, i.condition, i.evidence_type,
+                    SELECT DISTINCT p.pmid, p.title, substr(p.publication_date, 1, 4),
+                           i.intervention_name, i.health_condition, i.evidence_type,
                            i.confidence_score, i.sample_size, i.study_design
                     FROM papers p
                     JOIN interventions i ON p.id = i.paper_id
-                    WHERE p.publication_year >= ?
-                    ORDER BY p.publication_year DESC
+                    WHERE CAST(substr(p.publication_date, 1, 4) AS INTEGER) >= ?
+                    ORDER BY CAST(substr(p.publication_date, 1, 4) AS INTEGER) DESC
                     """
                     params = [self.config.min_year]
 
