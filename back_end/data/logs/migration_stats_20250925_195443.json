@@ -1,0 +1,4369 @@
+{
+  "total_records": 871,
+  "processed_records": 871,
+  "successful_normalizations": 0,
+  "failed_normalizations": 871,
+  "intervention_mappings": 0,
+  "condition_mappings": 0,
+  "new_canonicals_created": 0,
+  "start_time": "2025-09-25T19:54:34.924548",
+  "end_time": "2025-09-25T19:54:43.805148",
+  "batches_processed": 9,
+  "errors": [
+    {
+      "record_id": 17,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:34.939826"
+    },
+    {
+      "record_id": 18,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:34.949863"
+    },
+    {
+      "record_id": 19,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:34.959634"
+    },
+    {
+      "record_id": 20,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:34.968937"
+    },
+    {
+      "record_id": 21,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:34.977068"
+    },
+    {
+      "record_id": 22,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:34.987094"
+    },
+    {
+      "record_id": 23,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:34.998258"
+    },
+    {
+      "record_id": 24,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.006258"
+    },
+    {
+      "record_id": 25,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.015035"
+    },
+    {
+      "record_id": 26,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.024035"
+    },
+    {
+      "record_id": 27,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.033073"
+    },
+    {
+      "record_id": 28,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.041091"
+    },
+    {
+      "record_id": 29,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.051175"
+    },
+    {
+      "record_id": 30,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.060666"
+    },
+    {
+      "record_id": 31,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.068690"
+    },
+    {
+      "record_id": 32,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.077816"
+    },
+    {
+      "record_id": 33,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.086868"
+    },
+    {
+      "record_id": 34,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.097753"
+    },
+    {
+      "record_id": 36,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.105771"
+    },
+    {
+      "record_id": 37,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.114290"
+    },
+    {
+      "record_id": 38,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.122313"
+    },
+    {
+      "record_id": 39,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.131651"
+    },
+    {
+      "record_id": 40,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.139713"
+    },
+    {
+      "record_id": 41,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.149853"
+    },
+    {
+      "record_id": 42,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:35.157871"
+    },
+    {
+      "record_id": 43,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.166830"
+    },
+    {
+      "record_id": 44,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.174847"
+    },
+    {
+      "record_id": 45,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.184982"
+    },
+    {
+      "record_id": 46,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.194194"
+    },
+    {
+      "record_id": 47,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.202193"
+    },
+    {
+      "record_id": 48,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.211833"
+    },
+    {
+      "record_id": 49,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.219830"
+    },
+    {
+      "record_id": 50,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.226831"
+    },
+    {
+      "record_id": 51,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.234879"
+    },
+    {
+      "record_id": 52,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.244646"
+    },
+    {
+      "record_id": 53,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.252664"
+    },
+    {
+      "record_id": 54,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.263379"
+    },
+    {
+      "record_id": 55,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.271378"
+    },
+    {
+      "record_id": 56,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.281440"
+    },
+    {
+      "record_id": 57,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.291483"
+    },
+    {
+      "record_id": 58,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.299261"
+    },
+    {
+      "record_id": 59,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.309029"
+    },
+    {
+      "record_id": 60,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.317161"
+    },
+    {
+      "record_id": 61,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.326316"
+    },
+    {
+      "record_id": 62,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.335267"
+    },
+    {
+      "record_id": 63,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.344092"
+    },
+    {
+      "record_id": 64,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.352092"
+    },
+    {
+      "record_id": 65,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.360552"
+    },
+    {
+      "record_id": 66,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.369823"
+    },
+    {
+      "record_id": 67,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.378328"
+    },
+    {
+      "record_id": 68,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.386328"
+    },
+    {
+      "record_id": 69,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.395178"
+    },
+    {
+      "record_id": 70,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.403178"
+    },
+    {
+      "record_id": 71,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.412142"
+    },
+    {
+      "record_id": 72,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.419187"
+    },
+    {
+      "record_id": 73,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.431116"
+    },
+    {
+      "record_id": 74,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.439133"
+    },
+    {
+      "record_id": 75,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.449167"
+    },
+    {
+      "record_id": 76,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.457167"
+    },
+    {
+      "record_id": 77,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.466474"
+    },
+    {
+      "record_id": 78,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.474493"
+    },
+    {
+      "record_id": 79,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.485021"
+    },
+    {
+      "record_id": 80,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.495728"
+    },
+    {
+      "record_id": 81,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.504784"
+    },
+    {
+      "record_id": 82,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.514859"
+    },
+    {
+      "record_id": 83,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.524876"
+    },
+    {
+      "record_id": 84,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.533303"
+    },
+    {
+      "record_id": 85,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.541323"
+    },
+    {
+      "record_id": 86,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.553667"
+    },
+    {
+      "record_id": 87,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.561846"
+    },
+    {
+      "record_id": 88,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.570847"
+    },
+    {
+      "record_id": 89,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.579910"
+    },
+    {
+      "record_id": 90,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.587964"
+    },
+    {
+      "record_id": 91,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:35.596182"
+    },
+    {
+      "record_id": 92,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.605181"
+    },
+    {
+      "record_id": 93,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.613761"
+    },
+    {
+      "record_id": 94,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.621761"
+    },
+    {
+      "record_id": 95,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.631327"
+    },
+    {
+      "record_id": 96,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.639326"
+    },
+    {
+      "record_id": 97,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.647368"
+    },
+    {
+      "record_id": 98,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.655385"
+    },
+    {
+      "record_id": 99,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.663144"
+    },
+    {
+      "record_id": 100,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.671162"
+    },
+    {
+      "record_id": 101,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.683104"
+    },
+    {
+      "record_id": 102,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.696093"
+    },
+    {
+      "record_id": 103,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.704136"
+    },
+    {
+      "record_id": 104,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.714304"
+    },
+    {
+      "record_id": 105,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.722323"
+    },
+    {
+      "record_id": 106,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.732538"
+    },
+    {
+      "record_id": 107,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.740556"
+    },
+    {
+      "record_id": 108,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.750715"
+    },
+    {
+      "record_id": 109,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.758734"
+    },
+    {
+      "record_id": 110,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.768181"
+    },
+    {
+      "record_id": 111,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.778298"
+    },
+    {
+      "record_id": 112,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.786298"
+    },
+    {
+      "record_id": 113,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.795804"
+    },
+    {
+      "record_id": 114,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.803863"
+    },
+    {
+      "record_id": 115,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.814764"
+    },
+    {
+      "record_id": 116,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.822764"
+    },
+    {
+      "record_id": 117,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.831339"
+    },
+    {
+      "record_id": 118,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.952364"
+    },
+    {
+      "record_id": 119,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.962335"
+    },
+    {
+      "record_id": 120,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.970362"
+    },
+    {
+      "record_id": 121,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.980806"
+    },
+    {
+      "record_id": 122,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.989889"
+    },
+    {
+      "record_id": 123,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:35.999512"
+    },
+    {
+      "record_id": 124,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.008543"
+    },
+    {
+      "record_id": 125,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.017434"
+    },
+    {
+      "record_id": 126,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.026795"
+    },
+    {
+      "record_id": 127,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.033879"
+    },
+    {
+      "record_id": 128,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.043878"
+    },
+    {
+      "record_id": 129,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.051876"
+    },
+    {
+      "record_id": 130,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.060591"
+    },
+    {
+      "record_id": 131,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.068590"
+    },
+    {
+      "record_id": 132,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.077485"
+    },
+    {
+      "record_id": 133,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.086585"
+    },
+    {
+      "record_id": 134,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.095294"
+    },
+    {
+      "record_id": 135,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.103315"
+    },
+    {
+      "record_id": 136,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.112435"
+    },
+    {
+      "record_id": 137,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.121434"
+    },
+    {
+      "record_id": 138,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.130923"
+    },
+    {
+      "record_id": 139,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.140992"
+    },
+    {
+      "record_id": 140,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.149036"
+    },
+    {
+      "record_id": 141,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.157053"
+    },
+    {
+      "record_id": 142,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.167391"
+    },
+    {
+      "record_id": 143,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.177859"
+    },
+    {
+      "record_id": 144,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:36.185859"
+    },
+    {
+      "record_id": 145,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.195481"
+    },
+    {
+      "record_id": 146,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.203499"
+    },
+    {
+      "record_id": 147,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.214157"
+    },
+    {
+      "record_id": 148,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.222174"
+    },
+    {
+      "record_id": 149,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.235185"
+    },
+    {
+      "record_id": 150,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.243368"
+    },
+    {
+      "record_id": 151,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.253394"
+    },
+    {
+      "record_id": 152,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.262556"
+    },
+    {
+      "record_id": 153,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.270598"
+    },
+    {
+      "record_id": 154,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.280680"
+    },
+    {
+      "record_id": 155,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.288699"
+    },
+    {
+      "record_id": 156,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.297674"
+    },
+    {
+      "record_id": 157,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.305673"
+    },
+    {
+      "record_id": 158,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.316086"
+    },
+    {
+      "record_id": 159,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.324105"
+    },
+    {
+      "record_id": 160,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.336177"
+    },
+    {
+      "record_id": 161,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.346703"
+    },
+    {
+      "record_id": 162,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.354699"
+    },
+    {
+      "record_id": 163,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.365480"
+    },
+    {
+      "record_id": 164,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.373481"
+    },
+    {
+      "record_id": 165,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:36.382550"
+    },
+    {
+      "record_id": 166,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.390568"
+    },
+    {
+      "record_id": 167,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.402532"
+    },
+    {
+      "record_id": 168,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.411763"
+    },
+    {
+      "record_id": 169,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.419783"
+    },
+    {
+      "record_id": 170,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.430010"
+    },
+    {
+      "record_id": 171,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.438011"
+    },
+    {
+      "record_id": 172,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.447818"
+    },
+    {
+      "record_id": 173,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.455819"
+    },
+    {
+      "record_id": 174,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.468779"
+    },
+    {
+      "record_id": 175,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.476640"
+    },
+    {
+      "record_id": 176,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.484663"
+    },
+    {
+      "record_id": 177,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.496721"
+    },
+    {
+      "record_id": 178,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.504721"
+    },
+    {
+      "record_id": 179,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.514079"
+    },
+    {
+      "record_id": 180,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.522140"
+    },
+    {
+      "record_id": 181,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.534184"
+    },
+    {
+      "record_id": 182,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.542598"
+    },
+    {
+      "record_id": 183,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.550732"
+    },
+    {
+      "record_id": 184,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.559422"
+    },
+    {
+      "record_id": 185,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.568470"
+    },
+    {
+      "record_id": 186,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.576470"
+    },
+    {
+      "record_id": 187,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.584520"
+    },
+    {
+      "record_id": 188,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.595355"
+    },
+    {
+      "record_id": 189,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:36.602413"
+    },
+    {
+      "record_id": 190,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.611335"
+    },
+    {
+      "record_id": 191,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.620335"
+    },
+    {
+      "record_id": 192,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.629081"
+    },
+    {
+      "record_id": 193,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.637079"
+    },
+    {
+      "record_id": 194,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.647631"
+    },
+    {
+      "record_id": 195,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.655691"
+    },
+    {
+      "record_id": 196,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.667911"
+    },
+    {
+      "record_id": 197,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.675871"
+    },
+    {
+      "record_id": 198,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.686878"
+    },
+    {
+      "record_id": 199,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.696701"
+    },
+    {
+      "record_id": 200,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.705744"
+    },
+    {
+      "record_id": 201,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.713348"
+    },
+    {
+      "record_id": 202,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.721365"
+    },
+    {
+      "record_id": 203,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.731831"
+    },
+    {
+      "record_id": 204,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.739831"
+    },
+    {
+      "record_id": 205,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.750300"
+    },
+    {
+      "record_id": 206,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:36.759563"
+    },
+    {
+      "record_id": 207,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.767743"
+    },
+    {
+      "record_id": 208,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.776369"
+    },
+    {
+      "record_id": 209,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.786397"
+    },
+    {
+      "record_id": 211,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.794632"
+    },
+    {
+      "record_id": 212,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.802631"
+    },
+    {
+      "record_id": 213,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.814543"
+    },
+    {
+      "record_id": 214,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.822589"
+    },
+    {
+      "record_id": 215,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.834005"
+    },
+    {
+      "record_id": 216,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:36.843373"
+    },
+    {
+      "record_id": 217,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:36.851669"
+    },
+    {
+      "record_id": 218,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:36.861922"
+    },
+    {
+      "record_id": 219,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:36.984349"
+    },
+    {
+      "record_id": 220,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:36.995850"
+    },
+    {
+      "record_id": 221,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:37.004893"
+    },
+    {
+      "record_id": 222,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.016056"
+    },
+    {
+      "record_id": 223,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.026066"
+    },
+    {
+      "record_id": 224,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.034013"
+    },
+    {
+      "record_id": 225,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.043039"
+    },
+    {
+      "record_id": 226,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.051063"
+    },
+    {
+      "record_id": 227,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.060094"
+    },
+    {
+      "record_id": 228,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.069094"
+    },
+    {
+      "record_id": 229,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.079514"
+    },
+    {
+      "record_id": 230,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.087578"
+    },
+    {
+      "record_id": 231,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.096526"
+    },
+    {
+      "record_id": 232,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.105526"
+    },
+    {
+      "record_id": 233,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.116216"
+    },
+    {
+      "record_id": 234,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.126591"
+    },
+    {
+      "record_id": 235,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.134930"
+    },
+    {
+      "record_id": 236,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.145340"
+    },
+    {
+      "record_id": 237,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.154383"
+    },
+    {
+      "record_id": 238,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.163175"
+    },
+    {
+      "record_id": 239,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.171244"
+    },
+    {
+      "record_id": 240,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.180472"
+    },
+    {
+      "record_id": 241,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.190498"
+    },
+    {
+      "record_id": 242,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.201713"
+    },
+    {
+      "record_id": 243,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.209586"
+    },
+    {
+      "record_id": 244,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.219617"
+    },
+    {
+      "record_id": 245,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.230879"
+    },
+    {
+      "record_id": 246,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.238879"
+    },
+    {
+      "record_id": 247,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.249221"
+    },
+    {
+      "record_id": 248,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.257242"
+    },
+    {
+      "record_id": 250,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.267325"
+    },
+    {
+      "record_id": 251,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.275325"
+    },
+    {
+      "record_id": 252,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:37.284000"
+    },
+    {
+      "record_id": 253,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.292892"
+    },
+    {
+      "record_id": 254,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.301920"
+    },
+    {
+      "record_id": 255,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.309300"
+    },
+    {
+      "record_id": 256,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.318100"
+    },
+    {
+      "record_id": 257,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.326196"
+    },
+    {
+      "record_id": 258,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.336224"
+    },
+    {
+      "record_id": 259,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.347418"
+    },
+    {
+      "record_id": 260,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.355414"
+    },
+    {
+      "record_id": 261,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.365642"
+    },
+    {
+      "record_id": 262,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.373664"
+    },
+    {
+      "record_id": 263,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.381879"
+    },
+    {
+      "record_id": 264,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.390879"
+    },
+    {
+      "record_id": 265,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.398962"
+    },
+    {
+      "record_id": 266,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.408982"
+    },
+    {
+      "record_id": 267,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:37.417235"
+    },
+    {
+      "record_id": 268,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.426612"
+    },
+    {
+      "record_id": 269,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.438222"
+    },
+    {
+      "record_id": 270,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.447483"
+    },
+    {
+      "record_id": 271,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.457520"
+    },
+    {
+      "record_id": 272,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.468096"
+    },
+    {
+      "record_id": 273,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.476456"
+    },
+    {
+      "record_id": 274,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.484498"
+    },
+    {
+      "record_id": 275,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.494317"
+    },
+    {
+      "record_id": 276,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.503315"
+    },
+    {
+      "record_id": 277,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.512153"
+    },
+    {
+      "record_id": 278,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.522223"
+    },
+    {
+      "record_id": 279,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.531661"
+    },
+    {
+      "record_id": 280,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.540867"
+    },
+    {
+      "record_id": 281,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.549445"
+    },
+    {
+      "record_id": 282,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.558444"
+    },
+    {
+      "record_id": 283,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.565481"
+    },
+    {
+      "record_id": 284,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.575248"
+    },
+    {
+      "record_id": 285,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.583271"
+    },
+    {
+      "record_id": 286,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.591030"
+    },
+    {
+      "record_id": 287,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.601054"
+    },
+    {
+      "record_id": 288,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.612601"
+    },
+    {
+      "record_id": 289,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.620645"
+    },
+    {
+      "record_id": 290,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.630556"
+    },
+    {
+      "record_id": 291,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.639556"
+    },
+    {
+      "record_id": 292,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.647371"
+    },
+    {
+      "record_id": 293,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.655370"
+    },
+    {
+      "record_id": 294,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.663409"
+    },
+    {
+      "record_id": 295,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.671428"
+    },
+    {
+      "record_id": 296,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.683206"
+    },
+    {
+      "record_id": 297,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.690967"
+    },
+    {
+      "record_id": 298,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.699966"
+    },
+    {
+      "record_id": 299,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.707968"
+    },
+    {
+      "record_id": 300,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.716020"
+    },
+    {
+      "record_id": 301,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.724039"
+    },
+    {
+      "record_id": 302,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.735798"
+    },
+    {
+      "record_id": 303,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.746724"
+    },
+    {
+      "record_id": 304,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.755796"
+    },
+    {
+      "record_id": 305,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.763464"
+    },
+    {
+      "record_id": 306,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.771482"
+    },
+    {
+      "record_id": 307,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.780481"
+    },
+    {
+      "record_id": 308,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.789480"
+    },
+    {
+      "record_id": 309,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.798207"
+    },
+    {
+      "record_id": 310,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.806228"
+    },
+    {
+      "record_id": 311,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.815861"
+    },
+    {
+      "record_id": 312,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.823862"
+    },
+    {
+      "record_id": 313,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.833790"
+    },
+    {
+      "record_id": 314,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.842124"
+    },
+    {
+      "record_id": 315,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.850818"
+    },
+    {
+      "record_id": 316,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.858826"
+    },
+    {
+      "record_id": 317,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.866911"
+    },
+    {
+      "record_id": 318,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.876368"
+    },
+    {
+      "record_id": 319,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:37.884464"
+    },
+    {
+      "record_id": 320,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.000524"
+    },
+    {
+      "record_id": 321,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.010845"
+    },
+    {
+      "record_id": 322,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.018888"
+    },
+    {
+      "record_id": 323,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.028347"
+    },
+    {
+      "record_id": 324,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.038376"
+    },
+    {
+      "record_id": 325,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.047243"
+    },
+    {
+      "record_id": 326,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.055314"
+    },
+    {
+      "record_id": 327,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.065409"
+    },
+    {
+      "record_id": 328,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.073431"
+    },
+    {
+      "record_id": 329,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.082467"
+    },
+    {
+      "record_id": 330,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.092064"
+    },
+    {
+      "record_id": 331,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.102274"
+    },
+    {
+      "record_id": 333,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.111803"
+    },
+    {
+      "record_id": 334,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.120865"
+    },
+    {
+      "record_id": 335,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.130087"
+    },
+    {
+      "record_id": 336,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.141128"
+    },
+    {
+      "record_id": 337,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.149088"
+    },
+    {
+      "record_id": 338,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.160617"
+    },
+    {
+      "record_id": 339,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:38.168678"
+    },
+    {
+      "record_id": 340,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.179385"
+    },
+    {
+      "record_id": 341,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.187384"
+    },
+    {
+      "record_id": 342,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:38.195241"
+    },
+    {
+      "record_id": 343,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.204238"
+    },
+    {
+      "record_id": 344,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.212098"
+    },
+    {
+      "record_id": 345,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.220147"
+    },
+    {
+      "record_id": 346,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:38.229985"
+    },
+    {
+      "record_id": 347,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.240010"
+    },
+    {
+      "record_id": 348,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.248135"
+    },
+    {
+      "record_id": 349,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.256136"
+    },
+    {
+      "record_id": 350,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.264875"
+    },
+    {
+      "record_id": 351,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:38.272875"
+    },
+    {
+      "record_id": 352,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.282026"
+    },
+    {
+      "record_id": 353,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.291791"
+    },
+    {
+      "record_id": 354,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.300642"
+    },
+    {
+      "record_id": 355,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.309279"
+    },
+    {
+      "record_id": 356,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.317887"
+    },
+    {
+      "record_id": 357,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.327279"
+    },
+    {
+      "record_id": 358,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.336333"
+    },
+    {
+      "record_id": 359,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.346941"
+    },
+    {
+      "record_id": 360,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.353996"
+    },
+    {
+      "record_id": 361,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.363475"
+    },
+    {
+      "record_id": 362,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.371494"
+    },
+    {
+      "record_id": 363,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.381338"
+    },
+    {
+      "record_id": 364,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.389395"
+    },
+    {
+      "record_id": 365,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.399191"
+    },
+    {
+      "record_id": 366,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.407211"
+    },
+    {
+      "record_id": 367,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:38.415277"
+    },
+    {
+      "record_id": 368,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.425294"
+    },
+    {
+      "record_id": 369,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:38.432915"
+    },
+    {
+      "record_id": 370,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.440915"
+    },
+    {
+      "record_id": 371,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:38.450060"
+    },
+    {
+      "record_id": 372,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.461106"
+    },
+    {
+      "record_id": 373,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.469125"
+    },
+    {
+      "record_id": 374,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.477936"
+    },
+    {
+      "record_id": 375,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.488002"
+    },
+    {
+      "record_id": 376,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.495947"
+    },
+    {
+      "record_id": 377,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.504947"
+    },
+    {
+      "record_id": 378,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:38.514784"
+    },
+    {
+      "record_id": 379,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.523784"
+    },
+    {
+      "record_id": 380,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.532919"
+    },
+    {
+      "record_id": 381,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.540941"
+    },
+    {
+      "record_id": 382,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.548469"
+    },
+    {
+      "record_id": 383,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.558575"
+    },
+    {
+      "record_id": 384,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.571582"
+    },
+    {
+      "record_id": 385,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:38.580030"
+    },
+    {
+      "record_id": 386,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:38.588076"
+    },
+    {
+      "record_id": 387,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.597007"
+    },
+    {
+      "record_id": 388,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.606005"
+    },
+    {
+      "record_id": 389,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.613742"
+    },
+    {
+      "record_id": 390,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.622742"
+    },
+    {
+      "record_id": 391,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.629794"
+    },
+    {
+      "record_id": 392,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.641582"
+    },
+    {
+      "record_id": 393,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.649609"
+    },
+    {
+      "record_id": 394,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.659376"
+    },
+    {
+      "record_id": 395,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.667396"
+    },
+    {
+      "record_id": 396,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.679189"
+    },
+    {
+      "record_id": 397,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.689255"
+    },
+    {
+      "record_id": 398,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.699129"
+    },
+    {
+      "record_id": 399,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.707647"
+    },
+    {
+      "record_id": 400,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.716076"
+    },
+    {
+      "record_id": 401,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.725187"
+    },
+    {
+      "record_id": 402,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.733448"
+    },
+    {
+      "record_id": 403,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.744988"
+    },
+    {
+      "record_id": 404,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.753814"
+    },
+    {
+      "record_id": 405,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:38.763054"
+    },
+    {
+      "record_id": 406,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.771073"
+    },
+    {
+      "record_id": 407,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.782724"
+    },
+    {
+      "record_id": 408,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.790739"
+    },
+    {
+      "record_id": 409,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.798443"
+    },
+    {
+      "record_id": 410,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:38.809374"
+    },
+    {
+      "record_id": 411,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.817683"
+    },
+    {
+      "record_id": 412,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.825660"
+    },
+    {
+      "record_id": 413,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.833685"
+    },
+    {
+      "record_id": 414,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.842843"
+    },
+    {
+      "record_id": 415,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.853845"
+    },
+    {
+      "record_id": 416,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.862173"
+    },
+    {
+      "record_id": 417,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.869235"
+    },
+    {
+      "record_id": 418,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.879319"
+    },
+    {
+      "record_id": 419,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.887337"
+    },
+    {
+      "record_id": 420,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:38.898279"
+    },
+    {
+      "record_id": 421,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.015547"
+    },
+    {
+      "record_id": 422,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.026821"
+    },
+    {
+      "record_id": 423,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.035875"
+    },
+    {
+      "record_id": 424,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.045838"
+    },
+    {
+      "record_id": 425,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:39.053916"
+    },
+    {
+      "record_id": 426,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.063199"
+    },
+    {
+      "record_id": 427,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.071219"
+    },
+    {
+      "record_id": 428,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.081264"
+    },
+    {
+      "record_id": 429,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.091031"
+    },
+    {
+      "record_id": 430,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:39.097923"
+    },
+    {
+      "record_id": 431,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.107689"
+    },
+    {
+      "record_id": 432,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.116406"
+    },
+    {
+      "record_id": 433,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.125072"
+    },
+    {
+      "record_id": 434,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.133641"
+    },
+    {
+      "record_id": 435,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.142955"
+    },
+    {
+      "record_id": 436,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.151021"
+    },
+    {
+      "record_id": 437,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.163022"
+    },
+    {
+      "record_id": 438,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.171043"
+    },
+    {
+      "record_id": 439,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.180290"
+    },
+    {
+      "record_id": 440,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.188357"
+    },
+    {
+      "record_id": 441,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.198392"
+    },
+    {
+      "record_id": 442,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.207415"
+    },
+    {
+      "record_id": 443,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.216358"
+    },
+    {
+      "record_id": 444,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.226161"
+    },
+    {
+      "record_id": 445,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.236161"
+    },
+    {
+      "record_id": 446,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.244798"
+    },
+    {
+      "record_id": 447,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.252841"
+    },
+    {
+      "record_id": 448,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.260876"
+    },
+    {
+      "record_id": 449,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.268895"
+    },
+    {
+      "record_id": 450,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.279062"
+    },
+    {
+      "record_id": 451,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.287061"
+    },
+    {
+      "record_id": 452,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.298544"
+    },
+    {
+      "record_id": 453,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.306563"
+    },
+    {
+      "record_id": 454,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.315108"
+    },
+    {
+      "record_id": 455,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.325007"
+    },
+    {
+      "record_id": 456,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.333014"
+    },
+    {
+      "record_id": 457,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.341770"
+    },
+    {
+      "record_id": 458,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.350818"
+    },
+    {
+      "record_id": 459,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.358819"
+    },
+    {
+      "record_id": 460,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.366873"
+    },
+    {
+      "record_id": 461,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.378650"
+    },
+    {
+      "record_id": 462,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.386670"
+    },
+    {
+      "record_id": 463,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.397273"
+    },
+    {
+      "record_id": 464,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.405271"
+    },
+    {
+      "record_id": 465,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.414698"
+    },
+    {
+      "record_id": 466,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.424723"
+    },
+    {
+      "record_id": 467,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.433382"
+    },
+    {
+      "record_id": 468,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.444427"
+    },
+    {
+      "record_id": 469,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.453478"
+    },
+    {
+      "record_id": 470,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.463292"
+    },
+    {
+      "record_id": 471,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.471307"
+    },
+    {
+      "record_id": 472,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.481481"
+    },
+    {
+      "record_id": 473,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.489503"
+    },
+    {
+      "record_id": 474,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.498706"
+    },
+    {
+      "record_id": 475,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.506705"
+    },
+    {
+      "record_id": 476,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.517061"
+    },
+    {
+      "record_id": 477,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.527104"
+    },
+    {
+      "record_id": 479,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.536103"
+    },
+    {
+      "record_id": 480,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.545853"
+    },
+    {
+      "record_id": 481,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.553853"
+    },
+    {
+      "record_id": 482,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:39.562897"
+    },
+    {
+      "record_id": 483,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.570916"
+    },
+    {
+      "record_id": 484,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.580684"
+    },
+    {
+      "record_id": 485,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.588704"
+    },
+    {
+      "record_id": 486,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.598468"
+    },
+    {
+      "record_id": 487,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.607854"
+    },
+    {
+      "record_id": 488,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.618188"
+    },
+    {
+      "record_id": 489,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.626004"
+    },
+    {
+      "record_id": 490,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.635003"
+    },
+    {
+      "record_id": 491,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.643716"
+    },
+    {
+      "record_id": 492,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.653715"
+    },
+    {
+      "record_id": 493,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.660753"
+    },
+    {
+      "record_id": 494,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.668771"
+    },
+    {
+      "record_id": 495,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.678539"
+    },
+    {
+      "record_id": 496,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.686557"
+    },
+    {
+      "record_id": 497,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.696323"
+    },
+    {
+      "record_id": 498,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.704341"
+    },
+    {
+      "record_id": 499,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.714212"
+    },
+    {
+      "record_id": 500,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.722233"
+    },
+    {
+      "record_id": 501,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.731913"
+    },
+    {
+      "record_id": 502,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.739913"
+    },
+    {
+      "record_id": 503,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.748673"
+    },
+    {
+      "record_id": 505,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.758679"
+    },
+    {
+      "record_id": 506,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.766745"
+    },
+    {
+      "record_id": 507,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.777669"
+    },
+    {
+      "record_id": 508,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.784712"
+    },
+    {
+      "record_id": 509,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:39.794498"
+    },
+    {
+      "record_id": 510,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.802499"
+    },
+    {
+      "record_id": 511,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.812325"
+    },
+    {
+      "record_id": 512,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:39.821322"
+    },
+    {
+      "record_id": 513,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.829512"
+    },
+    {
+      "record_id": 514,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.839538"
+    },
+    {
+      "record_id": 515,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.849467"
+    },
+    {
+      "record_id": 516,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.858139"
+    },
+    {
+      "record_id": 517,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.867715"
+    },
+    {
+      "record_id": 518,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:39.875669"
+    },
+    {
+      "record_id": 519,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.883695"
+    },
+    {
+      "record_id": 520,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:39.893439"
+    },
+    {
+      "record_id": 521,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.902505"
+    },
+    {
+      "record_id": 522,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:39.910877"
+    },
+    {
+      "record_id": 523,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:40.034027"
+    },
+    {
+      "record_id": 524,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.042158"
+    },
+    {
+      "record_id": 525,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.054203"
+    },
+    {
+      "record_id": 526,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.063075"
+    },
+    {
+      "record_id": 527,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.071073"
+    },
+    {
+      "record_id": 528,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:40.079490"
+    },
+    {
+      "record_id": 529,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.087564"
+    },
+    {
+      "record_id": 530,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:40.097481"
+    },
+    {
+      "record_id": 531,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:40.105480"
+    },
+    {
+      "record_id": 532,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.114213"
+    },
+    {
+      "record_id": 533,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.122222"
+    },
+    {
+      "record_id": 535,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.131291"
+    },
+    {
+      "record_id": 536,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.140989"
+    },
+    {
+      "record_id": 537,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.149355"
+    },
+    {
+      "record_id": 538,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.159037"
+    },
+    {
+      "record_id": 539,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:40.167037"
+    },
+    {
+      "record_id": 540,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.174819"
+    },
+    {
+      "record_id": 541,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.183883"
+    },
+    {
+      "record_id": 542,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.194523"
+    },
+    {
+      "record_id": 543,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.201577"
+    },
+    {
+      "record_id": 544,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.212695"
+    },
+    {
+      "record_id": 545,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.220715"
+    },
+    {
+      "record_id": 546,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.230764"
+    },
+    {
+      "record_id": 547,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.238765"
+    },
+    {
+      "record_id": 548,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.249301"
+    },
+    {
+      "record_id": 549,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.257992"
+    },
+    {
+      "record_id": 550,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.266173"
+    },
+    {
+      "record_id": 551,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.276745"
+    },
+    {
+      "record_id": 552,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:40.285744"
+    },
+    {
+      "record_id": 553,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.295093"
+    },
+    {
+      "record_id": 554,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.304140"
+    },
+    {
+      "record_id": 555,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.316342"
+    },
+    {
+      "record_id": 556,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.324754"
+    },
+    {
+      "record_id": 557,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.332810"
+    },
+    {
+      "record_id": 559,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.341243"
+    },
+    {
+      "record_id": 560,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.352387"
+    },
+    {
+      "record_id": 561,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.361503"
+    },
+    {
+      "record_id": 562,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.370576"
+    },
+    {
+      "record_id": 563,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.379187"
+    },
+    {
+      "record_id": 564,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.387205"
+    },
+    {
+      "record_id": 565,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.395291"
+    },
+    {
+      "record_id": 566,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.404292"
+    },
+    {
+      "record_id": 567,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.412874"
+    },
+    {
+      "record_id": 568,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.422938"
+    },
+    {
+      "record_id": 569,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.431748"
+    },
+    {
+      "record_id": 570,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.439748"
+    },
+    {
+      "record_id": 571,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.448455"
+    },
+    {
+      "record_id": 572,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.456455"
+    },
+    {
+      "record_id": 573,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.464518"
+    },
+    {
+      "record_id": 574,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.474863"
+    },
+    {
+      "record_id": 575,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.483917"
+    },
+    {
+      "record_id": 576,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.491977"
+    },
+    {
+      "record_id": 577,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.499998"
+    },
+    {
+      "record_id": 578,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.510066"
+    },
+    {
+      "record_id": 579,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.518066"
+    },
+    {
+      "record_id": 580,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.527389"
+    },
+    {
+      "record_id": 581,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.535445"
+    },
+    {
+      "record_id": 582,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.543486"
+    },
+    {
+      "record_id": 583,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.553515"
+    },
+    {
+      "record_id": 584,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.565418"
+    },
+    {
+      "record_id": 585,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.573446"
+    },
+    {
+      "record_id": 586,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.583095"
+    },
+    {
+      "record_id": 587,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.592202"
+    },
+    {
+      "record_id": 588,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.600202"
+    },
+    {
+      "record_id": 589,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.609032"
+    },
+    {
+      "record_id": 590,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.618031"
+    },
+    {
+      "record_id": 591,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.627068"
+    },
+    {
+      "record_id": 592,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.635087"
+    },
+    {
+      "record_id": 593,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.644859"
+    },
+    {
+      "record_id": 594,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.652879"
+    },
+    {
+      "record_id": 595,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.663251"
+    },
+    {
+      "record_id": 596,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:40.673319"
+    },
+    {
+      "record_id": 597,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.681113"
+    },
+    {
+      "record_id": 598,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.691200"
+    },
+    {
+      "record_id": 599,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.699305"
+    },
+    {
+      "record_id": 600,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.707957"
+    },
+    {
+      "record_id": 601,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.716021"
+    },
+    {
+      "record_id": 602,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.727633"
+    },
+    {
+      "record_id": 603,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.735680"
+    },
+    {
+      "record_id": 604,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.745718"
+    },
+    {
+      "record_id": 605,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:40.753742"
+    },
+    {
+      "record_id": 606,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.763975"
+    },
+    {
+      "record_id": 607,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.772975"
+    },
+    {
+      "record_id": 608,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.781455"
+    },
+    {
+      "record_id": 609,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:40.791175"
+    },
+    {
+      "record_id": 610,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.800282"
+    },
+    {
+      "record_id": 611,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.810003"
+    },
+    {
+      "record_id": 612,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.818003"
+    },
+    {
+      "record_id": 613,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:40.828109"
+    },
+    {
+      "record_id": 614,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.835185"
+    },
+    {
+      "record_id": 615,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.843740"
+    },
+    {
+      "record_id": 616,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:40.851762"
+    },
+    {
+      "record_id": 617,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.861903"
+    },
+    {
+      "record_id": 618,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.869903"
+    },
+    {
+      "record_id": 619,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.878476"
+    },
+    {
+      "record_id": 620,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.887545"
+    },
+    {
+      "record_id": 621,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.896593"
+    },
+    {
+      "record_id": 622,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.904593"
+    },
+    {
+      "record_id": 623,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.915978"
+    },
+    {
+      "record_id": 624,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:40.924389"
+    },
+    {
+      "record_id": 625,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.050511"
+    },
+    {
+      "record_id": 626,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.060484"
+    },
+    {
+      "record_id": 627,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.068514"
+    },
+    {
+      "record_id": 628,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.078540"
+    },
+    {
+      "record_id": 629,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.086540"
+    },
+    {
+      "record_id": 630,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.095253"
+    },
+    {
+      "record_id": 631,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.104887"
+    },
+    {
+      "record_id": 632,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.112031"
+    },
+    {
+      "record_id": 633,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.122060"
+    },
+    {
+      "record_id": 634,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.129133"
+    },
+    {
+      "record_id": 635,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.137154"
+    },
+    {
+      "record_id": 636,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:41.148179"
+    },
+    {
+      "record_id": 637,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.160275"
+    },
+    {
+      "record_id": 638,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.168294"
+    },
+    {
+      "record_id": 639,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.178386"
+    },
+    {
+      "record_id": 640,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.186386"
+    },
+    {
+      "record_id": 641,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.196142"
+    },
+    {
+      "record_id": 642,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.204142"
+    },
+    {
+      "record_id": 643,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.214180"
+    },
+    {
+      "record_id": 644,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.223108"
+    },
+    {
+      "record_id": 645,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.232118"
+    },
+    {
+      "record_id": 646,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.241028"
+    },
+    {
+      "record_id": 647,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.249035"
+    },
+    {
+      "record_id": 648,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.258731"
+    },
+    {
+      "record_id": 649,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.265766"
+    },
+    {
+      "record_id": 651,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.275633"
+    },
+    {
+      "record_id": 652,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.283632"
+    },
+    {
+      "record_id": 653,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.292183"
+    },
+    {
+      "record_id": 654,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.300182"
+    },
+    {
+      "record_id": 655,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.309937"
+    },
+    {
+      "record_id": 656,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.317997"
+    },
+    {
+      "record_id": 657,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.330606"
+    },
+    {
+      "record_id": 658,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.338675"
+    },
+    {
+      "record_id": 659,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.348016"
+    },
+    {
+      "record_id": 660,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.357622"
+    },
+    {
+      "record_id": 661,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.366045"
+    },
+    {
+      "record_id": 662,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.375126"
+    },
+    {
+      "record_id": 663,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.383149"
+    },
+    {
+      "record_id": 664,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.391728"
+    },
+    {
+      "record_id": 665,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.399751"
+    },
+    {
+      "record_id": 666,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.409737"
+    },
+    {
+      "record_id": 667,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.417737"
+    },
+    {
+      "record_id": 668,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.429222"
+    },
+    {
+      "record_id": 669,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.437279"
+    },
+    {
+      "record_id": 670,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.447157"
+    },
+    {
+      "record_id": 671,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.455176"
+    },
+    {
+      "record_id": 672,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.466611"
+    },
+    {
+      "record_id": 673,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.477205"
+    },
+    {
+      "record_id": 674,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.484261"
+    },
+    {
+      "record_id": 675,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.493918"
+    },
+    {
+      "record_id": 676,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.501918"
+    },
+    {
+      "record_id": 677,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.512324"
+    },
+    {
+      "record_id": 678,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.520389"
+    },
+    {
+      "record_id": 679,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:41.528387"
+    },
+    {
+      "record_id": 680,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.536387"
+    },
+    {
+      "record_id": 681,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.544910"
+    },
+    {
+      "record_id": 682,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.555910"
+    },
+    {
+      "record_id": 683,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:41.563576"
+    },
+    {
+      "record_id": 684,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.572601"
+    },
+    {
+      "record_id": 685,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.580620"
+    },
+    {
+      "record_id": 686,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.588380"
+    },
+    {
+      "record_id": 687,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.598404"
+    },
+    {
+      "record_id": 688,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.610304"
+    },
+    {
+      "record_id": 689,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.618345"
+    },
+    {
+      "record_id": 690,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.627281"
+    },
+    {
+      "record_id": 691,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.635281"
+    },
+    {
+      "record_id": 692,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.644027"
+    },
+    {
+      "record_id": 693,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.652027"
+    },
+    {
+      "record_id": 694,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.660066"
+    },
+    {
+      "record_id": 695,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.668085"
+    },
+    {
+      "record_id": 696,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.678008"
+    },
+    {
+      "record_id": 697,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.688069"
+    },
+    {
+      "record_id": 698,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.697941"
+    },
+    {
+      "record_id": 699,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.705959"
+    },
+    {
+      "record_id": 700,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.714157"
+    },
+    {
+      "record_id": 701,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.725446"
+    },
+    {
+      "record_id": 702,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.733561"
+    },
+    {
+      "record_id": 703,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.743523"
+    },
+    {
+      "record_id": 704,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.751545"
+    },
+    {
+      "record_id": 705,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:41.760583"
+    },
+    {
+      "record_id": 706,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.768584"
+    },
+    {
+      "record_id": 707,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.777885"
+    },
+    {
+      "record_id": 709,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.784944"
+    },
+    {
+      "record_id": 710,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.795047"
+    },
+    {
+      "record_id": 711,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.803069"
+    },
+    {
+      "record_id": 712,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.813499"
+    },
+    {
+      "record_id": 713,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.821498"
+    },
+    {
+      "record_id": 714,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.830304"
+    },
+    {
+      "record_id": 715,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.839304"
+    },
+    {
+      "record_id": 716,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.847360"
+    },
+    {
+      "record_id": 717,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.858118"
+    },
+    {
+      "record_id": 718,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.866417"
+    },
+    {
+      "record_id": 719,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.876261"
+    },
+    {
+      "record_id": 720,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.884260"
+    },
+    {
+      "record_id": 721,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.894545"
+    },
+    {
+      "record_id": 722,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.901621"
+    },
+    {
+      "record_id": 723,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:41.911649"
+    },
+    {
+      "record_id": 724,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.919668"
+    },
+    {
+      "record_id": 725,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.931142"
+    },
+    {
+      "record_id": 726,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:41.939138"
+    },
+    {
+      "record_id": 727,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.049701"
+    },
+    {
+      "record_id": 728,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.060868"
+    },
+    {
+      "record_id": 729,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.070921"
+    },
+    {
+      "record_id": 730,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:42.078744"
+    },
+    {
+      "record_id": 731,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.088771"
+    },
+    {
+      "record_id": 732,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:42.096852"
+    },
+    {
+      "record_id": 733,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.104852"
+    },
+    {
+      "record_id": 734,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.114388"
+    },
+    {
+      "record_id": 735,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.122410"
+    },
+    {
+      "record_id": 736,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.131342"
+    },
+    {
+      "record_id": 737,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.140818"
+    },
+    {
+      "record_id": 738,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.148903"
+    },
+    {
+      "record_id": 739,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.157300"
+    },
+    {
+      "record_id": 740,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.168535"
+    },
+    {
+      "record_id": 741,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.177589"
+    },
+    {
+      "record_id": 742,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.184646"
+    },
+    {
+      "record_id": 743,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.193660"
+    },
+    {
+      "record_id": 744,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.201681"
+    },
+    {
+      "record_id": 745,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.213838"
+    },
+    {
+      "record_id": 746,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.225010"
+    },
+    {
+      "record_id": 747,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.233590"
+    },
+    {
+      "record_id": 748,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.243400"
+    },
+    {
+      "record_id": 749,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.251420"
+    },
+    {
+      "record_id": 750,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.261461"
+    },
+    {
+      "record_id": 751,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.269462"
+    },
+    {
+      "record_id": 752,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.278934"
+    },
+    {
+      "record_id": 753,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.286983"
+    },
+    {
+      "record_id": 754,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.296910"
+    },
+    {
+      "record_id": 755,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.304928"
+    },
+    {
+      "record_id": 756,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.314308"
+    },
+    {
+      "record_id": 757,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.324131"
+    },
+    {
+      "record_id": 758,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.333198"
+    },
+    {
+      "record_id": 759,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.343807"
+    },
+    {
+      "record_id": 760,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.351854"
+    },
+    {
+      "record_id": 761,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.362060"
+    },
+    {
+      "record_id": 762,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.370079"
+    },
+    {
+      "record_id": 763,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.381213"
+    },
+    {
+      "record_id": 764,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.390626"
+    },
+    {
+      "record_id": 765,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.399371"
+    },
+    {
+      "record_id": 766,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.408263"
+    },
+    {
+      "record_id": 767,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.416268"
+    },
+    {
+      "record_id": 768,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.426075"
+    },
+    {
+      "record_id": 769,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.437114"
+    },
+    {
+      "record_id": 770,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.447009"
+    },
+    {
+      "record_id": 771,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.458161"
+    },
+    {
+      "record_id": 772,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.466182"
+    },
+    {
+      "record_id": 773,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:54:42.477260"
+    },
+    {
+      "record_id": 774,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.485930"
+    },
+    {
+      "record_id": 775,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.495423"
+    },
+    {
+      "record_id": 776,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.503436"
+    },
+    {
+      "record_id": 777,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.512439"
+    },
+    {
+      "record_id": 778,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.521439"
+    },
+    {
+      "record_id": 779,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.531112"
+    },
+    {
+      "record_id": 780,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.539747"
+    },
+    {
+      "record_id": 781,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.547757"
+    },
+    {
+      "record_id": 782,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.555776"
+    },
+    {
+      "record_id": 783,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.565540"
+    },
+    {
+      "record_id": 784,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.574988"
+    },
+    {
+      "record_id": 785,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.583512"
+    },
+    {
+      "record_id": 786,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.593184"
+    },
+    {
+      "record_id": 787,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.603212"
+    },
+    {
+      "record_id": 788,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.611695"
+    },
+    {
+      "record_id": 789,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.619695"
+    },
+    {
+      "record_id": 790,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.628016"
+    },
+    {
+      "record_id": 791,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.637016"
+    },
+    {
+      "record_id": 792,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.646459"
+    },
+    {
+      "record_id": 793,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.654479"
+    },
+    {
+      "record_id": 794,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.664227"
+    },
+    {
+      "record_id": 795,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.672227"
+    },
+    {
+      "record_id": 796,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.680985"
+    },
+    {
+      "record_id": 797,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.690985"
+    },
+    {
+      "record_id": 798,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.699027"
+    },
+    {
+      "record_id": 799,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.708821"
+    },
+    {
+      "record_id": 800,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.716873"
+    },
+    {
+      "record_id": 801,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.729866"
+    },
+    {
+      "record_id": 802,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.737866"
+    },
+    {
+      "record_id": 803,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.747354"
+    },
+    {
+      "record_id": 804,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.755373"
+    },
+    {
+      "record_id": 805,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.766175"
+    },
+    {
+      "record_id": 806,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.773942"
+    },
+    {
+      "record_id": 807,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.783000"
+    },
+    {
+      "record_id": 808,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.791944"
+    },
+    {
+      "record_id": 809,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.801017"
+    },
+    {
+      "record_id": 810,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.809871"
+    },
+    {
+      "record_id": 811,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.817890"
+    },
+    {
+      "record_id": 812,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.828830"
+    },
+    {
+      "record_id": 813,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.837830"
+    },
+    {
+      "record_id": 814,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.846394"
+    },
+    {
+      "record_id": 815,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.856418"
+    },
+    {
+      "record_id": 816,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.864257"
+    },
+    {
+      "record_id": 817,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.872255"
+    },
+    {
+      "record_id": 818,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.880917"
+    },
+    {
+      "record_id": 819,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.889919"
+    },
+    {
+      "record_id": 820,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.898972"
+    },
+    {
+      "record_id": 821,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.909742"
+    },
+    {
+      "record_id": 822,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:42.918793"
+    },
+    {
+      "record_id": 823,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.928008"
+    },
+    {
+      "record_id": 824,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.936008"
+    },
+    {
+      "record_id": 825,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.943575"
+    },
+    {
+      "record_id": 826,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:42.952574"
+    },
+    {
+      "record_id": 827,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.065724"
+    },
+    {
+      "record_id": 828,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.074528"
+    },
+    {
+      "record_id": 829,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.084602"
+    },
+    {
+      "record_id": 830,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.093101"
+    },
+    {
+      "record_id": 831,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.101123"
+    },
+    {
+      "record_id": 832,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.112195"
+    },
+    {
+      "record_id": 833,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.120193"
+    },
+    {
+      "record_id": 834,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.128631"
+    },
+    {
+      "record_id": 835,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.136707"
+    },
+    {
+      "record_id": 836,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.145168"
+    },
+    {
+      "record_id": 837,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.153187"
+    },
+    {
+      "record_id": 838,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.165178"
+    },
+    {
+      "record_id": 839,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.173990"
+    },
+    {
+      "record_id": 840,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.182381"
+    },
+    {
+      "record_id": 842,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.190360"
+    },
+    {
+      "record_id": 843,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.198619"
+    },
+    {
+      "record_id": 844,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.209105"
+    },
+    {
+      "record_id": 845,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.218101"
+    },
+    {
+      "record_id": 846,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.226854"
+    },
+    {
+      "record_id": 847,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.233891"
+    },
+    {
+      "record_id": 848,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.246329"
+    },
+    {
+      "record_id": 849,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.254329"
+    },
+    {
+      "record_id": 850,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.263159"
+    },
+    {
+      "record_id": 851,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.273160"
+    },
+    {
+      "record_id": 852,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.280216"
+    },
+    {
+      "record_id": 853,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.291089"
+    },
+    {
+      "record_id": 854,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.300181"
+    },
+    {
+      "record_id": 855,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.309966"
+    },
+    {
+      "record_id": 856,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.317966"
+    },
+    {
+      "record_id": 857,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.326786"
+    },
+    {
+      "record_id": 858,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.334786"
+    },
+    {
+      "record_id": 859,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.345889"
+    },
+    {
+      "record_id": 860,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.353909"
+    },
+    {
+      "record_id": 861,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.363852"
+    },
+    {
+      "record_id": 862,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.372874"
+    },
+    {
+      "record_id": 863,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.382646"
+    },
+    {
+      "record_id": 864,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.393178"
+    },
+    {
+      "record_id": 865,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.401234"
+    },
+    {
+      "record_id": 866,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.412082"
+    },
+    {
+      "record_id": 867,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.420087"
+    },
+    {
+      "record_id": 868,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.428254"
+    },
+    {
+      "record_id": 869,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:43.438260"
+    },
+    {
+      "record_id": 870,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.446496"
+    },
+    {
+      "record_id": 871,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.454516"
+    },
+    {
+      "record_id": 872,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.463635"
+    },
+    {
+      "record_id": 873,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.472660"
+    },
+    {
+      "record_id": 874,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.481581"
+    },
+    {
+      "record_id": 875,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.492552"
+    },
+    {
+      "record_id": 876,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.501611"
+    },
+    {
+      "record_id": 877,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.509128"
+    },
+    {
+      "record_id": 878,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.517155"
+    },
+    {
+      "record_id": 879,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.527689"
+    },
+    {
+      "record_id": 880,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.535688"
+    },
+    {
+      "record_id": 881,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.547132"
+    },
+    {
+      "record_id": 882,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.555152"
+    },
+    {
+      "record_id": 883,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.564033"
+    },
+    {
+      "record_id": 884,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.572033"
+    },
+    {
+      "record_id": 885,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.580736"
+    },
+    {
+      "record_id": 886,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.588736"
+    },
+    {
+      "record_id": 887,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.596776"
+    },
+    {
+      "record_id": 888,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.608544"
+    },
+    {
+      "record_id": 889,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.616562"
+    },
+    {
+      "record_id": 890,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.626329"
+    },
+    {
+      "record_id": 891,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.634348"
+    },
+    {
+      "record_id": 892,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:54:43.642113"
+    },
+    {
+      "record_id": 893,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.652135"
+    },
+    {
+      "record_id": 894,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.662056"
+    },
+    {
+      "record_id": 895,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.670075"
+    },
+    {
+      "record_id": 896,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.680047"
+    },
+    {
+      "record_id": 897,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.688064"
+    },
+    {
+      "record_id": 898,
+      "error": "no such table: llm_normalization_cache",
+      "timestamp": "2025-09-25T19:54:43.700971"
+    }
+  ]
+}

@@ -524,12 +524,23 @@ class DualModelAnalyzer:
         return results
     
     def _save_interventions_batch(self, interventions: List[Dict]):
-        """Save a batch of interventions to database."""
+        """Save a batch of interventions to database with normalization."""
         for intervention in interventions:
             try:
-                self.repository_mgr.interventions.insert_intervention(intervention)
+                # Use normalized insertion to automatically normalize terms
+                success = self.repository_mgr.interventions.insert_intervention_normalized(intervention)
+                if success:
+                    logger.debug(f"Successfully saved normalized intervention: {intervention.get('intervention_name')} -> {intervention.get('health_condition')}")
+                else:
+                    logger.warning(f"Failed to save intervention: {intervention.get('intervention_name')}")
             except Exception as e:
                 logger.error(f"Error saving intervention: {e}")
+                # Fallback to standard insertion
+                try:
+                    self.repository_mgr.interventions.insert_intervention(intervention)
+                    logger.info(f"Fallback insertion succeeded for: {intervention.get('intervention_name')}")
+                except Exception as fallback_error:
+                    logger.error(f"Both normalized and fallback insertion failed: {fallback_error}")
     
     def get_unprocessed_papers(self, limit: Optional[int] = None) -> List[Dict]:
         """Get papers that haven't been processed by ALL models yet."""

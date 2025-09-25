@@ -96,7 +96,21 @@ class InterventionRepository(BaseRepository):
     def insert_intervention(self, intervention: Dict) -> bool:
         """Insert a new intervention."""
         return self.db_manager.insert_intervention(intervention)
-    
+
+    def insert_intervention_normalized(self, intervention: Dict) -> bool:
+        """Insert intervention with automatic entity normalization."""
+        # Import here to avoid circular imports
+        from src.enhanced_database_manager import NormalizedDatabaseManager
+
+        # Create normalized database manager if not exists
+        if not hasattr(self, '_normalized_db_manager'):
+            self._normalized_db_manager = NormalizedDatabaseManager(
+                self.db_manager.db_path,
+                enable_normalization=True
+            )
+
+        return self._normalized_db_manager.insert_intervention_normalized(intervention)
+
     def insert_interventions_batch(self, interventions: List[Dict]) -> int:
         """Insert multiple interventions in batch."""
         successful = 0

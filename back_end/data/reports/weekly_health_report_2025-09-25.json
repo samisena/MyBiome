@@ -1,0 +1,68 @@
+{
+  "report_date": "2025-09-25",
+  "report_period": "7 days",
+  "current_metrics": {
+    "timestamp": "2025-09-25T19:47:16.712578",
+    "mapping_success_rate": 62.5,
+    "method_distribution": {
+      "llm_semantic": 2,
+      "manual": 2,
+      "pattern": 6
+    },
+    "avg_confidence_scores": {
+      "llm_semantic": 0.82,
+      "manual": 1.0,
+      "pattern": 0.927
+    },
+    "unmapped_terms_count": 845,
+    "total_mappings": 8,
+    "total_canonicals": 6,
+    "normalization_progress": 1.14,
+    "failing_terms": [
+      {
+        "term": "failed_term_1",
+        "entity_type": "intervention",
+        "attempts": 4,
+        "failure_reason": "Failed with pattern method",
+        "first_failure": "2025-09-25 18:46:24",
+        "last_failure": "2025-09-25 18:47:04"
+      }
+    ],
+    "performance_metrics": {
+      "avg_processing_time_ms": 868.75,
+      "min_processing_time_ms": 50,
+      "max_processing_time_ms": 3000,
+      "total_operations_7d": 16,
+      "cache_hit_rate": 0.85,
+      "avg_llm_response_time_ms": 1250
+    }
+  },
+  "trends": {
+    "daily_breakdown": [
+      {
+        "date": "2025-09-25",
+        "operations": 16,
+        "success_rate": 62.5,
+        "avg_processing_time": 868.75
+      }
+    ]
+  },
+  "alerts": [
+    {
+      "level": "warning",
+      "type": "low_success_rate",
+      "message": "Mapping success rate is 62.5% (below 90% threshold)",
+      "action_required": true
+    },
+    {
+      "level": "info",
+      "type": "high_unmapped_count",
+      "message": "845 terms remain unmapped",
+      "action_required": false
+    }
+  ],
+  "recommendations": [
+    "Consider adding more pattern matching rules to improve automatic mapping success",
+    "Run batch mapping session to process unmapped terms"
+  ]
+}

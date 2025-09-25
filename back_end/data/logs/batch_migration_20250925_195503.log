@@ -1,0 +1,925 @@
+2025-09-25 19:55:03,410 - INFO - Migration log initialized: data\logs\batch_migration_20250925_195503.log
+2025-09-25 19:55:03,457 - INFO - Entity normalizer initialized successfully
+2025-09-25 19:55:03,458 - INFO - ================================================================================
+2025-09-25 19:55:03,458 - INFO - STARTING BATCH MIGRATION FOR NORMALIZATION
+2025-09-25 19:55:03,458 - INFO - ================================================================================
+2025-09-25 19:55:03,461 - INFO - Created migration-specific backup: data/processed/intervention_research_batch_migration_backup_20250925_195503.db
+2025-09-25 19:55:03,465 - INFO - Found 871 records to migrate
+2025-09-25 19:55:03,465 - INFO - Processing 871 records in batches of 100
+2025-09-25 19:55:03,465 - INFO - Total batches to process: 9
+2025-09-25 19:55:03,466 - INFO - Processing batch 1/9 (100 records)
+2025-09-25 19:55:03,475 - ERROR - Error processing record 17: no such column: match_result
+2025-09-25 19:55:03,484 - ERROR - Error processing record 18: no such column: match_result
+2025-09-25 19:55:03,494 - ERROR - Error processing record 19: no such column: match_result
+2025-09-25 19:55:03,503 - ERROR - Error processing record 20: no such column: match_result
+2025-09-25 19:55:03,511 - ERROR - Error processing record 21: no such column: match_result
+2025-09-25 19:55:03,520 - ERROR - Error processing record 22: no such column: match_result
+2025-09-25 19:55:03,528 - ERROR - Error processing record 23: no such column: match_result
+2025-09-25 19:55:03,538 - ERROR - Error processing record 24: no such column: match_result
+2025-09-25 19:55:03,548 - ERROR - Error processing record 25: no such column: match_result
+2025-09-25 19:55:03,558 - ERROR - Error processing record 26: no such column: match_result
+2025-09-25 19:55:03,568 - ERROR - Error processing record 27: no such column: match_result
+2025-09-25 19:55:03,578 - ERROR - Error processing record 28: no such column: match_result
+2025-09-25 19:55:03,588 - ERROR - Error processing record 29: no such column: match_result
+2025-09-25 19:55:03,596 - ERROR - Error processing record 30: no such column: match_result
+2025-09-25 19:55:03,606 - ERROR - Error processing record 31: no such column: match_result
+2025-09-25 19:55:03,614 - ERROR - Error processing record 32: no such column: match_result
+2025-09-25 19:55:03,623 - ERROR - Error processing record 33: no such column: match_result
+2025-09-25 19:55:03,632 - ERROR - Error processing record 34: no such column: match_result
+2025-09-25 19:55:03,641 - ERROR - Error processing record 36: no such column: match_result
+2025-09-25 19:55:03,650 - ERROR - Error processing record 37: no such column: match_result
+2025-09-25 19:55:03,658 - ERROR - Error processing record 38: no such column: match_result
+2025-09-25 19:55:03,668 - ERROR - Error processing record 39: no such column: match_result
+2025-09-25 19:55:03,676 - ERROR - Error processing record 40: no such column: match_result
+2025-09-25 19:55:03,688 - ERROR - Error processing record 41: no such column: match_result
+2025-09-25 19:55:03,697 - ERROR - Error processing record 42: No item with that key
+2025-09-25 19:55:03,707 - ERROR - Error processing record 43: no such column: match_result
+2025-09-25 19:55:03,716 - ERROR - Error processing record 44: no such column: match_result
+2025-09-25 19:55:03,724 - ERROR - Error processing record 45: no such column: match_result
+2025-09-25 19:55:03,735 - ERROR - Error processing record 46: no such column: match_result
+2025-09-25 19:55:03,744 - ERROR - Error processing record 47: no such column: match_result
+2025-09-25 19:55:03,755 - ERROR - Error processing record 48: no such column: match_result
+2025-09-25 19:55:03,763 - ERROR - Error processing record 49: no such column: match_result
+2025-09-25 19:55:03,771 - ERROR - Error processing record 50: no such column: match_result
+2025-09-25 19:55:03,779 - ERROR - Error processing record 51: no such column: match_result
+2025-09-25 19:55:03,789 - ERROR - Error processing record 52: no such column: match_result
+2025-09-25 19:55:03,799 - ERROR - Error processing record 53: no such column: match_result
+2025-09-25 19:55:03,808 - ERROR - Error processing record 54: no such column: match_result
+2025-09-25 19:55:03,816 - ERROR - Error processing record 55: no such column: match_result
+2025-09-25 19:55:03,824 - ERROR - Error processing record 56: no such column: match_result
+2025-09-25 19:55:03,835 - ERROR - Error processing record 57: no such column: match_result
+2025-09-25 19:55:03,844 - ERROR - Error processing record 58: no such column: match_result
+2025-09-25 19:55:03,854 - ERROR - Error processing record 59: no such column: match_result
+2025-09-25 19:55:03,861 - ERROR - Error processing record 60: no such column: match_result
+2025-09-25 19:55:03,871 - ERROR - Error processing record 61: no such column: match_result
+2025-09-25 19:55:03,878 - ERROR - Error processing record 62: no such column: match_result
+2025-09-25 19:55:03,890 - ERROR - Error processing record 63: no such column: match_result
+2025-09-25 19:55:03,899 - ERROR - Error processing record 64: no such column: match_result
+2025-09-25 19:55:03,909 - ERROR - Error processing record 65: no such column: match_result
+2025-09-25 19:55:03,919 - ERROR - Error processing record 66: no such column: match_result
+2025-09-25 19:55:03,927 - ERROR - Error processing record 67: no such column: match_result
+2025-09-25 19:55:03,937 - ERROR - Error processing record 68: no such column: match_result
+2025-09-25 19:55:03,946 - ERROR - Error processing record 69: no such column: match_result
+2025-09-25 19:55:03,954 - ERROR - Error processing record 70: no such column: match_result
+2025-09-25 19:55:03,965 - ERROR - Error processing record 71: no such column: match_result
+2025-09-25 19:55:03,973 - ERROR - Error processing record 72: no such column: match_result
+2025-09-25 19:55:03,982 - ERROR - Error processing record 73: no such column: match_result
+2025-09-25 19:55:03,991 - ERROR - Error processing record 74: no such column: match_result
+2025-09-25 19:55:04,000 - ERROR - Error processing record 75: no such column: match_result
+2025-09-25 19:55:04,008 - ERROR - Error processing record 76: no such column: match_result
+2025-09-25 19:55:04,018 - ERROR - Error processing record 77: no such column: match_result
+2025-09-25 19:55:04,027 - ERROR - Error processing record 78: no such column: match_result
+2025-09-25 19:55:04,035 - ERROR - Error processing record 79: no such column: match_result
+2025-09-25 19:55:04,044 - ERROR - Error processing record 80: no such column: match_result
+2025-09-25 19:55:04,055 - ERROR - Error processing record 81: no such column: match_result
+2025-09-25 19:55:04,063 - ERROR - Error processing record 82: no such column: match_result
+2025-09-25 19:55:04,074 - ERROR - Error processing record 83: no such column: match_result
+2025-09-25 19:55:04,083 - ERROR - Error processing record 84: no such column: match_result
+2025-09-25 19:55:04,091 - ERROR - Error processing record 85: no such column: match_result
+2025-09-25 19:55:04,100 - ERROR - Error processing record 86: no such column: match_result
+2025-09-25 19:55:04,109 - ERROR - Error processing record 87: no such column: match_result
+2025-09-25 19:55:04,117 - ERROR - Error processing record 88: no such column: match_result
+2025-09-25 19:55:04,127 - ERROR - Error processing record 89: no such column: match_result
+2025-09-25 19:55:04,136 - ERROR - Error processing record 90: no such column: match_result
+2025-09-25 19:55:04,146 - ERROR - Error processing record 91: 'success'
+2025-09-25 19:55:04,157 - ERROR - Error processing record 92: no such column: match_result
+2025-09-25 19:55:04,166 - ERROR - Error processing record 93: no such column: match_result
+2025-09-25 19:55:04,175 - ERROR - Error processing record 94: no such column: match_result
+2025-09-25 19:55:04,184 - ERROR - Error processing record 95: no such column: match_result
+2025-09-25 19:55:04,193 - ERROR - Error processing record 96: no such column: match_result
+2025-09-25 19:55:04,204 - ERROR - Error processing record 97: no such column: match_result
+2025-09-25 19:55:04,212 - ERROR - Error processing record 98: no such column: match_result
+2025-09-25 19:55:04,224 - ERROR - Error processing record 99: no such column: match_result
+2025-09-25 19:55:04,234 - ERROR - Error processing record 100: no such column: match_result
+2025-09-25 19:55:04,244 - ERROR - Error processing record 101: no such column: match_result
+2025-09-25 19:55:04,254 - ERROR - Error processing record 102: no such column: match_result
+2025-09-25 19:55:04,262 - ERROR - Error processing record 103: no such column: match_result
+2025-09-25 19:55:04,273 - ERROR - Error processing record 104: no such column: match_result
+2025-09-25 19:55:04,281 - ERROR - Error processing record 105: no such column: match_result
+2025-09-25 19:55:04,289 - ERROR - Error processing record 106: no such column: match_result
+2025-09-25 19:55:04,299 - ERROR - Error processing record 107: no such column: match_result
+2025-09-25 19:55:04,307 - ERROR - Error processing record 108: no such column: match_result
+2025-09-25 19:55:04,316 - ERROR - Error processing record 109: no such column: match_result
+2025-09-25 19:55:04,325 - ERROR - Error processing record 110: no such column: match_result
+2025-09-25 19:55:04,337 - ERROR - Error processing record 111: no such column: match_result
+2025-09-25 19:55:04,345 - ERROR - Error processing record 112: no such column: match_result
+2025-09-25 19:55:04,354 - ERROR - Error processing record 113: no such column: match_result
+2025-09-25 19:55:04,364 - ERROR - Error processing record 114: no such column: match_result
+2025-09-25 19:55:04,373 - ERROR - Error processing record 115: no such column: match_result
+2025-09-25 19:55:04,383 - ERROR - Error processing record 116: no such column: match_result
+2025-09-25 19:55:04,391 - ERROR - Error processing record 117: no such column: match_result
+2025-09-25 19:55:04,391 - INFO - Batch 1 completed in 0.93s: 0 successful, 100 failed
+2025-09-25 19:55:04,497 - INFO - Processing batch 2/9 (100 records)
+2025-09-25 19:55:04,510 - ERROR - Error processing record 118: no such column: match_result
+2025-09-25 19:55:04,523 - ERROR - Error processing record 119: no such column: match_result
+2025-09-25 19:55:04,536 - ERROR - Error processing record 120: no such column: match_result
+2025-09-25 19:55:04,546 - ERROR - Error processing record 121: no such column: match_result
+2025-09-25 19:55:04,557 - ERROR - Error processing record 122: no such column: match_result
+2025-09-25 19:55:04,566 - ERROR - Error processing record 123: no such column: match_result
+2025-09-25 19:55:04,575 - ERROR - Error processing record 124: no such column: match_result
+2025-09-25 19:55:04,584 - ERROR - Error processing record 125: no such column: match_result
+2025-09-25 19:55:04,594 - ERROR - Error processing record 126: no such column: match_result
+2025-09-25 19:55:04,602 - ERROR - Error processing record 127: no such column: match_result
+2025-09-25 19:55:04,611 - ERROR - Error processing record 128: no such column: match_result
+2025-09-25 19:55:04,621 - ERROR - Error processing record 129: no such column: match_result
+2025-09-25 19:55:04,629 - ERROR - Error processing record 130: no such column: match_result
+2025-09-25 19:55:04,640 - ERROR - Error processing record 131: no such column: match_result
+2025-09-25 19:55:04,648 - ERROR - Error processing record 132: no such column: match_result
+2025-09-25 19:55:04,656 - ERROR - Error processing record 133: no such column: match_result
+2025-09-25 19:55:04,667 - ERROR - Error processing record 134: no such column: match_result
+2025-09-25 19:55:04,676 - ERROR - Error processing record 135: no such column: match_result
+2025-09-25 19:55:04,685 - ERROR - Error processing record 136: no such column: match_result
+2025-09-25 19:55:04,694 - ERROR - Error processing record 137: no such column: match_result
+2025-09-25 19:55:04,702 - ERROR - Error processing record 138: no such column: match_result
+2025-09-25 19:55:04,711 - ERROR - Error processing record 139: no such column: match_result
+2025-09-25 19:55:04,721 - ERROR - Error processing record 140: no such column: match_result
+2025-09-25 19:55:04,729 - ERROR - Error processing record 141: no such column: match_result
+2025-09-25 19:55:04,740 - ERROR - Error processing record 142: no such column: match_result
+2025-09-25 19:55:04,748 - ERROR - Error processing record 143: no such column: match_result
+2025-09-25 19:55:04,758 - ERROR - Error processing record 144: 'success'
+2025-09-25 19:55:04,767 - ERROR - Error processing record 145: no such column: match_result
+2025-09-25 19:55:04,775 - ERROR - Error processing record 146: no such column: match_result
+2025-09-25 19:55:04,785 - ERROR - Error processing record 147: no such column: match_result
+2025-09-25 19:55:04,793 - ERROR - Error processing record 148: no such column: match_result
+2025-09-25 19:55:04,803 - ERROR - Error processing record 149: no such column: match_result
+2025-09-25 19:55:04,811 - ERROR - Error processing record 150: no such column: match_result
+2025-09-25 19:55:04,820 - ERROR - Error processing record 151: no such column: match_result
+2025-09-25 19:55:04,829 - ERROR - Error processing record 152: no such column: match_result
+2025-09-25 19:55:04,837 - ERROR - Error processing record 153: no such column: match_result
+2025-09-25 19:55:04,845 - ERROR - Error processing record 154: no such column: match_result
+2025-09-25 19:55:04,856 - ERROR - Error processing record 155: no such column: match_result
+2025-09-25 19:55:04,864 - ERROR - Error processing record 156: no such column: match_result
+2025-09-25 19:55:04,876 - ERROR - Error processing record 157: no such column: match_result
+2025-09-25 19:55:04,885 - ERROR - Error processing record 158: no such column: match_result
+2025-09-25 19:55:04,893 - ERROR - Error processing record 159: no such column: match_result
+2025-09-25 19:55:04,903 - ERROR - Error processing record 160: no such column: match_result
+2025-09-25 19:55:04,912 - ERROR - Error processing record 161: no such column: match_result
+2025-09-25 19:55:04,922 - ERROR - Error processing record 162: no such column: match_result
+2025-09-25 19:55:04,930 - ERROR - Error processing record 163: no such column: match_result
+2025-09-25 19:55:04,942 - ERROR - Error processing record 164: no such column: match_result
+2025-09-25 19:55:04,949 - ERROR - Error processing record 165: 'success'
+2025-09-25 19:55:04,958 - ERROR - Error processing record 166: no such column: match_result
+2025-09-25 19:55:04,969 - ERROR - Error processing record 167: no such column: match_result
+2025-09-25 19:55:04,977 - ERROR - Error processing record 168: no such column: match_result
+2025-09-25 19:55:04,987 - ERROR - Error processing record 169: no such column: match_result
+2025-09-25 19:55:04,995 - ERROR - Error processing record 170: no such column: match_result
+2025-09-25 19:55:05,005 - ERROR - Error processing record 171: no such column: match_result
+2025-09-25 19:55:05,013 - ERROR - Error processing record 172: no such column: match_result
+2025-09-25 19:55:05,022 - ERROR - Error processing record 173: no such column: match_result
+2025-09-25 19:55:05,031 - ERROR - Error processing record 174: no such column: match_result
+2025-09-25 19:55:05,039 - ERROR - Error processing record 175: no such column: match_result
+2025-09-25 19:55:05,049 - ERROR - Error processing record 176: no such column: match_result
+2025-09-25 19:55:05,058 - ERROR - Error processing record 177: no such column: match_result
+2025-09-25 19:55:05,067 - ERROR - Error processing record 178: no such column: match_result
+2025-09-25 19:55:05,076 - ERROR - Error processing record 179: no such column: match_result
+2025-09-25 19:55:05,086 - ERROR - Error processing record 180: no such column: match_result
+2025-09-25 19:55:05,095 - ERROR - Error processing record 181: no such column: match_result
+2025-09-25 19:55:05,105 - ERROR - Error processing record 182: no such column: match_result
+2025-09-25 19:55:05,113 - ERROR - Error processing record 183: no such column: match_result
+2025-09-25 19:55:05,122 - ERROR - Error processing record 184: no such column: match_result
+2025-09-25 19:55:05,133 - ERROR - Error processing record 185: no such column: match_result
+2025-09-25 19:55:05,140 - ERROR - Error processing record 186: no such column: match_result
+2025-09-25 19:55:05,150 - ERROR - Error processing record 187: no such column: match_result
+2025-09-25 19:55:05,158 - ERROR - Error processing record 188: no such column: match_result
+2025-09-25 19:55:05,169 - ERROR - Error processing record 189: 'success'
+2025-09-25 19:55:05,178 - ERROR - Error processing record 190: no such column: match_result
+2025-09-25 19:55:05,187 - ERROR - Error processing record 191: no such column: match_result
+2025-09-25 19:55:05,196 - ERROR - Error processing record 192: no such column: match_result
+2025-09-25 19:55:05,203 - ERROR - Error processing record 193: no such column: match_result
+2025-09-25 19:55:05,211 - ERROR - Error processing record 194: no such column: match_result
+2025-09-25 19:55:05,222 - ERROR - Error processing record 195: no such column: match_result
+2025-09-25 19:55:05,230 - ERROR - Error processing record 196: no such column: match_result
+2025-09-25 19:55:05,240 - ERROR - Error processing record 197: no such column: match_result
+2025-09-25 19:55:05,251 - ERROR - Error processing record 198: no such column: match_result
+2025-09-25 19:55:05,259 - ERROR - Error processing record 199: no such column: match_result
+2025-09-25 19:55:05,268 - ERROR - Error processing record 200: no such column: match_result
+2025-09-25 19:55:05,276 - ERROR - Error processing record 201: no such column: match_result
+2025-09-25 19:55:05,287 - ERROR - Error processing record 202: no such column: match_result
+2025-09-25 19:55:05,296 - ERROR - Error processing record 203: no such column: match_result
+2025-09-25 19:55:05,307 - ERROR - Error processing record 204: no such column: match_result
+2025-09-25 19:55:05,315 - ERROR - Error processing record 205: no such column: match_result
+2025-09-25 19:55:05,324 - ERROR - Error processing record 206: 'success'
+2025-09-25 19:55:05,332 - ERROR - Error processing record 207: no such column: match_result
+2025-09-25 19:55:05,341 - ERROR - Error processing record 208: no such column: match_result
+2025-09-25 19:55:05,350 - ERROR - Error processing record 209: no such column: match_result
+2025-09-25 19:55:05,362 - ERROR - Error processing record 211: no such column: match_result
+2025-09-25 19:55:05,369 - ERROR - Error processing record 212: no such column: match_result
+2025-09-25 19:55:05,377 - ERROR - Error processing record 213: no such column: match_result
+2025-09-25 19:55:05,388 - ERROR - Error processing record 214: no such column: match_result
+2025-09-25 19:55:05,396 - ERROR - Error processing record 215: no such column: match_result
+2025-09-25 19:55:05,405 - ERROR - Error processing record 216: no such column: match_result
+2025-09-25 19:55:05,413 - ERROR - Error processing record 217: 'success'
+2025-09-25 19:55:05,424 - ERROR - Error processing record 218: No item with that key
+2025-09-25 19:55:05,426 - INFO - Batch 2 completed in 0.93s: 0 successful, 100 failed
+2025-09-25 19:55:05,532 - INFO - Processing batch 3/9 (100 records)
+2025-09-25 19:55:05,541 - ERROR - Error processing record 219: No item with that key
+2025-09-25 19:55:05,552 - ERROR - Error processing record 220: No item with that key
+2025-09-25 19:55:05,560 - ERROR - Error processing record 221: No item with that key
+2025-09-25 19:55:05,569 - ERROR - Error processing record 222: no such column: match_result
+2025-09-25 19:55:05,578 - ERROR - Error processing record 223: no such column: match_result
+2025-09-25 19:55:05,587 - ERROR - Error processing record 224: no such column: match_result
+2025-09-25 19:55:05,595 - ERROR - Error processing record 225: no such column: match_result
+2025-09-25 19:55:05,604 - ERROR - Error processing record 226: no such column: match_result
+2025-09-25 19:55:05,613 - ERROR - Error processing record 227: no such column: match_result
+2025-09-25 19:55:05,622 - ERROR - Error processing record 228: no such column: match_result
+2025-09-25 19:55:05,631 - ERROR - Error processing record 229: no such column: match_result
+2025-09-25 19:55:05,639 - ERROR - Error processing record 230: no such column: match_result
+2025-09-25 19:55:05,649 - ERROR - Error processing record 231: no such column: match_result
+2025-09-25 19:55:05,657 - ERROR - Error processing record 232: no such column: match_result
+2025-09-25 19:55:05,666 - ERROR - Error processing record 233: no such column: match_result
+2025-09-25 19:55:05,676 - ERROR - Error processing record 234: no such column: match_result
+2025-09-25 19:55:05,688 - ERROR - Error processing record 235: no such column: match_result
+2025-09-25 19:55:05,696 - ERROR - Error processing record 236: no such column: match_result
+2025-09-25 19:55:05,705 - ERROR - Error processing record 237: no such column: match_result
+2025-09-25 19:55:05,714 - ERROR - Error processing record 238: no such column: match_result
+2025-09-25 19:55:05,723 - ERROR - Error processing record 239: no such column: match_result
+2025-09-25 19:55:05,731 - ERROR - Error processing record 240: no such column: match_result
+2025-09-25 19:55:05,740 - ERROR - Error processing record 241: no such column: match_result
+2025-09-25 19:55:05,749 - ERROR - Error processing record 242: no such column: match_result
+2025-09-25 19:55:05,758 - ERROR - Error processing record 243: no such column: match_result
+2025-09-25 19:55:05,765 - ERROR - Error processing record 244: no such column: match_result
+2025-09-25 19:55:05,774 - ERROR - Error processing record 245: no such column: match_result
+2025-09-25 19:55:05,786 - ERROR - Error processing record 246: no such column: match_result
+2025-09-25 19:55:05,794 - ERROR - Error processing record 247: no such column: match_result
+2025-09-25 19:55:05,803 - ERROR - Error processing record 248: no such column: match_result
+2025-09-25 19:55:05,811 - ERROR - Error processing record 250: no such column: match_result
+2025-09-25 19:55:05,822 - ERROR - Error processing record 251: no such column: match_result
+2025-09-25 19:55:05,832 - ERROR - Error processing record 252: 'success'
+2025-09-25 19:55:05,840 - ERROR - Error processing record 253: no such column: match_result
+2025-09-25 19:55:05,850 - ERROR - Error processing record 254: no such column: match_result
+2025-09-25 19:55:05,858 - ERROR - Error processing record 255: no such column: match_result
+2025-09-25 19:55:05,868 - ERROR - Error processing record 256: no such column: match_result
+2025-09-25 19:55:05,876 - ERROR - Error processing record 257: no such column: match_result
+2025-09-25 19:55:05,887 - ERROR - Error processing record 258: no such column: match_result
+2025-09-25 19:55:05,895 - ERROR - Error processing record 259: no such column: match_result
+2025-09-25 19:55:05,906 - ERROR - Error processing record 260: no such column: match_result
+2025-09-25 19:55:05,915 - ERROR - Error processing record 261: no such column: match_result
+2025-09-25 19:55:05,923 - ERROR - Error processing record 262: no such column: match_result
+2025-09-25 19:55:05,934 - ERROR - Error processing record 263: no such column: match_result
+2025-09-25 19:55:05,942 - ERROR - Error processing record 264: no such column: match_result
+2025-09-25 19:55:05,952 - ERROR - Error processing record 265: no such column: match_result
+2025-09-25 19:55:05,961 - ERROR - Error processing record 266: no such column: match_result
+2025-09-25 19:55:05,971 - ERROR - Error processing record 267: 'success'
+2025-09-25 19:55:05,979 - ERROR - Error processing record 268: no such column: match_result
+2025-09-25 19:55:05,991 - ERROR - Error processing record 269: no such column: match_result
+2025-09-25 19:55:06,000 - ERROR - Error processing record 270: no such column: match_result
+2025-09-25 19:55:06,008 - ERROR - Error processing record 271: no such column: match_result
+2025-09-25 19:55:06,018 - ERROR - Error processing record 272: no such column: match_result
+2025-09-25 19:55:06,028 - ERROR - Error processing record 273: no such column: match_result
+2025-09-25 19:55:06,036 - ERROR - Error processing record 274: no such column: match_result
+2025-09-25 19:55:06,045 - ERROR - Error processing record 275: no such column: match_result
+2025-09-25 19:55:06,054 - ERROR - Error processing record 276: no such column: match_result
+2025-09-25 19:55:06,062 - ERROR - Error processing record 277: no such column: match_result
+2025-09-25 19:55:06,073 - ERROR - Error processing record 278: no such column: match_result
+2025-09-25 19:55:06,082 - ERROR - Error processing record 279: no such column: match_result
+2025-09-25 19:55:06,091 - ERROR - Error processing record 280: no such column: match_result
+2025-09-25 19:55:06,099 - ERROR - Error processing record 281: no such column: match_result
+2025-09-25 19:55:06,107 - ERROR - Error processing record 282: no such column: match_result
+2025-09-25 19:55:06,119 - ERROR - Error processing record 283: no such column: match_result
+2025-09-25 19:55:06,127 - ERROR - Error processing record 284: no such column: match_result
+2025-09-25 19:55:06,140 - ERROR - Error processing record 285: no such column: match_result
+2025-09-25 19:55:06,148 - ERROR - Error processing record 286: no such column: match_result
+2025-09-25 19:55:06,156 - ERROR - Error processing record 287: no such column: match_result
+2025-09-25 19:55:06,165 - ERROR - Error processing record 288: no such column: match_result
+2025-09-25 19:55:06,174 - ERROR - Error processing record 289: no such column: match_result
+2025-09-25 19:55:06,185 - ERROR - Error processing record 290: no such column: match_result
+2025-09-25 19:55:06,193 - ERROR - Error processing record 291: no such column: match_result
+2025-09-25 19:55:06,203 - ERROR - Error processing record 292: no such column: match_result
+2025-09-25 19:55:06,212 - ERROR - Error processing record 293: no such column: match_result
+2025-09-25 19:55:06,223 - ERROR - Error processing record 294: no such column: match_result
+2025-09-25 19:55:06,231 - ERROR - Error processing record 295: no such column: match_result
+2025-09-25 19:55:06,240 - ERROR - Error processing record 296: no such column: match_result
+2025-09-25 19:55:06,250 - ERROR - Error processing record 297: no such column: match_result
+2025-09-25 19:55:06,260 - ERROR - Error processing record 298: no such column: match_result
+2025-09-25 19:55:06,270 - ERROR - Error processing record 299: no such column: match_result
+2025-09-25 19:55:06,279 - ERROR - Error processing record 300: no such column: match_result
+2025-09-25 19:55:06,289 - ERROR - Error processing record 301: no such column: match_result
+2025-09-25 19:55:06,297 - ERROR - Error processing record 302: no such column: match_result
+2025-09-25 19:55:06,306 - ERROR - Error processing record 303: no such column: match_result
+2025-09-25 19:55:06,316 - ERROR - Error processing record 304: no such column: match_result
+2025-09-25 19:55:06,324 - ERROR - Error processing record 305: no such column: match_result
+2025-09-25 19:55:06,333 - ERROR - Error processing record 306: no such column: match_result
+2025-09-25 19:55:06,342 - ERROR - Error processing record 307: no such column: match_result
+2025-09-25 19:55:06,349 - ERROR - Error processing record 308: no such column: match_result
+2025-09-25 19:55:06,359 - ERROR - Error processing record 309: no such column: match_result
+2025-09-25 19:55:06,369 - ERROR - Error processing record 310: no such column: match_result
+2025-09-25 19:55:06,377 - ERROR - Error processing record 311: no such column: match_result
+2025-09-25 19:55:06,385 - ERROR - Error processing record 312: no such column: match_result
+2025-09-25 19:55:06,393 - ERROR - Error processing record 313: no such column: match_result
+2025-09-25 19:55:06,403 - ERROR - Error processing record 314: no such column: match_result
+2025-09-25 19:55:06,413 - ERROR - Error processing record 315: no such column: match_result
+2025-09-25 19:55:06,421 - ERROR - Error processing record 316: no such column: match_result
+2025-09-25 19:55:06,429 - ERROR - Error processing record 317: no such column: match_result
+2025-09-25 19:55:06,440 - ERROR - Error processing record 318: no such column: match_result
+2025-09-25 19:55:06,448 - ERROR - Error processing record 319: no such column: match_result
+2025-09-25 19:55:06,449 - INFO - Batch 3 completed in 0.92s: 0 successful, 100 failed
+2025-09-25 19:55:06,564 - INFO - Processing batch 4/9 (100 records)
+2025-09-25 19:55:06,574 - ERROR - Error processing record 320: no such column: match_result
+2025-09-25 19:55:06,583 - ERROR - Error processing record 321: no such column: match_result
+2025-09-25 19:55:06,592 - ERROR - Error processing record 322: no such column: match_result
+2025-09-25 19:55:06,601 - ERROR - Error processing record 323: no such column: match_result
+2025-09-25 19:55:06,609 - ERROR - Error processing record 324: no such column: match_result
+2025-09-25 19:55:06,618 - ERROR - Error processing record 325: no such column: match_result
+2025-09-25 19:55:06,626 - ERROR - Error processing record 326: no such column: match_result
+2025-09-25 19:55:06,634 - ERROR - Error processing record 327: no such column: match_result
+2025-09-25 19:55:06,642 - ERROR - Error processing record 328: no such column: match_result
+2025-09-25 19:55:06,653 - ERROR - Error processing record 329: no such column: match_result
+2025-09-25 19:55:06,661 - ERROR - Error processing record 330: no such column: match_result
+2025-09-25 19:55:06,669 - ERROR - Error processing record 331: no such column: match_result
+2025-09-25 19:55:06,679 - ERROR - Error processing record 333: no such column: match_result
+2025-09-25 19:55:06,689 - ERROR - Error processing record 334: no such column: match_result
+2025-09-25 19:55:06,701 - ERROR - Error processing record 335: no such column: match_result
+2025-09-25 19:55:06,709 - ERROR - Error processing record 336: no such column: match_result
+2025-09-25 19:55:06,719 - ERROR - Error processing record 337: no such column: match_result
+2025-09-25 19:55:06,727 - ERROR - Error processing record 338: no such column: match_result
+2025-09-25 19:55:06,737 - ERROR - Error processing record 339: 'success'
+2025-09-25 19:55:06,745 - ERROR - Error processing record 340: no such column: match_result
+2025-09-25 19:55:06,754 - ERROR - Error processing record 341: no such column: match_result
+2025-09-25 19:55:06,762 - ERROR - Error processing record 342: No item with that key
+2025-09-25 19:55:06,770 - ERROR - Error processing record 343: no such column: match_result
+2025-09-25 19:55:06,780 - ERROR - Error processing record 344: no such column: match_result
+2025-09-25 19:55:06,789 - ERROR - Error processing record 345: no such column: match_result
+2025-09-25 19:55:06,798 - ERROR - Error processing record 346: 'success'
+2025-09-25 19:55:06,808 - ERROR - Error processing record 347: no such column: match_result
+2025-09-25 19:55:06,816 - ERROR - Error processing record 348: no such column: match_result
+2025-09-25 19:55:06,825 - ERROR - Error processing record 349: no such column: match_result
+2025-09-25 19:55:06,835 - ERROR - Error processing record 350: no such column: match_result
+2025-09-25 19:55:06,843 - ERROR - Error processing record 351: 'success'
+2025-09-25 19:55:06,853 - ERROR - Error processing record 352: no such column: match_result
+2025-09-25 19:55:06,861 - ERROR - Error processing record 353: no such column: match_result
+2025-09-25 19:55:06,872 - ERROR - Error processing record 354: no such column: match_result
+2025-09-25 19:55:06,880 - ERROR - Error processing record 355: no such column: match_result
+2025-09-25 19:55:06,888 - ERROR - Error processing record 356: no such column: match_result
+2025-09-25 19:55:06,898 - ERROR - Error processing record 357: no such column: match_result
+2025-09-25 19:55:06,908 - ERROR - Error processing record 358: no such column: match_result
+2025-09-25 19:55:06,916 - ERROR - Error processing record 359: no such column: match_result
+2025-09-25 19:55:06,926 - ERROR - Error processing record 360: no such column: match_result
+2025-09-25 19:55:06,934 - ERROR - Error processing record 361: no such column: match_result
+2025-09-25 19:55:06,942 - ERROR - Error processing record 362: no such column: match_result
+2025-09-25 19:55:06,951 - ERROR - Error processing record 363: no such column: match_result
+2025-09-25 19:55:06,959 - ERROR - Error processing record 364: no such column: match_result
+2025-09-25 19:55:06,969 - ERROR - Error processing record 365: no such column: match_result
+2025-09-25 19:55:06,977 - ERROR - Error processing record 366: no such column: match_result
+2025-09-25 19:55:06,987 - ERROR - Error processing record 367: 'success'
+2025-09-25 19:55:06,997 - ERROR - Error processing record 368: no such column: match_result
+2025-09-25 19:55:07,005 - ERROR - Error processing record 369: No item with that key
+2025-09-25 19:55:07,014 - ERROR - Error processing record 370: no such column: match_result
+2025-09-25 19:55:07,023 - ERROR - Error processing record 371: No item with that key
+2025-09-25 19:55:07,032 - ERROR - Error processing record 372: no such column: match_result
+2025-09-25 19:55:07,040 - ERROR - Error processing record 373: no such column: match_result
+2025-09-25 19:55:07,050 - ERROR - Error processing record 374: no such column: match_result
+2025-09-25 19:55:07,058 - ERROR - Error processing record 375: no such column: match_result
+2025-09-25 19:55:07,067 - ERROR - Error processing record 376: no such column: match_result
+2025-09-25 19:55:07,076 - ERROR - Error processing record 377: no such column: match_result
+2025-09-25 19:55:07,085 - ERROR - Error processing record 378: No item with that key
+2025-09-25 19:55:07,094 - ERROR - Error processing record 379: no such column: match_result
+2025-09-25 19:55:07,103 - ERROR - Error processing record 380: no such column: match_result
+2025-09-25 19:55:07,111 - ERROR - Error processing record 381: no such column: match_result
+2025-09-25 19:55:07,120 - ERROR - Error processing record 382: no such column: match_result
+2025-09-25 19:55:07,128 - ERROR - Error processing record 383: no such column: match_result
+2025-09-25 19:55:07,137 - ERROR - Error processing record 384: no such column: match_result
+2025-09-25 19:55:07,145 - ERROR - Error processing record 385: No item with that key
+2025-09-25 19:55:07,155 - ERROR - Error processing record 386: 'success'
+2025-09-25 19:55:07,166 - ERROR - Error processing record 387: no such column: match_result
+2025-09-25 19:55:07,174 - ERROR - Error processing record 388: no such column: match_result
+2025-09-25 19:55:07,183 - ERROR - Error processing record 389: no such column: match_result
+2025-09-25 19:55:07,193 - ERROR - Error processing record 390: no such column: match_result
+2025-09-25 19:55:07,203 - ERROR - Error processing record 391: no such column: match_result
+2025-09-25 19:55:07,211 - ERROR - Error processing record 392: no such column: match_result
+2025-09-25 19:55:07,220 - ERROR - Error processing record 393: no such column: match_result
+2025-09-25 19:55:07,228 - ERROR - Error processing record 394: no such column: match_result
+2025-09-25 19:55:07,238 - ERROR - Error processing record 395: no such column: match_result
+2025-09-25 19:55:07,246 - ERROR - Error processing record 396: no such column: match_result
+2025-09-25 19:55:07,256 - ERROR - Error processing record 397: no such column: match_result
+2025-09-25 19:55:07,265 - ERROR - Error processing record 398: no such column: match_result
+2025-09-25 19:55:07,274 - ERROR - Error processing record 399: no such column: match_result
+2025-09-25 19:55:07,283 - ERROR - Error processing record 400: no such column: match_result
+2025-09-25 19:55:07,293 - ERROR - Error processing record 401: no such column: match_result
+2025-09-25 19:55:07,301 - ERROR - Error processing record 402: no such column: match_result
+2025-09-25 19:55:07,309 - ERROR - Error processing record 403: no such column: match_result
+2025-09-25 19:55:07,321 - ERROR - Error processing record 404: no such column: match_result
+2025-09-25 19:55:07,333 - ERROR - Error processing record 405: 'success'
+2025-09-25 19:55:07,341 - ERROR - Error processing record 406: no such column: match_result
+2025-09-25 19:55:07,349 - ERROR - Error processing record 407: no such column: match_result
+2025-09-25 19:55:07,359 - ERROR - Error processing record 408: no such column: match_result
+2025-09-25 19:55:07,368 - ERROR - Error processing record 409: no such column: match_result
+2025-09-25 19:55:07,378 - ERROR - Error processing record 410: 'success'
+2025-09-25 19:55:07,389 - ERROR - Error processing record 411: no such column: match_result
+2025-09-25 19:55:07,397 - ERROR - Error processing record 412: no such column: match_result
+2025-09-25 19:55:07,405 - ERROR - Error processing record 413: no such column: match_result
+2025-09-25 19:55:07,415 - ERROR - Error processing record 414: no such column: match_result
+2025-09-25 19:55:07,423 - ERROR - Error processing record 415: no such column: match_result
+2025-09-25 19:55:07,435 - ERROR - Error processing record 416: no such column: match_result
+2025-09-25 19:55:07,444 - ERROR - Error processing record 417: no such column: match_result
+2025-09-25 19:55:07,455 - ERROR - Error processing record 418: no such column: match_result
+2025-09-25 19:55:07,463 - ERROR - Error processing record 419: no such column: match_result
+2025-09-25 19:55:07,473 - ERROR - Error processing record 420: no such column: match_result
+2025-09-25 19:55:07,475 - INFO - Batch 4 completed in 0.91s: 0 successful, 100 failed
+2025-09-25 19:55:07,580 - INFO - Processing batch 5/9 (100 records)
+2025-09-25 19:55:07,591 - ERROR - Error processing record 421: no such column: match_result
+2025-09-25 19:55:07,599 - ERROR - Error processing record 422: no such column: match_result
+2025-09-25 19:55:07,607 - ERROR - Error processing record 423: no such column: match_result
+2025-09-25 19:55:07,615 - ERROR - Error processing record 424: no such column: match_result
+2025-09-25 19:55:07,624 - ERROR - Error processing record 425: No item with that key
+2025-09-25 19:55:07,633 - ERROR - Error processing record 426: 'success'
+2025-09-25 19:55:07,642 - ERROR - Error processing record 427: no such column: match_result
+2025-09-25 19:55:07,651 - ERROR - Error processing record 428: no such column: match_result
+2025-09-25 19:55:07,659 - ERROR - Error processing record 429: no such column: match_result
+2025-09-25 19:55:07,669 - ERROR - Error processing record 430: No item with that key
+2025-09-25 19:55:07,676 - ERROR - Error processing record 431: 'success'
+2025-09-25 19:55:07,686 - ERROR - Error processing record 432: no such column: match_result
+2025-09-25 19:55:07,695 - ERROR - Error processing record 433: no such column: match_result
+2025-09-25 19:55:07,704 - ERROR - Error processing record 434: no such column: match_result
+2025-09-25 19:55:07,712 - ERROR - Error processing record 435: no such column: match_result
+2025-09-25 19:55:07,721 - ERROR - Error processing record 436: no such column: match_result
+2025-09-25 19:55:07,731 - ERROR - Error processing record 437: no such column: match_result
+2025-09-25 19:55:07,742 - ERROR - Error processing record 438: no such column: match_result
+2025-09-25 19:55:07,750 - ERROR - Error processing record 439: no such column: match_result
+2025-09-25 19:55:07,759 - ERROR - Error processing record 440: no such column: match_result
+2025-09-25 19:55:07,772 - ERROR - Error processing record 441: no such column: match_result
+2025-09-25 19:55:07,782 - ERROR - Error processing record 442: no such column: match_result
+2025-09-25 19:55:07,790 - ERROR - Error processing record 443: no such column: match_result
+2025-09-25 19:55:07,799 - ERROR - Error processing record 444: no such column: match_result
+2025-09-25 19:55:07,807 - ERROR - Error processing record 445: no such column: match_result
+2025-09-25 19:55:07,817 - ERROR - Error processing record 446: no such column: match_result
+2025-09-25 19:55:07,826 - ERROR - Error processing record 447: no such column: match_result
+2025-09-25 19:55:07,834 - ERROR - Error processing record 448: no such column: match_result
+2025-09-25 19:55:07,842 - ERROR - Error processing record 449: no such column: match_result
+2025-09-25 19:55:07,852 - ERROR - Error processing record 450: no such column: match_result
+2025-09-25 19:55:07,861 - ERROR - Error processing record 451: no such column: match_result
+2025-09-25 19:55:07,869 - ERROR - Error processing record 452: no such column: match_result
+2025-09-25 19:55:07,878 - ERROR - Error processing record 453: no such column: match_result
+2025-09-25 19:55:07,888 - ERROR - Error processing record 454: no such column: match_result
+2025-09-25 19:55:07,896 - ERROR - Error processing record 455: no such column: match_result
+2025-09-25 19:55:07,905 - ERROR - Error processing record 456: no such column: match_result
+2025-09-25 19:55:07,914 - ERROR - Error processing record 457: no such column: match_result
+2025-09-25 19:55:07,923 - ERROR - Error processing record 458: no such column: match_result
+2025-09-25 19:55:07,932 - ERROR - Error processing record 459: no such column: match_result
+2025-09-25 19:55:07,941 - ERROR - Error processing record 460: no such column: match_result
+2025-09-25 19:55:07,951 - ERROR - Error processing record 461: no such column: match_result
+2025-09-25 19:55:07,961 - ERROR - Error processing record 462: no such column: match_result
+2025-09-25 19:55:07,971 - ERROR - Error processing record 463: 'success'
+2025-09-25 19:55:07,979 - ERROR - Error processing record 464: no such column: match_result
+2025-09-25 19:55:07,988 - ERROR - Error processing record 465: no such column: match_result
+2025-09-25 19:55:07,996 - ERROR - Error processing record 466: no such column: match_result
+2025-09-25 19:55:08,007 - ERROR - Error processing record 467: no such column: match_result
+2025-09-25 19:55:08,015 - ERROR - Error processing record 468: no such column: match_result
+2025-09-25 19:55:08,023 - ERROR - Error processing record 469: no such column: match_result
+2025-09-25 19:55:08,032 - ERROR - Error processing record 470: no such column: match_result
+2025-09-25 19:55:08,042 - ERROR - Error processing record 471: no such column: match_result
+2025-09-25 19:55:08,053 - ERROR - Error processing record 472: no such column: match_result
+2025-09-25 19:55:08,061 - ERROR - Error processing record 473: no such column: match_result
+2025-09-25 19:55:08,069 - ERROR - Error processing record 474: 'success'
+2025-09-25 19:55:08,078 - ERROR - Error processing record 475: 'success'
+2025-09-25 19:55:08,089 - ERROR - Error processing record 476: 'success'
+2025-09-25 19:55:08,098 - ERROR - Error processing record 477: no such column: match_result
+2025-09-25 19:55:08,107 - ERROR - Error processing record 479: no such column: match_result
+2025-09-25 19:55:08,117 - ERROR - Error processing record 480: no such column: match_result
+2025-09-25 19:55:08,125 - ERROR - Error processing record 481: no such column: match_result
+2025-09-25 19:55:08,135 - ERROR - Error processing record 482: No item with that key
+2025-09-25 19:55:08,143 - ERROR - Error processing record 483: no such column: match_result
+2025-09-25 19:55:08,152 - ERROR - Error processing record 484: no such column: match_result
+2025-09-25 19:55:08,160 - ERROR - Error processing record 485: no such column: match_result
+2025-09-25 19:55:08,171 - ERROR - Error processing record 486: no such column: match_result
+2025-09-25 19:55:08,182 - ERROR - Error processing record 487: no such column: match_result
+2025-09-25 19:55:08,191 - ERROR - Error processing record 488: no such column: match_result
+2025-09-25 19:55:08,200 - ERROR - Error processing record 489: no such column: match_result
+2025-09-25 19:55:08,208 - ERROR - Error processing record 490: no such column: match_result
+2025-09-25 19:55:08,217 - ERROR - Error processing record 491: no such column: match_result
+2025-09-25 19:55:08,225 - ERROR - Error processing record 492: no such column: match_result
+2025-09-25 19:55:08,237 - ERROR - Error processing record 493: no such column: match_result
+2025-09-25 19:55:08,245 - ERROR - Error processing record 494: no such column: match_result
+2025-09-25 19:55:08,257 - ERROR - Error processing record 495: no such column: match_result
+2025-09-25 19:55:08,265 - ERROR - Error processing record 496: no such column: match_result
+2025-09-25 19:55:08,273 - ERROR - Error processing record 497: no such column: match_result
+2025-09-25 19:55:08,282 - ERROR - Error processing record 498: 'success'
+2025-09-25 19:55:08,290 - ERROR - Error processing record 499: no such column: match_result
+2025-09-25 19:55:08,300 - ERROR - Error processing record 500: 'success'
+2025-09-25 19:55:08,308 - ERROR - Error processing record 501: no such column: match_result
+2025-09-25 19:55:08,318 - ERROR - Error processing record 502: no such column: match_result
+2025-09-25 19:55:08,326 - ERROR - Error processing record 503: no such column: match_result
+2025-09-25 19:55:08,336 - ERROR - Error processing record 505: no such column: match_result
+2025-09-25 19:55:08,346 - ERROR - Error processing record 506: 'success'
+2025-09-25 19:55:08,355 - ERROR - Error processing record 507: no such column: match_result
+2025-09-25 19:55:08,365 - ERROR - Error processing record 508: 'success'
+2025-09-25 19:55:08,372 - ERROR - Error processing record 509: No item with that key
+2025-09-25 19:55:08,382 - ERROR - Error processing record 510: no such column: match_result
+2025-09-25 19:55:08,390 - ERROR - Error processing record 511: no such column: match_result
+2025-09-25 19:55:08,400 - ERROR - Error processing record 512: No item with that key
+2025-09-25 19:55:08,410 - ERROR - Error processing record 513: no such column: match_result
+2025-09-25 19:55:08,417 - ERROR - Error processing record 514: no such column: match_result
+2025-09-25 19:55:08,425 - ERROR - Error processing record 515: no such column: match_result
+2025-09-25 19:55:08,437 - ERROR - Error processing record 516: no such column: match_result
+2025-09-25 19:55:08,445 - ERROR - Error processing record 517: no such column: match_result
+2025-09-25 19:55:08,454 - ERROR - Error processing record 518: No item with that key
+2025-09-25 19:55:08,464 - ERROR - Error processing record 519: no such column: match_result
+2025-09-25 19:55:08,473 - ERROR - Error processing record 520: 'success'
+2025-09-25 19:55:08,483 - ERROR - Error processing record 521: no such column: match_result
+2025-09-25 19:55:08,493 - ERROR - Error processing record 522: no such column: match_result
+2025-09-25 19:55:08,493 - INFO - Batch 5 completed in 0.91s: 0 successful, 100 failed
+2025-09-25 19:55:08,597 - INFO - Processing batch 6/9 (100 records)
+2025-09-25 19:55:08,605 - ERROR - Error processing record 523: 'success'
+2025-09-25 19:55:08,615 - ERROR - Error processing record 524: no such column: match_result
+2025-09-25 19:55:08,623 - ERROR - Error processing record 525: no such column: match_result
+2025-09-25 19:55:08,632 - ERROR - Error processing record 526: no such column: match_result
+2025-09-25 19:55:08,641 - ERROR - Error processing record 527: no such column: match_result
+2025-09-25 19:55:08,651 - ERROR - Error processing record 528: No item with that key
+2025-09-25 19:55:08,659 - ERROR - Error processing record 529: no such column: match_result
+2025-09-25 19:55:08,669 - ERROR - Error processing record 530: 'success'
+2025-09-25 19:55:08,677 - ERROR - Error processing record 531: 'success'
+2025-09-25 19:55:08,687 - ERROR - Error processing record 532: no such column: match_result
+2025-09-25 19:55:08,695 - ERROR - Error processing record 533: no such column: match_result
+2025-09-25 19:55:08,707 - ERROR - Error processing record 535: no such column: match_result
+2025-09-25 19:55:08,715 - ERROR - Error processing record 536: no such column: match_result
+2025-09-25 19:55:08,724 - ERROR - Error processing record 537: no such column: match_result
+2025-09-25 19:55:08,732 - ERROR - Error processing record 538: no such column: match_result
+2025-09-25 19:55:08,742 - ERROR - Error processing record 539: 'success'
+2025-09-25 19:55:08,751 - ERROR - Error processing record 540: no such column: match_result
+2025-09-25 19:55:08,761 - ERROR - Error processing record 541: no such column: match_result
+2025-09-25 19:55:08,769 - ERROR - Error processing record 542: no such column: match_result
+2025-09-25 19:55:08,777 - ERROR - Error processing record 543: no such column: match_result
+2025-09-25 19:55:08,788 - ERROR - Error processing record 544: no such column: match_result
+2025-09-25 19:55:08,798 - ERROR - Error processing record 545: no such column: match_result
+2025-09-25 19:55:08,806 - ERROR - Error processing record 546: no such column: match_result
+2025-09-25 19:55:08,815 - ERROR - Error processing record 547: no such column: match_result
+2025-09-25 19:55:08,823 - ERROR - Error processing record 548: no such column: match_result
+2025-09-25 19:55:08,834 - ERROR - Error processing record 549: no such column: match_result
+2025-09-25 19:55:08,841 - ERROR - Error processing record 550: no such column: match_result
+2025-09-25 19:55:08,851 - ERROR - Error processing record 551: no such column: match_result
+2025-09-25 19:55:08,859 - ERROR - Error processing record 552: 'success'
+2025-09-25 19:55:08,867 - ERROR - Error processing record 553: no such column: match_result
+2025-09-25 19:55:08,876 - ERROR - Error processing record 554: no such column: match_result
+2025-09-25 19:55:08,885 - ERROR - Error processing record 555: no such column: match_result
+2025-09-25 19:55:08,894 - ERROR - Error processing record 556: no such column: match_result
+2025-09-25 19:55:08,905 - ERROR - Error processing record 557: no such column: match_result
+2025-09-25 19:55:08,914 - ERROR - Error processing record 559: no such column: match_result
+2025-09-25 19:55:08,922 - ERROR - Error processing record 560: no such column: match_result
+2025-09-25 19:55:08,930 - ERROR - Error processing record 561: no such column: match_result
+2025-09-25 19:55:08,938 - ERROR - Error processing record 562: no such column: match_result
+2025-09-25 19:55:08,946 - ERROR - Error processing record 563: no such column: match_result
+2025-09-25 19:55:08,956 - ERROR - Error processing record 564: no such column: match_result
+2025-09-25 19:55:08,966 - ERROR - Error processing record 565: no such column: match_result
+2025-09-25 19:55:08,974 - ERROR - Error processing record 566: no such column: match_result
+2025-09-25 19:55:08,982 - ERROR - Error processing record 567: no such column: match_result
+2025-09-25 19:55:08,990 - ERROR - Error processing record 568: no such column: match_result
+2025-09-25 19:55:09,000 - ERROR - Error processing record 569: no such column: match_result
+2025-09-25 19:55:09,009 - ERROR - Error processing record 570: no such column: match_result
+2025-09-25 19:55:09,017 - ERROR - Error processing record 571: no such column: match_result
+2025-09-25 19:55:09,027 - ERROR - Error processing record 572: no such column: match_result
+2025-09-25 19:55:09,036 - ERROR - Error processing record 573: no such column: match_result
+2025-09-25 19:55:09,044 - ERROR - Error processing record 574: no such column: match_result
+2025-09-25 19:55:09,053 - ERROR - Error processing record 575: no such column: match_result
+2025-09-25 19:55:09,061 - ERROR - Error processing record 576: no such column: match_result
+2025-09-25 19:55:09,069 - ERROR - Error processing record 577: no such column: match_result
+2025-09-25 19:55:09,077 - ERROR - Error processing record 578: no such column: match_result
+2025-09-25 19:55:09,089 - ERROR - Error processing record 579: no such column: match_result
+2025-09-25 19:55:09,098 - ERROR - Error processing record 580: no such column: match_result
+2025-09-25 19:55:09,106 - ERROR - Error processing record 581: no such column: match_result
+2025-09-25 19:55:09,116 - ERROR - Error processing record 582: no such column: match_result
+2025-09-25 19:55:09,125 - ERROR - Error processing record 583: no such column: match_result
+2025-09-25 19:55:09,134 - ERROR - Error processing record 584: no such column: match_result
+2025-09-25 19:55:09,144 - ERROR - Error processing record 585: no such column: match_result
+2025-09-25 19:55:09,153 - ERROR - Error processing record 586: no such column: match_result
+2025-09-25 19:55:09,161 - ERROR - Error processing record 587: no such column: match_result
+2025-09-25 19:55:09,169 - ERROR - Error processing record 588: no such column: match_result
+2025-09-25 19:55:09,177 - ERROR - Error processing record 589: no such column: match_result
+2025-09-25 19:55:09,189 - ERROR - Error processing record 590: no such column: match_result
+2025-09-25 19:55:09,199 - ERROR - Error processing record 591: no such column: match_result
+2025-09-25 19:55:09,207 - ERROR - Error processing record 592: no such column: match_result
+2025-09-25 19:55:09,216 - ERROR - Error processing record 593: no such column: match_result
+2025-09-25 19:55:09,225 - ERROR - Error processing record 594: no such column: match_result
+2025-09-25 19:55:09,233 - ERROR - Error processing record 595: no such column: match_result
+2025-09-25 19:55:09,241 - ERROR - Error processing record 596: 'success'
+2025-09-25 19:55:09,252 - ERROR - Error processing record 597: no such column: match_result
+2025-09-25 19:55:09,262 - ERROR - Error processing record 598: no such column: match_result
+2025-09-25 19:55:09,272 - ERROR - Error processing record 599: no such column: match_result
+2025-09-25 19:55:09,282 - ERROR - Error processing record 600: no such column: match_result
+2025-09-25 19:55:09,290 - ERROR - Error processing record 601: no such column: match_result
+2025-09-25 19:55:09,300 - ERROR - Error processing record 602: no such column: match_result
+2025-09-25 19:55:09,308 - ERROR - Error processing record 603: no such column: match_result
+2025-09-25 19:55:09,317 - ERROR - Error processing record 604: no such column: match_result
+2025-09-25 19:55:09,326 - ERROR - Error processing record 605: 'success'
+2025-09-25 19:55:09,336 - ERROR - Error processing record 606: no such column: match_result
+2025-09-25 19:55:09,344 - ERROR - Error processing record 607: no such column: match_result
+2025-09-25 19:55:09,354 - ERROR - Error processing record 608: no such column: match_result
+2025-09-25 19:55:09,362 - ERROR - Error processing record 609: 'success'
+2025-09-25 19:55:09,372 - ERROR - Error processing record 610: no such column: match_result
+2025-09-25 19:55:09,382 - ERROR - Error processing record 611: no such column: match_result
+2025-09-25 19:55:09,390 - ERROR - Error processing record 612: no such column: match_result
+2025-09-25 19:55:09,401 - ERROR - Error processing record 613: 'success'
+2025-09-25 19:55:09,409 - ERROR - Error processing record 614: no such column: match_result
+2025-09-25 19:55:09,422 - ERROR - Error processing record 615: no such column: match_result
+2025-09-25 19:55:09,430 - ERROR - Error processing record 616: 'success'
+2025-09-25 19:55:09,440 - ERROR - Error processing record 617: no such column: match_result
+2025-09-25 19:55:09,450 - ERROR - Error processing record 618: no such column: match_result
+2025-09-25 19:55:09,458 - ERROR - Error processing record 619: no such column: match_result
+2025-09-25 19:55:09,467 - ERROR - Error processing record 620: no such column: match_result
+2025-09-25 19:55:09,477 - ERROR - Error processing record 621: no such column: match_result
+2025-09-25 19:55:09,488 - ERROR - Error processing record 622: no such column: match_result
+2025-09-25 19:55:09,498 - ERROR - Error processing record 623: no such column: match_result
+2025-09-25 19:55:09,506 - ERROR - Error processing record 624: no such column: match_result
+2025-09-25 19:55:09,506 - INFO - Batch 6 completed in 0.91s: 0 successful, 100 failed
+2025-09-25 19:55:09,613 - INFO - Processing batch 7/9 (100 records)
+2025-09-25 19:55:09,623 - ERROR - Error processing record 625: no such column: match_result
+2025-09-25 19:55:09,632 - ERROR - Error processing record 626: no such column: match_result
+2025-09-25 19:55:09,640 - ERROR - Error processing record 627: no such column: match_result
+2025-09-25 19:55:09,648 - ERROR - Error processing record 628: no such column: match_result
+2025-09-25 19:55:09,658 - ERROR - Error processing record 629: no such column: match_result
+2025-09-25 19:55:09,667 - ERROR - Error processing record 630: no such column: match_result
+2025-09-25 19:55:09,675 - ERROR - Error processing record 631: no such column: match_result
+2025-09-25 19:55:09,684 - ERROR - Error processing record 632: no such column: match_result
+2025-09-25 19:55:09,694 - ERROR - Error processing record 633: no such column: match_result
+2025-09-25 19:55:09,702 - ERROR - Error processing record 634: no such column: match_result
+2025-09-25 19:55:09,711 - ERROR - Error processing record 635: no such column: match_result
+2025-09-25 19:55:09,721 - ERROR - Error processing record 636: No item with that key
+2025-09-25 19:55:09,729 - ERROR - Error processing record 637: 'success'
+2025-09-25 19:55:09,740 - ERROR - Error processing record 638: no such column: match_result
+2025-09-25 19:55:09,751 - ERROR - Error processing record 639: no such column: match_result
+2025-09-25 19:55:09,760 - ERROR - Error processing record 640: no such column: match_result
+2025-09-25 19:55:09,769 - ERROR - Error processing record 641: no such column: match_result
+2025-09-25 19:55:09,779 - ERROR - Error processing record 642: 'success'
+2025-09-25 19:55:09,790 - ERROR - Error processing record 643: no such column: match_result
+2025-09-25 19:55:09,798 - ERROR - Error processing record 644: 'success'
+2025-09-25 19:55:09,806 - ERROR - Error processing record 645: no such column: match_result
+2025-09-25 19:55:09,817 - ERROR - Error processing record 646: no such column: match_result
+2025-09-25 19:55:09,825 - ERROR - Error processing record 647: no such column: match_result
+2025-09-25 19:55:09,836 - ERROR - Error processing record 648: no such column: match_result
+2025-09-25 19:55:09,844 - ERROR - Error processing record 649: no such column: match_result
+2025-09-25 19:55:09,853 - ERROR - Error processing record 651: no such column: match_result
+2025-09-25 19:55:09,861 - ERROR - Error processing record 652: no such column: match_result
+2025-09-25 19:55:09,871 - ERROR - Error processing record 653: no such column: match_result
+2025-09-25 19:55:09,880 - ERROR - Error processing record 654: no such column: match_result
+2025-09-25 19:55:09,889 - ERROR - Error processing record 655: no such column: match_result
+2025-09-25 19:55:09,899 - ERROR - Error processing record 656: no such column: match_result
+2025-09-25 19:55:09,907 - ERROR - Error processing record 657: no such column: match_result
+2025-09-25 19:55:09,917 - ERROR - Error processing record 658: no such column: match_result
+2025-09-25 19:55:09,925 - ERROR - Error processing record 659: no such column: match_result
+2025-09-25 19:55:09,935 - ERROR - Error processing record 660: no such column: match_result
+2025-09-25 19:55:09,944 - ERROR - Error processing record 661: no such column: match_result
+2025-09-25 19:55:09,953 - ERROR - Error processing record 662: no such column: match_result
+2025-09-25 19:55:09,963 - ERROR - Error processing record 663: no such column: match_result
+2025-09-25 19:55:09,971 - ERROR - Error processing record 664: no such column: match_result
+2025-09-25 19:55:09,981 - ERROR - Error processing record 665: 'success'
+2025-09-25 19:55:09,989 - ERROR - Error processing record 666: 'success'
+2025-09-25 19:55:09,999 - ERROR - Error processing record 667: 'success'
+2025-09-25 19:55:10,007 - ERROR - Error processing record 668: 'success'
+2025-09-25 19:55:10,016 - ERROR - Error processing record 669: 'success'
+2025-09-25 19:55:10,024 - ERROR - Error processing record 670: no such column: match_result
+2025-09-25 19:55:10,033 - ERROR - Error processing record 671: 'success'
+2025-09-25 19:55:10,041 - ERROR - Error processing record 672: 'success'
+2025-09-25 19:55:10,051 - ERROR - Error processing record 673: no such column: match_result
+2025-09-25 19:55:10,059 - ERROR - Error processing record 674: no such column: match_result
+2025-09-25 19:55:10,069 - ERROR - Error processing record 675: no such column: match_result
+2025-09-25 19:55:10,077 - ERROR - Error processing record 676: no such column: match_result
+2025-09-25 19:55:10,089 - ERROR - Error processing record 677: no such column: match_result
+2025-09-25 19:55:10,100 - ERROR - Error processing record 678: 'success'
+2025-09-25 19:55:10,108 - ERROR - Error processing record 679: No item with that key
+2025-09-25 19:55:10,117 - ERROR - Error processing record 680: no such column: match_result
+2025-09-25 19:55:10,127 - ERROR - Error processing record 681: no such column: match_result
+2025-09-25 19:55:10,137 - ERROR - Error processing record 682: 'success'
+2025-09-25 19:55:10,147 - ERROR - Error processing record 683: No item with that key
+2025-09-25 19:55:10,155 - ERROR - Error processing record 684: no such column: match_result
+2025-09-25 19:55:10,164 - ERROR - Error processing record 685: no such column: match_result
+2025-09-25 19:55:10,172 - ERROR - Error processing record 686: no such column: match_result
+2025-09-25 19:55:10,182 - ERROR - Error processing record 687: 'success'
+2025-09-25 19:55:10,189 - ERROR - Error processing record 688: 'success'
+2025-09-25 19:55:10,200 - ERROR - Error processing record 689: no such column: match_result
+2025-09-25 19:55:10,208 - ERROR - Error processing record 690: no such column: match_result
+2025-09-25 19:55:10,220 - ERROR - Error processing record 691: no such column: match_result
+2025-09-25 19:55:10,228 - ERROR - Error processing record 692: no such column: match_result
+2025-09-25 19:55:10,236 - ERROR - Error processing record 693: no such column: match_result
+2025-09-25 19:55:10,245 - ERROR - Error processing record 694: 'success'
+2025-09-25 19:55:10,254 - ERROR - Error processing record 695: no such column: match_result
+2025-09-25 19:55:10,264 - ERROR - Error processing record 696: no such column: match_result
+2025-09-25 19:55:10,273 - ERROR - Error processing record 697: no such column: match_result
+2025-09-25 19:55:10,281 - ERROR - Error processing record 698: no such column: match_result
+2025-09-25 19:55:10,289 - ERROR - Error processing record 699: 'success'
+2025-09-25 19:55:10,300 - ERROR - Error processing record 700: no such column: match_result
+2025-09-25 19:55:10,309 - ERROR - Error processing record 701: no such column: match_result
+2025-09-25 19:55:10,318 - ERROR - Error processing record 702: no such column: match_result
+2025-09-25 19:55:10,327 - ERROR - Error processing record 703: no such column: match_result
+2025-09-25 19:55:10,335 - ERROR - Error processing record 704: no such column: match_result
+2025-09-25 19:55:10,344 - ERROR - Error processing record 705: No item with that key
+2025-09-25 19:55:10,352 - ERROR - Error processing record 706: no such column: match_result
+2025-09-25 19:55:10,361 - ERROR - Error processing record 707: no such column: match_result
+2025-09-25 19:55:10,369 - ERROR - Error processing record 709: no such column: match_result
+2025-09-25 19:55:10,377 - ERROR - Error processing record 710: no such column: match_result
+2025-09-25 19:55:10,388 - ERROR - Error processing record 711: no such column: match_result
+2025-09-25 19:55:10,397 - ERROR - Error processing record 712: no such column: match_result
+2025-09-25 19:55:10,413 - ERROR - Error processing record 713: no such column: match_result
+2025-09-25 19:55:10,429 - ERROR - Error processing record 714: no such column: match_result
+2025-09-25 19:55:10,439 - ERROR - Error processing record 715: no such column: match_result
+2025-09-25 19:55:10,450 - ERROR - Error processing record 716: no such column: match_result
+2025-09-25 19:55:10,458 - ERROR - Error processing record 717: no such column: match_result
+2025-09-25 19:55:10,468 - ERROR - Error processing record 718: 'success'
+2025-09-25 19:55:10,477 - ERROR - Error processing record 719: no such column: match_result
+2025-09-25 19:55:10,487 - ERROR - Error processing record 720: no such column: match_result
+2025-09-25 19:55:10,497 - ERROR - Error processing record 721: no such column: match_result
+2025-09-25 19:55:10,506 - ERROR - Error processing record 722: 'success'
+2025-09-25 19:55:10,515 - ERROR - Error processing record 723: 'success'
+2025-09-25 19:55:10,524 - ERROR - Error processing record 724: no such column: match_result
+2025-09-25 19:55:10,533 - ERROR - Error processing record 725: no such column: match_result
+2025-09-25 19:55:10,541 - ERROR - Error processing record 726: no such column: match_result
+2025-09-25 19:55:10,543 - INFO - Batch 7 completed in 0.93s: 0 successful, 100 failed
+2025-09-25 19:55:10,646 - INFO - Processing batch 8/9 (100 records)
+2025-09-25 19:55:10,656 - ERROR - Error processing record 727: 'success'
+2025-09-25 19:55:10,664 - ERROR - Error processing record 728: no such column: match_result
+2025-09-25 19:55:10,674 - ERROR - Error processing record 729: no such column: match_result
+2025-09-25 19:55:10,684 - ERROR - Error processing record 730: No item with that key
+2025-09-25 19:55:10,692 - ERROR - Error processing record 731: 'success'
+2025-09-25 19:55:10,703 - ERROR - Error processing record 732: No item with that key
+2025-09-25 19:55:10,711 - ERROR - Error processing record 733: no such column: match_result
+2025-09-25 19:55:10,721 - ERROR - Error processing record 734: no such column: match_result
+2025-09-25 19:55:10,729 - ERROR - Error processing record 735: no such column: match_result
+2025-09-25 19:55:10,739 - ERROR - Error processing record 736: no such column: match_result
+2025-09-25 19:55:10,748 - ERROR - Error processing record 737: no such column: match_result
+2025-09-25 19:55:10,756 - ERROR - Error processing record 738: no such column: match_result
+2025-09-25 19:55:10,767 - ERROR - Error processing record 739: 'success'
+2025-09-25 19:55:10,775 - ERROR - Error processing record 740: no such column: match_result
+2025-09-25 19:55:10,785 - ERROR - Error processing record 741: no such column: match_result
+2025-09-25 19:55:10,793 - ERROR - Error processing record 742: no such column: match_result
+2025-09-25 19:55:10,802 - ERROR - Error processing record 743: no such column: match_result
+2025-09-25 19:55:10,812 - ERROR - Error processing record 744: no such column: match_result
+2025-09-25 19:55:10,821 - ERROR - Error processing record 745: no such column: match_result
+2025-09-25 19:55:10,831 - ERROR - Error processing record 746: no such column: match_result
+2025-09-25 19:55:10,841 - ERROR - Error processing record 747: 'success'
+2025-09-25 19:55:10,849 - ERROR - Error processing record 748: no such column: match_result
+2025-09-25 19:55:10,858 - ERROR - Error processing record 749: no such column: match_result
+2025-09-25 19:55:10,867 - ERROR - Error processing record 750: no such column: match_result
+2025-09-25 19:55:10,877 - ERROR - Error processing record 751: no such column: match_result
+2025-09-25 19:55:10,885 - ERROR - Error processing record 752: no such column: match_result
+2025-09-25 19:55:10,893 - ERROR - Error processing record 753: no such column: match_result
+2025-09-25 19:55:10,902 - ERROR - Error processing record 754: no such column: match_result
+2025-09-25 19:55:10,911 - ERROR - Error processing record 755: 'success'
+2025-09-25 19:55:10,920 - ERROR - Error processing record 756: no such column: match_result
+2025-09-25 19:55:10,928 - ERROR - Error processing record 757: no such column: match_result
+2025-09-25 19:55:10,939 - ERROR - Error processing record 758: no such column: match_result
+2025-09-25 19:55:10,947 - ERROR - Error processing record 759: 'success'
+2025-09-25 19:55:10,954 - ERROR - Error processing record 760: no such column: match_result
+2025-09-25 19:55:10,963 - ERROR - Error processing record 761: no such column: match_result
+2025-09-25 19:55:10,970 - ERROR - Error processing record 762: no such column: match_result
+2025-09-25 19:55:10,980 - ERROR - Error processing record 763: 'success'
+2025-09-25 19:55:10,990 - ERROR - Error processing record 764: no such column: match_result
+2025-09-25 19:55:11,000 - ERROR - Error processing record 765: 'success'
+2025-09-25 19:55:11,008 - ERROR - Error processing record 766: no such column: match_result
+2025-09-25 19:55:11,017 - ERROR - Error processing record 767: no such column: match_result
+2025-09-25 19:55:11,025 - ERROR - Error processing record 768: 'success'
+2025-09-25 19:55:11,034 - ERROR - Error processing record 769: no such column: match_result
+2025-09-25 19:55:11,042 - ERROR - Error processing record 770: 'success'
+2025-09-25 19:55:11,052 - ERROR - Error processing record 771: no such column: match_result
+2025-09-25 19:55:11,060 - ERROR - Error processing record 772: no such column: match_result
+2025-09-25 19:55:11,071 - ERROR - Error processing record 773: No item with that key
+2025-09-25 19:55:11,079 - ERROR - Error processing record 774: no such column: match_result
+2025-09-25 19:55:11,087 - ERROR - Error processing record 775: no such column: match_result
+2025-09-25 19:55:11,095 - ERROR - Error processing record 776: no such column: match_result
+2025-09-25 19:55:11,106 - ERROR - Error processing record 777: 'success'
+2025-09-25 19:55:11,115 - ERROR - Error processing record 778: no such column: match_result
+2025-09-25 19:55:11,124 - ERROR - Error processing record 779: no such column: match_result
+2025-09-25 19:55:11,133 - ERROR - Error processing record 780: no such column: match_result
+2025-09-25 19:55:11,143 - ERROR - Error processing record 781: 'success'
+2025-09-25 19:55:11,154 - ERROR - Error processing record 782: no such column: match_result
+2025-09-25 19:55:11,161 - ERROR - Error processing record 783: 'success'
+2025-09-25 19:55:11,171 - ERROR - Error processing record 784: no such column: match_result
+2025-09-25 19:55:11,181 - ERROR - Error processing record 785: no such column: match_result
+2025-09-25 19:55:11,190 - ERROR - Error processing record 786: 'success'
+2025-09-25 19:55:11,200 - ERROR - Error processing record 787: no such column: match_result
+2025-09-25 19:55:11,208 - ERROR - Error processing record 788: no such column: match_result
+2025-09-25 19:55:11,218 - ERROR - Error processing record 789: no such column: match_result
+2025-09-25 19:55:11,226 - ERROR - Error processing record 790: no such column: match_result
+2025-09-25 19:55:11,234 - ERROR - Error processing record 791: no such column: match_result
+2025-09-25 19:55:11,244 - ERROR - Error processing record 792: 'success'
+2025-09-25 19:55:11,252 - ERROR - Error processing record 793: 'success'
+2025-09-25 19:55:11,260 - ERROR - Error processing record 794: 'success'
+2025-09-25 19:55:11,270 - ERROR - Error processing record 795: 'success'
+2025-09-25 19:55:11,278 - ERROR - Error processing record 796: 'success'
+2025-09-25 19:55:11,287 - ERROR - Error processing record 797: 'success'
+2025-09-25 19:55:11,297 - ERROR - Error processing record 798: 'success'
+2025-09-25 19:55:11,306 - ERROR - Error processing record 799: 'success'
+2025-09-25 19:55:11,315 - ERROR - Error processing record 800: no such column: match_result
+2025-09-25 19:55:11,325 - ERROR - Error processing record 801: no such column: match_result
+2025-09-25 19:55:11,335 - ERROR - Error processing record 802: no such column: match_result
+2025-09-25 19:55:11,343 - ERROR - Error processing record 803: no such column: match_result
+2025-09-25 19:55:11,355 - ERROR - Error processing record 804: no such column: match_result
+2025-09-25 19:55:11,364 - ERROR - Error processing record 805: 'success'
+2025-09-25 19:55:11,372 - ERROR - Error processing record 806: no such column: match_result
+2025-09-25 19:55:11,381 - ERROR - Error processing record 807: no such column: match_result
+2025-09-25 19:55:11,390 - ERROR - Error processing record 808: no such column: match_result
+2025-09-25 19:55:11,402 - ERROR - Error processing record 809: no such column: match_result
+2025-09-25 19:55:11,410 - ERROR - Error processing record 810: no such column: match_result
+2025-09-25 19:55:11,420 - ERROR - Error processing record 811: 'success'
+2025-09-25 19:55:11,428 - ERROR - Error processing record 812: no such column: match_result
+2025-09-25 19:55:11,436 - ERROR - Error processing record 813: no such column: match_result
+2025-09-25 19:55:11,444 - ERROR - Error processing record 814: no such column: match_result
+2025-09-25 19:55:11,454 - ERROR - Error processing record 815: no such column: match_result
+2025-09-25 19:55:11,462 - ERROR - Error processing record 816: no such column: match_result
+2025-09-25 19:55:11,472 - ERROR - Error processing record 817: no such column: match_result
+2025-09-25 19:55:11,480 - ERROR - Error processing record 818: no such column: match_result
+2025-09-25 19:55:11,489 - ERROR - Error processing record 819: 'success'
+2025-09-25 19:55:11,498 - ERROR - Error processing record 820: no such column: match_result
+2025-09-25 19:55:11,507 - ERROR - Error processing record 821: no such column: match_result
+2025-09-25 19:55:11,514 - ERROR - Error processing record 822: 'success'
+2025-09-25 19:55:11,522 - ERROR - Error processing record 823: no such column: match_result
+2025-09-25 19:55:11,532 - ERROR - Error processing record 824: no such column: match_result
+2025-09-25 19:55:11,540 - ERROR - Error processing record 825: no such column: match_result
+2025-09-25 19:55:11,548 - ERROR - Error processing record 826: no such column: match_result
+2025-09-25 19:55:11,550 - INFO - Batch 8 completed in 0.90s: 0 successful, 100 failed
+2025-09-25 19:55:11,663 - INFO - Processing batch 9/9 (71 records)
+2025-09-25 19:55:11,673 - ERROR - Error processing record 827: no such column: match_result
+2025-09-25 19:55:11,683 - ERROR - Error processing record 828: no such column: match_result
+2025-09-25 19:55:11,696 - ERROR - Error processing record 829: no such column: match_result
+2025-09-25 19:55:11,704 - ERROR - Error processing record 830: no such column: match_result
+2025-09-25 19:55:11,712 - ERROR - Error processing record 831: no such column: match_result
+2025-09-25 19:55:11,720 - ERROR - Error processing record 832: no such column: match_result
+2025-09-25 19:55:11,730 - ERROR - Error processing record 833: no such column: match_result
+2025-09-25 19:55:11,738 - ERROR - Error processing record 834: no such column: match_result
+2025-09-25 19:55:11,747 - ERROR - Error processing record 835: no such column: match_result
+2025-09-25 19:55:11,756 - ERROR - Error processing record 836: no such column: match_result
+2025-09-25 19:55:11,765 - ERROR - Error processing record 837: no such column: match_result
+2025-09-25 19:55:11,775 - ERROR - Error processing record 838: no such column: match_result
+2025-09-25 19:55:11,783 - ERROR - Error processing record 839: no such column: match_result
+2025-09-25 19:55:11,792 - ERROR - Error processing record 840: no such column: match_result
+2025-09-25 19:55:11,801 - ERROR - Error processing record 842: no such column: match_result
+2025-09-25 19:55:11,812 - ERROR - Error processing record 843: no such column: match_result
+2025-09-25 19:55:11,823 - ERROR - Error processing record 844: no such column: match_result
+2025-09-25 19:55:11,832 - ERROR - Error processing record 845: no such column: match_result
+2025-09-25 19:55:11,841 - ERROR - Error processing record 846: no such column: match_result
+2025-09-25 19:55:11,849 - ERROR - Error processing record 847: no such column: match_result
+2025-09-25 19:55:11,859 - ERROR - Error processing record 848: no such column: match_result
+2025-09-25 19:55:11,868 - ERROR - Error processing record 849: no such column: match_result
+2025-09-25 19:55:11,876 - ERROR - Error processing record 850: no such column: match_result
+2025-09-25 19:55:11,885 - ERROR - Error processing record 851: no such column: match_result
+2025-09-25 19:55:11,893 - ERROR - Error processing record 852: no such column: match_result
+2025-09-25 19:55:11,904 - ERROR - Error processing record 853: no such column: match_result
+2025-09-25 19:55:11,913 - ERROR - Error processing record 854: no such column: match_result
+2025-09-25 19:55:11,921 - ERROR - Error processing record 855: no such column: match_result
+2025-09-25 19:55:11,930 - ERROR - Error processing record 856: no such column: match_result
+2025-09-25 19:55:11,939 - ERROR - Error processing record 857: no such column: match_result
+2025-09-25 19:55:11,947 - ERROR - Error processing record 858: no such column: match_result
+2025-09-25 19:55:11,956 - ERROR - Error processing record 859: no such column: match_result
+2025-09-25 19:55:11,965 - ERROR - Error processing record 860: no such column: match_result
+2025-09-25 19:55:11,974 - ERROR - Error processing record 861: no such column: match_result
+2025-09-25 19:55:11,984 - ERROR - Error processing record 862: no such column: match_result
+2025-09-25 19:55:11,993 - ERROR - Error processing record 863: no such column: match_result
+2025-09-25 19:55:12,004 - ERROR - Error processing record 864: no such column: match_result
+2025-09-25 19:55:12,012 - ERROR - Error processing record 865: no such column: match_result
+2025-09-25 19:55:12,022 - ERROR - Error processing record 866: no such column: match_result
+2025-09-25 19:55:12,030 - ERROR - Error processing record 867: no such column: match_result
+2025-09-25 19:55:12,038 - ERROR - Error processing record 868: no such column: match_result
+2025-09-25 19:55:12,048 - ERROR - Error processing record 869: 'success'
+2025-09-25 19:55:12,057 - ERROR - Error processing record 870: no such column: match_result
+2025-09-25 19:55:12,066 - ERROR - Error processing record 871: no such column: match_result
+2025-09-25 19:55:12,074 - ERROR - Error processing record 872: no such column: match_result
+2025-09-25 19:55:12,083 - ERROR - Error processing record 873: no such column: match_result
+2025-09-25 19:55:12,091 - ERROR - Error processing record 874: no such column: match_result
+2025-09-25 19:55:12,103 - ERROR - Error processing record 875: no such column: match_result
+2025-09-25 19:55:12,111 - ERROR - Error processing record 876: no such column: match_result
+2025-09-25 19:55:12,120 - ERROR - Error processing record 877: no such column: match_result
+2025-09-25 19:55:12,130 - ERROR - Error processing record 878: no such column: match_result
+2025-09-25 19:55:12,139 - ERROR - Error processing record 879: no such column: match_result
+2025-09-25 19:55:12,149 - ERROR - Error processing record 880: no such column: match_result
+2025-09-25 19:55:12,158 - ERROR - Error processing record 881: no such column: match_result
+2025-09-25 19:55:12,166 - ERROR - Error processing record 882: no such column: match_result
+2025-09-25 19:55:12,176 - ERROR - Error processing record 883: no such column: match_result
+2025-09-25 19:55:12,184 - ERROR - Error processing record 884: no such column: match_result
+2025-09-25 19:55:12,193 - ERROR - Error processing record 885: no such column: match_result
+2025-09-25 19:55:12,202 - ERROR - Error processing record 886: no such column: match_result
+2025-09-25 19:55:12,210 - ERROR - Error processing record 887: no such column: match_result
+2025-09-25 19:55:12,221 - ERROR - Error processing record 888: no such column: match_result
+2025-09-25 19:55:12,229 - ERROR - Error processing record 889: no such column: match_result
+2025-09-25 19:55:12,238 - ERROR - Error processing record 890: no such column: match_result
+2025-09-25 19:55:12,248 - ERROR - Error processing record 891: no such column: match_result
+2025-09-25 19:55:12,257 - ERROR - Error processing record 892: 'success'
+2025-09-25 19:55:12,266 - ERROR - Error processing record 893: no such column: match_result
+2025-09-25 19:55:12,274 - ERROR - Error processing record 894: no such column: match_result
+2025-09-25 19:55:12,285 - ERROR - Error processing record 895: no such column: match_result
+2025-09-25 19:55:12,295 - ERROR - Error processing record 896: no such column: match_result
+2025-09-25 19:55:12,304 - ERROR - Error processing record 897: no such column: match_result
+2025-09-25 19:55:12,312 - ERROR - Error processing record 898: no such column: match_result
+2025-09-25 19:55:12,313 - INFO - Batch 9 completed in 0.65s: 0 successful, 71 failed
+2025-09-25 19:55:12,413 - INFO - ================================================================================
+2025-09-25 19:55:12,413 - INFO - MIGRATION COMPLETED
+2025-09-25 19:55:12,413 - INFO - ================================================================================
+2025-09-25 19:55:12,413 - INFO - Total duration: 0:00:08.955688
+2025-09-25 19:55:12,414 - INFO - Total records processed: 871
+2025-09-25 19:55:12,414 - INFO - Successful normalizations: 0
+2025-09-25 19:55:12,414 - INFO - Failed normalizations: 871
+2025-09-25 19:55:12,414 - INFO - Intervention mappings created: 0
+2025-09-25 19:55:12,414 - INFO - Condition mappings created: 0
+2025-09-25 19:55:12,414 - INFO - New canonical entities created: 0
+2025-09-25 19:55:12,414 - INFO - Batches processed: 9
+2025-09-25 19:55:12,414 - WARNING - Encountered 871 errors
+2025-09-25 19:55:12,414 - WARNING -   Record 17: no such column: match_result
+2025-09-25 19:55:12,414 - WARNING -   Record 18: no such column: match_result
+2025-09-25 19:55:12,415 - WARNING -   Record 19: no such column: match_result
+2025-09-25 19:55:12,415 - WARNING -   Record 20: no such column: match_result
+2025-09-25 19:55:12,415 - WARNING -   Record 21: no such column: match_result
+2025-09-25 19:55:12,423 - INFO - Detailed statistics saved to: data/logs/migration_stats_20250925_195512.json
+2025-09-25 19:55:12,423 - INFO - Verifying migration results...
+2025-09-25 19:55:12,425 - INFO - VERIFICATION RESULTS:
+2025-09-25 19:55:12,425 - INFO -   Total records: 881
+2025-09-25 19:55:12,425 - INFO -   Normalized records: 10
+2025-09-25 19:55:12,425 - INFO -   Intervention mappings: 0
+2025-09-25 19:55:12,425 - INFO -   Condition mappings: 8
+2025-09-25 19:55:12,425 - INFO -   Unmigrated records: 871
+2025-09-25 19:55:12,425 - INFO -   Migration percentage: 1.1%
+2025-09-25 19:55:12,425 - WARNING - Migration incomplete: 871 records still need processing

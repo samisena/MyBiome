@@ -1,0 +1,1417 @@
+2025-09-25 19:55:45,392 - INFO - Created backup: data/processed/intervention_research_simple_migration_backup_20250925_195545.db
+2025-09-25 19:55:45,397 - INFO - Found 871 records to migrate
+2025-09-25 19:55:45,397 - INFO - Created new canonical: 'personalized elimination diet' -> ID 7
+2025-09-25 19:55:45,398 - ERROR - Error processing record 17: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - ERROR - Error processing record 18: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - INFO - Created new canonical: 'Selective serotonin reuptake inhibitors (SSRIs)' -> ID 8
+2025-09-25 19:55:45,398 - ERROR - Error processing record 19: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - ERROR - Error processing record 20: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - INFO - Created new canonical: 'Sertraline' -> ID 9
+2025-09-25 19:55:45,398 - ERROR - Error processing record 21: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - INFO - Created new canonical: 'Citalopram' -> ID 10
+2025-09-25 19:55:45,398 - ERROR - Error processing record 22: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - INFO - Created new canonical: 'AI-enhanced CHD management platform (AIM-CHD)' -> ID 11
+2025-09-25 19:55:45,398 - ERROR - Error processing record 23: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - INFO - Created new canonical: 'lipid-lowering medications' -> ID 12
+2025-09-25 19:55:45,398 - ERROR - Error processing record 24: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - INFO - Created new canonical: 'weight management plus exercise training' -> ID 13
+2025-09-25 19:55:45,398 - ERROR - Error processing record 25: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - INFO - Created new canonical: 'educational sessions on healthy diets' -> ID 14
+2025-09-25 19:55:45,398 - ERROR - Error processing record 26: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - INFO - Created new canonical: 'methotrexate' -> ID 15
+2025-09-25 19:55:45,398 - ERROR - Error processing record 27: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,398 - INFO - Created new canonical: 'sulfasalazine' -> ID 16
+2025-09-25 19:55:45,399 - ERROR - Error processing record 28: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,399 - INFO - Created new canonical: 'arthroscopic lavage' -> ID 17
+2025-09-25 19:55:45,399 - ERROR - Error processing record 29: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,399 - INFO - Created new canonical: 'open arthrotomy' -> ID 18
+2025-09-25 19:55:45,399 - ERROR - Error processing record 30: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,399 - INFO - Created new canonical: 'repeated joint aspiration' -> ID 19
+2025-09-25 19:55:45,399 - ERROR - Error processing record 31: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,399 - INFO - Created new canonical: 'psychoeducation' -> ID 20
+2025-09-25 19:55:45,399 - ERROR - Error processing record 32: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,399 - INFO - Created new canonical: 'brexanolone' -> ID 21
+2025-09-25 19:55:45,399 - ERROR - Error processing record 33: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,399 - INFO - Created new canonical: 'zuranolone' -> ID 22
+2025-09-25 19:55:45,399 - ERROR - Error processing record 34: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,399 - INFO - Created new canonical: 'AI-assisted screening tools' -> ID 23
+2025-09-25 19:55:45,399 - ERROR - Error processing record 36: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,399 - INFO - Created new canonical: 'family-inclusive strategies' -> ID 24
+2025-09-25 19:55:45,399 - ERROR - Error processing record 37: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,399 - INFO - Created new canonical: 'acupuncture' -> ID 25
+2025-09-25 19:55:45,399 - ERROR - Error processing record 38: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - INFO - Created new canonical: 'Healthy Eating Index (HEI)' -> ID 26
+2025-09-25 19:55:45,400 - ERROR - Error processing record 39: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - INFO - Created new canonical: 'healthy dietary pattern' -> ID 27
+2025-09-25 19:55:45,400 - ERROR - Error processing record 40: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - INFO - Created new canonical: 'anti-inflammatory diet' -> ID 28
+2025-09-25 19:55:45,400 - ERROR - Error processing record 41: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - ERROR - Error processing record 42: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - INFO - Created new canonical: 'HEI (Healthy Eating Index) diet' -> ID 29
+2025-09-25 19:55:45,400 - ERROR - Error processing record 43: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - INFO - Created new canonical: 'other therapies' -> ID 30
+2025-09-25 19:55:45,400 - ERROR - Error processing record 44: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - INFO - Created new canonical: 'Fu's subcutaneous needling (FSN)' -> ID 31
+2025-09-25 19:55:45,400 - ERROR - Error processing record 45: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - INFO - Created new canonical: 'electroacupuncture' -> ID 32
+2025-09-25 19:55:45,400 - ERROR - Error processing record 46: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - ERROR - Error processing record 47: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - INFO - Created new canonical: 'guselkumab' -> ID 33
+2025-09-25 19:55:45,400 - ERROR - Error processing record 48: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,400 - INFO - Created new canonical: 'counselling services' -> ID 34
+2025-09-25 19:55:45,401 - ERROR - Error processing record 49: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,401 - INFO - Created new canonical: 'PHR app' -> ID 35
+2025-09-25 19:55:45,401 - ERROR - Error processing record 50: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,401 - INFO - Created new canonical: 'curcumin capsules' -> ID 36
+2025-09-25 19:55:45,401 - ERROR - Error processing record 51: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,401 - INFO - Created new canonical: 'placebo capsules' -> ID 37
+2025-09-25 19:55:45,401 - ERROR - Error processing record 52: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,401 - INFO - Created new canonical: 'curcumin' -> ID 38
+2025-09-25 19:55:45,401 - ERROR - Error processing record 53: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,401 - INFO - Created new canonical: 'finerenone' -> ID 39
+2025-09-25 19:55:45,401 - ERROR - Error processing record 54: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,401 - INFO - Created new canonical: 'empagliflozin' -> ID 40
+2025-09-25 19:55:45,401 - ERROR - Error processing record 55: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,401 - INFO - Created new canonical: 'GLP-1 receptor agonist (GLP-1 RA)' -> ID 41
+2025-09-25 19:55:45,401 - ERROR - Error processing record 56: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,401 - INFO - Created new canonical: 'Faecal microbiota transplantation (FMT)' -> ID 42
+2025-09-25 19:55:45,401 - ERROR - Error processing record 57: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,401 - INFO - Created new canonical: 'high-intensity interval training (HIIT)' -> ID 43
+2025-09-25 19:55:45,402 - ERROR - Error processing record 58: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,402 - INFO - Created new canonical: 'strength exercise' -> ID 44
+2025-09-25 19:55:45,402 - ERROR - Error processing record 59: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,402 - INFO - Created new canonical: 'iCanQuit smoking cessation app' -> ID 45
+2025-09-25 19:55:45,402 - ERROR - Error processing record 60: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,402 - INFO - Created new canonical: 'QuitGuide smoking cessation app' -> ID 46
+2025-09-25 19:55:45,402 - ERROR - Error processing record 61: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,402 - INFO - Created new canonical: 'US Clinical Practice Guidelines-based smoking cessation app' -> ID 47
+2025-09-25 19:55:45,402 - ERROR - Error processing record 62: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,402 - INFO - Created new canonical: 'Cerament G (gentamicin)' -> ID 48
+2025-09-25 19:55:45,402 - ERROR - Error processing record 63: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,402 - INFO - Created new canonical: 'Cerament V (vancomycin)' -> ID 49
+2025-09-25 19:55:45,402 - ERROR - Error processing record 64: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,402 - INFO - Created new canonical: 'statins' -> ID 50
+2025-09-25 19:55:45,402 - ERROR - Error processing record 65: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,402 - ERROR - Error processing record 66: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,402 - INFO - Created new canonical: 'quetiapine extended release' -> ID 51
+2025-09-25 19:55:45,402 - ERROR - Error processing record 67: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,403 - INFO - Created new canonical: 'oral antidepressant (OAD)' -> ID 52
+2025-09-25 19:55:45,403 - ERROR - Error processing record 68: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,403 - INFO - Created new canonical: 'esketamine nasal spray' -> ID 53
+2025-09-25 19:55:45,403 - ERROR - Error processing record 69: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,403 - ERROR - Error processing record 70: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,403 - ERROR - Error processing record 71: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,403 - INFO - Created new canonical: 'tumour necrosis factor inhibitors (TNFi)' -> ID 54
+2025-09-25 19:55:45,403 - ERROR - Error processing record 72: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,403 - ERROR - Error processing record 73: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,403 - INFO - Created new canonical: 'Physical Exercise Program' -> ID 55
+2025-09-25 19:55:45,403 - ERROR - Error processing record 74: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,403 - INFO - Created new canonical: 'physical exercise' -> ID 56
+2025-09-25 19:55:45,403 - ERROR - Error processing record 75: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,403 - INFO - Created new canonical: 'chiglitazar' -> ID 57
+2025-09-25 19:55:45,403 - ERROR - Error processing record 76: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,403 - INFO - Created new canonical: 'sitagliptin' -> ID 58
+2025-09-25 19:55:45,403 - ERROR - Error processing record 77: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,404 - INFO - Created new canonical: 'SGLT2 inhibitors' -> ID 59
+2025-09-25 19:55:45,404 - ERROR - Error processing record 78: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,404 - ERROR - Error processing record 79: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,404 - ERROR - Error processing record 80: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,404 - ERROR - Error processing record 81: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,404 - INFO - Created new canonical: 'total knee arthroplasty (TKA)' -> ID 60
+2025-09-25 19:55:45,404 - ERROR - Error processing record 82: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,404 - INFO - Created new canonical: 'delayed anticoagulation group' -> ID 61
+2025-09-25 19:55:45,404 - ERROR - Error processing record 83: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,404 - INFO - Created new canonical: 'carbohydrate-restricted diets (CRDs)' -> ID 62
+2025-09-25 19:55:45,404 - ERROR - Error processing record 84: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,404 - INFO - Created new canonical: 'tirzepatide' -> ID 63
+2025-09-25 19:55:45,404 - ERROR - Error processing record 85: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,404 - INFO - Created new canonical: 'vitamin D' -> ID 64
+2025-09-25 19:55:45,404 - ERROR - Error processing record 86: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,404 - INFO - Created new canonical: 'metformin' -> ID 65
+2025-09-25 19:55:45,405 - ERROR - Error processing record 87: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,405 - INFO - Created new canonical: 'shared decision-making model' -> ID 66
+2025-09-25 19:55:45,405 - ERROR - Error processing record 88: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,405 - ERROR - Error processing record 89: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,405 - INFO - Created new canonical: 'bupropion' -> ID 67
+2025-09-25 19:55:45,405 - ERROR - Error processing record 90: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,405 - ERROR - Error processing record 91: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,405 - INFO - Created new canonical: 'intravenous ketamine' -> ID 68
+2025-09-25 19:55:45,405 - ERROR - Error processing record 92: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,405 - INFO - Created new canonical: 'butyrate enema' -> ID 69
+2025-09-25 19:55:45,405 - ERROR - Error processing record 93: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,405 - INFO - Created new canonical: 'colchicine' -> ID 70
+2025-09-25 19:55:45,405 - ERROR - Error processing record 94: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,405 - INFO - Created new canonical: 'prednisone' -> ID 71
+2025-09-25 19:55:45,405 - ERROR - Error processing record 95: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,405 - ERROR - Error processing record 96: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,406 - ERROR - Error processing record 97: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,406 - INFO - Created new canonical: 'Affect Regulation Training' -> ID 72
+2025-09-25 19:55:45,406 - ERROR - Error processing record 98: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,406 - INFO - Created new canonical: 'health and well-being coaching' -> ID 73
+2025-09-25 19:55:45,406 - ERROR - Error processing record 99: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,406 - INFO - Created new canonical: 'social prescribing' -> ID 74
+2025-09-25 19:55:45,406 - ERROR - Error processing record 100: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,406 - INFO - Created new canonical: 'surgical left atrial appendage occlusion (SLAAO)' -> ID 75
+2025-09-25 19:55:45,406 - ERROR - Error processing record 101: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,406 - INFO - Created new canonical: 'low-dose glucagon' -> ID 76
+2025-09-25 19:55:45,406 - ERROR - Error processing record 102: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,406 - ERROR - Error processing record 103: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,406 - INFO - Created new canonical: 'structured progressive exercise' -> ID 77
+2025-09-25 19:55:45,406 - ERROR - Error processing record 104: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,406 - INFO - Created new canonical: 'digital therapeutics MORA Cure PFP' -> ID 78
+2025-09-25 19:55:45,406 - ERROR - Error processing record 105: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,406 - INFO - Created new canonical: 'cognitive behavioral techniques' -> ID 79
+2025-09-25 19:55:45,407 - ERROR - Error processing record 106: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,407 - INFO - Created new canonical: 'protein-hydrolyzed lactose-free A1A2 milk' -> ID 80
+2025-09-25 19:55:45,407 - ERROR - Error processing record 107: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,407 - INFO - Created new canonical: 'protein-hydrolyzed lactose-free A2 milk' -> ID 81
+2025-09-25 19:55:45,407 - ERROR - Error processing record 108: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,407 - INFO - Created new canonical: 'melatonin' -> ID 82
+2025-09-25 19:55:45,407 - ERROR - Error processing record 109: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,407 - INFO - Created new canonical: 'JCM-16021' -> ID 83
+2025-09-25 19:55:45,407 - ERROR - Error processing record 110: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,407 - INFO - Created new canonical: 'Fecal microbiota transplantation (FMT)' -> ID 84
+2025-09-25 19:55:45,407 - ERROR - Error processing record 111: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,407 - INFO - Created new canonical: 'herbal medicine JCM-16021' -> ID 85
+2025-09-25 19:55:45,407 - ERROR - Error processing record 112: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,407 - INFO - Created new canonical: 'moxibustion' -> ID 86
+2025-09-25 19:55:45,407 - ERROR - Error processing record 113: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,407 - INFO - Created new canonical: 'tai chi' -> ID 87
+2025-09-25 19:55:45,407 - ERROR - Error processing record 114: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,408 - INFO - Created new canonical: 'yoga' -> ID 88
+2025-09-25 19:55:45,408 - ERROR - Error processing record 115: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,408 - INFO - Created new canonical: 'qigong' -> ID 89
+2025-09-25 19:55:45,408 - ERROR - Error processing record 116: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,408 - INFO - Created new canonical: 'mind-body exercise' -> ID 90
+2025-09-25 19:55:45,408 - ERROR - Error processing record 117: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,408 - INFO - Created new canonical: 'Time-restricted eating (TRE)' -> ID 91
+2025-09-25 19:55:45,408 - ERROR - Error processing record 118: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,408 - INFO - Created new canonical: 'bilberry supplementation' -> ID 92
+2025-09-25 19:55:45,408 - ERROR - Error processing record 119: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,408 - INFO - Created new canonical: 'Vaccinium myrtillus supplementation' -> ID 93
+2025-09-25 19:55:45,408 - ERROR - Error processing record 120: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,408 - INFO - Created new canonical: 'transcranial photobiomodulation (tPBM)' -> ID 94
+2025-09-25 19:55:45,408 - ERROR - Error processing record 121: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,408 - INFO - Created new canonical: 'antidepressants' -> ID 95
+2025-09-25 19:55:45,408 - ERROR - Error processing record 122: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,408 - ERROR - Error processing record 123: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,408 - INFO - Created new canonical: 'ticagrelor' -> ID 96
+2025-09-25 19:55:45,409 - ERROR - Error processing record 124: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,409 - INFO - Created new canonical: 'aspirin' -> ID 97
+2025-09-25 19:55:45,409 - ERROR - Error processing record 125: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,409 - INFO - Created new canonical: 'clopidogrel' -> ID 98
+2025-09-25 19:55:45,409 - ERROR - Error processing record 126: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,409 - ERROR - Error processing record 127: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,409 - ERROR - Error processing record 128: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,409 - ERROR - Error processing record 129: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,409 - INFO - Created new canonical: 'repetitive transcranial magnetic stimulation (rTMS)' -> ID 99
+2025-09-25 19:55:45,409 - ERROR - Error processing record 130: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,409 - INFO - Created new canonical: 'structured education and exercise training' -> ID 100
+2025-09-25 19:55:45,409 - ERROR - Error processing record 131: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,409 - INFO - Created new canonical: 'Trans-Radial Access (TRA)' -> ID 101
+2025-09-25 19:55:45,409 - ERROR - Error processing record 132: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,409 - INFO - Created new canonical: 'Trans-Femoral Access' -> ID 102
+2025-09-25 19:55:45,409 - ERROR - Error processing record 133: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,410 - INFO - Created new canonical: 'Eye Movement Desensitization and Reprocessing (EMDR)' -> ID 103
+2025-09-25 19:55:45,410 - ERROR - Error processing record 134: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,410 - ERROR - Error processing record 135: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,410 - INFO - Created new canonical: 'Bifidobacterium longum' -> ID 104
+2025-09-25 19:55:45,410 - ERROR - Error processing record 136: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,410 - INFO - Created new canonical: 'Saccharomyces' -> ID 105
+2025-09-25 19:55:45,410 - ERROR - Error processing record 137: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,410 - INFO - Created new canonical: 'Clostridium butyricum' -> ID 106
+2025-09-25 19:55:45,410 - ERROR - Error processing record 138: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,410 - INFO - Created new canonical: 'Bifidobacterium lactis' -> ID 107
+2025-09-25 19:55:45,410 - ERROR - Error processing record 139: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,410 - INFO - Created new canonical: 'Lactobacillus acidophilus' -> ID 108
+2025-09-25 19:55:45,410 - ERROR - Error processing record 140: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,410 - INFO - Created new canonical: 'Lactobacillus casei strain Shirota' -> ID 109
+2025-09-25 19:55:45,410 - ERROR - Error processing record 141: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,410 - INFO - Created new canonical: 'Lactobacillus plantarum' -> ID 110
+2025-09-25 19:55:45,410 - ERROR - Error processing record 142: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,411 - INFO - Created new canonical: 'Probiotic combinations' -> ID 111
+2025-09-25 19:55:45,411 - ERROR - Error processing record 143: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,411 - ERROR - Error processing record 144: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,411 - INFO - Created new canonical: 'flecainide' -> ID 112
+2025-09-25 19:55:45,411 - ERROR - Error processing record 145: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,411 - ERROR - Error processing record 146: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,411 - ERROR - Error processing record 147: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,411 - ERROR - Error processing record 148: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,411 - ERROR - Error processing record 149: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,411 - INFO - Created new canonical: 'Teaching Kitchen program' -> ID 113
+2025-09-25 19:55:45,411 - ERROR - Error processing record 150: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,411 - INFO - Created new canonical: 'nutritional education' -> ID 114
+2025-09-25 19:55:45,411 - ERROR - Error processing record 151: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,411 - INFO - Created new canonical: 'evidence-based lectures on nutrition' -> ID 115
+2025-09-25 19:55:45,411 - ERROR - Error processing record 152: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,412 - INFO - Created new canonical: 'physical activity' -> ID 116
+2025-09-25 19:55:45,412 - ERROR - Error processing record 153: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,412 - INFO - Created new canonical: 'sleep' -> ID 117
+2025-09-25 19:55:45,412 - ERROR - Error processing record 154: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,412 - INFO - Created new canonical: 'mindfulness' -> ID 118
+2025-09-25 19:55:45,412 - ERROR - Error processing record 155: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,412 - INFO - Created new canonical: 'lumateperone 42 mg' -> ID 119
+2025-09-25 19:55:45,412 - ERROR - Error processing record 156: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,412 - INFO - Created new canonical: 'exercise' -> ID 120
+2025-09-25 19:55:45,412 - ERROR - Error processing record 157: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,412 - INFO - Created new canonical: 'Exercise therapies' -> ID 121
+2025-09-25 19:55:45,412 - ERROR - Error processing record 158: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,412 - INFO - Created new canonical: 'methadone' -> ID 122
+2025-09-25 19:55:45,412 - ERROR - Error processing record 159: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,412 - INFO - Created new canonical: 'ketamine' -> ID 123
+2025-09-25 19:55:45,412 - ERROR - Error processing record 160: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,413 - ERROR - Error processing record 161: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,413 - INFO - Created new canonical: 'cognitive training (CT)' -> ID 124
+2025-09-25 19:55:45,413 - ERROR - Error processing record 162: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,413 - ERROR - Error processing record 163: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,413 - INFO - Created new canonical: 'dapagliflozin' -> ID 125
+2025-09-25 19:55:45,413 - ERROR - Error processing record 164: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,413 - ERROR - Error processing record 165: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,413 - INFO - Created new canonical: 'Partial substitution of red and processed meat with non-soy legumes' -> ID 126
+2025-09-25 19:55:45,413 - ERROR - Error processing record 166: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,413 - INFO - Created new canonical: 'quetiapine' -> ID 127
+2025-09-25 19:55:45,413 - ERROR - Error processing record 167: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,413 - ERROR - Error processing record 168: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,413 - ERROR - Error processing record 169: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,414 - ERROR - Error processing record 170: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,414 - INFO - Created new canonical: 'zolpidem' -> ID 128
+2025-09-25 19:55:45,414 - ERROR - Error processing record 171: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,414 - INFO - Created new canonical: 'multi-joint resistance exercises' -> ID 129
+2025-09-25 19:55:45,414 - ERROR - Error processing record 172: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,414 - INFO - Created new canonical: 'single-joint resistance exercises' -> ID 130
+2025-09-25 19:55:45,414 - ERROR - Error processing record 173: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,414 - INFO - Created new canonical: 'resistance training' -> ID 131
+2025-09-25 19:55:45,414 - ERROR - Error processing record 174: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,414 - INFO - Created new canonical: 'potassium chloride (KCL)' -> ID 132
+2025-09-25 19:55:45,414 - ERROR - Error processing record 175: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,417 - ERROR - Error processing record 176: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,417 - INFO - Created new canonical: 'subcutaneous (SC) insulin' -> ID 134
+2025-09-25 19:55:45,417 - ERROR - Error processing record 177: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,417 - ERROR - Error processing record 178: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,417 - ERROR - Error processing record 179: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,417 - INFO - Created new canonical: 'strengthening of accessory breathing muscles and diaphragm' -> ID 135
+2025-09-25 19:55:45,417 - ERROR - Error processing record 180: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,417 - INFO - Created new canonical: 'resistance conditioning' -> ID 136
+2025-09-25 19:55:45,417 - ERROR - Error processing record 181: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,417 - INFO - Created new canonical: 'aerobic conditioning' -> ID 137
+2025-09-25 19:55:45,417 - ERROR - Error processing record 182: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,417 - INFO - Created new canonical: 'neuropsychological and cognitive remediation' -> ID 138
+2025-09-25 19:55:45,417 - ERROR - Error processing record 183: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,418 - ERROR - Error processing record 184: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,418 - ERROR - Error processing record 185: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,418 - ERROR - Error processing record 186: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,418 - ERROR - Error processing record 187: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,418 - INFO - Created new canonical: 'antidiabetic drugs' -> ID 139
+2025-09-25 19:55:45,418 - ERROR - Error processing record 188: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,418 - ERROR - Error processing record 189: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,418 - INFO - Created new canonical: 'Breastfeeding Aiding Tool app' -> ID 140
+2025-09-25 19:55:45,418 - ERROR - Error processing record 190: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,419 - INFO - Created new canonical: 'WeChat group consultation' -> ID 141
+2025-09-25 19:55:45,419 - ERROR - Error processing record 191: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,419 - INFO - Created new canonical: 'cilostazol (CTZ)' -> ID 142
+2025-09-25 19:55:45,419 - ERROR - Error processing record 192: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,419 - INFO - Created new canonical: 'extract of Ginkgo biloba (EGb)' -> ID 143
+2025-09-25 19:55:45,419 - ERROR - Error processing record 193: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,419 - INFO - Created new canonical: 'aspirin (ASA)' -> ID 144
+2025-09-25 19:55:45,419 - ERROR - Error processing record 194: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,419 - INFO - Created new canonical: 'cilostazol' -> ID 145
+2025-09-25 19:55:45,419 - ERROR - Error processing record 195: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,419 - INFO - Created new canonical: 'extract of Ginkgo biloba' -> ID 146
+2025-09-25 19:55:45,419 - ERROR - Error processing record 196: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,419 - ERROR - Error processing record 197: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,419 - INFO - Created new canonical: 'behavioral activation (BA)' -> ID 147
+2025-09-25 19:55:45,419 - ERROR - Error processing record 198: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,419 - INFO - Created new canonical: 'positive health behaviors (PHBs)' -> ID 148
+2025-09-25 19:55:45,419 - ERROR - Error processing record 199: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,419 - ERROR - Error processing record 200: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'warm saltwater hand-foot baths' -> ID 149
+2025-09-25 19:55:45,420 - ERROR - Error processing record 201: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'warm water hand-foot baths' -> ID 150
+2025-09-25 19:55:45,420 - ERROR - Error processing record 202: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'warm saltwater baths' -> ID 151
+2025-09-25 19:55:45,420 - ERROR - Error processing record 203: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'warm water baths' -> ID 152
+2025-09-25 19:55:45,420 - ERROR - Error processing record 204: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'DWP16001' -> ID 153
+2025-09-25 19:55:45,420 - ERROR - Error processing record 205: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - ERROR - Error processing record 206: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'synbiotics' -> ID 154
+2025-09-25 19:55:45,420 - ERROR - Error processing record 207: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'quality nursing service' -> ID 155
+2025-09-25 19:55:45,420 - ERROR - Error processing record 208: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'routine nursing service' -> ID 156
+2025-09-25 19:55:45,420 - ERROR - Error processing record 209: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'sarilumab' -> ID 157
+2025-09-25 19:55:45,420 - ERROR - Error processing record 211: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'adalimumab' -> ID 158
+2025-09-25 19:55:45,420 - ERROR - Error processing record 212: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - ERROR - Error processing record 213: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - ERROR - Error processing record 214: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - ERROR - Error processing record 215: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - INFO - Created new canonical: 'Kiwifruit extract' -> ID 159
+2025-09-25 19:55:45,420 - ERROR - Error processing record 216: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - ERROR - Error processing record 217: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,420 - ERROR - Error processing record 218: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - ERROR - Error processing record 219: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - ERROR - Error processing record 220: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - ERROR - Error processing record 221: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - INFO - Created new canonical: 'intensive blood pressure control' -> ID 160
+2025-09-25 19:55:45,422 - ERROR - Error processing record 222: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - INFO - Created new canonical: 'home-based physical exercise' -> ID 161
+2025-09-25 19:55:45,422 - ERROR - Error processing record 223: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - INFO - Created new canonical: 'cognitive training' -> ID 162
+2025-09-25 19:55:45,422 - ERROR - Error processing record 224: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - INFO - Created new canonical: 'shear wave elastography (SWE)' -> ID 163
+2025-09-25 19:55:45,422 - ERROR - Error processing record 225: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - INFO - Created new canonical: 'stress management' -> ID 164
+2025-09-25 19:55:45,422 - ERROR - Error processing record 226: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - INFO - Created new canonical: 'whole-food plant-based diet' -> ID 165
+2025-09-25 19:55:45,422 - ERROR - Error processing record 227: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - ERROR - Error processing record 228: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - INFO - Created new canonical: 'sleep and stress management' -> ID 166
+2025-09-25 19:55:45,422 - ERROR - Error processing record 229: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - ERROR - Error processing record 230: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - INFO - Created new canonical: 'Insulin' -> ID 167
+2025-09-25 19:55:45,422 - ERROR - Error processing record 231: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - ERROR - Error processing record 232: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - ERROR - Error processing record 233: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - ERROR - Error processing record 234: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - ERROR - Error processing record 235: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,422 - INFO - Created new canonical: 'Silicolgel' -> ID 168
+2025-09-25 19:55:45,422 - ERROR - Error processing record 236: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - ERROR - Error processing record 237: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - ERROR - Error processing record 238: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - INFO - Created new canonical: 'benzylpenicillin (penicillin G)' -> ID 169
+2025-09-25 19:55:45,424 - ERROR - Error processing record 239: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - ERROR - Error processing record 240: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - INFO - Created new canonical: 'polyunsaturated fatty acid-rich fish consumption' -> ID 170
+2025-09-25 19:55:45,424 - ERROR - Error processing record 241: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - INFO - Created new canonical: 'regular physical activity' -> ID 171
+2025-09-25 19:55:45,424 - ERROR - Error processing record 242: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - INFO - Created new canonical: 'increased vegetable intake' -> ID 172
+2025-09-25 19:55:45,424 - ERROR - Error processing record 243: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - INFO - Created new canonical: 'high purine intake (especially animal sources)' -> ID 173
+2025-09-25 19:55:45,424 - ERROR - Error processing record 244: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - INFO - Created new canonical: 'excessive alcohol consumption' -> ID 174
+2025-09-25 19:55:45,424 - ERROR - Error processing record 245: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - INFO - Created new canonical: 'obesity' -> ID 175
+2025-09-25 19:55:45,424 - ERROR - Error processing record 246: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - INFO - Created new canonical: 'dietary changes' -> ID 176
+2025-09-25 19:55:45,424 - ERROR - Error processing record 247: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,424 - INFO - Created new canonical: 'polyunsaturated fatty acid-rich fish' -> ID 177
+2025-09-25 19:55:45,426 - ERROR - Error processing record 248: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,426 - INFO - Created new canonical: 'high purine diet (animal sources)' -> ID 178
+2025-09-25 19:55:45,426 - ERROR - Error processing record 250: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,426 - ERROR - Error processing record 251: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,426 - ERROR - Error processing record 252: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,426 - ERROR - Error processing record 253: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,426 - INFO - Created new canonical: 'methotrexate (MTX)' -> ID 179
+2025-09-25 19:55:45,426 - ERROR - Error processing record 254: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,426 - INFO - Created new canonical: 'CTLA-4Ig' -> ID 180
+2025-09-25 19:55:45,426 - ERROR - Error processing record 255: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - INFO - Created new canonical: 'anti-tumor necrosis factor' -> ID 181
+2025-09-25 19:55:45,428 - ERROR - Error processing record 256: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - INFO - Created new canonical: 'anti-interleukin-6 receptor' -> ID 182
+2025-09-25 19:55:45,428 - ERROR - Error processing record 257: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - INFO - Created new canonical: 'prednisolone' -> ID 183
+2025-09-25 19:55:45,428 - ERROR - Error processing record 258: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - INFO - Created new canonical: 'CTLA-4Ig with methotrexate (MTX)' -> ID 184
+2025-09-25 19:55:45,428 - ERROR - Error processing record 259: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - ERROR - Error processing record 260: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - ERROR - Error processing record 261: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - ERROR - Error processing record 262: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - INFO - Created new canonical: 'game-based exercises' -> ID 185
+2025-09-25 19:55:45,428 - ERROR - Error processing record 263: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - ERROR - Error processing record 264: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - INFO - Created new canonical: 'home exercise program' -> ID 186
+2025-09-25 19:55:45,428 - ERROR - Error processing record 265: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - INFO - Created new canonical: 'MM-II' -> ID 187
+2025-09-25 19:55:45,428 - ERROR - Error processing record 266: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - ERROR - Error processing record 267: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - INFO - Created new canonical: 'once-weekly insulin icodec' -> ID 188
+2025-09-25 19:55:45,428 - ERROR - Error processing record 268: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - INFO - Created new canonical: 'once-daily insulin glargine U100' -> ID 189
+2025-09-25 19:55:45,428 - ERROR - Error processing record 269: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,428 - INFO - Created new canonical: 'whole blueberries' -> ID 190
+2025-09-25 19:55:45,428 - ERROR - Error processing record 270: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - ERROR - Error processing record 271: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - INFO - Created new canonical: 'high-protein diet' -> ID 191
+2025-09-25 19:55:45,430 - ERROR - Error processing record 272: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - INFO - Created new canonical: 'GLP-1-based therapies' -> ID 192
+2025-09-25 19:55:45,430 - ERROR - Error processing record 273: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - INFO - Created new canonical: 'esketamine' -> ID 193
+2025-09-25 19:55:45,430 - ERROR - Error processing record 274: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - INFO - Created new canonical: 'tricyclic antidepressants' -> ID 194
+2025-09-25 19:55:45,430 - ERROR - Error processing record 275: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - ERROR - Error processing record 276: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - INFO - Created new canonical: 'exercise training (ET)' -> ID 195
+2025-09-25 19:55:45,430 - ERROR - Error processing record 277: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - INFO - Created new canonical: 'hydroxymethylbutyrate (HMB) and undenatured type-II collagen (UC-II)' -> ID 196
+2025-09-25 19:55:45,430 - ERROR - Error processing record 278: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - INFO - Created new canonical: 'oral nutrition supplementation enriched with hydroxymethylbutyrate (HMB) and undenatured type-II collagen (UC-II)' -> ID 197
+2025-09-25 19:55:45,430 - ERROR - Error processing record 279: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - ERROR - Error processing record 280: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - INFO - Created new canonical: 'moderate-intensity training (MIT)' -> ID 198
+2025-09-25 19:55:45,430 - ERROR - Error processing record 281: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - ERROR - Error processing record 282: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - INFO - Created new canonical: 'high-intensity interval training (HIIT) + resistance (HIIT + R)' -> ID 199
+2025-09-25 19:55:45,430 - ERROR - Error processing record 283: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,430 - ERROR - Error processing record 284: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - INFO - Created new canonical: 'moderate-intensity training (MIT) + resistance (MIT + R)' -> ID 200
+2025-09-25 19:55:45,432 - ERROR - Error processing record 285: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - INFO - Created new canonical: 'stretching-toning-balance training' -> ID 201
+2025-09-25 19:55:45,432 - ERROR - Error processing record 286: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - INFO - Created new canonical: 'in-person exercise' -> ID 202
+2025-09-25 19:55:45,432 - ERROR - Error processing record 287: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - INFO - Created new canonical: 'therapeutic education programme (PTEP)' -> ID 203
+2025-09-25 19:55:45,432 - ERROR - Error processing record 288: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - ERROR - Error processing record 289: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - INFO - Created new canonical: 'otilonium bromide' -> ID 204
+2025-09-25 19:55:45,432 - ERROR - Error processing record 290: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - INFO - Created new canonical: 'FODMAP-lowering diet' -> ID 205
+2025-09-25 19:55:45,432 - ERROR - Error processing record 291: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - INFO - Created new canonical: 'dexmedetomidine (DEX)' -> ID 206
+2025-09-25 19:55:45,432 - ERROR - Error processing record 292: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - INFO - Created new canonical: 'normal saline' -> ID 207
+2025-09-25 19:55:45,432 - ERROR - Error processing record 293: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - ERROR - Error processing record 294: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,432 - INFO - Created new canonical: 'ankle arthrodesis' -> ID 208
+2025-09-25 19:55:45,432 - ERROR - Error processing record 295: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - ERROR - Error processing record 296: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - ERROR - Error processing record 297: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - ERROR - Error processing record 298: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - INFO - Created new canonical: 'knee extensor muscle strength (MVIC)' -> ID 209
+2025-09-25 19:55:45,434 - ERROR - Error processing record 299: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - INFO - Created new canonical: 'complete revascularization (CR)' -> ID 210
+2025-09-25 19:55:45,434 - ERROR - Error processing record 300: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - INFO - Created new canonical: 'incomplete revascularization (IR)' -> ID 211
+2025-09-25 19:55:45,434 - ERROR - Error processing record 301: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - INFO - Created new canonical: 'physiology-guided complete revascularization (CR)' -> ID 212
+2025-09-25 19:55:45,434 - ERROR - Error processing record 302: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - ERROR - Error processing record 303: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - INFO - Created new canonical: 'Western medicine' -> ID 213
+2025-09-25 19:55:45,434 - ERROR - Error processing record 304: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - ERROR - Error processing record 305: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,434 - ERROR - Error processing record 306: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'ebastine' -> ID 214
+2025-09-25 19:55:45,436 - ERROR - Error processing record 307: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'flupentixol and melitracen' -> ID 215
+2025-09-25 19:55:45,436 - ERROR - Error processing record 308: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'beta-blockers' -> ID 216
+2025-09-25 19:55:45,436 - ERROR - Error processing record 309: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'amiodarone' -> ID 217
+2025-09-25 19:55:45,436 - ERROR - Error processing record 310: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - ERROR - Error processing record 311: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'sotalol' -> ID 218
+2025-09-25 19:55:45,436 - ERROR - Error processing record 312: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'ARVC risk calculator' -> ID 219
+2025-09-25 19:55:45,436 - ERROR - Error processing record 313: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'ECG (long-term)' -> ID 220
+2025-09-25 19:55:45,436 - ERROR - Error processing record 314: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'echocardiography' -> ID 221
+2025-09-25 19:55:45,436 - ERROR - Error processing record 315: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'magnetic resonance imaging' -> ID 222
+2025-09-25 19:55:45,436 - ERROR - Error processing record 316: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'genetic tests' -> ID 223
+2025-09-25 19:55:45,436 - ERROR - Error processing record 317: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'restriction of sports participation' -> ID 224
+2025-09-25 19:55:45,436 - ERROR - Error processing record 318: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,436 - INFO - Created new canonical: 'catheter ablation' -> ID 225
+2025-09-25 19:55:45,436 - ERROR - Error processing record 319: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - INFO - Created new canonical: 'defibrillator implantation' -> ID 226
+2025-09-25 19:55:45,438 - ERROR - Error processing record 320: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - ERROR - Error processing record 321: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - ERROR - Error processing record 322: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - ERROR - Error processing record 323: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - ERROR - Error processing record 324: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - INFO - Created new canonical: 'implantable cardioverter-defibrillator (ICD)' -> ID 227
+2025-09-25 19:55:45,438 - ERROR - Error processing record 325: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - ERROR - Error processing record 326: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - INFO - Created new canonical: 'acupressure' -> ID 228
+2025-09-25 19:55:45,438 - ERROR - Error processing record 327: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - INFO - Created new canonical: 'reflexology' -> ID 229
+2025-09-25 19:55:45,438 - ERROR - Error processing record 328: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - INFO - Created new canonical: 'traditional Chinese spinal orthopaedic manipulation' -> ID 230
+2025-09-25 19:55:45,438 - ERROR - Error processing record 329: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - INFO - Created new canonical: 'Tuina' -> ID 231
+2025-09-25 19:55:45,438 - ERROR - Error processing record 330: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - INFO - Created new canonical: 'self-management training' -> ID 232
+2025-09-25 19:55:45,438 - ERROR - Error processing record 331: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - INFO - Created new canonical: 'patient education' -> ID 233
+2025-09-25 19:55:45,438 - ERROR - Error processing record 333: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - INFO - Created new canonical: 'stress management techniques' -> ID 234
+2025-09-25 19:55:45,438 - ERROR - Error processing record 334: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,438 - INFO - Created new canonical: 'respiratory muscle training' -> ID 235
+2025-09-25 19:55:45,438 - ERROR - Error processing record 335: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - INFO - Created new canonical: 'nutritional guidance' -> ID 236
+2025-09-25 19:55:45,440 - ERROR - Error processing record 336: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - INFO - Created new canonical: 'neuromuscular control exercise program' -> ID 237
+2025-09-25 19:55:45,440 - ERROR - Error processing record 337: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - INFO - Created new canonical: 'Spirulina capsules' -> ID 238
+2025-09-25 19:55:45,440 - ERROR - Error processing record 338: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - ERROR - Error processing record 339: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - INFO - Created new canonical: 'Spirulina platensis' -> ID 239
+2025-09-25 19:55:45,440 - ERROR - Error processing record 340: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - INFO - Created new canonical: 'Kinesio taping (KT)' -> ID 240
+2025-09-25 19:55:45,440 - ERROR - Error processing record 341: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - ERROR - Error processing record 342: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - INFO - Created new canonical: 'Antispasmodics' -> ID 241
+2025-09-25 19:55:45,440 - ERROR - Error processing record 343: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - INFO - Created new canonical: 'Transit modifiers' -> ID 242
+2025-09-25 19:55:45,440 - ERROR - Error processing record 344: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - INFO - Created new canonical: 'Diets' -> ID 243
+2025-09-25 19:55:45,440 - ERROR - Error processing record 345: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - ERROR - Error processing record 346: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - ERROR - Error processing record 347: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - INFO - Created new canonical: 'Hypnosis' -> ID 244
+2025-09-25 19:55:45,440 - ERROR - Error processing record 348: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - INFO - Created new canonical: 'Therapeutic education' -> ID 245
+2025-09-25 19:55:45,440 - ERROR - Error processing record 349: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - ERROR - Error processing record 350: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,440 - ERROR - Error processing record 351: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - ERROR - Error processing record 352: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - ERROR - Error processing record 353: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - ERROR - Error processing record 354: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - ERROR - Error processing record 355: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - ERROR - Error processing record 356: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - INFO - Created new canonical: 'eccentric exercise' -> ID 246
+2025-09-25 19:55:45,442 - ERROR - Error processing record 357: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - INFO - Created new canonical: 'diltiazem' -> ID 247
+2025-09-25 19:55:45,442 - ERROR - Error processing record 358: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - INFO - Created new canonical: 'metoprolol' -> ID 248
+2025-09-25 19:55:45,442 - ERROR - Error processing record 359: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - INFO - Created new canonical: 'PCSK9 inhibitors' -> ID 249
+2025-09-25 19:55:45,442 - ERROR - Error processing record 360: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - INFO - Created new canonical: 'ezetimibe' -> ID 250
+2025-09-25 19:55:45,442 - ERROR - Error processing record 361: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - INFO - Created new canonical: 'bempedoic acid' -> ID 251
+2025-09-25 19:55:45,442 - ERROR - Error processing record 362: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,442 - ERROR - Error processing record 363: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'fenofibrates' -> ID 252
+2025-09-25 19:55:45,444 - ERROR - Error processing record 364: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'APOC3 inhibitors' -> ID 253
+2025-09-25 19:55:45,444 - ERROR - Error processing record 365: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'trimebutine' -> ID 254
+2025-09-25 19:55:45,444 - ERROR - Error processing record 366: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - ERROR - Error processing record 367: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'compound Lactobacillus capsules' -> ID 255
+2025-09-25 19:55:45,444 - ERROR - Error processing record 368: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - ERROR - Error processing record 369: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'normal diet' -> ID 256
+2025-09-25 19:55:45,444 - ERROR - Error processing record 370: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - ERROR - Error processing record 371: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'sodium-glucose co-transporter-2 inhibitors (SGLT2i)' -> ID 257
+2025-09-25 19:55:45,444 - ERROR - Error processing record 372: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'SGLT2 inhibitors (SGLT2i)' -> ID 258
+2025-09-25 19:55:45,444 - ERROR - Error processing record 373: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'Coprinus comatus nanogels' -> ID 259
+2025-09-25 19:55:45,444 - ERROR - Error processing record 374: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'sodium diclofenac' -> ID 260
+2025-09-25 19:55:45,444 - ERROR - Error processing record 375: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'vasopressin' -> ID 261
+2025-09-25 19:55:45,444 - ERROR - Error processing record 376: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - INFO - Created new canonical: 'norepinephrine' -> ID 262
+2025-09-25 19:55:45,444 - ERROR - Error processing record 377: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,444 - ERROR - Error processing record 378: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - INFO - Created new canonical: 'fructan reintroduction' -> ID 263
+2025-09-25 19:55:45,446 - ERROR - Error processing record 379: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - INFO - Created new canonical: 'galacto-oligosaccharides (GOS) reintroduction' -> ID 264
+2025-09-25 19:55:45,446 - ERROR - Error processing record 380: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - INFO - Created new canonical: 'FODMAP elimination diet' -> ID 265
+2025-09-25 19:55:45,446 - ERROR - Error processing record 381: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - INFO - Created new canonical: 'selective FODMAP restriction diet' -> ID 266
+2025-09-25 19:55:45,446 - ERROR - Error processing record 382: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - INFO - Created new canonical: 'fasudil hydrochloride' -> ID 267
+2025-09-25 19:55:45,446 - ERROR - Error processing record 383: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - ERROR - Error processing record 384: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - INFO - Created new canonical: 'low-FODMAP diet' -> ID 268
+2025-09-25 19:55:45,446 - ERROR - Error processing record 385: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - ERROR - Error processing record 386: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - INFO - Created new canonical: 'active acupressure' -> ID 269
+2025-09-25 19:55:45,446 - ERROR - Error processing record 387: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - INFO - Created new canonical: 'sham acupressure' -> ID 270
+2025-09-25 19:55:45,446 - ERROR - Error processing record 388: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - ERROR - Error processing record 389: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - ERROR - Error processing record 390: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - ERROR - Error processing record 391: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,446 - INFO - Created new canonical: 'grain-free diet with potatoes and peas (GF + PPo)' -> ID 271
+2025-09-25 19:55:45,446 - ERROR - Error processing record 392: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'grain-inclusive diet with peas and pea fiber (G + PPF)' -> ID 272
+2025-09-25 19:55:45,448 - ERROR - Error processing record 393: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'grain-inclusive diet without peas or potatoes (G)' -> ID 273
+2025-09-25 19:55:45,448 - ERROR - Error processing record 394: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'grain-free diet with potatoes (GF + Po)' -> ID 274
+2025-09-25 19:55:45,448 - ERROR - Error processing record 395: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'flaxseed oil supplement (FOS)' -> ID 275
+2025-09-25 19:55:45,448 - ERROR - Error processing record 396: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'safflower oil supplementation (SOS)' -> ID 276
+2025-09-25 19:55:45,448 - ERROR - Error processing record 397: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'higher-carbohydrate lower-fat diet with refined carbohydrate sources (acellular diet, A-HCLF)' -> ID 277
+2025-09-25 19:55:45,448 - ERROR - Error processing record 398: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'higher-carbohydrate lower-fat diet with minimally refined carbohydrate sources (cellular diet, C-HCLF)' -> ID 278
+2025-09-25 19:55:45,448 - ERROR - Error processing record 399: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'low-carbohydrate high-fat diet (LCHF)' -> ID 279
+2025-09-25 19:55:45,448 - ERROR - Error processing record 400: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'probiotic formulation' -> ID 280
+2025-09-25 19:55:45,448 - ERROR - Error processing record 401: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'partially hydrolyzed guar gum (PHGG)' -> ID 281
+2025-09-25 19:55:45,448 - ERROR - Error processing record 402: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'polyphenol-rich fruit extracts blend' -> ID 282
+2025-09-25 19:55:45,448 - ERROR - Error processing record 403: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,448 - INFO - Created new canonical: 'polyphenol-rich extract blend' -> ID 283
+2025-09-25 19:55:45,448 - ERROR - Error processing record 404: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,450 - ERROR - Error processing record 405: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,450 - INFO - Created new canonical: 'resistant starch' -> ID 284
+2025-09-25 19:55:45,450 - ERROR - Error processing record 406: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,450 - INFO - Created new canonical: 'pea fibre' -> ID 285
+2025-09-25 19:55:45,450 - ERROR - Error processing record 407: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,450 - INFO - Created new canonical: 'chondroitin sulfate' -> ID 286
+2025-09-25 19:55:45,450 - ERROR - Error processing record 408: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,450 - INFO - Created new canonical: 'protein hydrolysate' -> ID 287
+2025-09-25 19:55:45,450 - ERROR - Error processing record 409: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,450 - ERROR - Error processing record 410: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,450 - ERROR - Error processing record 411: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,451 - ERROR - Error processing record 412: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,451 - INFO - Created new canonical: 'rifaximin (RF)' -> ID 289
+2025-09-25 19:55:45,451 - ERROR - Error processing record 413: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,452 - INFO - Created new canonical: 'ciprofloxacin (CF)' -> ID 290
+2025-09-25 19:55:45,452 - ERROR - Error processing record 414: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,452 - INFO - Created new canonical: 'neomycin' -> ID 291
+2025-09-25 19:55:45,452 - ERROR - Error processing record 415: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,452 - INFO - Created new canonical: 'sulfamethoxazole-trimethoprim' -> ID 292
+2025-09-25 19:55:45,452 - ERROR - Error processing record 416: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,452 - INFO - Created new canonical: 'metronidazole (MZ)' -> ID 293
+2025-09-25 19:55:45,452 - ERROR - Error processing record 417: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,452 - INFO - Created new canonical: 'rifaximin' -> ID 294
+2025-09-25 19:55:45,452 - ERROR - Error processing record 418: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,452 - INFO - Created new canonical: 'ciprofloxacin' -> ID 295
+2025-09-25 19:55:45,452 - ERROR - Error processing record 419: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - INFO - Created new canonical: 'metronidazole' -> ID 296
+2025-09-25 19:55:45,453 - ERROR - Error processing record 420: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - INFO - Created new canonical: 'tenapanor' -> ID 297
+2025-09-25 19:55:45,453 - ERROR - Error processing record 421: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - ERROR - Error processing record 422: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - ERROR - Error processing record 423: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - ERROR - Error processing record 424: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - INFO - Created new canonical: 'low FODMAP diets' -> ID 298
+2025-09-25 19:55:45,453 - ERROR - Error processing record 425: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - ERROR - Error processing record 426: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - ERROR - Error processing record 427: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - ERROR - Error processing record 428: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - ERROR - Error processing record 429: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - ERROR - Error processing record 430: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - ERROR - Error processing record 431: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - INFO - Created new canonical: 'Guanxin Shutong (GXST) capsule' -> ID 299
+2025-09-25 19:55:45,453 - ERROR - Error processing record 432: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - ERROR - Error processing record 433: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - INFO - Created new canonical: 'Guanxin Shutong capsule' -> ID 300
+2025-09-25 19:55:45,453 - ERROR - Error processing record 434: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,453 - INFO - Created new canonical: 'conventional Western medicine' -> ID 301
+2025-09-25 19:55:45,453 - ERROR - Error processing record 435: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'celecoxib 200 mg' -> ID 302
+2025-09-25 19:55:45,455 - ERROR - Error processing record 436: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'topical analgesic' -> ID 303
+2025-09-25 19:55:45,455 - ERROR - Error processing record 437: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'hot pack' -> ID 304
+2025-09-25 19:55:45,455 - ERROR - Error processing record 438: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'celecoxib' -> ID 305
+2025-09-25 19:55:45,455 - ERROR - Error processing record 439: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'closed kinetic chain exercise (CKCE)' -> ID 306
+2025-09-25 19:55:45,455 - ERROR - Error processing record 440: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'closed kinetic chain exercises (CKCE)' -> ID 307
+2025-09-25 19:55:45,455 - ERROR - Error processing record 441: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'Park-Based Exercise Program' -> ID 308
+2025-09-25 19:55:45,455 - ERROR - Error processing record 442: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'park-based exercise' -> ID 309
+2025-09-25 19:55:45,455 - ERROR - Error processing record 443: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'intermittent fasting' -> ID 310
+2025-09-25 19:55:45,455 - ERROR - Error processing record 444: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - ERROR - Error processing record 445: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'social media-based patient education' -> ID 311
+2025-09-25 19:55:45,455 - ERROR - Error processing record 446: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - ERROR - Error processing record 447: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,455 - INFO - Created new canonical: 'autologous concentrated growth factor (ACGF)' -> ID 312
+2025-09-25 19:55:45,457 - ERROR - Error processing record 448: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - INFO - Created new canonical: 'aerobic exercise' -> ID 313
+2025-09-25 19:55:45,457 - ERROR - Error processing record 449: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - ERROR - Error processing record 450: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - INFO - Created new canonical: 'psilocybin' -> ID 314
+2025-09-25 19:55:45,457 - ERROR - Error processing record 451: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - INFO - Created new canonical: 'niacin (active placebo)' -> ID 315
+2025-09-25 19:55:45,457 - ERROR - Error processing record 452: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - ERROR - Error processing record 453: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - INFO - Created new canonical: 'Transcutaneous auricular vagus nerve stimulation (taVNS)' -> ID 316
+2025-09-25 19:55:45,457 - ERROR - Error processing record 454: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - INFO - Created new canonical: 'sham-taVNS' -> ID 317
+2025-09-25 19:55:45,457 - ERROR - Error processing record 455: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - INFO - Created new canonical: 'bisacodyl' -> ID 318
+2025-09-25 19:55:45,457 - ERROR - Error processing record 456: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - INFO - Created new canonical: 'hyoscine' -> ID 319
+2025-09-25 19:55:45,457 - ERROR - Error processing record 457: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - INFO - Created new canonical: 'oral macrogol challenge' -> ID 320
+2025-09-25 19:55:45,457 - ERROR - Error processing record 458: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - INFO - Created new canonical: 'high-resolution colonic manometry (HRCM)' -> ID 321
+2025-09-25 19:55:45,457 - ERROR - Error processing record 459: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,457 - INFO - Created new canonical: 'MRI' -> ID 322
+2025-09-25 19:55:45,457 - ERROR - Error processing record 460: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - INFO - Created new canonical: 'capsaicin' -> ID 323
+2025-09-25 19:55:45,459 - ERROR - Error processing record 461: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - INFO - Created new canonical: 'menthol' -> ID 324
+2025-09-25 19:55:45,459 - ERROR - Error processing record 462: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - ERROR - Error processing record 463: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - INFO - Created new canonical: 'acupoint application' -> ID 325
+2025-09-25 19:55:45,459 - ERROR - Error processing record 464: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - ERROR - Error processing record 465: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - ERROR - Error processing record 466: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - INFO - Created new canonical: 'rehabilitation exercise' -> ID 326
+2025-09-25 19:55:45,459 - ERROR - Error processing record 467: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - INFO - Created new canonical: 'physical activity (PA)' -> ID 327
+2025-09-25 19:55:45,459 - ERROR - Error processing record 468: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - ERROR - Error processing record 469: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - INFO - Created new canonical: 'evolocumab' -> ID 328
+2025-09-25 19:55:45,459 - ERROR - Error processing record 470: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - ERROR - Error processing record 471: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - INFO - Created new canonical: 'remote exercise rehabilitation' -> ID 329
+2025-09-25 19:55:45,459 - ERROR - Error processing record 472: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,459 - INFO - Created new canonical: 'online yoga' -> ID 330
+2025-09-25 19:55:45,459 - ERROR - Error processing record 473: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - ERROR - Error processing record 474: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - ERROR - Error processing record 475: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - ERROR - Error processing record 476: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - INFO - Created new canonical: 'traditional Chinese medicine (TCM)' -> ID 331
+2025-09-25 19:55:45,461 - ERROR - Error processing record 477: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - INFO - Created new canonical: 'GORE CARDIOFORM ASD Occluder implantation' -> ID 332
+2025-09-25 19:55:45,461 - ERROR - Error processing record 479: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - INFO - Created new canonical: 'stepped-care mental health program (I-InTERACT-North)' -> ID 333
+2025-09-25 19:55:45,461 - ERROR - Error processing record 480: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - INFO - Created new canonical: 'low carbohydrate diet' -> ID 334
+2025-09-25 19:55:45,461 - ERROR - Error processing record 481: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - ERROR - Error processing record 482: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - INFO - Created new canonical: 'diet low in total carbohydrates' -> ID 335
+2025-09-25 19:55:45,461 - ERROR - Error processing record 483: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - INFO - Created new canonical: 'FODMAP diet combined with traditional IBS dietary advice' -> ID 336
+2025-09-25 19:55:45,461 - ERROR - Error processing record 484: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - INFO - Created new canonical: 'propofol + sufentanil' -> ID 337
+2025-09-25 19:55:45,461 - ERROR - Error processing record 485: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,461 - INFO - Created new canonical: 'remimazolam + sufentanil' -> ID 338
+2025-09-25 19:55:45,461 - ERROR - Error processing record 486: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - INFO - Created new canonical: 'remimazolam + alfentanil' -> ID 339
+2025-09-25 19:55:45,463 - ERROR - Error processing record 487: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - INFO - Created new canonical: 'microbiome-based artificial intelligence-assisted personalized diet (PD)' -> ID 340
+2025-09-25 19:55:45,463 - ERROR - Error processing record 488: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - INFO - Created new canonical: 'low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols diet (FODMAP)' -> ID 341
+2025-09-25 19:55:45,463 - ERROR - Error processing record 489: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - ERROR - Error processing record 490: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - ERROR - Error processing record 491: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - INFO - Created new canonical: 'Chinese herbal medicine (CHM)' -> ID 342
+2025-09-25 19:55:45,463 - ERROR - Error processing record 492: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - INFO - Created new canonical: 'Acacia fiber' -> ID 343
+2025-09-25 19:55:45,463 - ERROR - Error processing record 493: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - INFO - Created new canonical: 'Probiotic Bifidobacterium Lactis (BLa80)' -> ID 344
+2025-09-25 19:55:45,463 - ERROR - Error processing record 494: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - ERROR - Error processing record 495: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - ERROR - Error processing record 496: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - ERROR - Error processing record 497: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - ERROR - Error processing record 498: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,463 - ERROR - Error processing record 499: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - ERROR - Error processing record 500: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - INFO - Created new canonical: 'prebiotics' -> ID 345
+2025-09-25 19:55:45,465 - ERROR - Error processing record 501: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - ERROR - Error processing record 502: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - ERROR - Error processing record 503: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - INFO - Created new canonical: 'co-micronized palmitoylethanolamide (PEA)/polydatin (PD)' -> ID 346
+2025-09-25 19:55:45,465 - ERROR - Error processing record 505: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - ERROR - Error processing record 506: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - INFO - Created new canonical: 'low-FODMAPs diet' -> ID 347
+2025-09-25 19:55:45,465 - ERROR - Error processing record 507: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - ERROR - Error processing record 508: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - ERROR - Error processing record 509: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - INFO - Created new canonical: 'probiotic administration' -> ID 348
+2025-09-25 19:55:45,465 - ERROR - Error processing record 510: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - ERROR - Error processing record 511: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - ERROR - Error processing record 512: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - ERROR - Error processing record 513: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,465 - ERROR - Error processing record 514: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,467 - INFO - Created new canonical: 'Lactobacillus acidophilus LA-5 and Lactobacillus paracasei L. CASEI-01' -> ID 349
+2025-09-25 19:55:45,467 - ERROR - Error processing record 515: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,467 - ERROR - Error processing record 516: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,467 - ERROR - Error processing record 517: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,467 - ERROR - Error processing record 518: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,467 - INFO - Created new canonical: 'linaclotide' -> ID 350
+2025-09-25 19:55:45,467 - ERROR - Error processing record 519: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,467 - ERROR - Error processing record 520: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,467 - ERROR - Error processing record 521: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,467 - INFO - Created new canonical: 'ondansetron' -> ID 351
+2025-09-25 19:55:45,467 - ERROR - Error processing record 522: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,467 - ERROR - Error processing record 523: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,467 - INFO - Created new canonical: 'antidiarrheal drugs' -> ID 352
+2025-09-25 19:55:45,469 - ERROR - Error processing record 524: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,469 - INFO - Created new canonical: 'behavioral and dietary modifications' -> ID 353
+2025-09-25 19:55:45,469 - ERROR - Error processing record 525: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,469 - INFO - Created new canonical: 'neuromodulation' -> ID 354
+2025-09-25 19:55:45,469 - ERROR - Error processing record 526: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,469 - INFO - Created new canonical: 'enemas' -> ID 355
+2025-09-25 19:55:45,469 - ERROR - Error processing record 527: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,469 - ERROR - Error processing record 528: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,469 - INFO - Created new canonical: 'Lactobacillus rhamnosus probiotic' -> ID 356
+2025-09-25 19:55:45,470 - ERROR - Error processing record 529: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - INFO - Created new canonical: 'FODMAP diet' -> ID 357
+2025-09-25 19:55:45,470 - ERROR - Error processing record 530: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - ERROR - Error processing record 531: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - ERROR - Error processing record 532: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - INFO - Created new canonical: 'eHealth self-management program' -> ID 358
+2025-09-25 19:55:45,470 - ERROR - Error processing record 533: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - INFO - Created new canonical: 'Lactobacillus' -> ID 359
+2025-09-25 19:55:45,470 - ERROR - Error processing record 535: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - INFO - Created new canonical: 'Bifidobacterium' -> ID 360
+2025-09-25 19:55:45,470 - ERROR - Error processing record 536: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - INFO - Created new canonical: 'Bacillus' -> ID 361
+2025-09-25 19:55:45,470 - ERROR - Error processing record 537: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - INFO - Created new canonical: '2 Lactobacillus strains, one Bifidobacterium and one Streptococcus' -> ID 362
+2025-09-25 19:55:45,470 - ERROR - Error processing record 538: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - ERROR - Error processing record 539: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - INFO - Created new canonical: 'Mirtazapine' -> ID 363
+2025-09-25 19:55:45,470 - ERROR - Error processing record 540: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - INFO - Created new canonical: 'Anticholinergics' -> ID 364
+2025-09-25 19:55:45,470 - ERROR - Error processing record 541: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - INFO - Created new canonical: 'Anti-spasmodics' -> ID 365
+2025-09-25 19:55:45,470 - ERROR - Error processing record 542: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,470 - INFO - Created new canonical: 'Tricyclic Antidepressants (TCAs)' -> ID 366
+2025-09-25 19:55:45,472 - ERROR - Error processing record 543: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - ERROR - Error processing record 544: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - INFO - Created new canonical: 'Limosilactobacillus (L.) reuteri DSM 17938' -> ID 367
+2025-09-25 19:55:45,472 - ERROR - Error processing record 545: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - INFO - Created new canonical: 'Bifidobacterium animalis subsp. lactis BB-12' -> ID 368
+2025-09-25 19:55:45,472 - ERROR - Error processing record 546: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - INFO - Created new canonical: 'Lacticaseibacillus rhamnosus GG (LGG)' -> ID 369
+2025-09-25 19:55:45,472 - ERROR - Error processing record 547: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - INFO - Created new canonical: 'L. reuteri DSM 17938' -> ID 370
+2025-09-25 19:55:45,472 - ERROR - Error processing record 548: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - ERROR - Error processing record 549: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - ERROR - Error processing record 550: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - INFO - Created new canonical: 'Bifidobacterium longum (BL) NCC3001' -> ID 371
+2025-09-25 19:55:45,472 - ERROR - Error processing record 551: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - ERROR - Error processing record 552: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - INFO - Created new canonical: 'Bifidobacterium longum NCC3001' -> ID 372
+2025-09-25 19:55:45,472 - ERROR - Error processing record 553: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - INFO - Created new canonical: 'Tryptophan restriction' -> ID 373
+2025-09-25 19:55:45,472 - ERROR - Error processing record 554: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - ERROR - Error processing record 555: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,472 - INFO - Created new canonical: 'education/nondirective support' -> ID 374
+2025-09-25 19:55:45,472 - ERROR - Error processing record 556: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - INFO - Created new canonical: 'cognitive reappraisal' -> ID 375
+2025-09-25 19:55:45,474 - ERROR - Error processing record 557: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - INFO - Created new canonical: 'antihypertensives' -> ID 376
+2025-09-25 19:55:45,474 - ERROR - Error processing record 559: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - ERROR - Error processing record 560: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - INFO - Created new canonical: 'acetylsalicylic acid' -> ID 377
+2025-09-25 19:55:45,474 - ERROR - Error processing record 561: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - INFO - Created new canonical: 'Danhong injection (DH)' -> ID 378
+2025-09-25 19:55:45,474 - ERROR - Error processing record 562: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - INFO - Created new canonical: 'Danshenchuanxiongqin injection (DSCXQ)' -> ID 379
+2025-09-25 19:55:45,474 - ERROR - Error processing record 563: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - INFO - Created new canonical: 'Dansenduofensuanyan injection (DSDFSY)' -> ID 380
+2025-09-25 19:55:45,474 - ERROR - Error processing record 564: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - INFO - Created new canonical: 'Guanxinning injection (GXN)' -> ID 381
+2025-09-25 19:55:45,474 - ERROR - Error processing record 565: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - INFO - Created new canonical: 'Sodium Tanshinone IIA Sulfonate injection (STS)' -> ID 382
+2025-09-25 19:55:45,474 - ERROR - Error processing record 566: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - INFO - Created new canonical: 'Xiangdan injection (XD)' -> ID 383
+2025-09-25 19:55:45,474 - ERROR - Error processing record 567: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - ERROR - Error processing record 568: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - INFO - Created new canonical: 'Danshen injection (DS)' -> ID 384
+2025-09-25 19:55:45,474 - ERROR - Error processing record 569: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,474 - ERROR - Error processing record 570: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - ERROR - Error processing record 571: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - INFO - Created new canonical: 'Danshenfen injection (DSFZ)' -> ID 385
+2025-09-25 19:55:45,476 - ERROR - Error processing record 572: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - INFO - Created new canonical: 'Fufang Danshen injection (FFDS)' -> ID 386
+2025-09-25 19:55:45,476 - ERROR - Error processing record 573: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - ERROR - Error processing record 574: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - ERROR - Error processing record 575: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - ERROR - Error processing record 576: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - INFO - Created new canonical: 'Shenxiongputaotang injection (SXPTT)' -> ID 387
+2025-09-25 19:55:45,476 - ERROR - Error processing record 577: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - INFO - Created new canonical: 'pinaverium bromide suspension' -> ID 388
+2025-09-25 19:55:45,476 - ERROR - Error processing record 578: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - ERROR - Error processing record 579: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - ERROR - Error processing record 580: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - INFO - Created new canonical: 'pinaverium bromide' -> ID 389
+2025-09-25 19:55:45,476 - ERROR - Error processing record 581: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - INFO - Created new canonical: 'kombucha enriched with inulin and vitamins' -> ID 390
+2025-09-25 19:55:45,476 - ERROR - Error processing record 582: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - INFO - Created new canonical: 'kombucha-based drink enriched with inulin and vitamins' -> ID 391
+2025-09-25 19:55:45,476 - ERROR - Error processing record 583: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,476 - INFO - Created new canonical: 'tailored diet' -> ID 392
+2025-09-25 19:55:45,476 - ERROR - Error processing record 584: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'standard fivefold elimination diet' -> ID 393
+2025-09-25 19:55:45,478 - ERROR - Error processing record 585: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'confocal laser endomicroscopy-based selective single-elimination diet' -> ID 394
+2025-09-25 19:55:45,478 - ERROR - Error processing record 586: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'Escherichia strains' -> ID 395
+2025-09-25 19:55:45,478 - ERROR - Error processing record 587: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'Lactobacillus strains' -> ID 396
+2025-09-25 19:55:45,478 - ERROR - Error processing record 588: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'Lactobacillus plantarum 299V' -> ID 397
+2025-09-25 19:55:45,478 - ERROR - Error processing record 589: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'combination probiotics' -> ID 398
+2025-09-25 19:55:45,478 - ERROR - Error processing record 590: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'LacClean Gold S' -> ID 399
+2025-09-25 19:55:45,478 - ERROR - Error processing record 591: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'Duolac 7s' -> ID 400
+2025-09-25 19:55:45,478 - ERROR - Error processing record 592: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'Bacillus strains' -> ID 401
+2025-09-25 19:55:45,478 - ERROR - Error processing record 593: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'Saccharomyces cerevisae I-3856' -> ID 402
+2025-09-25 19:55:45,478 - ERROR - Error processing record 594: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - INFO - Created new canonical: 'Bifidobacterium strains' -> ID 403
+2025-09-25 19:55:45,478 - ERROR - Error processing record 595: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,478 - ERROR - Error processing record 596: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - ERROR - Error processing record 597: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - INFO - Created new canonical: 'sacral nerve stimulation' -> ID 404
+2025-09-25 19:55:45,480 - ERROR - Error processing record 598: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - ERROR - Error processing record 599: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - INFO - Created new canonical: 'Lactobacillus acidophilus DDS-1' -> ID 405
+2025-09-25 19:55:45,480 - ERROR - Error processing record 600: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - INFO - Created new canonical: 'mixture containing five probiotics' -> ID 406
+2025-09-25 19:55:45,480 - ERROR - Error processing record 601: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - INFO - Created new canonical: 'Bacillus coagulans MTCC 5856' -> ID 407
+2025-09-25 19:55:45,480 - ERROR - Error processing record 602: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - INFO - Created new canonical: 'Bacillus coagulans Unique IS2' -> ID 408
+2025-09-25 19:55:45,480 - ERROR - Error processing record 603: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - INFO - Created new canonical: 'Saccharomyces cerevisiae CNCM I-3856' -> ID 409
+2025-09-25 19:55:45,480 - ERROR - Error processing record 604: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - ERROR - Error processing record 605: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - INFO - Created new canonical: 'low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols (FODMAP) diet' -> ID 410
+2025-09-25 19:55:45,480 - ERROR - Error processing record 606: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - ERROR - Error processing record 607: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - ERROR - Error processing record 608: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,480 - ERROR - Error processing record 609: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - ERROR - Error processing record 610: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - ERROR - Error processing record 611: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - INFO - Created new canonical: 'serum-derived bovine immunoglobulin (SBI)' -> ID 411
+2025-09-25 19:55:45,482 - ERROR - Error processing record 612: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - ERROR - Error processing record 613: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - ERROR - Error processing record 614: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - ERROR - Error processing record 615: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - ERROR - Error processing record 616: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - ERROR - Error processing record 617: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - ERROR - Error processing record 618: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - INFO - Created new canonical: 'nonspecific comparator emphasizing education and support' -> ID 412
+2025-09-25 19:55:45,482 - ERROR - Error processing record 619: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - INFO - Created new canonical: '2 green kiwifruits per day' -> ID 413
+2025-09-25 19:55:45,482 - ERROR - Error processing record 620: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - INFO - Created new canonical: 'green kiwifruit consumption' -> ID 414
+2025-09-25 19:55:45,482 - ERROR - Error processing record 621: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - ERROR - Error processing record 622: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,482 - INFO - Created new canonical: 'psyllium consumption' -> ID 415
+2025-09-25 19:55:45,484 - ERROR - Error processing record 623: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,484 - ERROR - Error processing record 624: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,484 - ERROR - Error processing record 625: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,484 - INFO - Created new canonical: 'Lactobacillus plantarum DSM 9843' -> ID 416
+2025-09-25 19:55:45,484 - ERROR - Error processing record 626: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,484 - INFO - Created new canonical: 'Bifidobacterium bifidum MIMBb75' -> ID 417
+2025-09-25 19:55:45,484 - ERROR - Error processing record 627: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,484 - ERROR - Error processing record 628: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,484 - ERROR - Error processing record 629: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,485 - ERROR - Error processing record 630: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,485 - INFO - Created new canonical: 'cold/spicy/fried restricted diet (CSF res diet)' -> ID 418
+2025-09-25 19:55:45,485 - ERROR - Error processing record 631: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,485 - INFO - Created new canonical: 'IgG positive restricted diet (IgG res diet)' -> ID 419
+2025-09-25 19:55:45,485 - ERROR - Error processing record 632: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - ERROR - Error processing record 633: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - INFO - Created new canonical: 'Bifidobacteria (probiotic)' -> ID 421
+2025-09-25 19:55:45,486 - ERROR - Error processing record 634: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - INFO - Created new canonical: 'combination of cold/spicy/fried restricted diet (CSF res diet) and IgG positive restricted diet (IgG res diet)' -> ID 422
+2025-09-25 19:55:45,486 - ERROR - Error processing record 635: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - INFO - Created new canonical: 'probiotic' -> ID 423
+2025-09-25 19:55:45,486 - ERROR - Error processing record 636: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - ERROR - Error processing record 637: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - INFO - Created new canonical: 'fiber intake' -> ID 424
+2025-09-25 19:55:45,486 - ERROR - Error processing record 638: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - ERROR - Error processing record 639: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - INFO - Created new canonical: 'soluble fiber (inulin)' -> ID 425
+2025-09-25 19:55:45,486 - ERROR - Error processing record 640: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - ERROR - Error processing record 641: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - ERROR - Error processing record 642: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - INFO - Created new canonical: 'symbiotics' -> ID 426
+2025-09-25 19:55:45,486 - ERROR - Error processing record 643: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - ERROR - Error processing record 644: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,486 - ERROR - Error processing record 645: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - ERROR - Error processing record 646: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - INFO - Created new canonical: 'postbiotics' -> ID 427
+2025-09-25 19:55:45,488 - ERROR - Error processing record 647: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - INFO - Created new canonical: 'antibiotics' -> ID 428
+2025-09-25 19:55:45,488 - ERROR - Error processing record 648: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - ERROR - Error processing record 649: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - INFO - Created new canonical: 'Prolong-life-with-nine-turn-method (Yan Nian Jiu Zhuan) Qigong' -> ID 429
+2025-09-25 19:55:45,488 - ERROR - Error processing record 651: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - INFO - Created new canonical: 'plecanatide 3 mg' -> ID 430
+2025-09-25 19:55:45,488 - ERROR - Error processing record 652: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - INFO - Created new canonical: 'plecanatide 6 mg' -> ID 431
+2025-09-25 19:55:45,488 - ERROR - Error processing record 653: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - INFO - Created new canonical: 'plecanatide' -> ID 432
+2025-09-25 19:55:45,488 - ERROR - Error processing record 654: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - INFO - Created new canonical: 'peppermint oil' -> ID 433
+2025-09-25 19:55:45,488 - ERROR - Error processing record 655: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - ERROR - Error processing record 656: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - ERROR - Error processing record 657: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,488 - INFO - Created new canonical: 'weight loss through lifestyle modifications' -> ID 434
+2025-09-25 19:55:45,488 - ERROR - Error processing record 658: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,490 - ERROR - Error processing record 659: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,490 - ERROR - Error processing record 660: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,490 - INFO - Created new canonical: 'lifestyle modifications' -> ID 437
+2025-09-25 19:55:45,490 - ERROR - Error processing record 661: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,490 - INFO - Created new canonical: 'Lactobacillus gasseri LA806' -> ID 438
+2025-09-25 19:55:45,490 - ERROR - Error processing record 662: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,490 - ERROR - Error processing record 663: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,490 - INFO - Created new canonical: 'vibegron' -> ID 439
+2025-09-25 19:55:45,490 - ERROR - Error processing record 664: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,490 - ERROR - Error processing record 665: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,490 - ERROR - Error processing record 666: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,490 - ERROR - Error processing record 667: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - ERROR - Error processing record 668: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - ERROR - Error processing record 669: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - INFO - Created new canonical: 'fecal microbiota transplantation' -> ID 440
+2025-09-25 19:55:45,492 - ERROR - Error processing record 670: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - ERROR - Error processing record 671: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - ERROR - Error processing record 672: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - ERROR - Error processing record 673: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - ERROR - Error processing record 674: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - INFO - Created new canonical: 'Anaerobically Cultivated Human Intestinal Microbiota (ACHIM)' -> ID 441
+2025-09-25 19:55:45,492 - ERROR - Error processing record 675: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - ERROR - Error processing record 676: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - INFO - Created new canonical: 'donor-fecal microbiota transplantation (FMT)' -> ID 442
+2025-09-25 19:55:45,492 - ERROR - Error processing record 677: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - ERROR - Error processing record 678: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - ERROR - Error processing record 679: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,492 - INFO - Created new canonical: 'soluble fiber supplementation' -> ID 443
+2025-09-25 19:55:45,492 - ERROR - Error processing record 680: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - ERROR - Error processing record 681: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - ERROR - Error processing record 682: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - ERROR - Error processing record 683: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - ERROR - Error processing record 684: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - ERROR - Error processing record 685: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - INFO - Created new canonical: 'amitriptyline' -> ID 444
+2025-09-25 19:55:45,494 - ERROR - Error processing record 686: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - ERROR - Error processing record 687: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - ERROR - Error processing record 688: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - INFO - Created new canonical: 'fibers' -> ID 445
+2025-09-25 19:55:45,494 - ERROR - Error processing record 689: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - ERROR - Error processing record 690: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - INFO - Created new canonical: 'B.coagulans' -> ID 446
+2025-09-25 19:55:45,494 - ERROR - Error processing record 691: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - INFO - Created new canonical: 'L.plantarum' -> ID 447
+2025-09-25 19:55:45,494 - ERROR - Error processing record 692: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,494 - INFO - Created new canonical: 'L.acidophilus' -> ID 448
+2025-09-25 19:55:45,494 - ERROR - Error processing record 693: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - ERROR - Error processing record 694: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - INFO - Created new canonical: 'Bacillus coagulans' -> ID 449
+2025-09-25 19:55:45,496 - ERROR - Error processing record 695: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - ERROR - Error processing record 696: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - ERROR - Error processing record 697: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - INFO - Created new canonical: 'probiotic co-supplementation' -> ID 450
+2025-09-25 19:55:45,496 - ERROR - Error processing record 698: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - ERROR - Error processing record 699: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - ERROR - Error processing record 700: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - INFO - Created new canonical: 'Bacillus subtilis BS50' -> ID 451
+2025-09-25 19:55:45,496 - ERROR - Error processing record 701: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - INFO - Created new canonical: 'inulin enriched kombucha drink' -> ID 452
+2025-09-25 19:55:45,496 - ERROR - Error processing record 702: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - INFO - Created new canonical: 'water' -> ID 453
+2025-09-25 19:55:45,496 - ERROR - Error processing record 703: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - ERROR - Error processing record 704: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,496 - ERROR - Error processing record 705: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - ERROR - Error processing record 706: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - INFO - Created new canonical: 'multi-strain probiotic' -> ID 454
+2025-09-25 19:55:45,498 - ERROR - Error processing record 707: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - INFO - Created new canonical: 'standard kimchi' -> ID 455
+2025-09-25 19:55:45,498 - ERROR - Error processing record 709: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - INFO - Created new canonical: 'dead nano-sized Lactobacillus plantarum nF1 (nLp) added to standard kimchi' -> ID 456
+2025-09-25 19:55:45,498 - ERROR - Error processing record 710: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - INFO - Created new canonical: 'functional kimchi' -> ID 457
+2025-09-25 19:55:45,498 - ERROR - Error processing record 711: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - INFO - Created new canonical: 'kimchi consumption' -> ID 458
+2025-09-25 19:55:45,498 - ERROR - Error processing record 712: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - INFO - Created new canonical: 'Lactobacillus plantarum nF1 (nLp)' -> ID 459
+2025-09-25 19:55:45,498 - ERROR - Error processing record 713: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - INFO - Created new canonical: 'dance and yoga' -> ID 460
+2025-09-25 19:55:45,498 - ERROR - Error processing record 714: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - ERROR - Error processing record 715: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - INFO - Created new canonical: 'web-based low-FODMAP diet (LFD)' -> ID 461
+2025-09-25 19:55:45,498 - ERROR - Error processing record 716: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,498 - INFO - Created new canonical: 'VSL#3' -> ID 462
+2025-09-25 19:55:45,498 - ERROR - Error processing record 717: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - ERROR - Error processing record 718: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - INFO - Created new canonical: 'Lactiplantibacillus plantarum 299v' -> ID 463
+2025-09-25 19:55:45,500 - ERROR - Error processing record 719: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - ERROR - Error processing record 720: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - INFO - Created new canonical: 'Lactiplantibacillus plantarum 299v (LP299V®)' -> ID 464
+2025-09-25 19:55:45,500 - ERROR - Error processing record 721: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - ERROR - Error processing record 722: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - ERROR - Error processing record 723: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - INFO - Created new canonical: 'dietary therapies' -> ID 465
+2025-09-25 19:55:45,500 - ERROR - Error processing record 724: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - INFO - Created new canonical: 'pharmacological therapies' -> ID 466
+2025-09-25 19:55:45,500 - ERROR - Error processing record 725: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - INFO - Created new canonical: 'psychological therapies' -> ID 467
+2025-09-25 19:55:45,500 - ERROR - Error processing record 726: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - ERROR - Error processing record 727: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,500 - ERROR - Error processing record 728: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - ERROR - Error processing record 729: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - ERROR - Error processing record 730: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - ERROR - Error processing record 731: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - INFO - Created new canonical: 'low FODMAP diet (LFD)' -> ID 468
+2025-09-25 19:55:45,502 - ERROR - Error processing record 732: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - ERROR - Error processing record 733: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - INFO - Created new canonical: 'multi-strain probiotic preparation' -> ID 469
+2025-09-25 19:55:45,502 - ERROR - Error processing record 734: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - INFO - Created new canonical: 'Bacillus coagulans LBSC' -> ID 470
+2025-09-25 19:55:45,502 - ERROR - Error processing record 735: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - INFO - Created new canonical: 'heat-inactivated Bifidobacterium bifidum MIMBb75 (SYN-HI-001)' -> ID 471
+2025-09-25 19:55:45,502 - ERROR - Error processing record 736: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - INFO - Created new canonical: 'Lactobacillus paracasei HA-196' -> ID 472
+2025-09-25 19:55:45,502 - ERROR - Error processing record 737: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - INFO - Created new canonical: 'Bifidobacterium longum R0175' -> ID 473
+2025-09-25 19:55:45,502 - ERROR - Error processing record 738: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - ERROR - Error processing record 739: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,502 - INFO - Created new canonical: 'Lactobacillus paracasei HA-196 (L. paracasei)' -> ID 474
+2025-09-25 19:55:45,502 - ERROR - Error processing record 740: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,504 - INFO - Created new canonical: 'Bifidobacterium longum R0175 (B. longum)' -> ID 475
+2025-09-25 19:55:45,504 - ERROR - Error processing record 741: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,504 - INFO - Created new canonical: 'gluten-free diet' -> ID 476
+2025-09-25 19:55:45,504 - ERROR - Error processing record 742: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,504 - INFO - Created new canonical: 'high fiber diet' -> ID 477
+2025-09-25 19:55:45,504 - ERROR - Error processing record 743: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,504 - INFO - Created new canonical: 'low glycemic index diet' -> ID 478
+2025-09-25 19:55:45,504 - ERROR - Error processing record 744: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,504 - INFO - Created new canonical: 'vitamin D supplementation' -> ID 479
+2025-09-25 19:55:45,504 - ERROR - Error processing record 745: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,504 - INFO - Created new canonical: 'omega-3 supplementation' -> ID 480
+2025-09-25 19:55:45,504 - ERROR - Error processing record 746: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - ERROR - Error processing record 747: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - INFO - Created new canonical: 'weight loss' -> ID 481
+2025-09-25 19:55:45,506 - ERROR - Error processing record 748: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - INFO - Created new canonical: 'antibiotics (for Helicobacter pylori eradication)' -> ID 482
+2025-09-25 19:55:45,506 - ERROR - Error processing record 749: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - ERROR - Error processing record 750: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - INFO - Created new canonical: 'fiber consumption' -> ID 483
+2025-09-25 19:55:45,506 - ERROR - Error processing record 751: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - ERROR - Error processing record 752: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - ERROR - Error processing record 753: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - INFO - Created new canonical: 'omega-3' -> ID 484
+2025-09-25 19:55:45,506 - ERROR - Error processing record 754: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - ERROR - Error processing record 755: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - INFO - Created new canonical: 'weight loss dietary plans' -> ID 485
+2025-09-25 19:55:45,506 - ERROR - Error processing record 756: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,506 - ERROR - Error processing record 757: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - INFO - Created new canonical: 'Bifidobacterium animalis subsp. lactis UABla-12' -> ID 486
+2025-09-25 19:55:45,509 - ERROR - Error processing record 758: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - INFO - Created new canonical: 'probiotic supplements' -> ID 487
+2025-09-25 19:55:45,509 - ERROR - Error processing record 759: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - ERROR - Error processing record 760: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - ERROR - Error processing record 761: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - INFO - Created new canonical: 'multispecies probiotic mixture' -> ID 488
+2025-09-25 19:55:45,509 - ERROR - Error processing record 762: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - ERROR - Error processing record 763: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - INFO - Created new canonical: 'diet low in fermentable oligosaccharides, disaccharides, monosaccharides, and polyols' -> ID 489
+2025-09-25 19:55:45,509 - ERROR - Error processing record 764: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - ERROR - Error processing record 765: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - ERROR - Error processing record 766: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - ERROR - Error processing record 767: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - ERROR - Error processing record 768: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,509 - ERROR - Error processing record 769: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - ERROR - Error processing record 770: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - ERROR - Error processing record 771: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - ERROR - Error processing record 772: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - ERROR - Error processing record 773: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - INFO - Created new canonical: 'multistrain probiotic formulation' -> ID 490
+2025-09-25 19:55:45,511 - ERROR - Error processing record 774: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - INFO - Created new canonical: 'Bifidobacterium longum NCC3001 (BL)' -> ID 491
+2025-09-25 19:55:45,511 - ERROR - Error processing record 775: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - ERROR - Error processing record 776: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - ERROR - Error processing record 777: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - INFO - Created new canonical: 'glucose hydrogen breath test' -> ID 492
+2025-09-25 19:55:45,511 - ERROR - Error processing record 778: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - INFO - Created new canonical: 'lactulose hydrogen breath test' -> ID 493
+2025-09-25 19:55:45,511 - ERROR - Error processing record 779: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - INFO - Created new canonical: 'quantitative jejunal aspirate culture' -> ID 494
+2025-09-25 19:55:45,511 - ERROR - Error processing record 780: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,511 - ERROR - Error processing record 781: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 782: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 783: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 784: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 785: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 786: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 787: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 788: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 789: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - INFO - Created new canonical: 'live bacteria' -> ID 495
+2025-09-25 19:55:45,513 - ERROR - Error processing record 790: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - INFO - Created new canonical: 'substances that aim at increasing populations of bacteria' -> ID 496
+2025-09-25 19:55:45,513 - ERROR - Error processing record 791: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 792: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 793: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,513 - ERROR - Error processing record 794: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 795: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 796: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 797: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 798: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 799: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 800: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 801: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 802: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 803: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - INFO - Created new canonical: 'Dietary manipulations' -> ID 497
+2025-09-25 19:55:45,515 - ERROR - Error processing record 804: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 805: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - INFO - Created new canonical: 'Tricyclic agents' -> ID 498
+2025-09-25 19:55:45,515 - ERROR - Error processing record 806: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,515 - ERROR - Error processing record 807: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - INFO - Created new canonical: 'Serotonin antagonists' -> ID 499
+2025-09-25 19:55:45,517 - ERROR - Error processing record 808: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - INFO - Created new canonical: 'Anti-diarrhoeal agents' -> ID 500
+2025-09-25 19:55:45,517 - ERROR - Error processing record 809: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - ERROR - Error processing record 810: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - ERROR - Error processing record 811: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - ERROR - Error processing record 812: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - ERROR - Error processing record 813: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - ERROR - Error processing record 814: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - ERROR - Error processing record 815: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - INFO - Created new canonical: 'proton pump inhibitors' -> ID 501
+2025-09-25 19:55:45,517 - ERROR - Error processing record 816: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - INFO - Created new canonical: 'Helicobacter pylori-infection eradication' -> ID 502
+2025-09-25 19:55:45,517 - ERROR - Error processing record 817: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,517 - ERROR - Error processing record 818: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,518 - ERROR - Error processing record 819: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,518 - ERROR - Error processing record 820: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,518 - ERROR - Error processing record 821: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - ERROR - Error processing record 822: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - INFO - Created new canonical: 'dietary alterations' -> ID 503
+2025-09-25 19:55:45,519 - ERROR - Error processing record 823: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - INFO - Created new canonical: 'education and reassurance' -> ID 504
+2025-09-25 19:55:45,519 - ERROR - Error processing record 824: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - INFO - Created new canonical: 'effective patient-physician relationship' -> ID 505
+2025-09-25 19:55:45,519 - ERROR - Error processing record 825: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - ERROR - Error processing record 826: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - INFO - Created new canonical: 'patient-centered care' -> ID 506
+2025-09-25 19:55:45,519 - ERROR - Error processing record 827: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - INFO - Created new canonical: 'progressive muscle relaxation' -> ID 507
+2025-09-25 19:55:45,519 - ERROR - Error processing record 828: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - INFO - Created new canonical: 'progressive muscle relaxation exercises' -> ID 508
+2025-09-25 19:55:45,519 - ERROR - Error processing record 829: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - INFO - Created new canonical: 'secukinumab' -> ID 509
+2025-09-25 19:55:45,519 - ERROR - Error processing record 830: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - ERROR - Error processing record 831: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - ERROR - Error processing record 832: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,519 - INFO - Created new canonical: 'transcranial direct current stimulation (tDCS)' -> ID 510
+2025-09-25 19:55:45,521 - ERROR - Error processing record 833: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,521 - INFO - Created new canonical: 'aquatic therapy' -> ID 511
+2025-09-25 19:55:45,521 - ERROR - Error processing record 834: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,521 - INFO - Created new canonical: 'mobile message-based intervention' -> ID 512
+2025-09-25 19:55:45,521 - ERROR - Error processing record 835: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,521 - ERROR - Error processing record 836: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,521 - INFO - Created new canonical: 'nurse-led peer support intervention' -> ID 513
+2025-09-25 19:55:45,521 - ERROR - Error processing record 837: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,521 - INFO - Created new canonical: 'standard care' -> ID 514
+2025-09-25 19:55:45,521 - ERROR - Error processing record 838: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,521 - ERROR - Error processing record 839: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,521 - INFO - Created new canonical: 'Gain Life intervention' -> ID 515
+2025-09-25 19:55:45,521 - ERROR - Error processing record 840: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,521 - INFO - Created new canonical: 'social-media-based mental health interventions' -> ID 516
+2025-09-25 19:55:45,521 - ERROR - Error processing record 842: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,521 - ERROR - Error processing record 843: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,521 - ERROR - Error processing record 844: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - INFO - Created new canonical: 'testosterone therapy (TTh)' -> ID 517
+2025-09-25 19:55:45,523 - ERROR - Error processing record 845: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - ERROR - Error processing record 846: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - INFO - Created new canonical: 'transcutaneous electrical nerve stimulation (TENS)' -> ID 518
+2025-09-25 19:55:45,523 - ERROR - Error processing record 847: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - ERROR - Error processing record 848: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - ERROR - Error processing record 849: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - INFO - Created new canonical: 'mobile-based postpartum lifestyle intervention' -> ID 519
+2025-09-25 19:55:45,523 - ERROR - Error processing record 850: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - ERROR - Error processing record 851: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - INFO - Created new canonical: 'usual care with medication' -> ID 520
+2025-09-25 19:55:45,523 - ERROR - Error processing record 852: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - INFO - Created new canonical: 'osteopathic treatment' -> ID 521
+2025-09-25 19:55:45,523 - ERROR - Error processing record 853: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - ERROR - Error processing record 854: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,523 - ERROR - Error processing record 855: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 856: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 857: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 858: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 859: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 860: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 861: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 862: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 863: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 864: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 865: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 866: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - ERROR - Error processing record 867: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,525 - INFO - Created new canonical: 'physiotherapy' -> ID 522
+2025-09-25 19:55:45,525 - ERROR - Error processing record 868: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,527 - ERROR - Error processing record 869: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,527 - INFO - Created new canonical: 'semaglutide' -> ID 523
+2025-09-25 19:55:45,527 - ERROR - Error processing record 870: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,527 - INFO - Created new canonical: 'baricitinib' -> ID 524
+2025-09-25 19:55:45,527 - ERROR - Error processing record 871: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,527 - INFO - Created new canonical: 'cardiac rehabilitation program' -> ID 525
+2025-09-25 19:55:45,527 - ERROR - Error processing record 872: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,527 - INFO - Created new canonical: 'acceptance and commitment therapy (ACT)' -> ID 526
+2025-09-25 19:55:45,527 - ERROR - Error processing record 873: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,527 - INFO - Created new canonical: 'transdiagnostic treatment' -> ID 527
+2025-09-25 19:55:45,527 - ERROR - Error processing record 874: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,527 - INFO - Created new canonical: 'Shuganjianpi Therapy (SGJP)' -> ID 528
+2025-09-25 19:55:45,527 - ERROR - Error processing record 875: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,527 - INFO - Created new canonical: 'Jianpi Therapy (JP)' -> ID 529
+2025-09-25 19:55:45,527 - ERROR - Error processing record 876: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,527 - INFO - Created new canonical: 'Shugan Therapy (SG)' -> ID 530
+2025-09-25 19:55:45,527 - ERROR - Error processing record 877: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,527 - INFO - Created new canonical: 'Jianpiwenshen Therapy (JPWS)' -> ID 531
+2025-09-25 19:55:45,529 - ERROR - Error processing record 878: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - INFO - Created new canonical: 'Shuganjianpiwenshen Therapy (SGJPWS)' -> ID 532
+2025-09-25 19:55:45,529 - ERROR - Error processing record 879: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - ERROR - Error processing record 880: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - ERROR - Error processing record 881: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - ERROR - Error processing record 882: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - ERROR - Error processing record 883: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - INFO - Created new canonical: 'vonoprazan' -> ID 533
+2025-09-25 19:55:45,529 - ERROR - Error processing record 884: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - INFO - Created new canonical: 'proton pump inhibitors (PPIs)' -> ID 534
+2025-09-25 19:55:45,529 - ERROR - Error processing record 885: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - INFO - Created new canonical: 'proton pump inhibitor (PPI)' -> ID 535
+2025-09-25 19:55:45,529 - ERROR - Error processing record 886: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - INFO - Created new canonical: 'anti-reflux mucosal ablation (ARMA)' -> ID 536
+2025-09-25 19:55:45,529 - ERROR - Error processing record 887: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - INFO - Created new canonical: 'proton pump inhibitors (PPI)' -> ID 537
+2025-09-25 19:55:45,529 - ERROR - Error processing record 888: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,529 - ERROR - Error processing record 889: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,531 - INFO - Created new canonical: 'Vonoprazan 10 mg' -> ID 538
+2025-09-25 19:55:45,531 - ERROR - Error processing record 890: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,531 - INFO - Created new canonical: 'Vonoprazan 20 mg' -> ID 539
+2025-09-25 19:55:45,531 - ERROR - Error processing record 891: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,531 - ERROR - Error processing record 892: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,531 - ERROR - Error processing record 893: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,531 - INFO - Created new canonical: 'fluoropyrimidine' -> ID 540
+2025-09-25 19:55:45,531 - ERROR - Error processing record 894: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,531 - INFO - Created new canonical: 'oxaliplatin' -> ID 541
+2025-09-25 19:55:45,531 - ERROR - Error processing record 895: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,531 - INFO - Created new canonical: 'cetuximab' -> ID 542
+2025-09-25 19:55:45,531 - ERROR - Error processing record 896: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,531 - INFO - Created new canonical: 'fluoropyrimidine and oxaliplatin' -> ID 543
+2025-09-25 19:55:45,531 - ERROR - Error processing record 897: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,531 - INFO - Created new canonical: 'anticoagulants' -> ID 544
+2025-09-25 19:55:45,531 - ERROR - Error processing record 898: table entity_mappings has no column named created_method
+2025-09-25 19:55:45,536 - INFO - 
+================================================================================
+MIGRATION COMPLETE
+================================================================================
+Total records processed: 871
+Successful: 0
+Errors: 871
+Success rate: 0.0%
+Backup created: data/processed/intervention_research_simple_migration_backup_20250925_195545.db
+================================================================================
+        

@@ -1,0 +1,21 @@
+2025-09-25 20:07:50,578 - INFO - Created backup: data/processed/intervention_research_deduplication_backup_20250925_200750.db
+2025-09-25 20:07:50,578 - INFO - Processing intervention entities...
+2025-09-25 20:07:50,582 - INFO - Analyzing 50 intervention terms for duplicates...
+2025-09-25 20:07:51,195 - INFO - Database tables and indexes created successfully
+2025-09-25 20:07:51,195 - ERROR - Database connection error: FOREIGN KEY constraint failed
+2025-09-25 20:07:51,195 - ERROR - Error setting up intervention categories: FOREIGN KEY constraint failed
+2025-09-25 20:07:51,195 - INFO - Enhanced database manager initialized at C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+2025-09-25 20:07:51,251 - ERROR - LLM deduplication failed: 'LLMClient' object has no attribute 'chat'
+2025-09-25 20:07:51,251 - INFO - Found 0 potential duplicate groups
+2025-09-25 20:07:51,251 - INFO - Processing condition entities...
+2025-09-25 20:07:51,253 - INFO - Analyzing 50 condition terms for duplicates...
+2025-09-25 20:07:51,261 - ERROR - LLM deduplication failed: 'LLMClient' object has no attribute 'chat'
+2025-09-25 20:07:51,261 - INFO - Found 0 potential duplicate groups
+2025-09-25 20:07:51,261 - INFO - 
+================================================================================
+DEDUPLICATION COMPLETE
+================================================================================
+Total entities merged: 0
+Backup created: data/processed/intervention_research_deduplication_backup_20250925_200750.db
+================================================================================
+        

@@ -1,0 +1,139 @@
+2025-09-25 19:29:13,566 - INFO - Migration log initialized: data\logs\batch_migration_20250925_192913.log
+2025-09-25 19:29:13,611 - INFO - Entity normalizer initialized successfully
+2025-09-25 19:29:13,611 - INFO - ================================================================================
+2025-09-25 19:29:13,611 - INFO - STARTING BATCH MIGRATION FOR NORMALIZATION
+2025-09-25 19:29:13,611 - INFO - ================================================================================
+2025-09-25 19:29:13,615 - INFO - Created migration-specific backup: data/processed/intervention_research_batch_migration_backup_20250925_192913.db
+2025-09-25 19:29:13,617 - INFO - Found 881 records to migrate
+2025-09-25 19:29:13,617 - INFO - Processing 881 records in batches of 100
+2025-09-25 19:29:13,617 - INFO - Total batches to process: 1
+2025-09-25 19:29:13,617 - INFO - Processing batch 1/1 (100 records)
+2025-09-25 19:29:13,626 - ERROR - Error processing record 1: no such column: ce.metadata
+2025-09-25 19:29:13,634 - ERROR - Error processing record 2: no such column: ce.metadata
+2025-09-25 19:29:13,645 - ERROR - Error processing record 3: no such column: ce.metadata
+2025-09-25 19:29:13,653 - ERROR - Error processing record 4: no such column: ce.metadata
+2025-09-25 19:29:13,662 - ERROR - Error processing record 5: no such column: ce.metadata
+2025-09-25 19:29:13,672 - ERROR - Error processing record 9: no such column: ce.metadata
+2025-09-25 19:29:13,680 - ERROR - Error processing record 10: no such column: ce.metadata
+2025-09-25 19:29:13,688 - ERROR - Error processing record 11: no such column: ce.metadata
+2025-09-25 19:29:13,698 - ERROR - Error processing record 12: no such column: ce.metadata
+2025-09-25 19:29:13,709 - ERROR - Error processing record 15: no such column: ce.metadata
+2025-09-25 19:29:13,717 - ERROR - Error processing record 17: no such column: ce.metadata
+2025-09-25 19:29:13,728 - ERROR - Error processing record 18: no such column: ce.metadata
+2025-09-25 19:29:13,735 - ERROR - Error processing record 19: no such column: ce.metadata
+2025-09-25 19:29:13,745 - ERROR - Error processing record 20: no such column: ce.metadata
+2025-09-25 19:29:13,753 - ERROR - Error processing record 21: no such column: ce.metadata
+2025-09-25 19:29:13,763 - ERROR - Error processing record 22: no such column: ce.metadata
+2025-09-25 19:29:13,773 - ERROR - Error processing record 23: no such column: ce.metadata
+2025-09-25 19:29:13,782 - ERROR - Error processing record 24: no such column: ce.metadata
+2025-09-25 19:29:13,791 - ERROR - Error processing record 25: no such column: ce.metadata
+2025-09-25 19:29:13,799 - ERROR - Error processing record 26: no such column: ce.metadata
+2025-09-25 19:29:13,807 - ERROR - Error processing record 27: no such column: ce.metadata
+2025-09-25 19:29:13,817 - ERROR - Error processing record 28: no such column: ce.metadata
+2025-09-25 19:29:13,825 - ERROR - Error processing record 29: no such column: ce.metadata
+2025-09-25 19:29:13,835 - ERROR - Error processing record 30: no such column: ce.metadata
+2025-09-25 19:29:13,844 - ERROR - Error processing record 31: no such column: ce.metadata
+2025-09-25 19:29:13,852 - ERROR - Error processing record 32: no such column: ce.metadata
+2025-09-25 19:29:13,861 - ERROR - Error processing record 33: no such column: ce.metadata
+2025-09-25 19:29:13,869 - ERROR - Error processing record 34: no such column: ce.metadata
+2025-09-25 19:29:13,877 - ERROR - Error processing record 36: no such column: ce.metadata
+2025-09-25 19:29:13,885 - ERROR - Error processing record 37: no such column: ce.metadata
+2025-09-25 19:29:13,893 - ERROR - Error processing record 38: no such column: ce.metadata
+2025-09-25 19:29:13,901 - ERROR - Error processing record 39: no such column: ce.metadata
+2025-09-25 19:29:13,910 - ERROR - Error processing record 40: no such column: ce.metadata
+2025-09-25 19:29:13,918 - ERROR - Error processing record 41: no such column: ce.metadata
+2025-09-25 19:29:13,926 - ERROR - Error processing record 42: no such column: ce.metadata
+2025-09-25 19:29:13,938 - ERROR - Error processing record 43: no such column: ce.metadata
+2025-09-25 19:29:13,948 - ERROR - Error processing record 44: no such column: ce.metadata
+2025-09-25 19:29:13,957 - ERROR - Error processing record 45: no such column: ce.metadata
+2025-09-25 19:29:13,966 - ERROR - Error processing record 46: no such column: ce.metadata
+2025-09-25 19:29:13,974 - ERROR - Error processing record 47: no such column: ce.metadata
+2025-09-25 19:29:13,982 - ERROR - Error processing record 48: no such column: ce.metadata
+2025-09-25 19:29:13,992 - ERROR - Error processing record 49: no such column: ce.metadata
+2025-09-25 19:29:14,001 - ERROR - Error processing record 50: no such column: ce.metadata
+2025-09-25 19:29:14,010 - ERROR - Error processing record 51: no such column: ce.metadata
+2025-09-25 19:29:14,018 - ERROR - Error processing record 52: no such column: ce.metadata
+2025-09-25 19:29:14,028 - ERROR - Error processing record 53: no such column: ce.metadata
+2025-09-25 19:29:14,036 - ERROR - Error processing record 54: no such column: ce.metadata
+2025-09-25 19:29:14,045 - ERROR - Error processing record 55: no such column: ce.metadata
+2025-09-25 19:29:14,053 - ERROR - Error processing record 56: no such column: ce.metadata
+2025-09-25 19:29:14,060 - ERROR - Error processing record 57: no such column: ce.metadata
+2025-09-25 19:29:14,069 - ERROR - Error processing record 58: no such column: ce.metadata
+2025-09-25 19:29:14,078 - ERROR - Error processing record 59: no such column: ce.metadata
+2025-09-25 19:29:14,086 - ERROR - Error processing record 60: no such column: ce.metadata
+2025-09-25 19:29:14,094 - ERROR - Error processing record 61: no such column: ce.metadata
+2025-09-25 19:29:14,102 - ERROR - Error processing record 62: no such column: ce.metadata
+2025-09-25 19:29:14,112 - ERROR - Error processing record 63: no such column: ce.metadata
+2025-09-25 19:29:14,120 - ERROR - Error processing record 64: no such column: ce.metadata
+2025-09-25 19:29:14,130 - ERROR - Error processing record 65: no such column: ce.metadata
+2025-09-25 19:29:14,141 - ERROR - Error processing record 66: no such column: ce.metadata
+2025-09-25 19:29:14,149 - ERROR - Error processing record 67: no such column: ce.metadata
+2025-09-25 19:29:14,157 - ERROR - Error processing record 68: no such column: ce.metadata
+2025-09-25 19:29:14,165 - ERROR - Error processing record 69: no such column: ce.metadata
+2025-09-25 19:29:14,177 - ERROR - Error processing record 70: no such column: ce.metadata
+2025-09-25 19:29:14,185 - ERROR - Error processing record 71: no such column: ce.metadata
+2025-09-25 19:29:14,194 - ERROR - Error processing record 72: no such column: ce.metadata
+2025-09-25 19:29:14,202 - ERROR - Error processing record 73: no such column: ce.metadata
+2025-09-25 19:29:14,212 - ERROR - Error processing record 74: no such column: ce.metadata
+2025-09-25 19:29:14,220 - ERROR - Error processing record 75: no such column: ce.metadata
+2025-09-25 19:29:14,230 - ERROR - Error processing record 76: no such column: ce.metadata
+2025-09-25 19:29:14,238 - ERROR - Error processing record 77: no such column: ce.metadata
+2025-09-25 19:29:14,249 - ERROR - Error processing record 78: no such column: ce.metadata
+2025-09-25 19:29:14,257 - ERROR - Error processing record 79: no such column: ce.metadata
+2025-09-25 19:29:14,264 - ERROR - Error processing record 80: no such column: ce.metadata
+2025-09-25 19:29:14,274 - ERROR - Error processing record 81: no such column: ce.metadata
+2025-09-25 19:29:14,282 - ERROR - Error processing record 82: no such column: ce.metadata
+2025-09-25 19:29:14,291 - ERROR - Error processing record 83: no such column: ce.metadata
+2025-09-25 19:29:14,299 - ERROR - Error processing record 84: no such column: ce.metadata
+2025-09-25 19:29:14,309 - ERROR - Error processing record 85: no such column: ce.metadata
+2025-09-25 19:29:14,317 - ERROR - Error processing record 86: no such column: ce.metadata
+2025-09-25 19:29:14,328 - ERROR - Error processing record 87: no such column: ce.metadata
+2025-09-25 19:29:14,335 - ERROR - Error processing record 88: no such column: ce.metadata
+2025-09-25 19:29:14,344 - ERROR - Error processing record 89: no such column: ce.metadata
+2025-09-25 19:29:14,352 - ERROR - Error processing record 90: no such column: ce.metadata
+2025-09-25 19:29:14,363 - ERROR - Error processing record 91: no such column: ce.metadata
+2025-09-25 19:29:14,371 - ERROR - Error processing record 92: no such column: ce.metadata
+2025-09-25 19:29:14,380 - ERROR - Error processing record 93: no such column: ce.metadata
+2025-09-25 19:29:14,388 - ERROR - Error processing record 94: no such column: ce.metadata
+2025-09-25 19:29:14,396 - ERROR - Error processing record 95: no such column: ce.metadata
+2025-09-25 19:29:14,404 - ERROR - Error processing record 96: no such column: ce.metadata
+2025-09-25 19:29:14,414 - ERROR - Error processing record 97: no such column: ce.metadata
+2025-09-25 19:29:14,422 - ERROR - Error processing record 98: no such column: ce.metadata
+2025-09-25 19:29:14,431 - ERROR - Error processing record 99: no such column: ce.metadata
+2025-09-25 19:29:14,440 - ERROR - Error processing record 100: no such column: ce.metadata
+2025-09-25 19:29:14,448 - ERROR - Error processing record 101: no such column: ce.metadata
+2025-09-25 19:29:14,457 - ERROR - Error processing record 102: no such column: ce.metadata
+2025-09-25 19:29:14,465 - ERROR - Error processing record 103: no such column: ce.metadata
+2025-09-25 19:29:14,473 - ERROR - Error processing record 104: no such column: ce.metadata
+2025-09-25 19:29:14,482 - ERROR - Error processing record 105: no such column: ce.metadata
+2025-09-25 19:29:14,490 - ERROR - Error processing record 106: no such column: ce.metadata
+2025-09-25 19:29:14,498 - ERROR - Error processing record 107: no such column: ce.metadata
+2025-09-25 19:29:14,500 - INFO - Batch 1 completed in 0.88s: 0 successful, 100 failed
+2025-09-25 19:29:14,605 - INFO - Reached maximum batch limit (1)
+2025-09-25 19:29:14,605 - INFO - ================================================================================
+2025-09-25 19:29:14,605 - INFO - MIGRATION COMPLETED
+2025-09-25 19:29:14,605 - INFO - ================================================================================
+2025-09-25 19:29:14,605 - INFO - Total duration: 0:00:00.994509
+2025-09-25 19:29:14,605 - INFO - Total records processed: 100
+2025-09-25 19:29:14,605 - INFO - Successful normalizations: 0
+2025-09-25 19:29:14,605 - INFO - Failed normalizations: 100
+2025-09-25 19:29:14,605 - INFO - Intervention mappings created: 0
+2025-09-25 19:29:14,605 - INFO - Condition mappings created: 0
+2025-09-25 19:29:14,605 - INFO - New canonical entities created: 0
+2025-09-25 19:29:14,605 - INFO - Batches processed: 1
+2025-09-25 19:29:14,605 - WARNING - Encountered 100 errors
+2025-09-25 19:29:14,605 - WARNING -   Record 1: no such column: ce.metadata
+2025-09-25 19:29:14,605 - WARNING -   Record 2: no such column: ce.metadata
+2025-09-25 19:29:14,605 - WARNING -   Record 3: no such column: ce.metadata
+2025-09-25 19:29:14,605 - WARNING -   Record 4: no such column: ce.metadata
+2025-09-25 19:29:14,605 - WARNING -   Record 5: no such column: ce.metadata
+2025-09-25 19:29:14,609 - INFO - Detailed statistics saved to: data/logs/migration_stats_20250925_192914.json
+2025-09-25 19:29:14,609 - INFO - Verifying migration results...
+2025-09-25 19:29:14,611 - INFO - VERIFICATION RESULTS:
+2025-09-25 19:29:14,611 - INFO -   Total records: 881
+2025-09-25 19:29:14,611 - INFO -   Normalized records: 0
+2025-09-25 19:29:14,611 - INFO -   Intervention mappings: 0
+2025-09-25 19:29:14,611 - INFO -   Condition mappings: 0
+2025-09-25 19:29:14,611 - INFO -   Unmigrated records: 881
+2025-09-25 19:29:14,611 - INFO -   Migration percentage: 0.0%
+2025-09-25 19:29:14,611 - WARNING - Migration incomplete: 881 records still need processing

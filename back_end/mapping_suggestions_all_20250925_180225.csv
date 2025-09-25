@@ -1,0 +1,401 @@
+entity_type,original_term,frequency,suggested_canonical,confidence,method,canonical_id,notes
+condition,irritable bowel syndrome (IBS),146,irritable bowel syndrome,1.0,existing_mapping,3,Already mapped in database
+intervention,probiotics,55,probiotics,1.0,existing_mapping,2,Already mapped in database
+condition,Irritable Bowel Syndrome (IBS),51,irritable bowel syndrome,1.0,existing_mapping,3,Already mapped in database
+condition,IBS,28,irritable bowel syndrome,1.0,existing_mapping,3,Already mapped in database
+intervention,placebo,17,placebo,1.0,existing_mapping,5,Already mapped in database
+intervention,low FODMAP diet,16,low FODMAP diet,1.0,existing_mapping,4,Already mapped in database
+condition,small intestinal bacterial overgrowth (SIBO),16,small intestinal bacterial overgrowth,1.0,existing_mapping,7,Already mapped in database
+condition,type 2 diabetes,16,type 2 diabetes mellitus,1.0,existing_mapping,8,Already mapped in database
+condition,coronary heart disease,14,coronary heart disease,1.0,existing_mapping,9,Already mapped in database
+condition,SIBO,13,small intestinal bacterial overgrowth,1.0,existing_mapping,7,Already mapped in database
+condition,coronary artery disease,12,coronary heart disease,1.0,existing_mapping,9,Already mapped in database
+condition,irritable bowel syndrome,11,irritable bowel syndrome,1.0,existing_mapping,3,Already mapped in database
+condition,coronary heart disease (CHD),9,coronary heart disease,1.0,existing_mapping,9,Already mapped in database
+condition,migraine,8,migraine,1.0,existing_mapping,10,Already mapped in database
+condition,migraine headache,8,migraine,1.0,existing_mapping,10,Already mapped in database
+condition,Irritable bowel syndrome,7,irritable bowel syndrome,1.0,existing_mapping,3,Already mapped in database
+condition,Arrhythmogenic right ventricular cardiomyopathy (ARVC),6,arrhythmogenic right ventricular cardiomyopathy,1.0,existing_mapping,11,Already mapped in database
+condition,type 2 diabetes mellitus (T2DM),6,type 2 diabetes mellitus,1.0,existing_mapping,8,Already mapped in database
+intervention,fecal microbiota transplantation (FMT),5,fecal microbiota transplantation,1.0,existing_mapping,6,Already mapped in database
+condition,arrhythmogenic right ventricular cardiomyopathy (ARVC),5,arrhythmogenic right ventricular cardiomyopathy,1.0,existing_mapping,11,Already mapped in database
+intervention,FODMAP diet,4,low FODMAP diet,1.0,existing_mapping,4,Already mapped in database
+condition,type 2 diabetes mellitus,4,type 2 diabetes mellitus,1.0,existing_mapping,8,Already mapped in database
+intervention,Faecal microbiota transplantation (FMT),3,fecal microbiota transplantation,1.0,existing_mapping,6,Already mapped in database
+intervention,Placebo,3,placebo,1.0,existing_mapping,5,Already mapped in database
+intervention,low-FODMAP diet,3,low FODMAP diet,1.0,existing_mapping,4,Already mapped in database
+intervention,Probiotics,2,probiotics,1.0,existing_mapping,2,Already mapped in database
+intervention,fecal microbiota transplantation,2,fecal microbiota transplantation,1.0,existing_mapping,6,Already mapped in database
+condition,Type 2 diabetes,1,type 2 diabetes mellitus,1.0,existing_mapping,8,Already mapped in database
+condition,Irritable Bowel Syndrome,3,irritable bowel syndrome,0.95,exact_normalized,3,Exact match after case/punctuation normalization
+intervention,Fecal Microbiota Transplantation (FMT),2,fecal microbiota transplantation,0.95,exact_normalized,6,Exact match after case/punctuation normalization
+condition,Irritable bowel syndrome (IBS),2,irritable bowel syndrome,0.95,exact_normalized,3,Exact match after case/punctuation normalization
+intervention,Fecal microbiota transplantation (FMT),1,fecal microbiota transplantation,0.95,exact_normalized,6,Exact match after case/punctuation normalization
+condition,IBS (Irritable Bowel Syndrome),1,irritable bowel syndrome,0.95,exact_normalized,3,Exact match after case/punctuation normalization
+condition,Irritable Bowel Syndrome (IBS-D and IBS-M),1,irritable bowel syndrome,0.95,exact_normalized,3,Exact match after case/punctuation normalization
+condition,rheumatoid arthritis,28,rheumatoid arthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,diarrhea-predominant irritable bowel syndrome (IBS-D),19,diarrhea-predominant irritable bowel syndrome (IBS-D),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,knee osteoarthritis,18,knee osteoarthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,osteopathic treatment,15,osteopathic treatment,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,IBS-D,12,IBS-D,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,rifaximin,11,rifaximin,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,acupuncture,10,acupuncture,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,antibiotics,9,antibiotics,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,synbiotics,9,synbiotics,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,gout,9,gout,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,prebiotics,8,prebiotics,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,constipation-predominant irritable bowel syndrome (IBS-C),8,constipation-predominant irritable bowel syndrome (IBS-C),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,depression,8,depression,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,flecainide,7,flecainide,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,aortic stenosis (AS),6,aortic stenosis (AS),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,constipation,6,constipation,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,inflammatory and infective diseases,6,inflammatory and infective diseases,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,irritable bowel syndrome - diarrhea (IBS-D),6,irritable bowel syndrome - diarrhea (IBS-D),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,low anterior resection syndrome (LARS),6,low anterior resection syndrome (LARS),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,methotrexate,5,methotrexate,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,Irritable Bowel Syndrome with Constipation (IBS-C),5,Irritable Bowel Syndrome with Constipation (IBS-C),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,irritable bowel syndrome with constipation (IBS-C),5,irritable bowel syndrome with constipation (IBS-C),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,postpartum depression,5,postpartum depression,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,SGLT2 inhibitors,4,SGLT2 inhibitors,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,neomycin,4,neomycin,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,physical activity,4,physical activity,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,statins,4,statins,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,PASC,4,PASC,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,Post-acute Sequelae of SARS-CoV-2 infection (PASC),4,Post-acute Sequelae of SARS-CoV-2 infection (PASC),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,bipolar disorder,4,bipolar disorder,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,cardiac function,4,cardiac function,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,cardiovascular disease,4,cardiovascular disease,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,constipation-predominant irritable bowel syndrome (IBS),4,constipation-predominant irritable bowel syndrome (IBS),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,early rheumatoid arthritis,4,early rheumatoid arthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,functional constipation,4,functional constipation,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Western medicine,3,Western medicine,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,antidepressants,3,antidepressants,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,aspirin,3,aspirin,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,ciprofloxacin,3,ciprofloxacin,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,empagliflozin,3,empagliflozin,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,finerenone,3,finerenone,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,gluten-free diet,3,gluten-free diet,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,guselkumab,3,guselkumab,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,high-intensity interval training (HIIT),3,high-intensity interval training (HIIT),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,metronidazole,3,metronidazole,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,moxibustion,3,moxibustion,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,peppermint oil,3,peppermint oil,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,repetitive transcranial magnetic stimulation (rTMS),3,repetitive transcranial magnetic stimulation (rTMS),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,sertraline,3,sertraline,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,social-media-based mental health interventions,3,social-media-based mental health interventions,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,transcranial direct current stimulation (tDCS),3,transcranial direct current stimulation (tDCS),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,Alzheimer's disease and related dementias,3,Alzheimer's disease and related dementias,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,ST-segment elevation myocardial infarction (STEMI) with multivessel disease (MVD),3,ST-segment elevation myocardial infarction (STEMI) with multivessel disease (MVD),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,adult native knee septic arthritis,3,adult native knee septic arthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,ankylosing spondylitis,3,ankylosing spondylitis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,carotid atherosclerosis,3,carotid atherosclerosis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,carotid atherosclerosis in patients with type 2 diabetes mellitus,3,carotid atherosclerosis in patients with type 2 diabetes mellitus,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,chronic idiopathic constipation (CIC),3,chronic idiopathic constipation (CIC),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,cigarette smoking,3,cigarette smoking,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,diabetic ketoacidosis,3,diabetic ketoacidosis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,diarrhea-predominant irritable bowel syndrome,3,diarrhea-predominant irritable bowel syndrome,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,food intolerance,3,food intolerance,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,high-risk patients undergoing complex PCI,3,high-risk patients undergoing complex PCI,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,high-risk patients undergoing complex percutaneous coronary intervention,3,high-risk patients undergoing complex percutaneous coronary intervention,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,inflammatory bowel disease (IBD),3,inflammatory bowel disease (IBD),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,obesity,3,obesity,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,obesity and mild GI symptoms,3,obesity and mild GI symptoms,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,post-infectious irritable bowel syndrome (PI-IBS),3,post-infectious irritable bowel syndrome (PI-IBS),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,psychological distress,3,psychological distress,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,"rheumatoid arthritis, osteoarthritis",3,"rheumatoid arthritis, osteoarthritis",0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,transperineal prostate biopsy in elderly men,3,transperineal prostate biopsy in elderly men,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,treatment-resistant depression (TRD),3,treatment-resistant depression (TRD),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,ventricular tachycardia,3,ventricular tachycardia,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,visceral pain,3,visceral pain,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,"visceral pain, functional gastrointestinal disorders",3,"visceral pain, functional gastrointestinal disorders",0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Acacia fiber,2,Acacia fiber,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium bifidum MIMBb75,2,Bifidobacterium bifidum MIMBb75,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Danhong injection (DH),2,Danhong injection (DH),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Dansenduofensuanyan injection (DSDFSY),2,Dansenduofensuanyan injection (DSDFSY),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Danshenchuanxiongqin injection (DSCXQ),2,Danshenchuanxiongqin injection (DSCXQ),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Eye Movement Desensitization and Reprocessing (EMDR),2,Eye Movement Desensitization and Reprocessing (EMDR),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,Guanxinning injection (GXN),2,Guanxinning injection (GXN),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Jianpi Therapy (JP),2,Jianpi Therapy (JP),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,Jianpiwenshen Therapy (JPWS),2,Jianpiwenshen Therapy (JPWS),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,Lacticaseibacillus rhamnosus GG (LGG),2,Lacticaseibacillus rhamnosus GG (LGG),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Lactiplantibacillus plantarum 299v,2,Lactiplantibacillus plantarum 299v,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,Lactobacillus acidophilus,2,Lactobacillus acidophilus,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Lactobacillus acidophilus DDS-1,2,Lactobacillus acidophilus DDS-1,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Lactobacillus gasseri LA806,2,Lactobacillus gasseri LA806,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Lactobacillus plantarum,2,Lactobacillus plantarum,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Lactobacillus plantarum DSM 9843,2,Lactobacillus plantarum DSM 9843,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Limosilactobacillus (L.) reuteri DSM 17938,2,Limosilactobacillus (L.) reuteri DSM 17938,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Mediterranean diet,2,Mediterranean diet,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Selective serotonin reuptake inhibitors (SSRIs),2,Selective serotonin reuptake inhibitors (SSRIs),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Shugan Therapy (SG),2,Shugan Therapy (SG),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,Shuganjianpi Therapy (SGJP),2,Shuganjianpi Therapy (SGJP),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,Silicolgel,2,Silicolgel,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Sodium Tanshinone IIA Sulfonate injection (STS),2,Sodium Tanshinone IIA Sulfonate injection (STS),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Xiangdan injection (XD),2,Xiangdan injection (XD),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,acupressure,2,acupressure,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,aerobic conditioning,2,aerobic conditioning,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,amiodarone,2,amiodarone,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,ankle arthrodesis,2,ankle arthrodesis,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,anti-interleukin-6 receptor,2,anti-interleukin-6 receptor,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,anti-tumor necrosis factor,2,anti-tumor necrosis factor,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,behavioral activation (BA),2,behavioral activation (BA),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,benzylpenicillin (penicillin G),2,benzylpenicillin (penicillin G),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,catheter ablation,2,catheter ablation,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,clopidogrel,2,clopidogrel,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,cognitive training (CT),2,cognitive training (CT),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,colchicine,2,colchicine,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,complete revascularization (CR),2,complete revascularization (CR),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,dance and yoga,2,dance and yoga,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,dexmedetomidine (DEX),2,dexmedetomidine (DEX),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,"diet low in fermentable oligosaccharides, disaccharides, monosaccharides, and polyols",2,"diet low in fermentable oligosaccharides, disaccharides, monosaccharides, and polyols",0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,dietary alterations,2,dietary alterations,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,evolocumab,2,evolocumab,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,exercise,2,exercise,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,fasudil hydrochloride,2,fasudil hydrochloride,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,fiber intake,2,fiber intake,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,game-based exercises,2,game-based exercises,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,green kiwifruit consumption,2,green kiwifruit consumption,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,intermittent fasting,2,intermittent fasting,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,kombucha-based drink enriched with inulin and vitamins,2,kombucha-based drink enriched with inulin and vitamins,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,linaclotide,2,linaclotide,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,low glycemic index diet,2,low glycemic index diet,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,low-dose glucagon,2,low-dose glucagon,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,"low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols diet (FODMAP)",2,"low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols diet (FODMAP)",0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,melatonin,2,melatonin,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,metformin,2,metformin,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,methadone,2,methadone,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,microbiome-based artificial intelligence-assisted personalized diet (PD),2,microbiome-based artificial intelligence-assisted personalized diet (PD),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,mobile message-based intervention,2,mobile message-based intervention,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,mobile-based postpartum lifestyle intervention,2,mobile-based postpartum lifestyle intervention,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,moderate-intensity training (MIT),2,moderate-intensity training (MIT),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,multi-strain probiotic,2,multi-strain probiotic,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,neuropsychological and cognitive remediation,2,neuropsychological and cognitive remediation,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,nurse-led peer support intervention,2,nurse-led peer support intervention,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,personalized elimination diet,2,personalized elimination diet,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,potassium chloride (KCL),2,potassium chloride (KCL),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,potassium phosphate (KPO₄),2,potassium phosphate (KPO₄),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,prednisolone,2,prednisolone,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,prednisone,2,prednisone,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,probiotic administration,2,probiotic administration,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,proton pump inhibitors,2,proton pump inhibitors,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,psychological therapies,2,psychological therapies,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,psyllium consumption,2,psyllium consumption,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,quetiapine,2,quetiapine,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,quetiapine extended release,2,quetiapine extended release,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,resistance conditioning,2,resistance conditioning,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,sacral nerve stimulation,2,sacral nerve stimulation,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,semaglutide,2,semaglutide,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,serum-derived bovine immunoglobulin (SBI),2,serum-derived bovine immunoglobulin (SBI),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,sitagliptin,2,sitagliptin,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,social media-based patient education,2,social media-based patient education,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,soluble fiber supplementation,2,soluble fiber supplementation,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,sotalol,2,sotalol,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,strengthening of accessory breathing muscles and diaphragm,2,strengthening of accessory breathing muscles and diaphragm,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,tenapanor,2,tenapanor,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,ticagrelor,2,ticagrelor,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,tirzepatide,2,tirzepatide,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,transcutaneous electrical nerve stimulation (TENS),2,transcutaneous electrical nerve stimulation (TENS),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,tricyclic antidepressants,2,tricyclic antidepressants,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,vitamin D,2,vitamin D,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,yoga,2,yoga,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,Chronic Coronary Disease,2,Chronic Coronary Disease,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,Gestational Diabetes Mellitus (GDM),2,Gestational Diabetes Mellitus (GDM),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,HR-QoL,2,HR-QoL,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,Helicobacter pylori infection,2,Helicobacter pylori infection,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,acute calcium pyrophosphate (CPP) crystal arthritis,2,acute calcium pyrophosphate (CPP) crystal arthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,acute calcium pyrophosphate arthritis,2,acute calcium pyrophosphate arthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,angina pectoris of coronary heart disease,2,angina pectoris of coronary heart disease,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,anxiety disorder,2,anxiety disorder,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,cardiovascular disease (CVD),2,cardiovascular disease (CVD),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,cardiovascular diseases,2,cardiovascular diseases,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,chronic kidney disease,2,chronic kidney disease,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,congenital heart disease (CHD),2,congenital heart disease (CHD),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,coronary heart disease angina pectoris,2,coronary heart disease angina pectoris,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,coronary heart disease with angina pectoris after percutaneous coronary intervention,2,coronary heart disease with angina pectoris after percutaneous coronary intervention,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,depression and anxiety associated with life threatening illness,2,depression and anxiety associated with life threatening illness,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,diabetic foot osteomyelitis,2,diabetic foot osteomyelitis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,diabetic ketoacidosis (DKA),2,diabetic ketoacidosis (DKA),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,dysbiotic microbiota,2,dysbiotic microbiota,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,exclusive breastfeeding (EBF),2,exclusive breastfeeding (EBF),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,fatigue,2,fatigue,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,functional abdominal pain (FAP),2,functional abdominal pain (FAP),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,functional dyspepsia,2,functional dyspepsia,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,functional gastrointestinal disorders (FGIDs),2,functional gastrointestinal disorders (FGIDs),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,gut microbiota regulation,2,gut microbiota regulation,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,heart failure,2,heart failure,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,infantile colic,2,infantile colic,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,inflammatory bowel disease,2,inflammatory bowel disease,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,inflammatory knee osteoarthritis,2,inflammatory knee osteoarthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,irritable bowel syndrome with predominant constipation (IBS-C),2,irritable bowel syndrome with predominant constipation (IBS-C),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,irritable bowel syndrome with predominant constipation complaints (IBS-C),2,irritable bowel syndrome with predominant constipation complaints (IBS-C),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,ischaemic heart disease,2,ischaemic heart disease,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,kidney function decline in heart transplant recipients,2,kidney function decline in heart transplant recipients,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,knee osteoarthritis (KOA),2,knee osteoarthritis (KOA),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,knee osteoarthritis (OA),2,knee osteoarthritis (OA),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,knee osteoarthritis pain,2,knee osteoarthritis pain,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,major depressive disorder (MDD),2,major depressive disorder (MDD),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,mild knee osteoarthritis,2,mild knee osteoarthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,mild knee osteoarthritis (KOA),2,mild knee osteoarthritis (KOA),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,milk sensitivity,2,milk sensitivity,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,nonalcoholic fatty liver disease (NAFLD),2,nonalcoholic fatty liver disease (NAFLD),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,oligoarticular juvenile idiopathic arthritis,2,oligoarticular juvenile idiopathic arthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,opioid use disorder,2,opioid use disorder,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,patellofemoral pain syndrome,2,patellofemoral pain syndrome,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,peptic ulcer disease,2,peptic ulcer disease,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,permanent atrial fibrillation,2,permanent atrial fibrillation,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,prediabetes,2,prediabetes,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,psoriatic arthritis,2,psoriatic arthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,psoriatic arthritis (PsA),2,psoriatic arthritis (PsA),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,psychosocial needs,2,psychosocial needs,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,pulmonary embolism,2,pulmonary embolism,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,refractory irritable bowel syndrome (IBS),2,refractory irritable bowel syndrome (IBS),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,septic shock,2,septic shock,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,stable CVD,2,stable CVD,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,treatment-resistant depression,2,treatment-resistant depression,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,"2 Lactobacillus strains, one Bifidobacterium and one Streptococcus",1,"2 Lactobacillus strains, one Bifidobacterium and one Streptococcus",0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,2 green kiwifruits per day,1,2 green kiwifruits per day,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,AI-assisted screening tools,1,AI-assisted screening tools,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,AI-enhanced CHD management platform (AIM-CHD),1,AI-enhanced CHD management platform (AIM-CHD),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,APOC3 inhibitors,1,APOC3 inhibitors,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,ARVC risk calculator,1,ARVC risk calculator,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Affect Regulation Training,1,Affect Regulation Training,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Anaerobically Cultivated Human Intestinal Microbiota (ACHIM),1,Anaerobically Cultivated Human Intestinal Microbiota (ACHIM),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Anti-diarrhoeal agents,1,Anti-diarrhoeal agents,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,Anti-spasmodics,1,Anti-spasmodics,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,Antibiotics,1,Antibiotics,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,Anticholinergics,1,Anticholinergics,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,Antispasmodics,1,Antispasmodics,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,B.coagulans,1,B.coagulans,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bacillus,1,Bacillus,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bacillus coagulans,1,Bacillus coagulans,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bacillus coagulans LBSC,1,Bacillus coagulans LBSC,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bacillus coagulans MTCC 5856,1,Bacillus coagulans MTCC 5856,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bacillus coagulans Unique IS2,1,Bacillus coagulans Unique IS2,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bacillus strains,1,Bacillus strains,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bacillus subtilis BS50,1,Bacillus subtilis BS50,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacteria (probiotic),1,Bifidobacteria (probiotic),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium,1,Bifidobacterium,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium animalis subsp. lactis BB-12,1,Bifidobacterium animalis subsp. lactis BB-12,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium animalis subsp. lactis UABla-12,1,Bifidobacterium animalis subsp. lactis UABla-12,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium lactis,1,Bifidobacterium lactis,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium longum,1,Bifidobacterium longum,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium longum (BL) NCC3001,1,Bifidobacterium longum (BL) NCC3001,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium longum NCC3001,1,Bifidobacterium longum NCC3001,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium longum NCC3001 (BL),1,Bifidobacterium longum NCC3001 (BL),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium longum R0175,1,Bifidobacterium longum R0175,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium longum R0175 (B. longum),1,Bifidobacterium longum R0175 (B. longum),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Bifidobacterium strains,1,Bifidobacterium strains,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Breastfeeding Aiding Tool app,1,Breastfeeding Aiding Tool app,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,CTLA-4Ig,1,CTLA-4Ig,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,CTLA-4Ig with methotrexate (MTX),1,CTLA-4Ig with methotrexate (MTX),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Cerament G (gentamicin),1,Cerament G (gentamicin),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Cerament V (vancomycin),1,Cerament V (vancomycin),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Chinese herbal medicine (CHM),1,Chinese herbal medicine (CHM),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Cilostazol,1,Cilostazol,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Citalopram,1,Citalopram,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Clostridium butyricum,1,Clostridium butyricum,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Coprinus comatus nanogels,1,Coprinus comatus nanogels,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,DWP16001,1,DWP16001,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Danshen injection (DS),1,Danshen injection (DS),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Danshenfen injection (DSFZ),1,Danshenfen injection (DSFZ),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Dietary manipulations,1,Dietary manipulations,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Diets,1,Diets,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Duolac 7s,1,Duolac 7s,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,ECG (long-term),1,ECG (long-term),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Escherichia strains,1,Escherichia strains,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Exercise therapies,1,Exercise therapies,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,FODMAP diet combined with traditional IBS dietary advice,1,FODMAP diet combined with traditional IBS dietary advice,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,FODMAP elimination diet,1,FODMAP elimination diet,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,FODMAP-lowering diet,1,FODMAP-lowering diet,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Fibers,1,Fibers,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Fu's subcutaneous needling (FSN),1,Fu's subcutaneous needling (FSN),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Fufang Danshen injection (FFDS),1,Fufang Danshen injection (FFDS),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,GLP-1 receptor agonist (GLP-1 RA),1,GLP-1 receptor agonist (GLP-1 RA),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,GLP-1-based therapies,1,GLP-1-based therapies,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,GORE CARDIOFORM ASD Occluder implantation,1,GORE CARDIOFORM ASD Occluder implantation,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Gain Life intervention,1,Gain Life intervention,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Guanxin Shutong (GXST) capsule,1,Guanxin Shutong (GXST) capsule,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Guanxin Shutong capsule,1,Guanxin Shutong capsule,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,HEI (Healthy Eating Index) diet,1,HEI (Healthy Eating Index) diet,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Healthy Eating Index (HEI),1,Healthy Eating Index (HEI),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Helicobacter pylori-infection eradication,1,Helicobacter pylori-infection eradication,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Hypnosis,1,Hypnosis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+intervention,IgG positive restricted diet (IgG res diet),1,IgG positive restricted diet (IgG res diet),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+intervention,Insulin,1,Insulin,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,ADHD,1,ADHD,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,"ADHD, stress, anxiety, depression",1,"ADHD, stress, anxiety, depression",0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,Alzheimer's disease (AD),1,Alzheimer's disease (AD),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,COPD,1,COPD,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,"COVID-19 fear, self-care in diabetic patients",1,"COVID-19 fear, self-care in diabetic patients",0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,Chronic Insomnia Disorder (CID),1,Chronic Insomnia Disorder (CID),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,GERD,1,GERD,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,H. pylori infection,1,H. pylori infection,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,Helicobacter pylori-infection,1,Helicobacter pylori-infection,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,"IBS symptoms (diarrhea, insomnia, migraine headache, nausea, poor appetite)",1,"IBS symptoms (diarrhea, insomnia, migraine headache, nausea, poor appetite)",0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,IBS with diarrhoea,1,IBS with diarrhoea,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,"IBS, SIBO",1,"IBS, SIBO",0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,IBS-C,1,IBS-C,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,Post-traumatic Stress Disorder (PTSD),1,Post-traumatic Stress Disorder (PTSD),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,Posttraumatic Stress Disorder (PTSD),1,Posttraumatic Stress Disorder (PTSD),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,ST-segment elevation myocardial infarction with multivessel disease,1,ST-segment elevation myocardial infarction with multivessel disease,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,abdominal pain,1,abdominal pain,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,abdominal pain in diarrhea-predominant irritable bowel syndrome (IBS-D),1,abdominal pain in diarrhea-predominant irritable bowel syndrome (IBS-D),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,acute myocardial infarction (AMI),1,acute myocardial infarction (AMI),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,acute neck pain,1,acute neck pain,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,acute non-specific low back pain,1,acute non-specific low back pain,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,antibiotic-associated diarrhea,1,antibiotic-associated diarrhea,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,anxiety,1,anxiety,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,arrhythmia,1,arrhythmia,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,arrhythmogenic right ventricular CM,1,arrhythmogenic right ventricular CM,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,atopic and allergic diseases,1,atopic and allergic diseases,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,bipolar depression,1,bipolar depression,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,cardio-metabolic health,1,cardio-metabolic health,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,"cardiometabolic health, cardiovascular disease, type 2 diabetes",1,"cardiometabolic health, cardiovascular disease, type 2 diabetes",0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,cardiometabolic risk,1,cardiometabolic risk,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,cardiovascular disease risk,1,cardiovascular disease risk,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,cardiovascular health,1,cardiovascular health,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,celiac disease with IBS-type symptoms,1,celiac disease with IBS-type symptoms,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,celiac disease with irritable bowel syndrome-type symptoms,1,celiac disease with irritable bowel syndrome-type symptoms,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,cerebral palsy,1,cerebral palsy,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,chronic fatigue syndrome,1,chronic fatigue syndrome,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,chronic neck pain,1,chronic neck pain,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,chronic neuropathic pain,1,chronic neuropathic pain,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,chronic non-oncologic pain,1,chronic non-oncologic pain,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,chronic non-specific low back pain,1,chronic non-specific low back pain,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,chronic obstructive pulmonary disease with psychological distress,1,chronic obstructive pulmonary disease with psychological distress,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,"cognitive deficits, anxiety, depression",1,"cognitive deficits, anxiety, depression",0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,congenital heart disease,1,congenital heart disease,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,congenital heart disease (CHD) during cardiac surgery with cardiopulmonary bypass,1,congenital heart disease (CHD) during cardiac surgery with cardiopulmonary bypass,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,critically ill pregnant patients,1,critically ill pregnant patients,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,depression in irritable bowel syndrome,1,depression in irritable bowel syndrome,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,"depression, cardiometabolic risk factors",1,"depression, cardiometabolic risk factors",0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,diabetes,1,diabetes,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,diabetes and hypertension,1,diabetes and hypertension,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,diabetes mellitus,1,diabetes mellitus,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,"diabetes, coronary heart disease (CHD)",1,"diabetes, coronary heart disease (CHD)",0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,diarrhea-predominant IBS (IBS-D),1,diarrhea-predominant IBS (IBS-D),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,diminished ovarian reserve,1,diminished ovarian reserve,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,end-stage ankle arthritis,1,end-stage ankle arthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,"end-stage ankle arthritis, post-traumatic deformities, inflammatory conditions, congenital deformities, neurogenic deformities",1,"end-stage ankle arthritis, post-traumatic deformities, inflammatory conditions, congenital deformities, neurogenic deformities",0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,end-stage knee osteoarthritis,1,end-stage knee osteoarthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,enthesitis-related arthritis,1,enthesitis-related arthritis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,exercise-induced hypoglycemia in type 1 diabetes,1,exercise-induced hypoglycemia in type 1 diabetes,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,extrasystoles or ventricular tachycardia,1,extrasystoles or ventricular tachycardia,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,fatigue and musculoskeletal health in postmenopausal women,1,fatigue and musculoskeletal health in postmenopausal women,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,fear of cancer recurrence,1,fear of cancer recurrence,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,fibromyalgia,1,fibromyalgia,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,fibromyalgia syndrome (FMS),1,fibromyalgia syndrome (FMS),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,functional abdominal pain disorders,1,functional abdominal pain disorders,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,functional abdominal pain disorders (FAPD),1,functional abdominal pain disorders (FAPD),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,functional abdominal pain disorders (FAPDs),1,functional abdominal pain disorders (FAPDs),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,functional constipation in paediatric patients,1,functional constipation in paediatric patients,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,gas-related gastrointestinal symptoms,1,gas-related gastrointestinal symptoms,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,gastrointestinal diseases,1,gastrointestinal diseases,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,gastrointestinal symptoms related to cancer treatment,1,gastrointestinal symptoms related to cancer treatment,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,headaches of various causes,1,headaches of various causes,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,heart failure (HF) and mildly reduced ejection fraction (HFmrEF) or with HF and preserved ejection fraction (HFpEF),1,heart failure (HF) and mildly reduced ejection fraction (HFmrEF) or with HF and preserved ejection fraction (HFpEF),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,heart failure (HFmrEF or HFpEF),1,heart failure (HFmrEF or HFpEF),0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,heart failure with significant valvular heart disease,1,heart failure with significant valvular heart disease,0.0,no_safe_match,,No safe canonical mapping found - medical terms require manual review
+condition,hepatic inflammation and fibrosis,1,hepatic inflammation and fibrosis,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,heterozygous familial hypercholesterolaemia,1,heterozygous familial hypercholesterolaemia,0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping
+condition,heterozygous familial hypercholesterolaemia (HeFH),1,heterozygous familial hypercholesterolaemia (HeFH),0.0,needs_llm_verification,,Medical term requires LLM verification for safe mapping

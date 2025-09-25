@@ -1,0 +1,201 @@
+entity_type,original_term,frequency,suggested_canonical,confidence,method,canonical_id,notes
+intervention,probiotics,55,probiotics,1.0,existing_mapping,2,Already mapped in database
+intervention,placebo,17,placebo,1.0,existing_mapping,5,Already mapped in database
+intervention,low FODMAP diet,16,low FODMAP diet,1.0,existing_mapping,4,Already mapped in database
+intervention,fecal microbiota transplantation (FMT),5,fecal microbiota transplantation,1.0,existing_mapping,6,Already mapped in database
+intervention,FODMAP diet,4,low FODMAP diet,1.0,existing_mapping,4,Already mapped in database
+intervention,Faecal microbiota transplantation (FMT),3,fecal microbiota transplantation,1.0,existing_mapping,6,Already mapped in database
+intervention,Placebo,3,placebo,1.0,existing_mapping,5,Already mapped in database
+intervention,low-FODMAP diet,3,low FODMAP diet,1.0,existing_mapping,4,Already mapped in database
+intervention,Probiotics,2,probiotics,1.0,existing_mapping,2,Already mapped in database
+intervention,fecal microbiota transplantation,2,fecal microbiota transplantation,1.0,existing_mapping,6,Already mapped in database
+intervention,Fecal Microbiota Transplantation (FMT),2,fecal microbiota transplantation,0.95,exact_normalized,6,Exact match after normalization
+intervention,Fecal microbiota transplantation (FMT),1,fecal microbiota transplantation,0.95,exact_normalized,6,Exact match after normalization
+intervention,prebiotics,8,probiotics,0.9,similarity_0.9,2,"String similarity: 0.900, matched 'probiotics'"
+intervention,osteopathic treatment,15,osteopathic treatment,0.0,no_match,,No suitable canonical mapping found
+intervention,rifaximin,11,rifaximin,0.0,no_match,,No suitable canonical mapping found
+intervention,acupuncture,10,acupuncture,0.0,no_match,,No suitable canonical mapping found
+intervention,antibiotics,9,antibiotics,0.0,no_match,,No suitable canonical mapping found
+intervention,synbiotics,9,synbiotics,0.0,no_match,,No suitable canonical mapping found
+intervention,flecainide,7,flecainide,0.0,no_match,,No suitable canonical mapping found
+intervention,methotrexate,5,methotrexate,0.0,no_match,,No suitable canonical mapping found
+intervention,SGLT2 inhibitors,4,SGLT2 inhibitors,0.0,no_match,,No suitable canonical mapping found
+intervention,neomycin,4,neomycin,0.0,no_match,,No suitable canonical mapping found
+intervention,physical activity,4,physical activity,0.0,no_match,,No suitable canonical mapping found
+intervention,statins,4,statins,0.0,no_match,,No suitable canonical mapping found
+intervention,Western medicine,3,Western medicine,0.0,no_match,,No suitable canonical mapping found
+intervention,antidepressants,3,antidepressants,0.0,no_match,,No suitable canonical mapping found
+intervention,aspirin,3,aspirin,0.0,no_match,,No suitable canonical mapping found
+intervention,ciprofloxacin,3,ciprofloxacin,0.0,no_match,,No suitable canonical mapping found
+intervention,empagliflozin,3,empagliflozin,0.0,no_match,,No suitable canonical mapping found
+intervention,finerenone,3,finerenone,0.0,no_match,,No suitable canonical mapping found
+intervention,gluten-free diet,3,gluten-free diet,0.0,no_match,,No suitable canonical mapping found
+intervention,guselkumab,3,guselkumab,0.0,no_match,,No suitable canonical mapping found
+intervention,high-intensity interval training (HIIT),3,high-intensity interval training (HIIT),0.0,no_match,,No suitable canonical mapping found
+intervention,metronidazole,3,metronidazole,0.0,no_match,,No suitable canonical mapping found
+intervention,moxibustion,3,moxibustion,0.0,no_match,,No suitable canonical mapping found
+intervention,peppermint oil,3,peppermint oil,0.0,no_match,,No suitable canonical mapping found
+intervention,repetitive transcranial magnetic stimulation (rTMS),3,repetitive transcranial magnetic stimulation (rTMS),0.0,no_match,,No suitable canonical mapping found
+intervention,sertraline,3,sertraline,0.0,no_match,,No suitable canonical mapping found
+intervention,social-media-based mental health interventions,3,social-media-based mental health interventions,0.0,no_match,,No suitable canonical mapping found
+intervention,transcranial direct current stimulation (tDCS),3,transcranial direct current stimulation (tDCS),0.0,no_match,,No suitable canonical mapping found
+intervention,Acacia fiber,2,Acacia fiber,0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium bifidum MIMBb75,2,Bifidobacterium bifidum MIMBb75,0.0,no_match,,No suitable canonical mapping found
+intervention,Danhong injection (DH),2,Danhong injection (DH),0.0,no_match,,No suitable canonical mapping found
+intervention,Dansenduofensuanyan injection (DSDFSY),2,Dansenduofensuanyan injection (DSDFSY),0.0,no_match,,No suitable canonical mapping found
+intervention,Danshenchuanxiongqin injection (DSCXQ),2,Danshenchuanxiongqin injection (DSCXQ),0.0,no_match,,No suitable canonical mapping found
+intervention,Eye Movement Desensitization and Reprocessing (EMDR),2,Eye Movement Desensitization and Reprocessing (EMDR),0.0,no_match,,No suitable canonical mapping found
+intervention,Guanxinning injection (GXN),2,Guanxinning injection (GXN),0.0,no_match,,No suitable canonical mapping found
+intervention,Jianpi Therapy (JP),2,Jianpi Therapy (JP),0.0,no_match,,No suitable canonical mapping found
+intervention,Jianpiwenshen Therapy (JPWS),2,Jianpiwenshen Therapy (JPWS),0.0,no_match,,No suitable canonical mapping found
+intervention,Lacticaseibacillus rhamnosus GG (LGG),2,Lacticaseibacillus rhamnosus GG (LGG),0.0,no_match,,No suitable canonical mapping found
+intervention,Lactiplantibacillus plantarum 299v,2,Lactiplantibacillus plantarum 299v,0.0,no_match,,No suitable canonical mapping found
+intervention,Lactobacillus acidophilus,2,Lactobacillus acidophilus,0.0,no_match,,No suitable canonical mapping found
+intervention,Lactobacillus acidophilus DDS-1,2,Lactobacillus acidophilus DDS-1,0.0,no_match,,No suitable canonical mapping found
+intervention,Lactobacillus gasseri LA806,2,Lactobacillus gasseri LA806,0.0,no_match,,No suitable canonical mapping found
+intervention,Lactobacillus plantarum,2,Lactobacillus plantarum,0.0,no_match,,No suitable canonical mapping found
+intervention,Lactobacillus plantarum DSM 9843,2,Lactobacillus plantarum DSM 9843,0.0,no_match,,No suitable canonical mapping found
+intervention,Limosilactobacillus (L.) reuteri DSM 17938,2,Limosilactobacillus (L.) reuteri DSM 17938,0.0,no_match,,No suitable canonical mapping found
+intervention,Mediterranean diet,2,Mediterranean diet,0.0,no_match,,No suitable canonical mapping found
+intervention,Selective serotonin reuptake inhibitors (SSRIs),2,Selective serotonin reuptake inhibitors (SSRIs),0.0,no_match,,No suitable canonical mapping found
+intervention,Shugan Therapy (SG),2,Shugan Therapy (SG),0.0,no_match,,No suitable canonical mapping found
+intervention,Shuganjianpi Therapy (SGJP),2,Shuganjianpi Therapy (SGJP),0.0,no_match,,No suitable canonical mapping found
+intervention,Silicolgel,2,Silicolgel,0.0,no_match,,No suitable canonical mapping found
+intervention,Sodium Tanshinone IIA Sulfonate injection (STS),2,Sodium Tanshinone IIA Sulfonate injection (STS),0.0,no_match,,No suitable canonical mapping found
+intervention,Xiangdan injection (XD),2,Xiangdan injection (XD),0.0,no_match,,No suitable canonical mapping found
+intervention,acupressure,2,acupressure,0.0,no_match,,No suitable canonical mapping found
+intervention,aerobic conditioning,2,aerobic conditioning,0.0,no_match,,No suitable canonical mapping found
+intervention,amiodarone,2,amiodarone,0.0,no_match,,No suitable canonical mapping found
+intervention,ankle arthrodesis,2,ankle arthrodesis,0.0,no_match,,No suitable canonical mapping found
+intervention,anti-interleukin-6 receptor,2,anti-interleukin-6 receptor,0.0,no_match,,No suitable canonical mapping found
+intervention,anti-tumor necrosis factor,2,anti-tumor necrosis factor,0.0,no_match,,No suitable canonical mapping found
+intervention,behavioral activation (BA),2,behavioral activation (BA),0.0,no_match,,No suitable canonical mapping found
+intervention,benzylpenicillin (penicillin G),2,benzylpenicillin (penicillin G),0.0,no_match,,No suitable canonical mapping found
+intervention,catheter ablation,2,catheter ablation,0.0,no_match,,No suitable canonical mapping found
+intervention,clopidogrel,2,clopidogrel,0.0,no_match,,No suitable canonical mapping found
+intervention,cognitive training (CT),2,cognitive training (CT),0.0,no_match,,No suitable canonical mapping found
+intervention,colchicine,2,colchicine,0.0,no_match,,No suitable canonical mapping found
+intervention,complete revascularization (CR),2,complete revascularization (CR),0.0,no_match,,No suitable canonical mapping found
+intervention,dance and yoga,2,dance and yoga,0.0,no_match,,No suitable canonical mapping found
+intervention,dexmedetomidine (DEX),2,dexmedetomidine (DEX),0.0,no_match,,No suitable canonical mapping found
+intervention,"diet low in fermentable oligosaccharides, disaccharides, monosaccharides, and polyols",2,"diet low in fermentable oligosaccharides, disaccharides, monosaccharides, and polyols",0.0,no_match,,No suitable canonical mapping found
+intervention,dietary alterations,2,dietary alterations,0.0,no_match,,No suitable canonical mapping found
+intervention,evolocumab,2,evolocumab,0.0,no_match,,No suitable canonical mapping found
+intervention,exercise,2,exercise,0.0,no_match,,No suitable canonical mapping found
+intervention,fasudil hydrochloride,2,fasudil hydrochloride,0.0,no_match,,No suitable canonical mapping found
+intervention,fiber intake,2,fiber intake,0.0,no_match,,No suitable canonical mapping found
+intervention,game-based exercises,2,game-based exercises,0.0,no_match,,No suitable canonical mapping found
+intervention,green kiwifruit consumption,2,green kiwifruit consumption,0.0,no_match,,No suitable canonical mapping found
+intervention,intermittent fasting,2,intermittent fasting,0.0,no_match,,No suitable canonical mapping found
+intervention,kombucha-based drink enriched with inulin and vitamins,2,kombucha-based drink enriched with inulin and vitamins,0.0,no_match,,No suitable canonical mapping found
+intervention,linaclotide,2,linaclotide,0.0,no_match,,No suitable canonical mapping found
+intervention,low glycemic index diet,2,low glycemic index diet,0.0,no_match,,No suitable canonical mapping found
+intervention,low-dose glucagon,2,low-dose glucagon,0.0,no_match,,No suitable canonical mapping found
+intervention,"low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols diet (FODMAP)",2,"low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols diet (FODMAP)",0.0,no_match,,No suitable canonical mapping found
+intervention,melatonin,2,melatonin,0.0,no_match,,No suitable canonical mapping found
+intervention,metformin,2,metformin,0.0,no_match,,No suitable canonical mapping found
+intervention,methadone,2,methadone,0.0,no_match,,No suitable canonical mapping found
+intervention,microbiome-based artificial intelligence-assisted personalized diet (PD),2,microbiome-based artificial intelligence-assisted personalized diet (PD),0.0,no_match,,No suitable canonical mapping found
+intervention,mobile message-based intervention,2,mobile message-based intervention,0.0,no_match,,No suitable canonical mapping found
+intervention,mobile-based postpartum lifestyle intervention,2,mobile-based postpartum lifestyle intervention,0.0,no_match,,No suitable canonical mapping found
+intervention,moderate-intensity training (MIT),2,moderate-intensity training (MIT),0.0,no_match,,No suitable canonical mapping found
+intervention,multi-strain probiotic,2,multi-strain probiotic,0.0,no_match,,No suitable canonical mapping found
+intervention,neuropsychological and cognitive remediation,2,neuropsychological and cognitive remediation,0.0,no_match,,No suitable canonical mapping found
+intervention,nurse-led peer support intervention,2,nurse-led peer support intervention,0.0,no_match,,No suitable canonical mapping found
+intervention,personalized elimination diet,2,personalized elimination diet,0.0,no_match,,No suitable canonical mapping found
+intervention,potassium chloride (KCL),2,potassium chloride (KCL),0.0,no_match,,No suitable canonical mapping found
+intervention,potassium phosphate (KPO₄),2,potassium phosphate (KPO₄),0.0,no_match,,No suitable canonical mapping found
+intervention,prednisolone,2,prednisolone,0.0,no_match,,No suitable canonical mapping found
+intervention,prednisone,2,prednisone,0.0,no_match,,No suitable canonical mapping found
+intervention,probiotic administration,2,probiotic administration,0.0,no_match,,No suitable canonical mapping found
+intervention,proton pump inhibitors,2,proton pump inhibitors,0.0,no_match,,No suitable canonical mapping found
+intervention,psychological therapies,2,psychological therapies,0.0,no_match,,No suitable canonical mapping found
+intervention,psyllium consumption,2,psyllium consumption,0.0,no_match,,No suitable canonical mapping found
+intervention,quetiapine,2,quetiapine,0.0,no_match,,No suitable canonical mapping found
+intervention,quetiapine extended release,2,quetiapine extended release,0.0,no_match,,No suitable canonical mapping found
+intervention,resistance conditioning,2,resistance conditioning,0.0,no_match,,No suitable canonical mapping found
+intervention,sacral nerve stimulation,2,sacral nerve stimulation,0.0,no_match,,No suitable canonical mapping found
+intervention,semaglutide,2,semaglutide,0.0,no_match,,No suitable canonical mapping found
+intervention,serum-derived bovine immunoglobulin (SBI),2,serum-derived bovine immunoglobulin (SBI),0.0,no_match,,No suitable canonical mapping found
+intervention,sitagliptin,2,sitagliptin,0.0,no_match,,No suitable canonical mapping found
+intervention,social media-based patient education,2,social media-based patient education,0.0,no_match,,No suitable canonical mapping found
+intervention,soluble fiber supplementation,2,soluble fiber supplementation,0.0,no_match,,No suitable canonical mapping found
+intervention,sotalol,2,sotalol,0.0,no_match,,No suitable canonical mapping found
+intervention,strengthening of accessory breathing muscles and diaphragm,2,strengthening of accessory breathing muscles and diaphragm,0.0,no_match,,No suitable canonical mapping found
+intervention,tenapanor,2,tenapanor,0.0,no_match,,No suitable canonical mapping found
+intervention,ticagrelor,2,ticagrelor,0.0,no_match,,No suitable canonical mapping found
+intervention,tirzepatide,2,tirzepatide,0.0,no_match,,No suitable canonical mapping found
+intervention,transcutaneous electrical nerve stimulation (TENS),2,transcutaneous electrical nerve stimulation (TENS),0.0,no_match,,No suitable canonical mapping found
+intervention,tricyclic antidepressants,2,tricyclic antidepressants,0.0,no_match,,No suitable canonical mapping found
+intervention,vitamin D,2,vitamin D,0.0,no_match,,No suitable canonical mapping found
+intervention,yoga,2,yoga,0.0,no_match,,No suitable canonical mapping found
+intervention,"2 Lactobacillus strains, one Bifidobacterium and one Streptococcus",1,"2 Lactobacillus strains, one Bifidobacterium and one Streptococcus",0.0,no_match,,No suitable canonical mapping found
+intervention,2 green kiwifruits per day,1,2 green kiwifruits per day,0.0,no_match,,No suitable canonical mapping found
+intervention,AI-assisted screening tools,1,AI-assisted screening tools,0.0,no_match,,No suitable canonical mapping found
+intervention,AI-enhanced CHD management platform (AIM-CHD),1,AI-enhanced CHD management platform (AIM-CHD),0.0,no_match,,No suitable canonical mapping found
+intervention,APOC3 inhibitors,1,APOC3 inhibitors,0.0,no_match,,No suitable canonical mapping found
+intervention,ARVC risk calculator,1,ARVC risk calculator,0.0,no_match,,No suitable canonical mapping found
+intervention,Affect Regulation Training,1,Affect Regulation Training,0.0,no_match,,No suitable canonical mapping found
+intervention,Anaerobically Cultivated Human Intestinal Microbiota (ACHIM),1,Anaerobically Cultivated Human Intestinal Microbiota (ACHIM),0.0,no_match,,No suitable canonical mapping found
+intervention,Anti-diarrhoeal agents,1,Anti-diarrhoeal agents,0.0,no_match,,No suitable canonical mapping found
+intervention,Anti-spasmodics,1,Anti-spasmodics,0.0,no_match,,No suitable canonical mapping found
+intervention,Antibiotics,1,Antibiotics,0.0,no_match,,No suitable canonical mapping found
+intervention,Anticholinergics,1,Anticholinergics,0.0,no_match,,No suitable canonical mapping found
+intervention,Antispasmodics,1,Antispasmodics,0.0,no_match,,No suitable canonical mapping found
+intervention,B.coagulans,1,B.coagulans,0.0,no_match,,No suitable canonical mapping found
+intervention,Bacillus,1,Bacillus,0.0,no_match,,No suitable canonical mapping found
+intervention,Bacillus coagulans,1,Bacillus coagulans,0.0,no_match,,No suitable canonical mapping found
+intervention,Bacillus coagulans LBSC,1,Bacillus coagulans LBSC,0.0,no_match,,No suitable canonical mapping found
+intervention,Bacillus coagulans MTCC 5856,1,Bacillus coagulans MTCC 5856,0.0,no_match,,No suitable canonical mapping found
+intervention,Bacillus coagulans Unique IS2,1,Bacillus coagulans Unique IS2,0.0,no_match,,No suitable canonical mapping found
+intervention,Bacillus strains,1,Bacillus strains,0.0,no_match,,No suitable canonical mapping found
+intervention,Bacillus subtilis BS50,1,Bacillus subtilis BS50,0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacteria (probiotic),1,Bifidobacteria (probiotic),0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium,1,Bifidobacterium,0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium animalis subsp. lactis BB-12,1,Bifidobacterium animalis subsp. lactis BB-12,0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium animalis subsp. lactis UABla-12,1,Bifidobacterium animalis subsp. lactis UABla-12,0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium lactis,1,Bifidobacterium lactis,0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium longum,1,Bifidobacterium longum,0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium longum (BL) NCC3001,1,Bifidobacterium longum (BL) NCC3001,0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium longum NCC3001,1,Bifidobacterium longum NCC3001,0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium longum NCC3001 (BL),1,Bifidobacterium longum NCC3001 (BL),0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium longum R0175,1,Bifidobacterium longum R0175,0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium longum R0175 (B. longum),1,Bifidobacterium longum R0175 (B. longum),0.0,no_match,,No suitable canonical mapping found
+intervention,Bifidobacterium strains,1,Bifidobacterium strains,0.0,no_match,,No suitable canonical mapping found
+intervention,Breastfeeding Aiding Tool app,1,Breastfeeding Aiding Tool app,0.0,no_match,,No suitable canonical mapping found
+intervention,CTLA-4Ig,1,CTLA-4Ig,0.0,no_match,,No suitable canonical mapping found
+intervention,CTLA-4Ig with methotrexate (MTX),1,CTLA-4Ig with methotrexate (MTX),0.0,no_match,,No suitable canonical mapping found
+intervention,Cerament G (gentamicin),1,Cerament G (gentamicin),0.0,no_match,,No suitable canonical mapping found
+intervention,Cerament V (vancomycin),1,Cerament V (vancomycin),0.0,no_match,,No suitable canonical mapping found
+intervention,Chinese herbal medicine (CHM),1,Chinese herbal medicine (CHM),0.0,no_match,,No suitable canonical mapping found
+intervention,Cilostazol,1,Cilostazol,0.0,no_match,,No suitable canonical mapping found
+intervention,Citalopram,1,Citalopram,0.0,no_match,,No suitable canonical mapping found
+intervention,Clostridium butyricum,1,Clostridium butyricum,0.0,no_match,,No suitable canonical mapping found
+intervention,Coprinus comatus nanogels,1,Coprinus comatus nanogels,0.0,no_match,,No suitable canonical mapping found
+intervention,DWP16001,1,DWP16001,0.0,no_match,,No suitable canonical mapping found
+intervention,Danshen injection (DS),1,Danshen injection (DS),0.0,no_match,,No suitable canonical mapping found
+intervention,Danshenfen injection (DSFZ),1,Danshenfen injection (DSFZ),0.0,no_match,,No suitable canonical mapping found
+intervention,Dietary manipulations,1,Dietary manipulations,0.0,no_match,,No suitable canonical mapping found
+intervention,Diets,1,Diets,0.0,no_match,,No suitable canonical mapping found
+intervention,Duolac 7s,1,Duolac 7s,0.0,no_match,,No suitable canonical mapping found
+intervention,ECG (long-term),1,ECG (long-term),0.0,no_match,,No suitable canonical mapping found
+intervention,Escherichia strains,1,Escherichia strains,0.0,no_match,,No suitable canonical mapping found
+intervention,Exercise therapies,1,Exercise therapies,0.0,no_match,,No suitable canonical mapping found
+intervention,FODMAP diet combined with traditional IBS dietary advice,1,FODMAP diet combined with traditional IBS dietary advice,0.0,no_match,,No suitable canonical mapping found
+intervention,FODMAP elimination diet,1,FODMAP elimination diet,0.0,no_match,,No suitable canonical mapping found
+intervention,FODMAP-lowering diet,1,FODMAP-lowering diet,0.0,no_match,,No suitable canonical mapping found
+intervention,Fibers,1,Fibers,0.0,no_match,,No suitable canonical mapping found
+intervention,Fu's subcutaneous needling (FSN),1,Fu's subcutaneous needling (FSN),0.0,no_match,,No suitable canonical mapping found
+intervention,Fufang Danshen injection (FFDS),1,Fufang Danshen injection (FFDS),0.0,no_match,,No suitable canonical mapping found
+intervention,GLP-1 receptor agonist (GLP-1 RA),1,GLP-1 receptor agonist (GLP-1 RA),0.0,no_match,,No suitable canonical mapping found
+intervention,GLP-1-based therapies,1,GLP-1-based therapies,0.0,no_match,,No suitable canonical mapping found
+intervention,GORE CARDIOFORM ASD Occluder implantation,1,GORE CARDIOFORM ASD Occluder implantation,0.0,no_match,,No suitable canonical mapping found
+intervention,Gain Life intervention,1,Gain Life intervention,0.0,no_match,,No suitable canonical mapping found
+intervention,Guanxin Shutong (GXST) capsule,1,Guanxin Shutong (GXST) capsule,0.0,no_match,,No suitable canonical mapping found
+intervention,Guanxin Shutong capsule,1,Guanxin Shutong capsule,0.0,no_match,,No suitable canonical mapping found
+intervention,HEI (Healthy Eating Index) diet,1,HEI (Healthy Eating Index) diet,0.0,no_match,,No suitable canonical mapping found
+intervention,Healthy Eating Index (HEI),1,Healthy Eating Index (HEI),0.0,no_match,,No suitable canonical mapping found
+intervention,Helicobacter pylori-infection eradication,1,Helicobacter pylori-infection eradication,0.0,no_match,,No suitable canonical mapping found
+intervention,Hypnosis,1,Hypnosis,0.0,no_match,,No suitable canonical mapping found
+intervention,IgG positive restricted diet (IgG res diet),1,IgG positive restricted diet (IgG res diet),0.0,no_match,,No suitable canonical mapping found
+intervention,Insulin,1,Insulin,0.0,no_match,,No suitable canonical mapping found

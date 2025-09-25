@@ -1,0 +1,514 @@
+{
+  "total_records": 881,
+  "processed_records": 100,
+  "successful_normalizations": 0,
+  "failed_normalizations": 100,
+  "intervention_mappings": 0,
+  "condition_mappings": 0,
+  "new_canonicals_created": 0,
+  "start_time": "2025-09-25T19:29:13.611302",
+  "end_time": "2025-09-25T19:29:14.605811",
+  "batches_processed": 1,
+  "errors": [
+    {
+      "record_id": 1,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.626355"
+    },
+    {
+      "record_id": 2,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.634381"
+    },
+    {
+      "record_id": 3,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.645421"
+    },
+    {
+      "record_id": 4,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.653421"
+    },
+    {
+      "record_id": 5,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.662484"
+    },
+    {
+      "record_id": 9,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.672514"
+    },
+    {
+      "record_id": 10,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.680640"
+    },
+    {
+      "record_id": 11,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.688662"
+    },
+    {
+      "record_id": 12,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.698867"
+    },
+    {
+      "record_id": 15,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.709437"
+    },
+    {
+      "record_id": 17,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.717458"
+    },
+    {
+      "record_id": 18,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.728449"
+    },
+    {
+      "record_id": 19,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.735509"
+    },
+    {
+      "record_id": 20,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.745742"
+    },
+    {
+      "record_id": 21,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.753811"
+    },
+    {
+      "record_id": 22,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.765821"
+    },
+    {
+      "record_id": 23,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.773841"
+    },
+    {
+      "record_id": 24,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.782085"
+    },
+    {
+      "record_id": 25,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.791243"
+    },
+    {
+      "record_id": 26,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.799257"
+    },
+    {
+      "record_id": 27,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.807948"
+    },
+    {
+      "record_id": 28,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.817987"
+    },
+    {
+      "record_id": 29,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.825881"
+    },
+    {
+      "record_id": 30,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.835880"
+    },
+    {
+      "record_id": 31,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.844368"
+    },
+    {
+      "record_id": 32,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.852434"
+    },
+    {
+      "record_id": 33,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.861304"
+    },
+    {
+      "record_id": 34,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.869304"
+    },
+    {
+      "record_id": 36,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.877040"
+    },
+    {
+      "record_id": 37,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.885039"
+    },
+    {
+      "record_id": 38,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.893078"
+    },
+    {
+      "record_id": 39,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.901099"
+    },
+    {
+      "record_id": 40,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.910871"
+    },
+    {
+      "record_id": 41,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.918890"
+    },
+    {
+      "record_id": 42,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.926664"
+    },
+    {
+      "record_id": 43,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.938297"
+    },
+    {
+      "record_id": 44,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.948566"
+    },
+    {
+      "record_id": 45,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.957177"
+    },
+    {
+      "record_id": 46,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.966089"
+    },
+    {
+      "record_id": 47,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.974690"
+    },
+    {
+      "record_id": 48,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.982717"
+    },
+    {
+      "record_id": 49,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:13.992542"
+    },
+    {
+      "record_id": 50,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.001540"
+    },
+    {
+      "record_id": 51,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.010961"
+    },
+    {
+      "record_id": 52,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.018024"
+    },
+    {
+      "record_id": 53,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.028021"
+    },
+    {
+      "record_id": 54,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.036051"
+    },
+    {
+      "record_id": 55,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.045433"
+    },
+    {
+      "record_id": 56,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.053433"
+    },
+    {
+      "record_id": 57,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.060983"
+    },
+    {
+      "record_id": 58,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.069056"
+    },
+    {
+      "record_id": 59,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.078769"
+    },
+    {
+      "record_id": 60,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.086769"
+    },
+    {
+      "record_id": 61,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.094679"
+    },
+    {
+      "record_id": 62,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.102678"
+    },
+    {
+      "record_id": 63,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.112327"
+    },
+    {
+      "record_id": 64,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.120352"
+    },
+    {
+      "record_id": 65,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.130330"
+    },
+    {
+      "record_id": 66,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.141526"
+    },
+    {
+      "record_id": 67,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.149682"
+    },
+    {
+      "record_id": 68,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.157705"
+    },
+    {
+      "record_id": 69,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.165732"
+    },
+    {
+      "record_id": 70,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.177804"
+    },
+    {
+      "record_id": 71,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.185804"
+    },
+    {
+      "record_id": 72,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.194617"
+    },
+    {
+      "record_id": 73,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.202617"
+    },
+    {
+      "record_id": 74,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.212516"
+    },
+    {
+      "record_id": 75,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.220537"
+    },
+    {
+      "record_id": 76,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.230777"
+    },
+    {
+      "record_id": 77,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.238799"
+    },
+    {
+      "record_id": 78,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.249415"
+    },
+    {
+      "record_id": 79,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.257657"
+    },
+    {
+      "record_id": 80,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.264447"
+    },
+    {
+      "record_id": 81,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.274645"
+    },
+    {
+      "record_id": 82,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.282688"
+    },
+    {
+      "record_id": 83,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.291440"
+    },
+    {
+      "record_id": 84,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.299492"
+    },
+    {
+      "record_id": 85,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.309575"
+    },
+    {
+      "record_id": 86,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.317610"
+    },
+    {
+      "record_id": 87,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.328546"
+    },
+    {
+      "record_id": 88,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.335608"
+    },
+    {
+      "record_id": 89,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.344866"
+    },
+    {
+      "record_id": 90,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.352886"
+    },
+    {
+      "record_id": 91,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.363239"
+    },
+    {
+      "record_id": 92,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.371238"
+    },
+    {
+      "record_id": 93,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.380930"
+    },
+    {
+      "record_id": 94,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.388950"
+    },
+    {
+      "record_id": 95,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.396526"
+    },
+    {
+      "record_id": 96,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.404544"
+    },
+    {
+      "record_id": 97,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.414077"
+    },
+    {
+      "record_id": 98,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.422077"
+    },
+    {
+      "record_id": 99,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.431674"
+    },
+    {
+      "record_id": 100,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.440352"
+    },
+    {
+      "record_id": 101,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.448360"
+    },
+    {
+      "record_id": 102,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.457160"
+    },
+    {
+      "record_id": 103,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.465224"
+    },
+    {
+      "record_id": 104,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.473880"
+    },
+    {
+      "record_id": 105,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.482891"
+    },
+    {
+      "record_id": 106,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.490864"
+    },
+    {
+      "record_id": 107,
+      "error": "no such column: ce.metadata",
+      "timestamp": "2025-09-25T19:29:14.498887"
+    }
+  ]
+}

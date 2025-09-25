@@ -1,0 +1,4369 @@
+{
+  "total_records": 871,
+  "processed_records": 871,
+  "successful_normalizations": 0,
+  "failed_normalizations": 871,
+  "intervention_mappings": 0,
+  "condition_mappings": 0,
+  "new_canonicals_created": 0,
+  "start_time": "2025-09-25T19:55:03.458169",
+  "end_time": "2025-09-25T19:55:12.413857",
+  "batches_processed": 9,
+  "errors": [
+    {
+      "record_id": 17,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.475063"
+    },
+    {
+      "record_id": 18,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.484063"
+    },
+    {
+      "record_id": 19,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.494112"
+    },
+    {
+      "record_id": 20,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.503790"
+    },
+    {
+      "record_id": 21,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.511846"
+    },
+    {
+      "record_id": 22,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.520878"
+    },
+    {
+      "record_id": 23,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.528879"
+    },
+    {
+      "record_id": 24,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.538686"
+    },
+    {
+      "record_id": 25,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.548691"
+    },
+    {
+      "record_id": 26,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.558753"
+    },
+    {
+      "record_id": 27,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.568604"
+    },
+    {
+      "record_id": 28,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.578605"
+    },
+    {
+      "record_id": 29,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.588672"
+    },
+    {
+      "record_id": 30,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.596698"
+    },
+    {
+      "record_id": 31,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.606969"
+    },
+    {
+      "record_id": 32,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.615992"
+    },
+    {
+      "record_id": 33,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.623782"
+    },
+    {
+      "record_id": 34,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.632783"
+    },
+    {
+      "record_id": 36,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.641608"
+    },
+    {
+      "record_id": 37,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.650608"
+    },
+    {
+      "record_id": 38,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.658653"
+    },
+    {
+      "record_id": 39,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.668417"
+    },
+    {
+      "record_id": 40,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.676439"
+    },
+    {
+      "record_id": 41,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.688193"
+    },
+    {
+      "record_id": 42,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:03.697192"
+    },
+    {
+      "record_id": 43,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.707246"
+    },
+    {
+      "record_id": 44,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.716756"
+    },
+    {
+      "record_id": 45,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.724973"
+    },
+    {
+      "record_id": 46,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.735523"
+    },
+    {
+      "record_id": 47,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.744523"
+    },
+    {
+      "record_id": 48,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.755210"
+    },
+    {
+      "record_id": 49,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.763210"
+    },
+    {
+      "record_id": 50,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.771254"
+    },
+    {
+      "record_id": 51,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.779271"
+    },
+    {
+      "record_id": 52,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.789180"
+    },
+    {
+      "record_id": 53,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.799203"
+    },
+    {
+      "record_id": 54,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.808071"
+    },
+    {
+      "record_id": 55,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.816803"
+    },
+    {
+      "record_id": 56,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.824841"
+    },
+    {
+      "record_id": 57,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.835815"
+    },
+    {
+      "record_id": 58,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.844879"
+    },
+    {
+      "record_id": 59,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.854055"
+    },
+    {
+      "record_id": 60,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.861129"
+    },
+    {
+      "record_id": 61,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.871855"
+    },
+    {
+      "record_id": 62,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.878902"
+    },
+    {
+      "record_id": 63,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.890099"
+    },
+    {
+      "record_id": 64,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.899122"
+    },
+    {
+      "record_id": 65,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.909045"
+    },
+    {
+      "record_id": 66,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.919281"
+    },
+    {
+      "record_id": 67,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.927302"
+    },
+    {
+      "record_id": 68,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.937381"
+    },
+    {
+      "record_id": 69,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.946381"
+    },
+    {
+      "record_id": 70,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.954959"
+    },
+    {
+      "record_id": 71,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.965007"
+    },
+    {
+      "record_id": 72,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.973496"
+    },
+    {
+      "record_id": 73,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.982522"
+    },
+    {
+      "record_id": 74,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:03.991434"
+    },
+    {
+      "record_id": 75,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.000602"
+    },
+    {
+      "record_id": 76,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.008883"
+    },
+    {
+      "record_id": 77,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.019835"
+    },
+    {
+      "record_id": 78,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.027835"
+    },
+    {
+      "record_id": 79,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.036529"
+    },
+    {
+      "record_id": 80,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.044529"
+    },
+    {
+      "record_id": 81,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.055167"
+    },
+    {
+      "record_id": 82,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.063233"
+    },
+    {
+      "record_id": 83,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.074444"
+    },
+    {
+      "record_id": 84,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.083272"
+    },
+    {
+      "record_id": 85,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.091278"
+    },
+    {
+      "record_id": 86,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.100673"
+    },
+    {
+      "record_id": 87,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.109719"
+    },
+    {
+      "record_id": 88,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.117297"
+    },
+    {
+      "record_id": 89,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.127338"
+    },
+    {
+      "record_id": 90,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.136108"
+    },
+    {
+      "record_id": 91,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:04.146131"
+    },
+    {
+      "record_id": 92,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.157294"
+    },
+    {
+      "record_id": 93,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.166571"
+    },
+    {
+      "record_id": 94,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.175243"
+    },
+    {
+      "record_id": 95,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.184352"
+    },
+    {
+      "record_id": 96,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.193351"
+    },
+    {
+      "record_id": 97,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.204620"
+    },
+    {
+      "record_id": 98,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.212672"
+    },
+    {
+      "record_id": 99,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.224667"
+    },
+    {
+      "record_id": 100,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.234597"
+    },
+    {
+      "record_id": 101,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.244635"
+    },
+    {
+      "record_id": 102,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.254455"
+    },
+    {
+      "record_id": 103,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.262474"
+    },
+    {
+      "record_id": 104,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.273873"
+    },
+    {
+      "record_id": 105,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.281641"
+    },
+    {
+      "record_id": 106,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.289958"
+    },
+    {
+      "record_id": 107,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.299878"
+    },
+    {
+      "record_id": 108,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.307886"
+    },
+    {
+      "record_id": 109,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.316888"
+    },
+    {
+      "record_id": 110,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.325609"
+    },
+    {
+      "record_id": 111,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.337311"
+    },
+    {
+      "record_id": 112,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.345372"
+    },
+    {
+      "record_id": 113,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.354603"
+    },
+    {
+      "record_id": 114,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.364626"
+    },
+    {
+      "record_id": 115,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.373719"
+    },
+    {
+      "record_id": 116,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.383739"
+    },
+    {
+      "record_id": 117,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.391761"
+    },
+    {
+      "record_id": 118,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.510068"
+    },
+    {
+      "record_id": 119,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.523565"
+    },
+    {
+      "record_id": 120,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.536650"
+    },
+    {
+      "record_id": 121,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.548695"
+    },
+    {
+      "record_id": 122,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.557043"
+    },
+    {
+      "record_id": 123,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.566441"
+    },
+    {
+      "record_id": 124,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.575328"
+    },
+    {
+      "record_id": 125,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.584120"
+    },
+    {
+      "record_id": 126,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.594119"
+    },
+    {
+      "record_id": 127,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.602789"
+    },
+    {
+      "record_id": 128,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.611849"
+    },
+    {
+      "record_id": 129,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.621431"
+    },
+    {
+      "record_id": 130,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.629431"
+    },
+    {
+      "record_id": 131,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.640271"
+    },
+    {
+      "record_id": 132,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.648271"
+    },
+    {
+      "record_id": 133,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.656324"
+    },
+    {
+      "record_id": 134,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.668386"
+    },
+    {
+      "record_id": 135,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.676438"
+    },
+    {
+      "record_id": 136,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.685186"
+    },
+    {
+      "record_id": 137,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.694186"
+    },
+    {
+      "record_id": 138,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.702935"
+    },
+    {
+      "record_id": 139,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.711519"
+    },
+    {
+      "record_id": 140,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.721168"
+    },
+    {
+      "record_id": 141,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.729187"
+    },
+    {
+      "record_id": 142,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.740271"
+    },
+    {
+      "record_id": 143,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.748332"
+    },
+    {
+      "record_id": 144,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:04.758625"
+    },
+    {
+      "record_id": 145,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.767789"
+    },
+    {
+      "record_id": 146,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.775884"
+    },
+    {
+      "record_id": 147,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.785717"
+    },
+    {
+      "record_id": 148,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.793738"
+    },
+    {
+      "record_id": 149,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.803865"
+    },
+    {
+      "record_id": 150,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.811865"
+    },
+    {
+      "record_id": 151,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.820994"
+    },
+    {
+      "record_id": 152,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.829059"
+    },
+    {
+      "record_id": 153,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.837233"
+    },
+    {
+      "record_id": 154,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.845251"
+    },
+    {
+      "record_id": 155,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.856223"
+    },
+    {
+      "record_id": 156,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.864222"
+    },
+    {
+      "record_id": 157,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.876575"
+    },
+    {
+      "record_id": 158,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.885714"
+    },
+    {
+      "record_id": 159,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.893731"
+    },
+    {
+      "record_id": 160,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.903709"
+    },
+    {
+      "record_id": 161,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.912710"
+    },
+    {
+      "record_id": 162,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.922317"
+    },
+    {
+      "record_id": 163,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.930335"
+    },
+    {
+      "record_id": 164,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.942027"
+    },
+    {
+      "record_id": 165,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:04.949765"
+    },
+    {
+      "record_id": 166,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.958811"
+    },
+    {
+      "record_id": 167,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.969645"
+    },
+    {
+      "record_id": 168,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.977688"
+    },
+    {
+      "record_id": 169,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.987296"
+    },
+    {
+      "record_id": 170,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:04.995317"
+    },
+    {
+      "record_id": 171,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.005785"
+    },
+    {
+      "record_id": 172,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.013785"
+    },
+    {
+      "record_id": 173,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.022556"
+    },
+    {
+      "record_id": 174,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.031555"
+    },
+    {
+      "record_id": 175,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.039917"
+    },
+    {
+      "record_id": 176,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.049439"
+    },
+    {
+      "record_id": 177,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.058296"
+    },
+    {
+      "record_id": 178,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.068338"
+    },
+    {
+      "record_id": 179,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.076337"
+    },
+    {
+      "record_id": 180,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.087769"
+    },
+    {
+      "record_id": 181,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.095821"
+    },
+    {
+      "record_id": 182,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.105227"
+    },
+    {
+      "record_id": 183,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.113279"
+    },
+    {
+      "record_id": 184,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.122832"
+    },
+    {
+      "record_id": 185,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.133363"
+    },
+    {
+      "record_id": 186,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.142633"
+    },
+    {
+      "record_id": 187,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.150142"
+    },
+    {
+      "record_id": 188,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.158166"
+    },
+    {
+      "record_id": 189,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:05.169587"
+    },
+    {
+      "record_id": 190,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.178587"
+    },
+    {
+      "record_id": 191,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.187209"
+    },
+    {
+      "record_id": 192,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.196254"
+    },
+    {
+      "record_id": 193,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.203765"
+    },
+    {
+      "record_id": 194,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.213786"
+    },
+    {
+      "record_id": 195,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.222219"
+    },
+    {
+      "record_id": 196,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.230220"
+    },
+    {
+      "record_id": 197,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.240992"
+    },
+    {
+      "record_id": 198,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.251599"
+    },
+    {
+      "record_id": 199,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.259599"
+    },
+    {
+      "record_id": 200,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.268340"
+    },
+    {
+      "record_id": 201,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.277340"
+    },
+    {
+      "record_id": 202,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.287378"
+    },
+    {
+      "record_id": 203,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.297108"
+    },
+    {
+      "record_id": 204,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.307326"
+    },
+    {
+      "record_id": 205,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.316227"
+    },
+    {
+      "record_id": 206,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:05.324233"
+    },
+    {
+      "record_id": 207,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.332888"
+    },
+    {
+      "record_id": 208,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.341058"
+    },
+    {
+      "record_id": 209,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.350058"
+    },
+    {
+      "record_id": 211,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.362132"
+    },
+    {
+      "record_id": 212,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.369893"
+    },
+    {
+      "record_id": 213,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.377910"
+    },
+    {
+      "record_id": 214,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.388795"
+    },
+    {
+      "record_id": 215,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.397794"
+    },
+    {
+      "record_id": 216,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.405617"
+    },
+    {
+      "record_id": 217,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:05.413634"
+    },
+    {
+      "record_id": 218,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:05.424691"
+    },
+    {
+      "record_id": 219,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:05.541672"
+    },
+    {
+      "record_id": 220,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:05.552237"
+    },
+    {
+      "record_id": 221,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:05.560262"
+    },
+    {
+      "record_id": 222,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.569231"
+    },
+    {
+      "record_id": 223,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.578235"
+    },
+    {
+      "record_id": 224,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.587545"
+    },
+    {
+      "record_id": 225,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.595602"
+    },
+    {
+      "record_id": 226,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.604516"
+    },
+    {
+      "record_id": 227,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.613515"
+    },
+    {
+      "record_id": 228,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.622301"
+    },
+    {
+      "record_id": 229,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.631301"
+    },
+    {
+      "record_id": 230,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.639346"
+    },
+    {
+      "record_id": 231,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.649112"
+    },
+    {
+      "record_id": 232,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.657129"
+    },
+    {
+      "record_id": 233,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.666895"
+    },
+    {
+      "record_id": 234,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.676935"
+    },
+    {
+      "record_id": 235,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.688628"
+    },
+    {
+      "record_id": 236,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.696646"
+    },
+    {
+      "record_id": 237,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.705684"
+    },
+    {
+      "record_id": 238,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.714684"
+    },
+    {
+      "record_id": 239,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.723293"
+    },
+    {
+      "record_id": 240,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.731293"
+    },
+    {
+      "record_id": 241,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.740086"
+    },
+    {
+      "record_id": 242,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.749457"
+    },
+    {
+      "record_id": 243,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.758113"
+    },
+    {
+      "record_id": 244,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.766915"
+    },
+    {
+      "record_id": 245,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.774945"
+    },
+    {
+      "record_id": 246,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.786218"
+    },
+    {
+      "record_id": 247,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.794262"
+    },
+    {
+      "record_id": 248,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.803963"
+    },
+    {
+      "record_id": 250,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.811982"
+    },
+    {
+      "record_id": 251,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.822044"
+    },
+    {
+      "record_id": 252,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:05.832686"
+    },
+    {
+      "record_id": 253,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.842625"
+    },
+    {
+      "record_id": 254,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.850079"
+    },
+    {
+      "record_id": 255,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.858100"
+    },
+    {
+      "record_id": 256,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.868791"
+    },
+    {
+      "record_id": 257,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.876808"
+    },
+    {
+      "record_id": 258,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.887878"
+    },
+    {
+      "record_id": 259,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.895686"
+    },
+    {
+      "record_id": 260,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.906005"
+    },
+    {
+      "record_id": 261,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.915966"
+    },
+    {
+      "record_id": 262,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.923382"
+    },
+    {
+      "record_id": 263,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.934856"
+    },
+    {
+      "record_id": 264,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.943855"
+    },
+    {
+      "record_id": 265,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.952295"
+    },
+    {
+      "record_id": 266,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.961354"
+    },
+    {
+      "record_id": 267,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:05.971611"
+    },
+    {
+      "record_id": 268,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.979631"
+    },
+    {
+      "record_id": 269,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:05.991384"
+    },
+    {
+      "record_id": 270,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.000546"
+    },
+    {
+      "record_id": 271,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.008625"
+    },
+    {
+      "record_id": 272,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.020541"
+    },
+    {
+      "record_id": 273,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.028561"
+    },
+    {
+      "record_id": 274,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.037630"
+    },
+    {
+      "record_id": 275,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.046630"
+    },
+    {
+      "record_id": 276,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.054010"
+    },
+    {
+      "record_id": 277,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.064072"
+    },
+    {
+      "record_id": 278,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.073065"
+    },
+    {
+      "record_id": 279,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.082064"
+    },
+    {
+      "record_id": 280,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.091771"
+    },
+    {
+      "record_id": 281,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.099771"
+    },
+    {
+      "record_id": 282,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.107815"
+    },
+    {
+      "record_id": 283,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.119882"
+    },
+    {
+      "record_id": 284,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.127946"
+    },
+    {
+      "record_id": 285,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.140037"
+    },
+    {
+      "record_id": 286,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.148036"
+    },
+    {
+      "record_id": 287,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.156923"
+    },
+    {
+      "record_id": 288,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.165850"
+    },
+    {
+      "record_id": 289,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.176909"
+    },
+    {
+      "record_id": 290,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.185254"
+    },
+    {
+      "record_id": 291,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.193272"
+    },
+    {
+      "record_id": 292,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.203471"
+    },
+    {
+      "record_id": 293,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.212542"
+    },
+    {
+      "record_id": 294,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.223051"
+    },
+    {
+      "record_id": 295,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.231068"
+    },
+    {
+      "record_id": 296,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.240557"
+    },
+    {
+      "record_id": 297,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.250047"
+    },
+    {
+      "record_id": 298,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.260080"
+    },
+    {
+      "record_id": 299,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.270081"
+    },
+    {
+      "record_id": 300,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.279139"
+    },
+    {
+      "record_id": 301,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.289188"
+    },
+    {
+      "record_id": 302,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.297205"
+    },
+    {
+      "record_id": 303,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.306355"
+    },
+    {
+      "record_id": 304,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.316490"
+    },
+    {
+      "record_id": 305,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.324514"
+    },
+    {
+      "record_id": 306,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.333945"
+    },
+    {
+      "record_id": 307,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.342341"
+    },
+    {
+      "record_id": 308,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.349936"
+    },
+    {
+      "record_id": 309,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.359971"
+    },
+    {
+      "record_id": 310,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.369991"
+    },
+    {
+      "record_id": 311,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.377991"
+    },
+    {
+      "record_id": 312,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.386673"
+    },
+    {
+      "record_id": 313,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.394673"
+    },
+    {
+      "record_id": 314,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.405728"
+    },
+    {
+      "record_id": 315,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.413746"
+    },
+    {
+      "record_id": 316,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.421513"
+    },
+    {
+      "record_id": 317,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.429530"
+    },
+    {
+      "record_id": 318,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.440971"
+    },
+    {
+      "record_id": 319,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.448971"
+    },
+    {
+      "record_id": 320,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.574364"
+    },
+    {
+      "record_id": 321,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.583651"
+    },
+    {
+      "record_id": 322,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.592650"
+    },
+    {
+      "record_id": 323,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.601277"
+    },
+    {
+      "record_id": 324,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.609277"
+    },
+    {
+      "record_id": 325,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.618346"
+    },
+    {
+      "record_id": 326,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.626365"
+    },
+    {
+      "record_id": 327,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.634127"
+    },
+    {
+      "record_id": 328,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.642149"
+    },
+    {
+      "record_id": 329,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.653928"
+    },
+    {
+      "record_id": 330,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.661947"
+    },
+    {
+      "record_id": 331,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.669707"
+    },
+    {
+      "record_id": 333,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.679472"
+    },
+    {
+      "record_id": 334,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.689496"
+    },
+    {
+      "record_id": 335,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.701077"
+    },
+    {
+      "record_id": 336,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.709141"
+    },
+    {
+      "record_id": 337,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.719276"
+    },
+    {
+      "record_id": 338,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.727311"
+    },
+    {
+      "record_id": 339,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:06.737004"
+    },
+    {
+      "record_id": 340,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.745028"
+    },
+    {
+      "record_id": 341,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.754281"
+    },
+    {
+      "record_id": 342,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:06.762345"
+    },
+    {
+      "record_id": 343,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.772457"
+    },
+    {
+      "record_id": 344,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.780485"
+    },
+    {
+      "record_id": 345,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.789359"
+    },
+    {
+      "record_id": 346,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:06.799158"
+    },
+    {
+      "record_id": 347,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.808217"
+    },
+    {
+      "record_id": 348,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.816891"
+    },
+    {
+      "record_id": 349,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.825372"
+    },
+    {
+      "record_id": 350,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.835331"
+    },
+    {
+      "record_id": 351,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:06.843351"
+    },
+    {
+      "record_id": 352,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.853216"
+    },
+    {
+      "record_id": 353,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.862216"
+    },
+    {
+      "record_id": 354,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.872586"
+    },
+    {
+      "record_id": 355,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.880607"
+    },
+    {
+      "record_id": 356,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.888515"
+    },
+    {
+      "record_id": 357,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.898281"
+    },
+    {
+      "record_id": 358,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.908641"
+    },
+    {
+      "record_id": 359,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.916413"
+    },
+    {
+      "record_id": 360,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.926443"
+    },
+    {
+      "record_id": 361,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.934338"
+    },
+    {
+      "record_id": 362,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.942338"
+    },
+    {
+      "record_id": 363,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.952001"
+    },
+    {
+      "record_id": 364,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.959047"
+    },
+    {
+      "record_id": 365,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.969534"
+    },
+    {
+      "record_id": 366,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.977577"
+    },
+    {
+      "record_id": 367,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:06.987189"
+    },
+    {
+      "record_id": 368,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:06.997252"
+    },
+    {
+      "record_id": 369,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:07.005389"
+    },
+    {
+      "record_id": 370,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.014920"
+    },
+    {
+      "record_id": 371,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:07.023628"
+    },
+    {
+      "record_id": 372,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.032809"
+    },
+    {
+      "record_id": 373,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.040851"
+    },
+    {
+      "record_id": 374,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.050376"
+    },
+    {
+      "record_id": 375,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.058394"
+    },
+    {
+      "record_id": 376,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.067425"
+    },
+    {
+      "record_id": 377,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.076491"
+    },
+    {
+      "record_id": 378,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:07.086723"
+    },
+    {
+      "record_id": 379,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.094780"
+    },
+    {
+      "record_id": 380,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.103249"
+    },
+    {
+      "record_id": 381,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.111268"
+    },
+    {
+      "record_id": 382,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.120796"
+    },
+    {
+      "record_id": 383,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.128815"
+    },
+    {
+      "record_id": 384,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.137291"
+    },
+    {
+      "record_id": 385,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:07.145352"
+    },
+    {
+      "record_id": 386,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:07.155142"
+    },
+    {
+      "record_id": 387,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.166724"
+    },
+    {
+      "record_id": 388,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.174776"
+    },
+    {
+      "record_id": 389,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.183175"
+    },
+    {
+      "record_id": 390,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.193213"
+    },
+    {
+      "record_id": 391,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.203026"
+    },
+    {
+      "record_id": 392,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.211026"
+    },
+    {
+      "record_id": 393,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.220543"
+    },
+    {
+      "record_id": 394,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.228601"
+    },
+    {
+      "record_id": 395,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.238727"
+    },
+    {
+      "record_id": 396,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.246784"
+    },
+    {
+      "record_id": 397,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.256634"
+    },
+    {
+      "record_id": 398,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.265988"
+    },
+    {
+      "record_id": 399,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.274210"
+    },
+    {
+      "record_id": 400,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.283049"
+    },
+    {
+      "record_id": 401,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.293088"
+    },
+    {
+      "record_id": 402,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.301309"
+    },
+    {
+      "record_id": 403,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.309329"
+    },
+    {
+      "record_id": 404,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.321774"
+    },
+    {
+      "record_id": 405,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:07.333902"
+    },
+    {
+      "record_id": 406,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.341956"
+    },
+    {
+      "record_id": 407,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.351695"
+    },
+    {
+      "record_id": 408,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.359715"
+    },
+    {
+      "record_id": 409,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.368188"
+    },
+    {
+      "record_id": 410,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:07.378211"
+    },
+    {
+      "record_id": 411,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.389458"
+    },
+    {
+      "record_id": 412,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.397455"
+    },
+    {
+      "record_id": 413,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.405998"
+    },
+    {
+      "record_id": 414,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.415457"
+    },
+    {
+      "record_id": 415,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.423696"
+    },
+    {
+      "record_id": 416,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.435637"
+    },
+    {
+      "record_id": 417,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.444511"
+    },
+    {
+      "record_id": 418,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.455118"
+    },
+    {
+      "record_id": 419,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.463189"
+    },
+    {
+      "record_id": 420,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.473871"
+    },
+    {
+      "record_id": 421,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.591126"
+    },
+    {
+      "record_id": 422,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.599996"
+    },
+    {
+      "record_id": 423,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.607996"
+    },
+    {
+      "record_id": 424,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.615998"
+    },
+    {
+      "record_id": 425,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:07.624056"
+    },
+    {
+      "record_id": 426,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:07.633468"
+    },
+    {
+      "record_id": 427,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.642166"
+    },
+    {
+      "record_id": 428,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.651484"
+    },
+    {
+      "record_id": 429,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.659505"
+    },
+    {
+      "record_id": 430,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:07.669520"
+    },
+    {
+      "record_id": 431,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:07.678565"
+    },
+    {
+      "record_id": 432,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.686990"
+    },
+    {
+      "record_id": 433,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.695010"
+    },
+    {
+      "record_id": 434,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.704371"
+    },
+    {
+      "record_id": 435,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.712452"
+    },
+    {
+      "record_id": 436,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.721958"
+    },
+    {
+      "record_id": 437,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.731485"
+    },
+    {
+      "record_id": 438,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.742082"
+    },
+    {
+      "record_id": 439,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.750333"
+    },
+    {
+      "record_id": 440,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.759372"
+    },
+    {
+      "record_id": 441,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.772606"
+    },
+    {
+      "record_id": 442,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.782436"
+    },
+    {
+      "record_id": 443,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.790132"
+    },
+    {
+      "record_id": 444,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.799066"
+    },
+    {
+      "record_id": 445,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.807888"
+    },
+    {
+      "record_id": 446,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.818288"
+    },
+    {
+      "record_id": 447,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.826333"
+    },
+    {
+      "record_id": 448,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.834420"
+    },
+    {
+      "record_id": 449,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.842443"
+    },
+    {
+      "record_id": 450,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.853043"
+    },
+    {
+      "record_id": 451,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.861043"
+    },
+    {
+      "record_id": 452,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.870157"
+    },
+    {
+      "record_id": 453,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.878209"
+    },
+    {
+      "record_id": 454,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.888826"
+    },
+    {
+      "record_id": 455,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.896845"
+    },
+    {
+      "record_id": 456,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.905635"
+    },
+    {
+      "record_id": 457,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.914636"
+    },
+    {
+      "record_id": 458,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.923487"
+    },
+    {
+      "record_id": 459,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.932018"
+    },
+    {
+      "record_id": 460,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.941465"
+    },
+    {
+      "record_id": 461,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.951178"
+    },
+    {
+      "record_id": 462,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.961202"
+    },
+    {
+      "record_id": 463,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:07.971433"
+    },
+    {
+      "record_id": 464,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.980429"
+    },
+    {
+      "record_id": 465,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.988891"
+    },
+    {
+      "record_id": 466,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:07.996648"
+    },
+    {
+      "record_id": 467,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.007738"
+    },
+    {
+      "record_id": 468,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.015871"
+    },
+    {
+      "record_id": 469,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.024900"
+    },
+    {
+      "record_id": 470,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.032857"
+    },
+    {
+      "record_id": 471,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.042889"
+    },
+    {
+      "record_id": 472,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.053344"
+    },
+    {
+      "record_id": 473,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.061369"
+    },
+    {
+      "record_id": 474,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.070707"
+    },
+    {
+      "record_id": 475,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.078784"
+    },
+    {
+      "record_id": 476,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.089925"
+    },
+    {
+      "record_id": 477,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.098425"
+    },
+    {
+      "record_id": 479,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.107693"
+    },
+    {
+      "record_id": 480,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.117958"
+    },
+    {
+      "record_id": 481,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.125980"
+    },
+    {
+      "record_id": 482,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:08.135080"
+    },
+    {
+      "record_id": 483,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.143080"
+    },
+    {
+      "record_id": 484,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.152948"
+    },
+    {
+      "record_id": 485,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.160996"
+    },
+    {
+      "record_id": 486,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.171457"
+    },
+    {
+      "record_id": 487,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.183897"
+    },
+    {
+      "record_id": 488,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.191896"
+    },
+    {
+      "record_id": 489,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.200724"
+    },
+    {
+      "record_id": 490,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.208724"
+    },
+    {
+      "record_id": 491,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.217769"
+    },
+    {
+      "record_id": 492,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.225788"
+    },
+    {
+      "record_id": 493,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.237920"
+    },
+    {
+      "record_id": 494,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.245941"
+    },
+    {
+      "record_id": 495,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.257525"
+    },
+    {
+      "record_id": 496,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.265872"
+    },
+    {
+      "record_id": 497,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.273176"
+    },
+    {
+      "record_id": 498,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.282877"
+    },
+    {
+      "record_id": 499,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.290989"
+    },
+    {
+      "record_id": 500,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.300655"
+    },
+    {
+      "record_id": 501,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.308716"
+    },
+    {
+      "record_id": 502,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.318085"
+    },
+    {
+      "record_id": 503,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.326105"
+    },
+    {
+      "record_id": 505,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.336629"
+    },
+    {
+      "record_id": 506,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.346552"
+    },
+    {
+      "record_id": 507,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.355692"
+    },
+    {
+      "record_id": 508,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.365241"
+    },
+    {
+      "record_id": 509,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:08.372210"
+    },
+    {
+      "record_id": 510,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.382493"
+    },
+    {
+      "record_id": 511,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.390525"
+    },
+    {
+      "record_id": 512,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:08.400961"
+    },
+    {
+      "record_id": 513,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.410022"
+    },
+    {
+      "record_id": 514,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.417852"
+    },
+    {
+      "record_id": 515,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.425874"
+    },
+    {
+      "record_id": 516,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.437834"
+    },
+    {
+      "record_id": 517,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.445834"
+    },
+    {
+      "record_id": 518,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:08.454568"
+    },
+    {
+      "record_id": 519,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.464599"
+    },
+    {
+      "record_id": 520,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.473101"
+    },
+    {
+      "record_id": 521,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.483117"
+    },
+    {
+      "record_id": 522,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.493190"
+    },
+    {
+      "record_id": 523,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.605967"
+    },
+    {
+      "record_id": 524,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.615857"
+    },
+    {
+      "record_id": 525,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.623882"
+    },
+    {
+      "record_id": 526,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.632817"
+    },
+    {
+      "record_id": 527,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.641813"
+    },
+    {
+      "record_id": 528,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:08.651477"
+    },
+    {
+      "record_id": 529,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.659527"
+    },
+    {
+      "record_id": 530,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.669356"
+    },
+    {
+      "record_id": 531,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.677376"
+    },
+    {
+      "record_id": 532,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.687752"
+    },
+    {
+      "record_id": 533,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.695750"
+    },
+    {
+      "record_id": 535,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.707337"
+    },
+    {
+      "record_id": 536,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.715497"
+    },
+    {
+      "record_id": 537,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.724523"
+    },
+    {
+      "record_id": 538,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.732939"
+    },
+    {
+      "record_id": 539,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.742934"
+    },
+    {
+      "record_id": 540,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.751605"
+    },
+    {
+      "record_id": 541,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.761603"
+    },
+    {
+      "record_id": 542,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.769732"
+    },
+    {
+      "record_id": 543,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.777754"
+    },
+    {
+      "record_id": 544,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.788973"
+    },
+    {
+      "record_id": 545,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.798362"
+    },
+    {
+      "record_id": 546,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.806487"
+    },
+    {
+      "record_id": 547,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.815698"
+    },
+    {
+      "record_id": 548,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.823734"
+    },
+    {
+      "record_id": 549,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.834010"
+    },
+    {
+      "record_id": 550,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.841071"
+    },
+    {
+      "record_id": 551,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.851030"
+    },
+    {
+      "record_id": 552,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:08.859051"
+    },
+    {
+      "record_id": 553,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.867147"
+    },
+    {
+      "record_id": 554,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.876146"
+    },
+    {
+      "record_id": 555,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.885986"
+    },
+    {
+      "record_id": 556,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.894044"
+    },
+    {
+      "record_id": 557,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.905360"
+    },
+    {
+      "record_id": 559,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.914360"
+    },
+    {
+      "record_id": 560,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.922143"
+    },
+    {
+      "record_id": 561,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.930780"
+    },
+    {
+      "record_id": 562,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.938892"
+    },
+    {
+      "record_id": 563,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.946911"
+    },
+    {
+      "record_id": 564,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.956959"
+    },
+    {
+      "record_id": 565,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.966008"
+    },
+    {
+      "record_id": 566,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.974007"
+    },
+    {
+      "record_id": 567,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.982752"
+    },
+    {
+      "record_id": 568,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:08.991752"
+    },
+    {
+      "record_id": 569,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.000652"
+    },
+    {
+      "record_id": 570,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.009745"
+    },
+    {
+      "record_id": 571,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.017975"
+    },
+    {
+      "record_id": 572,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.027029"
+    },
+    {
+      "record_id": 573,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.036393"
+    },
+    {
+      "record_id": 574,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.044412"
+    },
+    {
+      "record_id": 575,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.053439"
+    },
+    {
+      "record_id": 576,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.061507"
+    },
+    {
+      "record_id": 577,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.069549"
+    },
+    {
+      "record_id": 578,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.079575"
+    },
+    {
+      "record_id": 579,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.089612"
+    },
+    {
+      "record_id": 580,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.098690"
+    },
+    {
+      "record_id": 581,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.106791"
+    },
+    {
+      "record_id": 582,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.116909"
+    },
+    {
+      "record_id": 583,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.125008"
+    },
+    {
+      "record_id": 584,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.134171"
+    },
+    {
+      "record_id": 585,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.144199"
+    },
+    {
+      "record_id": 586,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.153363"
+    },
+    {
+      "record_id": 587,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.161363"
+    },
+    {
+      "record_id": 588,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.169535"
+    },
+    {
+      "record_id": 589,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.177609"
+    },
+    {
+      "record_id": 590,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.189846"
+    },
+    {
+      "record_id": 591,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.199225"
+    },
+    {
+      "record_id": 592,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.208224"
+    },
+    {
+      "record_id": 593,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.217425"
+    },
+    {
+      "record_id": 594,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.225484"
+    },
+    {
+      "record_id": 595,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.233859"
+    },
+    {
+      "record_id": 596,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.243885"
+    },
+    {
+      "record_id": 597,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.253340"
+    },
+    {
+      "record_id": 598,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.262322"
+    },
+    {
+      "record_id": 599,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.272975"
+    },
+    {
+      "record_id": 600,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.282462"
+    },
+    {
+      "record_id": 601,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.290494"
+    },
+    {
+      "record_id": 602,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.300846"
+    },
+    {
+      "record_id": 603,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.308865"
+    },
+    {
+      "record_id": 604,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.318895"
+    },
+    {
+      "record_id": 605,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.326894"
+    },
+    {
+      "record_id": 606,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.336372"
+    },
+    {
+      "record_id": 607,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.346441"
+    },
+    {
+      "record_id": 608,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.354354"
+    },
+    {
+      "record_id": 609,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.362373"
+    },
+    {
+      "record_id": 610,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.373909"
+    },
+    {
+      "record_id": 611,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.383369"
+    },
+    {
+      "record_id": 612,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.390418"
+    },
+    {
+      "record_id": 613,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.401528"
+    },
+    {
+      "record_id": 614,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.409526"
+    },
+    {
+      "record_id": 615,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.422027"
+    },
+    {
+      "record_id": 616,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.430026"
+    },
+    {
+      "record_id": 617,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.440613"
+    },
+    {
+      "record_id": 618,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.450912"
+    },
+    {
+      "record_id": 619,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.458939"
+    },
+    {
+      "record_id": 620,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.467458"
+    },
+    {
+      "record_id": 621,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.477489"
+    },
+    {
+      "record_id": 622,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.488601"
+    },
+    {
+      "record_id": 623,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.498149"
+    },
+    {
+      "record_id": 624,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.506820"
+    },
+    {
+      "record_id": 625,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.623037"
+    },
+    {
+      "record_id": 626,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.632452"
+    },
+    {
+      "record_id": 627,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.640450"
+    },
+    {
+      "record_id": 628,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.648090"
+    },
+    {
+      "record_id": 629,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.658119"
+    },
+    {
+      "record_id": 630,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.667290"
+    },
+    {
+      "record_id": 631,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.675351"
+    },
+    {
+      "record_id": 632,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.684116"
+    },
+    {
+      "record_id": 633,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.694146"
+    },
+    {
+      "record_id": 634,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.702182"
+    },
+    {
+      "record_id": 635,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.711182"
+    },
+    {
+      "record_id": 636,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:09.721006"
+    },
+    {
+      "record_id": 637,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.729030"
+    },
+    {
+      "record_id": 638,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.740746"
+    },
+    {
+      "record_id": 639,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.751259"
+    },
+    {
+      "record_id": 640,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.760319"
+    },
+    {
+      "record_id": 641,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.769568"
+    },
+    {
+      "record_id": 642,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.779596"
+    },
+    {
+      "record_id": 643,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.790831"
+    },
+    {
+      "record_id": 644,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.798700"
+    },
+    {
+      "record_id": 645,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.806723"
+    },
+    {
+      "record_id": 646,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.817743"
+    },
+    {
+      "record_id": 647,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.825743"
+    },
+    {
+      "record_id": 648,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.836572"
+    },
+    {
+      "record_id": 649,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.844573"
+    },
+    {
+      "record_id": 651,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.853447"
+    },
+    {
+      "record_id": 652,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.861497"
+    },
+    {
+      "record_id": 653,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.871325"
+    },
+    {
+      "record_id": 654,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.880350"
+    },
+    {
+      "record_id": 655,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.889482"
+    },
+    {
+      "record_id": 656,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.899856"
+    },
+    {
+      "record_id": 657,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.907917"
+    },
+    {
+      "record_id": 658,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.917709"
+    },
+    {
+      "record_id": 659,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.925709"
+    },
+    {
+      "record_id": 660,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.935520"
+    },
+    {
+      "record_id": 661,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.944519"
+    },
+    {
+      "record_id": 662,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.953184"
+    },
+    {
+      "record_id": 663,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.963212"
+    },
+    {
+      "record_id": 664,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:09.971262"
+    },
+    {
+      "record_id": 665,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.981293"
+    },
+    {
+      "record_id": 666,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.989388"
+    },
+    {
+      "record_id": 667,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:09.999166"
+    },
+    {
+      "record_id": 668,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.007163"
+    },
+    {
+      "record_id": 669,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.016800"
+    },
+    {
+      "record_id": 670,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.024840"
+    },
+    {
+      "record_id": 671,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.033792"
+    },
+    {
+      "record_id": 672,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.041822"
+    },
+    {
+      "record_id": 673,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.052351"
+    },
+    {
+      "record_id": 674,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.059392"
+    },
+    {
+      "record_id": 675,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.069137"
+    },
+    {
+      "record_id": 676,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.077156"
+    },
+    {
+      "record_id": 677,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.089251"
+    },
+    {
+      "record_id": 678,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.100393"
+    },
+    {
+      "record_id": 679,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:10.108954"
+    },
+    {
+      "record_id": 680,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.117515"
+    },
+    {
+      "record_id": 681,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.127548"
+    },
+    {
+      "record_id": 682,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.137761"
+    },
+    {
+      "record_id": 683,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:10.147298"
+    },
+    {
+      "record_id": 684,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.156914"
+    },
+    {
+      "record_id": 685,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.164916"
+    },
+    {
+      "record_id": 686,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.172866"
+    },
+    {
+      "record_id": 687,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.182221"
+    },
+    {
+      "record_id": 688,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.189321"
+    },
+    {
+      "record_id": 689,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.200790"
+    },
+    {
+      "record_id": 690,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.210813"
+    },
+    {
+      "record_id": 691,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.220072"
+    },
+    {
+      "record_id": 692,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.228144"
+    },
+    {
+      "record_id": 693,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.236966"
+    },
+    {
+      "record_id": 694,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.245015"
+    },
+    {
+      "record_id": 695,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.254781"
+    },
+    {
+      "record_id": 696,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.265275"
+    },
+    {
+      "record_id": 697,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.273639"
+    },
+    {
+      "record_id": 698,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.281880"
+    },
+    {
+      "record_id": 699,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.289904"
+    },
+    {
+      "record_id": 700,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.300885"
+    },
+    {
+      "record_id": 701,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.309885"
+    },
+    {
+      "record_id": 702,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.319281"
+    },
+    {
+      "record_id": 703,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.327353"
+    },
+    {
+      "record_id": 704,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.335200"
+    },
+    {
+      "record_id": 705,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:10.344200"
+    },
+    {
+      "record_id": 706,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.352008"
+    },
+    {
+      "record_id": 707,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.361008"
+    },
+    {
+      "record_id": 709,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.369059"
+    },
+    {
+      "record_id": 710,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.377079"
+    },
+    {
+      "record_id": 711,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.388959"
+    },
+    {
+      "record_id": 712,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.397845"
+    },
+    {
+      "record_id": 713,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.413911"
+    },
+    {
+      "record_id": 714,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.429705"
+    },
+    {
+      "record_id": 715,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.439613"
+    },
+    {
+      "record_id": 716,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.450409"
+    },
+    {
+      "record_id": 717,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.458433"
+    },
+    {
+      "record_id": 718,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.468473"
+    },
+    {
+      "record_id": 719,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.477475"
+    },
+    {
+      "record_id": 720,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.487208"
+    },
+    {
+      "record_id": 721,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.497760"
+    },
+    {
+      "record_id": 722,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.506764"
+    },
+    {
+      "record_id": 723,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.515602"
+    },
+    {
+      "record_id": 724,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.524602"
+    },
+    {
+      "record_id": 725,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.533645"
+    },
+    {
+      "record_id": 726,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.543671"
+    },
+    {
+      "record_id": 727,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.656305"
+    },
+    {
+      "record_id": 728,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.666074"
+    },
+    {
+      "record_id": 729,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.674095"
+    },
+    {
+      "record_id": 730,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:10.684990"
+    },
+    {
+      "record_id": 731,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.692990"
+    },
+    {
+      "record_id": 732,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:10.703444"
+    },
+    {
+      "record_id": 733,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.711464"
+    },
+    {
+      "record_id": 734,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.721063"
+    },
+    {
+      "record_id": 735,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.729083"
+    },
+    {
+      "record_id": 736,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.739146"
+    },
+    {
+      "record_id": 737,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.748882"
+    },
+    {
+      "record_id": 738,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.756881"
+    },
+    {
+      "record_id": 739,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.767475"
+    },
+    {
+      "record_id": 740,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.775522"
+    },
+    {
+      "record_id": 741,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.785014"
+    },
+    {
+      "record_id": 742,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.793079"
+    },
+    {
+      "record_id": 743,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.802611"
+    },
+    {
+      "record_id": 744,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.812637"
+    },
+    {
+      "record_id": 745,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.823954"
+    },
+    {
+      "record_id": 746,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.831663"
+    },
+    {
+      "record_id": 747,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.841691"
+    },
+    {
+      "record_id": 748,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.850765"
+    },
+    {
+      "record_id": 749,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.858765"
+    },
+    {
+      "record_id": 750,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.868189"
+    },
+    {
+      "record_id": 751,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.877235"
+    },
+    {
+      "record_id": 752,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.885132"
+    },
+    {
+      "record_id": 753,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.893150"
+    },
+    {
+      "record_id": 754,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.902624"
+    },
+    {
+      "record_id": 755,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.911624"
+    },
+    {
+      "record_id": 756,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.920337"
+    },
+    {
+      "record_id": 757,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.928358"
+    },
+    {
+      "record_id": 758,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.939070"
+    },
+    {
+      "record_id": 759,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.947068"
+    },
+    {
+      "record_id": 760,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.954775"
+    },
+    {
+      "record_id": 761,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.963775"
+    },
+    {
+      "record_id": 762,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.970815"
+    },
+    {
+      "record_id": 763,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:10.980843"
+    },
+    {
+      "record_id": 764,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:10.990751"
+    },
+    {
+      "record_id": 765,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.000682"
+    },
+    {
+      "record_id": 766,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.008682"
+    },
+    {
+      "record_id": 767,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.017456"
+    },
+    {
+      "record_id": 768,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.025456"
+    },
+    {
+      "record_id": 769,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.034539"
+    },
+    {
+      "record_id": 770,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.042582"
+    },
+    {
+      "record_id": 771,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.052206"
+    },
+    {
+      "record_id": 772,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.060226"
+    },
+    {
+      "record_id": 773,
+      "error": "No item with that key",
+      "timestamp": "2025-09-25T19:55:11.071407"
+    },
+    {
+      "record_id": 774,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.079406"
+    },
+    {
+      "record_id": 775,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.087764"
+    },
+    {
+      "record_id": 776,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.095791"
+    },
+    {
+      "record_id": 777,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.106882"
+    },
+    {
+      "record_id": 778,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.115380"
+    },
+    {
+      "record_id": 779,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.124379"
+    },
+    {
+      "record_id": 780,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.133098"
+    },
+    {
+      "record_id": 781,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.143150"
+    },
+    {
+      "record_id": 782,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.154150"
+    },
+    {
+      "record_id": 783,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.161905"
+    },
+    {
+      "record_id": 784,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.171376"
+    },
+    {
+      "record_id": 785,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.182116"
+    },
+    {
+      "record_id": 786,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.190116"
+    },
+    {
+      "record_id": 787,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.200160"
+    },
+    {
+      "record_id": 788,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.208189"
+    },
+    {
+      "record_id": 789,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.218228"
+    },
+    {
+      "record_id": 790,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.226227"
+    },
+    {
+      "record_id": 791,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.234507"
+    },
+    {
+      "record_id": 792,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.244587"
+    },
+    {
+      "record_id": 793,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.252358"
+    },
+    {
+      "record_id": 794,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.260418"
+    },
+    {
+      "record_id": 795,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.270320"
+    },
+    {
+      "record_id": 796,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.278380"
+    },
+    {
+      "record_id": 797,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.287947"
+    },
+    {
+      "record_id": 798,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.297563"
+    },
+    {
+      "record_id": 799,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.306241"
+    },
+    {
+      "record_id": 800,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.315207"
+    },
+    {
+      "record_id": 801,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.325234"
+    },
+    {
+      "record_id": 802,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.335584"
+    },
+    {
+      "record_id": 803,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.343604"
+    },
+    {
+      "record_id": 804,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.355365"
+    },
+    {
+      "record_id": 805,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.364155"
+    },
+    {
+      "record_id": 806,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.372955"
+    },
+    {
+      "record_id": 807,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.381982"
+    },
+    {
+      "record_id": 808,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.390981"
+    },
+    {
+      "record_id": 809,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.402083"
+    },
+    {
+      "record_id": 810,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.410134"
+    },
+    {
+      "record_id": 811,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.420366"
+    },
+    {
+      "record_id": 812,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.428395"
+    },
+    {
+      "record_id": 813,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.436808"
+    },
+    {
+      "record_id": 814,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.444808"
+    },
+    {
+      "record_id": 815,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.454267"
+    },
+    {
+      "record_id": 816,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.462289"
+    },
+    {
+      "record_id": 817,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.472561"
+    },
+    {
+      "record_id": 818,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.480922"
+    },
+    {
+      "record_id": 819,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.489990"
+    },
+    {
+      "record_id": 820,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.498512"
+    },
+    {
+      "record_id": 821,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.507509"
+    },
+    {
+      "record_id": 822,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:11.514508"
+    },
+    {
+      "record_id": 823,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.522555"
+    },
+    {
+      "record_id": 824,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.532327"
+    },
+    {
+      "record_id": 825,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.540356"
+    },
+    {
+      "record_id": 826,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.550127"
+    },
+    {
+      "record_id": 827,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.673310"
+    },
+    {
+      "record_id": 828,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.683339"
+    },
+    {
+      "record_id": 829,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.696375"
+    },
+    {
+      "record_id": 830,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.704485"
+    },
+    {
+      "record_id": 831,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.712508"
+    },
+    {
+      "record_id": 832,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.720669"
+    },
+    {
+      "record_id": 833,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.730710"
+    },
+    {
+      "record_id": 834,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.738717"
+    },
+    {
+      "record_id": 835,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.747299"
+    },
+    {
+      "record_id": 836,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.756503"
+    },
+    {
+      "record_id": 837,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.765233"
+    },
+    {
+      "record_id": 838,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.775261"
+    },
+    {
+      "record_id": 839,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.784899"
+    },
+    {
+      "record_id": 840,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.792955"
+    },
+    {
+      "record_id": 842,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.801983"
+    },
+    {
+      "record_id": 843,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.812008"
+    },
+    {
+      "record_id": 844,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.823058"
+    },
+    {
+      "record_id": 845,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.832373"
+    },
+    {
+      "record_id": 846,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.841425"
+    },
+    {
+      "record_id": 847,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.849582"
+    },
+    {
+      "record_id": 848,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.859605"
+    },
+    {
+      "record_id": 849,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.868061"
+    },
+    {
+      "record_id": 850,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.876060"
+    },
+    {
+      "record_id": 851,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.885662"
+    },
+    {
+      "record_id": 852,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.893710"
+    },
+    {
+      "record_id": 853,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.904080"
+    },
+    {
+      "record_id": 854,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.913103"
+    },
+    {
+      "record_id": 855,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.921381"
+    },
+    {
+      "record_id": 856,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.930642"
+    },
+    {
+      "record_id": 857,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.939284"
+    },
+    {
+      "record_id": 858,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.947313"
+    },
+    {
+      "record_id": 859,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.956319"
+    },
+    {
+      "record_id": 860,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.965757"
+    },
+    {
+      "record_id": 861,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.974812"
+    },
+    {
+      "record_id": 862,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.985776"
+    },
+    {
+      "record_id": 863,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:11.993775"
+    },
+    {
+      "record_id": 864,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.004022"
+    },
+    {
+      "record_id": 865,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.012039"
+    },
+    {
+      "record_id": 866,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.022042"
+    },
+    {
+      "record_id": 867,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.030630"
+    },
+    {
+      "record_id": 868,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.038804"
+    },
+    {
+      "record_id": 869,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:12.048128"
+    },
+    {
+      "record_id": 870,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.057885"
+    },
+    {
+      "record_id": 871,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.066575"
+    },
+    {
+      "record_id": 872,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.074596"
+    },
+    {
+      "record_id": 873,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.083711"
+    },
+    {
+      "record_id": 874,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.092710"
+    },
+    {
+      "record_id": 875,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.103467"
+    },
+    {
+      "record_id": 876,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.111467"
+    },
+    {
+      "record_id": 877,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.120660"
+    },
+    {
+      "record_id": 878,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.130549"
+    },
+    {
+      "record_id": 879,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.139076"
+    },
+    {
+      "record_id": 880,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.149352"
+    },
+    {
+      "record_id": 881,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.158407"
+    },
+    {
+      "record_id": 882,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.166560"
+    },
+    {
+      "record_id": 883,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.176587"
+    },
+    {
+      "record_id": 884,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.184549"
+    },
+    {
+      "record_id": 885,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.193548"
+    },
+    {
+      "record_id": 886,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.202059"
+    },
+    {
+      "record_id": 887,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.210106"
+    },
+    {
+      "record_id": 888,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.221938"
+    },
+    {
+      "record_id": 889,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.230531"
+    },
+    {
+      "record_id": 890,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.238719"
+    },
+    {
+      "record_id": 891,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.249735"
+    },
+    {
+      "record_id": 892,
+      "error": "'success'",
+      "timestamp": "2025-09-25T19:55:12.257781"
+    },
+    {
+      "record_id": 893,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.266917"
+    },
+    {
+      "record_id": 894,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.274937"
+    },
+    {
+      "record_id": 895,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.287185"
+    },
+    {
+      "record_id": 896,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.295206"
+    },
+    {
+      "record_id": 897,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.304306"
+    },
+    {
+      "record_id": 898,
+      "error": "no such column: match_result",
+      "timestamp": "2025-09-25T19:55:12.312306"
+    }
+  ]
+}
