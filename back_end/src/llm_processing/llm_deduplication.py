@@ -22,9 +22,16 @@ except ImportError:
 def setup_logging():
     """Set up logging for deduplication"""
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    log_file = f'data/logs/llm_deduplication_{timestamp}.log'
 
-    os.makedirs('data/logs', exist_ok=True)
+    # Use proper log directory from config
+    try:
+        from back_end.src.data.config import config
+        logs_dir = os.path.join(config.data_root, 'logs')
+    except:
+        logs_dir = 'logs'  # Fallback
+
+    log_file = os.path.join(logs_dir, f'llm_deduplication_{timestamp}.log')
+    os.makedirs(logs_dir, exist_ok=True)
 
     # Use ERROR level by default for optimal performance
     log_level = logging.ERROR if config.fast_mode else logging.INFO
@@ -69,7 +76,7 @@ def get_llm_deduplication(terms: List[str]) -> Dict[str, Any]:
     """Get LLM analysis of duplicate terms"""
 
     # Import here to avoid circular imports
-    from data.api_clients import get_llm_client
+    from ..data.api_clients import get_llm_client
 
     client = get_llm_client()
 
@@ -206,7 +213,8 @@ def merge_canonical_entities(cursor, canonical_name: str, synonyms: List[str], e
 def run_deduplication():
     """Run LLM-based deduplication process"""
 
-    db_path = 'data/processed/intervention_research.db'
+    from ..data.config import config
+    db_path = config.db_path
 
     # Create backup (skip in FAST_MODE for performance)
     backup_path = None

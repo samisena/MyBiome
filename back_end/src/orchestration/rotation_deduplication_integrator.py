@@ -154,7 +154,7 @@ class RotationDeduplicationIntegrator:
                 cursor.execute("""
                     SELECT COUNT(DISTINCT intervention_canonical_id)
                     FROM interventions
-                    WHERE LOWER(condition) LIKE LOWER(?)
+                    WHERE LOWER(health_condition) LIKE LOWER(?)
                     AND intervention_canonical_id IS NOT NULL
                 """, (f"%{condition}%",))
 
@@ -164,7 +164,7 @@ class RotationDeduplicationIntegrator:
                 cursor.execute("""
                     SELECT COUNT(DISTINCT condition_canonical_id)
                     FROM interventions
-                    WHERE LOWER(condition) LIKE LOWER(?)
+                    WHERE LOWER(health_condition) LIKE LOWER(?)
                     AND condition_canonical_id IS NOT NULL
                 """, (f"%{condition}%",))
 
@@ -215,7 +215,7 @@ class RotationDeduplicationIntegrator:
                         COUNT(DISTINCT intervention_canonical_id) as canonical_interventions,
                         COUNT(CASE WHEN intervention_canonical_id IS NULL THEN 1 END) as unmapped_interventions
                     FROM interventions
-                    WHERE LOWER(condition) LIKE LOWER(?)
+                    WHERE LOWER(health_condition) LIKE LOWER(?)
                 """, (f"%{condition}%",))
 
                 intervention_stats = cursor.fetchone()
@@ -223,11 +223,11 @@ class RotationDeduplicationIntegrator:
                 # Get condition statistics
                 cursor.execute("""
                     SELECT
-                        COUNT(DISTINCT condition) as unique_condition_names,
+                        COUNT(DISTINCT health_condition) as unique_condition_names,
                         COUNT(DISTINCT condition_canonical_id) as canonical_conditions,
                         COUNT(CASE WHEN condition_canonical_id IS NULL THEN 1 END) as unmapped_conditions
                     FROM interventions
-                    WHERE LOWER(condition) LIKE LOWER(?)
+                    WHERE LOWER(health_condition) LIKE LOWER(?)
                 """, (f"%{condition}%",))
 
                 condition_stats = cursor.fetchone()

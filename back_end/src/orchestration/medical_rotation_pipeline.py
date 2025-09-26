@@ -463,20 +463,180 @@ class MedicalRotationPipeline:
         # Create temporary session for testing
         test_session = self.session_mgr.create_new_session(papers_count)
 
-        # Override current condition for testing
-        test_session.current_condition_progress.condition = condition
-        test_session.current_condition_progress.specialty = "test"
+        # Store original values for restoration
+        original_papers_per_condition = test_session.papers_per_condition
+        test_session.papers_per_condition = papers_count
 
-        # Process the test condition
-        result = self._process_current_condition()
+        # Override the session to use our test condition
+        # We'll add the condition directly to the session as an attribute
+        test_session._test_condition = condition
+        test_session._test_specialty = "test"
 
-        logger.info(f"Test completed for '{condition}'")
+        # Initialize current_condition_progress for testing
+        from .rotation_session_manager import ConditionProgress
+        from datetime import datetime
+
+        test_session.current_condition_progress = ConditionProgress(
+            specialty="test",
+            condition=condition,
+            start_time=datetime.now().isoformat(),
+            status="active"
+        )
+
+        try:
+            # Process the test condition using a modified process method
+            result = self._process_test_condition(condition, "test")
+
+            # Update pipeline statistics for test mode
+            if result.get('success'):
+                self._update_pipeline_statistics(result)
+
+            logger.info(f"Test completed for '{condition}'")
+
+            # Create test mode result with expected keys
+            test_result = {
+                'test_mode': True,
+                'test_condition': condition,
+                'test_papers': papers_count,
+                'success': result.get('success', False),
+                'total_papers_collected': result.get('papers_collected', 0),
+                'total_papers_processed': result.get('papers_processed', 0),
+                'total_interventions_extracted': result.get('interventions_extracted', 0),
+                'total_duplicates_removed': result.get('entities_merged', 0),
+                'conditions_completed': 1 if result.get('success') else 0,
+                'execution_time_seconds': 0,  # Will be calculated if needed
+                'execution_time_formatted': '0:00:00'
+            }
+
+            # Add other result details
+            for key, value in result.items():
+                if key not in test_result:
+                    test_result[key] = value
+
+            return test_result
+
+        finally:
+            # Restore original values
+            test_session.papers_per_condition = original_papers_per_condition
+            if hasattr(test_session, '_test_condition'):
+                delattr(test_session, '_test_condition')
+            if hasattr(test_session, '_test_specialty'):
+                delattr(test_session, '_test_specialty')
+
+    def _process_test_condition(self, condition: str, specialty: str) -> Dict[str, Any]:
+        """Process a test condition with explicit condition/specialty parameters."""
+        logger.info(f"Processing test condition: {specialty} -> {condition}")
+
+        # Phase 1: Collection
+        logger.info(f"[1/3] Collection phase for '{condition}'")
+        collection_result = self._collect_test_condition(condition, specialty)
+
+        if not collection_result['success']:
+            return {
+                'success': False,
+                'condition': condition,
+                'specialty': specialty,
+                'failed_phase': 'collection',
+                'error': collection_result.get('error', 'Collection failed'),
+                'collection_result': collection_result
+            }
+
+        logger.info(f"Collection completed: {collection_result['papers_collected']} papers")
+
+        # Phase 2: LLM Processing
+        logger.info(f"[2/3] Processing phase for '{condition}'")
+        processing_result = self.llm_processor.process_condition_papers(
+            condition=condition,
+            max_papers=None  # Process all collected papers
+        )
+
+        if not processing_result['success']:
+            return {
+                'success': False,
+                'condition': condition,
+                'specialty': specialty,
+                'failed_phase': 'processing',
+                'error': processing_result.get('error', 'Processing failed'),
+                'collection_result': collection_result,
+                'processing_result': processing_result
+            }
+
+        logger.info(f"Processing completed: {processing_result['papers_processed']} papers, "
+                   f"{processing_result['interventions_extracted']} interventions")
+
+        # Phase 3: Deduplication
+        logger.info(f"[3/3] Deduplication phase for '{condition}'")
+        dedup_result = self.dedup_integrator.deduplicate_condition_data(condition)
+
+        if not dedup_result['success']:
+            logger.warning(f"Deduplication failed for '{condition}': {dedup_result.get('error', 'Unknown error')}")
+            # Don't fail the entire condition for deduplication errors
+            dedup_result = {
+                'success': True,
+                'entities_merged': 0,
+                'warning': 'Deduplication skipped due to error'
+            }
+
+        logger.info(f"Deduplication completed: {dedup_result.get('entities_merged', 0)} entities merged")
+
+        # All phases completed successfully
         return {
-            'test_mode': True,
-            'test_condition': condition,
-            'test_papers': papers_count,
-            **result
+            'success': True,
+            'condition': condition,
+            'specialty': specialty,
+            'collection_result': collection_result,
+            'processing_result': processing_result,
+            'deduplication_result': dedup_result,
+            'papers_collected': collection_result['papers_collected'],
+            'papers_processed': processing_result['papers_processed'],
+            'interventions_extracted': processing_result['interventions_extracted'],
+            'entities_merged': dedup_result.get('entities_merged', 0)
         }
+
+    def _collect_test_condition(self, condition: str, specialty: str) -> Dict[str, Any]:
+        """Collect papers for test condition using direct paper collector."""
+        session = self.session_mgr.session
+        target_count = session.papers_per_condition
+
+        logger.info(f"Starting test collection for: {specialty} -> {condition}")
+        logger.info(f"Target papers: {target_count}")
+
+        start_time = datetime.now()
+
+        try:
+            # Use the paper collector directly with our test condition
+            collection_result = self.collection_integrator.paper_collector.collect_condition_papers(
+                condition=condition,
+                target_count=target_count,
+                min_year=2015,
+                max_year=None,
+                use_s2_enrichment=True
+            )
+
+            collection_time = (datetime.now() - start_time).total_seconds()
+
+            if collection_result['success']:
+                # Update session progress
+                self.session_mgr.update_progress(
+                    papers_collected=collection_result.get('papers_collected', 0),
+                    papers_processed=0,
+                    interventions_extracted=0,
+                    duplicates_removed=0
+                )
+
+            collection_result['collection_time_seconds'] = collection_time
+            return collection_result
+
+        except Exception as e:
+            logger.error(f"Test collection failed: {e}")
+            return {
+                'success': False,
+                'condition': condition,
+                'specialty': specialty,
+                'error': str(e),
+                'papers_collected': 0,
+                'collection_time_seconds': (datetime.now() - start_time).total_seconds()
+            }
 
     def _update_pipeline_statistics(self, result: Dict[str, Any]):
         """Update pipeline-wide statistics."""

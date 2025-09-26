@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">40937040</PMID><DateCompleted><Year>2025</Year><Month>09</Month><Day>15</Day></DateCompleted><DateRevised><Year>2025</Year><Month>09</Month><Day>15</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Electronic">2434-0790</ISSN><JournalIssue CitedMedium="Internet"><Volume>7</Volume><Issue>9</Issue><PubDate><Year>2025</Year><Month>Sep</Month><Day>10</Day></PubDate></JournalIssue><Title>Circulation reports</Title><ISOAbbreviation>Circ Rep</ISOAbbreviation></Journal><ArticleTitle>Rationale and Design of the ESPIAL Trial&#x3000;- A Prospective, Randomized, Exploratory Study to Evaluate the Effect of Esaxerenone on Reduction of Urinary Albumin to Creatinine Ratio in Hypertensive Patients Concomitant With Heart Failure and Albuminuria.</ArticleTitle><Pagination><StartPage>826</StartPage><EndPage>831</EndPage><MedlinePgn>826-831</MedlinePgn></Pagination><ELocationID EIdType="doi" ValidYN="Y">10.1253/circrep.CR-25-0070</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">Hypertension and coronary artery disease (CAD) are predominant factors of heart failure (HF). The American College of Cardiology/American Heart Association and the Japanese Circulation Society/Japanese Heart Failure Society stages of HF emphasize the development and progression of disease, and advanced stages and progression are associated with reduced survival. In patients with new-onset or worsening HF, albuminuria is consistently associated with clinical and circulating biomarkers of congestion. Esaxerenone is an oral, non-steroidal, selective mineralocorticoid receptor antagonist. It has not been elucidated whether esaxerenone reduces the urinary albumin-to-creatinine ratio (UACR) in hypertensive patients concomitant with HF and albuminuria.</AbstractText><AbstractText Label="METHODS AND RESULTS" NlmCategory="UNASSIGNED">The ESPIAL trial (jRCTs 051210066) is a multicenter, randomized, open-label, active-controlled, parallel-group, exploratory, investigator-initiated clinical study to evaluate whether esaxerenone reduces UACR in hypertensive patients concomitant with HF and albuminuria. This study enrolled hypertensive patients concomitant with HF and albuminuria. The patients were randomized to an esaxerenone group or an amlodipine group in a 1 : 1 ratio. The primary outcome was the ratio of UACR before treatment and 24 weeks after treatment.</AbstractText><AbstractText Label="CONCLUSIONS" NlmCategory="UNASSIGNED">The ESPIAL trial evaluates the effect of esaxerenone on reduction of UACR in hypertensive patients concomitant with HF and albuminuria.</AbstractText><CopyrightInformation>Copyright &#xa9; 2025, THE JAPANESE CIRCULATION SOCIETY.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y" EqualContrib="Y"><LastName>Suna</LastName><ForeName>Shinichiro</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Department of Cardiovascular and Renal Medicine, Hyogo Medical University Hyogo Japan.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Center for Clinical Research and Education, Hyogo Medical University Hospital Hyogo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y" EqualContrib="Y"><LastName>Matsumoto</LastName><ForeName>Yuki</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Cardiovascular and Renal Medicine, Hyogo Medical University Hyogo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Niki</LastName><ForeName>Katsuyuki</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Cardiovascular Medicine, Osaka Ekisaikai Hospital Osaka Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Asanuma</LastName><ForeName>Hiroshi</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Internal Medicine, Meiji University of Integrative Medicine Kyoto Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Higuchi</LastName><ForeName>Yoshiharu</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Cardiovascular Division, Osaka Keisatsu Hospital Osaka Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Yasumura</LastName><ForeName>Yoshio</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Division of Cardiovascular Medicine, Amagasaki-Chuo Hospital Hyogo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kawarabayashi</LastName><ForeName>Takahiko</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Department of Cardiovascular Medicine, Tane General Hospital Osaka Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Izumi</LastName><ForeName>Masahiro</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Cardiology, Kinki Central Hospital Hyogo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Okuhara</LastName><ForeName>Yoshitaka</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Cardiology, Hakuhokai Central Hospital Hyogo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Hasegawa</LastName><ForeName>Shinji</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Department of Cardiovascular Medicine, National Hospital Organization Osaka Minami Medical Center Osaka Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Goda</LastName><ForeName>Akiko</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Department of Cardiovascular Medicine, Nishinomiya Watanabe Cardiovascular Cerebral Center Hyogo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ueda</LastName><ForeName>Yasunori</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Cardiovascular Division, National Hospital Organization Osaka National Hospital Osaka Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Maruyama</LastName><ForeName>Takao</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Department of Cardiology, Kawasaki Hospital Hyogo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sakata</LastName><ForeName>Yasushi</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Cardiovascular Medicine, Osaka University Graduate School of Medicine Osaka Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Okumura</LastName><ForeName>Yasuo</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Division of Cardiology, Department of Medicine, Nihon University School of Medicine Tokyo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Igeta</LastName><ForeName>Masataka</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Biostatistics, Hyogo Medical University Hyogo Japan.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Center for Clinical Research and Education, Hyogo Medical University Hospital Hyogo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Takagawa</LastName><ForeName>Tetsuya</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Center for Clinical Research and Education, Hyogo Medical University Hospital Hyogo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y" EqualContrib="Y"><LastName>Asakura</LastName><ForeName>Masanori</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Cardiovascular and Renal Medicine, Hyogo Medical University Hyogo Japan.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Clinical Diagnosis and Laboratory Medicine, Hyogo Medical University Hyogo Japan.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Center for Clinical Research and Education, Hyogo Medical University Hospital Hyogo Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ishihara</LastName><ForeName>Masaharu</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Cardiovascular and Renal Medicine, Hyogo Medical University Hyogo Japan.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>07</Month><Day>12</Day></ArticleDate></Article><MedlineJournalInfo><Country>Japan</Country><MedlineTA>Circ Rep</MedlineTA><NlmUniqueID>101746642</NlmUniqueID><ISSNLinking>2434-0790</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Albuminuria</Keyword><Keyword MajorTopicYN="N">Heart failure</Keyword><Keyword MajorTopicYN="N">Hypertension</Keyword><Keyword MajorTopicYN="N">Mineralocorticoid receptor antagonist</Keyword><Keyword MajorTopicYN="N">Urinary albumin to creatinine ratio</Keyword></KeywordList><CoiStatement>Y.S. has received personal fees from Otsuka Pharmaceutical, Ono Pharmaceutical, Daiichi Sankyo, Mitsubishi Tanabe Pharma Corporation, AstraZeneca K.K., and Actelion Pharmaceuticals, and grants from Roche Diagnostic, FUJIFILM Toyama Chemical, Bristol-Myers Squibb, Co, Biosense Webster, Inc., Abbott Medical Japan, Otsuka Pharmaceutical, Daiichi Sankyo Company, Mitsubishi Tanabe Pharma Corporation, Astellas Pharma, Kowa Company, Boehringer Ingelheim Japan, and Biotronik that include speaking and lecture fees. Y. Okumura has received research funding from Medtronic Japan, MicroPort CRM Japan, and Bayer Healthcare, has accepted remuneration from AstraZeneca, and Johnson &amp; Johnson, and belongs to the endowed departments of Boston Scientific Japan, Abbott Medical Japan, Japan Lifeline, Medtronic Japan, and BIOTRONIK Japan. M.A. has received grants or contracts from Daiichi Sankyo, Otsuka, and Boehringer Ingelheim, and personal fees from AstraZeneca, Tanabe Mitsubishi, Daiichi Sankyo, Novartis, Bayer, Boehringer Ingelheim, Nippon Shinyaku, Viatris, Janssen, Astellas, Eli Lilly, and Otsuka. M. Ishihara has received grants from Abbott, Otsuka, MID, OrbusNeich Medical, Terumo, Nipro, Bayer, Fukuda Denshi, Boston Scientific, Medtronic, and Nippon Boehringer Ingelheim, research funding from Amgen, endowed departments by commercial entities from Abbott, Medtronic Japan, and Nippon Boehringer Ingelheim, and personal fees from Bayer, Daiichi Sankyo, Nippon Boehringer Ingelheim, Otsuka, Novartis, Kowa, Amgen, and AstraZeneca. The other authors have nothing to disclose. Y.U. is a member of Circulation Reports&#x2019; Editorial Team.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>4</Month><Day>14</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2025</Year><Month>5</Month><Day>20</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>5</Month><Day>22</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2025</Year><Month>9</Month><Day>12</Day><Hour>6</Hour><Minute>30</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2025</Year><Month>9</Month><Day>12</Day><Hour>6</Hour><Minute>29</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2025</Year><Month>9</Month><Day>12</Day><Hour>4</Hour><Minute>39</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>7</Month><Day>12</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">40937040</ArticleId><ArticleId IdType="pmc">PMC12419988</ArticleId><ArticleId IdType="doi">10.1253/circrep.CR-25-0070</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+McDonagh TA, Metra M, Adamo M, Gardner RS, Baumbach A, Bohm M, et al.. 
+2021 ESC guidelines for the diagnosis and treatment of acute and chronic heart failure.
+<i>Eur Heart J</i>
+2021; 42: 3599&#x2013;3726.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">34447992</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Yancy CW, Jessup M, Bozkurt B, Butler J, Casey DE Jr, Drazner MH, et al.. 
+2013 ACCF/AHA guideline for the management of heart failure: A report of the American College of Cardiology Foundation/American Heart Association Task Force on Practice Guidelines. <i>J Am Coll Cardiol</i>
+2013; 62: e147&#x2013;e239.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">23747642</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Yancy CW, Jessup M, Bozkurt B, Butler J, Casey DE Jr, Colvin MM, et al.. 
+2017 ACC/AHA/HFSA focused update of the 2013 ACCF/AHA guideline for the management of heart failure: A report of the American College of Cardiology/American Heart Association Task Force on Clinical Practice Guidelines and the Heart Failure Society of America. <i>J Am Coll Cardiol</i>
+2017; 70: 776&#x2013;803.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">28461007</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Heidenreich PA, Bozkurt B, Aguilar D, Allen LA, Byun JJ, Colvin MM, et al.. 
+2022 AHA/ACC/HFSA guideline for the management of heart failure: A report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines. <i>J Am Coll Cardiol</i>
+2022; 79: e263&#x2013;e421.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">35379503</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kitai T, Kohsaka S, Kato T, Kato E, Sato K, Teramoto K, et al.. 
+JCS/JHFS 2025 guideline on diagnosis and treatment of heart failure.
+<i>Circ J</i>
+2025; 89: 1278&#x2013;1444.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">40159241</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Zhan R, Zhang J, Chen X, Liu T, He Y, Zhang S, et al.. 
+Targeting the efficacy of intensive blood pressure treatment in hypertensive patients: An exploratory analysis of SPRINT. <i>Circ J</i>
+2023; 87: 1212&#x2013;1218.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">37100596</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Pitt B, Zannad F, Remme WJ, Cody R, Castaigne A, Perez A, et al.. 
+The effect of spironolactone on morbidity and mortality in patients with severe heart failure: Randomized Aldactone Evaluation Study Investigators. <i>N Engl J Med</i>
+1999; 341: 709&#x2013;717.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">10471456</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Selvaraj S, Claggett B, Shah SJ, Anand I, Rouleau JL, O&#x2019;Meara E, et al.. 
+Prognostic value of albuminuria and influence of spironolactone in heart failure with preserved ejection fraction.
+<i>Circ Heart Fail</i>
+2018; 11: e005288.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6594383</ArticleId><ArticleId IdType="pubmed">30571191</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Zannad F, McMurray JJ, Krum H, van Veldhuisen DJ, Swedberg K, Shi H, et al.. 
+Eplerenone in patients with systolic heart failure and mild symptoms.
+<i>N Engl J Med</i>
+2011; 364: 11&#x2013;21.
+</Citation></Reference><Reference><Citation>
+Bakris GL, Agarwal R, Anker SD, Pitt B, Ruilope LM, Rossing P, et al.. 
+Effect of finerenone on chronic kidney disease outcomes in type 2 diabetes.
+<i>N Engl J Med</i>
+2020; 383: 2219&#x2013;2229.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">33264825</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Pitt B, Filippatos G, Agarwal R, Anker SD, Bakris GL, Rossing P, et al.. 
+Cardiovascular events with finerenone in kidney disease and type 2 diabetes.
+<i>N Engl J Med</i>
+2021; 385: 2252&#x2013;2263.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">34449181</ArticleId></ArticleIdList></Reference><Reference><Citation>
+de Boer RA, Nayor M, deFilippi CR, Enserro D, Bhambhani V, Kizer JR, et al.. 
+Association of cardiovascular biomarkers with incident heart failure with preserved and reduced ejection fraction.
+<i>JAMA Cardiol</i>
+2018; 3: 215&#x2013;224.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5862778</ArticleId><ArticleId IdType="pubmed">29322198</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fujimoto W, Odajima S, Okamoto H, Iwasaki M, Nagao M, Konishi A, et al.. 
+Importance of B-type natriuretic peptide in the detection of patients with structural heart disease in a primary care setting.
+<i>Circ J</i>
+2024; 88: 732&#x2013;739.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">38369348</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Okamoto C, Tsukamoto O, Hasegawa T, Matsuoka K, Amaki M, Kanzaki H, et al.. 
+Relative B-type natriuretic peptide deficiency may exist in diastolic dysfunction in subclinical population.
+<i>Circ Rep</i>
+2024; 6: 151&#x2013;160.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC11081706</ArticleId><ArticleId IdType="pubmed">38736848</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Ohte N, Kikuchi S, Iwahashi N, Kinugasa Y, Dohi K, Takase H, et al.. 
+Prognostic value of B-type natriuretic peptide level in patients with heart failure with a higher left ventricular ejection fraction.
+<i>Circ Rep</i>
+2025; 7: 191&#x2013;197.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC11890284</ArticleId><ArticleId IdType="pubmed">40066216</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Miyazaki S, Inaba S, Higashi H, Tamaki S, Nishimura K, Maruyama K, et al.. 
+Validation of N-terminal pro B-type natriuretic peptide threshold for early detection of pre-heart failure in a general Japanese population: Toon Health Study. <i>Circ J</i>
+2025; 89: 966&#x2013;972.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">40335320</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Matsumoto Y, Orihara Y, Asakura M, Min KD, Okuhara Y, Azuma K, et al.. 
+Urine albumin-to-creatinine ratio on admission predicts early rehospitalization in patients with acute decompensated heart failure.
+<i>Heart Vessels</i>
+2022; 37: 1184&#x2013;1194.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">35034172</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Arai K, Homma T, Morikawa Y, Ubukata N, Tsuruoka H, Aoki K, et al.. 
+Pharmacological profile of CS-3150, a novel, highly potent and selective non-steroidal mineralocorticoid receptor antagonist.
+<i>Eur J Pharmacol</i>
+2015; 761: 226&#x2013;234.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">26073023</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Duggan S.. 
+Esaxerenone: First global approval. <i>Drugs</i>
+2019; 79: 477&#x2013;481.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">30806972</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Ito S, Itoh H, Rakugi H, Okuda Y, Yoshimura M, Yamakawa S.. 
+Double-blind randomized phase 3 study comparing esaxerenone (CS-3150) and eplerenone in patients with essential hypertension (ESAX-HTN Study).
+<i>Hypertension</i>
+2020; 75: 51&#x2013;58.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">31786983</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Levey AS, de Jong PE, Coresh J, El Nahas M, Astor BC, Matsushita K, et al.. 
+The definition, classification, and prognosis of chronic kidney disease: A KDIGO controversies conference report. <i>Kidney Int</i>
+2011; 80: 17&#x2013;28.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">21150873</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Quinn CT, Saraf SL, Gordeuk VR, Fitzhugh CD, Creary SE, Bodas P, et al.. 
+Losartan for the nephropathy of sickle cell anemia: A phase-2, multicenter trial. <i>Am J Hematol</i>
+2017; 92: E520&#x2013;E528.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5546943</ArticleId><ArticleId IdType="pubmed">28589652</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fukutomi M, Hoshide S, Eguchi K, Watanabe T, Shimada K, Kario K.. 
+Differential effects of strict blood pressure lowering by losartan/hydrochlorothiazide combination therapy and high-dose amlodipine monotherapy on microalbuminuria: The ALPHABET study. <i>J Am Soc Hypertens</i>
+2012; 6: 73&#x2013;82.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">22054782</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Hwang YC, Yoon KH, Cha BS, Lee KW, Jang HC, Min KW, et al.. 
+Reduction in microalbuminuria by calcium channel blockers in patients with type 2 diabetes mellitus and hypertension: A randomized, open-label, active-controlled, superiority, parallel-group clinical trial. <i>Int J Clin Pract</i>
+2017; 71: e12987.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5637912</ArticleId><ArticleId IdType="pubmed">28840637</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Boorsma EM, Ter Maaten JM, Damman K, van Essen BJ, Zannad F, van Veldhuisen DJ, et al.. 
+Albuminuria as a marker of systemic congestion in patients with heart failure.
+<i>Eur Heart J</i>
+2023; 44: 368&#x2013;380.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC9890244</ArticleId><ArticleId IdType="pubmed">36148485</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Khan MS, Shahid I, Anker SD, Fonarow GC, Fudim M, Hall ME, et al.. 
+Albuminuria and heart failure: JACC State-of-the-Art Review. <i>J Am Coll Cardiol</i>
+2023; 81: 270&#x2013;282.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">36653095</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Ujiro S, Fujimoto W, Takemoto M, Kuroda K, Yamashita S, Imanishi J, et al.. 
+Impact of cardiorenal anemia syndrome on the prognosis of patients with chronic heart failure in Japan: Insights from the KUNIUMI Registry Chronic Cohort. <i>Circ J</i>
+2025; 89: 463&#x2013;469.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">40024800</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kitai T, Maruyama S, Kuwahara K, Tamura K, Kinugawa K, Kashihara N.. 
+Establishing cross-specialty expert consensus on the optimal management of hyperkalemia in patients with heart failure and chronic kidney disease.
+<i>Circ J</i>
+2025; 89: 470&#x2013;478.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">40074356</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Ozaki Y, Uemura Y, Tanaka A, Yamaguchi S, Okajima T, Mitsuda T, et al.. 
+Clinical impacts of urinary neutrophil gelatinase-associated lipocalin in patients with chronic kidney disease undergoing percutaneous coronary intervention.
+<i>Circ J</i>
+2024; 88: 944&#x2013;950.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">38538331</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Ruilope LM, Ortiz A, Lucia A, Miranda B, Alvarez-Llamas G, Barderas MG, et al.. 
+Prevention of cardiorenal damage: Importance of albuminuria. <i>Eur Heart J</i>
+2023; 44: 1112&#x2013;1123.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">36477861</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Agarwal R, Kolkhof P, Bakris G, Bauersachs J, Haller H, Wada T, et al.. 
+Steroidal and non-steroidal mineralocorticoid receptor antagonists in cardiorenal medicine.
+<i>Eur Heart J</i>
+2021; 42: 152&#x2013;161.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7813624</ArticleId><ArticleId IdType="pubmed">33099609</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kitao T, Konishi E, Itoh N, Hirata A.. 
+Verification of the impact of changes in the severity classification of proteinuria on the prognosis of hypertensive patients following the initiation of esaxerenone.
+<i>Circ Rep</i>
+2025; 7: 37&#x2013;46.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC11711787</ArticleId><ArticleId IdType="pubmed">39802129</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

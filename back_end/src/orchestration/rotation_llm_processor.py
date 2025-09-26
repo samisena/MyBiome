@@ -143,17 +143,16 @@ class RotationLLMProcessor:
 
                 # Get papers that haven't been processed yet for this condition
                 query = """
-                    SELECT DISTINCT p.id, p.pmid, p.title, p.abstract, p.publication_year
+                    SELECT p.pmid, p.pmid, p.title, p.abstract, p.publication_date
                     FROM papers p
-                    JOIN interventions i ON p.id = i.paper_id
-                    WHERE LOWER(i.condition) LIKE LOWER(?)
+                    WHERE (LOWER(p.title) LIKE LOWER(?) OR LOWER(p.abstract) LIKE LOWER(?))
                     AND (p.processing_status IS NULL OR p.processing_status != 'processed')
                     AND p.abstract IS NOT NULL
                     AND LENGTH(p.abstract) > 100
-                    ORDER BY p.publication_year DESC, p.id ASC
+                    ORDER BY p.created_at DESC, p.pmid ASC
                 """
 
-                params = [f"%{condition}%"]
+                params = [f"%{condition}%", f"%{condition}%"]
                 if max_papers:
                     query += " LIMIT ?"
                     params.append(max_papers)
@@ -164,11 +163,11 @@ class RotationLLMProcessor:
                 papers = []
                 for row in rows:
                     papers.append({
-                        'id': row[0],
+                        'id': row[0],  # Use pmid as id for compatibility
                         'pmid': row[1],
                         'title': row[2],
                         'abstract': row[3],
-                        'publication_year': row[4]
+                        'publication_year': row[4] if row[4] else None
                     })
 
                 logger.debug(f"Retrieved {len(papers)} unprocessed papers for '{condition}'")
@@ -270,23 +269,35 @@ class RotationLLMProcessor:
                 logger.debug(f"Processing paper {paper_id} (PMID: {pmid}), attempt {attempt + 1}")
 
                 # Use dual model analyzer
-                results = self.dual_analyzer.analyze_paper(
-                    paper_id=paper_id,
-                    title=paper['title'],
-                    abstract=paper['abstract'],
-                    condition_filter=condition
-                )
+                paper_dict = {
+                    'pmid': pmid,
+                    'title': paper['title'],
+                    'abstract': paper['abstract']
+                }
+                results = self.dual_analyzer.extract_interventions(paper_dict)
 
-                # Count interventions extracted
+                # Count and save interventions extracted
                 interventions_count = 0
+                saved_count = 0
+
                 if results and results.get('interventions'):
                     interventions_count = len(results['interventions'])
+
+                    # Save interventions to database
+                    try:
+                        for intervention in results['interventions']:
+                            repository_manager.interventions.insert_intervention(intervention)
+                            saved_count += 1
+                        logger.info(f"Saved {saved_count} interventions for paper {pmid}")
+                    except Exception as save_error:
+                        logger.error(f"Error saving interventions for paper {pmid}: {save_error}")
 
                 return {
                     'success': True,
                     'paper_id': paper_id,
                     'pmid': pmid,
                     'interventions_extracted': interventions_count,
+                    'interventions_saved': saved_count,
                     'processing_results': results
                 }
 
