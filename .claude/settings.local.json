@@ -1,36 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(done)",
-      "Bash(python test_semantic_scholar.py:*)",
-      "Bash(python test:*)",
-      "Bash(sqlite3:*)",
-      "Bash(python:*)",
-      "Bash(git log:*)",
-      "Bash(find:*)",
-      "Bash(ollama ps:*)",
-      "Bash(nvidia-smi:*)",
-      "Bash(ollama run:*)",
-      "Bash(ollama list:*)",
-      "Bash(set)",
-      "Bash(export OLLAMA_GPU_LAYERS=-1)",
-      "Bash(ollama stop:*)",
-      "Bash(time ollama run:*)",
-      "Bash(taskkill:*)",
-      "Bash(echo $OLLAMA_GPU_LAYERS)",
-      "Bash(export OLLAMA_GPU_LAYERS=50)",
-      "Bash(export OLLAMA_GPU_LAYERS=30)",
-      "Bash(chcp:*)",
-      "Bash(pip install:*)",
-      "Bash(tree:*)",
-      "Bash(mkdir:*)",
-      "Bash(mv:*)",
-      "Bash(PYTHONPATH=. python pipelines/paper_collector.py --help)",
-      "Bash(PYTHONPATH=. python src/paper_collection/database_migration.py --migrate)",
-      "Bash(git add:*)",
-      "Bash(PYTHONPATH=. python pipelines/paper_collector.py --conditions \"irritable bowel syndrome,heart disease,arthritis,diabetes,depression\" --papers_per_condition 4 --max_year 2024)",
-      "Bash(PYTHONPATH=. python pipelines/paper_collector.py --conditions \"irritable bowel syndrome,heart disease,arthritis,diabetes,depression\" --max-papers 4)",
-      "Bash(PYTHONPATH=. python:*)"
+      "Bash(del:*)"
     ],
     "deny": [],
     "ask": []

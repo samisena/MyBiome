@@ -5,8 +5,8 @@ Handles specialized validation rules and data cleaning beyond basic validation.
 
 import re
 from typing import Dict, List, Optional, Any, Set
-from src.interventions.taxonomy import InterventionType, intervention_taxonomy
-from src.data.validators import validation_manager, ValidationResult
+from back_end.src.interventions.taxonomy import InterventionType, intervention_taxonomy
+from back_end.src.data.validators import validation_manager, ValidationResult
 
 
 class CategoryValidationError(Exception):

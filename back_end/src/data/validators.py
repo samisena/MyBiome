@@ -7,7 +7,7 @@ import re
 from typing import Any, Dict, List, Optional, Set, Union
 from dataclasses import dataclass
 from enum import Enum
-from src.data.config import setup_logging
+from back_end.src.data.config import setup_logging
 
 logger = setup_logging(__name__, 'validators.log')
 

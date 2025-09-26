@@ -59,8 +59,100 @@ class UnifiedConfig:
         self.intervention_batch_size = 5
         # Collection target: Maximum papers collected per health condition
         # Higher values (100) ensure comprehensive coverage while managing API limits
-        self.max_papers_per_condition = 100       
-  
+        self.max_papers_per_condition = 100
+
+        #* Medical rotation pipeline configuration
+        self.rotation_papers_per_condition = 10  # Papers collected per condition in rotation
+        self.medical_specialties = {
+            "cardiology": [
+                "coronary artery disease",
+                "heart failure",
+                "hypertension",
+                "atrial fibrillation",
+                "valvular heart disease"
+            ],
+            "neurology": [
+                "stroke",
+                "alzheimer disease",
+                "parkinson disease",
+                "epilepsy",
+                "multiple sclerosis"
+            ],
+            "gastroenterology": [
+                "gastroesophageal reflux disease",
+                "inflammatory bowel disease",
+                "irritable bowel syndrome",
+                "cirrhosis",
+                "peptic ulcer disease"
+            ],
+            "pulmonology": [
+                "chronic obstructive pulmonary disease",
+                "asthma",
+                "pneumonia",
+                "lung cancer",
+                "pulmonary embolism"
+            ],
+            "endocrinology": [
+                "diabetes mellitus",
+                "thyroid disorders",
+                "obesity",
+                "osteoporosis",
+                "polycystic ovary syndrome"
+            ],
+            "nephrology": [
+                "chronic kidney disease",
+                "acute kidney injury",
+                "kidney stones",
+                "glomerulonephritis",
+                "polycystic kidney disease"
+            ],
+            "oncology": [
+                "lung cancer",
+                "breast cancer",
+                "colorectal cancer",
+                "prostate cancer",
+                "leukemia"
+            ],
+            "rheumatology": [
+                "rheumatoid arthritis",
+                "osteoarthritis",
+                "systemic lupus erythematosus",
+                "gout",
+                "fibromyalgia"
+            ],
+            "psychiatry": [
+                "major depressive disorder",
+                "anxiety disorders",
+                "bipolar disorder",
+                "schizophrenia",
+                "attention deficit hyperactivity disorder"
+            ],
+            "orthopedics": [
+                "fractures",
+                "osteoarthritis",
+                "back pain",
+                "rotator cuff tear",
+                "anterior cruciate ligament injury"
+            ],
+            "dermatology": [
+                "acne vulgaris",
+                "atopic dermatitis",
+                "psoriasis",
+                "skin cancer",
+                "rosacea"
+            ],
+            "infectious_disease": [
+                "human immunodeficiency virus",
+                "tuberculosis",
+                "hepatitis b",
+                "sepsis",
+                "influenza"
+            ]
+        }
+
+        #* Performance settings - FAST_MODE enabled by default for optimal performance
+        self.fast_mode = os.getenv('FAST_MODE', '1').lower() in ('1', 'true', 'yes')
+
         #* Creates the directories
         self._ensure_directories()
 
@@ -112,29 +204,40 @@ class UnifiedConfig:
         }
 
 
-def setup_logging(name: str, log_file: Optional[str] = None, 
-                 level: int = logging.INFO) -> logging.Logger:
+def setup_logging(name: str, log_file: Optional[str] = None,
+                 level: int = logging.ERROR) -> logging.Logger:
     """Centralized logging setup."""
     logger = logging.getLogger(name)
-    
+
     if logger.handlers:
         return logger
-        
+
+    # FAST_MODE: Disable all logging except CRITICAL errors (enabled by default)
+    fast_mode = os.getenv('FAST_MODE', '1').lower() in ('1', 'true', 'yes')
+    if fast_mode:
+        level = logging.CRITICAL
+        # Only console handler for critical errors, no file logging
+        logger.setLevel(level)
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(logging.Formatter('%(levelname)s: %(message)s'))
+        logger.addHandler(console_handler)
+        return logger
+
     logger.setLevel(level)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    
+
     # Console handler
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
-    
+
     # File handler if specified
     if log_file:
         log_path = config.logs_dir / log_file
         file_handler = logging.FileHandler(log_path, encoding='utf-8')
         file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
-    
+
     return logger
 
 

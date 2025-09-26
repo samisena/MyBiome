@@ -1,8 +1,0 @@
-2025-09-12 20:28:20,893 - src.llm.pipeline - INFO - Pipeline initialized with single-LLM analysis
-2025-09-12 20:28:20,893 - src.llm.pipeline - INFO - Enhanced research pipeline initialized
-2025-09-13 19:01:28,693 - src.llm.pipeline - INFO - Intervention research pipeline initialized with dual-model analysis (gemma2:9b + qwen2.5:14b)
-2025-09-13 20:17:35,503 - src.llm.pipeline - INFO - Intervention research pipeline initialized with dual-model analysis (gemma2:9b + qwen2.5:14b)
-2025-09-13 20:25:02,653 - src.llm.pipeline - INFO - Intervention research pipeline initialized with dual-model analysis (gemma2:9b + qwen2.5:14b)
-2025-09-13 20:25:30,889 - src.llm.pipeline - INFO - Intervention research pipeline initialized with dual-model analysis (gemma2:9b + qwen2.5:14b)
-2025-09-13 20:32:50,755 - src.llm.pipeline - INFO - Intervention research pipeline initialized with dual-model analysis (gemma2:9b + qwen2.5:14b)
-2025-09-13 20:33:01,901 - src.llm.pipeline - INFO - Intervention research pipeline initialized with dual-model analysis (gemma2:9b + qwen2.5:14b)

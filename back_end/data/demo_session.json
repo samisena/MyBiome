@@ -1,0 +1,19 @@
+{
+  "session_id": "rotation_20250926_205200",
+  "start_time": "2025-09-26T20:52:00.722797",
+  "last_update": "2025-09-26T20:52:00.722797",
+  "current_specialty_index": 0,
+  "current_condition_index": 0,
+  "iteration_count": 1,
+  "papers_per_condition": 3,
+  "total_papers_collected": 0,
+  "total_papers_processed": 0,
+  "total_interventions_extracted": 0,
+  "total_duplicates_removed": 0,
+  "current_condition_progress": null,
+  "interruption_state": null,
+  "completed_conditions": [],
+  "failed_conditions": [],
+  "is_active": true,
+  "auto_restart_count": 0
+}

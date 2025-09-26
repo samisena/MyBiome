@@ -4,7 +4,7 @@ Used for building PubMed queries and identifying relevant papers.
 """
 
 from typing import Dict, List, Set
-from src.interventions.taxonomy import InterventionType
+from back_end.src.interventions.taxonomy import InterventionType
 
 
 class InterventionSearchTerms:

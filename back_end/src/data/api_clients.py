@@ -2,8 +2,8 @@ import time
 import requests  #API request module
 from typing import Dict, List, Optional
 from openai import OpenAI
-from src.data.config import config, setup_logging
-from src.data.error_handler import handle_api_errors, handle_llm_errors
+from back_end.src.data.config import config, setup_logging
+from back_end.src.data.error_handler import handle_api_errors, handle_llm_errors
 
 logger = setup_logging(__name__)  #logs will show 'api_clients' as the module's name
 

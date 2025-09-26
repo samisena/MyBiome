@@ -1,41 +1,10 @@
 
 -> Only full text metadata gets saved to the database
 Actual text gets saved as JSON files.
--> We're not at the stage where we are ready to process full texts yet
 
 -> Graph will need to be updated periodically when new data is added
 
--> Dynamic taxonomy expansion based on discovered
-interventions
-
--> Integration with medical ontologies (MeSH,
-SNOMED)
-
--> human-in-the-loop validation
-
--> Consider PostgreSQL for better concurrency
-
--> Finalize the dual LLM approach (voting etc)
-
--> Check if the LLMs consensus handles captioning overlap 'ibs' 'IBS' 
-
-
-LLm:
-
--> Consider fine tuning
-
--> In config.py why is: self.intervention_batch_size = 5
-    and self.max_papers_per_condition = 100 ?
-
-Quality assurance workflow: first model extracts → validation catches issues
-→ second model verifies problematic extractions → humans review what both
-models couldn't handle.
--> This might not be the best practice. Check Notion AI folder for practices like voting.
-
-Hybrid Strategy:
-Process ALL papers with abstracts (baseline data)
-ENHANCE the subset with full text when available. (Use powerful models)
-Two-tier relationship confidence scoring (abstract only vs full text)
+-> Dynamic taxonomy expansion based on discovered interventions
 
 IMPORTANT TODO - DELIVERY METHOD TAXONOMY FIX:
 September 22, 2025 - Fixed delivery method validation taxonomy to include:
@@ -56,6 +25,27 @@ with intervention_count = 0 where validation failures occurred.
 Query to identify affected papers:
 SELECT paper_id FROM papers WHERE processed_date < '2025-09-22 16:30:00'
 AND paper_id NOT IN (SELECT DISTINCT paper_id FROM interventions)
+
+
+-> Integration with medical ontologies (MeSH,
+SNOMED)
+
+-> human-in-the-loop validation
+
+-> Consider PostgreSQL for better concurrency
+
+
+LLm:
+
+-> Consider fine tuning
+
+-> Finalize the dual LLM approach (voting etc)
+
+-> In config.py why is: self.intervention_batch_size = 5
+    and self.max_papers_per_condition = 100 ?
+
+
+
 
 
 

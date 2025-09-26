@@ -8,7 +8,7 @@ import re
 import xml.etree.ElementTree as ET
 from typing import Any, Callable, Dict, List, Optional, TypeVar, Union
 from pathlib import Path
-from src.data.config import setup_logging
+from back_end.src.data.config import setup_logging
 
 F = TypeVar('F', bound=Callable[..., Any])
 

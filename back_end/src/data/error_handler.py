@@ -9,7 +9,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple, Type, Union
 from functools import wraps  #?Preserve original function name and docstrings when using decorators
 from dataclasses import dataclass
 from enum import Enum #? tool for creating enumerations (named constants)
-from src.data.config import setup_logging
+from back_end.src.data.config import setup_logging
 
 logger = setup_logging(__name__, 'error_handler.log')
 
