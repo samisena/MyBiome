@@ -9,7 +9,11 @@
       "Bash(timeout 30 python -m back_end.src.orchestration.medical_rotation_pipeline:*)",
       "Bash(timeout 60 python -m back_end.src.orchestration.medical_rotation_pipeline:*)",
       "Bash(timeout 300 python -m back_end.src.orchestration.medical_rotation_pipeline:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(tasklist)",
+      "Bash(wmic:*)",
+      "Bash(curl:*)",
+      "Bash(grep:*)"
     ],
     "deny": [],
     "ask": []
