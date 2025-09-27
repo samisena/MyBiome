@@ -6,10 +6,10 @@ Removes duplicate interventions from the database while preserving the best qual
 Handles cases where both LLM models extracted the same intervention.
 """
 
-import sqlite3
 import logging
 from typing import List, Dict, Tuple
 from back_end.src.data.config import config, setup_logging
+from back_end.src.data_collection.database_manager import database_manager
 
 logger = setup_logging(__name__, 'deduplication.log')
 
@@ -18,31 +18,31 @@ class InterventionDeduplicator:
     """Handles deduplication of interventions extracted by multiple models."""
 
     def __init__(self):
-        self.db_path = config.db_path
+        # No longer need to store db_path since we use database_manager
+        pass
 
     def find_duplicates(self) -> List[Tuple]:
         """Find potential duplicate interventions."""
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
+        with database_manager.get_connection() as conn:
+            cursor = conn.cursor()
 
-        # Find interventions with same name and health condition from same paper
-        cursor.execute("""
-            SELECT
-                paper_id,
-                intervention_name,
-                health_condition,
-                COUNT(*) as duplicate_count,
-                GROUP_CONCAT(id) as intervention_ids,
-                GROUP_CONCAT(extraction_model) as models,
-                GROUP_CONCAT(confidence_score) as confidences
-            FROM interventions
-            GROUP BY paper_id, intervention_name, health_condition
-            HAVING COUNT(*) > 1
-            ORDER BY duplicate_count DESC
-        """)
+            # Find interventions with same name and health condition from same paper
+            cursor.execute("""
+                SELECT
+                    paper_id,
+                    intervention_name,
+                    health_condition,
+                    COUNT(*) as duplicate_count,
+                    GROUP_CONCAT(id) as intervention_ids,
+                    GROUP_CONCAT(extraction_model) as models,
+                    GROUP_CONCAT(confidence_score) as confidences
+                FROM interventions
+                GROUP BY paper_id, intervention_name, health_condition
+                HAVING COUNT(*) > 1
+                ORDER BY duplicate_count DESC
+            """)
 
-        duplicates = cursor.fetchall()
-        conn.close()
+            duplicates = cursor.fetchall()
 
         logger.info(f"Found {len(duplicates)} groups of duplicate interventions")
         return duplicates
@@ -82,51 +82,49 @@ class InterventionDeduplicator:
 
     def merge_intervention_metadata(self, keep_id: int, remove_ids: List[int]):
         """Merge metadata from duplicate interventions into the kept one."""
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
+        with database_manager.get_connection() as conn:
+            cursor = conn.cursor()
 
-        # Get all models that contributed to this intervention
-        cursor.execute("""
-            SELECT GROUP_CONCAT(DISTINCT extraction_model) as all_models,
-                   COUNT(*) as total_extractions
-            FROM interventions
-            WHERE id IN ({})
-        """.format(','.join(['?'] * (len(remove_ids) + 1))), [keep_id] + remove_ids)
+            # Get all models that contributed to this intervention
+            cursor.execute("""
+                SELECT GROUP_CONCAT(DISTINCT extraction_model) as all_models,
+                       COUNT(*) as total_extractions
+                FROM interventions
+                WHERE id IN ({})
+            """.format(','.join(['?'] * (len(remove_ids) + 1))), [keep_id] + remove_ids)
 
-        all_models, total_extractions = cursor.fetchone()
+            all_models, total_extractions = cursor.fetchone()
 
-        # Update the kept intervention with consensus metadata
-        cursor.execute("""
-            UPDATE interventions
-            SET models_contributing = ?,
-                raw_extraction_count = ?,
-                model_agreement = 'consensus',
-                consensus_confidence = (
-                    SELECT AVG(confidence_score)
-                    FROM interventions
-                    WHERE id IN ({})
-                    AND confidence_score IS NOT NULL
-                )
-            WHERE id = ?
-        """.format(','.join(['?'] * (len(remove_ids) + 1))),
-                      [all_models, total_extractions] + [keep_id] + remove_ids + [keep_id])
+            # Update the kept intervention with consensus metadata
+            cursor.execute("""
+                UPDATE interventions
+                SET models_contributing = ?,
+                    raw_extraction_count = ?,
+                    model_agreement = 'consensus',
+                    consensus_confidence = (
+                        SELECT AVG(confidence_score)
+                        FROM interventions
+                        WHERE id IN ({})
+                        AND confidence_score IS NOT NULL
+                    )
+                WHERE id = ?
+            """.format(','.join(['?'] * (len(remove_ids) + 1))),
+                          [all_models, total_extractions] + [keep_id] + remove_ids + [keep_id])
 
-        conn.commit()
-        conn.close()
+            conn.commit()
 
     def remove_duplicates(self, remove_ids: List[int]):
         """Remove duplicate intervention records."""
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
+        with database_manager.get_connection() as conn:
+            cursor = conn.cursor()
 
-        cursor.execute("""
-            DELETE FROM interventions
-            WHERE id IN ({})
-        """.format(','.join(['?'] * len(remove_ids))), remove_ids)
+            cursor.execute("""
+                DELETE FROM interventions
+                WHERE id IN ({})
+            """.format(','.join(['?'] * len(remove_ids))), remove_ids)
 
-        removed_count = cursor.rowcount
-        conn.commit()
-        conn.close()
+            removed_count = cursor.rowcount
+            conn.commit()
 
         logger.info(f"Removed {removed_count} duplicate interventions")
         return removed_count
@@ -136,11 +134,10 @@ class InterventionDeduplicator:
         logger.info("Starting intervention deduplication process")
 
         # Get initial counts
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
-        cursor.execute("SELECT COUNT(*) FROM interventions")
-        initial_count = cursor.fetchone()[0]
-        conn.close()
+        with database_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM interventions")
+            initial_count = cursor.fetchone()[0]
 
         duplicates = self.find_duplicates()
 
@@ -159,11 +156,10 @@ class InterventionDeduplicator:
                 continue
 
         # Get final counts
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
-        cursor.execute("SELECT COUNT(*) FROM interventions")
-        final_count = cursor.fetchone()[0]
-        conn.close()
+        with database_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM interventions")
+            final_count = cursor.fetchone()[0]
 
         results = {
             'initial_count': initial_count,

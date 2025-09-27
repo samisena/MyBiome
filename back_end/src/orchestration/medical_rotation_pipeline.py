@@ -78,76 +78,18 @@ except ImportError:
 logger = setup_logging(__name__, 'medical_rotation_pipeline.log')
 
 
-class ErrorSeverity(Enum):
-    """Error severity levels for categorized handling."""
-    LOW = "low"          # Warnings, partial failures
-    MEDIUM = "medium"    # Recoverable errors, retryable failures
-    HIGH = "high"        # Critical errors, require intervention
-    CRITICAL = "critical" # System failures, complete pipeline stop
-
-
-class ErrorCategory(Enum):
-    """Categories of errors for specialized handling."""
-    NETWORK = "network"          # API failures, timeouts
-    DATABASE = "database"        # DB connection, query failures
-    PROCESSING = "processing"    # LLM processing, extraction errors
-    VALIDATION = "validation"    # Data validation, quality issues
-    RESOURCE = "resource"        # Memory, disk, GPU issues
-    CONFIGURATION = "configuration" # Config, setup errors
-    EXTERNAL = "external"        # Third-party service failures
-    UNKNOWN = "unknown"          # Uncategorized errors
-
-
-@dataclass
-class ErrorRecord:
-    """Detailed error record for tracking and analysis."""
-    timestamp: datetime
-    error_type: str
-    severity: ErrorSeverity
-    category: ErrorCategory
-    message: str
-    condition: Optional[str]
-    phase: Optional[str]
-    retry_count: int
-    recoverable: bool
-    recovery_action: Optional[str]
-    traceback: Optional[str]
-
-
-class CircuitBreaker:
-    """Circuit breaker pattern for resilient error handling."""
-
-    def __init__(self, failure_threshold: int = 5, recovery_timeout: int = 300):
-        self.failure_threshold = failure_threshold
-        self.recovery_timeout = recovery_timeout
-        self.failure_count = 0
-        self.last_failure_time = None
-        self.state = 'closed'  # closed, open, half-open
-
-    def call(self, func, *args, **kwargs):
-        """Execute function with circuit breaker protection."""
-        if self.state == 'open':
-            if datetime.now().timestamp() - self.last_failure_time > self.recovery_timeout:
-                self.state = 'half-open'
-                logger.info("Circuit breaker moving to half-open state")
-            else:
-                raise Exception("Circuit breaker is open - service unavailable")
-
+def retry_with_exponential_backoff(func, max_attempts: int = 3, base_delay: float = 1.0):
+    """Simple retry mechanism with exponential backoff."""
+    for attempt in range(max_attempts):
         try:
-            result = func(*args, **kwargs)
-            if self.state == 'half-open':
-                self.state = 'closed'
-                self.failure_count = 0
-                logger.info("Circuit breaker closed - service recovered")
-            return result
+            return func()
         except Exception as e:
-            self.failure_count += 1
-            self.last_failure_time = datetime.now().timestamp()
+            if attempt == max_attempts - 1:
+                raise e  # Re-raise on final attempt
 
-            if self.failure_count >= self.failure_threshold:
-                self.state = 'open'
-                logger.error(f"Circuit breaker opened after {self.failure_count} failures")
-            raise e
+            delay = base_delay * (2 ** attempt)
+            logger.warning(f"Attempt {attempt + 1} failed: {e}. Retrying in {delay:.1f} seconds...")
+            time.sleep(delay)
 
 
 class MedicalRotationPipeline:
@@ -177,27 +119,8 @@ class MedicalRotationPipeline:
         self.total_interventions_extracted = 0
         self.total_duplicates_removed = 0
 
-        # Error handling and recovery
-        self.error_history: List[ErrorRecord] = []
-        self.max_consecutive_failures = 3
+        # Simple error handling
         self.max_condition_retries = 2
-        self.global_failure_threshold = 10
-        self.circuit_breakers = {
-            'collection': CircuitBreaker(failure_threshold=3, recovery_timeout=300),
-            'processing': CircuitBreaker(failure_threshold=3, recovery_timeout=600),
-            'deduplication': CircuitBreaker(failure_threshold=5, recovery_timeout=180)
-        }
-
-        # Auto-recovery settings
-        self.enable_auto_recovery = True
-        self.recovery_strategies = {
-            ErrorCategory.NETWORK: self._recover_network_error,
-            ErrorCategory.DATABASE: self._recover_database_error,
-            ErrorCategory.PROCESSING: self._recover_processing_error,
-            ErrorCategory.RESOURCE: self._recover_resource_error
-        }
-
-        # Condition failure tracking
         self.consecutive_failures = 0
         self.condition_retry_counts = {}
 

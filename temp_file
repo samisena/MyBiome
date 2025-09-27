@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+"""
+Rotation Collection Integrator
+
+Simple integration between paper collection and session management.
+Provides basic coordination and progress tracking.
+"""
+
+import sys
+import time
+import traceback
+from pathlib import Path
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional, Any, Tuple
+
+try:
+    from ..data.config import config, setup_logging
+    from .rotation_session_manager import (
+        RotationSessionManager, PipelinePhase, session_manager
+    )
+    from .rotation_paper_collector import RotationPaperCollector
+except ImportError:
+    # Fallback for standalone execution
+    import sys
+    from pathlib import Path
+    sys.path.append(str(Path(__file__).parent.parent.parent))
+    from back_end.src.data.config import config, setup_logging
+    from back_end.src.orchestration.rotation_session_manager import (
+        RotationSessionManager, PipelinePhase, session_manager
+    )
+    from back_end.src.orchestration.rotation_paper_collector import RotationPaperCollector
+
+logger = setup_logging(__name__, 'rotation_collection_integrator.log')
+
+
+class RotationCollectionIntegrator:
+    """Simple integration between paper collection and session management."""
+
+    def __init__(self, session_mgr: RotationSessionManager = None):
+        """Initialize the collection integrator."""
+        self.session_mgr = session_mgr or session_manager
+        self.paper_collector = RotationPaperCollector()
+        self.max_retries = 3
+
+    def collect_current_condition(self) -> Dict[str, Any]:
+        """Collect papers for the current condition in the rotation session."""
+        if not self.session_mgr.session:
+            raise Exception("No active rotation session found")
+
+        session = self.session_mgr.session
+        condition = session.current_condition
+        target_count = session.papers_per_condition
+
+        logger.info(f"Collecting {target_count} papers for: {condition}")
+
+        # Set interruption state for collection phase
+        self.session_mgr.set_interruption_state(phase=PipelinePhase.COLLECTION)
+
+        try:
+            # Simple retry mechanism
+            for attempt in range(self.max_retries):
+                try:
+                    result = self.paper_collector.collect_condition_papers(
+                        condition=condition,
+                        target_count=target_count,
+                        min_year=2015,
+                        use_s2_enrichment=True
+                    )
+
+                    if result['success']:
+                        # Update session progress
+                        self.session_mgr.update_progress(
+                            papers_collected=result['papers_collected']
+                        )
+                        self.session_mgr.clear_interruption_state()
+                        logger.info(f"Collection completed: {result['papers_collected']} papers")
+                        return result
+
+                except Exception as e:
+                    if attempt == self.max_retries - 1:
+                        raise e
+                    logger.warning(f"Collection attempt {attempt + 1} failed: {e}. Retrying...")
+                    time.sleep(30 * (attempt + 1))  # Progressive delay
+
+            return {'success': False, 'error': 'Max retries exceeded'}
+
+        except Exception as e:
+            logger.error(f"Collection failed for '{condition}': {e}")
+            self.session_mgr.mark_condition_failed(str(e))
+            return {'success': False, 'error': str(e)}
+
+

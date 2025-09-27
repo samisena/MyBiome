@@ -19,6 +19,14 @@ from back_end.src.interventions.category_validators import category_validator
 
 logger = setup_logging(__name__, 'database.log')
 
+# Optional import for entity normalization - graceful fallback if not available
+try:
+    from ..llm_processing.entity_normalizer import EntityNormalizer
+    NORMALIZATION_AVAILABLE = True
+except ImportError:
+    NORMALIZATION_AVAILABLE = False
+    logger.warning("Entity normalization not available - install required dependencies")
+
 
 @dataclass
 class ConnectionPool:
@@ -113,31 +121,36 @@ class DatabaseManager:
                     cls._instance = super().__new__(cls)
         return cls._instance
     
-    def __init__(self, db_config=None):
+    def __init__(self, db_config=None, enable_normalization: bool = False):
         # Only initialize once
         if hasattr(self, '_initialized'):
             return
-            
+
         self.db_config = db_config or type('DatabaseConfig', (), {
             'name': config.db_name,
             'path': config.db_path,
             'max_connections': config.max_connections
         })()
         self.db_path = self.db_config.path
-        
+
+        # Set up normalization capability
+        self.enable_normalization = enable_normalization and NORMALIZATION_AVAILABLE
+        if enable_normalization and not NORMALIZATION_AVAILABLE:
+            logger.warning("Normalization requested but not available - running without normalization")
+
         # Ensure directory exists
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        
+
         # Initialize connection pool
         self.pool = ConnectionPool(str(self.db_path), self.db_config.max_connections)
-        
+
         # Create tables
         self.create_tables()
-        
+
         # Set up intervention categories
         self.setup_intervention_categories()
-        
-        logger.info(f"Enhanced database manager initialized at {self.db_path}")
+
+        logger.info(f"Enhanced database manager initialized at {self.db_path} (normalization: {self.enable_normalization})")
         self._initialized = True
     
     @contextmanager
@@ -906,7 +919,202 @@ class DatabaseManager:
         except Exception as e:
             logger.error(f"Error cleaning placeholder interventions: {e}")
             return {'removed_count': 0, 'error': str(e)}
-    
+
+    def insert_intervention_normalized(self, intervention: dict) -> bool:
+        """Insert intervention with automatic entity normalization."""
+        if not self.enable_normalization:
+            # Fall back to standard insertion
+            return self.insert_intervention(intervention)
+
+        try:
+            # Create a copy to avoid modifying the original
+            normalized_intervention = intervention.copy()
+
+            # Normalize intervention_name
+            intervention_name = intervention.get('intervention_name', '').strip()
+            if intervention_name:
+                with self.get_connection() as conn:
+                    normalizer = EntityNormalizer(conn)
+                    intervention_mapping = normalizer.find_or_create_mapping(
+                        intervention_name, 'intervention', confidence_threshold=0.7
+                    )
+
+                    normalized_intervention['intervention_canonical_id'] = intervention_mapping['canonical_id']
+
+                    if intervention_mapping['is_new']:
+                        logger.info(f"Created new intervention canonical: {intervention_mapping['canonical_name']}")
+                    elif intervention_mapping['method'] != 'exact_canonical':
+                        logger.info(f"Normalized '{intervention_name}' -> '{intervention_mapping['canonical_name']}' "
+                                  f"(method: {intervention_mapping['method']}, confidence: {intervention_mapping['confidence']:.2f})")
+
+            # Normalize health_condition
+            health_condition = intervention.get('health_condition', '').strip()
+            if health_condition:
+                with self.get_connection() as conn:
+                    normalizer = EntityNormalizer(conn)
+                    condition_mapping = normalizer.find_or_create_mapping(
+                        health_condition, 'condition', confidence_threshold=0.7
+                    )
+
+                    normalized_intervention['condition_canonical_id'] = condition_mapping['canonical_id']
+
+                    if condition_mapping['is_new']:
+                        logger.info(f"Created new condition canonical: {condition_mapping['canonical_name']}")
+                    elif condition_mapping['method'] != 'exact_canonical':
+                        logger.info(f"Normalized '{health_condition}' -> '{condition_mapping['canonical_name']}' "
+                                  f"(method: {condition_mapping['method']}, confidence: {condition_mapping['confidence']:.2f})")
+
+            # Mark as normalized
+            normalized_intervention['normalized'] = True
+
+            # Insert with normalized data
+            return self._insert_intervention_with_normalization(normalized_intervention)
+
+        except Exception as e:
+            logger.error(f"Error in normalized insertion: {e}")
+            # Fall back to standard insertion
+            return self.insert_intervention(intervention)
+
+    def _insert_intervention_with_normalization(self, intervention: dict) -> bool:
+        """Insert intervention including normalization fields."""
+        try:
+            # Use existing validation
+            validated_intervention = category_validator.validate_intervention(intervention)
+
+            with self.get_connection() as conn:
+                cursor = conn.cursor()
+
+                # Enhanced INSERT query with normalization fields
+                cursor.execute('''
+                    INSERT OR REPLACE INTO interventions
+                    (paper_id, intervention_category, intervention_name, intervention_details,
+                     health_condition, correlation_type, correlation_strength, confidence_score,
+                     sample_size, study_duration, study_type, population_details,
+                     supporting_quote, delivery_method, severity, adverse_effects, cost_category,
+                     extraction_model, validation_status, consensus_confidence, model_agreement,
+                     models_used, raw_extraction_count, models_contributing,
+                     intervention_canonical_id, condition_canonical_id, normalized)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''', (
+                    validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
+                    validated_intervention['intervention_category'],
+                    validated_intervention['intervention_name'],
+                    json.dumps(validated_intervention.get('intervention_details', {})),
+                    validated_intervention['health_condition'],
+                    validated_intervention['correlation_type'],
+                    validated_intervention.get('correlation_strength'),
+                    validated_intervention.get('confidence_score'),
+                    validated_intervention.get('sample_size'),
+                    validated_intervention.get('study_duration'),
+                    validated_intervention.get('study_type'),
+                    validated_intervention.get('population_details'),
+                    validated_intervention.get('supporting_quote'),
+                    validated_intervention.get('delivery_method'),
+                    validated_intervention.get('severity'),
+                    validated_intervention.get('adverse_effects'),
+                    validated_intervention.get('cost_category'),
+                    validated_intervention.get('extraction_model', 'consensus'),
+                    'pending',
+                    validated_intervention.get('consensus_confidence'),
+                    validated_intervention.get('model_agreement'),
+                    validated_intervention.get('models_used'),
+                    validated_intervention.get('raw_extraction_count', 1),
+                    validated_intervention.get('models_contributing'),
+                    # New normalization fields
+                    validated_intervention.get('intervention_canonical_id'),
+                    validated_intervention.get('condition_canonical_id'),
+                    validated_intervention.get('normalized', False)
+                ))
+
+                conn.commit()
+                return True
+
+        except Exception as e:
+            logger.error(f"Error in normalized database insertion: {e}")
+            return False
+
+    def batch_normalize_existing_interventions(self, limit: int = 100) -> dict:
+        """Normalize existing interventions that haven't been normalized yet."""
+        if not self.enable_normalization:
+            return {'error': 'Normalization not enabled'}
+
+        results = {
+            'processed': 0,
+            'normalized_interventions': 0,
+            'normalized_conditions': 0,
+            'new_canonicals_created': 0,
+            'errors': []
+        }
+
+        try:
+            with self.get_connection() as conn:
+                cursor = conn.cursor()
+
+                # Get unnormalized interventions
+                cursor.execute("""
+                    SELECT id, intervention_name, health_condition
+                    FROM interventions
+                    WHERE (normalized IS NULL OR normalized = FALSE)
+                    AND intervention_name IS NOT NULL
+                    AND health_condition IS NOT NULL
+                    LIMIT ?
+                """, (limit,))
+
+                interventions = cursor.fetchall()
+
+                for row in interventions:
+                    intervention_id = row[0]
+                    intervention_name = row[1]
+                    health_condition = row[2]
+
+                    try:
+                        with self.get_connection() as norm_conn:
+                            normalizer = EntityNormalizer(norm_conn)
+
+                            # Normalize intervention
+                            intervention_mapping = normalizer.find_or_create_mapping(
+                                intervention_name, 'intervention'
+                            )
+
+                            # Normalize condition
+                            condition_mapping = normalizer.find_or_create_mapping(
+                                health_condition, 'condition'
+                            )
+
+                        # Update the record
+                        cursor.execute("""
+                            UPDATE interventions
+                            SET intervention_canonical_id = ?,
+                                condition_canonical_id = ?,
+                                normalized = TRUE
+                            WHERE id = ?
+                        """, (
+                            intervention_mapping['canonical_id'],
+                            condition_mapping['canonical_id'],
+                            intervention_id
+                        ))
+
+                        results['processed'] += 1
+
+                        if intervention_mapping['is_new']:
+                            results['new_canonicals_created'] += 1
+
+                        if intervention_mapping['method'] != 'exact_canonical':
+                            results['normalized_interventions'] += 1
+
+                        if condition_mapping['method'] != 'exact_canonical':
+                            results['normalized_conditions'] += 1
+
+                    except Exception as e:
+                        results['errors'].append(f"Error processing intervention {intervention_id}: {e}")
+
+                conn.commit()
+
+        except Exception as e:
+            results['errors'].append(f"Batch normalization error: {e}")
+
+        return results
+
     def close(self):
         """Close all database connections."""
         if hasattr(self, 'pool'):

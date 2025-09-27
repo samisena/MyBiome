@@ -3,13 +3,13 @@
 LLM-Based Canonical Entity Deduplication
 """
 
-import sqlite3
 import json
 import logging
 import sys
 import os
 from datetime import datetime
 from typing import Dict, List, Any
+from back_end.src.data_collection.database_manager import database_manager
 
 try:
     from back_end.src.data.config import config
@@ -226,8 +226,7 @@ def run_deduplication():
         shutil.copy2(db_path, backup_path)
         # Backup created for deduplication
 
-    with sqlite3.connect(db_path) as conn:
-        conn.row_factory = sqlite3.Row
+    with database_manager.get_connection() as conn:
         cursor = conn.cursor()
 
         total_merged = 0

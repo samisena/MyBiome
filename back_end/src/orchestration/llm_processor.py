@@ -75,7 +75,6 @@ try:
     from back_end.src.data.repositories import repository_manager
     from back_end.src.data_collection.database_manager import database_manager
     from back_end.src.llm_processing.dual_model_analyzer import DualModelAnalyzer
-    from back_end.src.llm_processing.pipeline import InterventionResearchPipeline
     from back_end.src.data.utils import format_duration
 
 except ImportError as e:
@@ -95,7 +94,6 @@ class ProcessingConfig:
     max_papers_per_session: int = 1000
 
     # Model configuration
-    use_dual_models: bool = True
     models: List[str] = None  # ['gemma2:9b', 'qwen2.5:14b']
     temperature: float = 0.3
     max_tokens: int = 4096
@@ -555,7 +553,7 @@ class LLMProcessor:
         self.session_start = datetime.now()
 
         # Initialize components
-        self.analyzer = DualModelAnalyzer() if config.use_dual_models else InterventionResearchPipeline()
+        self.analyzer = DualModelAnalyzer()
         self.thermal_monitor = ThermalMonitor(
             max_temp=config.max_temp_celsius,
             cooling_temp=config.cooling_temp_celsius,
@@ -775,16 +773,12 @@ class LLMProcessor:
 
         for attempt in range(self.config.max_retries_per_paper):
             try:
-                if self.config.use_dual_models:
-                    # Use dual model analyzer
-                    result = self.analyzer.process_papers_batch(
+                # Use dual model analyzer
+                result = self.analyzer.process_papers_batch(
                         papers=[paper],
                         save_to_db=True,
                         batch_size=1
                     )
-                else:
-                    # Use single model pipeline
-                    result = self.analyzer.process_paper(paper)
 
                 # Update intervention count
                 if result and result.get('interventions_extracted', 0) > 0:
@@ -1082,7 +1076,6 @@ def main():
             config = ProcessingConfig(
                 limit=args.limit if not args.all else None,
                 batch_size=args.batch_size,
-                use_dual_models=not args.single_model,
                 models=args.models.split(','),
                 max_temp_celsius=args.max_temp,
                 cooling_temp_celsius=args.cooling_temp,

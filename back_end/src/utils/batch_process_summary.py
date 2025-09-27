@@ -3,9 +3,9 @@
 Summary and demonstration of batch processing results
 """
 
-import sqlite3
 import sys
 import os
+from back_end.src.data_collection.database_manager import database_manager
 
 # Add the src directory to the path so we can import our modules
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
@@ -20,10 +20,9 @@ def show_batch_processing_summary():
     print("BATCH PROCESSING UNMAPPED TERMS - RESULTS SUMMARY")
     print("=" * 70)
 
-    # Connect to database
-    db_path = "data/processed/intervention_research.db"
-    conn = sqlite3.connect(db_path)
-    normalizer = EntityNormalizer(conn)
+    # Connect to database using database manager
+    with database_manager.get_connection() as conn:
+        normalizer = EntityNormalizer(conn)
 
     print("\nDEMONSTRATED CAPABILITIES:")
     print("[SUCCESS] Successfully grouped similar medical terms using LLM analysis")
