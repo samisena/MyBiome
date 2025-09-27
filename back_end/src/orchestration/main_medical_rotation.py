@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Medical Rotation Pipeline - Main Orchestrator
+Main Medical Rotation - Primary Orchestrator
 
 Complete orchestrator for the rotating medical condition pipeline.
 Coordinates collection, processing, and deduplication across all 60 medical conditions
@@ -17,29 +17,29 @@ Features:
 
 Usage:
     # Start new rotation pipeline (default: 10 papers per condition)
-    python medical_rotation_pipeline.py
+    python main_medical_rotation.py
 
     # Custom papers per condition
-    python medical_rotation_pipeline.py --papers-per-condition 5
+    python main_medical_rotation.py --papers-per-condition 5
 
     # Resume interrupted session
-    python medical_rotation_pipeline.py --resume
+    python main_medical_rotation.py --resume
 
     # Show current status
-    python medical_rotation_pipeline.py --status
+    python main_medical_rotation.py --status
 
     # Run single condition for testing
-    python medical_rotation_pipeline.py --test-condition "diabetes mellitus" --papers 3
+    python main_medical_rotation.py --test-condition "diabetes mellitus" --papers 3
 
 Examples:
     # Standard overnight operation
-    python medical_rotation_pipeline.py --papers-per-condition 10
+    python main_medical_rotation.py --papers-per-condition 10
 
     # Resume with status monitoring
-    python medical_rotation_pipeline.py --resume --verbose
+    python main_medical_rotation.py --resume --verbose
 
     # Test with specific condition
-    python medical_rotation_pipeline.py --test-condition "hypertension" --papers 5
+    python main_medical_rotation.py --test-condition "hypertension" --papers 5
 """
 
 import sys
@@ -59,7 +59,7 @@ try:
     from .rotation_session_manager import (
         RotationSessionManager, PipelinePhase, session_manager
     )
-    from .rotation_collection_integrator import RotationCollectionIntegrator
+    from .rotation_paper_collector import RotationPaperCollector
     from .rotation_llm_processor import RotationLLMProcessor
     from .rotation_deduplication_integrator import RotationDeduplicationIntegrator
 except ImportError:
@@ -71,11 +71,11 @@ except ImportError:
     from back_end.src.orchestration.rotation_session_manager import (
         RotationSessionManager, PipelinePhase, session_manager
     )
-    from back_end.src.orchestration.rotation_collection_integrator import RotationCollectionIntegrator
+    from back_end.src.orchestration.rotation_paper_collector import RotationPaperCollector
     from back_end.src.orchestration.rotation_llm_processor import RotationLLMProcessor
     from back_end.src.orchestration.rotation_deduplication_integrator import RotationDeduplicationIntegrator
 
-logger = setup_logging(__name__, 'medical_rotation_pipeline.log')
+logger = setup_logging(__name__, 'main_medical_rotation.log')
 
 
 def retry_with_exponential_backoff(func, max_attempts: int = 3, base_delay: float = 1.0):
@@ -103,7 +103,7 @@ class MedicalRotationPipeline:
         self.session_mgr = session_mgr or session_manager
 
         # Initialize component integrators
-        self.collection_integrator = RotationCollectionIntegrator(self.session_mgr)
+        self.collection_integrator = RotationPaperCollector()
         self.llm_processor = RotationLLMProcessor()
         self.dedup_integrator = RotationDeduplicationIntegrator()
 
@@ -279,7 +279,7 @@ class MedicalRotationPipeline:
 
         # Phase 1: Collection
         logger.info(f"[1/3] Collection phase for '{condition}'")
-        collection_result = self.collection_integrator.collect_current_condition()
+        collection_result = self.collection_integrator.collect_current_condition(self.session_mgr)
 
         if not collection_result['success']:
             return {

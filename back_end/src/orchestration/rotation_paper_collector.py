@@ -26,6 +26,9 @@ try:
     from ..data_collection.database_manager import database_manager
     from ..data_collection.pubmed_collector import PubMedCollector
     from ..data_collection.semantic_scholar_enrichment import run_semantic_scholar_enrichment
+    from .rotation_session_manager import (
+        RotationSessionManager, PipelinePhase, session_manager
+    )
 except ImportError:
     # Fallback for standalone execution
     import sys
@@ -35,6 +38,9 @@ except ImportError:
     from back_end.src.data_collection.database_manager import database_manager
     from back_end.src.data_collection.pubmed_collector import PubMedCollector
     from back_end.src.data_collection.semantic_scholar_enrichment import run_semantic_scholar_enrichment
+    from back_end.src.orchestration.rotation_session_manager import (
+        RotationSessionManager, PipelinePhase, session_manager
+    )
 
 logger = setup_logging(__name__, 'rotation_paper_collector.log')
 
@@ -293,6 +299,111 @@ class RotationPaperCollector:
         }
 
         return summary
+
+    # ================================================================================
+    # INTEGRATION METHODS (merged from rotation_collection_integrator.py)
+    # ================================================================================
+
+    def collect_current_condition(self, session_mgr: RotationSessionManager = None) -> Dict[str, Any]:
+        """Collect papers for the current condition in the rotation session."""
+        if session_mgr is None:
+            session_mgr = session_manager
+
+        if not session_mgr.session:
+            raise Exception("No active rotation session found")
+
+        session = session_mgr.session
+        condition = session.current_condition
+        target_count = session.papers_per_condition
+
+        logger.info(f"Collecting {target_count} papers for: {condition}")
+
+        # Set interruption state for collection phase
+        session_mgr.set_interruption_state(phase=PipelinePhase.COLLECTION)
+
+        try:
+            # Simple retry mechanism
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    result = self.collect_condition_papers(
+                        condition=condition,
+                        target_count=target_count,
+                        min_year=2015,
+                        use_s2_enrichment=True
+                    )
+
+                    if result['success']:
+                        # Update session progress
+                        session_mgr.update_progress(
+                            papers_collected=result['papers_collected']
+                        )
+                        session_mgr.clear_interruption_state()
+                        logger.info(f"Collection completed: {result['papers_collected']} papers")
+                        return result
+
+                except Exception as e:
+                    if attempt == max_retries - 1:
+                        raise e
+                    logger.warning(f"Collection attempt {attempt + 1} failed: {e}. Retrying...")
+                    time.sleep(30 * (attempt + 1))  # Progressive delay
+
+            return {'success': False, 'error': 'Max retries exceeded'}
+
+        except Exception as e:
+            logger.error(f"Collection failed for '{condition}': {e}")
+            session_mgr.mark_condition_failed(str(e))
+            return {'success': False, 'error': str(e)}
+
+    def get_collection_status(self, session_mgr: RotationSessionManager = None) -> Dict[str, Any]:
+        """Get current collection status from session manager."""
+        if session_mgr is None:
+            session_mgr = session_manager
+
+        if not session_mgr.session:
+            return {'error': 'No active session'}
+
+        session = session_mgr.session
+        is_collecting = (
+            session.interruption_state and
+            session.interruption_state.phase == PipelinePhase.COLLECTION.value
+        )
+
+        return {
+            'current_condition': session.current_condition,
+            'current_specialty': session.current_specialty,
+            'target_papers': session.papers_per_condition,
+            'is_collecting': is_collecting,
+            'total_papers_collected': session.total_papers_collected,
+            'completed_conditions': len(session.completed_conditions),
+            'session_active': session.is_active
+        }
+
+    def resume_interrupted_collection(self, session_mgr: RotationSessionManager = None) -> Optional[Dict[str, Any]]:
+        """Resume collection if interrupted during collection phase."""
+        if session_mgr is None:
+            session_mgr = session_manager
+
+        if not session_mgr.session or not session_mgr.session.interruption_state:
+            return None
+
+        interruption = session_mgr.session.interruption_state
+        if interruption.phase != PipelinePhase.COLLECTION.value:
+            return None
+
+        logger.info(f"Resuming interrupted collection for '{session_mgr.session.current_condition}'")
+        return self.collect_current_condition(session_mgr)
+
+
+def create_collection_integrator(session_mgr: RotationSessionManager = None) -> RotationPaperCollector:
+    """
+    Create and return a collection integrator instance.
+
+    This function provides backward compatibility for code that previously
+    used RotationCollectionIntegrator. The RotationPaperCollector now includes
+    all integration functionality.
+    """
+    return RotationPaperCollector()
 
 
 def collect_single_condition(condition: str, target_count: int = 10,

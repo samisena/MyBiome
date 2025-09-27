@@ -392,7 +392,7 @@ class EntityNormalizer:
                         'id': entity['id'],
                         'canonical_name': entity['canonical_name'],
                         'entity_type': entity['entity_type'],
-                        'metadata': entity['metadata'],
+                        'description': entity['description'] if 'description' in entity.keys() else '',
                         'confidence_score': 0.95,
                         'match_method': 'safe_plural_addition'
                     })
@@ -401,7 +401,7 @@ class EntityNormalizer:
                         'id': entity['id'],
                         'canonical_name': entity['canonical_name'],
                         'entity_type': entity['entity_type'],
-                        'metadata': entity['metadata'],
+                        'description': entity['description'] if 'description' in entity.keys() else '',
                         'confidence_score': 0.95,
                         'match_method': 'safe_plural_removal'
                     })
@@ -419,7 +419,7 @@ class EntityNormalizer:
                         'id': entity['id'],
                         'canonical_name': entity['canonical_name'],
                         'entity_type': entity['entity_type'],
-                        'metadata': entity['metadata'],
+                        'description': entity['description'] if 'description' in entity.keys() else '',
                         'confidence_score': 0.9,
                         'match_method': 'definite_article_removal'
                     })
@@ -435,7 +435,7 @@ class EntityNormalizer:
                     'id': entity['id'],
                     'canonical_name': entity['canonical_name'],
                     'entity_type': entity['entity_type'],
-                    'metadata': entity['metadata'],
+                    'description': entity['description'] if 'description' in entity.keys() else '',
                     'confidence_score': 0.9,
                     'match_method': 'spacing_punctuation_normalization'
                 })
@@ -568,7 +568,7 @@ class EntityNormalizer:
                     'id': entity['id'],
                     'canonical_name': entity['canonical_name'],
                     'entity_type': entity['entity_type'],
-                    'metadata': entity['metadata'],
+                    'description': entity['description'] if 'description' in entity.keys() else '',
                     'similarity_score': canonical_similarity,
                     'match_method': 'restricted_similarity',
                     'matched_text': entity['canonical_name'],
@@ -587,7 +587,7 @@ class EntityNormalizer:
                         'id': entity['id'],
                         'canonical_name': entity['canonical_name'],
                         'entity_type': entity['entity_type'],
-                        'metadata': entity['metadata'],
+                        'description': entity['description'] if 'description' in entity.keys() else '',
                         'similarity_score': mapping_similarity,
                         'match_method': 'restricted_similarity',
                         'matched_text': entity['raw_text'],
