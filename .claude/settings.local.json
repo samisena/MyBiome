@@ -16,7 +16,11 @@
       "Bash(grep:*)",
       "Bash(rm:*)",
       "Bash(find:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(git restore:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)",
+      "Bash(git mv:*)"
     ],
     "deny": [],
     "ask": []

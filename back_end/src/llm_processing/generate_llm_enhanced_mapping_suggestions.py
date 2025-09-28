@@ -17,7 +17,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 # FAST_MODE enabled by default for optimal performance
 FAST_MODE = os.getenv('FAST_MODE', '1').lower() in ('1', 'true', 'yes')
 
-from entity_normalizer import EntityNormalizer
+from entity_normalizer_v2 import EntityNormalizer
 
 
 def analyze_existing_mappings(conn: sqlite3.Connection) -> Dict[str, int]:

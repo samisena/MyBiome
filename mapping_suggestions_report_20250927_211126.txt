@@ -1,0 +1,30 @@
+============================================================
+LLM-ENHANCED MAPPING SUGGESTIONS REPORT
+============================================================
+
+CURRENT MAPPING COVERAGE:
+  intervention: 6/815 (0.7%)
+  condition: 2/408 (0.5%)
+
+NEW MAPPING SUGGESTIONS:
+  Total terms analyzed: 390
+  Safe matches (ready to apply): 98
+  LLM high confidence (≥70%): 0
+  LLM medium confidence (50-69%): 0
+  No confident matches: 292
+
+RECOMMENDED ACTIONS:
+1. AUTO-APPLY 98 safe matches
+4. RESEARCH 292 unmatched terms (create new canonical entities?)
+
+TOP UNMATCHED TERMS (by frequency):
+  coronary artery disease (freq: 39)
+  coronary artery disease (CAD) (freq: 19)
+  diarrhea-predominant irritable bowel syndrome (IBS-D) (freq: 19)
+  Kundalini Yoga (KY) (freq: 19)
+  knee osteoarthritis (freq: 18)
+  type 2 diabetes (freq: 18)
+  coronary heart disease (freq: 17)
+  small intestinal bacterial overgrowth (SIBO) (freq: 16)
+  SIBO (freq: 13)
+  heart failure (freq: 13)

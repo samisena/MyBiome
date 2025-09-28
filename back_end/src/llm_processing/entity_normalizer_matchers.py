@@ -9,7 +9,7 @@ import re
 import json
 from abc import ABC, abstractmethod
 from typing import List, Dict, Any, Optional
-from .repository import CanonicalRepository
+from .entity_normalizer_repository import CanonicalRepository
 
 # Import LLM functionality
 try:

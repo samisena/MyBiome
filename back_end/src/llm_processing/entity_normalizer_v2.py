@@ -11,9 +11,9 @@ Classes:
 import sqlite3
 from typing import Optional, List, Dict, Any
 
-from .repository import CanonicalRepository
-from .engine import MatchingEngine, MatchingMode
-from .matchers import MatchResult
+from .entity_normalizer_repository import CanonicalRepository
+from .entity_normalizer_engine import MatchingEngine, MatchingMode
+from .entity_normalizer_matchers import MatchResult
 
 
 class EntityNormalizer:
@@ -305,7 +305,7 @@ class EntityNormalizer:
         Returns:
             The normalized term
         """
-        from .matchers import MatchingStrategy
+        from .entity_normalizer_matchers import MatchingStrategy
         return MatchingStrategy.normalize_term(term)
 
     def validate_entity_type(self, entity_type: str) -> bool:

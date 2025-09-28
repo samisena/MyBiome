@@ -8,8 +8,8 @@ to slow/intelligent methods.
 
 from typing import List, Dict, Any, Optional, Set
 from enum import Enum
-from .entity_normalizer_repository import CanonicalRepository
-from .entity_normalizer_matchers import MatchingStrategy, MatchResult, ExactMatcher, PatternMatcher, LLMMatcher
+from .repository import CanonicalRepository
+from .matchers import MatchingStrategy, MatchResult, ExactMatcher, PatternMatcher, LLMMatcher
 
 
 class MatchingMode(Enum):

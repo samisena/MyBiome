@@ -21,7 +21,7 @@ logger = setup_logging(__name__, 'database.log')
 
 # Optional import for entity normalization - graceful fallback if not available
 try:
-    from ..llm_processing.entity_normalizer import EntityNormalizer
+    from ..llm_processing.entity_normalizer_v2 import EntityNormalizer
     NORMALIZATION_AVAILABLE = True
 except ImportError:
     NORMALIZATION_AVAILABLE = False

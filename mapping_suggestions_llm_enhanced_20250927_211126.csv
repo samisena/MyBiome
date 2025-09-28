@@ -1,0 +1,391 @@
+entity_type,original_term,frequency,suggested_canonical,confidence,method,canonical_id,notes
+condition,irritable bowel syndrome (IBS),146,Irritable Bowel Syndrome,0.95,exact_normalized,817,Safe pattern/exact matching
+condition,Irritable Bowel Syndrome (IBS),51,Irritable Bowel Syndrome,0.95,exact_normalized,817,Safe pattern/exact matching
+condition,coronary artery disease,39,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,rheumatoid arthritis,28,Rheumatoid Arthritis,0.95,exact_normalized,803,Safe pattern/exact matching
+condition,hypertension,27,hypertension,0.95,exact_normalized,583,Safe pattern/exact matching
+condition,coronary artery disease (CAD),19,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,diarrhea-predominant irritable bowel syndrome (IBS-D),19,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,knee osteoarthritis,18,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,type 2 diabetes,18,type 2 diabetes (T2DM),0.9,spacing_punctuation_normalization,623,Safe pattern/exact matching
+condition,coronary heart disease,17,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,small intestinal bacterial overgrowth (SIBO),16,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,SIBO,13,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,heart failure,13,heart failure (HFmrEF or HFpEF),0.9,spacing_punctuation_normalization,639,Safe pattern/exact matching
+condition,IBS-D,12,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,atrial fibrillation (AF),11,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,cardiovascular disease,10,Cardiovascular Disease,0.95,exact_normalized,822,Safe pattern/exact matching
+condition,depression,10,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,type 2 diabetes mellitus (T2DM),10,Type 2 Diabetes Mellitus,0.95,exact_normalized,806,Safe pattern/exact matching
+condition,coronary heart disease (CHD),9,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,gout,9,Gout,0.95,exact_normalized,827,Safe pattern/exact matching
+condition,atrial fibrillation,8,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,constipation-predominant irritable bowel syndrome (IBS-C),8,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,migraine,8,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,migraine headache,8,Migraine Headache,0.95,exact_normalized,820,Safe pattern/exact matching
+condition,Irritable bowel syndrome,7,Irritable Bowel Syndrome,0.95,exact_normalized,817,Safe pattern/exact matching
+condition,Arrhythmogenic right ventricular cardiomyopathy (ARVC),6,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,aortic stenosis (AS),6,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,constipation,6,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,inflammatory and infective diseases,6,inflammatory and infective diseases,0.95,exact_normalized,733,Safe pattern/exact matching
+condition,irritable bowel syndrome - diarrhea (IBS-D),6,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,low anterior resection syndrome (LARS),6,low anterior resection syndrome (LARS),0.9,spacing_punctuation_normalization,720,Safe pattern/exact matching
+condition,type 2 diabetes mellitus,6,Type 2 Diabetes Mellitus,0.95,exact_normalized,806,Safe pattern/exact matching
+condition,Irritable Bowel Syndrome with Constipation (IBS-C),5,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,arrhythmogenic right ventricular cardiomyopathy (ARVC),5,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,cardiovascular diseases,5,cardiovascular disease (CVD),0.95,safe_plural_addition,566,Safe pattern/exact matching
+condition,irritable bowel syndrome with constipation (IBS-C),5,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,postpartum depression,5,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,ventricular tachycardia,5,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,Non-erosive reflux disease (NERD),4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,PASC,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,Post-acute Sequelae of SARS-CoV-2 infection (PASC),4,Post-acute Sequelae of SARS-CoV-2 infection,0.95,exact_normalized,807,Safe pattern/exact matching
+condition,acute decompensated heart failure (ADHF),4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,bipolar disorder,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,cardiac function,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,cardiovascular diseases (CVDs),4,cardiovascular disease (CVD),0.95,safe_plural_addition,566,Safe pattern/exact matching
+condition,constipation-predominant irritable bowel syndrome (IBS),4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,cryptogenic strokes,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,cryptogenic strokes due to Lambl's excrescences and cardiac papillary fibroelastoma,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,diabetes,4,diabetes,0.95,exact_normalized,699,Safe pattern/exact matching
+condition,early rheumatoid arthritis,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,functional constipation,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,gastro-esophageal reflux disease (GERD),4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,permanent atrial fibrillation,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,pulmonary arterial hypertension,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,small vessel coronary artery disease (SVCAD),4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,stage III colon cancer,4,stage III colon cancer,0.95,exact_normalized,800,Safe pattern/exact matching
+condition,Alzheimer's disease and related dementias,3,Alzheimer's disease and related dementias,0.9,spacing_punctuation_normalization,548,Safe pattern/exact matching
+condition,Irritable Bowel Syndrome,3,Irritable Bowel Syndrome,0.95,exact_normalized,817,Safe pattern/exact matching
+condition,LBBB,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,ST-segment elevation myocardial infarction (STEMI) with multivessel disease (MVD),3,ST-segment elevation myocardial infarction with multivessel disease,0.95,exact_normalized,669,Safe pattern/exact matching
+condition,adult native knee septic arthritis,3,adult native knee septic arthritis,0.95,exact_normalized,552,Safe pattern/exact matching
+condition,ankylosing spondylitis,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,asymptomatic severe aortic stenosis,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,blood pressure,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,cardiac conditions,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,carotid atherosclerosis,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,carotid atherosclerosis in patients with type 2 diabetes mellitus,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,chemotherapy-induced cardiotoxicity,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,chronic idiopathic constipation (CIC),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,chronic kidney disease,3,Chronic Kidney Disease,0.95,exact_normalized,831,Safe pattern/exact matching
+condition,cigarette smoking,3,cigarette smoking,0.95,exact_normalized,564,Safe pattern/exact matching
+condition,congenital heart disease,3,congenital heart disease,0.95,exact_normalized,712,Safe pattern/exact matching
+condition,diabetic ketoacidosis,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,diabetic kidney disease,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,diabetic kidney disease (DKD),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,diarrhea-predominant irritable bowel syndrome,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,early gestational diabetes mellitus (eGDM),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,fatigue,3,fatigue,0.95,exact_normalized,559,Safe pattern/exact matching
+condition,food intolerance,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,hepatocellular carcinoma (HCC),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,high-risk patients undergoing complex PCI,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,high-risk patients undergoing complex percutaneous coronary intervention,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,hypercholesterolemia,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,hyperlipidemia,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,inflammatory bowel disease (IBD),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,left bundle branch block (LBBB),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,myocardial infarction,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,obesity,3,Obesity,0.95,exact_normalized,821,Safe pattern/exact matching
+condition,obesity and mild GI symptoms,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,post-infectious irritable bowel syndrome (PI-IBS),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,postoperative atrial fibrillation (POAF),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,prediabetes,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,psychological distress,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,"rheumatoid arthritis, osteoarthritis",3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,transperineal prostate biopsy in elderly men,3,transperineal prostate biopsy in elderly men,0.95,exact_normalized,713,Safe pattern/exact matching
+condition,treatment-resistant depression (TRD),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,uncomplicated type B aortic dissection (uTBAD),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,visceral pain,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,"visceral pain, functional gastrointestinal disorders",3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,Aortic stenosis with concomitant coronary artery disease,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,Chronic Coronary Disease,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,Contrast-associated acute kidney injury (CA-AKI),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,Gestational Diabetes Mellitus (GDM),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,HR-QoL,2,HR-QoL,0.95,exact_normalized,662,Safe pattern/exact matching
+condition,Helicobacter pylori infection,2,Helicobacter pylori infection,0.95,exact_normalized,743,Safe pattern/exact matching
+condition,Irritable bowel syndrome (IBS),2,Irritable Bowel Syndrome,0.95,exact_normalized,817,Safe pattern/exact matching
+condition,RET-altered thyroid cancer,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,SARS-CoV-2 infection,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,ST-elevation myocardial infarction (STEMI) with multivessel coronary artery disease (MVD),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,ST-segment elevation myocardial infarction and multivessel disease,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,Type 2 diabetes,2,type 2 diabetes (T2DM),0.9,spacing_punctuation_normalization,623,Safe pattern/exact matching
+condition,acute calcium pyrophosphate (CPP) crystal arthritis,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,acute calcium pyrophosphate arthritis,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,acute coronary syndrome,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,acute coronary syndrome (ACS),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,acute myocardial infarction (AMI),2,acute myocardial infarction (AMI),0.9,spacing_punctuation_normalization,774,Safe pattern/exact matching
+condition,acutely decompensated heart failure,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,angina pectoris of coronary heart disease,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,anxiety,2,anxiety,0.95,exact_normalized,775,Safe pattern/exact matching
+condition,anxiety disorder,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,aortic stenosis,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,aortic valve stenosis,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,atherosclerosis,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,atherosclerotic cardiovascular disease,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,atherosclerotic cardiovascular disease (ASCVD),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,atrial fibrillation with heart failure,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,"atrial fibrillation, stable coronary artery disease",2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,breast cancer,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,cardiovascular complications in patients with atrial fibrillation,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,cardiovascular disease (CVD),2,Cardiovascular Disease,0.95,exact_normalized,822,Safe pattern/exact matching
+condition,chronic coronary syndrome,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,chronic coronary syndrome (CCS),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,cognitive dysfunction,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,congenital heart disease (CHD),2,congenital heart disease,0.95,exact_normalized,712,Safe pattern/exact matching
+condition,contrast-associated acute kidney injury (CA-AKI),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,coronary heart disease angina pectoris,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,coronary heart disease with angina pectoris after percutaneous coronary intervention,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,depression and anxiety associated with life threatening illness,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,diabetes mellitus,2,diabetes mellitus,0.95,exact_normalized,635,Safe pattern/exact matching
+condition,diabetic foot osteomyelitis,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,diabetic ketoacidosis (DKA),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,diuretic resistance in acute heart failure,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,dysbiotic microbiota,2,dysbiotic microbiota,0.95,exact_normalized,756,Safe pattern/exact matching
+condition,exclusive breastfeeding (EBF),2,exclusive breastfeeding (EBF),0.9,spacing_punctuation_normalization,630,Safe pattern/exact matching
+condition,functional abdominal pain (FAP),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,functional dyspepsia,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,functional gastrointestinal disorders (FGIDs),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,gut microbiota regulation,2,gut microbiota regulation,0.95,exact_normalized,682,Safe pattern/exact matching
+condition,heart failure (HF),2,heart failure (HFmrEF or HFpEF),0.9,spacing_punctuation_normalization,639,Safe pattern/exact matching
+condition,heart failure and moderate renal impairment,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,heart failure with atrial fibrillation,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,infantile colic,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,inflammatory bowel disease,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,inflammatory knee osteoarthritis,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,irritable bowel syndrome with predominant constipation (IBS-C),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,irritable bowel syndrome with predominant constipation complaints (IBS-C),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,ischaemic heart disease,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,kidney function decline in heart transplant recipients,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,knee osteoarthritis (KOA),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,knee osteoarthritis (OA),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,knee osteoarthritis pain,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,large vessel coronary artery disease,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,left main coronary artery disease or 3-vessel disease,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,long-diffuse coronary artery disease (ldCAD),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,major depressive disorder (MDD),2,major depressive disorder,0.95,exact_normalized,771,Safe pattern/exact matching
+condition,mild knee osteoarthritis,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,mild knee osteoarthritis (KOA),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,milk sensitivity,2,milk sensitivity,0.95,exact_normalized,593,Safe pattern/exact matching
+condition,non-ST-elevation acute coronary syndrome (NSTE-ACS) with congestive heart failure (CHF),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,non-ST-segment-elevation acute coronary syndrome (NSTE-ACS) with multivessel coronary artery disease (MVD),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,nonalcoholic fatty liver disease (NAFLD),2,nonalcoholic fatty liver disease (NAFLD),0.9,spacing_punctuation_normalization,735,Safe pattern/exact matching
+condition,nonobstructive coronary artery disease (NOCAD),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,oligoarticular juvenile idiopathic arthritis,2,oligoarticular juvenile idiopathic arthritis,0.95,exact_normalized,657,Safe pattern/exact matching
+condition,opioid use disorder,2,opioid use disorder,0.95,exact_normalized,617,Safe pattern/exact matching
+condition,patellofemoral pain syndrome,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,peptic ulcer disease,2,peptic ulcer disease,0.95,exact_normalized,764,Safe pattern/exact matching
+condition,psoriatic arthritis,2,psoriatic arthritis,0.95,exact_normalized,570,Safe pattern/exact matching
+condition,psoriatic arthritis (PsA),2,psoriatic arthritis,0.95,exact_normalized,570,Safe pattern/exact matching
+condition,psychosocial needs,2,psychosocial needs,0.95,exact_normalized,587,Safe pattern/exact matching
+condition,pulmonary arterial hypertension (PAH),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,pulmonary embolism,2,pulmonary embolism,0.95,exact_normalized,705,Safe pattern/exact matching
+condition,reflux esophagitis (RE),2,reflux esophagitis (RE),0.9,spacing_punctuation_normalization,797,Safe pattern/exact matching
+condition,refractory angina,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,refractory irritable bowel syndrome (IBS),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,renal anemia,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,scar-related ventricular tachycardia,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,septic shock,2,septic shock,0.95,exact_normalized,685,Safe pattern/exact matching
+condition,severe Mycoplasma pneumoniae pneumonia (MPP),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,severe aortic stenosis (AS),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,severe asymptomatic aortic stenosis,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,stable CVD,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,stable coronary artery disease (CAD),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,sudden cardiac death,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,treatment-resistant depression,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,"type 2 diabetes, heart failure, chronic kidney disease",2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+condition,uncontrolled hypertension,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Kundalini Yoga (KY),19,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,osteopathic treatment,15,osteopathic treatment,0.95,exact_normalized,521,Safe pattern/exact matching
+intervention,rifaximin,11,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,acupuncture,10,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,empagliflozin,10,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,SGLT2 inhibitors,9,SGLT2 inhibitors (SGLT2i),0.9,spacing_punctuation_normalization,258,Safe pattern/exact matching
+intervention,antibiotics,9,Antibiotics,0.95,exact_normalized,812,Safe pattern/exact matching
+intervention,synbiotics,9,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,dapagliflozin,8,dapagliflozin,0.95,exact_normalized,125,Safe pattern/exact matching
+intervention,prebiotics,8,prebiotics,0.95,exact_normalized,345,Safe pattern/exact matching
+intervention,flecainide,7,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,clopidogrel,6,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,statins,6,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,ticagrelor,6,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,colchicine,5,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,fecal microbiota transplantation (FMT),5,fecal microbiota transplantation,0.95,exact_normalized,440,Safe pattern/exact matching
+intervention,methotrexate,5,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Placebo,4,placebo,0.95,exact_normalized,4,Safe pattern/exact matching
+intervention,aspirin,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,complete revascularization (CR),4,complete revascularization (CR),0.9,spacing_punctuation_normalization,210,Safe pattern/exact matching
+intervention,neomycin,4,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,physical activity,4,Physical Activity,0.95,exact_normalized,813,Safe pattern/exact matching
+intervention,Dapagliflozin,3,dapagliflozin,0.95,exact_normalized,125,Safe pattern/exact matching
+intervention,Digital Therapeutics (DTx),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Faecal microbiota transplantation (FMT),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,SGLT-2 inhibitors,3,SGLT2 inhibitors (SGLT2i),0.9,spacing_punctuation_normalization,258,Safe pattern/exact matching
+intervention,Sodium-glucose cotransporter 2 inhibitors (SGLT2i),3,sodium-glucose co-transporter-2 inhibitors (SGLT2i),0.9,spacing_punctuation_normalization,257,Safe pattern/exact matching
+intervention,Western medicine,3,Western medicine,0.95,exact_normalized,213,Safe pattern/exact matching
+intervention,antidepressants,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,ciprofloxacin,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,exercise,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,finerenone,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,gluten-free diet,3,gluten-free diet,0.95,exact_normalized,476,Safe pattern/exact matching
+intervention,guselkumab,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,high-intensity interval training (HIIT),3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,incomplete revascularization (IR),3,incomplete revascularization (IR),0.9,spacing_punctuation_normalization,211,Safe pattern/exact matching
+intervention,low-FODMAP diet,3,low FODMAP diet (LFD),0.9,spacing_punctuation_normalization,468,Safe pattern/exact matching
+intervention,melatonin,3,melatonin,0.95,exact_normalized,82,Safe pattern/exact matching
+intervention,metformin,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,metronidazole,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,moxibustion,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,peppermint oil,3,peppermint oil,0.95,exact_normalized,433,Safe pattern/exact matching
+intervention,repetitive transcranial magnetic stimulation (rTMS),3,repetitive transcranial magnetic stimulation (rTMS),0.9,spacing_punctuation_normalization,99,Safe pattern/exact matching
+intervention,sertraline,3,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,social-media-based mental health interventions,3,social-media-based mental health interventions,0.95,exact_normalized,516,Safe pattern/exact matching
+intervention,transcranial direct current stimulation (tDCS),3,transcranial direct current stimulation (tDCS),0.9,spacing_punctuation_normalization,510,Safe pattern/exact matching
+intervention,AZD5462,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Acacia fiber,2,Acacia fiber,0.95,exact_normalized,343,Safe pattern/exact matching
+intervention,Bifidobacterium bifidum MIMBb75,2,Bifidobacterium bifidum MIMBb75,0.95,exact_normalized,417,Safe pattern/exact matching
+intervention,CT angiography,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Cardiac resynchronization therapy (CRT),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,DASH diet,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Danhong Injection,2,Danhong injection (DH),0.9,spacing_punctuation_normalization,378,Safe pattern/exact matching
+intervention,Danhong injection (DH),2,Danhong injection (DH),0.9,spacing_punctuation_normalization,378,Safe pattern/exact matching
+intervention,Dansenduofensuanyan injection (DSDFSY),2,Dansenduofensuanyan injection (DSDFSY),0.9,spacing_punctuation_normalization,380,Safe pattern/exact matching
+intervention,Danshenchuanxiongqin injection (DSCXQ),2,Danshenchuanxiongqin injection (DSCXQ),0.9,spacing_punctuation_normalization,379,Safe pattern/exact matching
+intervention,Empagliflozin,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Eye Movement Desensitization and Reprocessing (EMDR),2,Eye Movement Desensitization and Reprocessing (EMDR),0.9,spacing_punctuation_normalization,103,Safe pattern/exact matching
+intervention,Fecal Microbiota Transplantation (FMT),2,fecal microbiota transplantation,0.95,exact_normalized,440,Safe pattern/exact matching
+intervention,Guanxinning injection (GXN),2,Guanxinning injection (GXN),0.9,spacing_punctuation_normalization,381,Safe pattern/exact matching
+intervention,Jianpi Therapy (JP),2,Jianpi Therapy (JP),0.9,spacing_punctuation_normalization,529,Safe pattern/exact matching
+intervention,Jianpiwenshen Therapy (JPWS),2,Jianpiwenshen Therapy (JPWS),0.9,spacing_punctuation_normalization,531,Safe pattern/exact matching
+intervention,Lacticaseibacillus rhamnosus GG (LGG),2,Lacticaseibacillus rhamnosus GG (LGG),0.9,spacing_punctuation_normalization,369,Safe pattern/exact matching
+intervention,Lactiplantibacillus plantarum 299v,2,Lactiplantibacillus plantarum 299v,0.95,exact_normalized,463,Safe pattern/exact matching
+intervention,Lactobacillus acidophilus,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Lactobacillus acidophilus DDS-1,2,Lactobacillus acidophilus DDS-1,0.95,exact_normalized,405,Safe pattern/exact matching
+intervention,Lactobacillus gasseri LA806,2,Lactobacillus gasseri LA806,0.95,exact_normalized,438,Safe pattern/exact matching
+intervention,Lactobacillus plantarum,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Lactobacillus plantarum DSM 9843,2,Lactobacillus plantarum DSM 9843,0.95,exact_normalized,416,Safe pattern/exact matching
+intervention,Limosilactobacillus (L.) reuteri DSM 17938,2,Limosilactobacillus (L.) reuteri DSM 17938,0.9,spacing_punctuation_normalization,367,Safe pattern/exact matching
+intervention,M201-A,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Mediterranean diet,2,Mediterranean diet,0.95,exact_normalized,5,Safe pattern/exact matching
+intervention,Probiotics,2,Probiotics,0.95,exact_normalized,811,Safe pattern/exact matching
+intervention,Selective serotonin reuptake inhibitors (SSRIs),2,Selective serotonin reuptake inhibitors (SSRIs),0.9,spacing_punctuation_normalization,8,Safe pattern/exact matching
+intervention,Shenzhu Guanxin Granule,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Shugan Therapy (SG),2,Shugan Therapy (SG),0.9,spacing_punctuation_normalization,530,Safe pattern/exact matching
+intervention,Shuganjianpi Therapy (SGJP),2,Shuganjianpi Therapy (SGJP),0.9,spacing_punctuation_normalization,528,Safe pattern/exact matching
+intervention,Silicolgel,2,Silicolgel,0.95,exact_normalized,168,Safe pattern/exact matching
+intervention,Sodium Tanshinone IIA Sulfonate injection (STS),2,Sodium Tanshinone IIA Sulfonate injection (STS),0.9,spacing_punctuation_normalization,382,Safe pattern/exact matching
+intervention,Tongxinluo Capsule,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,Xiangdan injection (XD),2,Xiangdan injection (XD),0.9,spacing_punctuation_normalization,383,Safe pattern/exact matching
+intervention,Xinyue capsule,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,acupressure,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,aerobic conditioning,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,aerobic exercise,2,aerobic exercise,0.95,exact_normalized,313,Safe pattern/exact matching
+intervention,amiodarone,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,amlodipine,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,ankle arthrodesis,2,ankle arthrodesis,0.95,exact_normalized,208,Safe pattern/exact matching
+intervention,anthracyclines,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,anti-interleukin-6 receptor,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,anti-reflux mucosal ablation (ARMA),2,anti-reflux mucosal ablation (ARMA),0.9,spacing_punctuation_normalization,536,Safe pattern/exact matching
+intervention,anti-tumor necrosis factor,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,aortic valve replacement,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,bare-metal stents (BMS),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,behavioral activation (BA),2,behavioral activation (BA),0.9,spacing_punctuation_normalization,147,Safe pattern/exact matching
+intervention,benzylpenicillin (penicillin G),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,biodegradable polymer drug-eluting stents (BP-DES),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,bisoprolol,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,carotid endarterectomy (CEA),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,catheter ablation,2,catheter ablation,0.95,exact_normalized,225,Safe pattern/exact matching
+intervention,catheter ablation (CA),2,catheter ablation,0.95,exact_normalized,225,Safe pattern/exact matching
+intervention,chatbot assistance,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,close surveillance,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,cognitive training (CT),2,cognitive training,0.95,exact_normalized,162,Safe pattern/exact matching
+intervention,dance and yoga,2,dance and yoga,0.95,exact_normalized,460,Safe pattern/exact matching
+intervention,daprodustat,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,dexmedetomidine (DEX),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,"diet low in fermentable oligosaccharides, disaccharides, monosaccharides, and polyols",2,"diet low in fermentable oligosaccharides, disaccharides, monosaccharides, and polyols",0.9,spacing_punctuation_normalization,489,Safe pattern/exact matching
+intervention,dietary alterations,2,dietary alterations,0.95,exact_normalized,503,Safe pattern/exact matching
+intervention,dietary counseling,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,digoxin,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,direct oral anticoagulants,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,dobutamine stress echo,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,drug-eluting stents,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,drug-eluting stents (DES),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,dual antiplatelet therapy,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,durable polymer drug-eluting stents (DP-DES),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,evolocumab,2,evolocumab,0.95,exact_normalized,328,Safe pattern/exact matching
+intervention,exercise/weight/diet,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,fasudil hydrochloride,2,fasudil hydrochloride,0.95,exact_normalized,267,Safe pattern/exact matching
+intervention,fecal microbiota transplantation,2,fecal microbiota transplantation,0.95,exact_normalized,440,Safe pattern/exact matching
+intervention,fiber intake,2,fiber intake,0.95,exact_normalized,424,Safe pattern/exact matching
+intervention,fiber-rich diet,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,game-based exercises,2,game-based exercises,0.95,exact_normalized,185,Safe pattern/exact matching
+intervention,green kiwifruit consumption,2,green kiwifruit consumption,0.95,exact_normalized,414,Safe pattern/exact matching
+intervention,guideline-directed medical therapy (GDMT),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,hydration,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,implantable cardioverter-defibrillator (ICD) implantation,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,inclisiran,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,individual and family health literacy enhancement program,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,intermittent fasting,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,kombucha-based drink enriched with inulin and vitamins,2,kombucha-based drink enriched with inulin and vitamins,0.95,exact_normalized,391,Safe pattern/exact matching
+intervention,levocetirizine,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,linaclotide,2,linaclotide,0.95,exact_normalized,350,Safe pattern/exact matching
+intervention,low glycemic index diet,2,low glycemic index diet,0.95,exact_normalized,478,Safe pattern/exact matching
+intervention,low-dose glucagon,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,"low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols diet (FODMAP)",2,"low-fermentable oligosaccharides, disaccharides, monosaccharides, and polyols diet (FODMAP)",0.9,spacing_punctuation_normalization,341,Safe pattern/exact matching
+intervention,lower sodium food choices,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,methadone,2,methadone,0.95,exact_normalized,122,Safe pattern/exact matching
+intervention,microbiome-based artificial intelligence-assisted personalized diet (PD),2,microbiome-based artificial intelligence-assisted personalized diet (PD),0.9,spacing_punctuation_normalization,340,Safe pattern/exact matching
+intervention,mindfulness meditation,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,mobile message-based intervention,2,mobile message-based intervention,0.95,exact_normalized,512,Safe pattern/exact matching
+intervention,mobile-based postpartum lifestyle intervention,2,mobile-based postpartum lifestyle intervention,0.95,exact_normalized,519,Safe pattern/exact matching
+intervention,moderate-intensity training (MIT),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,multi-strain probiotic,2,multi-strain probiotic,0.95,exact_normalized,454,Safe pattern/exact matching
+intervention,multidomain lifestyle intervention,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,neuropsychological and cognitive remediation,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,nurse-led peer support intervention,2,nurse-led peer support intervention,0.95,exact_normalized,513,Safe pattern/exact matching
+intervention,optimal medical therapy (OMT),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,oral anticoagulant therapy,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,oxygen therapy (OT),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,personalized elimination diet,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,polyphenol-heavy diet,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,potassium chloride (KCL),2,Potassium Chloride (KCL),0.9,spacing_punctuation_normalization,825,Safe pattern/exact matching
+intervention,potassium phosphate (KPO₄),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,precision probiotics,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,prednisolone,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,prednisone,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,probiotic administration,2,probiotic administration,0.95,exact_normalized,348,Safe pattern/exact matching
+intervention,proton pump inhibitors,2,proton pump inhibitors,0.95,exact_normalized,501,Safe pattern/exact matching
+intervention,psychological therapies,2,psychological therapies,0.95,exact_normalized,467,Safe pattern/exact matching
+intervention,psyllium consumption,2,psyllium consumption,0.95,exact_normalized,415,Safe pattern/exact matching
+intervention,quetiapine,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,quetiapine extended release,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,reflexology,2,reflexology,0.95,exact_normalized,229,Safe pattern/exact matching
+intervention,resistance conditioning,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,resistance training,2,resistance training,0.95,exact_normalized,131,Safe pattern/exact matching
+intervention,resveratrol,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,rivaroxaban monotherapy,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,rivaroxaban plus antiplatelet agent therapy,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,sacral nerve stimulation,2,sacral nerve stimulation,0.95,exact_normalized,404,Safe pattern/exact matching
+intervention,sacubitril/valsartan,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,scar-related ventricular tachycardia ablation,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,semaglutide,2,semaglutide,0.95,exact_normalized,523,Safe pattern/exact matching
+intervention,serum-derived bovine immunoglobulin (SBI),2,serum-derived bovine immunoglobulin (SBI),0.9,spacing_punctuation_normalization,411,Safe pattern/exact matching
+intervention,sitagliptin,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,social media-based patient education,2,social media-based patient education,0.95,exact_normalized,311,Safe pattern/exact matching
+intervention,soluble fiber supplementation,2,soluble fiber supplementation,0.95,exact_normalized,443,Safe pattern/exact matching
+intervention,sotalol,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,standard oxygen therapy (SOT),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,statin therapy,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,strengthening of accessory breathing muscles and diaphragm,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,stress nuclear imaging,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,stress testing,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,surgical aortic valve replacement (SAVR),2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,surgical valve replacement,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,tenapanor,2,tenapanor,0.95,exact_normalized,297,Safe pattern/exact matching
+intervention,tirzepatide,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,transcutaneous electrical nerve stimulation (TENS),2,transcutaneous electrical nerve stimulation (TENS),0.9,spacing_punctuation_normalization,518,Safe pattern/exact matching
+intervention,tricyclic antidepressants,2,Tricyclic Antidepressants (TCAs),0.9,spacing_punctuation_normalization,366,Safe pattern/exact matching
+intervention,valsartan,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,vitamin D,2,vitamin D,0.95,exact_normalized,64,Safe pattern/exact matching
+intervention,warfarin,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
+intervention,yoga,2,,0.0,no_match,,No safe or confident LLM match found - manual review needed
