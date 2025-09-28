@@ -16,7 +16,7 @@ import csv
 # Add the src directory to the path so we can import our modules
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from entity_normalizer_v2 import EntityNormalizer
+from ..llm_processing.batch_entity_processor import BatchEntityProcessor as EntityNormalizer
 
 
 def get_unmapped_terms(conn: sqlite3.Connection, entity_type: str, min_frequency: int = 2) -> List[Tuple[str, int]]:

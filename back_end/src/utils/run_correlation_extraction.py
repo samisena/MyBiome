@@ -58,13 +58,6 @@ def run_intervention_extraction(limit: int = None, batch_size: int = 3):
             for model, stats in model_stats.items():
                 print(f"    {model}: {stats.get('interventions', 0)} interventions from {stats.get('papers', 0)} papers")
         
-        # Show token usage if available
-        token_usage = results.get('token_usage', {})
-        if token_usage:
-            print("  Token usage by model:")
-            for model, usage in token_usage.items():
-                if isinstance(usage, dict):
-                    print(f"    {model}: {usage.get('total', 0):,} tokens")
         
         return results.get('successful_papers', 0) > 0
         

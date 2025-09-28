@@ -16,14 +16,10 @@ from back_end.src.data_collection.database_manager import database_manager
 
 # Optional import for entity normalization - graceful fallback if not available
 try:
-    from ..llm_processing.entity_normalizer_v2 import EntityNormalizer
+    from .batch_entity_processor import BatchEntityProcessor as EntityNormalizer
     NORMALIZATION_AVAILABLE = True
 except ImportError:
-    try:
-        from entity_normalizer_v2 import EntityNormalizer
-        NORMALIZATION_AVAILABLE = True
-    except ImportError:
-        NORMALIZATION_AVAILABLE = False
+    NORMALIZATION_AVAILABLE = False
 
 def get_database_path() -> str:
     """Get the path to the SQLite database."""

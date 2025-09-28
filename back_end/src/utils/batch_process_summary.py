@@ -10,7 +10,7 @@ from back_end.src.data_collection.database_manager import database_manager
 # Add the src directory to the path so we can import our modules
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from entity_normalizer_v2 import EntityNormalizer
+from ..llm_processing.batch_entity_processor import BatchEntityProcessor as EntityNormalizer
 
 
 def show_batch_processing_summary():

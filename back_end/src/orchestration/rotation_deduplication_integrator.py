@@ -23,7 +23,7 @@ from typing import Dict, List, Optional, Any, Tuple
 
 try:
     from ..data.config import config, setup_logging
-    from ..llm_processing.llm_deduplication import run_deduplication
+    from ..llm_processing.batch_entity_processor import create_batch_processor
     from ..data_collection.database_manager import database_manager
 except ImportError:
     # Fallback for standalone execution
@@ -31,7 +31,7 @@ except ImportError:
     from pathlib import Path
     sys.path.append(str(Path(__file__).parent.parent.parent))
     from back_end.src.data.config import config, setup_logging
-    from back_end.src.llm_processing.llm_deduplication import run_deduplication
+    from back_end.src.llm_processing.batch_entity_processor import create_batch_processor
     from back_end.src.data_collection.database_manager import database_manager
 
 logger = setup_logging(__name__, 'rotation_deduplication_integrator.log')
@@ -124,8 +124,10 @@ class RotationDeduplicationIntegrator:
             try:
                 logger.info(f"Deduplication attempt {attempt + 1}/{self.max_retries + 1}")
 
-                # Run the existing deduplication function
-                run_deduplication()
+                # Run the new batch deduplication
+                processor = create_batch_processor()
+                dedup_result = processor.batch_deduplicate_entities()
+                logger.info(f"Merged {dedup_result['total_merged']} entities")
 
                 logger.info("Deduplication completed successfully")
                 return {'success': True}
