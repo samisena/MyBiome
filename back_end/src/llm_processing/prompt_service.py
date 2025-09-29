@@ -46,7 +46,156 @@ class InterventionPromptService:
         prompt = self._build_intervention_prompt(paper_content, category_descriptions)
         
         return prompt
-    
+
+    def create_entity_matching_prompt(self, term: str, candidate_canonicals: List[str], entity_type: str) -> str:
+        """
+        Create prompt for matching a single entity term to canonical forms.
+
+        Args:
+            term: The term to match
+            candidate_canonicals: List of canonical terms to match against
+            entity_type: Type of entity (e.g., 'intervention', 'condition')
+
+        Returns:
+            Formatted prompt string for entity matching
+        """
+        candidates_list = "\n".join([f"- {canonical}" for canonical in candidate_canonicals])
+
+        prompt = f"""You are a medical terminology expert. Given the {entity_type} term '{term}', determine if it represents the same medical concept as any of these canonical terms:
+
+{candidates_list}
+
+CRITICAL MEDICAL SAFETY - Be extremely cautious with:
+⚠️ OPPOSITE CONDITIONS: Terms with prefixes creating opposite meanings:
+   • hyper- vs hypo- (hypertension ≠ hypotension, hyperglycemia ≠ hypoglycemia)
+   • tachy- vs brady- (tachycardia ≠ bradycardia)
+   • -osis vs -alosis suffixes (acidosis ≠ alkalosis)
+⚠️ DIFFERENT INTERVENTIONS: Similar but distinct medical interventions:
+   • probiotics (live bacteria) ≠ prebiotics (bacterial food)
+   • antibiotics vs antivirals vs antifungals (different drug classes)
+   • different surgical procedures, therapy types, supplement categories
+⚠️ MEDICAL PRECISION:
+   • Dosage forms matter: oral vs topical vs injection routes are different
+   • Severity levels: acute vs chronic conditions are different
+   • Timing: pre-operative vs post-operative interventions are different
+⚠️ SOUND-ALIKE TERMS: Many medical terms sound similar but have different meanings
+⚠️ CONTEXT DEPENDENCY: Same intervention can have different medical contexts
+
+MATCHING PRINCIPLES:
+- Only match if terms represent the EXACT SAME medical concept
+- Consider valid synonyms, abbreviations, and alternative names
+- When in doubt, prefer NO MATCH rather than incorrect match
+- Medical accuracy is more important than recall
+
+Respond with valid JSON only:
+{{
+    "match": "exact_canonical_name_from_list_above" or null,
+    "confidence": 0.0-1.0,
+    "reasoning": "brief medical explanation"
+}}"""
+
+        return prompt
+
+    def create_batch_entity_matching_prompt(self, terms: List[str], candidate_canonicals: List[str], entity_type: str) -> str:
+        """
+        Create prompt for matching multiple entity terms to canonical forms in a single request.
+
+        Args:
+            terms: List of terms to match
+            candidate_canonicals: List of canonical terms to match against
+            entity_type: Type of entity (e.g., 'intervention', 'condition')
+
+        Returns:
+            Formatted prompt string for batch entity matching
+        """
+        candidates_list = "\n".join([f"- {canonical}" for canonical in candidate_canonicals])
+        terms_list = "\n".join([f"{i+1}. {term}" for i, term in enumerate(terms)])
+
+        prompt = f"""You are a medical terminology expert. For each {entity_type} term below, determine if it represents the same medical concept as any of the canonical terms.
+
+TERMS TO MATCH:
+{terms_list}
+
+CANONICAL TERMS:
+{candidates_list}
+
+CRITICAL MEDICAL SAFETY - Be extremely cautious with:
+⚠️ OPPOSITE CONDITIONS: Terms with prefixes creating opposite meanings:
+   • hyper- vs hypo- (hypertension ≠ hypotension, hyperglycemia ≠ hypoglycemia)
+   • tachy- vs brady- (tachycardia ≠ bradycardia)
+   • -osis vs -alosis suffixes (acidosis ≠ alkalosis)
+⚠️ DIFFERENT INTERVENTIONS: Similar but distinct medical interventions:
+   • probiotics (live bacteria) ≠ prebiotics (bacterial food)
+   • antibiotics vs antivirals vs antifungals (different drug classes)
+   • different surgical procedures, therapy types, supplement categories
+⚠️ MEDICAL PRECISION:
+   • Dosage forms matter: oral vs topical vs injection routes are different
+   • Severity levels: acute vs chronic conditions are different
+   • Timing: pre-operative vs post-operative interventions are different
+⚠️ SOUND-ALIKE TERMS: Many medical terms sound similar but have different meanings
+⚠️ CONTEXT DEPENDENCY: Same intervention can have different medical contexts
+
+MATCHING PRINCIPLES:
+- Only match if terms represent the EXACT SAME medical concept
+- Consider valid synonyms, abbreviations, and alternative names
+- When in doubt, prefer NO MATCH rather than incorrect match
+- Medical accuracy is more important than recall
+
+Respond with valid JSON array only:
+[
+    {{
+        "term_number": 1,
+        "original_term": "{terms[0] if terms else 'example'}",
+        "match": "exact_canonical_name_from_list_above" or null,
+        "confidence": 0.0-1.0,
+        "reasoning": "brief medical explanation"
+    }},
+    {{
+        "term_number": 2,
+        "original_term": "{terms[1] if len(terms) > 1 else 'example2'}",
+        "match": "exact_canonical_name_from_list_above" or null,
+        "confidence": 0.0-1.0,
+        "reasoning": "brief medical explanation"
+    }}
+]"""
+
+        return prompt
+
+    def create_duplicate_analysis_prompt(self, terms: List[str]) -> str:
+        """
+        Create prompt for analyzing terms to identify duplicates/synonyms.
+
+        Args:
+            terms: List of terms to analyze for duplicates
+
+        Returns:
+            Formatted prompt string for duplicate analysis
+        """
+        terms_list = "\n".join([f"- {term}" for term in terms])
+
+        prompt = f"""Analyze these medical terms and identify which ones refer to the same concept.
+
+Terms to analyze:
+{terms_list}
+
+Return ONLY valid JSON in this format:
+{{
+  "duplicate_groups": [
+    {{
+      "canonical_name": "most formal scientific name",
+      "synonyms": ["term1", "term2", "term3"],
+      "confidence": 0.95
+    }}
+  ]
+}}
+
+Rules:
+- Each group must have confidence 0.0-1.0
+- Use the most formal medical/scientific name as canonical_name
+- Only group terms that are definitely the same concept"""
+
+        return prompt
+
     def _prepare_paper_content(self, paper: Dict) -> List[str]:
         """Prepare paper content sections for the prompt."""
         content_sections = []
@@ -116,7 +265,8 @@ Return ONLY valid JSON. No extra text. Each intervention needs these fields:
 - health_condition: specific condition being treated
 - correlation_type: "positive", "negative", "neutral", or "inconclusive"
 - correlation_strength: number 0.0-1.0 or null
-- confidence_score: number 0.0-1.0 or null
+- extraction_confidence: number 0.0-1.0 - YOUR confidence in extracting this information from the text
+- study_confidence: number 0.0-1.0 - the AUTHORS' confidence in their findings/results or null
 - study_type: type of study or null
 - sample_size: number or null
 - study_duration: duration or null
@@ -148,7 +298,8 @@ Example of valid extraction:
   "health_condition": "depression",
   "correlation_type": "positive",
   "correlation_strength": 0.75,
-  "confidence_score": 0.9,
+  "extraction_confidence": 0.9,
+  "study_confidence": 0.8,
   "study_type": "randomized controlled trial",
   "sample_size": 120,
   "study_duration": "12 weeks",

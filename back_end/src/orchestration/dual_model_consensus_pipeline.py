@@ -125,9 +125,9 @@ def build_consensus_for_papers(papers: List[Dict],
                 raw_interventions = _get_raw_interventions_for_paper(conn, pmid)
 
                 if raw_interventions:
-                    # Build consensus for this paper
-                    consensus_interventions = processor.create_multi_model_consensus(
-                        raw_interventions, paper
+                    # Build consensus for this paper using new unified method
+                    consensus_interventions = processor.process_consensus_batch(
+                        raw_interventions, paper, confidence_threshold
                     )
 
                     if consensus_interventions:
@@ -135,7 +135,7 @@ def build_consensus_for_papers(papers: List[Dict],
                         _save_consensus_interventions(conn, consensus_interventions, pmid)
 
                         # Generate summary for this paper
-                        paper_summary = processor.generate_consensus_summary(consensus_interventions)
+                        paper_summary = processor.generate_deduplication_summary(consensus_interventions)
                         consensus_summaries.append({
                             'pmid': pmid,
                             'summary': paper_summary
@@ -192,8 +192,9 @@ def _save_consensus_interventions(conn, consensus_interventions: List[Dict], pmi
             INSERT INTO interventions
             (paper_id, intervention_name, health_condition, intervention_category,
              correlation_type, confidence_score, correlation_strength,
+             extraction_confidence, study_confidence,
              extraction_model, consensus_processed)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             intervention.get('paper_id'),
             intervention.get('intervention_name'),
@@ -202,6 +203,8 @@ def _save_consensus_interventions(conn, consensus_interventions: List[Dict], pmi
             intervention.get('correlation_type'),
             intervention.get('confidence_score'),
             intervention.get('correlation_strength'),
+            intervention.get('extraction_confidence'),
+            intervention.get('study_confidence'),
             intervention.get('extraction_model'),
             intervention.get('consensus_processed')
         ))

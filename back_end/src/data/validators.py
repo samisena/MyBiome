@@ -291,7 +291,9 @@ class InterventionValidator(BaseValidator):
         # Numeric field validation
         for field, (min_val, max_val) in [
             ('correlation_strength', (0.0, 1.0)),
-            ('confidence_score', (0.0, 1.0))
+            ('confidence_score', (0.0, 1.0)),
+            ('extraction_confidence', (0.0, 1.0)),
+            ('study_confidence', (0.0, 1.0))
         ]:
             if field in intervention_data and intervention_data[field] is not None:
                 issues.extend(self.validate_numeric_range(

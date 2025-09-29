@@ -456,6 +456,7 @@ class DualModelAnalyzer:
             except Exception as e:
                 logger.error(f"Error saving raw intervention: {e}")
     
+    
     def get_unprocessed_papers(self, limit: Optional[int] = None) -> List[Dict]:
         """Get papers that haven't been processed by ALL models yet."""
         # Get papers that haven't been processed by ANY of our models

@@ -159,6 +159,39 @@ class DatabaseManager:
         with self.pool.get_connection() as conn:
             yield conn
     
+    def migrate_to_dual_confidence(self):
+        """Migrate existing database to support dual confidence metrics."""
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+
+            try:
+                # Check if new columns already exist
+                cursor.execute("PRAGMA table_info(interventions)")
+                columns = [row[1] for row in cursor.fetchall()]
+
+                if 'extraction_confidence' not in columns:
+                    logger.info("Adding extraction_confidence column to interventions table")
+                    cursor.execute("ALTER TABLE interventions ADD COLUMN extraction_confidence REAL CHECK(extraction_confidence >= 0 AND extraction_confidence <= 1)")
+
+                if 'study_confidence' not in columns:
+                    logger.info("Adding study_confidence column to interventions table")
+                    cursor.execute("ALTER TABLE interventions ADD COLUMN study_confidence REAL CHECK(study_confidence >= 0 AND study_confidence <= 1)")
+
+                # Migrate existing confidence_score values to extraction_confidence for backward compatibility
+                cursor.execute("""
+                    UPDATE interventions
+                    SET extraction_confidence = confidence_score
+                    WHERE extraction_confidence IS NULL AND confidence_score IS NOT NULL
+                """)
+
+                conn.commit()
+                logger.info("Successfully migrated database to dual confidence system")
+
+            except Exception as e:
+                conn.rollback()
+                logger.error(f"Failed to migrate database: {e}")
+                raise
+
     def create_tables(self):
         """Create all necessary database tables with intervention-focused schema."""
         with self.get_connection() as conn:
@@ -218,6 +251,10 @@ class DatabaseManager:
                     correlation_type TEXT CHECK(correlation_type IN ('positive', 'negative', 'neutral', 'inconclusive')),
                     correlation_strength REAL CHECK(correlation_strength >= 0 AND correlation_strength <= 1),
                     confidence_score REAL CHECK(confidence_score >= 0 AND confidence_score <= 1),
+
+                    -- Dual confidence metrics (new system)
+                    extraction_confidence REAL CHECK(extraction_confidence >= 0 AND extraction_confidence <= 1),
+                    study_confidence REAL CHECK(study_confidence >= 0 AND study_confidence <= 1),
                     
                     -- Study details
                     sample_size INTEGER,
