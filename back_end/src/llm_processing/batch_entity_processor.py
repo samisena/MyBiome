@@ -77,6 +77,8 @@ class BatchEntityProcessor:
         # Initialize operation modules
         self.repository = EntityRepository(db_connection)
         self.llm_processor = LLMProcessor(self.repository, llm_model)
+        # Attach llm_processor to repository so DuplicateDetector can access it
+        self.repository.llm_processor = self.llm_processor
         self.duplicate_detector = DuplicateDetector(self.repository)
 
         # Performance monitoring

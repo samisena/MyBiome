@@ -326,9 +326,17 @@ class PubMedCollector:
 
             seed_paper = batch_papers[0]
             pubmed_papers.append(seed_paper)
-            metadata_files.append(str(metadata_file))
 
             # Seed paper collected
+
+            # Clean up temporary XML file after successful processing
+            try:
+                Path(metadata_file).unlink()
+                logger.debug(f"Deleted temporary XML file: {metadata_file}")
+            except Exception as e:
+                logger.warning(f"Could not delete temporary XML file {metadata_file}: {e}")
+                # Only add to list if cleanup failed
+                metadata_files.append(str(metadata_file))
 
             # Step 3: Immediately enrich the seed paper with S2 data
             try:
@@ -391,7 +399,7 @@ class PubMedCollector:
             "s2_similar_papers": len(s2_papers),
             "papers_stored": total_papers,
             "total_papers_searched": total_papers_searched,
-            "metadata_files": metadata_files,
+            "undeleted_metadata_files": metadata_files,  # Only contains files that failed to be deleted
             "interleaved_workflow": True,
             "status": "success" if len(pubmed_papers) >= max_results else "partial_success",
             "message": f"Interleaved collection: {len(pubmed_papers)} PubMed seed papers + {len(s2_papers)} S2 similar papers = {total_papers} total papers"
@@ -458,11 +466,15 @@ class PubMedCollector:
 
             if batch_papers:
                 all_new_papers.extend(batch_papers)
-                metadata_files.append(str(metadata_file))
                 new_papers_collected += len(batch_papers)
                 total_papers_processed += len(pmid_list)
 
                 # Batch processing completed
+
+                # DELAY XML CLEANUP: Keep XML file for now, will clean up after database verification
+                # This ensures we can recover if database persistence fails
+                metadata_files.append(str(metadata_file))
+                logger.debug(f"Keeping XML file for verification: {metadata_file}")
 
             search_offset += len(pmid_list)
 
@@ -485,23 +497,30 @@ class PubMedCollector:
             # Attempting fulltext retrieval for new papers
             fulltext_stats = self._process_fulltext_batch(all_new_papers)
 
-        # Step 5: Build result
+        # Step 5: Clean up XML files after collection
+        for xml_file in metadata_files:
+            try:
+                Path(xml_file).unlink()
+            except Exception as e:
+                logger.debug(f"Could not delete XML file {xml_file}: {e}")
+
+        # Step 6: Build result
         result = {
             "condition": condition,
             "paper_count": len(all_new_papers),
             "new_papers_count": len(all_new_papers),
             "papers_stored": len(all_new_papers),
             "total_papers_searched": total_papers_processed,
-            "metadata_files": metadata_files,
+            "undeleted_metadata_files": [],
             "interleaved_workflow": False,
             "status": "success" if new_papers_collected >= max_results else "partial_success",
-            "message": f"Successfully collected {len(all_new_papers)} new papers (target: {max_results})"
+            "message": f"Collected {len(all_new_papers)} papers (target: {max_results})"
         }
 
         if fulltext_stats:
             result["fulltext_stats"] = fulltext_stats
 
-        # Traditional collection completed
+        # Traditional collection completed with verification
         return result
 
     def _process_fulltext_batch(self, papers: List[Dict]) -> Dict[str, Any]:

@@ -1,17 +1,25 @@
 {
-  "session_id": "batch_20250930_223131",
-  "papers_per_condition": 2,
-  "current_phase": "collection",
+  "session_id": "batch_20251001_193618",
+  "papers_per_condition": 1,
+  "current_phase": "processing",
   "iteration_number": 1,
-  "start_time": "2025-09-30T22:31:31.615781",
-  "collection_completed": false,
+  "start_time": "2025-10-01T19:36:18.330234",
+  "collection_completed": true,
   "processing_completed": false,
   "deduplication_completed": false,
-  "total_papers_collected": 0,
+  "total_papers_collected": 60,
   "total_papers_processed": 0,
   "total_interventions_extracted": 0,
   "total_duplicates_removed": 0,
-  "collection_result": null,
+  "collection_result": {
+    "total_conditions": 60,
+    "successful_conditions": 60,
+    "failed_conditions": 0,
+    "total_papers_collected": 60,
+    "collection_time_seconds": 85.964869,
+    "success_rate": 100.0,
+    "quality_gate_passed": true
+  },
   "processing_result": null,
   "deduplication_result": null
 }

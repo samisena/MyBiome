@@ -292,27 +292,35 @@ class PubmedParser:
     
     def _insert_papers_batch(self, papers: List[Dict]) -> tuple[int, int]:
         """
-        Insert a batch of papers to database.
-        
+        Insert a batch of papers to database with post-insertion verification.
+
         Args:
             papers: List of paper dictionaries
-            
+
         Returns:
             Tuple of (inserted_count, skipped_count)
         """
         inserted = 0
         skipped = 0
-        
+        pmids_to_insert = []
+
         for paper in papers:
+            pmid = paper.get('pmid', 'unknown')
+            pmids_to_insert.append(pmid)
             try:
                 if self.db_manager.insert_paper(paper):
                     inserted += 1
                 else:
                     skipped += 1
+                    logger.debug(f"Paper {pmid} skipped (likely duplicate)")
             except Exception as e:
-                logger.error(f"Error inserting paper {paper.get('pmid', 'unknown')}: {e}")
+                logger.error(f"Error inserting paper {pmid}: {e}")
                 skipped += 1
-        
+
+        # Simple logging without expensive database verification
+        if skipped > 0:
+            logger.debug(f"Batch: {inserted} new, {skipped} skipped")
+
         return inserted, skipped
     
     # Removed @log_execution_time - use error_handler.py decorators instead

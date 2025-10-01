@@ -199,7 +199,7 @@ class RotationLLMProcessor:
 
     # Old condition-specific batch processing methods removed - replaced by process_all_papers_batch()
 
-    def _mark_paper_processed(self, paper_id: int, status: str):
+    def _mark_paper_processed(self, paper_id: str, status: str):
         """Mark a paper as processed or failed in the database."""
         try:
             with database_manager.get_connection() as conn:
@@ -207,9 +207,9 @@ class RotationLLMProcessor:
 
                 cursor.execute("""
                     UPDATE papers
-                    SET processing_status = ?, processing_timestamp = ?
-                    WHERE id = ?
-                """, (status, datetime.now().isoformat(), paper_id))
+                    SET processing_status = ?
+                    WHERE pmid = ?
+                """, (status, paper_id))
 
                 conn.commit()
 

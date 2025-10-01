@@ -196,6 +196,124 @@ Rules:
 
         return prompt
 
+    def create_condition_equivalence_prompt(self, condition1: str, condition2: str,
+                                           intervention_name: str, paper_pmid: str = None) -> str:
+        """
+        Create prompt for checking if two condition names are semantically equivalent.
+
+        This is critical for preventing evidence inflation from dual-model extraction.
+
+        Args:
+            condition1: First condition name
+            condition2: Second condition name
+            intervention_name: The intervention being studied (context)
+            paper_pmid: Paper ID for context (optional)
+
+        Returns:
+            Formatted prompt string for condition equivalence checking
+        """
+        paper_context = f" (from paper PMID: {paper_pmid})" if paper_pmid else ""
+
+        prompt = f"""You are analyzing two health condition names extracted from the SAME research paper{paper_context} studying the intervention: "{intervention_name}".
+
+Condition 1: "{condition1}"
+Condition 2: "{condition2}"
+
+Determine if these two conditions refer to essentially the same health issue in the context of this paper.
+
+IMPORTANT MEDICAL SAFETY RULES:
+⚠️ OPPOSITE CONDITIONS are DIFFERENT:
+   • hypertension ≠ hypotension
+   • hyperglycemia ≠ hypoglycemia
+   • tachycardia ≠ bradycardia
+
+✓ HIERARCHICAL CONDITIONS may be equivalent:
+   • "diabetes" and "type 2 diabetes" → same if paper only studies type 2
+   • "cognitive impairment" and "diabetes-induced cognitive impairment" → same if paper only studies this subtype
+   • "depression" and "major depressive disorder" → same if referring to same condition
+
+✓ SAME CONCEPT, DIFFERENT WORDING:
+   • "cardiovascular disease" and "heart disease" → equivalent
+   • "type 2 diabetes mellitus" and "type 2 diabetes" → equivalent
+   • Abbreviations vs full names → equivalent (e.g., "T2DM" vs "type 2 diabetes mellitus")
+
+DECISION CRITERIA:
+1. In the context of THIS paper, do both conditions refer to the same patient population/health issue?
+2. Is one condition a more specific variant of the other that's still being studied as the same thing?
+3. When in doubt, consider: would a researcher count these as separate findings or the same finding?
+
+Respond with ONLY valid JSON:
+{{
+    "are_equivalent": true/false,
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation of your decision",
+    "preferred_wording": "condition1 or condition2 - which is more accurate/specific",
+    "is_hierarchical": true/false,
+    "relationship": "same" | "subtype" | "different"
+}}
+
+CRITICAL: Set confidence > 0.7 only if you're quite sure they're equivalent."""
+
+        return prompt
+
+    def create_consensus_wording_prompt(self, condition_variants: List[str],
+                                       intervention_name: str,
+                                       extraction_models: List[str] = None) -> str:
+        """
+        Create prompt for selecting the best wording from multiple condition variants.
+
+        Args:
+            condition_variants: List of different condition wordings
+            intervention_name: The intervention being studied
+            extraction_models: Which models extracted each variant (optional)
+
+        Returns:
+            Formatted prompt for consensus wording selection
+        """
+        # Format variants with model attribution if available
+        if extraction_models and len(extraction_models) == len(condition_variants):
+            variants_list = "\n".join([
+                f"{i+1}. \"{variant}\" (extracted by {model})"
+                for i, (variant, model) in enumerate(zip(condition_variants, extraction_models))
+            ])
+        else:
+            variants_list = "\n".join([
+                f"{i+1}. \"{variant}\""
+                for i, variant in enumerate(condition_variants)
+            ])
+
+        prompt = f"""Multiple AI models extracted the same intervention-condition relationship from a research paper, but used slightly different wordings for the condition name.
+
+Intervention studied: "{intervention_name}"
+
+Condition name variants:
+{variants_list}
+
+Select the BEST wording to use as the canonical condition name for this intervention.
+
+SELECTION CRITERIA (in priority order):
+1. **Medical Accuracy**: Most medically accurate and specific
+2. **Clarity**: Clearest to medical professionals
+3. **Specificity**: More specific is better if it's accurate (e.g., "type 2 diabetes" > "diabetes")
+4. **Completeness**: Includes relevant qualifiers that add meaning
+5. **Consistency**: Uses standard medical terminology
+
+AVOID:
+- Overly verbose wordings that add no medical value
+- Generic terms when specific ones are available
+- Unnecessarily complex medical jargon if simpler is equally accurate
+
+Respond with ONLY valid JSON:
+{{
+    "selected_wording": "exact wording from list above",
+    "variant_number": number (1-based index),
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation of why this wording is best",
+    "alternatives": ["other good options if any"]
+}}"""
+
+        return prompt
+
     def _prepare_paper_content(self, paper: Dict) -> List[str]:
         """Prepare paper content sections for the prompt."""
         content_sections = []

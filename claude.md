@@ -14,16 +14,17 @@ An automated biomedical research pipeline that collects research papers about he
 ## Core Pipeline Stages
 
 ### 1. **Data Collection** (`back_end/src/data_collection/`)
-- **PubMed Collection**: Automated paper retrieval via PubMed API
-- **Semantic Scholar Enrichment**: Additional metadata and paper discovery (6x expansion)
+- **PubMed Collection**: Automated paper retrieval via PubMed API (PRIMARY source for batch_medical_rotation)
+- **Semantic Scholar**: Available but DISABLED in batch pipeline to prevent hanging (use_interleaved_s2=False)
 - **Fulltext Retrieval**: PMC and Unpaywall integration for complete paper access
 - **Database Management**: SQLite operations with robust schema
 
 ### 2. **LLM Processing** (`back_end/src/llm_processing/`)
-- **Dual-Model Analysis**: Parallel processing with gemma2:9b and qwen2.5:14b
+- **Dual-Model Analysis**: Sequential processing with gemma2:9b and qwen2.5:14b (both models process each paper independently)
 - **Intervention Extraction**: Structured extraction of treatment-outcome relationships
 - **Batch Processing**: Efficient processing with thermal protection and memory management
-- **Entity Operations**: Deduplication and normalization of extracted entities
+- **Same-Paper Deduplication**: Intelligent merging of duplicate extractions from the same paper
+- **Canonical Entity Merging**: Unification of intervention names across all papers (e.g., "vitamin D", "Vitamin D3", "cholecalciferol" → single canonical entity)
 
 ### 3. **Data Mining** (`back_end/src/data_mining/`)
 - **Pattern Discovery**: Advanced correlation analysis and biological pattern recognition
@@ -105,17 +106,25 @@ Comprehensive SQLite database with tables for:
 
 ## Operational Commands
 
-### Complete Workflow
+### Complete Workflow (batch_medical_rotation.py)
 ```bash
-# Start medical rotation pipeline (10 papers per condition across 60 conditions)
-python back_end/src/orchestration/main_medical_rotation.py
+# Start batch medical rotation pipeline (recommended: 10 papers per condition across 60 conditions)
+python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10
 
 # Resume interrupted session
-python back_end/src/orchestration/main_medical_rotation.py --resume
+python -m back_end.src.orchestration.batch_medical_rotation --resume
+
+# Resume from specific phase (collection, processing, or deduplication)
+python -m back_end.src.orchestration.batch_medical_rotation --resume --start-phase processing
 
 # Check current status
-python back_end/src/orchestration/main_medical_rotation.py --status
+python -m back_end.src.orchestration.batch_medical_rotation --status
 ```
+
+**Pipeline Phases**:
+1. **Collection Phase**: Collects papers for all 60 conditions (PubMed only, S2 disabled, 2 parallel workers)
+2. **Processing Phase**: Dual-model extraction (gemma2:9b → qwen2.5:14b sequential, creates duplicates)
+3. **Deduplication Phase**: Same-paper duplicate removal + canonical entity merging
 
 ### Individual Components
 ```bash
@@ -165,6 +174,51 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 - **Processing capability**: 500+ papers per hour (dual-model analysis)
 - **Session management**: Comprehensive state persistence and recovery
 - **Quality assurance**: Multi-stage validation and scoring
+
+## Critical Concepts: Deduplication vs Canonical Merging
+
+### **Same-Paper Deduplication** (Within-Paper Duplicate Removal)
+**Purpose**: Prevent double-counting when both LLM models extract the same finding from the same paper
+
+**Problem**:
+- Paper 41031311 is processed by gemma2:9b → extracts "vitamin D for cognitive impairment"
+- Same paper 41031311 is processed by qwen2.5:14b → extracts "vitamin D for type 2 diabetes mellitus-induced cognitive impairment"
+- Without deduplication: This appears as 2 separate findings, inflating evidence counts
+
+**Solution** (in `batch_entity_processor.py`):
+1. **Simple Normalization**: Try basic string matching first (fast, cheap)
+2. **LLM Semantic Verification**: If normalization fails, use qwen2.5:14b to determine if conditions are semantically equivalent
+3. **Merge Action**: Delete one record, keep ONE intervention per paper
+4. **Model Attribution**: Update the kept record to show extraction by BOTH models (e.g., `models_used: "gemma2:9b, qwen2.5:14b"`)
+5. **Consensus Naming**: Use LLM to decide which condition wording is most accurate
+
+**Result**: Each paper contributes only ONE record per unique intervention, preventing statistical inflation
+
+### **Canonical Entity Merging** (Cross-Paper Entity Unification)
+**Purpose**: Aggregate all evidence about the same intervention across ALL papers
+
+**Problem**:
+- Paper A mentions "vitamin D"
+- Paper B mentions "Vitamin D3"
+- Paper C mentions "cholecalciferol"
+- These are the same thing but with different names
+
+**Solution**:
+- All three interventions point to the same canonical entity (e.g., `canonical_id: 1, canonical_name: "vitamin D"`)
+- Statistical analysis aggregates all evidence under the canonical entity
+- Original intervention names are preserved for transparency
+
+**Result**: Unified analysis showing "150 papers support vitamin D" instead of fragmented counts
+
+### Key Differences
+
+| Aspect | Same-Paper Deduplication | Canonical Merging |
+|--------|-------------------------|-------------------|
+| **Scope** | Within single paper | Across all papers |
+| **Action** | DELETE duplicate records | LINK different names to same entity |
+| **Problem** | Dual-model extraction creates duplicates | Different papers use different terminology |
+| **Timing** | Happens immediately after LLM extraction | Happens during entity normalization |
+| **Impact** | Prevents evidence inflation | Enables aggregated analysis |
 
 ## Restraints & Guidelines
 - **No emojis in any output or code**

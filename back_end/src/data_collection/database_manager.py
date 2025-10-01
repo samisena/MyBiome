@@ -50,7 +50,8 @@ class ConnectionPool:
     
     def _create_connection(self) -> sqlite3.Connection:
         """Create a new database connection."""
-        conn = sqlite3.connect(self.db_path)
+        # Allow connections to be used across threads (with proper locking)
+        conn = sqlite3.connect(self.db_path, check_same_thread=False)
         conn.row_factory = sqlite3.Row  # Enable column access by name
         conn.execute('PRAGMA foreign_keys = ON')  # Enable foreign key constraints
         conn.execute('PRAGMA journal_mode = WAL')  # Enable WAL mode for better concurrency
@@ -394,7 +395,17 @@ class DatabaseManager:
             ('model_agreement', 'TEXT CHECK(model_agreement IN (\'full\', \'partial\', \'single\', \'conflict\'))'),
             ('models_used', 'TEXT'),  # Comma-separated list of contributing models
             ('raw_extraction_count', 'INTEGER DEFAULT 1'),  # Number of original extractions
-            ('models_contributing', 'TEXT')  # JSON array of contributing model details
+            ('models_contributing', 'TEXT'),  # JSON array of contributing model details
+
+            # Consensus wording selection (for same-paper duplicate merging)
+            ('condition_wording_source', 'TEXT'),  # 'llm_consensus' or 'highest_confidence_fallback'
+            ('condition_wording_confidence', 'REAL CHECK(condition_wording_confidence >= 0 AND condition_wording_confidence <= 1)'),
+            ('original_condition_wordings', 'TEXT'),  # JSON array of all condition wordings before consensus
+
+            # Deduplication and canonical entity tracking
+            ('intervention_canonical_id', 'INTEGER'),
+            ('condition_canonical_id', 'INTEGER'),
+            ('normalized', 'BOOLEAN DEFAULT 0')
         ]
 
         for column_name, column_type in optional_columns:

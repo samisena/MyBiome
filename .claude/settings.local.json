@@ -24,7 +24,8 @@
       "Read(//c/**)",
       "Bash(timeout 30 python -m back_end.src.orchestration.batch_medical_rotation:*)",
       "Bash(cat:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(sqlite3:*)"
     ],
     "deny": [],
     "ask": []

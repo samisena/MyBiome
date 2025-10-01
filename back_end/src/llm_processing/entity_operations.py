@@ -419,8 +419,7 @@ class EntityRepository:
         """Retrieve LLM matching result from cache."""
         cache_key = CacheManager.create_cache_key(raw_text, entity_type, str(candidates_offered or []))
 
-        with self.db as conn:
-            cursor = conn.cursor()
+        cursor = self.db.cursor()
         cursor.execute("""
             SELECT match_result, confidence_score, reasoning, llm_response, created_at
             FROM llm_normalization_cache
@@ -656,6 +655,211 @@ class LLMProcessor:
             self.logger.error(f"LLM deduplication failed: {str(e)}")
             return {"duplicate_groups": []}
 
+    def check_condition_equivalence(self, condition1: str, condition2: str,
+                                   intervention_name: str = None,
+                                   paper_pmid: str = None) -> Dict[str, Any]:
+        """
+        Use LLM to determine if two condition names are semantically equivalent.
+
+        This is critical for preventing evidence inflation from dual-model extraction
+        where models use slightly different wording for the same condition.
+
+        Args:
+            condition1: First condition name
+            condition2: Second condition name
+            intervention_name: The intervention being studied (provides context)
+            paper_pmid: Paper identifier for context
+
+        Returns:
+            {
+                'are_equivalent': bool,
+                'confidence': float (0-1),
+                'reasoning': str,
+                'preferred_wording': str,
+                'is_hierarchical': bool,
+                'relationship': str  # 'same', 'subtype', or 'different'
+            }
+        """
+        if not self.llm_client or not self.prompt_service:
+            self.logger.warning("LLM client not available for condition equivalence check")
+            return {
+                'are_equivalent': False,
+                'confidence': 0.0,
+                'reasoning': 'LLM not available',
+                'preferred_wording': condition1,
+                'is_hierarchical': False,
+                'relationship': 'different'
+            }
+
+        # Check cache first (bidirectional)
+        cache_result = self._get_cached_condition_equivalence(condition1, condition2)
+        if cache_result:
+            self.logger.info(f"Cache hit for condition equivalence: {condition1} <-> {condition2}")
+            return cache_result
+
+        # Build prompt using centralized service
+        prompt = self.prompt_service.create_condition_equivalence_prompt(
+            condition1, condition2, intervention_name or "unknown", paper_pmid
+        )
+
+        try:
+            # Use qwen2.5:14b for better semantic reasoning
+            reasoning_model = "qwen2.5:14b"
+            llm_client = get_llm_client(reasoning_model)
+
+            response = llm_client.generate(prompt, temperature=0.1)
+            response_text = response['content'].strip()
+
+            # Clean JSON formatting
+            if response_text.startswith("```json"):
+                response_text = response_text[7:]
+            if response_text.endswith("```"):
+                response_text = response_text[:-3]
+
+            result = json.loads(response_text.strip())
+
+            # Validate result structure
+            required_keys = ['are_equivalent', 'confidence', 'reasoning', 'preferred_wording']
+            if not all(k in result for k in required_keys):
+                raise ValueError(f"LLM response missing required keys: {required_keys}")
+
+            # Ensure confidence is float
+            result['confidence'] = float(result['confidence'])
+
+            # Cache the result (bidirectional)
+            self._cache_condition_equivalence(condition1, condition2, result)
+
+            self.logger.info(f"Condition equivalence check: {condition1} <-> {condition2} = "
+                           f"{result['are_equivalent']} (confidence: {result['confidence']:.2f})")
+
+            return result
+
+        except Exception as e:
+            self.logger.error(f"Condition equivalence check failed: {e}")
+            # Return safe default (not equivalent)
+            return {
+                'are_equivalent': False,
+                'confidence': 0.0,
+                'reasoning': f'Error: {str(e)}',
+                'preferred_wording': condition1,
+                'is_hierarchical': False,
+                'relationship': 'error'
+            }
+
+    def get_consensus_wording(self, condition_variants: List[str],
+                             intervention_name: str = None,
+                             extraction_models: List[str] = None) -> Dict[str, Any]:
+        """
+        Use LLM to select the best wording from multiple condition variants.
+
+        Args:
+            condition_variants: List of different condition wordings
+            intervention_name: The intervention being studied
+            extraction_models: Which models extracted each variant
+
+        Returns:
+            {
+                'selected_wording': str,
+                'variant_number': int,
+                'confidence': float,
+                'reasoning': str,
+                'alternatives': List[str]
+            }
+        """
+        if not self.llm_client or not self.prompt_service:
+            # Default to first variant if LLM unavailable
+            return {
+                'selected_wording': condition_variants[0],
+                'variant_number': 1,
+                'confidence': 0.5,
+                'reasoning': 'LLM not available, used first variant',
+                'alternatives': []
+            }
+
+        if len(condition_variants) == 1:
+            return {
+                'selected_wording': condition_variants[0],
+                'variant_number': 1,
+                'confidence': 1.0,
+                'reasoning': 'Only one variant available',
+                'alternatives': []
+            }
+
+        prompt = self.prompt_service.create_consensus_wording_prompt(
+            condition_variants, intervention_name or "unknown", extraction_models
+        )
+
+        try:
+            # Use qwen2.5:14b for better reasoning
+            reasoning_model = "qwen2.5:14b"
+            llm_client = get_llm_client(reasoning_model)
+
+            response = llm_client.generate(prompt, temperature=0.1)
+            response_text = response['content'].strip()
+
+            # Clean JSON formatting
+            if response_text.startswith("```json"):
+                response_text = response_text[7:]
+            if response_text.endswith("```"):
+                response_text = response_text[:-3]
+
+            result = json.loads(response_text.strip())
+
+            self.logger.info(f"Consensus wording selected: {result['selected_wording']} "
+                           f"(confidence: {result['confidence']:.2f})")
+
+            return result
+
+        except Exception as e:
+            self.logger.error(f"Consensus wording selection failed: {e}")
+            # Default to first variant
+            return {
+                'selected_wording': condition_variants[0],
+                'variant_number': 1,
+                'confidence': 0.5,
+                'reasoning': f'Error: {str(e)}, using first variant',
+                'alternatives': []
+            }
+
+    def _get_cached_condition_equivalence(self, cond1: str, cond2: str) -> Optional[Dict]:
+        """Check cache for condition equivalence result (bidirectional)."""
+        cache_key = self._create_equivalence_cache_key(cond1, cond2)
+
+        cached = self.repository.get_llm_cache(
+            raw_text=f"{cond1} <-> {cond2}",
+            entity_type="condition_equivalence"
+        )
+
+        if cached and cached.get('llm_response'):
+            try:
+                return json.loads(cached['llm_response'])
+            except:
+                pass
+        return None
+
+    def _cache_condition_equivalence(self, cond1: str, cond2: str, result: Dict) -> None:
+        """Cache condition equivalence result (bidirectional)."""
+        cache_key = self._create_equivalence_cache_key(cond1, cond2)
+
+        self.repository.save_llm_cache(
+            raw_text=f"{cond1} <-> {cond2}",
+            entity_type="condition_equivalence",
+            candidates_offered=[],
+            llm_response=json.dumps(result),
+            match_result=str(result['are_equivalent']),
+            confidence_score=result['confidence'],
+            reasoning=result['reasoning'],
+            model_name="qwen2.5:14b",
+            cache_key=cache_key
+        )
+
+    def _create_equivalence_cache_key(self, cond1: str, cond2: str) -> str:
+        """Create bidirectional cache key (so checking A,B or B,A hits same cache)."""
+        # Sort alphabetically so (A,B) and (B,A) produce same key
+        sorted_conds = tuple(sorted([cond1.lower().strip(), cond2.lower().strip()]))
+        key_string = f"cond_equiv:{sorted_conds[0]}:{sorted_conds[1]}"
+        return hashlib.md5(key_string.encode()).hexdigest()
+
 # === DUPLICATE DETECTION ===
 
 class DuplicateDetector:
@@ -668,32 +872,144 @@ class DuplicateDetector:
 
     def detect_same_paper_duplicates(self, interventions: List[Dict]) -> List[List[Dict]]:
         """
-        Detect true duplicates from same paper where both models found identical correlations.
+        Two-stage duplicate detection for same-paper interventions:
+        STAGE 1: Fast exact canonical matching (existing logic)
+        STAGE 2: LLM semantic condition matching (NEW - prevents vitamin D problem)
 
-        This groups interventions by canonical intervention-condition pairs that represent
-        the exact same correlation studied in the same paper.
+        This prevents evidence inflation from dual-model extraction where both models
+        find the same intervention-condition relationship but with slightly different
+        condition wording (e.g., "cognitive impairment" vs "diabetes-induced cognitive impairment").
         """
-        # Group by canonical intervention-condition-correlation tuple
+        # STAGE 1: Exact canonical matching (fast)
+        exact_match_groups, ungrouped_interventions = self._stage1_exact_matching(interventions)
+
+        # STAGE 2: LLM semantic matching for remaining interventions (thorough)
+        semantic_match_groups = self._stage2_llm_semantic_matching(ungrouped_interventions)
+
+        # Combine both types of groups
+        all_duplicate_groups = exact_match_groups + semantic_match_groups
+
+        self.logger.info(f"Duplicate detection: {len(exact_match_groups)} exact match groups, "
+                        f"{len(semantic_match_groups)} semantic match groups (LLM-verified)")
+
+        return all_duplicate_groups
+
+    def _stage1_exact_matching(self, interventions: List[Dict]) -> Tuple[List[List[Dict]], List[Dict]]:
+        """
+        Stage 1: Group interventions by exact canonical intervention + condition + correlation.
+        Returns (exact_match_groups, ungrouped_interventions).
+        """
         correlation_groups = defaultdict(list)
 
         for intervention in interventions:
-            # Create grouping key based on normalized canonical entities
             intervention_canonical = intervention.get('canonical_intervention_name', '').lower()
             condition_canonical = intervention.get('canonical_condition_name', '').lower()
             correlation_type = intervention.get('correlation_type', '').lower()
 
-            # Only group if we have meaningful canonical names
             if intervention_canonical and condition_canonical:
                 group_key = (intervention_canonical, condition_canonical, correlation_type)
                 correlation_groups[group_key].append(intervention)
 
-        # Return groups with multiple interventions (duplicates)
-        duplicate_groups = [
-            interventions for interventions in correlation_groups.values()
-            if len(interventions) > 1
-        ]
+        # Separate into groups (duplicates) and singles (ungrouped)
+        exact_match_groups = []
+        ungrouped_interventions = []
 
-        return duplicate_groups
+        for group in correlation_groups.values():
+            if len(group) > 1:
+                exact_match_groups.append(group)
+            else:
+                ungrouped_interventions.extend(group)
+
+        return exact_match_groups, ungrouped_interventions
+
+    def _stage2_llm_semantic_matching(self, interventions: List[Dict]) -> List[List[Dict]]:
+        """
+        Stage 2: Use LLM to find semantically equivalent conditions for same intervention.
+        Only checks interventions with the SAME intervention_name but DIFFERENT condition names.
+        """
+        if not hasattr(self.repository, 'llm_processor'):
+            # No LLM available, return no semantic groups
+            return []
+
+        llm_processor = self.repository.llm_processor
+        semantic_groups = []
+
+        # Group by intervention name first (only compare same interventions)
+        by_intervention = defaultdict(list)
+        for intervention in interventions:
+            intervention_name = intervention.get('canonical_intervention_name', '').lower()
+            if intervention_name:
+                by_intervention[intervention_name].append(intervention)
+
+        # For each intervention, check if conditions are semantically equivalent
+        for intervention_name, intervention_list in by_intervention.items():
+            if len(intervention_list) < 2:
+                continue  # Need at least 2 to have duplicates
+
+            # Compare all pairs of conditions using LLM
+            checked_pairs = set()
+            equivalent_pairs = []
+
+            for i, int1 in enumerate(intervention_list):
+                for j, int2 in enumerate(intervention_list[i+1:], start=i+1):
+                    # Create unique pair key
+                    pair_key = (min(int1.get('id', i), int2.get('id', j)),
+                               max(int1.get('id', i), int2.get('id', j)))
+
+                    if pair_key in checked_pairs:
+                        continue
+
+                    cond1 = int1.get('health_condition', '')
+                    cond2 = int2.get('health_condition', '')
+
+                    # Only check if conditions are different
+                    if cond1.lower().strip() != cond2.lower().strip():
+                        # Use LLM to check semantic equivalence
+                        paper_pmid = int1.get('paper_id', '')
+                        equivalence_result = llm_processor.check_condition_equivalence(
+                            cond1, cond2, intervention_name, paper_pmid
+                        )
+
+                        # Threshold: confidence >= 0.7 for equivalence
+                        if equivalence_result['are_equivalent'] and equivalence_result['confidence'] >= 0.7:
+                            equivalent_pairs.append((int1, int2, equivalence_result))
+                            self.logger.info(f"LLM found semantic match: '{cond1}' ≈ '{cond2}' "
+                                           f"(confidence: {equivalence_result['confidence']:.2f})")
+
+                    checked_pairs.add(pair_key)
+
+            # Group equivalent interventions together
+            if equivalent_pairs:
+                # Build connected components of equivalent interventions
+                equivalence_graph = defaultdict(set)
+                for int1, int2, _ in equivalent_pairs:
+                    id1, id2 = id(int1), id(int2)
+                    equivalence_graph[id1].add(id2)
+                    equivalence_graph[id2].add(id1)
+
+                # Find connected components (groups of equivalent interventions)
+                visited = set()
+                for intervention in intervention_list:
+                    int_id = id(intervention)
+                    if int_id not in visited:
+                        # BFS to find all connected interventions
+                        group = []
+                        queue = [int_id]
+                        while queue:
+                            current_id = queue.pop(0)
+                            if current_id in visited:
+                                continue
+                            visited.add(current_id)
+                            # Find intervention object by id
+                            current_int = next(i for i in intervention_list if id(i) == current_id)
+                            group.append(current_int)
+                            # Add connected interventions
+                            queue.extend(equivalence_graph[current_id] - visited)
+
+                        if len(group) > 1:
+                            semantic_groups.append(group)
+
+        return semantic_groups
 
     def merge_duplicate_group(self, duplicate_interventions: List[Dict], paper: Dict) -> Dict:
         """
@@ -708,6 +1024,45 @@ class DuplicateDetector:
         base_intervention = max(duplicate_interventions,
                                key=lambda x: ConfidenceCalculator.get_effective_confidence(x))
         merged = base_intervention.copy()
+
+        # ====== NEW: CONSENSUS WORDING SELECTION ======
+        # If duplicates have different condition wordings, use LLM to decide which to keep
+        unique_conditions = list(set(i.get('health_condition', '') for i in duplicate_interventions))
+
+        if len(unique_conditions) > 1:
+            self.logger.info(f"Multiple condition wordings found: {unique_conditions}")
+
+            # Get the models that extracted each condition
+            condition_to_model = {}
+            for intervention in duplicate_interventions:
+                cond = intervention.get('health_condition', '')
+                model = intervention.get('extraction_model', 'unknown')
+                if cond not in condition_to_model:
+                    condition_to_model[cond] = []
+                condition_to_model[cond].append(model)
+
+            # Prepare extraction models list aligned with condition variants
+            extraction_models = [', '.join(condition_to_model[cond]) for cond in unique_conditions]
+
+            # Use LLM to select consensus wording
+            if hasattr(self.repository, 'llm_processor'):
+                intervention_name = merged.get('intervention_name', '')
+                consensus_result = self.repository.llm_processor.get_consensus_wording(
+                    unique_conditions, intervention_name, extraction_models
+                )
+
+                merged['health_condition'] = consensus_result['selected_wording']
+                merged['condition_wording_source'] = 'llm_consensus'
+                merged['condition_wording_confidence'] = consensus_result['confidence']
+                merged['original_condition_wordings'] = json.dumps(unique_conditions)
+
+                self.logger.info(f"LLM selected consensus wording: '{consensus_result['selected_wording']}' "
+                               f"(confidence: {consensus_result['confidence']:.2f})")
+            else:
+                # Fallback: use base intervention's condition
+                merged['condition_wording_source'] = 'highest_confidence_fallback'
+                merged['original_condition_wordings'] = json.dumps(unique_conditions)
+        # ====== END NEW SECTION ======
 
         # Extract model information
         contributing_models = []

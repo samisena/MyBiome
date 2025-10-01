@@ -77,7 +77,7 @@ class RotationPaperCollector:
         self.max_retries = 3
         self.retry_delays = [30, 60, 120]  # seconds
         self.batch_size = 25  # PubMed API batch size
-        self.max_workers = 8  # Number of parallel API calls
+        self.max_workers = 2  # Reduced parallel API calls to avoid overwhelming the system
 
     def get_all_conditions(self) -> List[str]:
         """Get all 60 medical conditions from config."""
@@ -209,38 +209,27 @@ class RotationPaperCollector:
         logger.debug(f"Starting collection for '{condition}' (target: {target_count} papers)")
 
         try:
-            # Check if we already have enough papers for this condition
-            existing_count = self._count_existing_papers(condition)
-            if existing_count >= target_count:
-                logger.debug(f"Already have {existing_count} papers for '{condition}', skipping collection")
-                return {
-                    'success': True,
-                    'condition': condition,
-                    'papers_collected': 0,
-                    'total_papers': existing_count,
-                    'target_reached': True,
-                    'collection_time_seconds': 0,
-                    'status': 'already_complete'
-                }
-
-            needed_papers = target_count - existing_count
-            logger.debug(f"Need {needed_papers} more papers for '{condition}' (have {existing_count})")
+            # In batch mode, we always collect fresh papers for each condition
+            # because we can't reliably determine which papers belong to which
+            # condition until after LLM processing extracts interventions
+            needed_papers = target_count
+            logger.debug(f"Collecting {needed_papers} papers for '{condition}'")
 
             # Collect papers with retry logic (without S2 enrichment)
             collection_result = self._collect_with_retry(
                 condition, needed_papers, min_year, max_year
             )
 
-            # Final count verification
-            final_count = self._count_existing_papers(condition)
+            # Final statistics
             collection_time = (datetime.now() - start_time).total_seconds()
+            papers_collected = collection_result['papers_collected']
 
             result = {
                 'success': True,
                 'condition': condition,
-                'papers_collected': collection_result['papers_collected'],
-                'total_papers': final_count,
-                'target_reached': final_count >= target_count,
+                'papers_collected': papers_collected,
+                'total_papers': papers_collected,  # In batch mode, this is just what we collected
+                'target_reached': papers_collected >= target_count,
                 'collection_time_seconds': collection_time,
                 'pubmed_stats': collection_result.get('pubmed_stats', {}),
                 'status': 'completed'
@@ -256,7 +245,7 @@ class RotationPaperCollector:
                 'success': False,
                 'condition': condition,
                 'papers_collected': 0,
-                'total_papers': self._count_existing_papers(condition),
+                'total_papers': 0,
                 'target_reached': False,
                 'collection_time_seconds': collection_time,
                 'error': str(e),
@@ -274,13 +263,15 @@ class RotationPaperCollector:
             try:
                 logger.info(f"Collection attempt {attempt + 1}/{self.max_retries} for '{condition}'")
 
-                # Use PubMed collector
+                # Use PubMed collector WITHOUT Semantic Scholar interleaved discovery
+                # to avoid hanging issues during batch collection
                 result = self.pubmed_collector.collect_interventions_by_condition(
                     condition=condition,
                     min_year=min_year,
                     max_year=max_year,
                     max_results=needed_papers,
-                    include_fulltext=True
+                    include_fulltext=True,
+                    use_interleaved_s2=False  # Disable S2 to prevent hanging
                 )
 
                 # Validate result
@@ -321,21 +312,36 @@ class RotationPaperCollector:
         raise RuntimeError(f"Failed to collect papers after {self.max_retries} attempts. Last error: {last_error}")
 
     def _count_existing_papers(self, condition: str) -> int:
-        """Count existing papers for a condition in the database."""
+        """Count existing papers for a condition in the database.
+
+        Since we're in the collection phase and interventions table is empty,
+        we can't reliably count papers for a specific condition. The best we
+        can do is return 0 to trigger collection, or search for the condition
+        in paper title/abstract (though this is imperfect).
+
+        For batch collection, this is less critical since we're collecting
+        for all conditions at once.
+        """
         try:
+            # During batch collection, we're collecting for all conditions
+            # simultaneously, so checking if we already have papers for
+            # a specific condition is complex. For simplicity, we'll
+            # search for papers that likely relate to this condition.
             with database_manager.get_connection() as conn:
                 cursor = conn.cursor()
 
-                # Count papers that have interventions for this condition
+                # Count papers that mention this condition in title or abstract
+                # This is an approximation - not perfect but reasonable
                 cursor.execute("""
-                    SELECT COUNT(DISTINCT p.id)
-                    FROM papers p
-                    JOIN interventions i ON p.id = i.paper_id
-                    WHERE LOWER(i.condition) LIKE LOWER(?)
-                """, (f"%{condition}%",))
+                    SELECT COUNT(DISTINCT pmid)
+                    FROM papers
+                    WHERE (LOWER(title) LIKE LOWER(?)
+                           OR LOWER(abstract) LIKE LOWER(?))
+                """, (f"%{condition}%", f"%{condition}%"))
 
                 count = cursor.fetchone()[0]
-                logger.debug(f"Found {count} existing papers for condition '{condition}'")
+                if count > 0:
+                    logger.debug(f"Found {count} existing papers mentioning '{condition}'")
                 return count
 
         except Exception as e:

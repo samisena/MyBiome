@@ -383,7 +383,7 @@ class BatchMedicalRotationPipeline:
                     'phase': 'collection'
                 }
 
-            logger.info("✓ Collection phase completed successfully")
+            logger.info("[SUCCESS] Collection phase completed successfully")
             logger.info(f"  Papers collected: {collection_result.total_papers_collected}")
             logger.info(f"  Success rate: {(collection_result.successful_conditions / collection_result.total_conditions) * 100:.1f}%")
 
@@ -428,7 +428,7 @@ class BatchMedicalRotationPipeline:
                     'phase': 'processing'
                 }
 
-            logger.info("✓ Processing phase completed successfully")
+            logger.info("[SUCCESS] Processing phase completed successfully")
             logger.info(f"  Papers processed: {session.total_papers_processed}")
             logger.info(f"  Interventions extracted: {session.total_interventions_extracted}")
             logger.info(f"  Success rate: {processing_result.get('success_rate', 0):.1f}%")
@@ -479,7 +479,7 @@ class BatchMedicalRotationPipeline:
                     'phase': 'deduplication'
                 }
 
-            logger.info("✓ LLM-based deduplication phase completed successfully")
+            logger.info("[SUCCESS] LLM-based deduplication phase completed successfully")
             logger.info(f"  Interventions analyzed: {total_processed}")
             logger.info(f"  Duplicate interventions merged: {total_merged}")
             logger.info(f"  Duplicate groups found: {deduplication_result.get('duplicate_groups_found', 0)}")
@@ -579,7 +579,7 @@ Examples:
         )
 
         if result['success']:
-            print(f"✓ Batch pipeline completed successfully")
+            print(f"[SUCCESS] Batch pipeline completed successfully")
             print(f"Session: {result['session_id']}")
             print(f"Iteration: {result['iteration_completed']}")
             print(f"Total time: {result['total_time_seconds']:.1f} seconds")
@@ -587,16 +587,16 @@ Examples:
             for key, value in result['statistics'].items():
                 print(f"  {key}: {value}")
         else:
-            print(f"✗ Batch pipeline failed: {result['error']}")
+            print(f"[FAILED] Batch pipeline failed: {result['error']}")
             if 'phase' in result:
                 print(f"Failed during: {result['phase']} phase")
             sys.exit(1)
 
     except KeyboardInterrupt:
-        print("\n✗ Pipeline interrupted by user")
+        print("\n[FAILED] Pipeline interrupted by user")
         sys.exit(1)
     except Exception as e:
-        print(f"✗ Pipeline failed: {e}")
+        print(f"[FAILED] Pipeline failed: {e}")
         if args.verbose:
             traceback.print_exc()
         sys.exit(1)
