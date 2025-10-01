@@ -25,6 +25,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional, Any, Tuple
 from dataclasses import dataclass
+from tqdm import tqdm
 
 try:
     from ..data.config import config, setup_logging

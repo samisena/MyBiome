@@ -23,6 +23,7 @@ from datetime import datetime
 from typing import Dict, List, Optional, Any, Tuple
 import concurrent.futures
 from dataclasses import dataclass
+from tqdm import tqdm
 
 try:
     from ..data.config import config, setup_logging
@@ -125,33 +126,39 @@ class RotationPaperCollector:
                     ): condition for condition in all_conditions
                 }
 
-                # Collect results as they complete
-                for future in concurrent.futures.as_completed(future_to_condition):
-                    condition = future_to_condition[future]
-                    try:
-                        result = future.result()
-                        condition_results.append(result)
+                # Collect results as they complete with progress bar
+                with tqdm(total=len(all_conditions), desc="Collecting papers", unit="condition") as pbar:
+                    for future in concurrent.futures.as_completed(future_to_condition):
+                        condition = future_to_condition[future]
+                        try:
+                            result = future.result()
+                            condition_results.append(result)
 
-                        if result['success']:
-                            successful_conditions += 1
-                            total_papers_collected += result['papers_collected']
-                            logger.info(f"✓ {condition}: {result['papers_collected']} papers")
-                        else:
+                            if result['success']:
+                                successful_conditions += 1
+                                total_papers_collected += result['papers_collected']
+                                pbar.set_postfix({'papers': total_papers_collected, 'success': successful_conditions})
+                                logger.info(f"[OK] {condition}: {result['papers_collected']} papers")
+                            else:
+                                failed_conditions += 1
+                                pbar.set_postfix({'papers': total_papers_collected, 'failed': failed_conditions})
+                                logger.warning(f"[FAIL] {condition}: {result.get('error', 'Unknown error')}")
+
+                        except Exception as e:
                             failed_conditions += 1
-                            logger.warning(f"✗ {condition}: {result.get('error', 'Unknown error')}")
+                            pbar.set_postfix({'papers': total_papers_collected, 'failed': failed_conditions})
+                            logger.error(f"[FAIL] {condition}: Exception during collection: {e}")
+                            condition_results.append({
+                                'success': False,
+                                'condition': condition,
+                                'papers_collected': 0,
+                                'total_papers': 0,
+                                'target_reached': False,
+                                'error': str(e),
+                                'status': 'failed'
+                            })
 
-                    except Exception as e:
-                        failed_conditions += 1
-                        logger.error(f"✗ {condition}: Exception during collection: {e}")
-                        condition_results.append({
-                            'success': False,
-                            'condition': condition,
-                            'papers_collected': 0,
-                            'total_papers': 0,
-                            'target_reached': False,
-                            'error': str(e),
-                            'status': 'failed'
-                        })
+                        pbar.update(1)
 
             # Calculate final statistics
             total_time = (datetime.now() - start_time).total_seconds()

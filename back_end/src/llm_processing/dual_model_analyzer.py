@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 from collections import defaultdict
 import json
+from tqdm import tqdm
 
 try:
     import torch
@@ -375,65 +376,73 @@ class DualModelAnalyzer:
         category_counts = {cat.value: 0 for cat in InterventionType}
         model_stats = {model: {'papers': 0, 'interventions': 0} for model in self.models.keys()}
         
-        for batch_num, batch in enumerate(batches, 1):
-            logger.info(f"Processing batch {batch_num}/{len(batches)} ({len(batch)} papers)")
-            
-            for i, paper in enumerate(batch, 1):
-                paper_num = (batch_num - 1) * batch_size + i
-                logger.debug(f"Processing paper {paper_num}/{len(papers)}: {paper['pmid']}")
-                
-                try:
-                    results = self.extract_interventions(paper)
-                    
-                    if results.get('total_interventions', 0) > 0:
-                        # Phase 2.3 Optimization: Build consensus BEFORE saving
-                        # This eliminates duplicate creation entirely
-                        consensus_interventions = self._build_consensus_for_paper(
-                            results.get('interventions', []),
-                            paper
-                        )
+        # Process all batches with progress bar
+        with tqdm(total=len(papers), desc="Processing papers", unit="paper") as pbar:
+            for batch_num, batch in enumerate(batches, 1):
+                logger.info(f"Processing batch {batch_num}/{len(batches)} ({len(batch)} papers)")
 
-                        # Update results with consensus interventions
-                        results['consensus_interventions'] = consensus_interventions
-                        results['consensus_processed'] = True
-                        all_results.append(results)
+                for i, paper in enumerate(batch, 1):
+                    paper_num = (batch_num - 1) * batch_size + i
+                    logger.debug(f"Processing paper {paper_num}/{len(papers)}: {paper['pmid']}")
 
-                        # Update model statistics (count consensus, not raw)
-                        for model_name, model_result in results.get('models', {}).items():
-                            if hasattr(model_result, 'interventions') and model_result.interventions:
-                                model_stats[model_name]['papers'] += 1
-                                # Count raw for stats, but we save consensus
-                                model_stats[model_name]['interventions'] += len(model_result.interventions)
+                    try:
+                        results = self.extract_interventions(paper)
 
-                        # Count by category (from consensus interventions)
-                        for intervention in consensus_interventions:
-                            category = intervention.get('intervention_category')
-                            if category in category_counts:
-                                category_counts[category] += 1
+                        if results.get('total_interventions', 0) > 0:
+                            # Phase 2.3 Optimization: Build consensus BEFORE saving
+                            # This eliminates duplicate creation entirely
+                            consensus_interventions = self._build_consensus_for_paper(
+                                results.get('interventions', []),
+                                paper
+                            )
 
-                        # Save consensus interventions to database (Phase 2.3: NO DUPLICATES)
-                        if save_to_db:
-                            self._save_interventions_batch(consensus_interventions)
-                            # Mark paper as LLM processed (Phase 2.1 optimization)
-                            self.repository_mgr.db_manager.mark_paper_llm_processed(paper['pmid'])
-                    else:
-                        if results.get('error'):
-                            logger.error(f"Error processing paper {paper['pmid']}: {results.get('error')}")
-                            failed_papers.append(paper['pmid'])
-                    
-                    total_processed += 1
-                    
-                    # Delay between papers
-                    if i < len(batch):
-                        time.sleep(1.0)  # Longer delay for dual models
-                        
-                except Exception as e:
-                    logger.error(f"Failed to process paper {paper['pmid']}: {e}")
-                    failed_papers.append(paper['pmid'])
-            
-            # Delay between batches
-            if batch_num < len(batches):
-                time.sleep(2.0)
+                            # Update results with consensus interventions
+                            results['consensus_interventions'] = consensus_interventions
+                            results['consensus_processed'] = True
+                            all_results.append(results)
+
+                            # Update model statistics (count consensus, not raw)
+                            for model_name, model_result in results.get('models', {}).items():
+                                if hasattr(model_result, 'interventions') and model_result.interventions:
+                                    model_stats[model_name]['papers'] += 1
+                                    # Count raw for stats, but we save consensus
+                                    model_stats[model_name]['interventions'] += len(model_result.interventions)
+
+                            # Count by category (from consensus interventions)
+                            for intervention in consensus_interventions:
+                                category = intervention.get('intervention_category')
+                                if category in category_counts:
+                                    category_counts[category] += 1
+
+                            # Save consensus interventions to database (Phase 2.3: NO DUPLICATES)
+                            if save_to_db:
+                                self._save_interventions_batch(consensus_interventions)
+                                # Mark paper as LLM processed (Phase 2.1 optimization)
+                                self.repository_mgr.db_manager.mark_paper_llm_processed(paper['pmid'])
+
+                            pbar.set_postfix({'interventions': total_interventions + len(consensus_interventions), 'failed': len(failed_papers)})
+                        else:
+                            if results.get('error'):
+                                logger.error(f"Error processing paper {paper['pmid']}: {results.get('error')}")
+                                failed_papers.append(paper['pmid'])
+                                pbar.set_postfix({'interventions': total_interventions, 'failed': len(failed_papers)})
+
+                        total_processed += 1
+                        pbar.update(1)
+
+                        # Delay between papers
+                        if i < len(batch):
+                            time.sleep(1.0)  # Longer delay for dual models
+
+                    except Exception as e:
+                        logger.error(f"Failed to process paper {paper['pmid']}: {e}")
+                        failed_papers.append(paper['pmid'])
+                        pbar.set_postfix({'interventions': total_interventions, 'failed': len(failed_papers)})
+                        pbar.update(1)
+
+                # Delay between batches
+                if batch_num < len(batches):
+                    time.sleep(2.0)
         
         # Calculate totals
         total_interventions = sum(len(r.get('interventions', [])) for r in all_results)
