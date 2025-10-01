@@ -398,6 +398,7 @@ class DualModelAnalyzer:
         all_results = []
         failed_papers = []
         total_processed = 0
+        total_interventions = 0  # Track interventions as we process
         category_counts = {cat.value: 0 for cat in InterventionType}
         model_stats = {model: {'papers': 0, 'interventions': 0} for model in self.models.keys()}
         
@@ -445,7 +446,9 @@ class DualModelAnalyzer:
                                 # Mark paper as LLM processed (Phase 2.1 optimization)
                                 self.repository_mgr.db_manager.mark_paper_llm_processed(paper['pmid'])
 
-                            pbar.set_postfix({'interventions': total_interventions + len(consensus_interventions), 'failed': len(failed_papers)})
+                            # Update running total
+                            total_interventions += len(consensus_interventions)
+                            pbar.set_postfix({'interventions': total_interventions, 'failed': len(failed_papers)})
                         else:
                             if results.get('error'):
                                 logger.error(f"Error processing paper {paper['pmid']}: {results.get('error')}")
@@ -468,9 +471,8 @@ class DualModelAnalyzer:
                 # Delay between batches
                 if batch_num < len(batches):
                     time.sleep(2.0)
-        
-        # Calculate totals
-        total_interventions = sum(len(r.get('interventions', [])) for r in all_results)
+
+        # total_interventions already calculated during processing loop
         
         # Compile results
         results = {
