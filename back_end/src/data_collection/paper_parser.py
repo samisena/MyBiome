@@ -21,56 +21,61 @@ class PubmedParser:
     Uses dependency injection for database management.
     """
     
-    def __init__(self, db_manager=None):
+    def __init__(self, db_manager=None, auto_cleanup: bool = True):
         """
         Initialize parser with dependency injection.
-        
+
         Args:
             db_manager: Database manager instance (optional, uses global if None)
+            auto_cleanup: Whether to automatically delete XML files after parsing (default: True)
         """
         self.db_manager = db_manager or database_manager
         self.metadata_dir = config.metadata_dir
         self.processed_dir = config.processed_data
-        
+        self.auto_cleanup = auto_cleanup
+
         # Enhanced PubMed parser initialized
     
     # Removed @log_execution_time - use error_handler.py decorators instead
     def parse_metadata_file(self, file_path: str, batch_size: int = 50) -> List[Dict]:
         """
         Parse a single XML metadata file with batch processing.
-        
+
+        The XML file is automatically deleted after parsing (success or failure)
+        if auto_cleanup is enabled, preventing accumulation of temporary files.
+
         Args:
             file_path: Path to XML file
             batch_size: Number of papers to process in each batch
-            
+
         Returns:
             List of parsed paper dictionaries
         """
         file_path = Path(file_path)
         # Starting to parse XML file
-        
+
         try:
             tree = ET.parse(file_path)
             root = tree.getroot()
             articles = root.findall(".//PubmedArticle")
-            
+
             # Articles found in XML
-            
+
             if not articles:
                 # No articles found in XML file
                 pass
                 return []
-            
+
             # Process articles in batches for better memory management
             all_papers = []
             batches = batch_process(articles, batch_size)
-            
+
             total_inserted = 0
             total_skipped = 0
-            
+
             for i, batch in enumerate(batches, 1):
                 # Processing article batch
-                
+
                 batch_papers = []
                 for article in batch:
                     try:
@@ -81,24 +86,32 @@ class PubmedParser:
                         # Error parsing article - skipping
                         pass
                         continue
-                
+
                 # Insert batch to database
                 batch_inserted, batch_skipped = self._insert_papers_batch(batch_papers)
                 total_inserted += batch_inserted
                 total_skipped += batch_skipped
-                
+
                 all_papers.extend(batch_papers)
-            
+
             # Parsing completed
-            
+
             return all_papers
-            
+
         except ET.ParseError as e:
             logger.error(f"XML parsing error for {file_path}: {e}")
             return []
         except Exception as e:
             logger.error(f"Error parsing file {file_path}: {e}")
             return []
+        finally:
+            # Always cleanup XML file, even on error
+            if self.auto_cleanup and file_path.exists():
+                try:
+                    file_path.unlink()
+                    logger.debug(f"Cleaned up XML file: {file_path}")
+                except Exception as e:
+                    logger.warning(f"Failed to cleanup XML file {file_path}: {e}")
     
     def _parse_single_article(self, article: ET.Element) -> Optional[Dict]:
         """

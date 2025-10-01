@@ -1,15 +1,15 @@
 """
-Database manager with connection pooling and improved efficiency.
+Database manager with thread-safe connection handling.
+
+IMPORTANT: This module no longer uses connection pooling or the singleton pattern.
+Each database operation creates a fresh connection via context manager for thread safety.
 """
 
 import sqlite3
 import json
-import threading
 from contextlib import contextmanager
 from typing import List, Dict, Optional, Any
 from datetime import datetime
-from queue import Queue, Empty
-from dataclasses import dataclass
 import sys
 from pathlib import Path
 
@@ -28,111 +28,26 @@ except ImportError:
     logger.warning("Entity normalization not available - install required dependencies")
 
 
-@dataclass
-class ConnectionPool:
-    """Simple connection pool for SQLite database."""
-    
-    def __init__(self, db_path: str, max_connections: int = 10):
-        self.db_path = db_path
-        self.max_connections = max_connections
-        self._pool = Queue(maxsize=max_connections)
-        self._lock = threading.Lock()
-        self._total_connections = 0
-        
-        # Pre-populate pool with initial connections
-        self._initialize_pool()
-    
-    def _initialize_pool(self):
-        """Initialize the connection pool with some connections."""
-        for _ in range(min(3, self.max_connections)):  # Start with 3 connections
-            conn = self._create_connection()
-            self._pool.put(conn)
-    
-    def _create_connection(self) -> sqlite3.Connection:
-        """Create a new database connection."""
-        # Allow connections to be used across threads (with proper locking)
-        conn = sqlite3.connect(self.db_path, check_same_thread=False)
-        conn.row_factory = sqlite3.Row  # Enable column access by name
-        conn.execute('PRAGMA foreign_keys = ON')  # Enable foreign key constraints
-        conn.execute('PRAGMA journal_mode = WAL')  # Enable WAL mode for better concurrency
-        self._total_connections += 1
-        return conn
-    
-    @contextmanager
-    def get_connection(self):
-        """Get a connection from the pool."""
-        conn = None
-        try:
-            # Try to get existing connection from pool
-            try:
-                conn = self._pool.get_nowait()
-            except Empty:
-                # If pool is empty and we haven't reached max connections, create new one
-                with self._lock:
-                    if self._total_connections < self.max_connections:
-                        conn = self._create_connection()
-                    else:
-                        # Wait for a connection to be available
-                        conn = self._pool.get(timeout=30)
-            
-            yield conn
-            
-        except Exception as e:
-            logger.error(f"Database connection error: {e}")
-            if conn:
-                conn.rollback()
-            raise
-        finally:
-            if conn:
-                try:
-                    # Return connection to pool
-                    self._pool.put_nowait(conn)
-                except:
-                    # Pool is full, close the connection
-                    conn.close()
-                    with self._lock:
-                        self._total_connections -= 1
-    
-    def close_all(self):
-        """Close all connections in the pool."""
-        while True:
-            try:
-                conn = self._pool.get_nowait()
-                conn.close()
-            except Empty:
-                break
-        
-        with self._lock:
-            self._total_connections = 0
+# ConnectionPool class removed - no longer needed with thread-local connections
+# Each get_connection() call creates a fresh connection, ensuring thread safety
 
 
 class DatabaseManager:
     """
-    Database manager with connection pooling and validation.
-    """
-    
-    _instance = None
-    _lock = threading.Lock()
-    
-    def __new__(cls, db_config=None):
-        """Singleton pattern with thread safety."""
-        if cls._instance is None:
-            with cls._lock:
-                if cls._instance is None:
-                    cls._instance = super().__new__(cls)
-        return cls._instance
-    
-    def __init__(self, db_config=None, enable_normalization: bool = False):
-        # Only initialize once
-        if hasattr(self, '_initialized'):
-            return
+    Database manager with thread-safe connection handling.
 
+    IMPORTANT: This class no longer uses singleton pattern or connection pooling.
+    Each thread should create its own connection via get_connection() context manager.
+    """
+
+    def __init__(self, db_config=None, enable_normalization: bool = False):
         self.db_config = db_config or type('DatabaseConfig', (), {
             'name': config.db_name,
-            'path': config.db_path,
-            'max_connections': config.max_connections
+            'path': config.db_path
         })()
-        self.db_path = self.db_config.path
+
+        # Ensure db_path is a Path object
+        self.db_path = Path(self.db_config.path) if not isinstance(self.db_config.path, Path) else self.db_config.path
 
         # Set up normalization capability
         self.enable_normalization = enable_normalization and NORMALIZATION_AVAILABLE
@@ -142,23 +57,49 @@ class DatabaseManager:
         # Ensure directory exists
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
 
-        # Initialize connection pool
-        self.pool = ConnectionPool(str(self.db_path), self.db_config.max_connections)
-
-        # Create tables
+        # Create tables on first instantiation
         self.create_tables()
 
         # Set up intervention categories
         self.setup_intervention_categories()
 
-        logger.info(f"Enhanced database manager initialized at {self.db_path} (normalization: {self.enable_normalization})")
-        self._initialized = True
+        logger.info(f"Thread-safe database manager initialized at {self.db_path} (normalization: {self.enable_normalization})")
     
     @contextmanager
     def get_connection(self):
-        """Get a database connection from the pool."""
-        with self.pool.get_connection() as conn:
+        """
+        Get a thread-safe database connection.
+
+        This creates a fresh connection for each context, ensuring thread safety
+        without the dangerous check_same_thread=False hack.
+
+        Usage:
+            with database_manager.get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute(...)
+                # conn.commit() is called automatically on success
+                # conn.rollback() is called automatically on error
+        """
+        # Create a fresh connection for this thread/context
+        conn = sqlite3.connect(str(self.db_path))
+        conn.row_factory = sqlite3.Row  # Enable column access by name
+
+        # Enable WAL mode for safe concurrent reads
+        conn.execute('PRAGMA journal_mode = WAL')
+        conn.execute('PRAGMA foreign_keys = ON')
+
+        try:
             yield conn
+            # Automatically commit on successful completion
+            conn.commit()
+        except Exception as e:
+            # Automatically rollback on any error
+            conn.rollback()
+            logger.error(f"Database operation failed, rolled back: {e}")
+            raise
+        finally:
+            # Always close the connection
+            conn.close()
     
     def migrate_to_dual_confidence(self):
         """Migrate existing database to support dual confidence metrics."""
@@ -1164,10 +1105,14 @@ class DatabaseManager:
         return results
 
     def close(self):
-        """Close all database connections."""
-        if hasattr(self, 'pool'):
-            self.pool.close_all()
-            logger.info("Database connections closed")
+        """
+        Close method for API compatibility.
+
+        Note: With thread-local connections, there's no persistent pool to close.
+        Connections are automatically closed when the context manager exits.
+        This method is kept for backward compatibility.
+        """
+        logger.info("Database manager close() called (connections auto-close per context)")
 
 
 # Global instance for dependency injection

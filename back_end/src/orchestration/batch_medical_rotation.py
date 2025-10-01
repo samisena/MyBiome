@@ -37,12 +37,19 @@ import time
 import signal
 import argparse
 import traceback
+import json
+import platform
 from pathlib import Path
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any, Tuple
 from enum import Enum
 from dataclasses import dataclass
-import json
+
+# Platform-specific file locking
+if platform.system() == 'Windows':
+    import msvcrt
+else:
+    import fcntl
 
 try:
     from ..data.config import config, setup_logging
@@ -185,7 +192,12 @@ class BatchMedicalRotationPipeline:
             return None
 
     def _save_session(self):
-        """Save current session to file."""
+        """
+        Save current session to file with platform-specific file locking.
+
+        Uses msvcrt on Windows and fcntl on Unix/Linux to prevent race conditions
+        when multiple processes try to save simultaneously.
+        """
         if not self.current_session:
             return
 
@@ -210,8 +222,26 @@ class BatchMedicalRotationPipeline:
                 'deduplication_result': self.current_session.deduplication_result
             }
 
+            # Write with platform-specific file locking
             with open(self.session_file, 'w') as f:
-                json.dump(data, f, indent=2)
+                try:
+                    # Acquire exclusive lock
+                    if platform.system() == 'Windows':
+                        # Windows file locking
+                        msvcrt.locking(f.fileno(), msvcrt.LK_LOCK, 1)
+                    else:
+                        # Unix/Linux file locking
+                        fcntl.flock(f.fileno(), fcntl.LOCK_EX)
+
+                    # Write data while holding lock
+                    json.dump(data, f, indent=2)
+
+                finally:
+                    # Release lock
+                    if platform.system() == 'Windows':
+                        msvcrt.locking(f.fileno(), msvcrt.LK_UNLCK, 1)
+                    else:
+                        fcntl.flock(f.fileno(), fcntl.LOCK_UN)
 
         except Exception as e:
             logger.error(f"Failed to save session: {e}")
