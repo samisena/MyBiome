@@ -386,23 +386,36 @@ class DualModelAnalyzer:
                     results = self.extract_interventions(paper)
                     
                     if results.get('total_interventions', 0) > 0:
+                        # Phase 2.3 Optimization: Build consensus BEFORE saving
+                        # This eliminates duplicate creation entirely
+                        consensus_interventions = self._build_consensus_for_paper(
+                            results.get('interventions', []),
+                            paper
+                        )
+
+                        # Update results with consensus interventions
+                        results['consensus_interventions'] = consensus_interventions
+                        results['consensus_processed'] = True
                         all_results.append(results)
-                        
-                        # Update model statistics
+
+                        # Update model statistics (count consensus, not raw)
                         for model_name, model_result in results.get('models', {}).items():
                             if hasattr(model_result, 'interventions') and model_result.interventions:
                                 model_stats[model_name]['papers'] += 1
+                                # Count raw for stats, but we save consensus
                                 model_stats[model_name]['interventions'] += len(model_result.interventions)
-                        
-                        # Count by category
-                        for intervention in results.get('interventions', []):
+
+                        # Count by category (from consensus interventions)
+                        for intervention in consensus_interventions:
                             category = intervention.get('intervention_category')
                             if category in category_counts:
                                 category_counts[category] += 1
-                        
-                        # Save raw interventions to database if requested
+
+                        # Save consensus interventions to database (Phase 2.3: NO DUPLICATES)
                         if save_to_db:
-                            self._save_interventions_batch(results.get('interventions', []))
+                            self._save_interventions_batch(consensus_interventions)
+                            # Mark paper as LLM processed (Phase 2.1 optimization)
+                            self.repository_mgr.db_manager.mark_paper_llm_processed(paper['pmid'])
                     else:
                         if results.get('error'):
                             logger.error(f"Error processing paper {paper['pmid']}: {results.get('error')}")
@@ -440,21 +453,68 @@ class DualModelAnalyzer:
         
         return results
     
+    def _build_consensus_for_paper(self, raw_interventions: List[Dict], paper: Dict) -> List[Dict]:
+        """
+        Build consensus from raw interventions for a single paper.
+
+        Phase 2.3 Optimization: Process → Consensus → Save ONCE (no duplicates).
+        Uses batch_entity_processor to merge same-paper duplicates immediately.
+
+        Args:
+            raw_interventions: All interventions extracted by all models
+            paper: Source paper information
+
+        Returns:
+            List of consensus interventions (deduplicated)
+        """
+        if not raw_interventions:
+            return []
+
+        try:
+            # Import here to avoid circular dependency
+            from back_end.src.llm_processing.batch_entity_processor import create_batch_processor
+
+            # Create processor with database connection
+            with self.repository_mgr.db_manager.get_connection() as conn:
+                processor = create_batch_processor(db_path=None, llm_model="qwen2.5:14b")
+                processor.db = conn  # Use this connection
+
+                # Process consensus batch (same-paper deduplication)
+                consensus_interventions = processor.process_consensus_batch(
+                    raw_interventions=raw_interventions,
+                    paper=paper,
+                    confidence_threshold=0.5
+                )
+
+                logger.debug(f"Consensus: {len(raw_interventions)} raw -> {len(consensus_interventions)} deduplicated")
+                return consensus_interventions
+
+        except Exception as e:
+            logger.error(f"Consensus building failed for paper {paper.get('pmid')}: {e}")
+            # Fallback: return raw interventions (better than losing data)
+            logger.warning(f"Falling back to raw interventions for paper {paper.get('pmid')}")
+            return raw_interventions
+
     def _save_interventions_batch(self, interventions: List[Dict]):
-        """Save a batch of raw interventions to database (no normalization)."""
+        """
+        Save a batch of consensus interventions to database.
+
+        Phase 2.3: These are already deduplicated, so no consensus_processed flag needed.
+        """
         for intervention in interventions:
             try:
-                # Add consensus processing flag
-                intervention['consensus_processed'] = False
+                # Mark as consensus processed (Phase 2.3)
+                intervention['consensus_processed'] = True
+                intervention['normalized'] = True  # Already normalized through consensus
 
-                # Use standard insertion for raw interventions (no normalization)
+                # Use standard insertion
                 success = self.repository_mgr.interventions.insert_intervention(intervention)
                 if success:
-                    logger.debug(f"Raw intervention saved: {intervention.get('intervention_name')}")
+                    logger.debug(f"Consensus intervention saved: {intervention.get('intervention_name')}")
                 else:
-                    logger.error(f"Failed to save raw intervention: {intervention.get('intervention_name')}")
+                    logger.error(f"Failed to save consensus intervention: {intervention.get('intervention_name')}")
             except Exception as e:
-                logger.error(f"Error saving raw intervention: {e}")
+                logger.error(f"Error saving consensus intervention: {e}")
     
     
     def get_unprocessed_papers(self, limit: Optional[int] = None) -> List[Dict]:
