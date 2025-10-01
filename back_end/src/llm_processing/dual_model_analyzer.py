@@ -10,7 +10,32 @@ import sys
 from pathlib import Path
 from collections import defaultdict
 import json
-from tqdm import tqdm
+
+# Graceful degradation for tqdm (Phase 5.1)
+try:
+    from tqdm import tqdm
+    TQDM_AVAILABLE = True
+except ImportError:
+    TQDM_AVAILABLE = False
+    # Fallback: dummy tqdm that does nothing
+    class tqdm:
+        def __init__(self, iterable=None, *args, **kwargs):
+            self.iterable = iterable
+            self.total = kwargs.get('total', 0)
+            self.n = 0
+        def __enter__(self):
+            return self
+        def __exit__(self, *args):
+            pass
+        def update(self, n=1):
+            self.n += n
+        def set_postfix(self, **kwargs):
+            pass
+        def __iter__(self):
+            if self.iterable:
+                for item in self.iterable:
+                    yield item
+                    self.update(1)
 
 try:
     import torch

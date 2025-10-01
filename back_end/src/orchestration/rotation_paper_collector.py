@@ -23,7 +23,26 @@ from datetime import datetime
 from typing import Dict, List, Optional, Any, Tuple
 import concurrent.futures
 from dataclasses import dataclass
-from tqdm import tqdm
+
+# Graceful degradation for tqdm (Phase 5.1)
+try:
+    from tqdm import tqdm
+    TQDM_AVAILABLE = True
+except ImportError:
+    TQDM_AVAILABLE = False
+    class tqdm:
+        def __init__(self, iterable=None, *args, **kwargs):
+            self.iterable = iterable
+            self.total = kwargs.get('total', 0)
+            self.n = 0
+        def __enter__(self):
+            return self
+        def __exit__(self, *args):
+            pass
+        def update(self, n=1):
+            self.n += n
+        def set_postfix(self, **kwargs):
+            pass
 
 try:
     from ..data.config import config, setup_logging
