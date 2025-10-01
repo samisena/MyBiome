@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-Rotation Pipeline Paper Collector
+Batch Paper Collector for Medical Rotation Pipeline
 
-Simplified paper collector specifically designed for the medical rotation pipeline.
-Collects exactly N papers for a single condition with robust error handling
-and integration with the rotation session manager.
+Optimized batch paper collector that collects papers for all 60 medical conditions
+in parallel before processing. Removes Semantic Scholar from orchestration pipeline
+for simplified, faster collection.
 
 Features:
-- Single-condition focused collection
-- Exact paper count targeting
-- Network resilience and retry logic
-- Integration with rotation session manager
+- Batch collection for all 60 conditions in parallel
+- PubMed-only collection (S2 removed from pipeline)
+- Parallel API calls for faster collection
+- Bulk database operations
 - Progress tracking and validation
+- Quality gates before proceeding to processing
 """
 
 import sys
@@ -20,12 +21,14 @@ import traceback
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional, Any, Tuple
+import concurrent.futures
+from dataclasses import dataclass
 
 try:
     from ..data.config import config, setup_logging
     from ..data_collection.database_manager import database_manager
     from ..data_collection.pubmed_collector import PubMedCollector
-    from ..data_collection.semantic_scholar_enrichment import run_semantic_scholar_enrichment
+    # Semantic Scholar removed from orchestration pipeline (keeping module intact for future use)
     from .rotation_session_manager import (
         RotationSessionManager, PipelinePhase, session_manager
     )
@@ -37,7 +40,7 @@ except ImportError:
     from back_end.src.data.config import config, setup_logging
     from back_end.src.data_collection.database_manager import database_manager
     from back_end.src.data_collection.pubmed_collector import PubMedCollector
-    from back_end.src.data_collection.semantic_scholar_enrichment import run_semantic_scholar_enrichment
+    # Semantic Scholar removed from orchestration pipeline (keeping module intact for future use)
     from back_end.src.orchestration.rotation_session_manager import (
         RotationSessionManager, PipelinePhase, session_manager
     )
@@ -45,43 +48,171 @@ except ImportError:
 logger = setup_logging(__name__, 'rotation_paper_collector.log')
 
 
+@dataclass
+class BatchCollectionResult:
+    """Result from batch collection of papers across all conditions."""
+    total_conditions: int = 0
+    successful_conditions: int = 0
+    failed_conditions: int = 0
+    total_papers_collected: int = 0
+    total_collection_time_seconds: float = 0.0
+    conditions_results: List[Dict[str, Any]] = None
+    success: bool = False
+    error: Optional[str] = None
+
+    def __post_init__(self):
+        if self.conditions_results is None:
+            self.conditions_results = []
+
+
 class RotationPaperCollector:
     """
-    Simplified paper collector for rotation pipeline.
-    Collects exactly N papers for a single condition.
+    Batch paper collector for rotation pipeline.
+    Collects papers for all 60 medical conditions in parallel.
     """
 
     def __init__(self):
-        """Initialize the rotation paper collector."""
+        """Initialize the batch paper collector."""
         self.pubmed_collector = PubMedCollector()
         self.max_retries = 3
         self.retry_delays = [30, 60, 120]  # seconds
         self.batch_size = 25  # PubMed API batch size
+        self.max_workers = 8  # Number of parallel API calls
 
-    def collect_condition_papers(self, condition: str, target_count: int = 10,
-                                min_year: int = 2015, max_year: Optional[int] = None,
-                                use_s2_enrichment: bool = True) -> Dict[str, Any]:
+    def get_all_conditions(self) -> List[str]:
+        """Get all 60 medical conditions from config."""
+        all_conditions = []
+        for specialty, conditions in config.medical_specialties.items():
+            all_conditions.extend(conditions)
+        return all_conditions
+
+    def collect_all_conditions_batch(self, papers_per_condition: int = 10,
+                                   min_year: int = 2015, max_year: Optional[int] = None) -> BatchCollectionResult:
         """
-        Collect exactly target_count papers for a specific condition.
+        Collect papers for all 60 medical conditions in parallel batches.
 
         Args:
-            condition: Medical condition to search for
-            target_count: Exact number of papers to collect
+            papers_per_condition: Target number of papers per condition
             min_year: Minimum publication year
             max_year: Maximum publication year (None for current year)
-            use_s2_enrichment: Whether to use Semantic Scholar enrichment
 
         Returns:
-            Dictionary with collection results and statistics
+            BatchCollectionResult with comprehensive collection statistics
         """
         start_time = datetime.now()
-        logger.info(f"Starting collection for '{condition}' (target: {target_count} papers)")
+        all_conditions = self.get_all_conditions()
+
+        logger.info(f"Starting batch collection for {len(all_conditions)} conditions")
+        logger.info(f"Target: {papers_per_condition} papers per condition")
+        logger.info(f"Parallel workers: {self.max_workers}")
+
+        # Use ThreadPoolExecutor for parallel API calls
+        condition_results = []
+        successful_conditions = 0
+        failed_conditions = 0
+        total_papers_collected = 0
+
+        try:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+                # Submit all collection tasks
+                future_to_condition = {
+                    executor.submit(
+                        self._collect_single_condition_without_s2,
+                        condition,
+                        papers_per_condition,
+                        min_year,
+                        max_year
+                    ): condition for condition in all_conditions
+                }
+
+                # Collect results as they complete
+                for future in concurrent.futures.as_completed(future_to_condition):
+                    condition = future_to_condition[future]
+                    try:
+                        result = future.result()
+                        condition_results.append(result)
+
+                        if result['success']:
+                            successful_conditions += 1
+                            total_papers_collected += result['papers_collected']
+                            logger.info(f"✓ {condition}: {result['papers_collected']} papers")
+                        else:
+                            failed_conditions += 1
+                            logger.warning(f"✗ {condition}: {result.get('error', 'Unknown error')}")
+
+                    except Exception as e:
+                        failed_conditions += 1
+                        logger.error(f"✗ {condition}: Exception during collection: {e}")
+                        condition_results.append({
+                            'success': False,
+                            'condition': condition,
+                            'papers_collected': 0,
+                            'total_papers': 0,
+                            'target_reached': False,
+                            'error': str(e),
+                            'status': 'failed'
+                        })
+
+            # Calculate final statistics
+            total_time = (datetime.now() - start_time).total_seconds()
+
+            # Quality gate check
+            success_rate = (successful_conditions / len(all_conditions)) * 100 if all_conditions else 0
+            quality_threshold = 80.0  # Require 80% success rate to proceed
+
+            result = BatchCollectionResult(
+                total_conditions=len(all_conditions),
+                successful_conditions=successful_conditions,
+                failed_conditions=failed_conditions,
+                total_papers_collected=total_papers_collected,
+                total_collection_time_seconds=total_time,
+                conditions_results=condition_results,
+                success=success_rate >= quality_threshold,
+                error=None if success_rate >= quality_threshold else f"Quality gate failed: {success_rate:.1f}% success rate below {quality_threshold}% threshold"
+            )
+
+            logger.info(f"Batch collection completed in {total_time:.1f}s")
+            logger.info(f"Success rate: {success_rate:.1f}% ({successful_conditions}/{len(all_conditions)})")
+            logger.info(f"Total papers collected: {total_papers_collected}")
+            logger.info(f"Average papers per condition: {total_papers_collected / len(all_conditions):.1f}")
+
+            if result.success:
+                logger.info("✓ Quality gate PASSED - proceeding to processing phase")
+            else:
+                logger.warning(f"✗ Quality gate FAILED - {result.error}")
+
+            return result
+
+        except Exception as e:
+            total_time = (datetime.now() - start_time).total_seconds()
+            logger.error(f"Batch collection failed: {e}")
+            logger.error(traceback.format_exc())
+
+            return BatchCollectionResult(
+                total_conditions=len(all_conditions),
+                successful_conditions=successful_conditions,
+                failed_conditions=failed_conditions,
+                total_papers_collected=total_papers_collected,
+                total_collection_time_seconds=total_time,
+                conditions_results=condition_results,
+                success=False,
+                error=str(e)
+            )
+
+    def _collect_single_condition_without_s2(self, condition: str, target_count: int,
+                                           min_year: int, max_year: Optional[int]) -> Dict[str, Any]:
+        """
+        Collect papers for a single condition without Semantic Scholar enrichment.
+        This is the optimized version used in batch collection.
+        """
+        start_time = datetime.now()
+        logger.debug(f"Starting collection for '{condition}' (target: {target_count} papers)")
 
         try:
             # Check if we already have enough papers for this condition
             existing_count = self._count_existing_papers(condition)
             if existing_count >= target_count:
-                logger.info(f"Already have {existing_count} papers for '{condition}', skipping collection")
+                logger.debug(f"Already have {existing_count} papers for '{condition}', skipping collection")
                 return {
                     'success': True,
                     'condition': condition,
@@ -93,26 +224,12 @@ class RotationPaperCollector:
                 }
 
             needed_papers = target_count - existing_count
-            logger.info(f"Need {needed_papers} more papers for '{condition}' (have {existing_count})")
+            logger.debug(f"Need {needed_papers} more papers for '{condition}' (have {existing_count})")
 
-            # Collect papers with retry logic
+            # Collect papers with retry logic (without S2 enrichment)
             collection_result = self._collect_with_retry(
                 condition, needed_papers, min_year, max_year
             )
-
-            # Add Semantic Scholar enrichment if enabled and we have new papers
-            if use_s2_enrichment and collection_result['papers_collected'] > 0:
-                try:
-                    logger.info(f"Running Semantic Scholar enrichment for '{condition}'...")
-                    s2_result = run_semantic_scholar_enrichment(
-                        condition_filter=condition,
-                        limit=collection_result['papers_collected']
-                    )
-                    collection_result['s2_enrichment'] = s2_result
-                    logger.info(f"S2 enrichment completed for '{condition}'")
-                except Exception as e:
-                    logger.warning(f"S2 enrichment failed for '{condition}': {e}")
-                    collection_result['s2_enrichment'] = {'error': str(e)}
 
             # Final count verification
             final_count = self._count_existing_papers(condition)
@@ -126,23 +243,14 @@ class RotationPaperCollector:
                 'target_reached': final_count >= target_count,
                 'collection_time_seconds': collection_time,
                 'pubmed_stats': collection_result.get('pubmed_stats', {}),
-                's2_enrichment': collection_result.get('s2_enrichment', {}),
                 'status': 'completed'
             }
-
-            if result['target_reached']:
-                logger.info(f"Successfully collected papers for '{condition}': "
-                           f"{final_count} total papers (target: {target_count})")
-            else:
-                logger.warning(f"Partial collection for '{condition}': "
-                              f"{final_count} total papers (target: {target_count})")
 
             return result
 
         except Exception as e:
             collection_time = (datetime.now() - start_time).total_seconds()
             logger.error(f"Collection failed for '{condition}': {e}")
-            logger.error(traceback.format_exc())
 
             return {
                 'success': False,
@@ -154,6 +262,8 @@ class RotationPaperCollector:
                 'error': str(e),
                 'status': 'failed'
             }
+
+    # Old condition-by-condition collection method removed - replaced by collect_all_conditions_batch()
 
     def _collect_with_retry(self, condition: str, needed_papers: int,
                            min_year: int, max_year: Optional[int]) -> Dict[str, Any]:
@@ -300,99 +410,7 @@ class RotationPaperCollector:
 
         return summary
 
-    # ================================================================================
-    # INTEGRATION METHODS (merged from rotation_collection_integrator.py)
-    # ================================================================================
-
-    def collect_current_condition(self, session_mgr: RotationSessionManager = None) -> Dict[str, Any]:
-        """Collect papers for the current condition in the rotation session."""
-        if session_mgr is None:
-            session_mgr = session_manager
-
-        if not session_mgr.session:
-            raise Exception("No active rotation session found")
-
-        session = session_mgr.session
-        condition = session.current_condition
-        target_count = session.papers_per_condition
-
-        logger.info(f"Collecting {target_count} papers for: {condition}")
-
-        # Set interruption state for collection phase
-        session_mgr.set_interruption_state(phase=PipelinePhase.COLLECTION)
-
-        try:
-            # Simple retry mechanism
-            max_retries = 3
-            for attempt in range(max_retries):
-                try:
-                    result = self.collect_condition_papers(
-                        condition=condition,
-                        target_count=target_count,
-                        min_year=2015,
-                        use_s2_enrichment=True
-                    )
-
-                    if result['success']:
-                        # Update session progress
-                        session_mgr.update_progress(
-                            papers_collected=result['papers_collected']
-                        )
-                        session_mgr.clear_interruption_state()
-                        logger.info(f"Collection completed: {result['papers_collected']} papers")
-                        return result
-
-                except Exception as e:
-                    if attempt == max_retries - 1:
-                        raise e
-                    logger.warning(f"Collection attempt {attempt + 1} failed: {e}. Retrying...")
-                    time.sleep(30 * (attempt + 1))  # Progressive delay
-
-            return {'success': False, 'error': 'Max retries exceeded'}
-
-        except Exception as e:
-            logger.error(f"Collection failed for '{condition}': {e}")
-            session_mgr.mark_condition_failed(str(e))
-            return {'success': False, 'error': str(e)}
-
-    def get_collection_status(self, session_mgr: RotationSessionManager = None) -> Dict[str, Any]:
-        """Get current collection status from session manager."""
-        if session_mgr is None:
-            session_mgr = session_manager
-
-        if not session_mgr.session:
-            return {'error': 'No active session'}
-
-        session = session_mgr.session
-        is_collecting = (
-            session.interruption_state and
-            session.interruption_state.phase == PipelinePhase.COLLECTION.value
-        )
-
-        return {
-            'current_condition': session.current_condition,
-            'current_specialty': session.current_specialty,
-            'target_papers': session.papers_per_condition,
-            'is_collecting': is_collecting,
-            'total_papers_collected': session.total_papers_collected,
-            'completed_conditions': len(session.completed_conditions),
-            'session_active': session.is_active
-        }
-
-    def resume_interrupted_collection(self, session_mgr: RotationSessionManager = None) -> Optional[Dict[str, Any]]:
-        """Resume collection if interrupted during collection phase."""
-        if session_mgr is None:
-            session_mgr = session_manager
-
-        if not session_mgr.session or not session_mgr.session.interruption_state:
-            return None
-
-        interruption = session_mgr.session.interruption_state
-        if interruption.phase != PipelinePhase.COLLECTION.value:
-            return None
-
-        logger.info(f"Resuming interrupted collection for '{session_mgr.session.current_condition}'")
-        return self.collect_current_condition(session_mgr)
+    # Old session integration methods removed - replaced by batch processing architecture
 
 
 def create_collection_integrator(session_mgr: RotationSessionManager = None) -> RotationPaperCollector:
@@ -408,27 +426,48 @@ def create_collection_integrator(session_mgr: RotationSessionManager = None) -> 
 
 def collect_single_condition(condition: str, target_count: int = 10,
                             min_year: int = 2015, max_year: Optional[int] = None,
-                            use_s2_enrichment: bool = True) -> Dict[str, Any]:
+                            use_s2_enrichment: bool = False) -> Dict[str, Any]:
     """
     Convenience function to collect papers for a single condition.
+    NOTE: This uses the internal _collect_single_condition_without_s2 method.
 
     Args:
         condition: Medical condition to search for
         target_count: Number of papers to collect
         min_year: Minimum publication year
         max_year: Maximum publication year
-        use_s2_enrichment: Whether to use Semantic Scholar enrichment
+        use_s2_enrichment: Whether to use Semantic Scholar enrichment (removed from pipeline)
 
     Returns:
         Collection result dictionary
     """
     collector = RotationPaperCollector()
-    return collector.collect_condition_papers(
+    return collector._collect_single_condition_without_s2(
         condition=condition,
         target_count=target_count,
         min_year=min_year,
-        max_year=max_year,
-        use_s2_enrichment=use_s2_enrichment
+        max_year=max_year
+    )
+
+
+def collect_all_conditions_batch(papers_per_condition: int = 10,
+                                min_year: int = 2015, max_year: Optional[int] = None) -> BatchCollectionResult:
+    """
+    Convenience function to collect papers for all 60 medical conditions in batch.
+
+    Args:
+        papers_per_condition: Target number of papers per condition
+        min_year: Minimum publication year
+        max_year: Maximum publication year (None for current year)
+
+    Returns:
+        BatchCollectionResult with comprehensive collection statistics
+    """
+    collector = RotationPaperCollector()
+    return collector.collect_all_conditions_batch(
+        papers_per_condition=papers_per_condition,
+        min_year=min_year,
+        max_year=max_year
     )
 
 

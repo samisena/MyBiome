@@ -40,7 +40,7 @@ class UnifiedConfig:
         self.pubmed_base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
         self.pmc_base_url = "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi"
         self.unpaywall_base_url = "https://api.unpaywall.org/v2"
-        self.api_timeout = 30
+        self.api_timeout = None  # Remove timeout for comprehensive LLM processing
         self.max_retries = 3
         self.api_delay = 0.5  # Unified delay for all APIs      
 

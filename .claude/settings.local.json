@@ -21,7 +21,10 @@
       "Bash(git rm:*)",
       "Bash(git commit:*)",
       "Bash(git mv:*)",
-      "Read(//c/**)"
+      "Read(//c/**)",
+      "Bash(timeout 30 python -m back_end.src.orchestration.batch_medical_rotation:*)",
+      "Bash(cat:*)",
+      "Bash(timeout:*)"
     ],
     "deny": [],
     "ask": []

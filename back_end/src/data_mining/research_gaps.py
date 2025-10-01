@@ -18,6 +18,11 @@ from datetime import datetime
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+# Import shared utilities
+from .medical_knowledge import MedicalKnowledge
+from .similarity_utils import SimilarityCalculator, ConditionSimilarityMetrics
+from .scoring_utils import EffectivenessScorer, ConfidenceCalculator
+
 try:
     from back_end.src.data_collection.data_mining_repository import (
         DataMiningRepository,
@@ -89,46 +94,11 @@ class ResearchGapIdentification:
         self.confidence_threshold = confidence_threshold
         self.max_gaps_per_condition = max_gaps_per_condition
 
-        # Condition similarity patterns for medical knowledge
-        self.condition_clusters = {
-            'inflammatory': ['arthritis', 'ibs', 'crohns', 'inflammatory_bowel_disease',
-                           'autoimmune_disease', 'psoriasis', 'lupus'],
-            'neuropsychological': ['depression', 'anxiety', 'ptsd', 'ocd', 'adhd',
-                                 'bipolar', 'schizophrenia'],
-            'metabolic': ['diabetes', 'obesity', 'metabolic_syndrome', 'pcos',
-                         'insulin_resistance', 'fatty_liver'],
-            'cardiovascular': ['hypertension', 'heart_disease', 'arrhythmia',
-                             'atherosclerosis', 'stroke'],
-            'respiratory': ['asthma', 'copd', 'lung_fibrosis', 'covid', 'long_covid'],
-            'neurological': ['alzheimers', 'parkinsons', 'multiple_sclerosis',
-                           'epilepsy', 'migraine', 'chronic_fatigue'],
-            'gastrointestinal': ['ibs', 'crohns', 'ulcerative_colitis', 'gerd',
-                               'leaky_gut', 'sibo'],
-            'pain_related': ['chronic_pain', 'fibromyalgia', 'arthritis', 'migraine',
-                           'neuropathy'],
-            'developmental': ['autism', 'adhd', 'autism_sensory', 'learning_disabilities'],
-            'sleep_related': ['insomnia', 'sleep_apnea', 'narcolepsy', 'restless_legs']
-        }
+        # Use centralized medical knowledge
+        self.condition_clusters = MedicalKnowledge.CONDITION_CLUSTERS
 
-        # Mechanism-intervention mappings
-        self.mechanism_interventions = {
-            'anti_inflammatory': ['omega_3', 'turmeric', 'curcumin', 'cold_exposure',
-                                'anti_inflammatory_diet', 'probiotics'],
-            'neuroprotective': ['meditation', 'exercise', 'omega_3', 'lion_mane_mushroom',
-                              'nootropics', 'cold_exposure'],
-            'metabolic_enhancing': ['exercise', 'intermittent_fasting', 'cold_exposure',
-                                  'metformin', 'ketogenic_diet'],
-            'stress_reducing': ['meditation', 'yoga', 'breathing_exercises', 'massage',
-                              'mindfulness', 'therapy'],
-            'microbiome_modulating': ['probiotics', 'prebiotics', 'fermented_foods',
-                                    'fiber_supplement', 'fasting'],
-            'circulation_improving': ['exercise', 'sauna', 'compression_therapy',
-                                    'hyperbaric_oxygen', 'massage'],
-            'sleep_promoting': ['melatonin', 'magnesium', 'weighted_blankets',
-                              'sleep_hygiene', 'light_therapy'],
-            'sensory_regulating': ['weighted_blankets', 'sensory_therapy', 'massage',
-                                 'music_therapy', 'aromatherapy']
-        }
+        # Use centralized mechanism-intervention mappings
+        self.mechanism_interventions = MedicalKnowledge.MECHANISM_INTERVENTIONS
 
         # Emerging interventions with high innovation potential
         self.emerging_interventions = {

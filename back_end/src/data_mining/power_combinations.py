@@ -14,6 +14,11 @@ from collections import defaultdict, Counter
 from itertools import combinations
 import math
 
+# Import shared utilities
+from .medical_knowledge import MedicalKnowledge
+from .scoring_utils import EffectivenessScorer, StatisticalHelpers
+from .graph_utils import EdgeAggregation
+
 
 @dataclass
 class PowerCombination:
@@ -72,49 +77,8 @@ class PowerCombinationAnalysis:
         self.min_lift = min_lift
         self.min_conditions = min_conditions
 
-        # Known synergistic combinations with mechanisms
-        self.known_synergies = {
-            ('probiotics', 'prebiotics'): {
-                'mechanism': 'Prebiotics feed probiotics',
-                'recommendation': 'Take together - prebiotics feed the probiotics',
-                'pathways': ['microbiome_enhancement', 'gut_barrier_function']
-            },
-            ('vitamin_d', 'magnesium'): {
-                'mechanism': 'Magnesium activates vitamin D',
-                'recommendation': 'Magnesium helps vitamin D absorption and activation',
-                'pathways': ['bone_metabolism', 'immune_function']
-            },
-            ('cbt', 'exercise'): {
-                'mechanism': 'Exercise boosts mood; CBT maintains gains',
-                'recommendation': 'Exercise provides biological boost; CBT maintains psychological gains',
-                'pathways': ['neuroplasticity', 'stress_response']
-            },
-            ('omega_3', 'vitamin_d'): {
-                'mechanism': 'Both support anti-inflammatory pathways',
-                'recommendation': 'Synergistic anti-inflammatory effects',
-                'pathways': ['inflammation_reduction', 'immune_modulation']
-            },
-            ('meditation', 'exercise'): {
-                'mechanism': 'Meditation enhances exercise benefits via stress reduction',
-                'recommendation': 'Meditation amplifies exercise-induced neuroplasticity',
-                'pathways': ['stress_response', 'neuroplasticity', 'autonomic_balance']
-            },
-            ('caffeine', 'l_theanine'): {
-                'mechanism': 'L-theanine smooths caffeine stimulation',
-                'recommendation': 'L-theanine provides focus without jitters',
-                'pathways': ['neurotransmitter_balance', 'attention_enhancement']
-            },
-            ('curcumin', 'black_pepper'): {
-                'mechanism': 'Piperine increases curcumin absorption',
-                'recommendation': 'Black pepper increases curcumin bioavailability 20x',
-                'pathways': ['bioavailability_enhancement', 'anti_inflammatory']
-            },
-            ('zinc', 'vitamin_c'): {
-                'mechanism': 'Synergistic immune support',
-                'recommendation': 'Enhanced immune function when combined',
-                'pathways': ['immune_enhancement', 'antioxidant_activity']
-            }
-        }
+        # Use centralized known synergies
+        self.known_synergies = MedicalKnowledge.KNOWN_SYNERGIES
 
         # Mechanism complementarity patterns
         self.complementary_mechanisms = {
@@ -307,11 +271,11 @@ class PowerCombinationAnalysis:
         # Calculate confidence: P(B|A) = P(A and B) / P(A)
         confidence = len(shared_conditions) / len(conditions_a)
 
-        # Calculate lift: P(B|A) / P(B)
-        # Approximation: lift = confidence / (len(conditions_b) / total_conditions)
+        # Calculate lift using shared utility
         total_conditions = len(conditions_a.union(conditions_b))
         expected_prob = len(conditions_b) / total_conditions
-        lift = confidence / max(expected_prob, 0.1)  # Avoid division by zero
+        helpers = StatisticalHelpers()
+        lift = helpers.calculate_lift(confidence, expected_prob)
 
         return {
             'confidence': confidence,

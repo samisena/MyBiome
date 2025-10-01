@@ -45,7 +45,7 @@ class CircuitBreaker:
         3. Half-Open - Testing if service has recovered; allows one request through
     
     """
-    def __init__(self, failure_threshold: int = 5, recovery_timeout: int = 60):
+    def __init__(self, failure_threshold: int = 5, recovery_timeout: int = 300):
         """
         Args:
             failure_threshold: Number of failures before opening the circuit (default: 5)

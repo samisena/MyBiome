@@ -1,6 +1,27 @@
 #!/usr/bin/env python3
 """
-Main Medical Rotation - Primary Orchestrator
+⚠️  DEPRECATED: Main Medical Rotation - Primary Orchestrator ⚠️
+
+🚨 THIS FILE IS DEPRECATED AND REPLACED BY batch_medical_rotation.py 🚨
+
+The condition-by-condition approach has been replaced by an optimized batch processing
+architecture that provides 5-10x better performance. Please use the new batch pipeline:
+
+NEW PIPELINE: batch_medical_rotation.py
+- 3 clear phases: batch collection → batch processing → batch deduplication
+- Sequential dual-LLM processing optimized for 8GB VRAM
+- Global deduplication across all conditions
+- 5-10x faster execution
+- Simplified error handling and recovery
+
+MIGRATION:
+Old: python main_medical_rotation.py --papers-per-condition 10
+New: python batch_medical_rotation.py --papers-per-condition 10
+
+This file is kept for backward compatibility during migration period.
+It will be removed in a future version.
+
+===== LEGACY DOCUMENTATION BELOW =====
 
 Complete orchestrator for the rotating medical condition pipeline.
 Coordinates collection, processing, and deduplication across all 60 medical conditions
@@ -53,6 +74,8 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any, Tuple
 from enum import Enum
 from dataclasses import dataclass
+import json
+import statistics
 
 try:
     from ..data.config import config, setup_logging

@@ -16,6 +16,7 @@ import sys
 import csv
 import logging
 import argparse
+import traceback
 from typing import Optional, List, Dict, Any, Union, Callable, Tuple, Set
 from datetime import datetime
 from collections import defaultdict, Counter
@@ -283,6 +284,227 @@ class BatchEntityProcessor:
         return validated_interventions
 
     #! === DEDUPLICATION SUMMARY ===
+
+    def batch_deduplicate_entities(self) -> Dict[str, Any]:
+        """
+        Comprehensive LLM-based deduplication of ALL interventions in the database.
+
+        This performs real semantic deduplication using the sophisticated DuplicateDetector
+        and LLM analysis, not just text normalization.
+
+        Returns:
+            Comprehensive deduplication result with statistics
+        """
+        start_time = datetime.now()
+        self.logger.info("Starting comprehensive LLM-based entity deduplication")
+
+        try:
+            # Get all interventions that could have duplicates
+            cursor = self.db.cursor()
+            cursor.execute("""
+                SELECT i.id, i.intervention_name, i.health_condition, i.paper_id,
+                       i.correlation_type, i.correlation_strength, i.confidence_score,
+                       i.extraction_model, i.verification_model, i.models_used,
+                       i.intervention_canonical_id, i.condition_canonical_id,
+                       i.normalized, i.consensus_confidence, i.sample_size,
+                       i.study_type, i.supporting_quote
+                FROM interventions i
+                ORDER BY i.paper_id, i.intervention_name
+            """)
+            all_interventions = [dict(row) for row in cursor.fetchall()]
+
+            total_interventions = len(all_interventions)
+            self.logger.info(f"Analyzing {total_interventions} interventions for deduplication")
+
+            if total_interventions == 0:
+                return {
+                    'total_merged': 0,
+                    'interventions_processed': 0,
+                    'duplicate_groups_found': 0,
+                    'processing_time_seconds': 0,
+                    'method': 'llm_comprehensive_deduplication',
+                    'message': 'No interventions found for deduplication'
+                }
+
+            # Group interventions by paper first for within-paper deduplication
+            interventions_by_paper = defaultdict(list)
+            for intervention in all_interventions:
+                interventions_by_paper[intervention['paper_id']].append(intervention)
+
+            total_merged = 0
+            total_duplicate_groups = 0
+            processed_papers = 0
+
+            # Phase 1: Within-paper deduplication using sophisticated duplicate detection
+            self.logger.info("Phase 1: Within-paper duplicate detection and merging")
+
+            for paper_id, paper_interventions in interventions_by_paper.items():
+                if len(paper_interventions) < 2:
+                    continue  # No duplicates possible with single intervention
+
+                try:
+                    # Use sophisticated duplicate detection
+                    duplicate_groups = self.duplicate_detector.detect_same_paper_duplicates(paper_interventions)
+
+                    for group in duplicate_groups:
+                        if len(group) > 1:
+                            # Found duplicates - merge them using LLM analysis
+                            paper_info = {'id': paper_id}
+                            merged_intervention = self.duplicate_detector.merge_duplicate_group(group, paper_info)
+
+                            # Update database with merged intervention
+                            self._update_intervention_with_merge(merged_intervention, group)
+
+                            total_merged += len(group) - 1  # Number of interventions merged into one
+                            total_duplicate_groups += 1
+
+                    processed_papers += 1
+                    if processed_papers % 10 == 0:
+                        self.logger.info(f"Processed {processed_papers}/{len(interventions_by_paper)} papers")
+
+                except Exception as e:
+                    self.logger.warning(f"Error processing paper {paper_id}: {e}")
+                    continue
+
+            # Phase 2: Cross-paper deduplication using LLM semantic analysis
+            self.logger.info("Phase 2: Cross-paper semantic deduplication")
+
+            # Get unique intervention names for LLM analysis
+            unique_interventions = {}
+            for intervention in all_interventions:
+                name = intervention['intervention_name'].lower().strip()
+                if name not in unique_interventions:
+                    unique_interventions[name] = []
+                unique_interventions[name].append(intervention)
+
+            # Find potential cross-paper duplicates using LLM
+            intervention_names = list(unique_interventions.keys())
+            if len(intervention_names) > 1:
+                try:
+                    # Process ALL intervention names in batches for comprehensive LLM analysis
+                    # No artificial limits - true comprehensive semantic deduplication
+                    self.logger.info(f"Starting comprehensive LLM analysis of {len(intervention_names)} unique interventions...")
+
+                    batch_size = 20  # Reasonable batch size for LLM processing
+                    cross_paper_merged = 0
+
+                    for i in range(0, len(intervention_names), batch_size):
+                        batch_names = intervention_names[i:i + batch_size]
+                        batch_start_time = datetime.now()
+
+                        self.logger.info(f"Processing LLM batch {i//batch_size + 1}/{(len(intervention_names)-1)//batch_size + 1}: {len(batch_names)} interventions")
+
+                        # Use LLM to identify semantic duplicates in this batch
+                        llm_analysis = self.get_llm_duplicate_analysis(batch_names)
+
+                        # Process LLM-identified duplicates for this batch
+                        batch_merged = self._process_llm_duplicate_analysis(llm_analysis, unique_interventions)
+                        cross_paper_merged += batch_merged
+
+                        batch_time = (datetime.now() - batch_start_time).total_seconds()
+                        self.logger.info(f"Batch completed in {batch_time:.1f}s, merged {batch_merged} interventions")
+
+                    total_merged += cross_paper_merged
+                    self.logger.info(f"Comprehensive LLM analysis completed: {cross_paper_merged} cross-paper duplicates merged")
+
+                except Exception as e:
+                    self.logger.warning(f"Comprehensive cross-paper LLM analysis failed: {e}")
+
+            processing_time = (datetime.now() - start_time).total_seconds()
+
+            result = {
+                'total_merged': total_merged,
+                'interventions_processed': total_interventions,
+                'duplicate_groups_found': total_duplicate_groups,
+                'papers_processed': processed_papers,
+                'processing_time_seconds': processing_time,
+                'method': 'llm_comprehensive_deduplication',
+                'phases_completed': ['within_paper_deduplication', 'cross_paper_semantic_analysis']
+            }
+
+            self.logger.info(f"Comprehensive LLM deduplication completed: "
+                           f"{total_merged} interventions merged from {total_duplicate_groups} duplicate groups "
+                           f"in {processing_time:.1f}s")
+
+            return result
+
+        except Exception as e:
+            processing_time = (datetime.now() - start_time).total_seconds()
+            self.logger.error(f"Comprehensive LLM deduplication failed: {e}")
+            self.logger.error(traceback.format_exc())
+
+            return {
+                'total_merged': 0,
+                'interventions_processed': 0,
+                'duplicate_groups_found': 0,
+                'processing_time_seconds': processing_time,
+                'method': 'llm_comprehensive_deduplication',
+                'error': str(e)
+            }
+
+    def _update_intervention_with_merge(self, merged_intervention: Dict, original_group: List[Dict]) -> None:
+        """Update database with merged intervention and remove duplicates."""
+        try:
+            # Keep the first intervention and update it with merged data
+            primary_id = original_group[0]['id']
+
+            cursor = self.db.cursor()
+            cursor.execute("""
+                UPDATE interventions
+                SET intervention_name = ?,
+                    models_used = ?,
+                    consensus_confidence = ?,
+                    correlation_strength = ?,
+                    confidence_score = ?,
+                    normalized = 1
+                WHERE id = ?
+            """, (
+                merged_intervention.get('intervention_name'),
+                merged_intervention.get('models_used', 'dual_consensus'),
+                merged_intervention.get('consensus_confidence', 0.9),
+                merged_intervention.get('correlation_strength'),
+                merged_intervention.get('confidence_score'),
+                primary_id
+            ))
+
+            # Remove duplicate interventions (keep only the first one)
+            if len(original_group) > 1:
+                duplicate_ids = [intervention['id'] for intervention in original_group[1:]]
+                placeholders = ','.join(['?' for _ in duplicate_ids])
+                cursor.execute(f"DELETE FROM interventions WHERE id IN ({placeholders})", duplicate_ids)
+
+            self.db.commit()
+
+        except Exception as e:
+            self.logger.error(f"Failed to update merged intervention: {e}")
+            self.db.rollback()
+
+    def _process_llm_duplicate_analysis(self, llm_analysis: Dict, unique_interventions: Dict) -> int:
+        """Process LLM duplicate analysis and merge cross-paper duplicates."""
+        merged_count = 0
+
+        try:
+            # Extract duplicate groups from LLM analysis
+            if 'duplicate_groups' in llm_analysis:
+                for group in llm_analysis['duplicate_groups']:
+                    if len(group) > 1:
+                        # Collect all interventions for this duplicate group
+                        all_group_interventions = []
+                        for intervention_name in group:
+                            if intervention_name.lower() in unique_interventions:
+                                all_group_interventions.extend(unique_interventions[intervention_name.lower()])
+
+                        if len(all_group_interventions) > 1:
+                            # Merge cross-paper duplicates
+                            paper_info = {'id': 'cross_paper_merge'}
+                            merged = self.duplicate_detector.merge_duplicate_group(all_group_interventions, paper_info)
+                            self._update_intervention_with_merge(merged, all_group_interventions)
+                            merged_count += len(all_group_interventions) - 1
+
+        except Exception as e:
+            self.logger.warning(f"Error processing LLM duplicate analysis: {e}")
+
+        return merged_count
 
     def generate_deduplication_summary(self, processed_interventions: List[Dict]) -> Dict[str, Any]:
         """

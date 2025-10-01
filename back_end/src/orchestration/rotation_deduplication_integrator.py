@@ -116,6 +116,246 @@ class RotationDeduplicationIntegrator:
                 'status': 'failed'
             }
 
+    def deduplicate_all_data_batch(self) -> Dict[str, Any]:
+        """
+        Comprehensive deduplication of ALL unprocessed interventions in the database.
+
+        This method mirrors the comprehensive "process all unprocessed" pattern used
+        in LLM processing, ensuring no intervention goes unprocessed.
+
+        Returns:
+            Comprehensive deduplication result with detailed statistics
+        """
+        start_time = datetime.now()
+        logger.info("Starting comprehensive deduplication of ALL unprocessed interventions")
+
+        try:
+            # Get comprehensive pre-deduplication stats
+            pre_stats = self._get_comprehensive_unprocessed_stats()
+            logger.info(f"Found {pre_stats['unprocessed_interventions']} unprocessed interventions")
+            logger.info(f"  - {pre_stats['missing_canonical_mapping']} lacking canonical mapping")
+            logger.info(f"  - {pre_stats['missing_normalization']} lacking normalization")
+            logger.info(f"  - {pre_stats['missing_consensus_processing']} lacking consensus processing")
+
+            # Run comprehensive deduplication with retry logic
+            dedup_result = self._run_comprehensive_deduplication_with_retry()
+
+            # Get post-deduplication stats
+            post_stats = self._get_comprehensive_unprocessed_stats()
+
+            # Calculate comprehensive metrics
+            processing_time = (datetime.now() - start_time).total_seconds()
+            interventions_processed = (
+                pre_stats['unprocessed_interventions'] - post_stats['unprocessed_interventions']
+            )
+
+            result = {
+                'success': True,
+                'interventions_before_processing': pre_stats['unprocessed_interventions'],
+                'interventions_after_processing': post_stats['unprocessed_interventions'],
+                'interventions_processed': interventions_processed,
+                'canonical_mappings_created': (
+                    pre_stats['missing_canonical_mapping'] - post_stats['missing_canonical_mapping']
+                ),
+                'normalizations_completed': (
+                    pre_stats['missing_normalization'] - post_stats['missing_normalization']
+                ),
+                'consensus_processing_completed': (
+                    pre_stats['missing_consensus_processing'] - post_stats['missing_consensus_processing']
+                ),
+                'processing_time_seconds': processing_time,
+                'batch_deduplication_result': dedup_result,
+                'pre_processing_stats': pre_stats,
+                'post_processing_stats': post_stats,
+                'status': 'completed'
+            }
+
+            logger.info(f"Comprehensive deduplication completed: "
+                       f"{interventions_processed} interventions processed in {processing_time:.1f}s")
+
+            return result
+
+        except Exception as e:
+            processing_time = (datetime.now() - start_time).total_seconds()
+            logger.error(f"Comprehensive deduplication failed: {e}")
+            logger.error(traceback.format_exc())
+
+            return {
+                'success': False,
+                'interventions_processed': 0,
+                'processing_time_seconds': processing_time,
+                'error': str(e),
+                'status': 'failed'
+            }
+
+    def _get_comprehensive_unprocessed_stats(self) -> Dict[str, int]:
+        """Get comprehensive statistics of unprocessed interventions."""
+        try:
+            with database_manager.get_connection() as conn:
+                cursor = conn.cursor()
+
+                # Count interventions missing canonical mapping
+                cursor.execute("""
+                    SELECT COUNT(*) FROM interventions
+                    WHERE intervention_canonical_id IS NULL
+                """)
+                missing_canonical_mapping = cursor.fetchone()[0] or 0
+
+                # Count interventions missing normalization
+                cursor.execute("""
+                    SELECT COUNT(*) FROM interventions
+                    WHERE normalized IS NULL OR normalized = 0
+                """)
+                missing_normalization = cursor.fetchone()[0] or 0
+
+                # Count interventions missing consensus processing
+                cursor.execute("""
+                    SELECT COUNT(*) FROM interventions
+                    WHERE consensus_confidence IS NULL
+                """)
+                missing_consensus_processing = cursor.fetchone()[0] or 0
+
+                # Total unprocessed (any missing field)
+                cursor.execute("""
+                    SELECT COUNT(*) FROM interventions
+                    WHERE intervention_canonical_id IS NULL
+                       OR normalized IS NULL
+                       OR normalized = 0
+                       OR consensus_confidence IS NULL
+                """)
+                total_unprocessed = cursor.fetchone()[0] or 0
+
+                # Total interventions for context
+                cursor.execute("SELECT COUNT(*) FROM interventions")
+                total_interventions = cursor.fetchone()[0] or 0
+
+                return {
+                    'unprocessed_interventions': total_unprocessed,
+                    'missing_canonical_mapping': missing_canonical_mapping,
+                    'missing_normalization': missing_normalization,
+                    'missing_consensus_processing': missing_consensus_processing,
+                    'total_interventions': total_interventions,
+                    'processing_completion_rate': (
+                        ((total_interventions - total_unprocessed) / total_interventions * 100)
+                        if total_interventions > 0 else 0
+                    )
+                }
+
+        except Exception as e:
+            logger.error(f"Error getting comprehensive unprocessed stats: {e}")
+            return {
+                'unprocessed_interventions': 0,
+                'missing_canonical_mapping': 0,
+                'missing_normalization': 0,
+                'missing_consensus_processing': 0,
+                'total_interventions': 0,
+                'processing_completion_rate': 0
+            }
+
+    def _run_comprehensive_deduplication_with_retry(self) -> Dict[str, Any]:
+        """Run comprehensive deduplication with retry logic."""
+        last_error = None
+
+        for attempt in range(self.max_retries + 1):
+            try:
+                logger.info(f"Comprehensive deduplication attempt {attempt + 1}/{self.max_retries + 1}")
+
+                # Create batch processor and run comprehensive deduplication
+                processor = create_batch_processor()
+
+                # Check if batch_deduplicate_entities method exists and call it
+                if hasattr(processor, 'batch_deduplicate_entities'):
+                    dedup_result = processor.batch_deduplicate_entities()
+                    logger.info(f"Merged {dedup_result.get('total_merged', 0)} entities")
+                else:
+                    # Fallback to comprehensive processing if batch method not available
+                    logger.info("Running comprehensive entity processing...")
+
+                    # Get all unprocessed interventions
+                    with database_manager.get_connection() as conn:
+                        cursor = conn.cursor()
+                        cursor.execute("""
+                            SELECT id, intervention_name, health_condition, paper_id
+                            FROM interventions
+                            WHERE intervention_canonical_id IS NULL
+                               OR normalized IS NULL
+                               OR normalized = 0
+                               OR consensus_confidence IS NULL
+                        """)
+                        unprocessed_interventions = [dict(row) for row in cursor.fetchall()]
+
+                    if unprocessed_interventions:
+                        # Process interventions in batches
+                        processed_count = 0
+                        batch_size = 100
+
+                        for i in range(0, len(unprocessed_interventions), batch_size):
+                            batch = unprocessed_interventions[i:i + batch_size]
+
+                            # Process each intervention in the batch
+                            for intervention in batch:
+                                try:
+                                    # Normalize intervention name
+                                    normalized_name = processor.get_or_compute_normalized_term(
+                                        intervention['intervention_name'], 'intervention'
+                                    )
+
+                                    # Find or create canonical entity
+                                    canonical_entity = processor.find_canonical_by_name(
+                                        normalized_name, 'intervention'
+                                    )
+
+                                    if not canonical_entity:
+                                        canonical_id = processor.create_canonical_entity(
+                                            normalized_name, 'intervention'
+                                        )
+                                    else:
+                                        canonical_id = canonical_entity['id']
+
+                                    # Update intervention with canonical mapping
+                                    with database_manager.get_connection() as conn:
+                                        cursor = conn.cursor()
+                                        cursor.execute("""
+                                            UPDATE interventions
+                                            SET intervention_canonical_id = ?,
+                                                normalized = 1,
+                                                consensus_confidence = COALESCE(consensus_confidence, 0.8)
+                                            WHERE id = ?
+                                        """, (canonical_id, intervention['id']))
+                                        conn.commit()
+
+                                    processed_count += 1
+
+                                except Exception as e:
+                                    logger.warning(f"Error processing intervention {intervention['id']}: {e}")
+                                    continue
+
+                            # Log progress
+                            logger.info(f"Processed {processed_count}/{len(unprocessed_interventions)} interventions")
+
+                    dedup_result = {
+                        'total_merged': 0,
+                        'interventions_processed': processed_count,
+                        'method': 'comprehensive_processing'
+                    }
+
+                logger.info("Comprehensive deduplication completed successfully")
+                return dedup_result
+
+            except Exception as e:
+                last_error = str(e)
+                logger.warning(f"Comprehensive deduplication attempt {attempt + 1} failed: {e}")
+
+                if attempt < self.max_retries:
+                    delay = self.retry_delays[min(attempt, len(self.retry_delays) - 1)]
+                    logger.info(f"Retrying in {delay} seconds...")
+                    time.sleep(delay)
+                else:
+                    logger.error("All comprehensive deduplication attempts failed")
+
+        # If we get here, all retries failed
+        raise DeduplicationError(f"Comprehensive deduplication failed after {self.max_retries + 1} attempts. Last error: {last_error}")
+
     def _run_deduplication_with_retry(self) -> Dict[str, Any]:
         """Run deduplication with retry logic."""
         last_error = None

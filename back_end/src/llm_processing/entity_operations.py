@@ -56,96 +56,96 @@ class EntityRepository:
             cursor = conn.cursor()
 
             try:
-            # Create basic required tables first
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS canonical_entities (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    canonical_name TEXT NOT NULL,
-                    entity_type TEXT NOT NULL,
-                    description TEXT,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    UNIQUE(canonical_name, entity_type)
-                )
-            """)
-
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS entity_mappings (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    raw_text TEXT NOT NULL,
-                    canonical_id INTEGER NOT NULL,
-                    entity_type TEXT NOT NULL,
-                    confidence_score REAL,
-                    mapping_method TEXT,
-                    created_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    FOREIGN KEY (canonical_id) REFERENCES canonical_entities(id),
-                    UNIQUE(raw_text, entity_type, canonical_id)
-                )
-            """)
-
-            # Create normalized terms cache table for performance optimization
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS normalized_terms_cache (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    original_term TEXT NOT NULL,
-                    normalized_term TEXT NOT NULL,
-                    entity_type TEXT NOT NULL,
-                    canonical_id INTEGER,
-                    created_timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
-                    UNIQUE(original_term, entity_type),
-                    FOREIGN KEY (canonical_id) REFERENCES canonical_entities(id) ON DELETE CASCADE
-                )
-            """)
-
-            # Create performance indexes for fast lookups
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_normalized_terms_lookup
-                ON normalized_terms_cache(normalized_term, entity_type)
-            """)
-
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_normalized_terms_reverse
-                ON normalized_terms_cache(original_term, entity_type)
-            """)
-
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_normalized_terms_canonical
-                ON normalized_terms_cache(canonical_id)
-            """)
-
-            # Create LLM cache table if it doesn't exist and check for optimizations
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS llm_normalization_cache (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    raw_text TEXT NOT NULL,
-                    entity_type TEXT NOT NULL,
-                    candidates_offered TEXT,
-                    llm_response TEXT,
-                    match_result TEXT,
-                    confidence_score REAL,
-                    reasoning TEXT,
-                    model_name TEXT,
-                    cache_key TEXT,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    UNIQUE(raw_text, entity_type, candidates_offered)
-                )
-            """)
-
-            # Check if cache_key column exists, add if not
-            cursor.execute("PRAGMA table_info(llm_normalization_cache)")
-            columns = [row[1] for row in cursor.fetchall()]
-
-            if 'cache_key' not in columns:
+                # Create basic required tables first
                 cursor.execute("""
-                    ALTER TABLE llm_normalization_cache
-                    ADD COLUMN cache_key TEXT
+                    CREATE TABLE IF NOT EXISTS canonical_entities (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        canonical_name TEXT NOT NULL,
+                        entity_type TEXT NOT NULL,
+                        description TEXT,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        UNIQUE(canonical_name, entity_type)
+                    )
                 """)
-                self.logger.info("Added cache_key column to LLM cache")
 
-            # Create index for cache_key
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_llm_cache_key
-                ON llm_normalization_cache(cache_key)
-            """)
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS entity_mappings (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        raw_text TEXT NOT NULL,
+                        canonical_id INTEGER NOT NULL,
+                        entity_type TEXT NOT NULL,
+                        confidence_score REAL,
+                        mapping_method TEXT,
+                        created_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        FOREIGN KEY (canonical_id) REFERENCES canonical_entities(id),
+                        UNIQUE(raw_text, entity_type, canonical_id)
+                    )
+                """)
+
+                # Create normalized terms cache table for performance optimization
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS normalized_terms_cache (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        original_term TEXT NOT NULL,
+                        normalized_term TEXT NOT NULL,
+                        entity_type TEXT NOT NULL,
+                        canonical_id INTEGER,
+                        created_timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
+                        UNIQUE(original_term, entity_type),
+                        FOREIGN KEY (canonical_id) REFERENCES canonical_entities(id) ON DELETE CASCADE
+                    )
+                """)
+
+                # Create performance indexes for fast lookups
+                cursor.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_normalized_terms_lookup
+                    ON normalized_terms_cache(normalized_term, entity_type)
+                """)
+
+                cursor.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_normalized_terms_reverse
+                    ON normalized_terms_cache(original_term, entity_type)
+                """)
+
+                cursor.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_normalized_terms_canonical
+                    ON normalized_terms_cache(canonical_id)
+                """)
+
+                # Create LLM cache table if it doesn't exist and check for optimizations
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS llm_normalization_cache (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        raw_text TEXT NOT NULL,
+                        entity_type TEXT NOT NULL,
+                        candidates_offered TEXT,
+                        llm_response TEXT,
+                        match_result TEXT,
+                        confidence_score REAL,
+                        reasoning TEXT,
+                        model_name TEXT,
+                        cache_key TEXT,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        UNIQUE(raw_text, entity_type, candidates_offered)
+                    )
+                """)
+
+                # Check if cache_key column exists, add if not
+                cursor.execute("PRAGMA table_info(llm_normalization_cache)")
+                columns = [row[1] for row in cursor.fetchall()]
+
+                if 'cache_key' not in columns:
+                    cursor.execute("""
+                        ALTER TABLE llm_normalization_cache
+                        ADD COLUMN cache_key TEXT
+                    """)
+                    self.logger.info("Added cache_key column to LLM cache")
+
+                # Create index for cache_key
+                cursor.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_llm_cache_key
+                    ON llm_normalization_cache(cache_key)
+                """)
 
                 conn.commit()
                 self.logger.info("Performance optimization tables and indexes ensured")
@@ -240,11 +240,11 @@ class EntityRepository:
                 VALUES (?, ?, ?)
             """, cache_entries)
 
-                populated_count = cursor.rowcount
-                conn.commit()
-                self.logger.info(f"Populated normalization cache with {populated_count} terms")
+            populated_count = cursor.rowcount
+            conn.commit()
+            self.logger.info(f"Populated normalization cache with {populated_count} terms")
 
-            return populated_count
+        return populated_count
 
     def bulk_normalize_terms_optimized(self, terms: List[str], entity_type: str) -> Dict[str, str]:
         """
@@ -332,8 +332,8 @@ class EntityRepository:
             WHERE canonical_name = ? AND entity_type = ?
         """, (canonical_name, entity_type))
 
-            row = cursor.fetchone()
-            return dict(row) if row else None
+        row = cursor.fetchone()
+        return dict(row) if row else None
 
     def create_canonical_entity(self, canonical_name: str, entity_type: str,
                               description: str = None) -> int:
@@ -429,16 +429,16 @@ class EntityRepository:
             LIMIT 1
         """, (cache_key,))
 
-            result = cursor.fetchone()
-            if result:
-                return {
-                    'match_result': result[0],
-                    'confidence_score': result[1],
-                    'reasoning': result[2],
-                    'llm_response': result[3],
-                    'created_at': result[4]
-                }
-            return None
+        result = cursor.fetchone()
+        if result:
+            return {
+                'match_result': result[0],
+                'confidence_score': result[1],
+                'reasoning': result[2],
+                'llm_response': result[3],
+                'created_at': result[4]
+            }
+        return None
 
     # === MAPPING OPERATIONS ===
 
@@ -483,7 +483,7 @@ class EntityRepository:
             ORDER BY em.confidence_score DESC
         """, (canonical_id,))
 
-            return [dict(row) for row in cursor.fetchall()]
+        return [dict(row) for row in cursor.fetchall()]
 
 # === LLM OPERATIONS ===
 

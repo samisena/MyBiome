@@ -27,6 +27,11 @@ from scipy.spatial.distance import pdist, squareform
 import warnings
 warnings.filterwarnings('ignore')
 
+# Import shared utilities
+from .similarity_utils import SimilarityCalculator, ConditionSimilarityMetrics
+from .medical_knowledge import MedicalKnowledge
+from .scoring_utils import ConfidenceCalculator
+
 
 @dataclass
 class ConditionCluster:
@@ -90,37 +95,11 @@ class ConditionSimilarityMapper:
         self.max_clusters = max_clusters
         self.unexpected_threshold = unexpected_threshold
 
-        # Known condition categories for comparison
-        self.traditional_categories = {
-            'mental_health': ['depression', 'anxiety', 'PTSD', 'panic_disorder', 'OCD',
-                             'bipolar', 'schizophrenia', 'ADHD'],
-            'autoimmune': ['rheumatoid_arthritis', 'lupus', 'multiple_sclerosis',
-                          'psoriasis', 'Crohns', 'ulcerative_colitis'],
-            'metabolic': ['diabetes_type2', 'PCOS', 'metabolic_syndrome', 'obesity',
-                         'fatty_liver', 'insulin_resistance'],
-            'gastrointestinal': ['IBS', 'SIBO', 'Crohns', 'ulcerative_colitis',
-                               'leaky_gut', 'gastritis', 'GERD'],
-            'cardiovascular': ['hypertension', 'heart_disease', 'atherosclerosis',
-                              'high_cholesterol', 'stroke'],
-            'neurological': ['migraines', 'Alzheimers', 'Parkinsons', 'epilepsy',
-                           'multiple_sclerosis', 'neuropathy'],
-            'pain_conditions': ['fibromyalgia', 'chronic_fatigue', 'arthritis',
-                              'chronic_pain', 'back_pain', 'migraines']
-        }
+        # Use centralized medical knowledge
+        self.traditional_categories = MedicalKnowledge.CONDITION_CLUSTERS
 
-        # Mechanism interpretation mappings
-        self.mechanism_interpretations = {
-            'neuropsych': 'Mental health and neuropsychological interventions',
-            'gut_microbiome': 'Gut microbiome and digestive health',
-            'inflammation': 'Inflammatory processes and immune response',
-            'metabolic': 'Metabolic and endocrine regulation',
-            'stress_response': 'Stress response and HPA axis',
-            'neurotransmitter': 'Neurotransmitter and brain chemistry',
-            'hormonal': 'Hormonal balance and endocrine function',
-            'cardiovascular': 'Cardiovascular and circulatory health',
-            'pain_management': 'Pain perception and management',
-            'detoxification': 'Detoxification and liver function'
-        }
+        # Use centralized mechanism interpretations
+        self.mechanism_interpretations = MedicalKnowledge.MECHANISM_INTERPRETATIONS
 
     def create_condition_similarity_map(self,
                                       knowledge_graph,
@@ -350,22 +329,9 @@ class ConditionSimilarityMapper:
 
     def _calculate_mechanism_similarity(self, profile_1: Dict[str, float], profile_2: Dict[str, float]) -> float:
         """Calculate cosine similarity between mechanism profiles."""
-
-        all_mechanisms = set(profile_1.keys()) | set(profile_2.keys())
-
-        if not all_mechanisms:
-            return 0.0
-
-        # Create vectors
-        vector_1 = np.array([profile_1.get(m, 0.0) for m in all_mechanisms])
-        vector_2 = np.array([profile_2.get(m, 0.0) for m in all_mechanisms])
-
-        # Calculate cosine similarity
-        if np.linalg.norm(vector_1) == 0 or np.linalg.norm(vector_2) == 0:
-            return 0.0
-
-        similarity = np.dot(vector_1, vector_2) / (np.linalg.norm(vector_1) * np.linalg.norm(vector_2))
-        return max(0.0, similarity)  # Ensure non-negative
+        # Use shared similarity calculator
+        calc = SimilarityCalculator()
+        return calc.mechanism_similarity(profile_1, profile_2, use_entropy=False)
 
     def _is_unexpected_connection(self, condition_1: str, condition_2: str, similarity: float) -> bool:
         """Detect if this is an unexpected connection based on traditional categories."""
@@ -382,10 +348,8 @@ class ConditionSimilarityMapper:
 
     def _get_traditional_category(self, condition: str) -> Optional[str]:
         """Get traditional medical category for a condition."""
-        for category, conditions in self.traditional_categories.items():
-            if any(cond in condition.lower() or condition.lower() in cond for cond in conditions):
-                return category
-        return None
+        # Use centralized medical knowledge
+        return MedicalKnowledge.get_condition_cluster(condition)
 
     def _determine_connection_type(self, condition_1: str, condition_2: str, shared_mechanisms: List[str]) -> str:
         """Determine type of connection between conditions."""

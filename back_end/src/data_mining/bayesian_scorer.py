@@ -14,6 +14,9 @@ from scipy import stats
 import numpy as np
 from datetime import datetime
 
+# Import shared utilities
+from .scoring_utils import EffectivenessScorer, ConfidenceCalculator, ScoringResult, StatisticalHelpers
+
 try:
     from back_end.src.data_collection.data_mining_repository import DataMiningRepository, BayesianScore
     from back_end.src.data.config import setup_logging, config
@@ -179,8 +182,13 @@ class BayesianEvidenceScorer:
         Returns:
             Confidence score between 0 and 1
         """
-        # Evidence-based confidence (asymptotic to 1)
-        evidence_confidence = 1 - math.exp(-evidence_count / 20)
+        # Use shared confidence calculator
+        calc = ConfidenceCalculator()
+
+        # Evidence-based confidence using shared utility
+        evidence_confidence = calc.sample_size_confidence(
+            evidence_count, target_size=100, method='logarithmic'
+        )
 
         # Posterior precision (inverse of variance)
         # Higher precision = lower uncertainty = higher confidence

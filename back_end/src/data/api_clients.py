@@ -218,7 +218,7 @@ class SemanticScholarAPI:
         data = {'ids': formatted_ids}
 
         response = requests.post(url, json=data, params=params,
-                               headers=self.headers, timeout=30)
+                               headers=self.headers, timeout=None)  # No timeout for comprehensive processing
 
         if response.status_code != 200:
             logger.error(f"S2 API error: {response.status_code} - {response.text}")
@@ -268,7 +268,8 @@ class LLMClient:
         self.base_url = config.llm_base_url
         self.client = OpenAI(
             base_url=self.base_url,
-            api_key='not_needed'
+            api_key='not_needed',
+            timeout=None  # No timeout for comprehensive LLM processing
         )
 
     @handle_llm_errors("LLM text generation", max_retries=2)
