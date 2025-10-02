@@ -351,34 +351,9 @@ class PubMedCollector:
                 # S2 enrichment failed
                 pass
 
-            # Step 4: Find 5 similar papers via S2
-            try:
-                similar_papers = s2_enricher.s2_client.get_similar_papers(seed_pmid, limit=5)
-
-                if similar_papers:
-                    # Convert S2 papers to our format and filter duplicates
-                    converted_papers = []
-                    for s2_paper in similar_papers:
-                        converted = s2_enricher._convert_s2_to_paper_format(s2_paper)
-                        if converted and not s2_enricher._is_duplicate_paper(converted):
-                            converted_papers.append(converted)
-
-                    # Add the similar papers to database
-                    if converted_papers:
-                        inserted_count, failed_count = self.db_manager.insert_papers_batch(converted_papers)
-                        s2_papers.extend(converted_papers[:inserted_count])  # Only count actually inserted papers
-                        # Similar papers found and added
-                        pass
-                    else:
-                        # Similar papers found but were duplicates
-                        pass
-                else:
-                    # No similar papers found
-                    pass
-
-            except Exception as e:
-                # Similar paper discovery failed
-                pass
+            # Step 4: Similar paper discovery (DISABLED)
+            # Similar paper discovery has been disabled to prevent API issues
+            # Only S2 metrics enrichment is performed (Step 3 above)
 
             # Step 5: Process fulltext if requested (for seed paper only)
             if include_fulltext and batch_papers:
@@ -389,7 +364,7 @@ class PubMedCollector:
             # Rate limiting between iterations
             time.sleep(0.5)
 
-        # Build comprehensive results
+        # Build comprehensive results (s2_papers will be empty since discovery is disabled)
         total_papers = len(pubmed_papers) + len(s2_papers)
 
         result = {
@@ -402,7 +377,7 @@ class PubMedCollector:
             "undeleted_metadata_files": metadata_files,  # Only contains files that failed to be deleted
             "interleaved_workflow": True,
             "status": "success" if len(pubmed_papers) >= max_results else "partial_success",
-            "message": f"Interleaved collection: {len(pubmed_papers)} PubMed seed papers + {len(s2_papers)} S2 similar papers = {total_papers} total papers"
+            "message": f"Interleaved collection with S2 metrics: {len(pubmed_papers)} PubMed papers enriched with S2 data (similar paper discovery disabled)"
         }
 
         # Interleaved collection completed

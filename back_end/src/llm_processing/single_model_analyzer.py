@@ -135,7 +135,7 @@ class SingleModelAnalyzer:
             'gpu_memory_gb': gpu_memory_gb,
             'system_ram_gb': system_ram,
             'optimal_batch_size': optimal_batch_size,
-            'memory_threshold': 0.85,
+            'memory_threshold': 0.90,
         }
 
         return optimization_config
@@ -429,11 +429,6 @@ class SingleModelAnalyzer:
         """
         for intervention in interventions:
             try:
-                # Mark with single model extraction
-                intervention['models_used'] = self.model_name
-                intervention['model_agreement'] = 'single'
-                intervention['raw_extraction_count'] = 1
-
                 # Use standard insertion
                 success = self.repository_mgr.interventions.insert_intervention(intervention)
                 if success:

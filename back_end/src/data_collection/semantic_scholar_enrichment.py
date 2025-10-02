@@ -1,6 +1,7 @@
 """
 Semantic Scholar enrichment module for paper collection pipeline.
-Adds influence scores, AI summaries, and discovers similar papers.
+Adds influence scores, citation counts, and AI summaries (TL;DR).
+Note: Similar paper discovery functionality has been disabled.
 """
 
 import json
@@ -88,96 +89,38 @@ class SemanticScholarEnricher:
     def discover_similar_papers(self, seed_papers: Optional[List[str]] = None,
                                limit_per_paper: int = 5) -> EnrichmentStats:
         """
-        Discover similar papers using Semantic Scholar recommendations.
+        DEPRECATED: Similar paper discovery has been disabled.
+        This method now returns empty stats without performing any API calls.
 
         Args:
-            seed_papers: List of PMIDs to use as seeds (None = use enriched papers)
-            limit_per_paper: Max similar papers to find per seed paper
+            seed_papers: List of PMIDs to use as seeds (ignored)
+            limit_per_paper: Max similar papers to find per seed paper (ignored)
 
         Returns:
-            EnrichmentStats with discovery results
+            EnrichmentStats with empty results
         """
-        logger.info("Starting similar paper discovery via Semantic Scholar")
+        logger.warning("discover_similar_papers() called but similar paper discovery is disabled")
         stats = EnrichmentStats()
-
-        try:
-            # Get seed papers (papers that have been S2 enriched)
-            if seed_papers is None:
-                seed_papers = self._get_enriched_papers_for_similarity()
-
-            logger.info(f"Using {len(seed_papers)} papers as seeds for similarity search")
-
-            discovered_papers = []
-            processed_seeds = 0
-
-            for pmid in seed_papers:
-                try:
-                    # Find similar papers for this seed
-                    similar_papers = self.s2_client.get_similar_papers(
-                        pmid, limit=limit_per_paper
-                    )
-
-                    # Convert S2 format to our paper format and check for duplicates
-                    for s2_paper in similar_papers:
-                        converted_paper = self._convert_s2_to_paper_format(s2_paper)
-                        if converted_paper and not self._is_duplicate_paper(converted_paper):
-                            discovered_papers.append(converted_paper)
-                        else:
-                            stats.duplicate_papers += 1
-
-                    processed_seeds += 1
-                    if processed_seeds % 10 == 0:
-                        logger.info(f"Processed {processed_seeds}/{len(seed_papers)} seed papers")
-
-                    # Rate limiting
-                    time.sleep(0.1)
-
-                except Exception as e:
-                    logger.warning(f"Failed to get similar papers for PMID {pmid}: {e}")
-                    stats.errors.append(f"Similar papers failed for {pmid}: {str(e)}")
-
-            # Insert discovered papers
-            if discovered_papers:
-                logger.info(f"Inserting {len(discovered_papers)} newly discovered papers")
-                inserted_count, failed_count = self.db_manager.insert_papers_batch(discovered_papers)
-                stats.new_papers_found = inserted_count
-                stats.failed_papers = failed_count
-
-            logger.info(f"Similar paper discovery completed: {stats.new_papers_found} new papers found, "
-                       f"{stats.duplicate_papers} duplicates skipped")
-            return stats
-
-        except Exception as e:
-            logger.error(f"Error during similar paper discovery: {e}")
-            stats.errors.append(f"Discovery failed: {str(e)}")
-            return stats
+        stats.errors.append("Similar paper discovery is disabled")
+        return stats
 
     def run_full_enrichment_pipeline(self, enrich_limit: Optional[int] = None) -> Dict:
         """
-        Run the complete S2 enrichment pipeline:
-        1. Enrich existing papers with S2 data
-        2. Discover similar papers (one iteration only)
+        Run the S2 enrichment pipeline (metrics only).
+        Only enriches existing papers with S2 data - no similar paper discovery.
 
         Args:
             enrich_limit: Limit for paper enrichment (None = all)
 
         Returns:
-            Combined results from both steps
+            Results from enrichment step
         """
-        logger.info("Starting full Semantic Scholar enrichment pipeline")
+        logger.info("Starting Semantic Scholar enrichment pipeline (metrics only)")
         pipeline_start = time.time()
 
-        # Step 1: Enrich existing papers
-        logger.info("=== Step 1: Enriching existing papers ===")
+        # Enrich existing papers with S2 metrics
+        logger.info("=== Enriching existing papers with S2 metrics ===")
         enrichment_stats = self.enrich_existing_papers(limit=enrich_limit)
-
-        # Step 2: Discover similar papers (only if enrichment was successful)
-        logger.info("=== Step 2: Discovering similar papers ===")
-        discovery_stats = EnrichmentStats()
-        if enrichment_stats.enriched_papers > 0:
-            discovery_stats = self.discover_similar_papers(limit_per_paper=5)
-        else:
-            logger.warning("Skipping similar paper discovery - no papers were enriched")
 
         # Combine results
         total_time = time.time() - pipeline_start
@@ -189,21 +132,14 @@ class SemanticScholarEnricher:
                 'failed_papers': enrichment_stats.failed_papers,
                 'errors': enrichment_stats.errors
             },
-            'discovery': {
-                'new_papers_found': discovery_stats.new_papers_found,
-                'duplicate_papers': discovery_stats.duplicate_papers,
-                'failed_papers': discovery_stats.failed_papers,
-                'errors': discovery_stats.errors
-            },
             'pipeline': {
                 'total_time_seconds': round(total_time, 2),
-                'status': 'success' if not (enrichment_stats.errors or discovery_stats.errors) else 'partial_success'
+                'status': 'success' if not enrichment_stats.errors else 'partial_success'
             }
         }
 
-        logger.info(f"Full S2 enrichment pipeline completed in {total_time:.1f}s")
-        logger.info(f"Results: {enrichment_stats.enriched_papers} enriched, "
-                   f"{discovery_stats.new_papers_found} new papers discovered")
+        logger.info(f"S2 enrichment pipeline completed in {total_time:.1f}s")
+        logger.info(f"Results: {enrichment_stats.enriched_papers} papers enriched with S2 metrics")
 
         return results
 
@@ -226,20 +162,6 @@ class SemanticScholarEnricher:
 
             cursor.execute(query)
             return [dict(row) for row in cursor.fetchall()]
-
-    def _get_enriched_papers_for_similarity(self) -> List[str]:
-        """Get PMIDs of papers that have been enriched and can be used for similarity search."""
-        with self.db_manager.get_connection() as conn:
-            cursor = conn.cursor()
-
-            cursor.execute('''
-                SELECT pmid FROM papers
-                WHERE s2_processed = 1 AND s2_paper_id IS NOT NULL
-                ORDER BY influence_score DESC
-                LIMIT 50
-            ''')
-
-            return [row[0] for row in cursor.fetchall()]
 
     def _batch_papers(self, papers: List[Dict], batch_size: int) -> List[List[Dict]]:
         """Split papers into batches for API processing."""
@@ -412,84 +334,6 @@ class SemanticScholarEnricher:
             stats.errors.append(f"Error enriching {paper.get('pmid', 'unknown')}: {str(e)}")
 
         return stats
-
-    def _convert_s2_to_paper_format(self, s2_paper: Dict) -> Optional[Dict]:
-        """Convert Semantic Scholar paper format to our paper format."""
-        try:
-            external_ids = s2_paper.get('externalIds', {})
-
-            # We need at least a PMID or DOI to be useful
-            pmid = external_ids.get('PubMed')
-            doi = external_ids.get('DOI')
-
-            if not pmid and not doi:
-                return None
-
-            # Extract authors
-            authors_data = s2_paper.get('authors', [])
-            authors = [author.get('name', '') for author in authors_data if author.get('name')]
-            authors_str = ', '.join(authors) if authors else None
-
-            # Extract journal info
-            journal_data = s2_paper.get('journal', {})
-            journal = journal_data.get('name') if journal_data else None
-
-            paper = {
-                'pmid': pmid if pmid else f"S2_{s2_paper.get('paperId', '')}",
-                'title': s2_paper.get('title', ''),
-                'abstract': s2_paper.get('abstract', ''),
-                'doi': doi,
-                'journal': journal,
-                'publication_date': str(s2_paper.get('year', '')),
-                'keywords': json.dumps([]) if not s2_paper.get('fieldsOfStudy') else json.dumps(s2_paper.get('fieldsOfStudy', [])),
-
-                # S2 specific fields
-                's2_paper_id': s2_paper.get('paperId'),
-                'citation_count': s2_paper.get('citationCount', 0),
-                'influence_score': s2_paper.get('influentialCitationCount', 0),
-                'tldr': s2_paper.get('tldr', {}).get('text') if s2_paper.get('tldr') else None,
-                's2_processed': True,
-
-                # Default values
-                'has_fulltext': False,
-                'processing_status': 'pending',
-                'discovery_source': 'semantic_scholar'
-            }
-
-            return paper
-
-        except Exception as e:
-            logger.error(f"Failed to convert S2 paper format: {e}")
-            return None
-
-    def _is_duplicate_paper(self, paper: Dict) -> bool:
-        """Check if a paper already exists in our database."""
-        pmid = paper.get('pmid')
-        doi = paper.get('doi')
-        title = paper.get('title', '').lower().strip()
-
-        with self.db_manager.get_connection() as conn:
-            cursor = conn.cursor()
-
-            # Check by PMID
-            if pmid and not pmid.startswith('S2_'):
-                cursor.execute('SELECT 1 FROM papers WHERE pmid = ?', (pmid,))
-                if cursor.fetchone():
-                    return True
-
-            # Check by DOI
-            if doi:
-                cursor.execute('SELECT 1 FROM papers WHERE doi = ?', (doi,))
-                if cursor.fetchone():
-                    return True
-
-            # Check by title similarity (exact match)
-            if title:
-                cursor.execute('SELECT 1 FROM papers WHERE LOWER(TRIM(title)) = ?', (title,))
-                if cursor.fetchone():
-                    return True
-
-            return False
 
 
 # Convenience function for external use

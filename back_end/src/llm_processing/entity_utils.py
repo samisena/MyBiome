@@ -198,7 +198,7 @@ class EntityValidator:
                 errors.append(f"Invalid intervention_category: {e}")
 
         # Validate confidence fields
-        for conf_field in ['confidence_score', 'extraction_confidence', 'study_confidence']:
+        for conf_field in ['extraction_confidence', 'study_confidence']:
             if conf_field in intervention:
                 try:
                     cleaned_data[conf_field] = EntityValidator.validate_confidence(
@@ -324,10 +324,9 @@ class ConfidenceCalculator:
         """
         Get effective confidence from intervention data.
 
-        Supports both legacy confidence_score and new dual confidence system.
-        For dual system, uses extraction_confidence as primary metric.
+        Uses extraction_confidence as primary metric.
         """
-        # Try new dual confidence first
+        # Use extraction_confidence
         if 'extraction_confidence' in intervention:
             extraction_conf = intervention.get('extraction_confidence', 0)
             if extraction_conf is not None:
@@ -339,24 +338,18 @@ class ConfidenceCalculator:
             if consensus_conf is not None:
                 return float(consensus_conf)
 
-        # Fall back to legacy confidence_score
-        legacy_conf = intervention.get('confidence_score', 0)
-        if legacy_conf is not None:
-            return float(legacy_conf)
-
         return 0.0
 
     @staticmethod
-    def merge_dual_confidence(interventions: List[Dict[str, Any]]) -> Tuple[float, float, float]:
+    def merge_dual_confidence(interventions: List[Dict[str, Any]]) -> Tuple[float, float]:
         """
         Merge confidence values from multiple interventions.
 
         Returns:
-            Tuple of (extraction_confidence, study_confidence, legacy_confidence)
+            Tuple of (extraction_confidence, study_confidence)
         """
         extraction_confidences = []
         study_confidences = []
-        legacy_confidences = []
 
         for intervention in interventions:
             # Extract extraction_confidence
@@ -369,17 +362,11 @@ class ConfidenceCalculator:
             if study_conf is not None:
                 study_confidences.append(float(study_conf))
 
-            # Extract legacy confidence_score
-            legacy_conf = intervention.get('confidence_score')
-            if legacy_conf is not None:
-                legacy_confidences.append(float(legacy_conf))
-
         # Calculate merged values (use max for extraction confidence, average for others)
         merged_extraction = max(extraction_confidences) if extraction_confidences else 0.0
         merged_study = sum(study_confidences) / len(study_confidences) if study_confidences else 0.0
-        merged_legacy = sum(legacy_confidences) / len(legacy_confidences) if legacy_confidences else 0.0
 
-        return merged_extraction, merged_study, merged_legacy
+        return merged_extraction, merged_study
 
     @staticmethod
     def boost_confidence_for_agreement(base_confidence: float, agreement_count: int) -> float:

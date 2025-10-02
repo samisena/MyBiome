@@ -169,11 +169,17 @@ class DatabaseManager:
                     cursor.execute("ALTER TABLE interventions ADD COLUMN study_confidence REAL CHECK(study_confidence >= 0 AND study_confidence <= 1)")
 
                 # Migrate existing confidence_score values to extraction_confidence for backward compatibility
-                cursor.execute("""
-                    UPDATE interventions
-                    SET extraction_confidence = confidence_score
-                    WHERE extraction_confidence IS NULL AND confidence_score IS NOT NULL
-                """)
+                # Only run migration if confidence_score column exists
+                if 'confidence_score' in columns:
+                    cursor.execute("""
+                        UPDATE interventions
+                        SET extraction_confidence = confidence_score
+                        WHERE extraction_confidence IS NULL AND confidence_score IS NOT NULL
+                    """)
+                    rows_migrated = cursor.rowcount
+                    logger.info(f"Migrated {rows_migrated} rows from confidence_score to extraction_confidence")
+                else:
+                    logger.info("confidence_score column not found - migration already complete or not needed")
 
                 conn.commit()
                 logger.info("Successfully migrated database to dual confidence system")
@@ -244,12 +250,11 @@ class DatabaseManager:
                     health_condition TEXT NOT NULL,
                     correlation_type TEXT CHECK(correlation_type IN ('positive', 'negative', 'neutral', 'inconclusive')),
                     correlation_strength REAL CHECK(correlation_strength >= 0 AND correlation_strength <= 1),
-                    confidence_score REAL CHECK(confidence_score >= 0 AND confidence_score <= 1),
 
-                    -- Dual confidence metrics (new system)
+                    -- Dual confidence metrics
                     extraction_confidence REAL CHECK(extraction_confidence >= 0 AND extraction_confidence <= 1),
                     study_confidence REAL CHECK(study_confidence >= 0 AND study_confidence <= 1),
-                    
+
                     -- Study details
                     sample_size INTEGER,
                     study_duration TEXT,
@@ -262,13 +267,12 @@ class DatabaseManager:
                     severity TEXT CHECK(severity IN ('mild', 'moderate', 'severe')),
                     adverse_effects TEXT,
                     cost_category TEXT CHECK(cost_category IN ('low', 'medium', 'high')),
-                    
+
                     -- Extraction tracking
                     extraction_model TEXT NOT NULL,
                     extraction_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    
-                    -- Validation tracking  
-                    validation_status TEXT DEFAULT 'pending' CHECK(validation_status IN ('pending', 'verified', 'conflicted', 'failed')),
+
+                    -- Validation tracking
                     validation_issues TEXT,
                     verification_model TEXT,
                     verification_timestamp TIMESTAMP,
@@ -277,10 +281,10 @@ class DatabaseManager:
                     human_reviewer TEXT,
                     review_timestamp TIMESTAMP,
                     review_notes TEXT,
-                    
+
                     FOREIGN KEY (paper_id) REFERENCES papers(pmid) ON DELETE CASCADE,
                     FOREIGN KEY (intervention_category) REFERENCES intervention_categories(category) ON DELETE RESTRICT,
-                    UNIQUE(paper_id, intervention_category, intervention_name, health_condition)  -- Consensus: one record per intervention-condition pair per paper
+                    UNIQUE(paper_id, intervention_category, intervention_name, health_condition)  -- One record per intervention-condition pair per paper
                 )
             ''')
             
@@ -293,13 +297,12 @@ class DatabaseManager:
                 'CREATE INDEX IF NOT EXISTS idx_papers_fulltext ON papers(has_fulltext)',
                 'CREATE INDEX IF NOT EXISTS idx_papers_processing ON papers(processing_status)',
                 
-                # Interventions indexes  
+                # Interventions indexes
                 'CREATE INDEX IF NOT EXISTS idx_interventions_paper ON interventions(paper_id)',
                 'CREATE INDEX IF NOT EXISTS idx_interventions_category ON interventions(intervention_category)',
                 'CREATE INDEX IF NOT EXISTS idx_interventions_name ON interventions(intervention_name)',
                 'CREATE INDEX IF NOT EXISTS idx_interventions_condition ON interventions(health_condition)',
                 'CREATE INDEX IF NOT EXISTS idx_interventions_type ON interventions(correlation_type)',
-                'CREATE INDEX IF NOT EXISTS idx_interventions_validation ON interventions(validation_status)',
                 'CREATE INDEX IF NOT EXISTS idx_interventions_model ON interventions(extraction_model)',
                 
                 # Composite indexes for common queries
@@ -662,12 +665,12 @@ class DatabaseManager:
                 cursor.execute('''
                     INSERT OR REPLACE INTO interventions
                     (paper_id, intervention_category, intervention_name, intervention_details,
-                     health_condition, correlation_type, correlation_strength, confidence_score,
+                     health_condition, correlation_type, correlation_strength,
+                     extraction_confidence, study_confidence,
                      sample_size, study_duration, study_type, population_details,
                      supporting_quote, delivery_method, severity, adverse_effects, cost_category,
-                     extraction_model, validation_status, consensus_confidence, model_agreement,
-                     models_used, raw_extraction_count, models_contributing)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                     extraction_model)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
@@ -676,7 +679,8 @@ class DatabaseManager:
                     validated_intervention['health_condition'],
                     validated_intervention['correlation_type'],
                     validated_intervention.get('correlation_strength'),
-                    validated_intervention.get('confidence_score'),
+                    validated_intervention.get('extraction_confidence'),
+                    validated_intervention.get('study_confidence'),
                     validated_intervention.get('sample_size'),
                     validated_intervention.get('study_duration'),
                     validated_intervention.get('study_type'),
@@ -686,13 +690,7 @@ class DatabaseManager:
                     validated_intervention.get('severity'),
                     validated_intervention.get('adverse_effects'),
                     validated_intervention.get('cost_category'),
-                    validated_intervention.get('extraction_model', 'qwen2.5:14b'),  # Default to single model
-                    'pending',
-                    validated_intervention.get('consensus_confidence'),
-                    validated_intervention.get('model_agreement', 'single'),  # Default to single model
-                    validated_intervention.get('models_used', 'qwen2.5:14b'),  # Default to single model
-                    validated_intervention.get('raw_extraction_count', 1),
-                    json.dumps(validated_intervention.get('models_contributing', []))
+                    validated_intervention.get('extraction_model', 'qwen2.5:14b')
                 ))
                 
                 was_new = cursor.rowcount > 0

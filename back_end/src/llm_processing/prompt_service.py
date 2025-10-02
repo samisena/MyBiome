@@ -385,9 +385,10 @@ Return ONLY valid JSON. No extra text. Each intervention needs these fields:
 - correlation_strength: number 0.0-1.0 or null
 - extraction_confidence: number 0.0-1.0 - YOUR confidence in extracting this information from the text
 - study_confidence: number 0.0-1.0 - the AUTHORS' confidence in their findings/results or null
-- study_type: type of study or null
 - sample_size: number or null
 - study_duration: duration or null
+- study_type: type of study or null
+- population_details: population characteristics or null
 - delivery_method: how intervention was delivered ("oral", "injection", "topical", "inhalation", "behavioral", "digital", etc.) or null
 - severity: condition severity level ("mild", "moderate", "severe") or null
 - adverse_effects: any reported side effects or complications or null
@@ -418,9 +419,10 @@ Example of valid extraction:
   "correlation_strength": 0.75,
   "extraction_confidence": 0.9,
   "study_confidence": 0.8,
-  "study_type": "randomized controlled trial",
   "sample_size": 120,
   "study_duration": "12 weeks",
+  "study_type": "randomized controlled trial",
+  "population_details": "adults aged 25-65 with moderate depression",
   "delivery_method": "behavioral",
   "severity": "moderate",
   "adverse_effects": "mild fatigue initially",

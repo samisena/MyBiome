@@ -211,8 +211,9 @@ class BatchEntityProcessor:
             cursor = self.db.cursor()
             cursor.execute("""
                 SELECT i.id, i.intervention_name, i.health_condition, i.paper_id,
-                       i.correlation_type, i.correlation_strength, i.confidence_score,
-                       i.extraction_model, i.verification_model, i.models_used,
+                       i.correlation_type, i.correlation_strength,
+                       i.extraction_confidence, i.study_confidence,
+                       i.extraction_model, i.verification_model,
                        i.intervention_canonical_id, i.condition_canonical_id,
                        i.normalized, i.consensus_confidence, i.sample_size,
                        i.study_type, i.supporting_quote
@@ -360,18 +361,18 @@ class BatchEntityProcessor:
             cursor.execute("""
                 UPDATE interventions
                 SET intervention_name = ?,
-                    models_used = ?,
                     consensus_confidence = ?,
                     correlation_strength = ?,
-                    confidence_score = ?,
+                    extraction_confidence = ?,
+                    study_confidence = ?,
                     normalized = 1
                 WHERE id = ?
             """, (
                 merged_intervention.get('intervention_name'),
-                merged_intervention.get('models_used', 'dual_consensus'),
                 merged_intervention.get('consensus_confidence', 0.9),
                 merged_intervention.get('correlation_strength'),
-                merged_intervention.get('confidence_score'),
+                merged_intervention.get('extraction_confidence'),
+                merged_intervention.get('study_confidence'),
                 primary_id
             ))
 
