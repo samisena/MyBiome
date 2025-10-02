@@ -287,14 +287,14 @@ class EntityRepository:
                 cache_entries.append((term, normalized, entity_type))
 
             # Batch insert new cache entries
-                cursor.executemany("""
-                    INSERT OR IGNORE INTO normalized_terms_cache
-                    (original_term, normalized_term, entity_type)
-                    VALUES (?, ?, ?)
-                """, cache_entries)
-                conn.commit()
+            cursor.executemany("""
+                INSERT OR IGNORE INTO normalized_terms_cache
+                (original_term, normalized_term, entity_type)
+                VALUES (?, ?, ?)
+            """, cache_entries)
+            conn.commit()
 
-            return normalized_mapping
+        return normalized_mapping
 
     # === CANONICAL ENTITY OPERATIONS ===
 
@@ -872,38 +872,44 @@ class DuplicateDetector:
 
     def detect_same_paper_duplicates(self, interventions: List[Dict]) -> List[List[Dict]]:
         """
-        Two-stage duplicate detection for same-paper interventions:
-        STAGE 1: Fast exact canonical matching (existing logic)
-        STAGE 2: LLM semantic condition matching (NEW - prevents vitamin D problem)
+        [SIMPLIFIED FOR SINGLE-MODEL ARCHITECTURE]
+        Single-stage duplicate detection using exact canonical matching only.
 
-        This prevents evidence inflation from dual-model extraction where both models
-        find the same intervention-condition relationship but with slightly different
-        condition wording (e.g., "cognitive impairment" vs "diabetes-induced cognitive impairment").
+        With single-model extraction (qwen2.5:14b only), same-paper duplicates should
+        not exist. This method is kept for Phase 3 cross-paper deduplication only.
+
+        Stage 1: Fast exact canonical matching
+        Stage 2: REMOVED - LLM semantic matching no longer needed for same-paper detection
         """
-        # STAGE 1: Exact canonical matching (fast)
+        # STAGE 1: Exact canonical matching (only stage needed now)
         exact_match_groups, ungrouped_interventions = self._stage1_exact_matching(interventions)
 
-        # STAGE 2: LLM semantic matching for remaining interventions (thorough)
-        semantic_match_groups = self._stage2_llm_semantic_matching(ungrouped_interventions)
+        # STAGE 2: REMOVED - No longer needed with single-model extraction
+        # semantic_match_groups = self._stage2_llm_semantic_matching(ungrouped_interventions)
 
-        # Combine both types of groups
-        all_duplicate_groups = exact_match_groups + semantic_match_groups
+        self.logger.info(f"Duplicate detection: {len(exact_match_groups)} exact match groups")
 
-        self.logger.info(f"Duplicate detection: {len(exact_match_groups)} exact match groups, "
-                        f"{len(semantic_match_groups)} semantic match groups (LLM-verified)")
-
-        return all_duplicate_groups
+        return exact_match_groups
 
     def _stage1_exact_matching(self, interventions: List[Dict]) -> Tuple[List[List[Dict]], List[Dict]]:
         """
         Stage 1: Group interventions by exact canonical intervention + condition + correlation.
+        Falls back to raw text matching if canonical names not available.
         Returns (exact_match_groups, ungrouped_interventions).
         """
         correlation_groups = defaultdict(list)
 
         for intervention in interventions:
+            # Try canonical names first, fall back to raw text
             intervention_canonical = intervention.get('canonical_intervention_name', '').lower()
             condition_canonical = intervention.get('canonical_condition_name', '').lower()
+
+            # Fallback to raw text if canonical not available
+            if not intervention_canonical:
+                intervention_canonical = intervention.get('intervention_name', '').lower()
+            if not condition_canonical:
+                condition_canonical = intervention.get('health_condition', '').lower()
+
             correlation_type = intervention.get('correlation_type', '').lower()
 
             if intervention_canonical and condition_canonical:

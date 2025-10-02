@@ -1,9 +1,9 @@
 {
-  "session_id": "batch_20251001_193618",
+  "session_id": "batch_20251002_161351",
   "papers_per_condition": 1,
   "current_phase": "processing",
   "iteration_number": 1,
-  "start_time": "2025-10-01T19:36:18.330234",
+  "start_time": "2025-10-02T16:13:51.692857",
   "collection_completed": true,
   "processing_completed": false,
   "deduplication_completed": false,
@@ -16,7 +16,7 @@
     "successful_conditions": 60,
     "failed_conditions": 0,
     "total_papers_collected": 60,
-    "collection_time_seconds": 85.964869,
+    "collection_time_seconds": 112.095577,
     "success_rate": 100.0,
     "quality_gate_passed": true
   },

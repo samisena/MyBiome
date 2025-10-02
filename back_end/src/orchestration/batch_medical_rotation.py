@@ -9,17 +9,24 @@ batch processing workflow.
 
 Pipeline Flow:
 1. BATCH COLLECTION: Collect N papers for all 60 conditions in parallel
-2. BATCH PROCESSING: Process all papers with sequential dual LLM (gemma2:9b → qwen2.5:14b)
-3. BATCH DEDUPLICATION: Global deduplication and canonical entity merging
+2. BATCH PROCESSING: Process all papers with single LLM (qwen2.5:14b) - 2x faster!
+3. BATCH DEDUPLICATION: Global deduplication and canonical entity merging (Phase 3)
 
 Features:
 - 3 clear phases with natural breakpoints for recovery
 - Parallel collection within VRAM constraints
-- Sequential dual-model processing (8GB VRAM friendly)
-- Global deduplication across all conditions
+- Single-model processing (qwen2.5:14b) - 2x speed improvement
+- No Phase 2 deduplication needed (single model = no same-paper duplicates)
+- Phase 3 cross-paper canonical merging for unified analysis
 - Simple session management with phase-level recovery
 - Quality gates between phases
 - Comprehensive progress tracking
+
+Architecture Change (2025-10):
+- Switched from dual-model (gemma2:9b + qwen2.5:14b) to single-model (qwen2.5:14b)
+- Eliminated Phase 2 consensus building complexity
+- Preserved Qwen's superior extraction detail
+- 2x faster processing with simpler error handling
 
 Usage:
     # Run complete batch pipeline

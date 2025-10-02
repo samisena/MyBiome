@@ -159,131 +159,37 @@ class BatchEntityProcessor:
         return ConfidenceCalculator.merge_dual_confidence(interventions)
 
     # === CORE CONSENSUS PROCESSING ===
+    # NOTE: Phase 2 consensus processing REMOVED with single-model architecture
+    # Single-model extraction (qwen2.5:14b only) eliminates same-paper duplicates
+    # Phase 3 (batch_deduplicate_entities) still performs cross-paper canonical merging
 
-    def process_consensus_batch(self, raw_interventions: List[Dict], paper: Dict,
-                              confidence_threshold: float = 0.5) -> List[Dict]:
-        """
-        Essential duplicate removal and basic consensus processing.
+    # DEPRECATED: No longer needed with single-model extraction
+    # def process_consensus_batch(self, raw_interventions: List[Dict], paper: Dict,
+    #                           confidence_threshold: float = 0.5) -> List[Dict]:
+    #     """
+    #     [DEPRECATED - Single Model Architecture]
+    #     This method was used for merging duplicates from dual-model extraction.
+    #     With qwen2.5:14b-only extraction, no same-paper duplicates are created.
+    #     """
+    #     pass
 
-        This method focuses on the critical task of removing true duplicates from same paper
-        extractions while preserving individual intervention records for research purposes.
+    # DEPRECATED: No longer needed with single-model extraction
+    # def _detect_and_merge_same_paper_duplicates(self, interventions: List[Dict], paper: Dict) -> List[Dict]:
+    #     """
+    #     [DEPRECATED - Single Model Architecture]
+    #     Dual-model extraction created same-paper duplicates requiring merge.
+    #     Single-model extraction creates no duplicates to merge.
+    #     """
+    #     pass
 
-        Args:
-            raw_interventions: All interventions from all models for a paper
-            paper: Source paper information
-            confidence_threshold: Minimum confidence for validation
-
-        Returns:
-            List of deduplicated interventions with true duplicates merged
-        """
-        if not raw_interventions:
-            return []
-
-        self.logger.info(f"Processing duplicates for {len(raw_interventions)} raw interventions from paper {paper.get('pmid', 'unknown')}")
-
-        # Phase 1: Normalize all terms in batch for efficiency
-        normalized_terms = self.duplicate_detector.batch_normalize_consensus_terms(raw_interventions)
-
-        # Phase 2: Resolve canonical entities for all interventions
-        interventions_with_canonicals = self.duplicate_detector.resolve_canonical_entities_batch(raw_interventions, normalized_terms)
-
-        # Phase 3: CRITICAL - Detect and merge true duplicates from same paper
-        deduplicated_interventions = self._detect_and_merge_same_paper_duplicates(interventions_with_canonicals, paper)
-
-        # Phase 4: Basic validation and safety checks
-        validated_interventions = self._basic_intervention_validation(deduplicated_interventions, confidence_threshold)
-
-        self.logger.info(f"Duplicate processing complete: {len(validated_interventions)} deduplicated interventions from {len(raw_interventions)} raw inputs")
-        return validated_interventions
-
-    def _detect_and_merge_same_paper_duplicates(self, interventions: List[Dict], paper: Dict) -> List[Dict]:
-        """
-        CRITICAL METHOD: Detect and merge true duplicates from same paper where both models
-        found identical intervention-condition correlations.
-        """
-        if not interventions:
-            return []
-
-        # Detect duplicate groups
-        duplicate_groups = self.duplicate_detector.detect_same_paper_duplicates(interventions)
-
-        # Process each group
-        deduplicated_interventions = []
-        processed_interventions = set()
-
-        for group in duplicate_groups:
-            if len(group) > 1:
-                # Merge the duplicate group
-                merged_intervention = self.duplicate_detector.merge_duplicate_group(group, paper)
-                deduplicated_interventions.append(merged_intervention)
-
-                # Mark all interventions in this group as processed
-                for intervention in group:
-                    processed_interventions.add(id(intervention))
-            else:
-                # Single intervention, add as-is if not already processed
-                intervention = group[0]
-                if id(intervention) not in processed_interventions:
-                    deduplicated_interventions.append(intervention)
-                    processed_interventions.add(id(intervention))
-
-        # Add any interventions that weren't in any duplicate group
-        for intervention in interventions:
-            if id(intervention) not in processed_interventions:
-                deduplicated_interventions.append(intervention)
-
-        return deduplicated_interventions
-
-    def _basic_intervention_validation(self, interventions: List[Dict],
-                                     confidence_threshold: float = DEFAULT_CONFIDENCE_THRESHOLD) -> List[Dict]:
-        """
-        Basic intervention validation with human review flagging instead of filtering.
-
-        This preserves data while flagging interventions that need human review.
-        """
-        validated_interventions = []
-        validation_stats = {
-            'total_processed': 0,
-            'passed_validation': 0,
-            'low_confidence_flagged': 0,
-            'missing_required_fields': 0,
-            'requires_human_review': 0
-        }
-
-        for intervention in interventions:
-            validation_stats['total_processed'] += 1
-            validation_flags = []
-            requires_human_review = False
-
-            # Validate required fields
-            intervention_name = intervention.get('intervention_name', '').strip()
-            if not intervention_name:
-                validation_flags.append('missing_intervention_name')
-                requires_human_review = True
-                validation_stats['missing_required_fields'] += 1
-            else:
-                # Check confidence threshold using effective confidence method
-                confidence = self._get_effective_confidence(intervention)
-                if confidence < confidence_threshold:
-                    self.logger.info(f"Low confidence intervention {confidence:.2f} below threshold {confidence_threshold} - flagged for human review")
-                    validation_flags.append(f'low_confidence_{confidence:.2f}')
-                    requires_human_review = True
-                    validation_stats['low_confidence_flagged'] += 1
-
-            # Add validation metadata
-            intervention['validation_flags'] = validation_flags
-            intervention['requires_human_review'] = requires_human_review
-
-            if not requires_human_review:
-                validation_stats['passed_validation'] += 1
-            else:
-                validation_stats['requires_human_review'] += 1
-
-            # Always add to results (no filtering, just flagging)
-            validated_interventions.append(intervention)
-
-        self.logger.info(f"Validation complete: {validation_stats['passed_validation']} passed, {validation_stats['requires_human_review']} flagged for review")
-        return validated_interventions
+    # DEPRECATED: Validation moved to SingleModelAnalyzer._validate_and_enhance_interventions()
+    # def _basic_intervention_validation(self, interventions: List[Dict],
+    #                                  confidence_threshold: float = DEFAULT_CONFIDENCE_THRESHOLD) -> List[Dict]:
+    #     """
+    #     [DEPRECATED - Single Model Architecture]
+    #     Validation now occurs directly in single_model_analyzer.py during extraction.
+    #     """
+    #     pass
 
     #! === DEDUPLICATION SUMMARY ===
 

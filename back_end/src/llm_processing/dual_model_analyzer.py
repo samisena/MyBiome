@@ -526,7 +526,10 @@ class DualModelAnalyzer:
                 return consensus_interventions
 
         except Exception as e:
+            import traceback
+            error_details = traceback.format_exc()
             logger.error(f"Consensus building failed for paper {paper.get('pmid')}: {e}")
+            logger.error(f"Full traceback:\n{error_details}")
             # Fallback: return raw interventions (better than losing data)
             logger.warning(f"Falling back to raw interventions for paper {paper.get('pmid')}")
             return raw_interventions

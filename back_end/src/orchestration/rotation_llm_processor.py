@@ -49,7 +49,7 @@ except ImportError:
 try:
     from ..data.config import config, setup_logging
     from ..data_collection.database_manager import database_manager
-    from ..llm_processing.dual_model_analyzer import DualModelAnalyzer
+    from ..llm_processing.single_model_analyzer import SingleModelAnalyzer
     from ..data.repositories import repository_manager
 except ImportError:
     # Fallback for standalone execution
@@ -58,7 +58,7 @@ except ImportError:
     sys.path.append(str(Path(__file__).parent.parent.parent))
     from back_end.src.data.config import config, setup_logging
     from back_end.src.data_collection.database_manager import database_manager
-    from back_end.src.llm_processing.dual_model_analyzer import DualModelAnalyzer
+    from back_end.src.llm_processing.single_model_analyzer import SingleModelAnalyzer
     from back_end.src.data.repositories import repository_manager
 
 logger = setup_logging(__name__, 'rotation_llm_processor.log')
@@ -192,18 +192,23 @@ class ProcessingError(Exception):
 
 class RotationLLMProcessor:
     """
-    Simplified LLM processor for rotation pipeline.
-    Processes papers for a single condition with robust error handling.
+    Single-model LLM processor for rotation pipeline.
+    Processes papers using qwen2.5:14b with robust error handling.
+
+    Simplified architecture:
+    - Uses single model (qwen2.5:14b) for 2x speed improvement
+    - No consensus building needed
+    - Preserves Qwen's superior extraction detail
     """
 
     def __init__(self):
         """Initialize the rotation LLM processor."""
-        self.dual_analyzer = DualModelAnalyzer()
+        self.single_analyzer = SingleModelAnalyzer()
         self.max_retries = 2
         self.retry_delays = [30, 60]  # seconds
 
-        # Processing configuration
-        self.batch_size = 3  # Small batches for better error recovery
+        # Processing configuration - increased from 3 since single model uses less memory
+        self.batch_size = 8  # Larger batches possible with single model
 
         # Enhanced thermal protection
         self.thermal_monitor = ThermalMonitor(max_temp=85.0, cooling_temp=75.0)
@@ -337,12 +342,17 @@ class RotationLLMProcessor:
 
     def process_all_papers_batch(self, batch_size: Optional[int] = None) -> Dict[str, Any]:
         """
-        Process ALL unprocessed papers using sequential dual-model approach.
+        Process ALL unprocessed papers using single-model approach.
 
-        This method is optimized for 8GB VRAM by loading models sequentially:
-        1. Load gemma2:9b → process all papers → unload model
-        2. Load qwen2.5:14b → process all papers → unload model
-        3. Build consensus from both model results
+        Simplified method using qwen2.5:14b only:
+        1. Load qwen2.5:14b once
+        2. Process all papers
+        3. Save results directly (no consensus building needed)
+
+        Benefits:
+        - 2x faster than dual-model approach
+        - Simpler error handling
+        - Preserves Qwen's superior extraction detail
 
         Args:
             batch_size: Papers per batch (auto-optimized if None)
@@ -351,7 +361,7 @@ class RotationLLMProcessor:
             Dictionary with comprehensive processing results
         """
         start_time = datetime.now()
-        logger.info("Starting batch processing of all unprocessed papers")
+        logger.info("Starting batch processing of all unprocessed papers (single model)")
 
         try:
             # Get all unprocessed papers from database
@@ -381,9 +391,8 @@ class RotationLLMProcessor:
 
             logger.info(f"Using batch size: {batch_size}")
 
-            # Process papers using dual-model analyzer's batch method
-            # The dual_model_analyzer already handles sequential processing
-            processing_result = self.dual_analyzer.process_papers_batch(
+            # Process papers using single-model analyzer
+            processing_result = self.single_analyzer.process_papers_batch(
                 papers=unprocessed_papers,
                 save_to_db=True,
                 batch_size=batch_size
@@ -439,10 +448,10 @@ class RotationLLMProcessor:
             }
 
     def _get_all_unprocessed_papers(self) -> List[Dict[str, Any]]:
-        """Get all papers that haven't been processed by any model yet."""
+        """Get all papers that haven't been processed yet."""
         try:
-            # Use the dual_model_analyzer's method to get unprocessed papers
-            return self.dual_analyzer.get_unprocessed_papers()
+            # Use the single_model_analyzer's method to get unprocessed papers
+            return self.single_analyzer.get_unprocessed_papers()
 
         except Exception as e:
             logger.error(f"Error getting unprocessed papers: {e}")

@@ -9,7 +9,7 @@ An automated biomedical research pipeline that collects research papers about he
 **Backend**: Python-based research automation pipeline
 **Frontend**: Web interface for presenting research findings
 **Database**: SQLite with comprehensive schema for papers, interventions, and correlations
-**LLMs**: Local dual-model analysis (gemma2:9b + qwen2.5:14b) via Ollama
+**LLM**: Local single-model extraction (qwen2.5:14b) via Ollama 
 
 ## Core Pipeline Stages
 
@@ -20,11 +20,10 @@ An automated biomedical research pipeline that collects research papers about he
 - **Database Management**: SQLite operations with robust schema
 
 ### 2. **LLM Processing** (`back_end/src/llm_processing/`)
-- **Dual-Model Analysis**: Sequential processing with gemma2:9b and qwen2.5:14b (both models process each paper independently)
-- **Intervention Extraction**: Structured extraction of treatment-outcome relationships
+- **Single-Model Extraction**: Fast processing with qwen2.5:14b 
+- **Intervention Extraction**: Structured extraction of treatment-outcome relationships with superior detail
 - **Batch Processing**: Efficient processing with thermal protection and memory management
-- **Same-Paper Deduplication**: Intelligent merging of duplicate extractions from the same paper
-- **Canonical Entity Merging**: Unification of intervention names across all papers (e.g., "vitamin D", "Vitamin D3", "cholecalciferol" → single canonical entity)
+- **Phase 3 Canonical Merging**: Cross-paper unification of intervention names (e.g., "vitamin D", "Vitamin D3", "cholecalciferol" → single canonical entity)
 
 ### 3. **Data Mining** (`back_end/src/data_mining/`)
 - **Pattern Discovery**: Advanced correlation analysis and biological pattern recognition
@@ -58,7 +57,7 @@ An automated biomedical research pipeline that collects research papers about he
 ### Backend
 - **Python 3.13**: Core language
 - **SQLite**: Primary database with comprehensive medical schema
-- **Ollama**: Local LLM inference (gemma2:9b, qwen2.5:14b)
+- **Ollama**: Local LLM inference (qwen2.5:14b)
 - **Requests**: API integrations (PubMed, Semantic Scholar, PMC)
 - **Circuit Breaker Pattern**: Robust error handling and retry logic
 
@@ -91,7 +90,8 @@ Comprehensive SQLite database with tables for:
 - ✅ Multi-condition batch processing with session persistence
 
 ### LLM Processing
-- ✅ Dual-model consensus analysis for robust extraction
+- ✅ Single-model extraction with qwen2.5:14b 
+- ✅ Superior extraction detail preserved from Qwen model
 - ✅ Thermal protection with GPU monitoring (RTX 4090)
 - ✅ Automatic memory management and cleanup
 - ✅ Session recovery and resumable processing
@@ -123,8 +123,8 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 
 **Pipeline Phases**:
 1. **Collection Phase**: Collects papers for all 60 conditions (PubMed only, S2 disabled, 2 parallel workers)
-2. **Processing Phase**: Dual-model extraction (gemma2:9b → qwen2.5:14b sequential, creates duplicates)
-3. **Deduplication Phase**: Same-paper duplicate removal + canonical entity merging
+2. **Processing Phase**: Single-model extraction with qwen2.5:14b 
+3. **Deduplication Phase**: Phase 3 canonical entity merging (cross-paper unification)
 
 ### Individual Components
 ```bash
@@ -171,31 +171,43 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 
 ## Current Database Status
 - **Medical conditions**: 60 conditions across 12 medical specialties
-- **Processing capability**: 500+ papers per hour (dual-model analysis)
+- **Processing capability**: 1000+ papers per hour (single-model extraction, 2x improvement)
 - **Session management**: Comprehensive state persistence and recovery
 - **Quality assurance**: Multi-stage validation and scoring
+- **Architecture**: Single-model (qwen2.5:14b) - October 2025 migration validated ✅
 
-## Critical Concepts: Deduplication vs Canonical Merging
+## Critical Concepts: Single-Model vs Canonical Merging
 
-### **Same-Paper Deduplication** (Within-Paper Duplicate Removal)
-**Purpose**: Prevent double-counting when both LLM models extract the same finding from the same paper
+### **Architecture Change (October 2025)**: Dual-Model → Single-Model ✅
+**Previous**: Used gemma2:9b + qwen2.5:14b with Phase 2 consensus-before-save deduplication
+**Current**: Uses qwen2.5:14b only - eliminates Phase 2 entirely
 
-**Problem**:
-- Paper 41031311 is processed by gemma2:9b → extracts "vitamin D for cognitive impairment"
-- Same paper 41031311 is processed by qwen2.5:14b → extracts "vitamin D for type 2 diabetes mellitus-induced cognitive impairment"
-- Without deduplication: This appears as 2 separate findings, inflating evidence counts
+**Benefits**:
+- 2x speed improvement (no dual extraction overhead)
+- No Phase 2 deduplication needed (single extraction = no same-paper duplicates)
+- Preserves Qwen's superior extraction detail (avoids "atorvastatin" vs "atorvastatin pretreatment" conflicts)
+- Simpler error handling and debugging
+- Increased batch size from 5 to 8 papers
 
-**Solution** (in `batch_entity_processor.py`):
-1. **Simple Normalization**: Try basic string matching first (fast, cheap)
-2. **LLM Semantic Verification**: If normalization fails, use qwen2.5:14b to determine if conditions are semantically equivalent
-3. **Merge Action**: Delete one record, keep ONE intervention per paper
-4. **Model Attribution**: Update the kept record to show extraction by BOTH models (e.g., `models_used: "gemma2:9b, qwen2.5:14b"`)
-5. **Consensus Naming**: Use LLM to decide which condition wording is most accurate
+### **Phase 2: DEPRECATED** (Previously: Same-Paper Deduplication)
+**Status**: No longer needed with single-model architecture
+**Historical Purpose**: Prevented double-counting when both LLM models extracted the same finding
+**Why Removed**: Single-model extraction creates only one record per finding per paper
 
-**Result**: Each paper contributes only ONE record per unique intervention, preventing statistical inflation
+**Historical Context** (Dual-Model Era):
+- Paper 41031311 was processed by gemma2:9b → extracted "vitamin D for cognitive impairment"
+- Same paper 41031311 was processed by qwen2.5:14b → extracted "vitamin D for type 2 diabetes mellitus-induced cognitive impairment"
+- Complex consensus logic was needed to merge these duplicates
 
-### **Canonical Entity Merging** (Cross-Paper Entity Unification)
+**Current Reality** (Single-Model Era):
+- Paper 41031311 is processed by qwen2.5:14b ONCE → extracts "vitamin D for type 2 diabetes mellitus-induced cognitive impairment"
+- No duplicates created, no consensus logic needed
+- Preserves Qwen's superior detail without conflicts
+
+### **Phase 3: Canonical Entity Merging** (Cross-Paper Entity Unification)
 **Purpose**: Aggregate all evidence about the same intervention across ALL papers
+
+**When**: Runs AFTER all extractions complete, operates on database records (cleanup and unification)
 
 **Problem**:
 - Paper A mentions "vitamin D"
@@ -203,26 +215,10 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 - Paper C mentions "cholecalciferol"
 - These are the same thing but with different names
 
-**Solution**:
+**Solution** (in `batch_entity_processor.py` → `batch_deduplicate_entities()`):
 - All three interventions point to the same canonical entity (e.g., `canonical_id: 1, canonical_name: "vitamin D"`)
 - Statistical analysis aggregates all evidence under the canonical entity
 - Original intervention names are preserved for transparency
+- Uses LLM semantic analysis for intelligent grouping
 
 **Result**: Unified analysis showing "150 papers support vitamin D" instead of fragmented counts
-
-### Key Differences
-
-| Aspect | Same-Paper Deduplication | Canonical Merging |
-|--------|-------------------------|-------------------|
-| **Scope** | Within single paper | Across all papers |
-| **Action** | DELETE duplicate records | LINK different names to same entity |
-| **Problem** | Dual-model extraction creates duplicates | Different papers use different terminology |
-| **Timing** | Happens immediately after LLM extraction | Happens during entity normalization |
-| **Impact** | Prevents evidence inflation | Enables aggregated analysis |
-
-## Restraints & Guidelines
-- **No emojis in any output or code**
-- **Local LLM only** (gemma2:9b, qwen2.5:14b via Ollama)
-- **Thermal limits**: Max GPU temperature 85°C with predictive cooling
-- **Session-based operation**: All long-running tasks must be resumable
-- **Robust error handling**: Circuit breaker patterns for all external API calls

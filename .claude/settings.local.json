@@ -25,7 +25,9 @@
       "Bash(timeout 30 python -m back_end.src.orchestration.batch_medical_rotation:*)",
       "Bash(cat:*)",
       "Bash(timeout:*)",
-      "Bash(sqlite3:*)"
+      "Bash(sqlite3:*)",
+      "Bash(chcp:*)",
+      "Bash(/bashes)"
     ],
     "deny": [],
     "ask": []
