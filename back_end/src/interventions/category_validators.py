@@ -72,6 +72,20 @@ class CategorySpecificValidator:
             'intervention_name': intervention_name
         })
 
+        # Validate condition_category if present
+        if 'condition_category' in validated_data and validated_data['condition_category']:
+            # Validate it's a valid condition category
+            from back_end.src.conditions.category_validators import condition_validator
+            try:
+                condition_category = condition_validator.validate_condition_category(
+                    validated_data['health_condition'],
+                    validated_data['condition_category']
+                )
+                validated_data['condition_category'] = condition_category.value
+            except Exception as e:
+                # If condition category validation fails, log warning but don't fail the whole intervention
+                logger.warning(f"Condition category validation failed: {e}. Keeping original value.")
+
         # Note: subcategory validation removed - subcategories are no longer used in the system
 
         # Validate intervention details (category-specific)

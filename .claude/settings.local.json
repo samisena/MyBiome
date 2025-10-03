@@ -28,7 +28,13 @@
       "Bash(sqlite3:*)",
       "Bash(chcp:*)",
       "Bash(/bashes)",
-      "Bash(tee:*)"
+      "Bash(tee:*)",
+      "Bash(PYTHONPATH=. python back_end/src/orchestration/rotation_llm_processor.py --limit 3)",
+      "Bash(PYTHONPATH=. python back_end/src/orchestration/rotation_llm_processor.py --help)",
+      "Bash(PYTHONPATH=. python back_end/src/orchestration/rotation_llm_processor.py \"diabetes\" --max-papers 3)",
+      "Bash(PYTHONPATH=. python back_end/test_condition_category.py)",
+      "Bash(PYTHONPATH=. python test_condition_category_simple.py)",
+      "Bash(PYTHONPATH=. python back_end/scripts/backfill_condition_categories.py --batch-size 20)"
     ],
     "deny": [],
     "ask": []

@@ -390,7 +390,7 @@ Respond with ONLY valid JSON:
     def _build_intervention_prompt(self, paper_content: str, category_descriptions: Dict[str, str]) -> str:
         """Build the complete intervention extraction prompt."""
         categories = [cat.value for cat in InterventionType]
-        
+
         return f"""You are a biomedical expert analyzing research papers to extract health interventions and their relationships to health conditions.
 
 PAPER:

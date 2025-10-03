@@ -310,8 +310,20 @@ class SingleModelAnalyzer:
                 intervention['paper_id'] = paper['pmid']
                 intervention['extraction_model'] = model_name
 
+                # Debug: Check if condition_category is in raw extraction
+                if 'condition_category' in intervention:
+                    logger.info(f"Raw extraction has condition_category: {intervention['condition_category']}")
+                else:
+                    logger.warning(f"Raw extraction MISSING condition_category for intervention: {intervention.get('intervention_name', 'unknown')}")
+
                 # Validate using intervention validator
                 validated_intervention = self.validator.validate_intervention(intervention)
+
+                # Debug: Check if condition_category survived validation
+                if 'condition_category' in validated_intervention:
+                    logger.info(f"Validated intervention has condition_category: {validated_intervention['condition_category']}")
+                else:
+                    logger.warning(f"Validated intervention MISSING condition_category for: {validated_intervention.get('intervention_name', 'unknown')}")
 
                 validated.append(validated_intervention)
 

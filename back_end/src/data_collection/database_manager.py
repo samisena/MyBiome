@@ -238,6 +238,18 @@ class DatabaseManager:
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
             ''')
+
+            # NEW: Condition categories table
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS condition_categories (
+                    category TEXT PRIMARY KEY,
+                    display_name TEXT NOT NULL,
+                    description TEXT,
+                    validation_schema TEXT,  -- JSON schema for validation
+                    search_terms TEXT,       -- JSON array of search terms
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            ''')
             
             # NEW: Main interventions table (replaces correlations)
             cursor.execute('''
@@ -385,6 +397,9 @@ class DatabaseManager:
             ('severity', 'TEXT CHECK(severity IN (\'mild\', \'moderate\', \'severe\'))'),
             ('adverse_effects', 'TEXT'),
             ('cost_category', 'TEXT CHECK(cost_category IN (\'low\', \'medium\', \'high\'))'),
+
+            # Condition category (NEW: added for condition categorization)
+            ('condition_category', 'TEXT'),
 
             # Consensus tracking fields
             ('consensus_confidence', 'REAL CHECK(consensus_confidence >= 0 AND consensus_confidence <= 1)'),
@@ -665,18 +680,19 @@ class DatabaseManager:
                 cursor.execute('''
                     INSERT OR REPLACE INTO interventions
                     (paper_id, intervention_category, intervention_name, intervention_details,
-                     health_condition, correlation_type, correlation_strength,
+                     health_condition, condition_category, correlation_type, correlation_strength,
                      extraction_confidence, study_confidence,
                      sample_size, study_duration, study_type, population_details,
                      supporting_quote, delivery_method, severity, adverse_effects, cost_category,
                      extraction_model)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
                     validated_intervention['intervention_name'],
                     json.dumps(validated_intervention.get('intervention_details', {})),
                     validated_intervention['health_condition'],
+                    validated_intervention.get('condition_category'),
                     validated_intervention['correlation_type'],
                     validated_intervention.get('correlation_strength'),
                     validated_intervention.get('extraction_confidence'),
@@ -709,15 +725,15 @@ class DatabaseManager:
         """Set up the intervention categories table with taxonomy data."""
         from ..interventions.taxonomy import intervention_taxonomy
         from ..interventions.search_terms import search_terms
-        
+
         try:
             with self.get_connection() as conn:
                 cursor = conn.cursor()
-                
+
                 for category_type, category_def in intervention_taxonomy.get_all_categories().items():
                     # Get search terms for this category
                     category_search_terms = search_terms.get_terms_for_category(category_type)
-                    
+
                     cursor.execute('''
                         INSERT OR REPLACE INTO intervention_categories
                         (category, display_name, description, search_terms)
@@ -728,13 +744,45 @@ class DatabaseManager:
                         category_def.description,
                         json.dumps(category_search_terms)
                     ))
-                
+
                 conn.commit()
                 logger.info(f"Set up {len(intervention_taxonomy.get_all_categories())} intervention categories")
                 return True
-                
+
         except Exception as e:
             logger.error(f"Error setting up intervention categories: {e}")
+            return False
+
+    def setup_condition_categories(self):
+        """Set up the condition categories table with taxonomy data."""
+        from ..conditions.taxonomy import condition_taxonomy
+        from ..conditions.search_terms import search_terms as condition_search_terms
+
+        try:
+            with self.get_connection() as conn:
+                cursor = conn.cursor()
+
+                for category_type, category_def in condition_taxonomy.get_all_categories().items():
+                    # Get search terms for this category
+                    category_search_terms = condition_search_terms.get_terms_for_category(category_type)
+
+                    cursor.execute('''
+                        INSERT OR REPLACE INTO condition_categories
+                        (category, display_name, description, search_terms)
+                        VALUES (?, ?, ?, ?)
+                    ''', (
+                        category_type.value,
+                        category_def.display_name,
+                        category_def.description,
+                        json.dumps(category_search_terms)
+                    ))
+
+                conn.commit()
+                logger.info(f"Set up {len(condition_taxonomy.get_all_categories())} condition categories")
+                return True
+
+        except Exception as e:
+            logger.error(f"Error setting up condition categories: {e}")
             return False
     
     
@@ -1108,20 +1156,21 @@ class DatabaseManager:
                 cursor.execute('''
                     INSERT OR REPLACE INTO interventions
                     (paper_id, intervention_category, intervention_name, intervention_details,
-                     health_condition, correlation_type, correlation_strength,
+                     health_condition, condition_category, correlation_type, correlation_strength,
                      extraction_confidence, study_confidence,
                      sample_size, study_duration, study_type, population_details,
                      supporting_quote, delivery_method, severity, adverse_effects, cost_category,
                      extraction_model, consensus_confidence, model_agreement,
                      models_used, raw_extraction_count, models_contributing,
                      intervention_canonical_id, condition_canonical_id, normalized)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
                     validated_intervention['intervention_name'],
                     json.dumps(validated_intervention.get('intervention_details', {})),
                     validated_intervention['health_condition'],
+                    validated_intervention.get('condition_category'),
                     validated_intervention['correlation_type'],
                     validated_intervention.get('correlation_strength'),
                     validated_intervention.get('extraction_confidence'),

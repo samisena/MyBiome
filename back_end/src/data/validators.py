@@ -235,9 +235,11 @@ class PaperValidator(BaseValidator):
 
 class InterventionValidator(BaseValidator):
     """Validator for intervention data."""
-    
+
     REQUIRED_FIELDS = ['intervention_category', 'intervention_name', 'health_condition', 'correlation_type']
+    OPTIONAL_FIELDS = ['condition_category']  # Optional for backward compatibility during migration
     VALID_CATEGORIES = ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle', 'surgery', 'test', 'device', 'procedure', 'biologics', 'gene_therapy', 'emerging']
+    VALID_CONDITION_CATEGORIES = ['cardiac', 'neurological', 'digestive', 'pulmonary', 'endocrine', 'renal', 'oncological', 'rheumatological', 'psychiatric', 'musculoskeletal', 'dermatological', 'infectious', 'immunological', 'hematological', 'nutritional', 'toxicological', 'parasitic', 'other']
     VALID_CORRELATION_TYPES = ['positive', 'negative', 'neutral', 'inconclusive']
     VALID_DELIVERY_METHODS = ['oral', 'injection', 'topical', 'inhalation', 'behavioral', 'digital', 'surgical', 'intravenous', 'sublingual', 'rectal', 'transdermal', 'acupuncture', 'nasal', 'nasal spray', 'intranasal', 'enema', 'subcutaneous', 'intramuscular', 'needling', 'local application', 'neuromodulation', 'electrical stimulation', 'subcutaneous injection', 'acupuncture needles', 'blunt-tipped needles at non-acupoints', 'educational', 'supervised', 'counseling', 'oral capsules or colonoscopy']
     VALID_SEVERITY_LEVELS = ['mild', 'moderate', 'severe']
@@ -291,7 +293,15 @@ class InterventionValidator(BaseValidator):
             issues.extend(self.validate_string_length(
                 intervention_data['health_condition'], 'health_condition', min_length=2, max_length=200
             ))
-        
+
+        # Condition category validation
+        if 'condition_category' in intervention_data:
+            issues.extend(self.validate_enum_value(
+                intervention_data['condition_category'],
+                'condition_category',
+                self.VALID_CONDITION_CATEGORIES
+            ))
+
         # Correlation type validation
         if 'correlation_type' in intervention_data:
             issues.extend(self.validate_enum_value(
