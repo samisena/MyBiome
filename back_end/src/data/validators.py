@@ -263,10 +263,22 @@ class InterventionValidator(BaseValidator):
         if 'intervention_name' in intervention_data:
             name = intervention_data['intervention_name']
             issues.extend(self.validate_string_length(name, 'intervention_name', min_length=2, max_length=200))
-            
-            # Check for placeholder values - only reject obvious placeholders
-            placeholder_patterns = ['...', 'unknown', 'n/a', 'na', 'null', 'none']
-            if any(placeholder in name.lower() for placeholder in placeholder_patterns):
+
+            # Check for placeholder values - only reject if the ENTIRE name is a placeholder
+            # Split into words and check if it's ONLY placeholder words
+            import re
+            name_lower = name.lower().strip()
+            words = re.findall(r'\b\w+\b', name_lower)  # Extract words only
+
+            placeholder_patterns = ['unknown', 'n/a', 'na', 'null', 'none', 'tbd', 'todo']
+            # Check if the entire name is just a placeholder (exact match or only placeholder words)
+            is_placeholder = (
+                name_lower in placeholder_patterns or  # Exact match
+                '...' in name or  # Contains ellipsis
+                (len(words) == 1 and words[0] in placeholder_patterns)  # Single placeholder word
+            )
+
+            if is_placeholder:
                 issues.append(ValidationIssue(
                     field='intervention_name',
                     message=f"Intervention name '{name}' appears to be a placeholder",

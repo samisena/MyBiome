@@ -62,7 +62,7 @@ try:
     from ..data.config import config, setup_logging
     from .rotation_paper_collector import RotationPaperCollector, BatchCollectionResult
     from .rotation_llm_processor import RotationLLMProcessor
-    from .rotation_deduplication_integrator import RotationDeduplicationIntegrator
+    from .rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
 except ImportError:
     # Fallback for standalone execution
     import sys
@@ -71,7 +71,7 @@ except ImportError:
     from back_end.src.data.config import config, setup_logging
     from back_end.src.orchestration.rotation_paper_collector import RotationPaperCollector, BatchCollectionResult
     from back_end.src.orchestration.rotation_llm_processor import RotationLLMProcessor
-    from back_end.src.orchestration.rotation_deduplication_integrator import RotationDeduplicationIntegrator
+    from back_end.src.orchestration.rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
 
 logger = setup_logging(__name__, 'batch_medical_rotation.log')
 
@@ -125,7 +125,7 @@ class BatchMedicalRotationPipeline:
         # Initialize components
         self.paper_collector = RotationPaperCollector()
         self.llm_processor = RotationLLMProcessor()
-        self.dedup_integrator = RotationDeduplicationIntegrator()
+        self.dedup_integrator = RotationSemanticGroupingIntegrator()
 
         # Control flags
         self.shutdown_requested = False
@@ -477,15 +477,21 @@ class BatchMedicalRotationPipeline:
             return {'success': False, 'error': str(e), 'phase': 'processing'}
 
     def _run_deduplication_phase(self, session: BatchSession) -> Dict[str, Any]:
-        """Run the batch deduplication phase with global entity merging."""
-        logger.info("Running global deduplication and canonical entity merging...")
+        """
+        Run Phase 3: Cross-paper semantic deduplication and canonical entity merging.
+
+        With single-model extraction (qwen2.5:14b only), same-paper duplicates cannot exist.
+        This phase ONLY performs cross-paper semantic analysis to merge semantically equivalent
+        interventions (e.g., "vitamin D" vs "Vitamin D3" vs "cholecalciferol").
+        """
+        logger.info("Running Phase 3: Cross-paper semantic deduplication and canonical entity merging...")
 
         try:
             if self.shutdown_requested:
                 return {'success': False, 'error': 'Shutdown requested during deduplication'}
 
             # Run global batch deduplication
-            deduplication_result = self.dedup_integrator.deduplicate_all_data_batch()
+            deduplication_result = self.dedup_integrator.group_all_data_semantically_batch()
 
             # Update session with results (mapping new LLM-based deduplication format)
             total_processed = deduplication_result.get('interventions_processed', 0)

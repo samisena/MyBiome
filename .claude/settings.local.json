@@ -27,7 +27,8 @@
       "Bash(timeout:*)",
       "Bash(sqlite3:*)",
       "Bash(chcp:*)",
-      "Bash(/bashes)"
+      "Bash(/bashes)",
+      "Bash(tee:*)"
     ],
     "deny": [],
     "ask": []

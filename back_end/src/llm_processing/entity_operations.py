@@ -489,7 +489,7 @@ class EntityRepository:
 class LLMProcessor:
     """Handles all LLM-related operations for entity processing."""
 
-    def __init__(self, repository: EntityRepository, llm_model: str = "gemma2:9b"):
+    def __init__(self, repository: EntityRepository, llm_model: str = "qwen2.5:14b"):
         """Initialize LLM processor."""
         self.repository = repository
         self.llm_model = llm_model
@@ -860,162 +860,63 @@ class LLMProcessor:
         key_string = f"cond_equiv:{sorted_conds[0]}:{sorted_conds[1]}"
         return hashlib.md5(key_string.encode()).hexdigest()
 
-# === DUPLICATE DETECTION ===
+# === SEMANTIC GROUPING ===
 
-class DuplicateDetector:
-    """Handles duplicate detection and merging operations."""
+class SemanticGrouper:
+    """Handles semantic grouping and merging operations for cross-paper interventions."""
 
     def __init__(self, repository: EntityRepository):
-        """Initialize duplicate detector."""
+        """Initialize semantic grouper."""
         self.repository = repository
         self.logger = logging.getLogger(__name__)
 
-    def detect_same_paper_duplicates(self, interventions: List[Dict]) -> List[List[Dict]]:
+    def select_canonical_name(self, duplicate_interventions: List[Dict], llm_group_names: List[str] = None) -> str:
         """
-        [SIMPLIFIED FOR SINGLE-MODEL ARCHITECTURE]
-        Single-stage duplicate detection using exact canonical matching only.
+        Select the canonical name for a group of semantically equivalent interventions.
 
-        With single-model extraction (qwen2.5:14b only), same-paper duplicates should
-        not exist. This method is kept for Phase 3 cross-paper deduplication only.
+        This method ONLY selects the best name - it does NOT merge or delete rows.
 
-        Stage 1: Fast exact canonical matching
-        Stage 2: REMOVED - LLM semantic matching no longer needed for same-paper detection
+        Args:
+            duplicate_interventions: List of intervention dictionaries
+            llm_group_names: Optional list of intervention names identified by LLM
+
+        Returns:
+            The selected canonical name as a string
         """
-        # STAGE 1: Exact canonical matching (only stage needed now)
-        exact_match_groups, ungrouped_interventions = self._stage1_exact_matching(interventions)
+        if len(duplicate_interventions) == 1:
+            return duplicate_interventions[0].get('intervention_name', '').strip()
 
-        # STAGE 2: REMOVED - No longer needed with single-model extraction
-        # semantic_match_groups = self._stage2_llm_semantic_matching(ungrouped_interventions)
+        # Strategy: Select the most common name, or highest confidence if tie
+        name_counts = Counter()
+        name_to_confidence = {}
 
-        self.logger.info(f"Duplicate detection: {len(exact_match_groups)} exact match groups")
+        for intervention in duplicate_interventions:
+            name = intervention.get('intervention_name', '').strip()
+            if name:
+                name_counts[name] += 1
+                # Track highest confidence for each name
+                confidence = ConfidenceCalculator.get_effective_confidence(intervention)
+                if name not in name_to_confidence or confidence > name_to_confidence[name]:
+                    name_to_confidence[name] = confidence
 
-        return exact_match_groups
+        # Select most common name
+        if name_counts:
+            most_common_names = name_counts.most_common()
+            # If there's a tie, use highest confidence
+            top_count = most_common_names[0][1]
+            tied_names = [name for name, count in most_common_names if count == top_count]
 
-    def _stage1_exact_matching(self, interventions: List[Dict]) -> Tuple[List[List[Dict]], List[Dict]]:
-        """
-        Stage 1: Group interventions by exact canonical intervention + condition + correlation.
-        Falls back to raw text matching if canonical names not available.
-        Returns (exact_match_groups, ungrouped_interventions).
-        """
-        correlation_groups = defaultdict(list)
-
-        for intervention in interventions:
-            # Try canonical names first, fall back to raw text
-            intervention_canonical = intervention.get('canonical_intervention_name', '').lower()
-            condition_canonical = intervention.get('canonical_condition_name', '').lower()
-
-            # Fallback to raw text if canonical not available
-            if not intervention_canonical:
-                intervention_canonical = intervention.get('intervention_name', '').lower()
-            if not condition_canonical:
-                condition_canonical = intervention.get('health_condition', '').lower()
-
-            correlation_type = intervention.get('correlation_type', '').lower()
-
-            if intervention_canonical and condition_canonical:
-                group_key = (intervention_canonical, condition_canonical, correlation_type)
-                correlation_groups[group_key].append(intervention)
-
-        # Separate into groups (duplicates) and singles (ungrouped)
-        exact_match_groups = []
-        ungrouped_interventions = []
-
-        for group in correlation_groups.values():
-            if len(group) > 1:
-                exact_match_groups.append(group)
+            if len(tied_names) == 1:
+                canonical_name = tied_names[0]
             else:
-                ungrouped_interventions.extend(group)
+                # Break tie by confidence
+                canonical_name = max(tied_names, key=lambda n: name_to_confidence.get(n, 0))
 
-        return exact_match_groups, ungrouped_interventions
+            self.logger.info(f"Selected canonical name: '{canonical_name}' from {len(duplicate_interventions)} variants")
+            return canonical_name
 
-    def _stage2_llm_semantic_matching(self, interventions: List[Dict]) -> List[List[Dict]]:
-        """
-        Stage 2: Use LLM to find semantically equivalent conditions for same intervention.
-        Only checks interventions with the SAME intervention_name but DIFFERENT condition names.
-        """
-        if not hasattr(self.repository, 'llm_processor'):
-            # No LLM available, return no semantic groups
-            return []
-
-        llm_processor = self.repository.llm_processor
-        semantic_groups = []
-
-        # Group by intervention name first (only compare same interventions)
-        by_intervention = defaultdict(list)
-        for intervention in interventions:
-            intervention_name = intervention.get('canonical_intervention_name', '').lower()
-            if intervention_name:
-                by_intervention[intervention_name].append(intervention)
-
-        # For each intervention, check if conditions are semantically equivalent
-        for intervention_name, intervention_list in by_intervention.items():
-            if len(intervention_list) < 2:
-                continue  # Need at least 2 to have duplicates
-
-            # Compare all pairs of conditions using LLM
-            checked_pairs = set()
-            equivalent_pairs = []
-
-            for i, int1 in enumerate(intervention_list):
-                for j, int2 in enumerate(intervention_list[i+1:], start=i+1):
-                    # Create unique pair key
-                    pair_key = (min(int1.get('id', i), int2.get('id', j)),
-                               max(int1.get('id', i), int2.get('id', j)))
-
-                    if pair_key in checked_pairs:
-                        continue
-
-                    cond1 = int1.get('health_condition', '')
-                    cond2 = int2.get('health_condition', '')
-
-                    # Only check if conditions are different
-                    if cond1.lower().strip() != cond2.lower().strip():
-                        # Use LLM to check semantic equivalence
-                        paper_pmid = int1.get('paper_id', '')
-                        equivalence_result = llm_processor.check_condition_equivalence(
-                            cond1, cond2, intervention_name, paper_pmid
-                        )
-
-                        # Threshold: confidence >= 0.7 for equivalence
-                        if equivalence_result['are_equivalent'] and equivalence_result['confidence'] >= 0.7:
-                            equivalent_pairs.append((int1, int2, equivalence_result))
-                            self.logger.info(f"LLM found semantic match: '{cond1}' ≈ '{cond2}' "
-                                           f"(confidence: {equivalence_result['confidence']:.2f})")
-
-                    checked_pairs.add(pair_key)
-
-            # Group equivalent interventions together
-            if equivalent_pairs:
-                # Build connected components of equivalent interventions
-                equivalence_graph = defaultdict(set)
-                for int1, int2, _ in equivalent_pairs:
-                    id1, id2 = id(int1), id(int2)
-                    equivalence_graph[id1].add(id2)
-                    equivalence_graph[id2].add(id1)
-
-                # Find connected components (groups of equivalent interventions)
-                visited = set()
-                for intervention in intervention_list:
-                    int_id = id(intervention)
-                    if int_id not in visited:
-                        # BFS to find all connected interventions
-                        group = []
-                        queue = [int_id]
-                        while queue:
-                            current_id = queue.pop(0)
-                            if current_id in visited:
-                                continue
-                            visited.add(current_id)
-                            # Find intervention object by id
-                            current_int = next(i for i in intervention_list if id(i) == current_id)
-                            group.append(current_int)
-                            # Add connected interventions
-                            queue.extend(equivalence_graph[current_id] - visited)
-
-                        if len(group) > 1:
-                            semantic_groups.append(group)
-
-        return semantic_groups
+        # Fallback: use first intervention name
+        return duplicate_interventions[0].get('intervention_name', '').strip()
 
     def merge_duplicate_group(self, duplicate_interventions: List[Dict], paper: Dict) -> Dict:
         """

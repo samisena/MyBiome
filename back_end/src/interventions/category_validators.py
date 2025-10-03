@@ -318,20 +318,33 @@ class CategorySpecificValidator:
     def _is_placeholder(self, text: str) -> bool:
         """Check if text appears to be a placeholder."""
         text_clean = text.strip().lower()
-        
+
         # Direct placeholder matches
         if text_clean in self.placeholder_patterns:
             return True
-        
-        # Pattern-based checks
+
+        # Pattern-based checks - only reject if it STARTS with placeholder prefix AND has no other descriptive content
         placeholder_prefixes = ['unknown', 'placeholder', 'various', 'multiple', 'several']
         if any(text_clean.startswith(prefix) for prefix in placeholder_prefixes):
-            return True
-        
+            # But allow if there are other descriptive words after (e.g., "multiple drug therapy" is OK)
+            words = text_clean.split()
+            if len(words) == 1:  # Single word like "unknown" - reject
+                return True
+
         # Check for ellipsis or dots
         if '...' in text or text_clean.replace('.', '') == '':
             return True
-        
+
+        # Reject if it's ONLY generic terms without any specific descriptive content
+        # Examples to reject: "intervention", "treatment", "therapy" (standalone)
+        # Examples to allow: "pharmacist-led educational intervention", "cognitive behavioral therapy"
+        generic_only_terms = [
+            'intervention', 'treatment', 'therapy', 'procedure', 'method',
+            'approach', 'technique', 'program', 'protocol'
+        ]
+        if text_clean in generic_only_terms:
+            return True
+
         return False
 
 

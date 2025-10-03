@@ -702,9 +702,6 @@ class DatabaseManager:
                 return was_new
                 
         except Exception as e:
-            logger.error(f"Validation error for intervention: {e}")
-            return False
-        except Exception as e:
             logger.error(f"Error inserting intervention: {e}")
             return False
     
@@ -1111,13 +1108,14 @@ class DatabaseManager:
                 cursor.execute('''
                     INSERT OR REPLACE INTO interventions
                     (paper_id, intervention_category, intervention_name, intervention_details,
-                     health_condition, correlation_type, correlation_strength, confidence_score,
+                     health_condition, correlation_type, correlation_strength,
+                     extraction_confidence, study_confidence,
                      sample_size, study_duration, study_type, population_details,
                      supporting_quote, delivery_method, severity, adverse_effects, cost_category,
-                     extraction_model, validation_status, consensus_confidence, model_agreement,
+                     extraction_model, consensus_confidence, model_agreement,
                      models_used, raw_extraction_count, models_contributing,
                      intervention_canonical_id, condition_canonical_id, normalized)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
@@ -1126,7 +1124,8 @@ class DatabaseManager:
                     validated_intervention['health_condition'],
                     validated_intervention['correlation_type'],
                     validated_intervention.get('correlation_strength'),
-                    validated_intervention.get('confidence_score'),
+                    validated_intervention.get('extraction_confidence'),
+                    validated_intervention.get('study_confidence'),
                     validated_intervention.get('sample_size'),
                     validated_intervention.get('study_duration'),
                     validated_intervention.get('study_type'),
@@ -1137,7 +1136,6 @@ class DatabaseManager:
                     validated_intervention.get('adverse_effects'),
                     validated_intervention.get('cost_category'),
                     validated_intervention.get('extraction_model', 'qwen2.5:14b'),  # Default to single model
-                    'pending',
                     validated_intervention.get('consensus_confidence'),
                     validated_intervention.get('model_agreement', 'single'),  # Default to single model
                     validated_intervention.get('models_used', 'qwen2.5:14b'),  # Default to single model

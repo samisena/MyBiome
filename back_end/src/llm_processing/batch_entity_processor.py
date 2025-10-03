@@ -28,7 +28,7 @@ from .entity_utils import (
     EntityValidator, ConfidenceCalculator,
     DEFAULT_CONFIDENCE_THRESHOLD, DEFAULT_BATCH_SIZE
 )
-from .entity_operations import EntityRepository, LLMProcessor, DuplicateDetector
+from .entity_operations import EntityRepository, LLMProcessor, SemanticGrouper
 
 # External dependencies
 try:
@@ -55,13 +55,13 @@ CONSENSUS_AVAILABLE = True
 
 class BatchEntityProcessor:
     """
-    Unified batch processor for entity normalization, deduplication, and mapping suggestions.
+    Unified batch processor for entity normalization, semantic grouping, and mapping suggestions.
 
     This class orchestrates entity processing operations by delegating to specialized
     operation classes for better code organization and maintainability.
     """
 
-    def __init__(self, db_connection: sqlite3.Connection, llm_model: str = "gemma2:9b"):
+    def __init__(self, db_connection: sqlite3.Connection, llm_model: str = "qwen2.5:14b"):
         """
         Initialize the BatchEntityProcessor with a database connection.
 
@@ -77,9 +77,9 @@ class BatchEntityProcessor:
         # Initialize operation modules
         self.repository = EntityRepository(db_connection)
         self.llm_processor = LLMProcessor(self.repository, llm_model)
-        # Attach llm_processor to repository so DuplicateDetector can access it
+        # Attach llm_processor to repository so SemanticGrouper can access it
         self.repository.llm_processor = self.llm_processor
-        self.duplicate_detector = DuplicateDetector(self.repository)
+        self.semantic_grouper = SemanticGrouper(self.repository)
 
         # Performance monitoring
         self.operation_counts = {}
@@ -193,18 +193,18 @@ class BatchEntityProcessor:
 
     #! === DEDUPLICATION SUMMARY ===
 
-    def batch_deduplicate_entities(self) -> Dict[str, Any]:
+    def batch_group_entities_semantically(self) -> Dict[str, Any]:
         """
-        Comprehensive LLM-based deduplication of ALL interventions in the database.
+        Comprehensive LLM-based semantic grouping of ALL interventions in the database.
 
-        This performs real semantic deduplication using the sophisticated DuplicateDetector
-        and LLM analysis, not just text normalization.
+        This performs real semantic grouping using the sophisticated SemanticGrouper
+        and LLM analysis to merge semantically equivalent interventions across papers.
 
         Returns:
-            Comprehensive deduplication result with statistics
+            Comprehensive semantic grouping result with statistics
         """
         start_time = datetime.now()
-        self.logger.info("Starting comprehensive LLM-based entity deduplication")
+        self.logger.info("Starting comprehensive LLM-based semantic grouping")
 
         try:
             # Get all interventions that could have duplicates
@@ -223,7 +223,7 @@ class BatchEntityProcessor:
             all_interventions = [dict(row) for row in cursor.fetchall()]
 
             total_interventions = len(all_interventions)
-            self.logger.info(f"Analyzing {total_interventions} interventions for deduplication")
+            self.logger.info(f"Analyzing {total_interventions} interventions for semantic_grouping")
 
             if total_interventions == 0:
                 return {
@@ -231,52 +231,17 @@ class BatchEntityProcessor:
                     'interventions_processed': 0,
                     'duplicate_groups_found': 0,
                     'processing_time_seconds': 0,
-                    'method': 'llm_comprehensive_deduplication',
-                    'message': 'No interventions found for deduplication'
+                    'method': 'llm_comprehensive_semantic_grouping',
+                    'message': 'No interventions found for semantic_grouping'
                 }
 
-            # Group interventions by paper first for within-paper deduplication
-            interventions_by_paper = defaultdict(list)
-            for intervention in all_interventions:
-                interventions_by_paper[intervention['paper_id']].append(intervention)
-
+            # Single-model architecture (qwen2.5:14b only) means no same-paper duplicates
+            # Only Phase 2 (cross-paper semantic semantic_grouping) is needed
             total_merged = 0
             total_duplicate_groups = 0
-            processed_papers = 0
 
-            # Phase 1: Within-paper deduplication using sophisticated duplicate detection
-            self.logger.info("Phase 1: Within-paper duplicate detection and merging")
-
-            for paper_id, paper_interventions in interventions_by_paper.items():
-                if len(paper_interventions) < 2:
-                    continue  # No duplicates possible with single intervention
-
-                try:
-                    # Use sophisticated duplicate detection
-                    duplicate_groups = self.duplicate_detector.detect_same_paper_duplicates(paper_interventions)
-
-                    for group in duplicate_groups:
-                        if len(group) > 1:
-                            # Found duplicates - merge them using LLM analysis
-                            paper_info = {'id': paper_id}
-                            merged_intervention = self.duplicate_detector.merge_duplicate_group(group, paper_info)
-
-                            # Update database with merged intervention
-                            self._update_intervention_with_merge(merged_intervention, group)
-
-                            total_merged += len(group) - 1  # Number of interventions merged into one
-                            total_duplicate_groups += 1
-
-                    processed_papers += 1
-                    if processed_papers % 10 == 0:
-                        self.logger.info(f"Processed {processed_papers}/{len(interventions_by_paper)} papers")
-
-                except Exception as e:
-                    self.logger.warning(f"Error processing paper {paper_id}: {e}")
-                    continue
-
-            # Phase 2: Cross-paper deduplication using LLM semantic analysis
-            self.logger.info("Phase 2: Cross-paper semantic deduplication")
+            # Cross-paper semantic semantic_grouping using LLM analysis
+            self.logger.info("Cross-paper semantic semantic_grouping (Phase 3 canonical entity merging)")
 
             # Get unique intervention names for LLM analysis
             unique_interventions = {}
@@ -291,7 +256,7 @@ class BatchEntityProcessor:
             if len(intervention_names) > 1:
                 try:
                     # Process ALL intervention names in batches for comprehensive LLM analysis
-                    # No artificial limits - true comprehensive semantic deduplication
+                    # No artificial limits - true comprehensive semantic semantic_grouping
                     self.logger.info(f"Starting comprehensive LLM analysis of {len(intervention_names)} unique interventions...")
 
                     batch_size = 20  # Reasonable batch size for LLM processing
@@ -325,13 +290,12 @@ class BatchEntityProcessor:
                 'total_merged': total_merged,
                 'interventions_processed': total_interventions,
                 'duplicate_groups_found': total_duplicate_groups,
-                'papers_processed': processed_papers,
                 'processing_time_seconds': processing_time,
-                'method': 'llm_comprehensive_deduplication',
-                'phases_completed': ['within_paper_deduplication', 'cross_paper_semantic_analysis']
+                'method': 'llm_comprehensive_semantic_grouping',
+                'phases_completed': ['cross_paper_semantic_analysis']
             }
 
-            self.logger.info(f"Comprehensive LLM deduplication completed: "
+            self.logger.info(f"Comprehensive LLM semantic_grouping completed: "
                            f"{total_merged} interventions merged from {total_duplicate_groups} duplicate groups "
                            f"in {processing_time:.1f}s")
 
@@ -339,7 +303,7 @@ class BatchEntityProcessor:
 
         except Exception as e:
             processing_time = (datetime.now() - start_time).total_seconds()
-            self.logger.error(f"Comprehensive LLM deduplication failed: {e}")
+            self.logger.error(f"Comprehensive LLM semantic_grouping failed: {e}")
             self.logger.error(traceback.format_exc())
 
             return {
@@ -347,50 +311,105 @@ class BatchEntityProcessor:
                 'interventions_processed': 0,
                 'duplicate_groups_found': 0,
                 'processing_time_seconds': processing_time,
-                'method': 'llm_comprehensive_deduplication',
+                'method': 'llm_comprehensive_semantic_grouping',
                 'error': str(e)
             }
 
-    def _update_intervention_with_merge(self, merged_intervention: Dict, original_group: List[Dict]) -> None:
-        """Update database with merged intervention and remove duplicates."""
+    def _get_effective_confidence(self, intervention: Dict) -> float:
+        """Get effective confidence score for an intervention."""
+        return (
+            intervention.get('consensus_confidence') or
+            intervention.get('extraction_confidence') or
+            intervention.get('study_confidence') or
+            0.5
+        )
+
+    def _link_interventions_to_canonical(self, intervention_group: List[Dict], canonical_name: str) -> None:
+        """
+        Link all interventions in a semantic group to a canonical entity.
+
+        PRESERVES all original intervention rows - no deletions.
+        Creates canonical entity and entity mappings for transparency.
+
+        Args:
+            intervention_group: List of semantically equivalent interventions
+            canonical_name: The selected canonical name for this group
+        """
         try:
-            # Keep the first intervention and update it with merged data
-            primary_id = original_group[0]['id']
-
             cursor = self.db.cursor()
-            cursor.execute("""
-                UPDATE interventions
-                SET intervention_name = ?,
-                    consensus_confidence = ?,
-                    correlation_strength = ?,
-                    extraction_confidence = ?,
-                    study_confidence = ?,
-                    normalized = 1
-                WHERE id = ?
-            """, (
-                merged_intervention.get('intervention_name'),
-                merged_intervention.get('consensus_confidence', 0.9),
-                merged_intervention.get('correlation_strength'),
-                merged_intervention.get('extraction_confidence'),
-                merged_intervention.get('study_confidence'),
-                primary_id
-            ))
 
-            # Remove duplicate interventions (keep only the first one)
-            if len(original_group) > 1:
-                duplicate_ids = [intervention['id'] for intervention in original_group[1:]]
-                placeholders = ','.join(['?' for _ in duplicate_ids])
-                cursor.execute(f"DELETE FROM interventions WHERE id IN ({placeholders})", duplicate_ids)
+            # Step 1: Create or find canonical entity for intervention
+            canonical_entity = self.find_canonical_by_name(canonical_name, 'intervention')
+            if canonical_entity:
+                canonical_id = canonical_entity['id']
+                self.logger.info(f"Using existing canonical entity: {canonical_name} (id={canonical_id})")
+            else:
+                canonical_id = self.create_canonical_entity(
+                    canonical_name=canonical_name,
+                    entity_type='intervention',
+                    description=f"Canonical entity for {len(intervention_group)} semantic variants"
+                )
+                self.logger.info(f"Created canonical entity: {canonical_name} (id={canonical_id})")
+
+            # Step 2: Create entity mappings for all variants
+            unique_names = set()
+            for intervention in intervention_group:
+                variant_name = intervention.get('intervention_name', '').strip()
+                if variant_name and variant_name not in unique_names:
+                    unique_names.add(variant_name)
+
+                    # Check if mapping already exists
+                    existing_mapping = self.repository.find_mapping_by_term(variant_name, 'intervention')
+                    if not existing_mapping:
+                        # Calculate confidence based on similarity to canonical name
+                        confidence = 1.0 if variant_name.lower() == canonical_name.lower() else 0.9
+
+                        self.create_mapping(
+                            raw_text=variant_name,
+                            canonical_id=canonical_id,
+                            entity_type='intervention',
+                            confidence_score=confidence,
+                            mapping_method='llm_semantic_grouping'
+                        )
+                        self.logger.debug(f"Created mapping: '{variant_name}' → canonical_id={canonical_id}")
+
+            # Step 3: Update ALL interventions to link to canonical entity (NO DELETIONS)
+            intervention_ids = [intervention['id'] for intervention in intervention_group]
+
+            # Calculate merged confidence for this group
+            confidences = [self._get_effective_confidence(i) for i in intervention_group]
+            avg_confidence = sum(confidences) / len(confidences) if confidences else 0.9
+            consensus_confidence = min(0.98, avg_confidence + 0.1)  # Boost for cross-paper validation
+
+            for intervention_id in intervention_ids:
+                cursor.execute("""
+                    UPDATE interventions
+                    SET intervention_canonical_id = ?,
+                        normalized = 1,
+                        consensus_confidence = ?
+                    WHERE id = ?
+                """, (canonical_id, consensus_confidence, intervention_id))
 
             self.db.commit()
 
+            self.logger.info(f"Linked {len(intervention_ids)} interventions to canonical entity '{canonical_name}' "
+                           f"(preserved all {len(intervention_ids)} rows)")
+
         except Exception as e:
-            self.logger.error(f"Failed to update merged intervention: {e}")
+            self.logger.error(f"Failed to link interventions to canonical entity: {e}")
             self.db.rollback()
+            raise
 
     def _process_llm_duplicate_analysis(self, llm_analysis: Dict, unique_interventions: Dict) -> int:
-        """Process LLM duplicate analysis and merge cross-paper duplicates."""
-        merged_count = 0
+        """
+        Process LLM duplicate analysis and link interventions to canonical entities.
+
+        NO DELETIONS - preserves all intervention rows and links them to canonical entities.
+
+        Returns:
+            Number of interventions linked to canonical entities (not deleted count)
+        """
+        linked_count = 0
 
         try:
             # Extract duplicate groups from LLM analysis
@@ -404,20 +423,30 @@ class BatchEntityProcessor:
                                 all_group_interventions.extend(unique_interventions[intervention_name.lower()])
 
                         if len(all_group_interventions) > 1:
-                            # Merge cross-paper duplicates
-                            paper_info = {'id': 'cross_paper_merge'}
-                            merged = self.duplicate_detector.merge_duplicate_group(all_group_interventions, paper_info)
-                            self._update_intervention_with_merge(merged, all_group_interventions)
-                            merged_count += len(all_group_interventions) - 1
+                            # Select canonical name using SemanticGrouper
+                            canonical_name = self.semantic_grouper.select_canonical_name(
+                                all_group_interventions,
+                                group  # Pass the LLM-identified group names
+                            )
+
+                            # Link ALL interventions to canonical entity (preserves all rows)
+                            self._link_interventions_to_canonical(all_group_interventions, canonical_name)
+
+                            # Count interventions linked (not deleted!)
+                            linked_count += len(all_group_interventions)
+
+                            self.logger.info(f"Linked {len(all_group_interventions)} interventions to canonical '{canonical_name}'")
 
         except Exception as e:
             self.logger.warning(f"Error processing LLM duplicate analysis: {e}")
+            import traceback
+            self.logger.warning(traceback.format_exc())
 
-        return merged_count
+        return linked_count
 
-    def generate_deduplication_summary(self, processed_interventions: List[Dict]) -> Dict[str, Any]:
+    def generate_semantic_grouping_summary(self, processed_interventions: List[Dict]) -> Dict[str, Any]:
         """
-        Generate comprehensive summary of deduplication process.
+        Generate comprehensive summary of semantic_grouping process.
 
         Returns:
             Summary statistics dictionary including human review flags

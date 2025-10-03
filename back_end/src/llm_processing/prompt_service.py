@@ -173,26 +173,72 @@ Respond with valid JSON array only:
         """
         terms_list = "\n".join([f"- {term}" for term in terms])
 
-        prompt = f"""Analyze these medical terms and identify which ones refer to the same concept.
+        prompt = f"""You are a medical terminology expert analyzing intervention names extracted from biomedical research papers. Your task is to identify which terms refer to the SAME medical intervention (drug, supplement, exercise, diet, therapy, lifestyle modification, etc.).
 
-Terms to analyze:
+**TERMS TO ANALYZE:**
 {terms_list}
 
-Return ONLY valid JSON in this format:
+**GROUPING RULES BY INTERVENTION TYPE:**
+
+1. **PHARMACEUTICAL - Brand vs Generic Names:**
+   - "aspirin" = "acetylsalicylic acid" = "ASA"
+   - "Tylenol" = "acetaminophen" = "paracetamol"
+   - "Lipitor" = "atorvastatin"
+
+2. **SUPPLEMENTS - Chemical Variants:**
+   - "vitamin D" = "Vitamin D3" = "cholecalciferol" = "25-hydroxyvitamin D"
+   - "omega-3" = "omega-3 fatty acids" = "fish oil" = "EPA/DHA"
+   - "CoQ10" = "coenzyme Q10" = "ubiquinone"
+
+3. **EXERCISE - Activity Synonyms:**
+   - "walking" = "walking exercise" = "walking training"
+   - "aerobic exercise" = "aerobic training" = "cardio"
+   - "resistance training" = "strength training" = "weight training"
+
+4. **DIET - Dietary Pattern Synonyms:**
+   - "Mediterranean diet" = "Mediterranean dietary pattern"
+   - "low-fat diet" = "reduced-fat diet" = "fat-restricted diet"
+   - "caloric restriction" = "calorie restriction" = "energy restriction"
+
+5. **THERAPY - Treatment Abbreviations:**
+   - "cognitive behavioral therapy" = "CBT" = "cognitive behavior therapy"
+   - "ACE inhibitors" = "angiotensin-converting enzyme inhibitors"
+
+6. **CAPITALIZATION - Always Group:**
+   - "metformin" = "Metformin" = "METFORMIN"
+   - "walking" = "Walking" = "WALKING"
+
+7. **PROTOCOL/TIMING DESCRIPTORS - Group together:**
+   - "atorvastatin" = "atorvastatin pretreatment" = "atorvastatin therapy" = "atorvastatin treatment"
+   - "exercise" = "exercise intervention" = "exercise training" = "exercise program"
+   - "vitamin D" = "vitamin D supplementation" = "vitamin D therapy"
+
+8. **DOSAGE/INTENSITY DESCRIPTORS - Group together:**
+   - "aspirin" = "low-dose aspirin" = "high-dose aspirin"
+   - "exercise" = "moderate-intensity exercise" = "high-intensity exercise"
+
+**DO NOT GROUP:**
+- Different drugs in same class: "atorvastatin" vs "simvastatin" (different statins)
+- Different exercises: "walking" vs "swimming" vs "cycling" (different activities)
+- Different diets: "Mediterranean diet" vs "ketogenic diet" (different dietary patterns)
+- Drug combinations: "aspirin" vs "aspirin + clopidogrel"
+- Different therapies: "CBT" vs "psychotherapy" (different treatment types)
+
+**OUTPUT FORMAT (VALID JSON ONLY):**
 {{
   "duplicate_groups": [
-    {{
-      "canonical_name": "most formal scientific name",
-      "synonyms": ["term1", "term2", "term3"],
-      "confidence": 0.95
-    }}
+    ["term1", "term2", "term3"],
+    ["term4", "term5"]
   ]
 }}
 
-Rules:
-- Each group must have confidence 0.0-1.0
-- Use the most formal medical/scientific name as canonical_name
-- Only group terms that are definitely the same concept"""
+**IMPORTANT GUIDELINES:**
+- Return ONLY the JSON, no explanations or markdown formatting
+- Each inner array is ONE group of equivalent terms
+- Only include groups with 2+ terms
+- If NO duplicates found, return: {{"duplicate_groups": []}}
+- BE CONSERVATIVE: Only group terms if highly confident they refer to the same intervention
+- When in doubt, keep terms separate - false negatives are better than false positives"""
 
         return prompt
 

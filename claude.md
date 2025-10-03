@@ -41,10 +41,10 @@ An automated biomedical research pipeline that collects research papers about he
 ## Key Execution Scripts
 
 ### Primary Orchestrators
-- **`main_medical_rotation.py`**: Complete workflow orchestration for rotating through medical conditions
+- **`batch_medical_rotation.py`**: Complete batch workflow orchestration for 60 medical conditions
 - **`rotation_llm_processor.py`**: LLM processing coordinator with thermal protection
 - **`rotation_paper_collector.py`**: Multi-source paper collection orchestrator
-- **`rotation_deduplication_integrator.py`**: Entity deduplication and integration
+- **`rotation_semantic_grouping_integrator.py`**: Phase 3 semantic grouping and canonical entity merging
 
 ### Data Mining Tools
 - **`data_mining_orchestrator.py`**: Advanced analytics and pattern discovery coordinator
@@ -74,12 +74,85 @@ An automated biomedical research pipeline that collects research papers about he
 
 ## Database Schema
 
-Comprehensive SQLite database with tables for:
-- **Papers**: PubMed articles with metadata and fulltext
-- **Interventions**: Extracted treatments and outcomes
-- **Correlations**: Statistical relationships between interventions and conditions
-- **Processing Sessions**: Session state and progress tracking
-- **Quality Metrics**: Validation and scoring data
+**Database**: `intervention_research.db` (SQLite)
+**Total Tables**: 19 tables organized into 4 categories
+
+### Core Data Tables (2 tables)
+**Updated by**: Data collection pipeline
+
+1. **`papers`** - PubMed articles with metadata and fulltext
+   - Updated by: [`pubmed_collector.py`](back_end/src/data_collection/pubmed_collector.py), [`semantic_scholar_enrichment.py`](back_end/src/data_collection/semantic_scholar_enrichment.py)
+   - Methods: `insert_paper()`, `insert_papers_batch()` in [`database_manager.py`](back_end/src/data_collection/database_manager.py)
+
+2. **`interventions`** - Extracted treatments and outcomes with LLM processing metadata
+   - Updated by: [`single_model_analyzer.py`](back_end/src/llm_processing/single_model_analyzer.py), [`batch_entity_processor.py`](back_end/src/llm_processing/batch_entity_processor.py)
+   - Methods: `insert_intervention()`, `insert_intervention_normalized()` in [`database_manager.py`](back_end/src/data_collection/database_manager.py)
+
+### Phase 3 Semantic Grouping Tables (4 tables)
+**Updated by**: [`rotation_semantic_grouping_integrator.py`](back_end/src/orchestration/rotation_semantic_grouping_integrator.py) via [`batch_entity_processor.py`](back_end/src/llm_processing/batch_entity_processor.py)
+
+3. **`canonical_entities`** - Unified intervention/condition names (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
+   - Created by: `batch_group_entities_semantically()` → `create_canonical_entity()`
+   - Current: 72 canonical entities
+
+4. **`entity_mappings`** - Links original names to canonical entities
+   - Created by: `batch_group_entities_semantically()` → `_link_interventions_to_canonical()`
+   - Current: 133 mappings
+
+5. **`llm_normalization_cache`** - LLM-based normalization cache for performance
+   - Updated by: `get_or_compute_normalized_term()` in [`batch_entity_processor.py`](back_end/src/llm_processing/batch_entity_processor.py)
+
+6. **`normalized_terms_cache`** - Fast lookup cache for normalized terms
+   - Updated by: `get_or_compute_normalized_term()` in [`batch_entity_processor.py`](back_end/src/llm_processing/batch_entity_processor.py)
+
+### Data Mining Analytics Tables (11 tables)
+**Updated by**: [`data_mining_orchestrator.py`](back_end/src/data_mining/data_mining_orchestrator.py) via specialized analyzers
+
+7. **`knowledge_graph_nodes`** - Nodes in medical knowledge graph (interventions, conditions)
+   - Updated by: [`medical_knowledge_graph.py`](back_end/src/data_mining/medical_knowledge_graph.py)
+   - Repository: `save_knowledge_graph_node()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
+
+8. **`knowledge_graph_edges`** - Multi-edge graph relationships with full study metadata
+   - Updated by: [`medical_knowledge_graph.py`](back_end/src/data_mining/medical_knowledge_graph.py)
+   - Repository: `save_knowledge_graph_edge()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
+
+9. **`bayesian_scores`** - Bayesian evidence scoring with Beta distribution analysis
+   - Updated by: [`bayesian_scorer.py`](back_end/src/data_mining/bayesian_scorer.py)
+   - Repository: `save_bayesian_score()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
+
+10. **`treatment_recommendations`** - AI-powered treatment recommendations
+    - Updated by: [`treatment_recommendation_engine.py`](back_end/src/data_mining/treatment_recommendation_engine.py)
+    - Repository: `save_treatment_recommendation()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
+
+11. **`research_gaps`** - Identified under-researched areas
+    - Updated by: [`research_gaps.py`](back_end/src/data_mining/research_gaps.py)
+    - Repository: `save_research_gap()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
+
+12. **`innovation_tracking`** - Emerging treatment tracking
+    - Updated by: [`innovation_tracking_system.py`](back_end/src/data_mining/innovation_tracking_system.py)
+
+13. **`biological_patterns`** - Mechanism and pattern discovery
+    - Updated by: [`biological_patterns.py`](back_end/src/data_mining/biological_patterns.py)
+
+14. **`condition_similarities`** - Condition similarity matrix
+    - Updated by: [`condition_similarity_mapping.py`](back_end/src/data_mining/condition_similarity_mapping.py)
+
+15. **`intervention_combinations`** - Synergistic combination analysis
+    - Updated by: [`power_combinations.py`](back_end/src/data_mining/power_combinations.py)
+
+16. **`failed_interventions`** - Catalog of ineffective treatments
+    - Updated by: [`failed_interventions.py`](back_end/src/data_mining/failed_interventions.py)
+
+17. **`data_mining_sessions`** - Session tracking for analytics pipeline
+    - Updated by: [`data_mining_orchestrator.py`](back_end/src/data_mining/data_mining_orchestrator.py)
+    - Repository: `save_data_mining_session()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
+
+### Configuration & System Tables (2 tables)
+
+18. **`intervention_categories`** - Intervention taxonomy configuration
+    - Updated by: `setup_intervention_categories()` in [`database_manager.py`](back_end/src/data_collection/database_manager.py)
+
+19. **`sqlite_sequence`** - SQLite internal auto-increment tracking (system table)
 
 ## Current Capabilities
 
@@ -114,7 +187,7 @@ python -m back_end.src.orchestration.batch_medical_rotation --papers-per-conditi
 # Resume interrupted session
 python -m back_end.src.orchestration.batch_medical_rotation --resume
 
-# Resume from specific phase (collection, processing, or deduplication)
+# Resume from specific phase (collection, processing, or semantic_grouping)
 python -m back_end.src.orchestration.batch_medical_rotation --resume --start-phase processing
 
 # Check current status
@@ -123,8 +196,8 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 
 **Pipeline Phases**:
 1. **Collection Phase**: Collects papers for all 60 conditions (PubMed only, S2 disabled, 2 parallel workers)
-2. **Processing Phase**: Single-model extraction with qwen2.5:14b 
-3. **Deduplication Phase**: Phase 3 canonical entity merging (cross-paper unification)
+2. **Processing Phase**: Single-model extraction with qwen2.5:14b (batch size: 8 papers)
+3. **Semantic Grouping Phase**: Phase 3 canonical entity merging (batch size: 20 interventions, cross-paper unification)
 
 ### Individual Components
 ```bash
@@ -204,7 +277,7 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 - No duplicates created, no consensus logic needed
 - Preserves Qwen's superior detail without conflicts
 
-### **Phase 3: Canonical Entity Merging** (Cross-Paper Entity Unification)
+### **Phase 3: Semantic Grouping** (Cross-Paper Entity Unification) ✅ VALIDATED
 **Purpose**: Aggregate all evidence about the same intervention across ALL papers
 
 **When**: Runs AFTER all extractions complete, operates on database records (cleanup and unification)
@@ -215,10 +288,24 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 - Paper C mentions "cholecalciferol"
 - These are the same thing but with different names
 
-**Solution** (in `batch_entity_processor.py` → `batch_deduplicate_entities()`):
+**Solution** (in `batch_entity_processor.py` → `batch_group_entities_semantically()`):
 - All three interventions point to the same canonical entity (e.g., `canonical_id: 1, canonical_name: "vitamin D"`)
 - Statistical analysis aggregates all evidence under the canonical entity
-- Original intervention names are preserved for transparency
-- Uses LLM semantic analysis for intelligent grouping
+- **CRITICAL**: Original intervention names are preserved for transparency (NO DELETIONS)
+- Uses LLM semantic analysis (qwen2.5:14b) for intelligent grouping
+- Batch size: 20 interventions per LLM call (2.5x larger than Phase 2)
+
+**Performance** (Phase 3 vs Phase 2):
+- Phase 3 is significantly faster than Phase 2 because:
+  1. **Larger batch size**: 20 interventions vs 8 papers
+  2. **Smaller input**: Compares 20 short names (~600 tokens) vs 8 full papers (~40,000-120,000 tokens)
+  3. **Simpler task**: Name comparison vs structured extraction with 15+ fields
+
+**Validation Results** (October 2025):
+- ✅ 284 interventions preserved (0 deletions)
+- ✅ 71 canonical entities created
+- ✅ 204 entity mappings created
+- ✅ 204 interventions linked to canonical entities
+- ✅ Semantic grouping working correctly (e.g., "metformin" = "metformin therapy" = "metformin treatment")
 
 **Result**: Unified analysis showing "150 papers support vitamin D" instead of fragmented counts

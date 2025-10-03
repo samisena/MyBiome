@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Rotation Deduplication Integrator
+Rotation Semantic Grouping Integrator
 
-Integrates deduplication with the rotation pipeline.
-Runs LLM-based deduplication after each condition is processed
-to maintain data quality throughout the rotation cycle.
+Integrates semantic grouping with the rotation pipeline.
+Runs LLM-based semantic grouping to merge semantically equivalent interventions
+across papers (e.g., "vitamin D" vs "Vitamin D3" vs "cholecalciferol").
 
 Features:
-- Condition-specific deduplication
+- Cross-paper semantic grouping
 - Integration with rotation session manager
 - Progress tracking and validation
 - Error handling and recovery
@@ -34,52 +34,52 @@ except ImportError:
     from back_end.src.llm_processing.batch_entity_processor import create_batch_processor
     from back_end.src.data_collection.database_manager import database_manager
 
-logger = setup_logging(__name__, 'rotation_deduplication_integrator.log')
+logger = setup_logging(__name__, 'rotation_semantic_grouping_integrator.log')
 
 
-class DeduplicationError(Exception):
-    """Custom exception for deduplication errors."""
+class SemanticGroupingError(Exception):
+    """Custom exception for semantic grouping errors."""
     pass
 
 
-class RotationDeduplicationIntegrator:
+class RotationSemanticGroupingIntegrator:
     """
-    Integrates deduplication with the rotation pipeline.
-    Focuses on efficient, condition-specific deduplication.
+    Integrates semantic grouping with the rotation pipeline.
+    Performs cross-paper LLM-based semantic analysis to merge equivalent interventions.
     """
 
     def __init__(self):
-        """Initialize the deduplication integrator."""
+        """Initialize the semantic grouping integrator."""
         self.max_retries = 2
         self.retry_delays = [30, 60]  # seconds
 
-    def deduplicate_condition_data(self, condition: str) -> Dict[str, Any]:
+    def group_condition_semantically(self, condition: str) -> Dict[str, Any]:
         """
-        Run deduplication for data related to a specific condition.
+        Run semantic grouping for data related to a specific condition.
 
         Args:
-            condition: Medical condition to deduplicate data for
+            condition: Medical condition to perform semantic grouping for
 
         Returns:
-            Deduplication result with statistics
+            Semantic grouping result with statistics
         """
         start_time = datetime.now()
-        logger.info(f"Starting deduplication for condition: '{condition}'")
+        logger.info(f"Starting semantic grouping for condition: '{condition}'")
 
         try:
-            # Get pre-deduplication counts
+            # Get pre-semantic_grouping counts
             pre_stats = self._get_condition_entity_counts(condition)
 
-            # Run deduplication with retry logic
-            dedup_result = self._run_deduplication_with_retry()
+            # Run semantic_grouping with retry logic
+            dedup_result = self._run_semantic_grouping_with_retry()
 
-            # Get post-deduplication counts
+            # Get post-semantic_grouping counts
             post_stats = self._get_condition_entity_counts(condition)
 
-            # Calculate deduplication metrics
+            # Calculate semantic_grouping metrics
             processing_time = (datetime.now() - start_time).total_seconds()
             entities_merged = pre_stats['total_entities'] - post_stats['total_entities']
-            deduplication_rate = (entities_merged / pre_stats['total_entities'] * 100) if pre_stats['total_entities'] > 0 else 0
+            semantic_grouping_rate = (entities_merged / pre_stats['total_entities'] * 100) if pre_stats['total_entities'] > 0 else 0
 
             result = {
                 'success': True,
@@ -87,7 +87,7 @@ class RotationDeduplicationIntegrator:
                 'entities_before': pre_stats['total_entities'],
                 'entities_after': post_stats['total_entities'],
                 'entities_merged': entities_merged,
-                'deduplication_rate': deduplication_rate,
+                'semantic_grouping_rate': semantic_grouping_rate,
                 'intervention_entities_before': pre_stats['intervention_entities'],
                 'intervention_entities_after': post_stats['intervention_entities'],
                 'condition_entities_before': pre_stats['condition_entities'],
@@ -96,15 +96,15 @@ class RotationDeduplicationIntegrator:
                 'status': 'completed'
             }
 
-            logger.info(f"Deduplication completed for '{condition}': "
+            logger.info(f"Semantic_Grouping completed for '{condition}': "
                        f"{entities_merged} entities merged "
-                       f"({deduplication_rate:.1f}% reduction)")
+                       f"({semantic_grouping_rate:.1f}% reduction)")
 
             return result
 
         except Exception as e:
             processing_time = (datetime.now() - start_time).total_seconds()
-            logger.error(f"Deduplication failed for '{condition}': {e}")
+            logger.error(f"Semantic_Grouping failed for '{condition}': {e}")
             logger.error(traceback.format_exc())
 
             return {
@@ -116,31 +116,31 @@ class RotationDeduplicationIntegrator:
                 'status': 'failed'
             }
 
-    def deduplicate_all_data_batch(self) -> Dict[str, Any]:
+    def group_all_data_semantically_batch(self) -> Dict[str, Any]:
         """
-        Comprehensive deduplication of ALL unprocessed interventions in the database.
+        Comprehensive semantic_grouping of ALL unprocessed interventions in the database.
 
         This method mirrors the comprehensive "process all unprocessed" pattern used
         in LLM processing, ensuring no intervention goes unprocessed.
 
         Returns:
-            Comprehensive deduplication result with detailed statistics
+            Comprehensive semantic_grouping result with detailed statistics
         """
         start_time = datetime.now()
-        logger.info("Starting comprehensive deduplication of ALL unprocessed interventions")
+        logger.info("Starting comprehensive semantic_grouping of ALL unprocessed interventions")
 
         try:
-            # Get comprehensive pre-deduplication stats
+            # Get comprehensive pre-semantic_grouping stats
             pre_stats = self._get_comprehensive_unprocessed_stats()
             logger.info(f"Found {pre_stats['unprocessed_interventions']} unprocessed interventions")
             logger.info(f"  - {pre_stats['missing_canonical_mapping']} lacking canonical mapping")
             logger.info(f"  - {pre_stats['missing_normalization']} lacking normalization")
             logger.info(f"  - {pre_stats['missing_consensus_processing']} lacking consensus processing")
 
-            # Run comprehensive deduplication with retry logic
-            dedup_result = self._run_comprehensive_deduplication_with_retry()
+            # Run comprehensive semantic_grouping with retry logic
+            dedup_result = self._run_comprehensive_semantic_grouping_with_retry()
 
-            # Get post-deduplication stats
+            # Get post-semantic_grouping stats
             post_stats = self._get_comprehensive_unprocessed_stats()
 
             # Calculate comprehensive metrics
@@ -164,20 +164,20 @@ class RotationDeduplicationIntegrator:
                     pre_stats['missing_consensus_processing'] - post_stats['missing_consensus_processing']
                 ),
                 'processing_time_seconds': processing_time,
-                'batch_deduplication_result': dedup_result,
+                'batch_semantic_grouping_result': dedup_result,
                 'pre_processing_stats': pre_stats,
                 'post_processing_stats': post_stats,
                 'status': 'completed'
             }
 
-            logger.info(f"Comprehensive deduplication completed: "
+            logger.info(f"Comprehensive semantic_grouping completed: "
                        f"{interventions_processed} interventions processed in {processing_time:.1f}s")
 
             return result
 
         except Exception as e:
             processing_time = (datetime.now() - start_time).total_seconds()
-            logger.error(f"Comprehensive deduplication failed: {e}")
+            logger.error(f"Comprehensive semantic_grouping failed: {e}")
             logger.error(traceback.format_exc())
 
             return {
@@ -252,20 +252,20 @@ class RotationDeduplicationIntegrator:
                 'processing_completion_rate': 0
             }
 
-    def _run_comprehensive_deduplication_with_retry(self) -> Dict[str, Any]:
-        """Run comprehensive deduplication with retry logic."""
+    def _run_comprehensive_semantic_grouping_with_retry(self) -> Dict[str, Any]:
+        """Run comprehensive semantic_grouping with retry logic."""
         last_error = None
 
         for attempt in range(self.max_retries + 1):
             try:
-                logger.info(f"Comprehensive deduplication attempt {attempt + 1}/{self.max_retries + 1}")
+                logger.info(f"Comprehensive semantic_grouping attempt {attempt + 1}/{self.max_retries + 1}")
 
-                # Create batch processor and run comprehensive deduplication
+                # Create batch processor and run comprehensive semantic_grouping
                 processor = create_batch_processor()
 
-                # Check if batch_deduplicate_entities method exists and call it
-                if hasattr(processor, 'batch_deduplicate_entities'):
-                    dedup_result = processor.batch_deduplicate_entities()
+                # Check if batch_group_entities_semantically method exists and call it
+                if hasattr(processor, 'batch_group_entities_semantically'):
+                    dedup_result = processor.batch_group_entities_semantically()
                     logger.info(f"Merged {dedup_result.get('total_merged', 0)} entities")
                 else:
                     # Fallback to comprehensive processing if batch method not available
@@ -339,52 +339,52 @@ class RotationDeduplicationIntegrator:
                         'method': 'comprehensive_processing'
                     }
 
-                logger.info("Comprehensive deduplication completed successfully")
+                logger.info("Comprehensive semantic_grouping completed successfully")
                 return dedup_result
 
             except Exception as e:
                 last_error = str(e)
-                logger.warning(f"Comprehensive deduplication attempt {attempt + 1} failed: {e}")
+                logger.warning(f"Comprehensive semantic_grouping attempt {attempt + 1} failed: {e}")
 
                 if attempt < self.max_retries:
                     delay = self.retry_delays[min(attempt, len(self.retry_delays) - 1)]
                     logger.info(f"Retrying in {delay} seconds...")
                     time.sleep(delay)
                 else:
-                    logger.error("All comprehensive deduplication attempts failed")
+                    logger.error("All comprehensive semantic_grouping attempts failed")
 
         # If we get here, all retries failed
-        raise DeduplicationError(f"Comprehensive deduplication failed after {self.max_retries + 1} attempts. Last error: {last_error}")
+        raise Semantic_GroupingError(f"Comprehensive semantic_grouping failed after {self.max_retries + 1} attempts. Last error: {last_error}")
 
-    def _run_deduplication_with_retry(self) -> Dict[str, Any]:
-        """Run deduplication with retry logic."""
+    def _run_semantic_grouping_with_retry(self) -> Dict[str, Any]:
+        """Run semantic_grouping with retry logic."""
         last_error = None
 
         for attempt in range(self.max_retries + 1):
             try:
-                logger.info(f"Deduplication attempt {attempt + 1}/{self.max_retries + 1}")
+                logger.info(f"Semantic_Grouping attempt {attempt + 1}/{self.max_retries + 1}")
 
-                # Run the new batch deduplication
+                # Run the new batch semantic_grouping
                 processor = create_batch_processor()
-                dedup_result = processor.batch_deduplicate_entities()
+                dedup_result = processor.batch_group_entities_semantically()
                 logger.info(f"Merged {dedup_result['total_merged']} entities")
 
-                logger.info("Deduplication completed successfully")
+                logger.info("Semantic_Grouping completed successfully")
                 return {'success': True}
 
             except Exception as e:
                 last_error = str(e)
-                logger.warning(f"Deduplication attempt {attempt + 1} failed: {e}")
+                logger.warning(f"Semantic_Grouping attempt {attempt + 1} failed: {e}")
 
                 if attempt < self.max_retries:
                     delay = self.retry_delays[min(attempt, len(self.retry_delays) - 1)]
                     logger.info(f"Retrying in {delay} seconds...")
                     time.sleep(delay)
                 else:
-                    logger.error("All deduplication attempts failed")
+                    logger.error("All semantic_grouping attempts failed")
 
         # If we get here, all retries failed
-        raise DeduplicationError(f"Deduplication failed after {self.max_retries + 1} attempts. Last error: {last_error}")
+        raise Semantic_GroupingError(f"Semantic_Grouping failed after {self.max_retries + 1} attempts. Last error: {last_error}")
 
     def _get_condition_entity_counts(self, condition: str) -> Dict[str, int]:
         """Get entity counts for a specific condition."""
@@ -443,8 +443,8 @@ class RotationDeduplicationIntegrator:
                 'total_condition_entities': 0
             }
 
-    def get_deduplication_status(self, condition: str) -> Dict[str, Any]:
-        """Get deduplication status for a condition."""
+    def get_semantic_grouping_status(self, condition: str) -> Dict[str, Any]:
+        """Get semantic_grouping status for a condition."""
         try:
             with database_manager.get_connection() as conn:
                 cursor = conn.cursor()
@@ -496,19 +496,19 @@ class RotationDeduplicationIntegrator:
                     'canonical_conditions': condition_stats[1] if condition_stats else 0,
                     'unmapped_conditions': condition_stats[2] if condition_stats else 0,
                     'condition_mapping_rate': condition_mapping_rate,
-                    'overall_deduplication_quality': (intervention_mapping_rate + condition_mapping_rate) / 2
+                    'overall_semantic_grouping_quality': (intervention_mapping_rate + condition_mapping_rate) / 2
                 }
 
         except Exception as e:
-            logger.error(f"Error getting deduplication status for '{condition}': {e}")
+            logger.error(f"Error getting semantic_grouping status for '{condition}': {e}")
             return {
                 'condition': condition,
                 'error': str(e)
             }
 
-    def validate_deduplication_result(self, result: Dict[str, Any]) -> Tuple[bool, str]:
+    def validate_semantic_grouping_result(self, result: Dict[str, Any]) -> Tuple[bool, str]:
         """
-        Validate deduplication result.
+        Validate semantic_grouping result.
 
         Returns:
             Tuple of (is_valid, validation_message)
@@ -524,21 +524,21 @@ class RotationDeduplicationIntegrator:
 
         if not result['success']:
             error_msg = result.get('error', 'Unknown error')
-            return False, f"Deduplication failed: {error_msg}"
+            return False, f"Semantic_Grouping failed: {error_msg}"
 
         if result['entities_merged'] < 0:
             return False, f"Invalid entities_merged count: {result['entities_merged']}"
 
-        # Check for reasonable deduplication rate (0-50% is normal)
-        dedup_rate = result.get('deduplication_rate', 0)
+        # Check for reasonable semantic_grouping rate (0-50% is normal)
+        dedup_rate = result.get('semantic_grouping_rate', 0)
         if dedup_rate > 50:
-            return True, f"Warning: High deduplication rate ({dedup_rate:.1f}%) - verify data quality"
+            return True, f"Warning: High semantic_grouping rate ({dedup_rate:.1f}%) - verify data quality"
 
-        return True, "Deduplication result is valid"
+        return True, "Semantic_Grouping result is valid"
 
     def run_condition_cleanup(self, condition: str) -> Dict[str, Any]:
         """
-        Run additional cleanup for a condition after deduplication.
+        Run additional cleanup for a condition after semantic_grouping.
 
         Args:
             condition: Medical condition to clean up
@@ -619,37 +619,37 @@ class RotationDeduplicationIntegrator:
             }
 
 
-def deduplicate_single_condition(condition: str) -> Dict[str, Any]:
+def group_semantically_single_condition(condition: str) -> Dict[str, Any]:
     """
-    Convenience function to deduplicate data for a single condition.
+    Convenience function to group_semantically data for a single condition.
 
     Args:
-        condition: Medical condition to deduplicate
+        condition: Medical condition to group_semantically
 
     Returns:
-        Deduplication result dictionary
+        Semantic_Grouping result dictionary
     """
-    integrator = RotationDeduplicationIntegrator()
-    return integrator.deduplicate_condition_data(condition)
+    integrator = RotationSemantic_GroupingIntegrator()
+    return integrator.group_semantically_condition_data(condition)
 
 
 if __name__ == "__main__":
-    """Test the rotation deduplication integrator."""
+    """Test the rotation semantic_grouping integrator."""
     import argparse
 
-    parser = argparse.ArgumentParser(description="Rotation Deduplication Integrator Test")
-    parser.add_argument('condition', help='Medical condition to deduplicate data for')
-    parser.add_argument('--status-only', action='store_true', help='Show status only, no deduplication')
-    parser.add_argument('--cleanup', action='store_true', help='Run cleanup after deduplication')
+    parser = argparse.ArgumentParser(description="Rotation Semantic_Grouping Integrator Test")
+    parser.add_argument('condition', help='Medical condition to group_semantically data for')
+    parser.add_argument('--status-only', action='store_true', help='Show status only, no semantic_grouping')
+    parser.add_argument('--cleanup', action='store_true', help='Run cleanup after semantic_grouping')
 
     args = parser.parse_args()
 
-    integrator = RotationDeduplicationIntegrator()
+    integrator = RotationSemantic_GroupingIntegrator()
 
     if args.status_only:
         # Show status only
-        status = integrator.get_deduplication_status(args.condition)
-        print(f"\nDeduplication Status for: {args.condition}")
+        status = integrator.get_semantic_grouping_status(args.condition)
+        print(f"\nSemantic_Grouping Status for: {args.condition}")
         print("="*50)
         print(f"Total interventions: {status['total_interventions']}")
         print(f"Unique intervention names: {status['unique_intervention_names']}")
@@ -658,12 +658,12 @@ if __name__ == "__main__":
         print(f"Unique condition names: {status['unique_condition_names']}")
         print(f"Canonical conditions: {status['canonical_conditions']}")
         print(f"Condition mapping rate: {status['condition_mapping_rate']:.1f}%")
-        print(f"Overall quality: {status['overall_deduplication_quality']:.1f}%")
+        print(f"Overall quality: {status['overall_semantic_grouping_quality']:.1f}%")
     else:
-        # Run deduplication
-        print(f"Running deduplication for: {args.condition}")
+        # Run semantic_grouping
+        print(f"Running semantic_grouping for: {args.condition}")
 
-        result = integrator.deduplicate_condition_data(args.condition)
+        result = integrator.group_semantically_condition_data(args.condition)
 
         print("\n" + "="*60)
         print("DEDUPLICATION RESULT")
@@ -673,7 +673,7 @@ if __name__ == "__main__":
         print(f"Entities before: {result.get('entities_before', 0)}")
         print(f"Entities after: {result.get('entities_after', 0)}")
         print(f"Entities merged: {result.get('entities_merged', 0)}")
-        print(f"Deduplication rate: {result.get('deduplication_rate', 0):.1f}%")
+        print(f"Semantic_Grouping rate: {result.get('semantic_grouping_rate', 0):.1f}%")
         print(f"Processing time: {result.get('processing_time_seconds', 0):.1f} seconds")
         print(f"Status: {result['status']}")
 
@@ -681,7 +681,7 @@ if __name__ == "__main__":
             print(f"Error: {result.get('error', 'Unknown error')}")
 
         # Validate result
-        is_valid, message = integrator.validate_deduplication_result(result)
+        is_valid, message = integrator.validate_semantic_grouping_result(result)
         print(f"\nValidation: {'PASS' if is_valid else 'FAIL'}")
         print(f"Message: {message}")
 
