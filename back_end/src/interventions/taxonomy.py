@@ -18,6 +18,10 @@ class InterventionType(Enum):
     LIFESTYLE = "lifestyle"
     SURGERY = "surgery"
     TEST = "test"
+    DEVICE = "device"
+    PROCEDURE = "procedure"
+    BIOLOGICS = "biologics"
+    GENE_THERAPY = "gene_therapy"
     EMERGING = "emerging"
 
 
@@ -46,10 +50,6 @@ class InterventionCategory:
     def get_all_fields(self) -> List[InterventionField]:
         """Get all fields (required + optional) for this category."""
         return self.required_fields + self.optional_fields
-
-    def get_field_names(self) -> Set[str]:
-        """Get all field names for this category."""
-        return {field.name for field in self.get_all_fields()}
 
 
 class CategoryBuilder:
@@ -111,11 +111,8 @@ class InterventionTaxonomy:
         categories[InterventionType.EXERCISE] = CategoryBuilder.create_category(
             category_type=InterventionType.EXERCISE,
             display_name="Exercise & Physical Activity",
-            description="Physical exercise interventions including aerobic, resistance, and flexibility training",
-            subcategories=[
-                "aerobic", "resistance", "flexibility", "balance", "hiit",
-                "yoga", "pilates", "sports", "walking", "cycling", "swimming"
-            ],
+            description="Physical exercise interventions including aerobic, resistance, flexibility training, yoga, walking, swimming, and sports",
+            subcategories=[],
             specific_required=[
                 InterventionField("exercise_type", True, "string",
                                 description="Type of exercise (aerobic, resistance, etc.)")
@@ -135,11 +132,8 @@ class InterventionTaxonomy:
         categories[InterventionType.DIET] = CategoryBuilder.create_category(
             category_type=InterventionType.DIET,
             display_name="Diet & Nutrition",
-            description="Dietary interventions including specific diets, foods, and nutritional modifications",
-            subcategories=[
-                "mediterranean", "dash", "ketogenic", "low_carb", "low_fat", "vegetarian", "vegan",
-                "intermittent_fasting", "caloric_restriction", "specific_foods", "macronutrient_modification"
-            ],
+            description="Dietary interventions including Mediterranean diet, ketogenic diet, intermittent fasting, caloric restriction, and specific foods",
+            subcategories=[],
             specific_required=[
                 InterventionField("diet_type", True, "string",
                                 description="Type of dietary intervention")
@@ -160,11 +154,8 @@ class InterventionTaxonomy:
         categories[InterventionType.SUPPLEMENT] = CategoryBuilder.create_category(
             category_type=InterventionType.SUPPLEMENT,
             display_name="Supplements & Nutraceuticals",
-            description="Nutritional supplements including vitamins, minerals, herbs, and probiotics",
-            subcategories=[
-                "vitamin", "mineral", "herbal", "probiotic", "prebiotic", "omega3",
-                "amino_acid", "protein", "fiber", "antioxidant", "botanical"
-            ],
+            description="Nutritional supplements including vitamins, minerals, herbs, probiotics, omega-3, and other nutraceuticals",
+            subcategories=[],
             specific_required=[
                 InterventionField("supplement_name", True, "string",
                                 description="Specific supplement name")
@@ -185,11 +176,8 @@ class InterventionTaxonomy:
         categories[InterventionType.MEDICATION] = InterventionCategory(
             category=InterventionType.MEDICATION,
             display_name="Medications & Pharmaceuticals",
-            description="Pharmaceutical interventions including prescription and over-the-counter drugs",
-            subcategories=[
-                "antidepressant", "anxiolytic", "antipsychotic", "antibiotic", "anti_inflammatory",
-                "antihypertensive", "diabetes_medication", "pain_medication", "hormone", "immunosuppressant"
-            ],
+            description="Pharmaceutical drugs including prescription and over-the-counter medications (small molecule drugs)",
+            subcategories=[],
             required_fields=[
                 InterventionField("medication_name", True, "string",
                                 description="Generic or brand name of medication"),
@@ -215,11 +203,8 @@ class InterventionTaxonomy:
         categories[InterventionType.THERAPY] = InterventionCategory(
             category=InterventionType.THERAPY,
             display_name="Therapy & Counseling",
-            description="Therapeutic interventions including psychological, physical, and behavioral therapies",
-            subcategories=[
-                "cbt", "dbt", "act", "mindfulness", "psychotherapy", "group_therapy",
-                "physical_therapy", "occupational_therapy", "massage", "acupuncture", "counseling"
-            ],
+            description="Therapeutic interventions including psychological therapy (CBT, psychotherapy), physical therapy, occupational therapy, and behavioral therapies",
+            subcategories=[],
             required_fields=[
                 InterventionField("therapy_type", True, "string",
                                 description="Type of therapy (CBT, physical therapy, etc.)"),
@@ -245,11 +230,8 @@ class InterventionTaxonomy:
         categories[InterventionType.LIFESTYLE] = InterventionCategory(
             category=InterventionType.LIFESTYLE,
             display_name="Lifestyle Modifications",
-            description="Lifestyle interventions including sleep, stress management, and behavioral changes",
-            subcategories=[
-                "sleep_hygiene", "stress_management", "smoking_cessation", "alcohol_reduction",
-                "social_support", "environmental_modification", "time_management", "relaxation"
-            ],
+            description="Lifestyle interventions including sleep hygiene, stress management, smoking cessation, alcohol reduction, and behavioral changes",
+            subcategories=[],
             required_fields=[
                 InterventionField("lifestyle_type", True, "string",
                                 description="Type of lifestyle modification"),
@@ -274,11 +256,8 @@ class InterventionTaxonomy:
         categories[InterventionType.SURGERY] = CategoryBuilder.create_category(
             category_type=InterventionType.SURGERY,
             display_name="Surgical Interventions",
-            description="Surgical procedures and operations for medical treatment and intervention",
-            subcategories=[
-                "minimally_invasive", "open_surgery", "laparoscopic", "endoscopic", "robotic",
-                "reconstructive", "bariatric", "cardiac", "neurological", "orthopedic", "transplant"
-            ],
+            description="Surgical procedures including minimally invasive surgery, open surgery, laparoscopic, bariatric, cardiac, and transplant operations",
+            subcategories=[],
             specific_required=[
                 InterventionField("surgery_type", True, "string",
                                 description="Type of surgical procedure")
@@ -303,11 +282,8 @@ class InterventionTaxonomy:
         categories[InterventionType.TEST] = CategoryBuilder.create_category(
             category_type=InterventionType.TEST,
             display_name="Tests & Diagnostics",
-            description="Medical tests and diagnostic procedures for identifying health conditions",
-            subcategories=[
-                "blood_test", "breath_test", "stool_test", "urine_test", "genetic_test",
-                "imaging", "biopsy", "endoscopy", "functional_test", "biomarker", "lab_test"
-            ],
+            description="Medical tests and diagnostic procedures including blood tests, genetic testing, imaging, biomarker analysis, and screening",
+            subcategories=[],
             specific_required=[
                 InterventionField("test_type", True, "string",
                                 description="Type of test or diagnostic procedure")
@@ -329,15 +305,110 @@ class InterventionTaxonomy:
             ]
         )
 
+        # DEVICE Category
+        categories[InterventionType.DEVICE] = CategoryBuilder.create_category(
+            category_type=InterventionType.DEVICE,
+            display_name="Medical Devices & Implants",
+            description="Medical devices, implants, wearables, and monitoring tools including pacemakers, insulin pumps, CPAP machines, and hearing aids",
+            subcategories=[],
+            specific_required=[
+                InterventionField("device_type", True, "string",
+                                description="Type of medical device")
+            ],
+            specific_optional=[
+                InterventionField("device_model", False, "string",
+                                description="Specific device model or brand"),
+                InterventionField("implantation_method", False, "string",
+                                description="Method of implantation or attachment"),
+                InterventionField("monitoring_frequency", False, "string",
+                                description="Frequency of monitoring or data collection"),
+                InterventionField("battery_life", False, "string",
+                                description="Battery life or replacement schedule"),
+                InterventionField("maintenance_requirements", False, "string",
+                                description="Maintenance or calibration requirements")
+            ]
+        )
+
+        # PROCEDURE Category
+        categories[InterventionType.PROCEDURE] = CategoryBuilder.create_category(
+            category_type=InterventionType.PROCEDURE,
+            display_name="Medical Procedures",
+            description="Non-surgical medical procedures including endoscopy, dialysis, blood transfusion, radiation therapy, and colonoscopy",
+            subcategories=[],
+            specific_required=[
+                InterventionField("procedure_type", True, "string",
+                                description="Type of medical procedure")
+            ],
+            specific_optional=[
+                InterventionField("procedure_duration", False, "string",
+                                description="Duration of the procedure"),
+                InterventionField("anesthesia_type", False, "string",
+                                validation_rules={"allowed_values": ["none", "local", "conscious_sedation", "general"]},
+                                description="Type of anesthesia used"),
+                InterventionField("recovery_time", False, "string",
+                                description="Expected recovery time"),
+                InterventionField("procedure_frequency", False, "string",
+                                description="Frequency of procedure repetition"),
+                InterventionField("preparation_requirements", False, "string",
+                                description="Preparation required before procedure")
+            ]
+        )
+
+        # BIOLOGICS Category
+        categories[InterventionType.BIOLOGICS] = CategoryBuilder.create_category(
+            category_type=InterventionType.BIOLOGICS,
+            display_name="Biological Medicines",
+            description="Biological medicines including monoclonal antibodies, vaccines, immunotherapies, insulin, and other biological drugs",
+            subcategories=[],
+            specific_required=[
+                InterventionField("biologic_type", True, "string",
+                                description="Type of biological medicine (antibody, vaccine, etc.)")
+            ],
+            specific_optional=[
+                InterventionField("target_antigen", False, "string",
+                                description="Target antigen or receptor"),
+                InterventionField("dosage", False, "string",
+                                description="Dosage amount and units"),
+                InterventionField("route", False, "string",
+                                validation_rules={"allowed_values": ["iv", "subcutaneous", "im", "oral", "inhaled"]},
+                                description="Route of administration"),
+                InterventionField("frequency", False, "string",
+                                description="Dosing frequency"),
+                InterventionField("immunogenicity_risk", False, "string",
+                                description="Risk of immune response to biologic")
+            ]
+        )
+
+        # GENE_THERAPY Category
+        categories[InterventionType.GENE_THERAPY] = CategoryBuilder.create_category(
+            category_type=InterventionType.GENE_THERAPY,
+            display_name="Gene & Cellular Therapy",
+            description="Genetic and cellular interventions including CRISPR gene editing, CAR-T cell therapy, stem cell therapy, and gene transfer",
+            subcategories=[],
+            specific_required=[
+                InterventionField("therapy_type", True, "string",
+                                description="Type of gene/cellular therapy")
+            ],
+            specific_optional=[
+                InterventionField("target_gene", False, "string",
+                                description="Target gene or genetic pathway"),
+                InterventionField("vector_type", False, "string",
+                                description="Vector used for gene delivery (viral, non-viral, etc.)"),
+                InterventionField("cell_source", False, "string",
+                                description="Source of cells (autologous, allogeneic, etc.)"),
+                InterventionField("modification_method", False, "string",
+                                description="Method of genetic modification"),
+                InterventionField("administration_route", False, "string",
+                                description="Route of therapy administration")
+            ]
+        )
+
         # EMERGING Category
         categories[InterventionType.EMERGING] = CategoryBuilder.create_category(
             category_type=InterventionType.EMERGING,
             display_name="Emerging Interventions",
             description="New or novel intervention types that don't fit existing categories",
-            subcategories=[
-                "digital_health", "biotechnology", "nanotechnology", "gene_therapy", "precision_medicine",
-                "virtual_reality", "artificial_intelligence", "biomarker_guided", "personalized", "novel"
-            ],
+            subcategories=[],
             specific_required=[
                 InterventionField("proposed_category", True, "string",
                                 description="Suggested new category name for this intervention"),
@@ -359,109 +430,10 @@ class InterventionTaxonomy:
     def get_category(self, category: InterventionType) -> InterventionCategory:
         """Get category definition by type."""
         return self.categories[category]
-    
+
     def get_all_categories(self) -> Dict[InterventionType, InterventionCategory]:
         """Get all category definitions."""
         return self.categories
-    
-    def get_category_names(self) -> List[str]:
-        """Get list of all category names."""
-        return [cat.value for cat in InterventionType]
-    
-    def validate_category(self, category_name: str) -> bool:
-        """Validate if a category name is supported."""
-        try:
-            InterventionType(category_name)
-            return True
-        except ValueError:
-            return False
-    
-    def get_subcategories(self, category: InterventionType) -> List[str]:
-        """Get subcategories for a specific intervention type."""
-        return self.categories[category].subcategories
-    
-    def find_category_by_subcategory(self, subcategory: str) -> Optional[InterventionType]:
-        """Find the main category that contains a given subcategory."""
-        subcategory_lower = subcategory.lower()
-        for cat_type, category in self.categories.items():
-            if subcategory_lower in [sub.lower() for sub in category.subcategories]:
-                return cat_type
-        return None
-
-    def get_intervention_hierarchy(self, intervention_category: str,
-                                 intervention_subcategory: str = None) -> Dict[str, Any]:
-        """Get hierarchical information for an intervention."""
-        try:
-            category_type = InterventionType(intervention_category)
-            category_def = self.get_category(category_type)
-
-            hierarchy = {
-                'category': {
-                    'type': category_type.value,
-                    'display_name': category_def.display_name,
-                    'description': category_def.description
-                },
-                'subcategory': None,
-                'related_subcategories': category_def.subcategories
-            }
-
-            if intervention_subcategory:
-                # Validate subcategory exists
-                if intervention_subcategory.lower() in [sub.lower() for sub in category_def.subcategories]:
-                    hierarchy['subcategory'] = {
-                        'name': intervention_subcategory,
-                        'parent_category': category_type.value
-                    }
-
-            return hierarchy
-
-        except ValueError:
-            return {}
-
-    def get_related_interventions(self, intervention_category: str,
-                                intervention_subcategory: str = None) -> List[str]:
-        """Get related intervention categories/subcategories."""
-        try:
-            category_type = InterventionType(intervention_category)
-            category_def = self.get_category(category_type)
-
-            related = []
-
-            # Add all subcategories from the same category
-            if intervention_subcategory:
-                related.extend([
-                    sub for sub in category_def.subcategories
-                    if sub.lower() != intervention_subcategory.lower()
-                ])
-            else:
-                related.extend(category_def.subcategories)
-
-            return related
-
-        except ValueError:
-            return []
-
-    def suggest_intervention_category(self, intervention_name: str) -> Optional[InterventionType]:
-        """Suggest the most appropriate category for an intervention name."""
-        intervention_lower = intervention_name.lower()
-
-        # Simple keyword-based suggestion
-        category_keywords = {
-            InterventionType.EXERCISE: ['exercise', 'training', 'activity', 'workout', 'fitness', 'aerobic', 'resistance'],
-            InterventionType.DIET: ['diet', 'nutrition', 'food', 'eating', 'caloric', 'macronutrient'],
-            InterventionType.SUPPLEMENT: ['supplement', 'vitamin', 'mineral', 'probiotic', 'omega'],
-            InterventionType.MEDICATION: ['medication', 'drug', 'pharmaceutical', 'prescription', 'pill'],
-            InterventionType.THERAPY: ['therapy', 'counseling', 'treatment', 'psychotherapy', 'cbt'],
-            InterventionType.LIFESTYLE: ['lifestyle', 'behavioral', 'stress', 'sleep', 'smoking'],
-            InterventionType.SURGERY: ['surgery', 'surgical', 'operation', 'procedure', 'laparoscopic'],
-            InterventionType.TEST: ['test', 'testing', 'diagnostic', 'blood test', 'breath test', 'stool test', 'biomarker', 'screening']
-        }
-
-        for category, keywords in category_keywords.items():
-            if any(keyword in intervention_lower for keyword in keywords):
-                return category
-
-        return None
 
 
 # Global instance

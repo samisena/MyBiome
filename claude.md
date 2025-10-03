@@ -149,8 +149,9 @@ An automated biomedical research pipeline that collects research papers about he
 
 ### Configuration & System Tables (2 tables)
 
-18. **`intervention_categories`** - Intervention taxonomy configuration
+18. **`intervention_categories`** - Intervention taxonomy configuration (13 categories)
     - Updated by: `setup_intervention_categories()` in [`database_manager.py`](back_end/src/data_collection/database_manager.py)
+    - Categories: exercise, diet, supplement, medication, therapy, lifestyle, surgery, test, **device**, **procedure**, **biologics**, **gene_therapy**, emerging
 
 19. **`sqlite_sequence`** - SQLite internal auto-increment tracking (system table)
 
@@ -309,3 +310,61 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 - ✅ Semantic grouping working correctly (e.g., "metformin" = "metformin therapy" = "metformin treatment")
 
 **Result**: Unified analysis showing "150 papers support vitamin D" instead of fragmented counts
+
+## Intervention Taxonomy (13 Categories)
+
+**Last Updated**: October 2025 - Expanded from 9 to 13 categories
+**Subcategories**: Removed - all intervention classification is done at the primary category level
+
+### Category Definitions
+
+| # | Category | Display Name | Description | Examples |
+|---|----------|-------------|-------------|----------|
+| 1 | `exercise` | Exercise & Physical Activity | Physical exercise interventions | Aerobic exercise, resistance training, yoga, walking, swimming, HIIT |
+| 2 | `diet` | Diet & Nutrition | Dietary interventions and nutritional modifications | Mediterranean diet, ketogenic diet, intermittent fasting, caloric restriction |
+| 3 | `supplement` | Supplements & Nutraceuticals | Nutritional supplements | Vitamin D, probiotics, omega-3, herbal supplements, minerals |
+| 4 | `medication` | Medications & Pharmaceuticals | Small molecule pharmaceutical drugs | Statins, metformin, antidepressants, antibiotics, pain medications |
+| 5 | `therapy` | Therapy & Counseling | Psychological, physical, and behavioral therapies | Cognitive behavioral therapy, physical therapy, massage, acupuncture |
+| 6 | `lifestyle` | Lifestyle Modifications | Behavioral and lifestyle changes | Sleep hygiene, stress management, smoking cessation, social support |
+| 7 | `surgery` | Surgical Interventions | Surgical procedures and operations | Laparoscopic surgery, cardiac surgery, bariatric surgery, joint replacement |
+| 8 | `test` | Tests & Diagnostics | Medical tests and diagnostic procedures | Blood tests, genetic testing, colonoscopy, biomarker analysis, imaging |
+| 9 | **`device`** | Medical Devices & Implants | Medical devices, implants, wearables, monitors | **Pacemakers, insulin pumps, CPAP machines, continuous glucose monitors, hearing aids** |
+| 10 | **`procedure`** | Medical Procedures | Non-surgical medical procedures | **Endoscopy, dialysis, blood transfusion, radiation therapy, chemotherapy** |
+| 11 | **`biologics`** | Biological Medicines | Biological drugs and immunotherapies | **Monoclonal antibodies, vaccines, immunotherapies, insulin, TNF inhibitors** |
+| 12 | **`gene_therapy`** | Gene & Cellular Therapy | Genetic and cellular interventions | **CRISPR gene editing, CAR-T cell therapy, stem cell therapy, gene transfer** |
+| 13 | `emerging` | Emerging Interventions | Novel interventions that don't fit existing categories | Digital therapeutics, precision medicine, AI-guided interventions |
+
+### Design Philosophy
+
+**LLM-Based Classification**: All category assignment is performed by the LLM (qwen2.5:14b) during extraction
+- **Broad categories**: Designed to group similar interventions (e.g., swimming + cycling = exercise)
+- **Strict validation**: LLM must select exactly one of the 13 categories
+- **No subcategories**: Removed for simplicity and flexibility
+- **Emerging category**: Safety valve for truly novel interventions that don't fit any category
+
+**Key Distinctions**:
+- **medication vs biologics**: Small molecules vs biological drugs (antibodies, vaccines)
+- **surgery vs procedure**: Surgical operations vs non-surgical procedures (dialysis, endoscopy)
+- **device vs medication**: Hardware/implants vs pharmaceuticals
+- **therapy vs lifestyle**: Professional therapeutic interventions vs self-directed behavioral changes
+
+### Technical Implementation
+
+**Files**:
+- [`taxonomy.py`](back_end/src/interventions/taxonomy.py) - Category definitions and structures
+- [`category_validators.py`](back_end/src/interventions/category_validators.py) - Validation logic
+- [`validators.py`](back_end/src/data/validators.py) - Base validation rules
+- [`prompt_service.py`](back_end/src/llm_processing/prompt_service.py) - LLM prompts with category guidance
+- [`search_terms.py`](back_end/src/interventions/search_terms.py) - PubMed search terms per category
+
+**Validation Flow**:
+1. LLM extracts intervention with category assignment
+2. Category validated against 13 allowed values
+3. Category-specific field validation (e.g., `device_type` for devices)
+4. Intervention inserted into database with `intervention_category` field
+
+**Migration Notes** (October 2025):
+- Expanded from 9 to 13 categories (added: device, procedure, biologics, gene_therapy)
+- Removed subcategory handling entirely (subcategories no longer used)
+- Database schema has no `intervention_subcategory` column
+- All 284 existing interventions preserved during expansion

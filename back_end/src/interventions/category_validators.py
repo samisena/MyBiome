@@ -72,13 +72,7 @@ class CategorySpecificValidator:
             'intervention_name': intervention_name
         })
 
-        # Validate subcategory if provided
-        if 'intervention_subcategory' in validated_data:
-            validated_subcategory = self._validate_subcategory(
-                validated_data['intervention_subcategory'], category
-            )
-            if validated_subcategory:
-                validated_data['intervention_subcategory'] = validated_subcategory
+        # Note: subcategory validation removed - subcategories are no longer used in the system
 
         # Validate intervention details (category-specific)
         if 'intervention_details' in validated_data:
@@ -119,32 +113,13 @@ class CategorySpecificValidator:
         
         # Category-specific validation
         self._validate_name_for_category(name_clean, category)
-        
+
         return name_clean
-
-    def _validate_subcategory(self, subcategory: str, category: InterventionType) -> Optional[str]:
-        """Validate intervention subcategory against allowed values for the category."""
-        if not subcategory or not isinstance(subcategory, str):
-            return None
-
-        subcategory_clean = subcategory.strip().lower()
-
-        # Get allowed subcategories for this category
-        category_def = self.taxonomy.get_category(category)
-        allowed_subcategories = [sub.lower() for sub in category_def.subcategories]
-
-        if subcategory_clean not in allowed_subcategories:
-            raise CategoryValidationError(
-                f"Invalid subcategory '{subcategory}' for {category.value}. "
-                f"Allowed: {category_def.subcategories}"
-            )
-
-        return subcategory_clean
 
     def _validate_name_for_category(self, name: str, category: InterventionType):
         """Apply category-specific name validation rules."""
         name_lower = name.lower()
-        
+
         if category == InterventionType.EXERCISE:
             # Expanded exercise-related terms (more permissive)
             exercise_indicators = [
@@ -162,7 +137,7 @@ class CategorySpecificValidator:
                 ]
                 if not any(exercise in name_lower for exercise in specific_exercises):
                     raise CategoryValidationError(f"Exercise intervention name should contain exercise-related terms: '{name}'")
-        
+
         elif category == InterventionType.SUPPLEMENT:
             # Should not be too generic - only reject single word generic terms
             generic_supplement_terms = [
@@ -170,7 +145,7 @@ class CategorySpecificValidator:
             ]
             if name_lower in generic_supplement_terms:
                 raise CategoryValidationError(f"Supplement name too generic: '{name}'")
-        
+
         elif category == InterventionType.MEDICATION:
             # Should not be too generic - only reject very generic single terms
             generic_med_terms = [
@@ -194,37 +169,7 @@ class CategorySpecificValidator:
             ]
             if name_lower in generic_test_terms:
                 raise CategoryValidationError(f"Test name too generic: '{name}'")
-    
-    def _validate_health_condition(self, condition: str) -> str:
-        """Validate health condition."""
-        if not condition or not isinstance(condition, str):
-            raise CategoryValidationError("Health condition is required")
-        
-        condition_clean = condition.strip()
-        
-        # Check for placeholders
-        if self._is_placeholder(condition_clean):
-            raise CategoryValidationError(f"Health condition appears to be a placeholder: '{condition_clean}'")
-        
-        # Minimum length check
-        if len(condition_clean) < 3:
-            raise CategoryValidationError(f"Health condition too short: '{condition_clean}'")
-        
-        return condition_clean
-    
-    def _validate_correlation_type(self, corr_type: str) -> str:
-        """Validate correlation type."""
-        if not corr_type or not isinstance(corr_type, str):
-            raise CategoryValidationError("Correlation type is required")
-        
-        valid_types = ['positive', 'negative', 'neutral', 'inconclusive']
-        corr_type_clean = corr_type.strip().lower()
-        
-        if corr_type_clean not in valid_types:
-            raise CategoryValidationError(f"Invalid correlation type: '{corr_type}'. Must be one of: {valid_types}")
-        
-        return corr_type_clean
-    
+
     def _validate_intervention_details(self, details: Dict[str, Any], 
                                      category: InterventionType) -> Dict[str, Any]:
         """Validate category-specific intervention details."""
@@ -289,32 +234,9 @@ class CategorySpecificValidator:
                 return value.lower() in ['true', '1', 'yes', 'y']
             else:
                 return bool(value)
-        
+
         return value
-    
-    def _validate_numeric_field(self, value: Any, field_name: str, 
-                              min_val: float, max_val: float) -> float:
-        """Validate numeric field with range checking."""
-        try:
-            num_value = float(value)
-            if not min_val <= num_value <= max_val:
-                raise CategoryValidationError(
-                    f"{field_name} must be between {min_val} and {max_val}: {num_value}"
-                )
-            return num_value
-        except (ValueError, TypeError):
-            raise CategoryValidationError(f"{field_name} must be a number: '{value}'")
-    
-    def _validate_sample_size(self, value: Any) -> int:
-        """Validate sample size field."""
-        try:
-            sample_size = int(value)
-            if sample_size < 0:
-                raise CategoryValidationError("Sample size must be non-negative")
-            return sample_size
-        except (ValueError, TypeError):
-            raise CategoryValidationError(f"Sample size must be an integer: '{value}'")
-    
+
     def _is_placeholder(self, text: str) -> bool:
         """Check if text appears to be a placeholder."""
         text_clean = text.strip().lower()

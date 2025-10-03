@@ -278,58 +278,154 @@ class InterventionSearchTerms:
             ]
         }
 
+        # DEVICE terms
+        terms[InterventionType.DEVICE] = {
+            'primary': [
+                'medical device[Title/Abstract]',
+                'implant[Title/Abstract]',
+                'wearable device[Title/Abstract]',
+                '"Equipment and Supplies"[MeSH Terms]',
+                '"Prostheses and Implants"[MeSH Terms]',
+                'monitoring device[Title/Abstract]'
+            ],
+            'specific': [
+                'pacemaker[Title/Abstract]',
+                'insulin pump[Title/Abstract]',
+                'continuous glucose monitor[Title/Abstract]',
+                'CGM[Title/Abstract]',
+                'CPAP[Title/Abstract]',
+                'hearing aid[Title/Abstract]',
+                'cochlear implant[Title/Abstract]',
+                'defibrillator[Title/Abstract]',
+                'ICD[Title/Abstract]',
+                'cardiac monitor[Title/Abstract]',
+                'wearable sensor[Title/Abstract]',
+                'infusion pump[Title/Abstract]',
+                'ventilator[Title/Abstract]',
+                'nebulizer[Title/Abstract]',
+                'orthotic device[Title/Abstract]',
+                'prosthetic[Title/Abstract]',
+                'stent[Title/Abstract]',
+                'catheter[Title/Abstract]',
+                'intraocular lens[Title/Abstract]',
+                'neurostimulator[Title/Abstract]'
+            ]
+        }
+
+        # PROCEDURE terms
+        terms[InterventionType.PROCEDURE] = {
+            'primary': [
+                'medical procedure[Title/Abstract]',
+                'therapeutic procedure[Title/Abstract]',
+                '"Therapeutic Procedures"[MeSH Terms]',
+                'intervention[Title/Abstract]'
+            ],
+            'specific': [
+                'endoscopy[Title/Abstract]',
+                'colonoscopy[Title/Abstract]',
+                'dialysis[Title/Abstract]',
+                'hemodialysis[Title/Abstract]',
+                'peritoneal dialysis[Title/Abstract]',
+                'blood transfusion[Title/Abstract]',
+                'radiation therapy[Title/Abstract]',
+                'radiotherapy[Title/Abstract]',
+                'chemotherapy[Title/Abstract]',
+                'plasmapheresis[Title/Abstract]',
+                'phototherapy[Title/Abstract]',
+                'cryotherapy[Title/Abstract]',
+                'electroconvulsive therapy[Title/Abstract]',
+                'ECT[Title/Abstract]',
+                'transcranial magnetic stimulation[Title/Abstract]',
+                'TMS[Title/Abstract]',
+                'oxygen therapy[Title/Abstract]',
+                'hyperbaric oxygen[Title/Abstract]',
+                'intravenous therapy[Title/Abstract]',
+                'IV therapy[Title/Abstract]',
+                'catheterization[Title/Abstract]',
+                'angioplasty[Title/Abstract]'
+            ]
+        }
+
+        # BIOLOGICS terms
+        terms[InterventionType.BIOLOGICS] = {
+            'primary': [
+                'biologic[Title/Abstract]',
+                'biological therapy[Title/Abstract]',
+                'monoclonal antibody[Title/Abstract]',
+                '"Biological Products"[MeSH Terms]',
+                '"Antibodies, Monoclonal"[MeSH Terms]',
+                'immunotherapy[Title/Abstract]'
+            ],
+            'specific': [
+                'vaccine[Title/Abstract]',
+                'vaccination[Title/Abstract]',
+                'antibody therapy[Title/Abstract]',
+                'mAb[Title/Abstract]',
+                'TNF inhibitor[Title/Abstract]',
+                'anti-TNF[Title/Abstract]',
+                'checkpoint inhibitor[Title/Abstract]',
+                'PD-1 inhibitor[Title/Abstract]',
+                'PD-L1 inhibitor[Title/Abstract]',
+                'immune checkpoint[Title/Abstract]',
+                'cytokine therapy[Title/Abstract]',
+                'interferon[Title/Abstract]',
+                'interleukin[Title/Abstract]',
+                'growth factor[Title/Abstract]',
+                'erythropoietin[Title/Abstract]',
+                'insulin therapy[Title/Abstract]',
+                'biologic DMARD[Title/Abstract]',
+                'targeted therapy[Title/Abstract]',
+                'immunoglobulin[Title/Abstract]',
+                'IVIG[Title/Abstract]'
+            ]
+        }
+
+        # GENE_THERAPY terms
+        terms[InterventionType.GENE_THERAPY] = {
+            'primary': [
+                'gene therapy[Title/Abstract]',
+                'cellular therapy[Title/Abstract]',
+                'gene editing[Title/Abstract]',
+                '"Genetic Therapy"[MeSH Terms]',
+                '"Gene Editing"[MeSH Terms]',
+                'cell therapy[Title/Abstract]'
+            ],
+            'specific': [
+                'CRISPR[Title/Abstract]',
+                'CAR-T[Title/Abstract]',
+                'CAR T cell[Title/Abstract]',
+                'chimeric antigen receptor[Title/Abstract]',
+                'stem cell therapy[Title/Abstract]',
+                'stem cell transplant[Title/Abstract]',
+                'bone marrow transplant[Title/Abstract]',
+                'hematopoietic stem cell[Title/Abstract]',
+                'HSCT[Title/Abstract]',
+                'gene transfer[Title/Abstract]',
+                'viral vector[Title/Abstract]',
+                'adenoviral vector[Title/Abstract]',
+                'lentiviral vector[Title/Abstract]',
+                'AAV vector[Title/Abstract]',
+                'genome editing[Title/Abstract]',
+                'genetic modification[Title/Abstract]',
+                'RNA interference[Title/Abstract]',
+                'RNAi[Title/Abstract]',
+                'antisense therapy[Title/Abstract]',
+                'mesenchymal stem cell[Title/Abstract]'
+            ]
+        }
+
         return terms
     
-    def get_terms_for_category(self, category: InterventionType, 
+    def get_terms_for_category(self, category: InterventionType,
                               include_specific: bool = True) -> List[str]:
         """Get search terms for a specific intervention category."""
         if category not in self.search_terms:
             return []
-            
+
         terms = self.search_terms[category]['primary'].copy()
         if include_specific:
             terms.extend(self.search_terms[category]['specific'])
         return terms
-    
-    def get_all_intervention_terms(self) -> List[str]:
-        """Get all intervention terms across all categories."""
-        all_terms = []
-        for category_terms in self.search_terms.values():
-            all_terms.extend(category_terms['primary'])
-            all_terms.extend(category_terms['specific'])
-        return list(set(all_terms))  # Remove duplicates
-    
-    def build_intervention_query_part(self, categories: List[InterventionType] = None) -> str:
-        """Build the intervention part of a PubMed query."""
-        if not categories:
-            categories = list(InterventionType)
-        
-        all_terms = []
-        for category in categories:
-            terms = self.get_terms_for_category(category, include_specific=True)
-            all_terms.extend(terms)
-        
-        # Remove duplicates and join with OR
-        unique_terms = list(set(all_terms))
-        return '(' + ' OR '.join(unique_terms) + ')'
-    
-    def get_study_type_terms(self) -> List[str]:
-        """Get terms for filtering to intervention studies."""
-        return [
-            '"Randomized Controlled Trial"[Publication Type]',
-            '"Clinical Trial"[Publication Type]', 
-            '"Controlled Clinical Trial"[Publication Type]',
-            'randomized[Title/Abstract]',
-            'controlled trial[Title/Abstract]',
-            'intervention study[Title/Abstract]',
-            'clinical trial[Title/Abstract]',
-            'RCT[Title/Abstract]'
-        ]
-    
-    def build_study_type_filter(self) -> str:
-        """Build study type filter for intervention studies."""
-        study_terms = self.get_study_type_terms()
-        return '(' + ' OR '.join(study_terms) + ')'
 
 
 # Global instance

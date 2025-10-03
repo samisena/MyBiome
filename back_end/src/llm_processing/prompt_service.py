@@ -408,7 +408,7 @@ Examples: Mediterranean diet, ketogenic diet, intermittent fasting, specific foo
 Examples: vitamin D, probiotics, omega-3, herbal supplements, minerals
 
 **MEDICATION** ({category_descriptions['medication']}):
-Examples: antidepressants, antibiotics, pain medications, hormones
+Examples: statins, metformin, antidepressants, antibiotics, pain medications
 
 **THERAPY** ({category_descriptions['therapy']}):
 Examples: cognitive behavioral therapy, physical therapy, massage, acupuncture
@@ -419,8 +419,23 @@ Examples: sleep hygiene, stress management, smoking cessation, social support
 **SURGERY** ({category_descriptions['surgery']}):
 Examples: laparoscopic surgery, cardiac surgery, bariatric surgery, joint replacement
 
+**TEST** ({category_descriptions['test']}):
+Examples: blood tests, genetic testing, colonoscopy, biomarker analysis, imaging
+
+**DEVICE** ({category_descriptions['device']}):
+Examples: pacemakers, insulin pumps, CPAP machines, continuous glucose monitors, hearing aids
+
+**PROCEDURE** ({category_descriptions['procedure']}):
+Examples: endoscopy, dialysis, blood transfusion, radiation therapy, chemotherapy
+
+**BIOLOGICS** ({category_descriptions['biologics']}):
+Examples: monoclonal antibodies, vaccines, immunotherapies, insulin, biological drugs
+
+**GENE_THERAPY** ({category_descriptions['gene_therapy']}):
+Examples: CRISPR gene editing, CAR-T cell therapy, stem cell therapy, gene transfer
+
 **EMERGING** ({category_descriptions['emerging']}):
-Examples: gene therapy, digital therapeutics, precision medicine, AI-guided interventions
+Examples: novel interventions that don't fit any category above (include proposed_category and category_rationale in intervention_details)
 
 Return ONLY valid JSON. No extra text. Each intervention needs these fields:
 - intervention_category: one of [{', '.join(f'"{cat}"' for cat in categories)}]
@@ -445,8 +460,14 @@ IMPORTANT RULES:
 - ONLY extract interventions where you can identify specific intervention names
 - DO NOT use placeholders like "...", "intervention", "treatment", "therapy" (too generic)
 - Each intervention_name must be specific (e.g., "cognitive behavioral therapy" not just "therapy")
-- Match intervention_category correctly (exercise interventions go in "exercise", not "therapy")
-- Use "emerging" category for novel interventions that don't fit existing categories (include proposed_category and category_rationale in intervention_details)
+- Match intervention_category correctly:
+  * Exercise interventions (walking, swimming, yoga) → "exercise"
+  * Small molecule drugs (metformin, aspirin) → "medication"
+  * Biological drugs (monoclonal antibodies, vaccines) → "biologics"
+  * Medical devices (pacemakers, insulin pumps) → "device"
+  * Non-surgical procedures (endoscopy, dialysis) → "procedure"
+  * Genetic interventions (CRISPR, CAR-T) → "gene_therapy"
+- Use "emerging" category ONLY for truly novel interventions that don't fit any of the 12 categories above
 - Include intervention_details with category-specific information when available
 - If no specific interventions are mentioned, return []
 

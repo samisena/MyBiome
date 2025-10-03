@@ -237,7 +237,7 @@ class InterventionValidator(BaseValidator):
     """Validator for intervention data."""
     
     REQUIRED_FIELDS = ['intervention_category', 'intervention_name', 'health_condition', 'correlation_type']
-    VALID_CATEGORIES = ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle', 'surgery', 'test', 'emerging']
+    VALID_CATEGORIES = ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle', 'surgery', 'test', 'device', 'procedure', 'biologics', 'gene_therapy', 'emerging']
     VALID_CORRELATION_TYPES = ['positive', 'negative', 'neutral', 'inconclusive']
     VALID_DELIVERY_METHODS = ['oral', 'injection', 'topical', 'inhalation', 'behavioral', 'digital', 'surgical', 'intravenous', 'sublingual', 'rectal', 'transdermal', 'acupuncture', 'nasal', 'nasal spray', 'intranasal', 'enema', 'subcutaneous', 'intramuscular', 'needling', 'local application', 'neuromodulation', 'electrical stimulation', 'subcutaneous injection', 'acupuncture needles', 'blunt-tipped needles at non-acupoints', 'educational', 'supervised', 'counseling', 'oral capsules or colonoscopy']
     VALID_SEVERITY_LEVELS = ['mild', 'moderate', 'severe']
