@@ -57,20 +57,28 @@ class CategorySpecificValidator:
         # Log any warnings
         if result.warnings:
             validation_manager.log_validation_issues(result, "intervention validation")
-        
-        # Validate intervention category using cleaned data
-        category = self._validate_category(validated_data['intervention_category'])
 
-        # Validate intervention name
-        intervention_name = self._validate_intervention_name(
-            validated_data['intervention_name'], category
-        )
+        # Validate intervention category if present (optional for separate categorization phase)
+        category = None
+        if 'intervention_category' in validated_data and validated_data['intervention_category']:
+            category = self._validate_category(validated_data['intervention_category'])
+            validated_data['intervention_category'] = category.value
+        else:
+            # Category will be assigned later by rotation_llm_categorization.py
+            validated_data['intervention_category'] = None
 
-        # Update validated data with category-specific validation
-        validated_data.update({
-            'intervention_category': category.value,
-            'intervention_name': intervention_name
-        })
+        # Validate intervention name (skip category-specific validation if no category)
+        if category:
+            intervention_name = self._validate_intervention_name(
+                validated_data['intervention_name'], category
+            )
+            validated_data['intervention_name'] = intervention_name
+        else:
+            # Basic name validation without category context
+            intervention_name = self._validate_intervention_name_basic(
+                validated_data['intervention_name']
+            )
+            validated_data['intervention_name'] = intervention_name
 
         # Validate condition_category if present
         if 'condition_category' in validated_data and validated_data['condition_category']:
@@ -88,8 +96,8 @@ class CategorySpecificValidator:
 
         # Note: subcategory validation removed - subcategories are no longer used in the system
 
-        # Validate intervention details (category-specific)
-        if 'intervention_details' in validated_data:
+        # Validate intervention details (category-specific, only if category is present)
+        if category and 'intervention_details' in validated_data:
             validated_data['intervention_details'] = self._validate_intervention_details(
                 validated_data['intervention_details'], category
             )
@@ -114,19 +122,36 @@ class CategorySpecificValidator:
         """Validate intervention name with category-specific rules."""
         if not name or not isinstance(name, str):
             raise CategoryValidationError("Intervention name is required")
-        
+
         name_clean = name.strip()
-        
+
         # Check for placeholders
         if self._is_placeholder(name_clean):
             raise CategoryValidationError(f"Intervention name appears to be a placeholder: '{name_clean}'")
-        
+
         # Minimum length check
         if len(name_clean) < 3:
             raise CategoryValidationError(f"Intervention name too short: '{name_clean}'")
-        
+
         # Category-specific validation
         self._validate_name_for_category(name_clean, category)
+
+        return name_clean
+
+    def _validate_intervention_name_basic(self, name: str) -> str:
+        """Validate intervention name without category-specific rules (for uncategorized interventions)."""
+        if not name or not isinstance(name, str):
+            raise CategoryValidationError("Intervention name is required")
+
+        name_clean = name.strip()
+
+        # Check for placeholders
+        if self._is_placeholder(name_clean):
+            raise CategoryValidationError(f"Intervention name appears to be a placeholder: '{name_clean}'")
+
+        # Minimum length check
+        if len(name_clean) < 3:
+            raise CategoryValidationError(f"Intervention name too short: '{name_clean}'")
 
         return name_clean
 

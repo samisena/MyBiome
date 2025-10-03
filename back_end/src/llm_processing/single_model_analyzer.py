@@ -361,6 +361,7 @@ class SingleModelAnalyzer:
         total_processed = 0
         total_interventions = 0
         category_counts = {cat.value: 0 for cat in InterventionType}
+        category_counts['uncategorized'] = 0  # Track NULL categories separately
 
         # Process all batches with progress bar
         with tqdm(total=len(papers), desc="Processing papers", unit="paper") as pbar:
@@ -380,7 +381,11 @@ class SingleModelAnalyzer:
                             # Count by category
                             for intervention in results['interventions']:
                                 category = intervention.get('intervention_category')
-                                if category in category_counts:
+
+                                # Track uncategorized separately (NULL categories)
+                                if category is None:
+                                    category_counts['uncategorized'] += 1
+                                elif category in category_counts:
                                     category_counts[category] += 1
 
                             # Save interventions to database directly (no consensus needed)

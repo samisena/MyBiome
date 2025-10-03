@@ -38,13 +38,10 @@ class InterventionPromptService:
         # Prepare paper content
         content_sections = self._prepare_paper_content(paper)
         paper_content = "\n\n".join(content_sections)
-        
-        # Get category descriptions
-        category_descriptions = self._get_category_descriptions()
-        
+
         # Build the standardized prompt
-        prompt = self._build_intervention_prompt(paper_content, category_descriptions)
-        
+        prompt = self._build_intervention_prompt(paper_content)
+
         return prompt
 
     def create_entity_matching_prompt(self, term: str, candidate_canonicals: List[str], entity_type: str) -> str:
@@ -379,67 +376,17 @@ Respond with ONLY valid JSON:
         
         return content_sections
     
-    def _get_category_descriptions(self) -> Dict[str, str]:
-        """Get intervention category descriptions from taxonomy."""
-        category_descriptions = {}
-        for cat_type in InterventionType:
-            cat_def = self.taxonomy.get_category(cat_type)
-            category_descriptions[cat_type.value] = cat_def.description
-        return category_descriptions
-    
-    def _build_intervention_prompt(self, paper_content: str, category_descriptions: Dict[str, str]) -> str:
+    def _build_intervention_prompt(self, paper_content: str) -> str:
         """Build the complete intervention extraction prompt."""
-        categories = [cat.value for cat in InterventionType]
-
         return f"""You are a biomedical expert analyzing research papers to extract health interventions and their relationships to health conditions.
 
 PAPER:
 {paper_content}
 
-TASK: Extract ALL health interventions mentioned in this paper as a JSON array. Include interventions from these categories:
-
-**EXERCISE** ({category_descriptions['exercise']}):
-Examples: aerobic exercise, resistance training, yoga, walking, swimming, HIIT
-
-**DIET** ({category_descriptions['diet']}):
-Examples: Mediterranean diet, ketogenic diet, intermittent fasting, specific foods
-
-**SUPPLEMENT** ({category_descriptions['supplement']}):
-Examples: vitamin D, probiotics, omega-3, herbal supplements, minerals
-
-**MEDICATION** ({category_descriptions['medication']}):
-Examples: statins, metformin, antidepressants, antibiotics, pain medications
-
-**THERAPY** ({category_descriptions['therapy']}):
-Examples: cognitive behavioral therapy, physical therapy, massage, acupuncture
-
-**LIFESTYLE** ({category_descriptions['lifestyle']}):
-Examples: sleep hygiene, stress management, smoking cessation, social support
-
-**SURGERY** ({category_descriptions['surgery']}):
-Examples: laparoscopic surgery, cardiac surgery, bariatric surgery, joint replacement
-
-**TEST** ({category_descriptions['test']}):
-Examples: blood tests, genetic testing, colonoscopy, biomarker analysis, imaging
-
-**DEVICE** ({category_descriptions['device']}):
-Examples: pacemakers, insulin pumps, CPAP machines, continuous glucose monitors, hearing aids
-
-**PROCEDURE** ({category_descriptions['procedure']}):
-Examples: endoscopy, dialysis, blood transfusion, radiation therapy, chemotherapy
-
-**BIOLOGICS** ({category_descriptions['biologics']}):
-Examples: monoclonal antibodies, vaccines, immunotherapies, insulin, biological drugs
-
-**GENE_THERAPY** ({category_descriptions['gene_therapy']}):
-Examples: CRISPR gene editing, CAR-T cell therapy, stem cell therapy, gene transfer
-
-**EMERGING** ({category_descriptions['emerging']}):
-Examples: novel interventions that don't fit any category above (include proposed_category and category_rationale in intervention_details)
+TASK: Extract ALL health interventions mentioned in this paper as a JSON array.
 
 Return ONLY valid JSON. No extra text. Each intervention needs these fields:
-- intervention_category: one of [{', '.join(f'"{cat}"' for cat in categories)}]
-- intervention_name: specific intervention name (e.g., "Mediterranean diet", "aerobic exercise")
+- intervention_name: specific intervention name (e.g., "Mediterranean diet", "aerobic exercise", "metformin", "cognitive behavioral therapy")
 - intervention_details: object with category-specific details (duration, dosage, frequency, etc.)
 - health_condition: specific condition being treated
 - correlation_type: "positive", "negative", "neutral", or "inconclusive"
@@ -459,24 +406,14 @@ Return ONLY valid JSON. No extra text. Each intervention needs these fields:
 IMPORTANT RULES:
 - ONLY extract interventions where you can identify specific intervention names
 - DO NOT use placeholders like "...", "intervention", "treatment", "therapy" (too generic)
-- Each intervention_name must be specific (e.g., "cognitive behavioral therapy" not just "therapy")
-- Match intervention_category correctly:
-  * Exercise interventions (walking, swimming, yoga) → "exercise"
-  * Small molecule drugs (metformin, aspirin) → "medication"
-  * Biological drugs (monoclonal antibodies, vaccines) → "biologics"
-  * Medical devices (pacemakers, insulin pumps) → "device"
-  * Non-surgical procedures (endoscopy, dialysis) → "procedure"
-  * Genetic interventions (CRISPR, CAR-T) → "gene_therapy"
-- Use "emerging" category ONLY for truly novel interventions that don't fit any of the 12 categories above
-- Include intervention_details with category-specific information when available
+- Each intervention_name must be specific (e.g., "cognitive behavioral therapy" not just "therapy", "metformin" not just "medication")
+- Include intervention_details with relevant information when available (dosage, duration, frequency, intensity, etc.)
 - If no specific interventions are mentioned, return []
 
 Example of valid extraction:
 [{{
-  "intervention_category": "exercise",
   "intervention_name": "aerobic exercise",
   "intervention_details": {{
-    "exercise_type": "aerobic",
     "duration": "30 minutes",
     "frequency": "3 times per week",
     "intensity": "moderate"

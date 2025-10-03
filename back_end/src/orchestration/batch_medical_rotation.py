@@ -3,28 +3,30 @@
 Batch Medical Rotation Pipeline - Optimized Orchestrator
 
 Simplified batch-oriented pipeline that processes all 60 medical conditions
-in three distinct phases: batch collection → batch processing → batch deduplication.
+in four distinct phases: collection → processing → categorization → canonical grouping.
 This replaces the complex condition-by-condition approach with an efficient
 batch processing workflow.
 
 Pipeline Flow:
 1. BATCH COLLECTION: Collect N papers for all 60 conditions in parallel
 2. BATCH PROCESSING: Process all papers with single LLM (qwen2.5:14b) - 2x faster!
-3. BATCH DEDUPLICATION: Global deduplication and canonical entity merging (Phase 3)
+3. CATEGORIZATION: Classify interventions and conditions using focused LLM prompts
+4. CANONICAL GROUPING: Cross-paper semantic merging (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
 
 Features:
-- 3 clear phases with natural breakpoints for recovery
+- 4 clear phases with natural breakpoints for recovery
 - Parallel collection within VRAM constraints
 - Single-model processing (qwen2.5:14b) - 2x speed improvement
-- No Phase 2 deduplication needed (single model = no same-paper duplicates)
-- Phase 3 cross-paper canonical merging for unified analysis
+- Separate categorization phase with focused prompts for higher accuracy
+- Canonical name grouping for unified cross-paper analysis
 - Simple session management with phase-level recovery
 - Quality gates between phases
 - Comprehensive progress tracking
 
-Architecture Change (2025-10):
+Architecture Changes (2025-10):
 - Switched from dual-model (gemma2:9b + qwen2.5:14b) to single-model (qwen2.5:14b)
 - Eliminated Phase 2 consensus building complexity
+- Separated categorization from extraction for simpler, more reliable prompts
 - Preserved Qwen's superior extraction detail
 - 2x faster processing with simpler error handling
 
@@ -33,7 +35,7 @@ Usage:
     python batch_medical_rotation.py --papers-per-condition 10
 
     # Resume from specific phase
-    python batch_medical_rotation.py --resume --start-phase processing
+    python batch_medical_rotation.py --resume --start-phase categorization
 
     # Status check
     python batch_medical_rotation.py --status
@@ -62,6 +64,7 @@ try:
     from ..data.config import config, setup_logging
     from .rotation_paper_collector import RotationPaperCollector, BatchCollectionResult
     from .rotation_llm_processor import RotationLLMProcessor
+    from .rotation_llm_categorization import RotationLLMCategorizer
     from .rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
 except ImportError:
     # Fallback for standalone execution
@@ -71,6 +74,7 @@ except ImportError:
     from back_end.src.data.config import config, setup_logging
     from back_end.src.orchestration.rotation_paper_collector import RotationPaperCollector, BatchCollectionResult
     from back_end.src.orchestration.rotation_llm_processor import RotationLLMProcessor
+    from back_end.src.orchestration.rotation_llm_categorization import RotationLLMCategorizer
     from back_end.src.orchestration.rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
 
 logger = setup_logging(__name__, 'batch_medical_rotation.log')
@@ -80,7 +84,8 @@ class BatchPhase(Enum):
     """Pipeline phases for batch processing."""
     COLLECTION = "collection"
     PROCESSING = "processing"
-    DEDUPLICATION = "deduplication"
+    CATEGORIZATION = "categorization"
+    CANONICAL_GROUPING = "canonical_grouping"
     COMPLETED = "completed"
 
 
@@ -96,18 +101,22 @@ class BatchSession:
     # Phase completion tracking
     collection_completed: bool = False
     processing_completed: bool = False
-    deduplication_completed: bool = False
+    categorization_completed: bool = False
+    canonical_grouping_completed: bool = False
 
     # Statistics
     total_papers_collected: int = 0
     total_papers_processed: int = 0
     total_interventions_extracted: int = 0
-    total_duplicates_removed: int = 0
+    total_interventions_categorized: int = 0
+    total_conditions_categorized: int = 0
+    total_canonical_entities_created: int = 0
 
     # Phase results
     collection_result: Optional[Dict[str, Any]] = None
     processing_result: Optional[Dict[str, Any]] = None
-    deduplication_result: Optional[Dict[str, Any]] = None
+    categorization_result: Optional[Dict[str, Any]] = None
+    canonical_grouping_result: Optional[Dict[str, Any]] = None
 
     def is_completed(self) -> bool:
         """Check if entire pipeline is completed."""
@@ -125,6 +134,7 @@ class BatchMedicalRotationPipeline:
         # Initialize components
         self.paper_collector = RotationPaperCollector()
         self.llm_processor = RotationLLMProcessor()
+        self.categorizer = None  # Lazy loaded
         self.dedup_integrator = RotationSemanticGroupingIntegrator()
 
         # Control flags
@@ -180,14 +190,14 @@ class BatchMedicalRotationPipeline:
                 start_time=data['start_time'],
                 collection_completed=data.get('collection_completed', False),
                 processing_completed=data.get('processing_completed', False),
-                deduplication_completed=data.get('deduplication_completed', False),
+                canonical_grouping_completed=data.get('canonical_grouping_completed', False),
                 total_papers_collected=data.get('total_papers_collected', 0),
                 total_papers_processed=data.get('total_papers_processed', 0),
                 total_interventions_extracted=data.get('total_interventions_extracted', 0),
                 total_duplicates_removed=data.get('total_duplicates_removed', 0),
                 collection_result=data.get('collection_result'),
                 processing_result=data.get('processing_result'),
-                deduplication_result=data.get('deduplication_result')
+                canonical_grouping_result=data.get('canonical_grouping_result')
             )
 
             self.current_session = session
@@ -219,14 +229,14 @@ class BatchMedicalRotationPipeline:
                 'start_time': self.current_session.start_time,
                 'collection_completed': self.current_session.collection_completed,
                 'processing_completed': self.current_session.processing_completed,
-                'deduplication_completed': self.current_session.deduplication_completed,
+                'canonical_grouping_completed': self.current_session.canonical_grouping_completed,
                 'total_papers_collected': self.current_session.total_papers_collected,
                 'total_papers_processed': self.current_session.total_papers_processed,
                 'total_interventions_extracted': self.current_session.total_interventions_extracted,
                 'total_duplicates_removed': self.current_session.total_duplicates_removed,
                 'collection_result': self.current_session.collection_result,
                 'processing_result': self.current_session.processing_result,
-                'deduplication_result': self.current_session.deduplication_result
+                'canonical_grouping_result': self.current_session.canonical_grouping_result
             }
 
             # Write with platform-specific file locking
@@ -262,7 +272,7 @@ class BatchMedicalRotationPipeline:
         Args:
             papers_per_condition: Number of papers to collect per condition
             resume: Whether to resume existing session
-            start_phase: Specific phase to start from (collection, processing, deduplication)
+            start_phase: Specific phase to start from (collection, processing, categorization, canonical_grouping)
 
         Returns:
             Pipeline execution summary
@@ -324,20 +334,34 @@ class BatchMedicalRotationPipeline:
                     return processing_result
 
                 session.processing_completed = True
-                session.current_phase = BatchPhase.DEDUPLICATION
+                session.current_phase = BatchPhase.CATEGORIZATION
                 self._save_session()
 
-            # Phase 3: Batch Deduplication
-            if session.current_phase == BatchPhase.DEDUPLICATION and not session.deduplication_completed:
+            # Phase 2.5: Categorization
+            if session.current_phase == BatchPhase.CATEGORIZATION and not session.categorization_completed:
                 logger.info("\n" + "="*40)
-                logger.info("PHASE 3: BATCH DEDUPLICATION")
+                logger.info("PHASE 2.5: CATEGORIZATION")
                 logger.info("="*40)
 
-                deduplication_result = self._run_deduplication_phase(session)
-                if not deduplication_result['success']:
-                    return deduplication_result
+                categorization_result = self._run_categorization_phase(session)
+                if not categorization_result['success']:
+                    return categorization_result
 
-                session.deduplication_completed = True
+                session.categorization_completed = True
+                session.current_phase = BatchPhase.CANONICAL_GROUPING
+                self._save_session()
+
+            # Phase 3: Canonical Name Grouping
+            if session.current_phase == BatchPhase.CANONICAL_GROUPING and not session.canonical_grouping_completed:
+                logger.info("\n" + "="*40)
+                logger.info("PHASE 3: CANONICAL NAME GROUPING")
+                logger.info("="*40)
+
+                canonical_grouping_result = self._run_canonical_grouping_phase(session)
+                if not canonical_grouping_result['success']:
+                    return canonical_grouping_result
+
+                session.canonical_grouping_completed = True
                 session.current_phase = BatchPhase.COMPLETED
                 self._save_session()
 
@@ -351,14 +375,17 @@ class BatchMedicalRotationPipeline:
             logger.info(f"Papers collected: {session.total_papers_collected}")
             logger.info(f"Papers processed: {session.total_papers_processed}")
             logger.info(f"Interventions extracted: {session.total_interventions_extracted}")
-            logger.info(f"Duplicates removed: {session.total_duplicates_removed}")
+            logger.info(f"Interventions categorized: {session.total_interventions_categorized}")
+            logger.info(f"Conditions categorized: {session.total_conditions_categorized}")
+            logger.info(f"Canonical entities created: {session.total_canonical_entities_created}")
 
             # Prepare for next iteration
             session.iteration_number += 1
             session.current_phase = BatchPhase.COLLECTION
             session.collection_completed = False
             session.processing_completed = False
-            session.deduplication_completed = False
+            session.categorization_completed = False
+            session.canonical_grouping_completed = False
             self._save_session()
 
             logger.info(f"\nPrepared for iteration {session.iteration_number}")
@@ -372,7 +399,9 @@ class BatchMedicalRotationPipeline:
                     'papers_collected': session.total_papers_collected,
                     'papers_processed': session.total_papers_processed,
                     'interventions_extracted': session.total_interventions_extracted,
-                    'duplicates_removed': session.total_duplicates_removed
+                    'interventions_categorized': session.total_interventions_categorized,
+                    'conditions_categorized': session.total_conditions_categorized,
+                    'canonical_entities_created': session.total_canonical_entities_created
                 }
             }
 
@@ -476,65 +505,92 @@ class BatchMedicalRotationPipeline:
             logger.error(f"Processing phase failed: {e}")
             return {'success': False, 'error': str(e), 'phase': 'processing'}
 
-    def _run_deduplication_phase(self, session: BatchSession) -> Dict[str, Any]:
-        """
-        Run Phase 3: Cross-paper semantic deduplication and canonical entity merging.
-
-        With single-model extraction (qwen2.5:14b only), same-paper duplicates cannot exist.
-        This phase ONLY performs cross-paper semantic analysis to merge semantically equivalent
-        interventions (e.g., "vitamin D" vs "Vitamin D3" vs "cholecalciferol").
-        """
-        logger.info("Running Phase 3: Cross-paper semantic deduplication and canonical entity merging...")
+    def _run_categorization_phase(self, session: BatchSession) -> Dict[str, Any]:
+        """Run the categorization phase for interventions and conditions."""
+        logger.info("Categorizing interventions and conditions...")
 
         try:
             if self.shutdown_requested:
-                return {'success': False, 'error': 'Shutdown requested during deduplication'}
+                return {'success': False, 'error': 'Shutdown requested during categorization'}
 
-            # Run global batch deduplication
-            deduplication_result = self.dedup_integrator.group_all_data_semantically_batch()
+            # Lazy load categorizer
+            if self.categorizer is None:
+                self.categorizer = RotationLLMCategorizer(batch_size=20)
 
-            # Update session with results (mapping new LLM-based deduplication format)
-            total_processed = deduplication_result.get('interventions_processed', 0)
-            total_merged = deduplication_result.get('total_merged', 0)
+            # Categorize all interventions and conditions
+            categorization_result = self.categorizer.categorize_all()
 
-            session.deduplication_result = {
-                'total_interventions_processed': total_processed,
-                'deduplicated_interventions': total_merged,
-                'entities_before': total_processed,
-                'entities_after': total_processed - total_merged,
-                'entities_merged': total_merged,
-                'deduplication_rate': (total_merged / total_processed * 100) if total_processed > 0 else 0,
-                'cross_condition_duplicates': total_merged,  # Real duplicates found and merged
-                'processing_time_seconds': deduplication_result.get('processing_time_seconds', 0),
-                'duplicate_groups_found': deduplication_result.get('duplicate_groups_found', 0),
-                'papers_processed': deduplication_result.get('papers_processed', 0),
-                'method': deduplication_result.get('method', 'llm_comprehensive_deduplication'),
-                'phases_completed': deduplication_result.get('phases_completed', [])
-            }
+            # Update session with results
+            session.categorization_result = categorization_result
+            session.total_interventions_categorized = categorization_result['interventions']['success']
+            session.total_conditions_categorized = categorization_result['conditions']['success']
 
-            session.total_duplicates_removed = total_merged
+            intervention_success = categorization_result['interventions']['success']
+            intervention_total = categorization_result['interventions']['total']
+            condition_success = categorization_result['conditions']['success']
+            condition_total = categorization_result['conditions']['total']
 
-            if not deduplication_result['success']:
-                logger.error(f"Deduplication phase failed: {deduplication_result.get('error', 'Unknown error')}")
-                return {
-                    'success': False,
-                    'error': f"Deduplication failed: {deduplication_result.get('error', 'Unknown error')}",
-                    'phase': 'deduplication'
-                }
+            logger.info("[SUCCESS] Categorization phase completed successfully")
+            logger.info(f"  Interventions categorized: {intervention_success}/{intervention_total}")
+            logger.info(f"  Conditions categorized: {condition_success}/{condition_total}")
 
-            logger.info("[SUCCESS] LLM-based deduplication phase completed successfully")
-            logger.info(f"  Interventions analyzed: {total_processed}")
-            logger.info(f"  Duplicate interventions merged: {total_merged}")
-            logger.info(f"  Duplicate groups found: {deduplication_result.get('duplicate_groups_found', 0)}")
-            logger.info(f"  Papers processed: {deduplication_result.get('papers_processed', 0)}")
-            logger.info(f"  Deduplication rate: {(total_merged / total_processed * 100) if total_processed > 0 else 0:.1f}%")
-            logger.info(f"  Method: {deduplication_result.get('method', 'llm_comprehensive_deduplication')}")
-
-            return {'success': True, 'result': session.deduplication_result}
+            return {'success': True, 'result': session.categorization_result}
 
         except Exception as e:
-            logger.error(f"Deduplication phase failed: {e}")
-            return {'success': False, 'error': str(e), 'phase': 'deduplication'}
+            logger.error(f"Categorization phase failed: {e}")
+            return {'success': False, 'error': str(e), 'phase': 'categorization'}
+
+    def _run_canonical_grouping_phase(self, session: BatchSession) -> Dict[str, Any]:
+        """
+        Run Phase 3: Cross-paper canonical name grouping.
+
+        With single-model extraction (qwen2.5:14b only), same-paper duplicates cannot exist.
+        This phase ONLY performs cross-paper semantic analysis to group semantically equivalent
+        interventions under canonical names (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol").
+        """
+        logger.info("Running Phase 3: Cross-paper canonical name grouping...")
+
+        try:
+            if self.shutdown_requested:
+                return {'success': False, 'error': 'Shutdown requested during canonical grouping'}
+
+            # Run semantic grouping
+            grouping_result = self.dedup_integrator.group_all_data_semantically_batch()
+
+            # Update session with results
+            total_processed = grouping_result.get('interventions_processed', 0)
+            canonical_entities_created = grouping_result.get('canonical_entities_created', 0)
+
+            session.canonical_grouping_result = {
+                'total_interventions_processed': total_processed,
+                'canonical_entities_created': canonical_entities_created,
+                'interventions_grouped': grouping_result.get('total_merged', 0),
+                'processing_time_seconds': grouping_result.get('processing_time_seconds', 0),
+                'semantic_groups_found': grouping_result.get('duplicate_groups_found', 0),
+                'method': grouping_result.get('method', 'llm_semantic_grouping')
+            }
+
+            session.total_canonical_entities_created = canonical_entities_created
+
+            if not grouping_result['success']:
+                logger.error(f"Canonical grouping phase failed: {grouping_result.get('error', 'Unknown error')}")
+                return {
+                    'success': False,
+                    'error': f"Canonical grouping failed: {grouping_result.get('error', 'Unknown error')}",
+                    'phase': 'canonical_grouping'
+                }
+
+            logger.info("[SUCCESS] Canonical name grouping phase completed successfully")
+            logger.info(f"  Interventions analyzed: {total_processed}")
+            logger.info(f"  Canonical entities created: {canonical_entities_created}")
+            logger.info(f"  Semantic groups found: {grouping_result.get('duplicate_groups_found', 0)}")
+            logger.info(f"  Method: {grouping_result.get('method', 'llm_semantic_grouping')}")
+
+            return {'success': True, 'result': session.canonical_grouping_result}
+
+        except Exception as e:
+            logger.error(f"Canonical grouping phase failed: {e}")
+            return {'success': False, 'error': str(e), 'phase': 'canonical_grouping'}
 
     def get_status(self) -> Dict[str, Any]:
         """Get current pipeline status."""
@@ -555,19 +611,20 @@ class BatchMedicalRotationPipeline:
             'progress': {
                 'collection_completed': session.collection_completed,
                 'processing_completed': session.processing_completed,
-                'deduplication_completed': session.deduplication_completed,
+                'canonical_grouping_completed': session.canonical_grouping_completed,
                 'pipeline_completed': session.is_completed()
             },
             'statistics': {
                 'papers_collected': session.total_papers_collected,
                 'papers_processed': session.total_papers_processed,
                 'interventions_extracted': session.total_interventions_extracted,
-                'duplicates_removed': session.total_duplicates_removed
+                'canonical_entities_created': session.total_canonical_entities_created
             },
             'phase_results': {
                 'collection': session.collection_result,
                 'processing': session.processing_result,
-                'deduplication': session.deduplication_result
+                'categorization': session.categorization_result,
+                'canonical_grouping': session.canonical_grouping_result
             }
         }
 
@@ -597,7 +654,7 @@ Examples:
                         help='Number of papers to collect per condition (default: 10)')
     parser.add_argument('--resume', action='store_true',
                         help='Resume existing session')
-    parser.add_argument('--start-phase', choices=['collection', 'processing', 'deduplication'],
+    parser.add_argument('--start-phase', choices=['collection', 'processing', 'categorization', 'canonical_grouping'],
                         help='Specific phase to start from (use with --resume)')
     parser.add_argument('--status', action='store_true',
                         help='Show current pipeline status')

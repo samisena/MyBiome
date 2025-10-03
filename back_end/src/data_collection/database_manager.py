@@ -256,7 +256,7 @@ class DatabaseManager:
                 CREATE TABLE IF NOT EXISTS interventions (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     paper_id TEXT NOT NULL,
-                    intervention_category TEXT NOT NULL,
+                    intervention_category TEXT,
                     intervention_name TEXT NOT NULL,
                     intervention_details TEXT,  -- JSON object with category-specific fields
                     health_condition TEXT NOT NULL,
@@ -711,10 +711,11 @@ class DatabaseManager:
                 
                 was_new = cursor.rowcount > 0
                 conn.commit()
-                
+
                 if was_new:
-                    logger.info(f"Inserted intervention: {validated_intervention['intervention_category']} - {validated_intervention['intervention_name']} - {validated_intervention['health_condition']}")
-                
+                    category = validated_intervention.get('intervention_category', 'uncategorized')
+                    logger.info(f"Inserted intervention: {category} - {validated_intervention['intervention_name']} - {validated_intervention['health_condition']}")
+
                 return was_new
                 
         except Exception as e:

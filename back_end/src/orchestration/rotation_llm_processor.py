@@ -504,10 +504,7 @@ if __name__ == "__main__":
         if args.max_papers:
             print(f"Max papers: {args.max_papers}")
 
-        result = processor.process_condition_papers(
-            condition=args.condition,
-            max_papers=args.max_papers
-        )
+        result = processor.process_all_papers_batch()
 
         print("\n" + "="*60)
         print("PROCESSING RESULT")

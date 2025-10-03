@@ -20,9 +20,17 @@ An automated biomedical research pipeline that collects research papers about he
 - **Database Management**: SQLite operations with robust schema
 
 ### 2. **LLM Processing** (`back_end/src/llm_processing/`)
-- **Single-Model Extraction**: Fast processing with qwen2.5:14b 
-- **Intervention Extraction**: Structured extraction of treatment-outcome relationships with superior detail
+- **Single-Model Extraction**: Fast processing with qwen2.5:14b
+- **Intervention Extraction**: Structured extraction of treatment-outcome relationships WITHOUT categories (categorization happens in Phase 2.5)
 - **Batch Processing**: Efficient processing with thermal protection and memory management
+
+### 2.5. **Categorization Phase** (`back_end/src/orchestration/`)
+- **Intervention Categorization**: LLM-based categorization of interventions into 13 categories (exercise, diet, supplement, medication, therapy, lifestyle, surgery, test, device, procedure, biologics, gene_therapy, emerging)
+- **Condition Categorization**: LLM-based categorization of health conditions into 18 categories (cardiac, neurological, digestive, etc.)
+- **Batch Processing**: Processes 20 interventions/conditions per LLM call
+- **Separation of Concerns**: Categorization separated from extraction for flexibility and re-categorization capability
+
+### 3. **Semantic Grouping** (`back_end/src/llm_processing/`)
 - **Phase 3 Canonical Merging**: Cross-paper unification of intervention names (e.g., "vitamin D", "Vitamin D3", "cholecalciferol" → single canonical entity)
 
 ### 3. **Data Mining** (`back_end/src/data_mining/`)
@@ -42,9 +50,10 @@ An automated biomedical research pipeline that collects research papers about he
 
 ### Primary Orchestrators
 - **`batch_medical_rotation.py`**: Complete batch workflow orchestration for 60 medical conditions
-- **`rotation_llm_processor.py`**: LLM processing coordinator with thermal protection
-- **`rotation_paper_collector.py`**: Multi-source paper collection orchestrator
-- **`rotation_semantic_grouping_integrator.py`**: Phase 3 semantic grouping and canonical entity merging
+- **`rotation_paper_collector.py`**: Multi-source paper collection orchestrator (Phase 1)
+- **`rotation_llm_processor.py`**: LLM extraction coordinator with thermal protection (Phase 2 - extracts WITHOUT categories)
+- **`rotation_llm_categorization.py`**: LLM categorization coordinator (Phase 2.5 - categorizes interventions AND conditions)
+- **`rotation_semantic_grouping_integrator.py`**: Semantic grouping and canonical entity merging (Phase 3)
 
 ### Data Mining Tools
 - **`data_mining_orchestrator.py`**: Advanced analytics and pattern discovery coordinator
@@ -60,6 +69,7 @@ An automated biomedical research pipeline that collects research papers about he
 - **Ollama**: Local LLM inference (qwen2.5:14b)
 - **Requests**: API integrations (PubMed, Semantic Scholar, PMC)
 - **Circuit Breaker Pattern**: Robust error handling and retry logic
+- **FAST_MODE**: Performance optimization via logging suppression (enabled by default)
 
 ### APIs & Data Sources
 - **PubMed API**: Primary research paper source
@@ -164,12 +174,19 @@ An automated biomedical research pipeline that collects research papers about he
 - ✅ Multi-condition batch processing with session persistence
 
 ### LLM Processing
-- ✅ Single-model extraction with qwen2.5:14b 
+- ✅ Single-model extraction with qwen2.5:14b
+- ✅ Extraction WITHOUT categories (separate categorization phase)
 - ✅ Superior extraction detail preserved from Qwen model
 - ✅ Thermal protection with GPU monitoring (RTX 4090)
 - ✅ Automatic memory management and cleanup
 - ✅ Session recovery and resumable processing
 - ✅ Quality validation and scoring
+
+### Categorization Phase (NEW - Phase 2.5)
+- ✅ LLM-based intervention categorization (13 categories)
+- ✅ LLM-based condition categorization (18 categories)
+- ✅ Batch processing (20 items per LLM call)
+- ✅ Separation of concerns for re-categorization flexibility
 
 ### Data Mining
 - ✅ Advanced correlation analysis and pattern recognition
@@ -197,19 +214,28 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 
 **Pipeline Phases**:
 1. **Collection Phase**: Collects papers for all 60 conditions (PubMed only, S2 disabled, 2 parallel workers)
-2. **Processing Phase**: Single-model extraction with qwen2.5:14b (batch size: 8 papers)
-3. **Semantic Grouping Phase**: Phase 3 canonical entity merging (batch size: 20 interventions, cross-paper unification)
+2. **Processing Phase**: Single-model extraction with qwen2.5:14b (batch size: 8 papers) - extracts interventions WITHOUT categories
+2.5. **Categorization Phase**: LLM categorization of interventions AND conditions (batch size: 20 items)
+3. **Semantic Grouping Phase**: Canonical entity merging (batch size: 20 interventions, cross-paper unification)
 
 ### Individual Components
 ```bash
-# LLM processing only
-python back_end/src/orchestration/rotation_llm_processor.py --limit 50
+# Paper collection only (Phase 1)
+python -m back_end.src.orchestration.rotation_paper_collector diabetes --count 100 --no-s2
 
-# Paper collection only
-python back_end/src/orchestration/rotation_paper_collector.py --condition "diabetes" --papers 100
+# LLM processing only (Phase 2 - extracts WITHOUT categories)
+python -m back_end.src.orchestration.rotation_llm_processor diabetes --max-papers 50
+
+# Categorization only (Phase 2.5 - categorizes interventions AND conditions)
+python -m back_end.src.orchestration.rotation_llm_categorization --interventions-only
+python -m back_end.src.orchestration.rotation_llm_categorization --conditions-only
+python -m back_end.src.orchestration.rotation_llm_categorization  # Both
+
+# Semantic grouping only (Phase 3)
+python -m back_end.src.orchestration.rotation_semantic_grouping_integrator
 
 # Data mining and analysis
-python back_end/src/data_mining/data_mining_orchestrator.py --all
+python -m back_end.src.data_mining.data_mining_orchestrator --all
 ```
 
 ### Testing & Utilities
@@ -219,6 +245,10 @@ python back_end/src/orchestration/main_medical_rotation.py --test-condition "hyp
 
 # Check thermal status
 python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
+
+# Toggle FAST_MODE for debugging
+# In .env: FAST_MODE=0 (enables full logging)
+# In .env: FAST_MODE=1 (default, suppresses non-critical logs)
 ```
 
 ## Project Conventions
@@ -243,6 +273,14 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 - **Comprehensive validation**: Multi-level validation for data quality
 - **Thermal awareness**: GPU temperature monitoring for sustainable operation
 
+### Performance Optimization
+- **FAST_MODE**: Logging suppression for high-throughput processing
+  - **Enabled (default)**: `FAST_MODE=1` in `.env` - Only logs CRITICAL errors, no file logging
+  - **Disabled**: `FAST_MODE=0` - Full logging (ERROR/INFO/DEBUG) with file output
+  - **Impact**: Reduces I/O overhead during 1000+ papers/hour processing
+  - **Implementation**: [`config.py:218-227`](back_end/src/data/config.py#L218), [`batch_file_operations.py`](back_end/src/utils/batch_file_operations.py)
+  - **When to disable**: Active debugging or troubleshooting specific issues
+
 ## Current Database Status
 - **Medical conditions**: 60 conditions across 12 medical specialties
 - **Processing capability**: 1000+ papers per hour (single-model extraction, 2x improvement)
@@ -250,38 +288,52 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 - **Quality assurance**: Multi-stage validation and scoring
 - **Architecture**: Single-model (qwen2.5:14b) - October 2025 migration validated ✅
 
-## Critical Concepts: Single-Model vs Canonical Merging
+## Critical Concepts: Pipeline Architecture
 
 ### **Architecture Change (October 2025)**: Dual-Model → Single-Model ✅
 **Previous**: Used gemma2:9b + qwen2.5:14b with Phase 2 consensus-before-save deduplication
-**Current**: Uses qwen2.5:14b only - eliminates Phase 2 entirely
+**Current**: Uses qwen2.5:14b only - eliminates Phase 2 deduplication entirely
 
 **Benefits**:
 - 2x speed improvement (no dual extraction overhead)
 - No Phase 2 deduplication needed (single extraction = no same-paper duplicates)
-- Preserves Qwen's superior extraction detail (avoids "atorvastatin" vs "atorvastatin pretreatment" conflicts)
+- Preserves Qwen's superior extraction detail
 - Simpler error handling and debugging
 - Increased batch size from 5 to 8 papers
 
-### **Phase 2: DEPRECATED** (Previously: Same-Paper Deduplication)
-**Status**: No longer needed with single-model architecture
-**Historical Purpose**: Prevented double-counting when both LLM models extracted the same finding
-**Why Removed**: Single-model extraction creates only one record per finding per paper
+### **Categorization Change (October 2025)**: Inline → Separate Phase ✅
+**Previous**: Categorization happened during extraction (in prompt)
+**Current**: Categorization happens in separate Phase 2.5 (after extraction)
 
-**Historical Context** (Dual-Model Era):
-- Paper 41031311 was processed by gemma2:9b → extracted "vitamin D for cognitive impairment"
-- Same paper 41031311 was processed by qwen2.5:14b → extracted "vitamin D for type 2 diabetes mellitus-induced cognitive impairment"
-- Complex consensus logic was needed to merge these duplicates
+**Benefits**:
+- Separation of concerns (extraction vs classification)
+- Can re-categorize without re-extraction
+- Faster extraction (fewer tokens in prompt)
+- Same LLM categorizes interventions AND conditions together
+- More accurate categorization with focused prompts
 
-**Current Reality** (Single-Model Era):
-- Paper 41031311 is processed by qwen2.5:14b ONCE → extracts "vitamin D for type 2 diabetes mellitus-induced cognitive impairment"
-- No duplicates created, no consensus logic needed
-- Preserves Qwen's superior detail without conflicts
+**Workflow**:
+1. **Phase 2 (Extraction)**: Extract interventions WITHOUT categories → `intervention_category = NULL`
+2. **Phase 2.5 (Categorization)**: LLM categorizes interventions into 13 categories (including 'emerging' as fallback)
+3. **Phase 3 (Semantic Grouping)**: Canonical entity merging across papers
+
+### **Phase 2.5: Categorization Phase** (NEW - October 2025) ✅
+**Purpose**: Categorize interventions AND conditions using LLM
+
+**When**: Runs AFTER extraction, BEFORE semantic grouping
+
+**How it works**:
+- Interventions extracted with `intervention_category = NULL`
+- LLM categorizes in batches of 20 items
+- Assigns one of 13 categories (exercise, diet, supplement, medication, therapy, lifestyle, surgery, test, device, procedure, biologics, gene_therapy, emerging)
+- 'emerging' used as fallback for interventions that don't fit other categories
+- Same script also categorizes health conditions into 18 categories
+
+**Stats Tracking**:
+- During extraction: `category_counts['uncategorized']` tracks NULL categories
+- After categorization: All interventions have proper categories (including 'emerging')
 
 ### **Phase 3: Semantic Grouping** (Cross-Paper Entity Unification) ✅ VALIDATED
-**Purpose**: Aggregate all evidence about the same intervention across ALL papers
-
-**When**: Runs AFTER all extractions complete, operates on database records (cleanup and unification)
 
 **Problem**:
 - Paper A mentions "vitamin D"
@@ -294,13 +346,12 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 - Statistical analysis aggregates all evidence under the canonical entity
 - **CRITICAL**: Original intervention names are preserved for transparency (NO DELETIONS)
 - Uses LLM semantic analysis (qwen2.5:14b) for intelligent grouping
-- Batch size: 20 interventions per LLM call (2.5x larger than Phase 2)
+- Batch size: 20 interventions per LLM call
 
-**Performance** (Phase 3 vs Phase 2):
-- Phase 3 is significantly faster than Phase 2 because:
-  1. **Larger batch size**: 20 interventions vs 8 papers
-  2. **Smaller input**: Compares 20 short names (~600 tokens) vs 8 full papers (~40,000-120,000 tokens)
-  3. **Simpler task**: Name comparison vs structured extraction with 15+ fields
+**Performance**:
+- **Batch size**: 20 interventions per LLM call
+- **Input size**: ~600 tokens (20 short intervention names)
+- **Task**: Simple name comparison and grouping
 
 **Validation Results** (October 2025):
 - ✅ 284 interventions preserved (0 deletions)
@@ -336,7 +387,7 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 
 ### Design Philosophy
 
-**LLM-Based Classification**: All category assignment is performed by the LLM (qwen2.5:14b) during extraction
+**LLM-Based Classification**: All category assignment is performed by the LLM (qwen2.5:14b) in **Phase 2.5** (separate from extraction)
 - **Broad categories**: Designed to group similar interventions (e.g., swimming + cycling = exercise)
 - **Strict validation**: LLM must select exactly one of the 13 categories
 - **No subcategories**: Removed for simplicity and flexibility
@@ -353,15 +404,15 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 **Files**:
 - [`taxonomy.py`](back_end/src/interventions/taxonomy.py) - Category definitions and structures
 - [`category_validators.py`](back_end/src/interventions/category_validators.py) - Validation logic
-- [`validators.py`](back_end/src/data/validators.py) - Base validation rules
-- [`prompt_service.py`](back_end/src/llm_processing/prompt_service.py) - LLM prompts with category guidance
+- [`validators.py`](back_end/src/data/validators.py) - Base validation rules (allows NULL categories)
+- [`rotation_llm_categorization.py`](back_end/src/orchestration/rotation_llm_categorization.py) - Categorization orchestrator
 - [`search_terms.py`](back_end/src/interventions/search_terms.py) - PubMed search terms per category
 
-**Validation Flow**:
-1. LLM extracts intervention with category assignment
-2. Category validated against 13 allowed values
-3. Category-specific field validation (e.g., `device_type` for devices)
-4. Intervention inserted into database with `intervention_category` field
+**Workflow** (Updated October 2025):
+1. **Phase 2 (Extraction)**: LLM extracts intervention WITHOUT category → `intervention_category = NULL`
+2. **Phase 2.5 (Categorization)**: LLM categorizes interventions in batches of 20
+3. **Validation**: Category validated against 13 allowed values
+4. **Database Update**: `intervention_category` field updated from NULL to assigned category
 
 **Migration Notes** (October 2025):
 - Expanded from 9 to 13 categories (added: device, procedure, biologics, gene_therapy)

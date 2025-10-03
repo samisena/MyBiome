@@ -236,8 +236,8 @@ class PaperValidator(BaseValidator):
 class InterventionValidator(BaseValidator):
     """Validator for intervention data."""
 
-    REQUIRED_FIELDS = ['intervention_category', 'intervention_name', 'health_condition', 'correlation_type']
-    OPTIONAL_FIELDS = ['condition_category']  # Optional for backward compatibility during migration
+    REQUIRED_FIELDS = ['intervention_name', 'health_condition', 'correlation_type']
+    OPTIONAL_FIELDS = ['condition_category', 'intervention_category']  # Optional to allow separate categorization phase
     VALID_CATEGORIES = ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle', 'surgery', 'test', 'device', 'procedure', 'biologics', 'gene_therapy', 'emerging']
     VALID_CONDITION_CATEGORIES = ['cardiac', 'neurological', 'digestive', 'pulmonary', 'endocrine', 'renal', 'oncological', 'rheumatological', 'psychiatric', 'musculoskeletal', 'dermatological', 'infectious', 'immunological', 'hematological', 'nutritional', 'toxicological', 'parasitic', 'other']
     VALID_CORRELATION_TYPES = ['positive', 'negative', 'neutral', 'inconclusive']
@@ -253,11 +253,11 @@ class InterventionValidator(BaseValidator):
         # Required fields
         issues.extend(self.validate_required_fields(intervention_data, self.REQUIRED_FIELDS))
         
-        # Category validation
-        if 'intervention_category' in intervention_data:
+        # Category validation (only if present and not None - allows separate categorization phase)
+        if 'intervention_category' in intervention_data and intervention_data['intervention_category'] is not None:
             issues.extend(self.validate_enum_value(
-                intervention_data['intervention_category'], 
-                'intervention_category', 
+                intervention_data['intervention_category'],
+                'intervention_category',
                 self.VALID_CATEGORIES
             ))
         
