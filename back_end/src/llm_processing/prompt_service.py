@@ -442,6 +442,44 @@ CORRECT OUTPUT:
 
 WHY: The intervention targets body image disturbance (PRIMARY condition), NOT systemic lupus erythematosus (underlying disease context). SLE goes in population_details.
 
+EXAMPLE 2 (Diabetes Foot Care):
+Paper title: "Family-centered training and counselling for enhancing foot self-care knowledge and practices towards prevention of diabetes foot - a randomized controlled trial in urban Jodhpur."
+Abstract: "A randomized controlled trial was conducted in a primary care setting. Persons with diabetes mellitus aged 18-60 years (54 in each group) and their family members (2 per participant) were the study participants. Foot care-related knowledge, practices, family support, and foot condition were the outcomes. Intervention included family centered training and counselling for improving foot care knowledge and practices through family support. An end-line assessment was done nine months after the intervention. Foot care-related knowledge and practice scores were significantly higher in the intervention group compared to the control group at the end-line (13.4±1.2 vs. 9.9±2.7, p<0.001 and 7.9±1.4 vs. 6.2±1.3, p<0.001). None from the intervention group and four individuals (8%) from the control group reported an incidence of foot ulcer during the follow-up period."
+
+CORRECT OUTPUT:
+[{{
+  "intervention_name": "family-centered training and counselling",
+  "dosage": null,
+  "duration": "nine months",
+  "frequency": null,
+  "intensity": null,
+  "administration_route": null,
+  "health_condition": "diabetes foot",
+  "correlation_type": "positive",
+  "correlation_strength": "strong",
+  "extraction_confidence": "very high",
+  "study_confidence": "high",
+  "sample_size": 54,
+  "study_duration": "nine months",
+  "study_type": "randomized controlled trial",
+  "population_details": "persons with diabetes mellitus aged 18-60 years and their family members",
+  "delivery_method": "behavioral",
+  "severity": null,
+  "adverse_effects": null
+}}]
+
+WHY: The condition is "diabetes foot" (diabetic foot complications), NOT just "diabetes" or "foot self-care knowledge".
+- Don't use the underlying disease alone ("diabetes") - too broad
+- Don't use the outcome measures ("foot self-care knowledge and practices") - too specific
+- Use the actual medical complication being addressed ("diabetes foot" or "diabetic foot")
+- The intervention targets a specific complication of the underlying disease
+
+GENERAL PRINCIPLE FOR TRICKY ABSTRACTS:
+When a paper studies an intervention for a COMPLICATION or SPECIFIC MANIFESTATION of a disease:
+- health_condition = the specific complication/manifestation (e.g., "diabetes foot", "body image disturbance")
+- population_details = the broader context/underlying disease (e.g., "persons with diabetes", "women with lupus")
+- Don't confuse outcome measures with the condition being treated
+
 Return [] if no specific interventions are found."""
 
     def create_system_message(self) -> str:
