@@ -33,13 +33,16 @@ def parse_json_safely(text: str, paper_id: str = "unknown") -> List[Dict]:
     try:
         # Clean the text
         text = text.strip()
-        
+
+        # Remove qwen3 <think> tags (chain-of-thought reasoning)
+        text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL)
+
         # Handle code blocks
         if "```json" in text:
             text = text.split("```json")[1].split("```")[0]
         elif "```" in text:
             text = text.split("```")[1].split("```")[0]
-        
+
         text = text.strip()
         
         if not text:

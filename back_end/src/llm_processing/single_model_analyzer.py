@@ -1,5 +1,5 @@
 """
-Single-model intervention analyzer using qwen2.5:14b.
+Single-model intervention analyzer using qwen3:14b.
 Simplified approach that runs one model and stores results directly.
 No consensus building needed - 2x faster than dual-model approach.
 """
@@ -84,9 +84,9 @@ class SingleModelAnalyzer:
         self.repository_mgr = repository_mgr or repository_manager
 
         # Single model configuration
-        self.model_name = 'qwen2.5:14b'
+        self.model_name = 'qwen3:14b'
         self.model_config = {
-            'client': get_llm_client('qwen2.5:14b'),
+            'client': get_llm_client('qwen3:14b'),
             'temperature': 0.3,
             'max_tokens': None,  # Will be calculated dynamically
             'max_context': 32768,  # Model's maximum context length
@@ -200,7 +200,7 @@ class SingleModelAnalyzer:
     @handle_llm_errors("extract interventions", max_retries=3)
     def extract_interventions(self, paper: Dict) -> Dict[str, Any]:
         """
-        Extract interventions from a single paper using qwen2.5:14b.
+        Extract interventions from a single paper using qwen3:14b.
 
         Args:
             paper: Dictionary with 'pmid', 'title', and 'abstract'
@@ -223,7 +223,7 @@ class SingleModelAnalyzer:
             # Update paper processing status
             self.repository_mgr.papers.update_processing_status(pmid, 'processing')
 
-            # Extract using qwen2.5:14b
+            # Extract using qwen3:14b
             client = self.model_config['client']
 
             # Create prompt using shared service

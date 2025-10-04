@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Probiotic-Health Correlations Database</title>
+    <title>MyBiome Health Intervention Research Database</title>
     
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -24,8 +24,8 @@
 <body>
     <header class="header">
         <div class="container">
-            <h1>🧬 Probiotic-Health Correlations Database</h1>
-            <p class="subtitle">Research-backed insights into probiotic strain effectiveness</p>
+            <h1>MyBiome Health Intervention Research</h1>
+            <p class="subtitle">Evidence-based insights from biomedical research</p>
         </div>
     </header>
 
@@ -44,15 +44,15 @@
 
         <!-- Summary statistics -->
         <section id="summary" class="summary-section" style="display: none;">
-            <h2>📊 Database Summary</h2>
+            <h2>Database Summary</h2>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number" id="total-correlations">-</div>
-                    <div class="stat-label">Total Correlations</div>
+                    <div class="stat-number" id="total-interventions">-</div>
+                    <div class="stat-label">Total Interventions</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="unique-strains">-</div>
-                    <div class="stat-label">Probiotic Strains</div>
+                    <div class="stat-number" id="unique-interventions">-</div>
+                    <div class="stat-label">Unique Interventions</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number" id="unique-conditions">-</div>
@@ -61,6 +61,10 @@
                 <div class="stat-card">
                     <div class="stat-number" id="unique-papers">-</div>
                     <div class="stat-label">Research Papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="canonical-entities">-</div>
+                    <div class="stat-label">Canonical Entities</div>
                 </div>
                 <div class="stat-card positive">
                     <div class="stat-number" id="positive-correlations">-</div>
@@ -75,8 +79,20 @@
 
         <!-- Filters -->
         <section id="filters" class="filters-section" style="display: none;">
-            <h3>🔍 Filters</h3>
+            <h3>Filters</h3>
             <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="category-filter">Intervention Category:</label>
+                    <select id="category-filter">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="condition-category-filter">Condition Category:</label>
+                    <select id="condition-category-filter">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
                 <div class="filter-group">
                     <label for="correlation-filter">Correlation Type:</label>
                     <select id="correlation-filter">
@@ -92,16 +108,6 @@
                     <input type="range" id="confidence-filter" min="0" max="1" step="0.1" value="0">
                     <span id="confidence-value">0.0</span>
                 </div>
-                <div class="filter-group">
-                    <label for="validation-filter">Validation Status:</label>
-                    <select id="validation-filter">
-                        <option value="">All Statuses</option>
-                        <option value="pending">Pending</option>
-                        <option value="verified">Verified</option>
-                        <option value="conflicted">Conflicted</option>
-                        <option value="failed">Failed</option>
-                    </select>
-                </div>
                 <div class="filter-actions">
                     <button id="clear-filters" class="btn btn-secondary">Clear Filters</button>
                 </div>
@@ -110,20 +116,20 @@
 
         <!-- Data table -->
         <section id="table-section" class="table-section" style="display: none;">
-            <h3>📋 Correlations Data</h3>
-            <table id="correlations-table" class="display responsive nowrap" style="width:100%">
+            <h3>Interventions Data</h3>
+            <table id="interventions-table" class="display responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Probiotic Strain</th>
+                        <th>Intervention</th>
+                        <th>Category</th>
                         <th>Health Condition</th>
+                        <th>Condition Category</th>
                         <th>Correlation</th>
                         <th>Strength</th>
                         <th>Confidence</th>
                         <th>Sample Size</th>
                         <th>Study Type</th>
                         <th>Paper</th>
-                        <th>Journal</th>
-                        <th>Validation</th>
                         <th>Details</th>
                     </tr>
                 </thead>
@@ -137,11 +143,11 @@
         <section id="top-performers" class="top-performers-section" style="display: none;">
             <div class="top-performers-grid">
                 <div class="top-list">
-                    <h3>🏆 Top Probiotic Strains</h3>
-                    <ul id="top-strains-list"></ul>
+                    <h3>Top Interventions</h3>
+                    <ul id="top-interventions-list"></ul>
                 </div>
                 <div class="top-list">
-                    <h3>🎯 Most Studied Conditions</h3>
+                    <h3>Most Studied Conditions</h3>
                     <ul id="top-conditions-list"></ul>
                 </div>
             </div>
@@ -150,7 +156,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Probiotic Research Database | Data sourced from PubMed</p>
+            <p>&copy; 2025 MyBiome Health Research | Data sourced from PubMed</p>
             <p>Last updated: <span id="last-updated">-</span></p>
         </div>
     </footer>

@@ -36,7 +36,10 @@
       "Bash(PYTHONPATH=. python test_condition_category_simple.py)",
       "Bash(PYTHONPATH=. python back_end/scripts/backfill_condition_categories.py --batch-size 20)",
       "Bash(git log:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(tasklist:*)",
+      "Bash(taskkill:*)",
+      "Bash(set PYTHONPATH=.)"
     ],
     "deny": [],
     "ask": []

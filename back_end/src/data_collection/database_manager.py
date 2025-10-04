@@ -1185,10 +1185,10 @@ class DatabaseManager:
                     validated_intervention.get('severity'),
                     validated_intervention.get('adverse_effects'),
                     validated_intervention.get('cost_category'),
-                    validated_intervention.get('extraction_model', 'qwen2.5:14b'),  # Default to single model
+                    validated_intervention.get('extraction_model', 'qwen3:14b'),  # Default to single model
                     validated_intervention.get('consensus_confidence'),
                     validated_intervention.get('model_agreement', 'single'),  # Default to single model
-                    validated_intervention.get('models_used', 'qwen2.5:14b'),  # Default to single model
+                    validated_intervention.get('models_used', 'qwen3:14b'),  # Default to single model
                     validated_intervention.get('raw_extraction_count', 1),
                     validated_intervention.get('models_contributing'),
                     # New normalization fields

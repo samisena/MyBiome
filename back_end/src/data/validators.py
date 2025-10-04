@@ -244,6 +244,27 @@ class InterventionValidator(BaseValidator):
     VALID_DELIVERY_METHODS = ['oral', 'injection', 'topical', 'inhalation', 'behavioral', 'digital', 'surgical', 'intravenous', 'sublingual', 'rectal', 'transdermal', 'acupuncture', 'nasal', 'nasal spray', 'intranasal', 'enema', 'subcutaneous', 'intramuscular', 'needling', 'local application', 'neuromodulation', 'electrical stimulation', 'subcutaneous injection', 'acupuncture needles', 'blunt-tipped needles at non-acupoints', 'educational', 'supervised', 'counseling', 'oral capsules or colonoscopy']
     VALID_SEVERITY_LEVELS = ['mild', 'moderate', 'severe']
     VALID_COST_CATEGORIES = ['low', 'medium', 'high']
+
+    # String-based confidence/strength levels (new prompt format)
+    VALID_CONFIDENCE_LEVELS = ['very high', 'high', 'medium', 'low', 'very low']
+    VALID_STRENGTH_LEVELS = ['very strong', 'strong', 'moderate', 'weak', 'very weak']
+
+    # Mapping from string to numeric values
+    CONFIDENCE_TO_NUMERIC = {
+        'very high': 0.9,
+        'high': 0.75,
+        'medium': 0.5,
+        'low': 0.25,
+        'very low': 0.1
+    }
+
+    STRENGTH_TO_NUMERIC = {
+        'very strong': 0.9,
+        'strong': 0.75,
+        'moderate': 0.5,
+        'weak': 0.25,
+        'very weak': 0.1
+    }
     
     def validate(self, intervention_data: Dict) -> ValidationResult:
         """Validate intervention data."""
@@ -310,16 +331,48 @@ class InterventionValidator(BaseValidator):
                 self.VALID_CORRELATION_TYPES
             ))
         
-        # Numeric field validation
-        for field, (min_val, max_val) in [
-            ('correlation_strength', (0.0, 1.0)),
-            ('extraction_confidence', (0.0, 1.0)),
-            ('study_confidence', (0.0, 1.0))
-        ]:
-            if field in intervention_data and intervention_data[field] is not None:
-                issues.extend(self.validate_numeric_range(
-                    intervention_data[field], field, min_val, max_val
+        # Confidence and strength field validation (support both string and numeric formats)
+        # correlation_strength
+        if 'correlation_strength' in intervention_data and intervention_data['correlation_strength'] is not None:
+            value = intervention_data['correlation_strength']
+            if isinstance(value, str):
+                # String format - validate against allowed values
+                issues.extend(self.validate_enum_value(
+                    value.lower() if value else value,
+                    'correlation_strength',
+                    self.VALID_STRENGTH_LEVELS
                 ))
+                # Convert to numeric for database storage
+                cleaned_data['correlation_strength'] = self.STRENGTH_TO_NUMERIC.get(value.lower() if value else value)
+            else:
+                # Numeric format - validate range
+                issues.extend(self.validate_numeric_range(value, 'correlation_strength', 0.0, 1.0))
+
+        # extraction_confidence
+        if 'extraction_confidence' in intervention_data and intervention_data['extraction_confidence'] is not None:
+            value = intervention_data['extraction_confidence']
+            if isinstance(value, str):
+                issues.extend(self.validate_enum_value(
+                    value.lower() if value else value,
+                    'extraction_confidence',
+                    self.VALID_CONFIDENCE_LEVELS
+                ))
+                cleaned_data['extraction_confidence'] = self.CONFIDENCE_TO_NUMERIC.get(value.lower() if value else value)
+            else:
+                issues.extend(self.validate_numeric_range(value, 'extraction_confidence', 0.0, 1.0))
+
+        # study_confidence
+        if 'study_confidence' in intervention_data and intervention_data['study_confidence'] is not None:
+            value = intervention_data['study_confidence']
+            if isinstance(value, str):
+                issues.extend(self.validate_enum_value(
+                    value.lower() if value else value,
+                    'study_confidence',
+                    self.VALID_CONFIDENCE_LEVELS
+                ))
+                cleaned_data['study_confidence'] = self.CONFIDENCE_TO_NUMERIC.get(value.lower() if value else value)
+            else:
+                issues.extend(self.validate_numeric_range(value, 'study_confidence', 0.0, 1.0))
         
         # Sample size validation
         if 'sample_size' in intervention_data and intervention_data['sample_size'] is not None:

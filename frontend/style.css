@@ -221,7 +221,7 @@ body {
 }
 
 /* DataTables custom styles */
-#correlations-table {
+#interventions-table {
     width: 100% !important;
 }
 
@@ -239,6 +239,17 @@ body {
 .dataTables_filter input:focus {
     outline: none;
     border-color: #667eea;
+}
+
+/* Category badges */
+.category-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: #e9ecef;
+    color: #495057;
 }
 
 /* Correlation type badges */

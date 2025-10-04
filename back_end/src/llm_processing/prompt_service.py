@@ -378,67 +378,75 @@ Respond with ONLY valid JSON:
     
     def _build_intervention_prompt(self, paper_content: str) -> str:
         """Build the complete intervention extraction prompt."""
-        return f"""You are a biomedical expert analyzing research papers to extract health interventions and their relationships to health conditions.
+        return f"""You are a biomedical research expert specializing in extracting structured intervention data from medical literature.
 
 PAPER:
 {paper_content}
 
-TASK: Extract ALL health interventions mentioned in this paper as a JSON array.
+TASK: Extract ALL health interventions from this paper as a JSON array.
 
-Return ONLY valid JSON. No extra text. Each intervention needs these fields:
-- intervention_name: specific intervention name (e.g., "Mediterranean diet", "aerobic exercise", "metformin", "cognitive behavioral therapy")
-- intervention_details: object with category-specific details (duration, dosage, frequency, etc.)
-- health_condition: specific condition being treated
-- correlation_type: "positive", "negative", "neutral", or "inconclusive"
-- correlation_strength: number 0.0-1.0 or null
-- extraction_confidence: number 0.0-1.0 - YOUR confidence in extracting this information from the text
-- study_confidence: number 0.0-1.0 - the AUTHORS' confidence in their findings/results or null
+OUTPUT FORMAT (CRITICAL):
+Your response MUST start with [ and end with ]. NO explanations, NO markdown code blocks (```), NO commentary.
+WRONG: ```json[{{...}}]```  or  "Here are the interventions: [{{...}}]"
+CORRECT: [{{...}}]
+
+REQUIRED FIELDS:
+- intervention_name: specific name (e.g., "cognitive behavioral therapy", "metformin", "Mediterranean diet")
+- dosage: string or null
+- duration: string or null
+- frequency: string or null
+- intensity: string or null
+- administration_route: string or null
+- health_condition: PRIMARY condition directly targeted (NOT underlying disease)
+- correlation_type: "positive" | "negative" | "neutral" | "inconclusive"
+- correlation_strength: "very strong" | "strong" | "moderate" | "weak" | "very weak" | null
+- extraction_confidence: "very high" | "high" | "medium" | "low" | "very low" (YOUR confidence extracting this)
+- study_confidence: "very high" | "high" | "medium" | "low" | "very low" | null (AUTHORS' confidence in findings)
 - sample_size: number or null
-- study_duration: duration or null
-- study_type: type of study or null
-- population_details: population characteristics or null
-- delivery_method: how intervention was delivered ("oral", "injection", "topical", "inhalation", "behavioral", "digital", etc.) or null
-- severity: condition severity level ("mild", "moderate", "severe") or null
-- adverse_effects: any reported side effects or complications or null
-- cost_category: cost level ("low", "medium", "high") or null
-- supporting_quote: relevant quote from text
+- study_duration: string or null
+- study_type: string or null
+- population_details: string describing study population or null
+- delivery_method: "oral" | "injection" | "topical" | "inhalation" | "behavioral" | "digital" | "surgical" | etc. or null
+- severity: "mild" | "moderate" | "severe" | null (severity of the condition in the affected population being studied)
+- adverse_effects: string or null
 
-IMPORTANT RULES:
-- ONLY extract interventions where you can identify specific intervention names
-- DO NOT use placeholders like "...", "intervention", "treatment", "therapy" (too generic)
-- Each intervention_name must be specific (e.g., "cognitive behavioral therapy" not just "therapy", "metformin" not just "medication")
-- Include intervention_details with relevant information when available (dosage, duration, frequency, intensity, etc.)
-- If no specific interventions are mentioned, return []
+CRITICAL RULES:
+1. Extract the PRIMARY/DIRECT target condition, not underlying disease
+2. intervention_name must be specific (not "therapy" or "medication" - too generic)
+3. Return [] if no specific interventions found
 
-Example of valid extraction:
+EXAMPLE (Tricky - Primary vs Secondary Condition):
+Paper title: "Effect of writing based on self-compassion on body image and psychological distress among women with systemic lupus erythematosus: a randomized clinical trial"
+
+CORRECT OUTPUT:
 [{{
-  "intervention_name": "aerobic exercise",
-  "intervention_details": {{
-    "duration": "30 minutes",
-    "frequency": "3 times per week",
-    "intensity": "moderate"
-  }},
-  "health_condition": "depression",
+  "intervention_name": "self-compassion writing therapy",
+  "dosage": null,
+  "duration": "4 weeks",
+  "frequency": "twice weekly",
+  "intensity": null,
+  "administration_route": null,
+  "health_condition": "body image disturbance",
   "correlation_type": "positive",
-  "correlation_strength": 0.75,
-  "extraction_confidence": 0.9,
-  "study_confidence": 0.8,
-  "sample_size": 120,
-  "study_duration": "12 weeks",
+  "correlation_strength": "strong",
+  "extraction_confidence": "very high",
+  "study_confidence": "high",
+  "sample_size": 60,
+  "study_duration": "4 weeks",
   "study_type": "randomized controlled trial",
-  "population_details": "adults aged 25-65 with moderate depression",
+  "population_details": "women with systemic lupus erythematosus",
   "delivery_method": "behavioral",
-  "severity": "moderate",
-  "adverse_effects": "mild fatigue initially",
-  "cost_category": "low",
-  "supporting_quote": "Participants in the aerobic exercise group showed significant improvement in depression scores"
+  "severity": null,
+  "adverse_effects": null
 }}]
+
+WHY: The intervention targets body image disturbance (PRIMARY condition), NOT systemic lupus erythematosus (underlying disease context). SLE goes in population_details.
 
 Return [] if no specific interventions are found."""
 
     def create_system_message(self) -> str:
-        """Create a standardized system message for LLM calls."""
-        return "You are a precise biomedical data extraction system. Return only valid JSON arrays with no additional formatting or text."
+        """Create a standardized system message for LLM calls optimized for qwen3:14b."""
+        return "Provide only the final JSON output without showing your reasoning process or using <think> tags. Start your response immediately with the [ character."
 
 
 # Global prompt service instance
