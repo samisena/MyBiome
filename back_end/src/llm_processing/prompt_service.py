@@ -398,6 +398,7 @@ REQUIRED FIELDS:
 - intensity: string or null
 - administration_route: string or null
 - health_condition: PRIMARY condition directly targeted (NOT underlying disease)
+- mechanism: concise description of HOW the intervention works (e.g., "gut microbiome modulation", "reduced inflammation", "improved insulin sensitivity") - NO repetition of intervention/condition names
 - correlation_type: "positive" | "negative" | "neutral" | "inconclusive"
 - correlation_strength: "very strong" | "strong" | "moderate" | "weak" | "very weak" | null
 - extraction_confidence: "very high" | "high" | "medium" | "low" | "very low" (YOUR confidence extracting this)
@@ -427,6 +428,7 @@ CORRECT OUTPUT:
   "intensity": null,
   "administration_route": null,
   "health_condition": "body image disturbance",
+  "mechanism": "psychological restructuring and improved self-perception",
   "correlation_type": "positive",
   "correlation_strength": "strong",
   "extraction_confidence": "very high",
@@ -455,6 +457,7 @@ CORRECT OUTPUT:
   "intensity": null,
   "administration_route": null,
   "health_condition": "diabetes foot",
+  "mechanism": "improved foot care practices through family education",
   "correlation_type": "positive",
   "correlation_strength": "strong",
   "extraction_confidence": "very high",
@@ -474,11 +477,47 @@ WHY: The condition is "diabetes foot" (diabetic foot complications), NOT just "d
 - Use the actual medical complication being addressed ("diabetes foot" or "diabetic foot")
 - The intervention targets a specific complication of the underlying disease
 
+EXAMPLE 3 (Biological Mechanism):
+Paper title: "Effects of probiotics on irritable bowel syndrome: A randomized controlled trial"
+Abstract: "Irritable bowel syndrome (IBS) affects gut microbiota composition. This randomized controlled trial evaluated probiotic effects on IBS symptoms. 120 patients received either probiotic Lactobacillus plantarum (10^9 CFU daily) or placebo for 8 weeks. The probiotic group showed significant improvement in abdominal pain scores (p<0.001) and bowel movement frequency. Gut microbiota analysis revealed increased beneficial bacteria and reduced inflammatory markers."
+
+CORRECT OUTPUT:
+[{{
+  "intervention_name": "Lactobacillus plantarum probiotic",
+  "dosage": "10^9 CFU daily",
+  "duration": "8 weeks",
+  "frequency": "daily",
+  "intensity": null,
+  "administration_route": "oral",
+  "health_condition": "irritable bowel syndrome",
+  "mechanism": "gut microbiome modulation and reduced intestinal inflammation",
+  "correlation_type": "positive",
+  "correlation_strength": "strong",
+  "extraction_confidence": "very high",
+  "study_confidence": "high",
+  "sample_size": 120,
+  "study_duration": "8 weeks",
+  "study_type": "randomized controlled trial",
+  "population_details": "patients with irritable bowel syndrome",
+  "delivery_method": "oral",
+  "severity": null,
+  "adverse_effects": null
+}}]
+
+WHY: This demonstrates a clear biological mechanism - probiotics work through microbiome modulation, not just "improved gut health".
+
 GENERAL PRINCIPLE FOR TRICKY ABSTRACTS:
 When a paper studies an intervention for a COMPLICATION or SPECIFIC MANIFESTATION of a disease:
 - health_condition = the specific complication/manifestation (e.g., "diabetes foot", "body image disturbance")
 - population_details = the broader context/underlying disease (e.g., "persons with diabetes", "women with lupus")
 - Don't confuse outcome measures with the condition being treated
+
+MECHANISM EXTRACTION GUIDELINES:
+- Be CONCISE - describe HOW the intervention works in 3-10 words
+- Extract ONLY what is explicitly mentioned in the paper
+- DO NOT repeat intervention or condition names in the mechanism
+- Good examples: "gut microbiome modulation", "reduced inflammation", "improved insulin sensitivity", "enhanced behavioral adherence"
+- Bad examples: "unknown", "improves symptoms", "the intervention helps the condition by working through various pathways"
 
 Return [] if no specific interventions are found."""
 

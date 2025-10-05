@@ -260,6 +260,7 @@ class DatabaseManager:
                     intervention_name TEXT NOT NULL,
                     intervention_details TEXT,  -- JSON object with category-specific fields
                     health_condition TEXT NOT NULL,
+                    mechanism TEXT,  -- Biological/behavioral mechanism of action
                     correlation_type TEXT CHECK(correlation_type IN ('positive', 'negative', 'neutral', 'inconclusive')),
                     correlation_strength REAL CHECK(correlation_strength >= 0 AND correlation_strength <= 1),
 
@@ -680,18 +681,19 @@ class DatabaseManager:
                 cursor.execute('''
                     INSERT OR REPLACE INTO interventions
                     (paper_id, intervention_category, intervention_name, intervention_details,
-                     health_condition, condition_category, correlation_type, correlation_strength,
+                     health_condition, mechanism, condition_category, correlation_type, correlation_strength,
                      extraction_confidence, study_confidence,
                      sample_size, study_duration, study_type, population_details,
                      supporting_quote, delivery_method, severity, adverse_effects, cost_category,
                      extraction_model)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
                     validated_intervention['intervention_name'],
                     json.dumps(validated_intervention.get('intervention_details', {})),
                     validated_intervention['health_condition'],
+                    validated_intervention.get('mechanism'),
                     validated_intervention.get('condition_category'),
                     validated_intervention['correlation_type'],
                     validated_intervention.get('correlation_strength'),
@@ -1157,20 +1159,21 @@ class DatabaseManager:
                 cursor.execute('''
                     INSERT OR REPLACE INTO interventions
                     (paper_id, intervention_category, intervention_name, intervention_details,
-                     health_condition, condition_category, correlation_type, correlation_strength,
+                     health_condition, mechanism, condition_category, correlation_type, correlation_strength,
                      extraction_confidence, study_confidence,
                      sample_size, study_duration, study_type, population_details,
                      supporting_quote, delivery_method, severity, adverse_effects, cost_category,
                      extraction_model, consensus_confidence, model_agreement,
                      models_used, raw_extraction_count, models_contributing,
                      intervention_canonical_id, condition_canonical_id, normalized)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
                     validated_intervention['intervention_name'],
                     json.dumps(validated_intervention.get('intervention_details', {})),
                     validated_intervention['health_condition'],
+                    validated_intervention.get('mechanism'),
                     validated_intervention.get('condition_category'),
                     validated_intervention['correlation_type'],
                     validated_intervention.get('correlation_strength'),

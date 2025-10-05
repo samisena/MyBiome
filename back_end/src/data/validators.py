@@ -236,7 +236,7 @@ class PaperValidator(BaseValidator):
 class InterventionValidator(BaseValidator):
     """Validator for intervention data."""
 
-    REQUIRED_FIELDS = ['intervention_name', 'health_condition', 'correlation_type']
+    REQUIRED_FIELDS = ['intervention_name', 'health_condition', 'mechanism', 'correlation_type']
     OPTIONAL_FIELDS = ['condition_category', 'intervention_category']  # Optional to allow separate categorization phase
     VALID_CATEGORIES = ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle', 'surgery', 'test', 'device', 'procedure', 'biologics', 'gene_therapy', 'emerging']
     VALID_CONDITION_CATEGORIES = ['cardiac', 'neurological', 'digestive', 'pulmonary', 'endocrine', 'renal', 'oncological', 'rheumatological', 'psychiatric', 'musculoskeletal', 'dermatological', 'infectious', 'immunological', 'hematological', 'nutritional', 'toxicological', 'parasitic', 'other']
@@ -314,6 +314,45 @@ class InterventionValidator(BaseValidator):
             issues.extend(self.validate_string_length(
                 intervention_data['health_condition'], 'health_condition', min_length=2, max_length=200
             ))
+
+        # Mechanism validation
+        if 'mechanism' in intervention_data:
+            mechanism = intervention_data['mechanism']
+            if mechanism:
+                # Length validation
+                issues.extend(self.validate_string_length(
+                    mechanism, 'mechanism', min_length=15, max_length=500
+                ))
+
+                # Check for placeholder/generic values
+                import re
+                mechanism_lower = mechanism.lower().strip()
+                placeholder_patterns = [
+                    'unknown', 'unclear', 'not specified', 'n/a', 'na', 'null', 'none',
+                    'mechanism not described', 'mechanism unclear', 'not clear',
+                    'improves symptoms', 'helps condition', 'works through pathways',
+                    'mechanism of action unknown'
+                ]
+
+                # Check if mechanism is just a placeholder
+                if mechanism_lower in placeholder_patterns or len(mechanism_lower) < 10:
+                    issues.append(ValidationIssue(
+                        field='mechanism',
+                        message=f"Mechanism '{mechanism}' is too generic or placeholder. Describe the biological/behavioral/psychological pathway.",
+                        severity=ValidationSeverity.ERROR,
+                        value=mechanism
+                    ))
+
+                # Check for meaningful content (should have at least some medical/biological terms)
+                # Simple heuristic: should have words longer than 5 characters
+                words = re.findall(r'\b\w{6,}\b', mechanism_lower)
+                if len(words) < 2:
+                    issues.append(ValidationIssue(
+                        field='mechanism',
+                        message=f"Mechanism '{mechanism}' lacks specificity. Include biological, behavioral, or psychological details.",
+                        severity=ValidationSeverity.WARNING,
+                        value=mechanism
+                    ))
 
         # Condition category validation
         if 'condition_category' in intervention_data:

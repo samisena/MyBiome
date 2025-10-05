@@ -21,7 +21,8 @@ An automated biomedical research pipeline that collects research papers about he
 
 ### 2. **LLM Processing** (`back_end/src/llm_processing/`)
 - **Single-Model Extraction**: Fast processing with qwen3:14b (optimized with chain-of-thought suppression)
-- **Intervention Extraction**: Structured extraction of treatment-outcome relationships WITHOUT categories (categorization happens in Phase 2.5)
+- **Intervention Extraction**: Structured extraction of treatment-outcome relationships including **mechanism of action** (biological/behavioral/psychological pathways)
+- **Categorization Deferred**: Categories assigned in Phase 2.5 (categorization happens separately)
 - **Batch Processing**: Efficient processing with thermal protection and memory management
 
 ### 2.5. **Categorization Phase** (`back_end/src/orchestration/`)
@@ -97,6 +98,7 @@ An automated biomedical research pipeline that collects research papers about he
 2. **`interventions`** - Extracted treatments and outcomes with LLM processing metadata
    - Updated by: [`single_model_analyzer.py`](back_end/src/llm_processing/single_model_analyzer.py), [`batch_entity_processor.py`](back_end/src/llm_processing/batch_entity_processor.py)
    - Methods: `insert_intervention()`, `insert_intervention_normalized()` in [`database_manager.py`](back_end/src/data_collection/database_manager.py)
+   - Key fields: intervention_name, health_condition, **mechanism** (biological/behavioral/psychological pathway), correlation_type, sample_size, study_type
 
 ### Phase 3 Semantic Grouping Tables (4 tables)
 **Updated by**: [`rotation_semantic_grouping_integrator.py`](back_end/src/orchestration/rotation_semantic_grouping_integrator.py) via [`batch_entity_processor.py`](back_end/src/llm_processing/batch_entity_processor.py)
