@@ -1,0 +1,2420 @@
+{
+  "metadata": {
+    "generation_timestamp": "2025-10-05T17:37:45.132854",
+    "total_candidates": 150,
+    "similarity_range": [
+      0.4,
+      0.95
+    ],
+    "algorithm": "jaro_winkler"
+  },
+  "categorized": {
+    "likely_match": [
+      {
+        "intervention_1": "absorbable suture material",
+        "intervention_2": "non-absorbable suture material",
+        "similarity_score": 0.9286,
+        "length_diff": 4,
+        "word_count_1": 3,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "Pegylated interferon alpha (Peg-IFNα)",
+        "intervention_2": "pegylated interferon α (PEG-IFNα)",
+        "similarity_score": 0.9143,
+        "length_diff": 4,
+        "word_count_1": 4,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "Cetuximab",
+        "intervention_2": "Cetuximab-β",
+        "similarity_score": 0.9,
+        "length_diff": 2,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "accelerated initiation of kidney replacement therapy (KRT)",
+        "intervention_2": "standard initiation of kidney replacement therapy (KRT)",
+        "similarity_score": 0.885,
+        "length_diff": 3,
+        "word_count_1": 7,
+        "word_count_2": 7
+      },
+      {
+        "intervention_1": "Nutraceutical combination containing Monacolin K (MK) alone",
+        "intervention_2": "Nutraceutical combination containing Monacolin K (MK) and Morus alba",
+        "similarity_score": 0.8819,
+        "length_diff": 9,
+        "word_count_1": 7,
+        "word_count_2": 9
+      },
+      {
+        "intervention_1": "cognitive behavioral therapy",
+        "intervention_2": "cognitive-behavioral therapy (CBT)",
+        "similarity_score": 0.871,
+        "length_diff": 6,
+        "word_count_1": 3,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "Continuous robot-assisted gait training (RAGT)",
+        "intervention_2": "Robot-assisted gait training (RAGT)",
+        "similarity_score": 0.8642,
+        "length_diff": 11,
+        "word_count_1": 5,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "Proton pump inhibitors (PPIs)",
+        "intervention_2": "proton pump inhibitors",
+        "similarity_score": 0.8627,
+        "length_diff": 7,
+        "word_count_1": 4,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "proton pump inhibitors",
+        "intervention_2": "proton pump inhibitors (PPIs)",
+        "similarity_score": 0.8627,
+        "length_diff": 7,
+        "word_count_1": 3,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "mechanical thrombectomy",
+        "intervention_2": "pharmacomechanical thrombectomy",
+        "similarity_score": 0.8519,
+        "length_diff": 8,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "mesenchymal stem cell (MSC) augmentation",
+        "intervention_2": "mesenchymal stem cell (MSC) injections",
+        "similarity_score": 0.8462,
+        "length_diff": 2,
+        "word_count_1": 5,
+        "word_count_2": 5
+      },
+      {
+        "intervention_1": "sofosbuvir/daclatasvir",
+        "intervention_2": "sofosbuvir/daclatasvir regimen",
+        "similarity_score": 0.8462,
+        "length_diff": 8,
+        "word_count_1": 1,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "conservative treatment",
+        "intervention_2": "non-operative treatment",
+        "similarity_score": 0.8444,
+        "length_diff": 1,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "aerobic training",
+        "intervention_2": "aerobic training (AET)",
+        "similarity_score": 0.8421,
+        "length_diff": 6,
+        "word_count_1": 2,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "durvalumab+tremelimumab+chemo",
+        "intervention_2": "penalimab+tremelimumab+chemo",
+        "similarity_score": 0.8421,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "resilience training",
+        "intervention_2": "resistance training",
+        "similarity_score": 0.8421,
+        "length_diff": 0,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "continuous infusion of β-lactam antibiotics",
+        "intervention_2": "intermittent infusion of β-lactam antibiotics",
+        "similarity_score": 0.8409,
+        "length_diff": 2,
+        "word_count_1": 5,
+        "word_count_2": 5
+      },
+      {
+        "intervention_1": "game-based interventions",
+        "intervention_2": "message-based intervention",
+        "similarity_score": 0.84,
+        "length_diff": 2,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Mono-Segment Fixation (MSF)",
+        "intervention_2": "Short-Segment Fixation (SSF)",
+        "similarity_score": 0.8364,
+        "length_diff": 1,
+        "word_count_1": 3,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "nemolizumab",
+        "intervention_2": "pembrolizumab",
+        "similarity_score": 0.8333,
+        "length_diff": 2,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "fractional microneedle radiofrequency (FMR)",
+        "intervention_2": "microneedle radiofrequency (MRF)",
+        "similarity_score": 0.8267,
+        "length_diff": 11,
+        "word_count_1": 4,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "physical activity intervention",
+        "intervention_2": "physical intervention",
+        "similarity_score": 0.8235,
+        "length_diff": 9,
+        "word_count_1": 3,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "mepolizumab",
+        "intervention_2": "nemolizumab",
+        "similarity_score": 0.8182,
+        "length_diff": 0,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "physical intervention",
+        "intervention_2": "psychological intervention",
+        "similarity_score": 0.8085,
+        "length_diff": 5,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Vagus nerve stimulation (VNS)",
+        "intervention_2": "non-invasive vagus nerve stimulation (nVNS)",
+        "similarity_score": 0.8056,
+        "length_diff": 14,
+        "word_count_1": 4,
+        "word_count_2": 5
+      },
+      {
+        "intervention_1": "anti-inflammatory diet",
+        "intervention_2": "anti-inflammatory dietary program",
+        "similarity_score": 0.8,
+        "length_diff": 11,
+        "word_count_1": 2,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "immune checkpoint inhibitor therapy",
+        "intervention_2": "immune checkpoint inhibitors (ICIs)",
+        "similarity_score": 0.8,
+        "length_diff": 0,
+        "word_count_1": 4,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "cognitive behavioral therapy for insomnia (CBT-I)",
+        "intervention_2": "cognitive-behavioral therapy (CBT)",
+        "similarity_score": 0.7952,
+        "length_diff": 15,
+        "word_count_1": 6,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "exercise and nutritional intervention",
+        "intervention_2": "nutritional intervention",
+        "similarity_score": 0.7869,
+        "length_diff": 13,
+        "word_count_1": 4,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "alendronate",
+        "intervention_2": "alendronate (ALN)",
+        "similarity_score": 0.7857,
+        "length_diff": 6,
+        "word_count_1": 1,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Noninvasive brain stimulation (NIBS)",
+        "intervention_2": "non-invasive vagus nerve stimulation (nVNS)",
+        "similarity_score": 0.7848,
+        "length_diff": 7,
+        "word_count_1": 4,
+        "word_count_2": 5
+      },
+      {
+        "intervention_1": "digital intervention",
+        "intervention_2": "physical intervention",
+        "similarity_score": 0.7805,
+        "length_diff": 1,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Cetuximab",
+        "intervention_2": "rituximab",
+        "similarity_score": 0.7778,
+        "length_diff": 0,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "ipilimumab+chemo",
+        "intervention_2": "penalimab+chemo",
+        "similarity_score": 0.7742,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "digital intervention",
+        "intervention_2": "nutritional intervention",
+        "similarity_score": 0.7727,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "asthma treatment guided by spirometry plus symptoms",
+        "intervention_2": "asthma treatment guided by symptoms only",
+        "similarity_score": 0.7692,
+        "length_diff": 11,
+        "word_count_1": 7,
+        "word_count_2": 6
+      },
+      {
+        "intervention_1": "GLP-1 receptor agonists (GLP-1 RAs)",
+        "intervention_2": "glucagon-like peptide-1 receptor agonists (GLP-1RA)",
+        "similarity_score": 0.7674,
+        "length_diff": 16,
+        "word_count_1": 5,
+        "word_count_2": 5
+      },
+      {
+        "intervention_1": "GLP-1 receptor agonists (GLP-1 RAs)",
+        "intervention_2": "glucagon-like peptide-1 receptor agonists (GLP-1Ra)",
+        "similarity_score": 0.7674,
+        "length_diff": 16,
+        "word_count_1": 5,
+        "word_count_2": 5
+      },
+      {
+        "intervention_1": "Continuous robot-assisted gait training (RAGT)",
+        "intervention_2": "Low-intensity interval robot-assisted gait training (LowRAGT)",
+        "similarity_score": 0.7664,
+        "length_diff": 15,
+        "word_count_1": 5,
+        "word_count_2": 6
+      },
+      {
+        "intervention_1": "monoclonal antibodies against Interleukin-6 (IL-6)",
+        "intervention_2": "monoclonal antibodies against endotoxin",
+        "similarity_score": 0.764,
+        "length_diff": 11,
+        "word_count_1": 5,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "mepolizumab",
+        "intervention_2": "omalizumab",
+        "similarity_score": 0.7619,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "nemolizumab",
+        "intervention_2": "omalizumab",
+        "similarity_score": 0.7619,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "Acupuncture",
+        "intervention_2": "electroacupuncture",
+        "similarity_score": 0.7586,
+        "length_diff": 7,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "intra-articular pulsed radiofrequency (IAPRF)",
+        "intervention_2": "non-invasive pulsed radiofrequency (NipRF)",
+        "similarity_score": 0.7586,
+        "length_diff": 3,
+        "word_count_1": 4,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "music therapy",
+        "intervention_2": "physical therapy",
+        "similarity_score": 0.7586,
+        "length_diff": 3,
+        "word_count_1": 2,
+        "word_count_2": 2
+      }
+    ],
+    "edge_case": [
+      {
+        "intervention_1": "Exercise Interventions",
+        "intervention_2": "computerized interventions",
+        "similarity_score": 0.75,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "IPL therapy",
+        "intervention_2": "music therapy",
+        "similarity_score": 0.75,
+        "length_diff": 2,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "auricular acupressure",
+        "intervention_2": "earlobe acupressure",
+        "similarity_score": 0.75,
+        "length_diff": 2,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "complete revascularization",
+        "intervention_2": "culprit-only revascularization",
+        "similarity_score": 0.75,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "mepolizumab",
+        "intervention_2": "pembrolizumab",
+        "similarity_score": 0.75,
+        "length_diff": 2,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "penalimab",
+        "intervention_2": "penalimab+chemo",
+        "similarity_score": 0.75,
+        "length_diff": 6,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "Peer Intervention (PI)",
+        "intervention_2": "exercise intervention",
+        "similarity_score": 0.7442,
+        "length_diff": 1,
+        "word_count_1": 3,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "IPL therapy",
+        "intervention_2": "physical therapy",
+        "similarity_score": 0.7407,
+        "length_diff": 5,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Upadacitinib",
+        "intervention_2": "deucravacitinib",
+        "similarity_score": 0.7407,
+        "length_diff": 3,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "bismuth-based quadruple therapy",
+        "intervention_2": "bismuth-containing quadruple therapy (BQT)",
+        "similarity_score": 0.7397,
+        "length_diff": 11,
+        "word_count_1": 3,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "Exercise Interventions",
+        "intervention_2": "game-based interventions",
+        "similarity_score": 0.7391,
+        "length_diff": 2,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "digital intervention",
+        "intervention_2": "psychological intervention",
+        "similarity_score": 0.7391,
+        "length_diff": 6,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "cycling",
+        "intervention_2": "seed cycling",
+        "similarity_score": 0.7368,
+        "length_diff": 5,
+        "word_count_1": 1,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Acupuncture",
+        "intervention_2": "electro-acupuncture",
+        "similarity_score": 0.7333,
+        "length_diff": 8,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "SGLT2 inhibitor",
+        "intervention_2": "SGLT2 inhibitors (SGLT2is)",
+        "similarity_score": 0.7317,
+        "length_diff": 11,
+        "word_count_1": 2,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "anticoagulant therapy",
+        "intervention_2": "antiplatelet therapy",
+        "similarity_score": 0.7317,
+        "length_diff": 1,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Low-intensity interval robot-assisted gait training (LowRAGT)",
+        "intervention_2": "Robot-assisted gait training (RAGT)",
+        "similarity_score": 0.7292,
+        "length_diff": 26,
+        "word_count_1": 6,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "Baricitinib",
+        "intervention_2": "Tofacitinib",
+        "similarity_score": 0.7273,
+        "length_diff": 0,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "Exercise Interventions",
+        "intervention_2": "Peer Intervention (PI)",
+        "similarity_score": 0.7273,
+        "length_diff": 0,
+        "word_count_1": 2,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "alendronate",
+        "intervention_2": "minodronate",
+        "similarity_score": 0.7273,
+        "length_diff": 0,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "atezolizumab+chemo",
+        "intervention_2": "penalimab+chemo",
+        "similarity_score": 0.7273,
+        "length_diff": 3,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "cognitive behavioral therapy",
+        "intervention_2": "cognitive behavioral therapy for insomnia (CBT-I)",
+        "similarity_score": 0.7273,
+        "length_diff": 21,
+        "word_count_1": 3,
+        "word_count_2": 6
+      },
+      {
+        "intervention_1": "linaclotide",
+        "intervention_2": "liraglutide",
+        "similarity_score": 0.7273,
+        "length_diff": 0,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "bismuth-based quadruple therapy",
+        "intervention_2": "bismuth-based therapy (BBT)",
+        "similarity_score": 0.7241,
+        "length_diff": 4,
+        "word_count_1": 3,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "exercise and nutritional intervention",
+        "intervention_2": "exercise intervention",
+        "similarity_score": 0.7241,
+        "length_diff": 16,
+        "word_count_1": 4,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "computerized interventions",
+        "intervention_2": "exercise intervention",
+        "similarity_score": 0.7234,
+        "length_diff": 5,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "exercise intervention",
+        "intervention_2": "message-based intervention",
+        "similarity_score": 0.7234,
+        "length_diff": 5,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "component therapy",
+        "intervention_2": "concomitant therapy",
+        "similarity_score": 0.7222,
+        "length_diff": 2,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "computerized interventions",
+        "intervention_2": "game-based interventions",
+        "similarity_score": 0.72,
+        "length_diff": 2,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "high-dose cytarabine",
+        "intervention_2": "high-dose vitamin D",
+        "similarity_score": 0.7179,
+        "length_diff": 1,
+        "word_count_1": 2,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "pharmacological therapy",
+        "intervention_2": "physical therapy",
+        "similarity_score": 0.7179,
+        "length_diff": 7,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "rehabilitation training",
+        "intervention_2": "resilience training",
+        "similarity_score": 0.7143,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "rehabilitation training",
+        "intervention_2": "resistance training",
+        "similarity_score": 0.7143,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Exercise Interventions",
+        "intervention_2": "exercise and nutritional intervention",
+        "similarity_score": 0.7119,
+        "length_diff": 15,
+        "word_count_1": 2,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "Digital health (DH)",
+        "intervention_2": "digital therapeutics (DTx)",
+        "similarity_score": 0.7111,
+        "length_diff": 7,
+        "word_count_1": 3,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "durvalumab+chemo",
+        "intervention_2": "durvalumab+tremelimumab+chemo",
+        "similarity_score": 0.7111,
+        "length_diff": 13,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "exercise intervention",
+        "intervention_2": "game-based interventions",
+        "similarity_score": 0.7111,
+        "length_diff": 3,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "nutritional intervention",
+        "intervention_2": "physical intervention",
+        "similarity_score": 0.7111,
+        "length_diff": 3,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "IPL therapy",
+        "intervention_2": "antiplatelet therapy",
+        "similarity_score": 0.7097,
+        "length_diff": 9,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Peer Intervention (PI)",
+        "intervention_2": "percutaneous coronary intervention (PCI)",
+        "similarity_score": 0.7097,
+        "length_diff": 18,
+        "word_count_1": 3,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "durvalumab+chemo",
+        "intervention_2": "penalimab+chemo",
+        "similarity_score": 0.7097,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "Exercise Interventions",
+        "intervention_2": "message-based intervention",
+        "similarity_score": 0.7083,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "IL-23p19 inhibitors",
+        "intervention_2": "SGLT2 inhibitor",
+        "similarity_score": 0.7059,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "atezolizumab+chemo",
+        "intervention_2": "durvalumab+chemo",
+        "similarity_score": 0.7059,
+        "length_diff": 2,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "atezolizumab+chemo",
+        "intervention_2": "ipilimumab+chemo",
+        "similarity_score": 0.7059,
+        "length_diff": 2,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "arthroscopic reduction with internal fixation (ARIF) using cannulated screws",
+        "intervention_2": "arthroscopic reduction without fixation (ARnF)",
+        "similarity_score": 0.7049,
+        "length_diff": 30,
+        "word_count_1": 9,
+        "word_count_2": 5
+      },
+      {
+        "intervention_1": "medication labels",
+        "intervention_2": "medication reminders",
+        "similarity_score": 0.7027,
+        "length_diff": 3,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Cetuximab-β",
+        "intervention_2": "rituximab",
+        "similarity_score": 0.7,
+        "length_diff": 2,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "anticoagulant therapy",
+        "intervention_2": "concomitant therapy",
+        "similarity_score": 0.7,
+        "length_diff": 2,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "pharmacological therapy",
+        "intervention_2": "pharmacotherapies",
+        "similarity_score": 0.7,
+        "length_diff": 6,
+        "word_count_1": 2,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "calcineurin inhibitors",
+        "intervention_2": "complement inhibitors",
+        "similarity_score": 0.6977,
+        "length_diff": 1,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "penalimab+chemo",
+        "intervention_2": "penalimab+tremelimumab+chemo",
+        "similarity_score": 0.6977,
+        "length_diff": 13,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "Baricitinib",
+        "intervention_2": "Upadacitinib",
+        "similarity_score": 0.6957,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "Tofacitinib",
+        "intervention_2": "Upadacitinib",
+        "similarity_score": 0.6957,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "mesenchymal stem cell (MSC) augmentation",
+        "intervention_2": "mesenchymal stem cell therapy",
+        "similarity_score": 0.6957,
+        "length_diff": 11,
+        "word_count_1": 5,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "omalizumab",
+        "intervention_2": "pembrolizumab",
+        "similarity_score": 0.6957,
+        "length_diff": 3,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "antihypertensive medication",
+        "intervention_2": "antipsychotic medications",
+        "similarity_score": 0.6923,
+        "length_diff": 2,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "rituximab",
+        "intervention_2": "rituximab therapy",
+        "similarity_score": 0.6923,
+        "length_diff": 8,
+        "word_count_1": 1,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "lower body resistance training (RTL)",
+        "intervention_2": "resistance training",
+        "similarity_score": 0.6909,
+        "length_diff": 17,
+        "word_count_1": 5,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "chemotherapy",
+        "intervention_2": "component therapy",
+        "similarity_score": 0.6897,
+        "length_diff": 5,
+        "word_count_1": 1,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "community orchestra intervention",
+        "intervention_2": "computerized interventions",
+        "similarity_score": 0.6897,
+        "length_diff": 6,
+        "word_count_1": 3,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "dexamethasone",
+        "intervention_2": "lisdexamfetamine",
+        "similarity_score": 0.6897,
+        "length_diff": 3,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "durvalumab+chemo",
+        "intervention_2": "ipilimumab+chemo",
+        "similarity_score": 0.6875,
+        "length_diff": 0,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "mesenchymal stem cell (MSC) injections",
+        "intervention_2": "mesenchymal stem cell therapy",
+        "similarity_score": 0.6866,
+        "length_diff": 9,
+        "word_count_1": 5,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "aerobic exercise",
+        "intervention_2": "resistance exercise",
+        "similarity_score": 0.6857,
+        "length_diff": 3,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "aerobic training",
+        "intervention_2": "resilience training",
+        "similarity_score": 0.6857,
+        "length_diff": 3,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "aerobic training",
+        "intervention_2": "resistance training",
+        "similarity_score": 0.6857,
+        "length_diff": 3,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "antiretroviral regimens",
+        "intervention_2": "antiviral drugs",
+        "similarity_score": 0.6842,
+        "length_diff": 8,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "nivolumab monotherapy",
+        "intervention_2": "rituximab therapy",
+        "similarity_score": 0.6842,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "resistance exercise",
+        "intervention_2": "resistance training",
+        "similarity_score": 0.6842,
+        "length_diff": 0,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "fractional flow reserve (FFR)-guided percutaneous coronary intervention (PCI)",
+        "intervention_2": "percutaneous coronary intervention (PCI)",
+        "similarity_score": 0.6838,
+        "length_diff": 37,
+        "word_count_1": 8,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "digital intervention",
+        "intervention_2": "exercise intervention",
+        "similarity_score": 0.6829,
+        "length_diff": 1,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "metacognitive training",
+        "intervention_2": "resistance training",
+        "similarity_score": 0.6829,
+        "length_diff": 3,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "arthroscopic reduction without fixation (ARnF)",
+        "intervention_2": "open reduction internal fixation (ORIF)",
+        "similarity_score": 0.6824,
+        "length_diff": 7,
+        "word_count_1": 5,
+        "word_count_2": 5
+      },
+      {
+        "intervention_1": "digital intervention",
+        "intervention_2": "game-based interventions",
+        "similarity_score": 0.6818,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "ipilimumab+chemo",
+        "intervention_2": "penalimab+tremelimumab+chemo",
+        "similarity_score": 0.6818,
+        "length_diff": 12,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "medication reminders",
+        "intervention_2": "medication summary guide",
+        "similarity_score": 0.6818,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "atorvastatin pretreatment",
+        "intervention_2": "conservative treatment",
+        "similarity_score": 0.6809,
+        "length_diff": 3,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "psychological intervention",
+        "intervention_2": "psychological support",
+        "similarity_score": 0.6809,
+        "length_diff": 5,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "computerized interventions",
+        "intervention_2": "nutritional intervention",
+        "similarity_score": 0.68,
+        "length_diff": 2,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "physical activity intervention",
+        "intervention_2": "psychological intervention",
+        "similarity_score": 0.6786,
+        "length_diff": 4,
+        "word_count_1": 3,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "monoclonal antibodies against Interleukin-6 (IL-6)",
+        "intervention_2": "monoclonal antibodies against Tumor Necrosis Factor-alpha (TNF-α)",
+        "similarity_score": 0.6783,
+        "length_diff": 15,
+        "word_count_1": 5,
+        "word_count_2": 7
+      },
+      {
+        "intervention_1": "Noninvasive brain stimulation (NIBS)",
+        "intervention_2": "Vagus nerve stimulation (VNS)",
+        "similarity_score": 0.6769,
+        "length_diff": 7,
+        "word_count_1": 4,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "arthroscopic rotator cuff repair (RCR)",
+        "intervention_2": "rotator cuff repair surgery",
+        "similarity_score": 0.6769,
+        "length_diff": 11,
+        "word_count_1": 5,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "blood flow restriction training (BFRT)",
+        "intervention_2": "lower body resistance training (RTL)",
+        "similarity_score": 0.6757,
+        "length_diff": 2,
+        "word_count_1": 5,
+        "word_count_2": 5
+      },
+      {
+        "intervention_1": "microneedle radiofrequency (MRF)",
+        "intervention_2": "non-invasive pulsed radiofrequency (NipRF)",
+        "similarity_score": 0.6757,
+        "length_diff": 10,
+        "word_count_1": 3,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "Percutaneous Mechanical Aspiration (PMA)",
+        "intervention_2": "percutaneous coronary intervention (PCI)",
+        "similarity_score": 0.675,
+        "length_diff": 0,
+        "word_count_1": 4,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "monoclonal antibodies against Tumor Necrosis Factor-alpha (TNF-α)",
+        "intervention_2": "monoclonal antibodies against endotoxin",
+        "similarity_score": 0.6731,
+        "length_diff": 26,
+        "word_count_1": 7,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "Cemiplimab",
+        "intervention_2": "mepolizumab",
+        "similarity_score": 0.6667,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "Cemiplimab",
+        "intervention_2": "nemolizumab",
+        "similarity_score": 0.6667,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "Curcuma longa",
+        "intervention_2": "curcumin",
+        "similarity_score": 0.6667,
+        "length_diff": 5,
+        "word_count_1": 2,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "Exercise Interventions",
+        "intervention_2": "digital intervention",
+        "similarity_score": 0.6667,
+        "length_diff": 2,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Metformin",
+        "intervention_2": "adjuvant metformin",
+        "similarity_score": 0.6667,
+        "length_diff": 9,
+        "word_count_1": 1,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Peer Intervention (PI)",
+        "intervention_2": "computerized interventions",
+        "similarity_score": 0.6667,
+        "length_diff": 4,
+        "word_count_1": 3,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "SGLT2 inhibitor",
+        "intervention_2": "complement inhibitors",
+        "similarity_score": 0.6667,
+        "length_diff": 6,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "Tranexamic acid (TXA)",
+        "intervention_2": "all-trans retinoic acid (ATRA)",
+        "similarity_score": 0.6667,
+        "length_diff": 9,
+        "word_count_1": 3,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "adjuvant metformin",
+        "intervention_2": "metformin",
+        "similarity_score": 0.6667,
+        "length_diff": 9,
+        "word_count_1": 2,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "azithromycin therapy",
+        "intervention_2": "dry cupping therapy",
+        "similarity_score": 0.6667,
+        "length_diff": 1,
+        "word_count_1": 2,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "bismuth-based therapy (BBT)",
+        "intervention_2": "bismuth-containing quadruple therapy (BQT)",
+        "similarity_score": 0.6667,
+        "length_diff": 15,
+        "word_count_1": 3,
+        "word_count_2": 4
+      },
+      {
+        "intervention_1": "cemiplimab",
+        "intervention_2": "mepolizumab",
+        "similarity_score": 0.6667,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "cemiplimab",
+        "intervention_2": "nemolizumab",
+        "similarity_score": 0.6667,
+        "length_diff": 1,
+        "word_count_1": 1,
+        "word_count_2": 1
+      },
+      {
+        "intervention_1": "exercise intervention",
+        "intervention_2": "exercise therapy (ET)",
+        "similarity_score": 0.6667,
+        "length_diff": 0,
+        "word_count_1": 2,
+        "word_count_2": 3
+      },
+      {
+        "intervention_1": "exercise intervention",
+        "intervention_2": "nutritional intervention",
+        "similarity_score": 0.6667,
+        "length_diff": 3,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "exercise intervention",
+        "intervention_2": "physical intervention",
+        "similarity_score": 0.6667,
+        "length_diff": 0,
+        "word_count_1": 2,
+        "word_count_2": 2
+      },
+      {
+        "intervention_1": "music therapy",
+        "intervention_2": "rituximab therapy",
+        "similarity_score": 0.6667,
+        "length_diff": 4,
+        "word_count_1": 2,
+        "word_count_2": 2
+      }
+    ],
+    "likely_no_match": []
+  },
+  "all_candidates": [
+    {
+      "intervention_1": "absorbable suture material",
+      "intervention_2": "non-absorbable suture material",
+      "similarity_score": 0.9286,
+      "length_diff": 4,
+      "word_count_1": 3,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "Pegylated interferon alpha (Peg-IFNα)",
+      "intervention_2": "pegylated interferon α (PEG-IFNα)",
+      "similarity_score": 0.9143,
+      "length_diff": 4,
+      "word_count_1": 4,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "Cetuximab",
+      "intervention_2": "Cetuximab-β",
+      "similarity_score": 0.9,
+      "length_diff": 2,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "accelerated initiation of kidney replacement therapy (KRT)",
+      "intervention_2": "standard initiation of kidney replacement therapy (KRT)",
+      "similarity_score": 0.885,
+      "length_diff": 3,
+      "word_count_1": 7,
+      "word_count_2": 7
+    },
+    {
+      "intervention_1": "Nutraceutical combination containing Monacolin K (MK) alone",
+      "intervention_2": "Nutraceutical combination containing Monacolin K (MK) and Morus alba",
+      "similarity_score": 0.8819,
+      "length_diff": 9,
+      "word_count_1": 7,
+      "word_count_2": 9
+    },
+    {
+      "intervention_1": "cognitive behavioral therapy",
+      "intervention_2": "cognitive-behavioral therapy (CBT)",
+      "similarity_score": 0.871,
+      "length_diff": 6,
+      "word_count_1": 3,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "Continuous robot-assisted gait training (RAGT)",
+      "intervention_2": "Robot-assisted gait training (RAGT)",
+      "similarity_score": 0.8642,
+      "length_diff": 11,
+      "word_count_1": 5,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "Proton pump inhibitors (PPIs)",
+      "intervention_2": "proton pump inhibitors",
+      "similarity_score": 0.8627,
+      "length_diff": 7,
+      "word_count_1": 4,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "proton pump inhibitors",
+      "intervention_2": "proton pump inhibitors (PPIs)",
+      "similarity_score": 0.8627,
+      "length_diff": 7,
+      "word_count_1": 3,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "mechanical thrombectomy",
+      "intervention_2": "pharmacomechanical thrombectomy",
+      "similarity_score": 0.8519,
+      "length_diff": 8,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "mesenchymal stem cell (MSC) augmentation",
+      "intervention_2": "mesenchymal stem cell (MSC) injections",
+      "similarity_score": 0.8462,
+      "length_diff": 2,
+      "word_count_1": 5,
+      "word_count_2": 5
+    },
+    {
+      "intervention_1": "sofosbuvir/daclatasvir",
+      "intervention_2": "sofosbuvir/daclatasvir regimen",
+      "similarity_score": 0.8462,
+      "length_diff": 8,
+      "word_count_1": 1,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "conservative treatment",
+      "intervention_2": "non-operative treatment",
+      "similarity_score": 0.8444,
+      "length_diff": 1,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "aerobic training",
+      "intervention_2": "aerobic training (AET)",
+      "similarity_score": 0.8421,
+      "length_diff": 6,
+      "word_count_1": 2,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "durvalumab+tremelimumab+chemo",
+      "intervention_2": "penalimab+tremelimumab+chemo",
+      "similarity_score": 0.8421,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "resilience training",
+      "intervention_2": "resistance training",
+      "similarity_score": 0.8421,
+      "length_diff": 0,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "continuous infusion of β-lactam antibiotics",
+      "intervention_2": "intermittent infusion of β-lactam antibiotics",
+      "similarity_score": 0.8409,
+      "length_diff": 2,
+      "word_count_1": 5,
+      "word_count_2": 5
+    },
+    {
+      "intervention_1": "game-based interventions",
+      "intervention_2": "message-based intervention",
+      "similarity_score": 0.84,
+      "length_diff": 2,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Mono-Segment Fixation (MSF)",
+      "intervention_2": "Short-Segment Fixation (SSF)",
+      "similarity_score": 0.8364,
+      "length_diff": 1,
+      "word_count_1": 3,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "nemolizumab",
+      "intervention_2": "pembrolizumab",
+      "similarity_score": 0.8333,
+      "length_diff": 2,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "fractional microneedle radiofrequency (FMR)",
+      "intervention_2": "microneedle radiofrequency (MRF)",
+      "similarity_score": 0.8267,
+      "length_diff": 11,
+      "word_count_1": 4,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "physical activity intervention",
+      "intervention_2": "physical intervention",
+      "similarity_score": 0.8235,
+      "length_diff": 9,
+      "word_count_1": 3,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "mepolizumab",
+      "intervention_2": "nemolizumab",
+      "similarity_score": 0.8182,
+      "length_diff": 0,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "physical intervention",
+      "intervention_2": "psychological intervention",
+      "similarity_score": 0.8085,
+      "length_diff": 5,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Vagus nerve stimulation (VNS)",
+      "intervention_2": "non-invasive vagus nerve stimulation (nVNS)",
+      "similarity_score": 0.8056,
+      "length_diff": 14,
+      "word_count_1": 4,
+      "word_count_2": 5
+    },
+    {
+      "intervention_1": "anti-inflammatory diet",
+      "intervention_2": "anti-inflammatory dietary program",
+      "similarity_score": 0.8,
+      "length_diff": 11,
+      "word_count_1": 2,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "immune checkpoint inhibitor therapy",
+      "intervention_2": "immune checkpoint inhibitors (ICIs)",
+      "similarity_score": 0.8,
+      "length_diff": 0,
+      "word_count_1": 4,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "cognitive behavioral therapy for insomnia (CBT-I)",
+      "intervention_2": "cognitive-behavioral therapy (CBT)",
+      "similarity_score": 0.7952,
+      "length_diff": 15,
+      "word_count_1": 6,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "exercise and nutritional intervention",
+      "intervention_2": "nutritional intervention",
+      "similarity_score": 0.7869,
+      "length_diff": 13,
+      "word_count_1": 4,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "alendronate",
+      "intervention_2": "alendronate (ALN)",
+      "similarity_score": 0.7857,
+      "length_diff": 6,
+      "word_count_1": 1,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Noninvasive brain stimulation (NIBS)",
+      "intervention_2": "non-invasive vagus nerve stimulation (nVNS)",
+      "similarity_score": 0.7848,
+      "length_diff": 7,
+      "word_count_1": 4,
+      "word_count_2": 5
+    },
+    {
+      "intervention_1": "digital intervention",
+      "intervention_2": "physical intervention",
+      "similarity_score": 0.7805,
+      "length_diff": 1,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Cetuximab",
+      "intervention_2": "rituximab",
+      "similarity_score": 0.7778,
+      "length_diff": 0,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "ipilimumab+chemo",
+      "intervention_2": "penalimab+chemo",
+      "similarity_score": 0.7742,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "digital intervention",
+      "intervention_2": "nutritional intervention",
+      "similarity_score": 0.7727,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "asthma treatment guided by spirometry plus symptoms",
+      "intervention_2": "asthma treatment guided by symptoms only",
+      "similarity_score": 0.7692,
+      "length_diff": 11,
+      "word_count_1": 7,
+      "word_count_2": 6
+    },
+    {
+      "intervention_1": "GLP-1 receptor agonists (GLP-1 RAs)",
+      "intervention_2": "glucagon-like peptide-1 receptor agonists (GLP-1RA)",
+      "similarity_score": 0.7674,
+      "length_diff": 16,
+      "word_count_1": 5,
+      "word_count_2": 5
+    },
+    {
+      "intervention_1": "GLP-1 receptor agonists (GLP-1 RAs)",
+      "intervention_2": "glucagon-like peptide-1 receptor agonists (GLP-1Ra)",
+      "similarity_score": 0.7674,
+      "length_diff": 16,
+      "word_count_1": 5,
+      "word_count_2": 5
+    },
+    {
+      "intervention_1": "Continuous robot-assisted gait training (RAGT)",
+      "intervention_2": "Low-intensity interval robot-assisted gait training (LowRAGT)",
+      "similarity_score": 0.7664,
+      "length_diff": 15,
+      "word_count_1": 5,
+      "word_count_2": 6
+    },
+    {
+      "intervention_1": "monoclonal antibodies against Interleukin-6 (IL-6)",
+      "intervention_2": "monoclonal antibodies against endotoxin",
+      "similarity_score": 0.764,
+      "length_diff": 11,
+      "word_count_1": 5,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "mepolizumab",
+      "intervention_2": "omalizumab",
+      "similarity_score": 0.7619,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "nemolizumab",
+      "intervention_2": "omalizumab",
+      "similarity_score": 0.7619,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "Acupuncture",
+      "intervention_2": "electroacupuncture",
+      "similarity_score": 0.7586,
+      "length_diff": 7,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "intra-articular pulsed radiofrequency (IAPRF)",
+      "intervention_2": "non-invasive pulsed radiofrequency (NipRF)",
+      "similarity_score": 0.7586,
+      "length_diff": 3,
+      "word_count_1": 4,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "music therapy",
+      "intervention_2": "physical therapy",
+      "similarity_score": 0.7586,
+      "length_diff": 3,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Exercise Interventions",
+      "intervention_2": "computerized interventions",
+      "similarity_score": 0.75,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "IPL therapy",
+      "intervention_2": "music therapy",
+      "similarity_score": 0.75,
+      "length_diff": 2,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "auricular acupressure",
+      "intervention_2": "earlobe acupressure",
+      "similarity_score": 0.75,
+      "length_diff": 2,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "complete revascularization",
+      "intervention_2": "culprit-only revascularization",
+      "similarity_score": 0.75,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "mepolizumab",
+      "intervention_2": "pembrolizumab",
+      "similarity_score": 0.75,
+      "length_diff": 2,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "penalimab",
+      "intervention_2": "penalimab+chemo",
+      "similarity_score": 0.75,
+      "length_diff": 6,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "Peer Intervention (PI)",
+      "intervention_2": "exercise intervention",
+      "similarity_score": 0.7442,
+      "length_diff": 1,
+      "word_count_1": 3,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "IPL therapy",
+      "intervention_2": "physical therapy",
+      "similarity_score": 0.7407,
+      "length_diff": 5,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Upadacitinib",
+      "intervention_2": "deucravacitinib",
+      "similarity_score": 0.7407,
+      "length_diff": 3,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "bismuth-based quadruple therapy",
+      "intervention_2": "bismuth-containing quadruple therapy (BQT)",
+      "similarity_score": 0.7397,
+      "length_diff": 11,
+      "word_count_1": 3,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "Exercise Interventions",
+      "intervention_2": "game-based interventions",
+      "similarity_score": 0.7391,
+      "length_diff": 2,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "digital intervention",
+      "intervention_2": "psychological intervention",
+      "similarity_score": 0.7391,
+      "length_diff": 6,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "cycling",
+      "intervention_2": "seed cycling",
+      "similarity_score": 0.7368,
+      "length_diff": 5,
+      "word_count_1": 1,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Acupuncture",
+      "intervention_2": "electro-acupuncture",
+      "similarity_score": 0.7333,
+      "length_diff": 8,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "SGLT2 inhibitor",
+      "intervention_2": "SGLT2 inhibitors (SGLT2is)",
+      "similarity_score": 0.7317,
+      "length_diff": 11,
+      "word_count_1": 2,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "anticoagulant therapy",
+      "intervention_2": "antiplatelet therapy",
+      "similarity_score": 0.7317,
+      "length_diff": 1,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Low-intensity interval robot-assisted gait training (LowRAGT)",
+      "intervention_2": "Robot-assisted gait training (RAGT)",
+      "similarity_score": 0.7292,
+      "length_diff": 26,
+      "word_count_1": 6,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "Baricitinib",
+      "intervention_2": "Tofacitinib",
+      "similarity_score": 0.7273,
+      "length_diff": 0,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "Exercise Interventions",
+      "intervention_2": "Peer Intervention (PI)",
+      "similarity_score": 0.7273,
+      "length_diff": 0,
+      "word_count_1": 2,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "alendronate",
+      "intervention_2": "minodronate",
+      "similarity_score": 0.7273,
+      "length_diff": 0,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "atezolizumab+chemo",
+      "intervention_2": "penalimab+chemo",
+      "similarity_score": 0.7273,
+      "length_diff": 3,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "cognitive behavioral therapy",
+      "intervention_2": "cognitive behavioral therapy for insomnia (CBT-I)",
+      "similarity_score": 0.7273,
+      "length_diff": 21,
+      "word_count_1": 3,
+      "word_count_2": 6
+    },
+    {
+      "intervention_1": "linaclotide",
+      "intervention_2": "liraglutide",
+      "similarity_score": 0.7273,
+      "length_diff": 0,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "bismuth-based quadruple therapy",
+      "intervention_2": "bismuth-based therapy (BBT)",
+      "similarity_score": 0.7241,
+      "length_diff": 4,
+      "word_count_1": 3,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "exercise and nutritional intervention",
+      "intervention_2": "exercise intervention",
+      "similarity_score": 0.7241,
+      "length_diff": 16,
+      "word_count_1": 4,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "computerized interventions",
+      "intervention_2": "exercise intervention",
+      "similarity_score": 0.7234,
+      "length_diff": 5,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "exercise intervention",
+      "intervention_2": "message-based intervention",
+      "similarity_score": 0.7234,
+      "length_diff": 5,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "component therapy",
+      "intervention_2": "concomitant therapy",
+      "similarity_score": 0.7222,
+      "length_diff": 2,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "computerized interventions",
+      "intervention_2": "game-based interventions",
+      "similarity_score": 0.72,
+      "length_diff": 2,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "high-dose cytarabine",
+      "intervention_2": "high-dose vitamin D",
+      "similarity_score": 0.7179,
+      "length_diff": 1,
+      "word_count_1": 2,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "pharmacological therapy",
+      "intervention_2": "physical therapy",
+      "similarity_score": 0.7179,
+      "length_diff": 7,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "rehabilitation training",
+      "intervention_2": "resilience training",
+      "similarity_score": 0.7143,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "rehabilitation training",
+      "intervention_2": "resistance training",
+      "similarity_score": 0.7143,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Exercise Interventions",
+      "intervention_2": "exercise and nutritional intervention",
+      "similarity_score": 0.7119,
+      "length_diff": 15,
+      "word_count_1": 2,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "Digital health (DH)",
+      "intervention_2": "digital therapeutics (DTx)",
+      "similarity_score": 0.7111,
+      "length_diff": 7,
+      "word_count_1": 3,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "durvalumab+chemo",
+      "intervention_2": "durvalumab+tremelimumab+chemo",
+      "similarity_score": 0.7111,
+      "length_diff": 13,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "exercise intervention",
+      "intervention_2": "game-based interventions",
+      "similarity_score": 0.7111,
+      "length_diff": 3,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "nutritional intervention",
+      "intervention_2": "physical intervention",
+      "similarity_score": 0.7111,
+      "length_diff": 3,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "IPL therapy",
+      "intervention_2": "antiplatelet therapy",
+      "similarity_score": 0.7097,
+      "length_diff": 9,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Peer Intervention (PI)",
+      "intervention_2": "percutaneous coronary intervention (PCI)",
+      "similarity_score": 0.7097,
+      "length_diff": 18,
+      "word_count_1": 3,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "durvalumab+chemo",
+      "intervention_2": "penalimab+chemo",
+      "similarity_score": 0.7097,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "Exercise Interventions",
+      "intervention_2": "message-based intervention",
+      "similarity_score": 0.7083,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "IL-23p19 inhibitors",
+      "intervention_2": "SGLT2 inhibitor",
+      "similarity_score": 0.7059,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "atezolizumab+chemo",
+      "intervention_2": "durvalumab+chemo",
+      "similarity_score": 0.7059,
+      "length_diff": 2,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "atezolizumab+chemo",
+      "intervention_2": "ipilimumab+chemo",
+      "similarity_score": 0.7059,
+      "length_diff": 2,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "arthroscopic reduction with internal fixation (ARIF) using cannulated screws",
+      "intervention_2": "arthroscopic reduction without fixation (ARnF)",
+      "similarity_score": 0.7049,
+      "length_diff": 30,
+      "word_count_1": 9,
+      "word_count_2": 5
+    },
+    {
+      "intervention_1": "medication labels",
+      "intervention_2": "medication reminders",
+      "similarity_score": 0.7027,
+      "length_diff": 3,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Cetuximab-β",
+      "intervention_2": "rituximab",
+      "similarity_score": 0.7,
+      "length_diff": 2,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "anticoagulant therapy",
+      "intervention_2": "concomitant therapy",
+      "similarity_score": 0.7,
+      "length_diff": 2,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "pharmacological therapy",
+      "intervention_2": "pharmacotherapies",
+      "similarity_score": 0.7,
+      "length_diff": 6,
+      "word_count_1": 2,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "calcineurin inhibitors",
+      "intervention_2": "complement inhibitors",
+      "similarity_score": 0.6977,
+      "length_diff": 1,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "penalimab+chemo",
+      "intervention_2": "penalimab+tremelimumab+chemo",
+      "similarity_score": 0.6977,
+      "length_diff": 13,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "Baricitinib",
+      "intervention_2": "Upadacitinib",
+      "similarity_score": 0.6957,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "Tofacitinib",
+      "intervention_2": "Upadacitinib",
+      "similarity_score": 0.6957,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "mesenchymal stem cell (MSC) augmentation",
+      "intervention_2": "mesenchymal stem cell therapy",
+      "similarity_score": 0.6957,
+      "length_diff": 11,
+      "word_count_1": 5,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "omalizumab",
+      "intervention_2": "pembrolizumab",
+      "similarity_score": 0.6957,
+      "length_diff": 3,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "antihypertensive medication",
+      "intervention_2": "antipsychotic medications",
+      "similarity_score": 0.6923,
+      "length_diff": 2,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "rituximab",
+      "intervention_2": "rituximab therapy",
+      "similarity_score": 0.6923,
+      "length_diff": 8,
+      "word_count_1": 1,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "lower body resistance training (RTL)",
+      "intervention_2": "resistance training",
+      "similarity_score": 0.6909,
+      "length_diff": 17,
+      "word_count_1": 5,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "chemotherapy",
+      "intervention_2": "component therapy",
+      "similarity_score": 0.6897,
+      "length_diff": 5,
+      "word_count_1": 1,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "community orchestra intervention",
+      "intervention_2": "computerized interventions",
+      "similarity_score": 0.6897,
+      "length_diff": 6,
+      "word_count_1": 3,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "dexamethasone",
+      "intervention_2": "lisdexamfetamine",
+      "similarity_score": 0.6897,
+      "length_diff": 3,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "durvalumab+chemo",
+      "intervention_2": "ipilimumab+chemo",
+      "similarity_score": 0.6875,
+      "length_diff": 0,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "mesenchymal stem cell (MSC) injections",
+      "intervention_2": "mesenchymal stem cell therapy",
+      "similarity_score": 0.6866,
+      "length_diff": 9,
+      "word_count_1": 5,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "aerobic exercise",
+      "intervention_2": "resistance exercise",
+      "similarity_score": 0.6857,
+      "length_diff": 3,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "aerobic training",
+      "intervention_2": "resilience training",
+      "similarity_score": 0.6857,
+      "length_diff": 3,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "aerobic training",
+      "intervention_2": "resistance training",
+      "similarity_score": 0.6857,
+      "length_diff": 3,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "antiretroviral regimens",
+      "intervention_2": "antiviral drugs",
+      "similarity_score": 0.6842,
+      "length_diff": 8,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "nivolumab monotherapy",
+      "intervention_2": "rituximab therapy",
+      "similarity_score": 0.6842,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "resistance exercise",
+      "intervention_2": "resistance training",
+      "similarity_score": 0.6842,
+      "length_diff": 0,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "fractional flow reserve (FFR)-guided percutaneous coronary intervention (PCI)",
+      "intervention_2": "percutaneous coronary intervention (PCI)",
+      "similarity_score": 0.6838,
+      "length_diff": 37,
+      "word_count_1": 8,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "digital intervention",
+      "intervention_2": "exercise intervention",
+      "similarity_score": 0.6829,
+      "length_diff": 1,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "metacognitive training",
+      "intervention_2": "resistance training",
+      "similarity_score": 0.6829,
+      "length_diff": 3,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "arthroscopic reduction without fixation (ARnF)",
+      "intervention_2": "open reduction internal fixation (ORIF)",
+      "similarity_score": 0.6824,
+      "length_diff": 7,
+      "word_count_1": 5,
+      "word_count_2": 5
+    },
+    {
+      "intervention_1": "digital intervention",
+      "intervention_2": "game-based interventions",
+      "similarity_score": 0.6818,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "ipilimumab+chemo",
+      "intervention_2": "penalimab+tremelimumab+chemo",
+      "similarity_score": 0.6818,
+      "length_diff": 12,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "medication reminders",
+      "intervention_2": "medication summary guide",
+      "similarity_score": 0.6818,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "atorvastatin pretreatment",
+      "intervention_2": "conservative treatment",
+      "similarity_score": 0.6809,
+      "length_diff": 3,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "psychological intervention",
+      "intervention_2": "psychological support",
+      "similarity_score": 0.6809,
+      "length_diff": 5,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "computerized interventions",
+      "intervention_2": "nutritional intervention",
+      "similarity_score": 0.68,
+      "length_diff": 2,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "physical activity intervention",
+      "intervention_2": "psychological intervention",
+      "similarity_score": 0.6786,
+      "length_diff": 4,
+      "word_count_1": 3,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "monoclonal antibodies against Interleukin-6 (IL-6)",
+      "intervention_2": "monoclonal antibodies against Tumor Necrosis Factor-alpha (TNF-α)",
+      "similarity_score": 0.6783,
+      "length_diff": 15,
+      "word_count_1": 5,
+      "word_count_2": 7
+    },
+    {
+      "intervention_1": "Noninvasive brain stimulation (NIBS)",
+      "intervention_2": "Vagus nerve stimulation (VNS)",
+      "similarity_score": 0.6769,
+      "length_diff": 7,
+      "word_count_1": 4,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "arthroscopic rotator cuff repair (RCR)",
+      "intervention_2": "rotator cuff repair surgery",
+      "similarity_score": 0.6769,
+      "length_diff": 11,
+      "word_count_1": 5,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "blood flow restriction training (BFRT)",
+      "intervention_2": "lower body resistance training (RTL)",
+      "similarity_score": 0.6757,
+      "length_diff": 2,
+      "word_count_1": 5,
+      "word_count_2": 5
+    },
+    {
+      "intervention_1": "microneedle radiofrequency (MRF)",
+      "intervention_2": "non-invasive pulsed radiofrequency (NipRF)",
+      "similarity_score": 0.6757,
+      "length_diff": 10,
+      "word_count_1": 3,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "Percutaneous Mechanical Aspiration (PMA)",
+      "intervention_2": "percutaneous coronary intervention (PCI)",
+      "similarity_score": 0.675,
+      "length_diff": 0,
+      "word_count_1": 4,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "monoclonal antibodies against Tumor Necrosis Factor-alpha (TNF-α)",
+      "intervention_2": "monoclonal antibodies against endotoxin",
+      "similarity_score": 0.6731,
+      "length_diff": 26,
+      "word_count_1": 7,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "Cemiplimab",
+      "intervention_2": "mepolizumab",
+      "similarity_score": 0.6667,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "Cemiplimab",
+      "intervention_2": "nemolizumab",
+      "similarity_score": 0.6667,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "Curcuma longa",
+      "intervention_2": "curcumin",
+      "similarity_score": 0.6667,
+      "length_diff": 5,
+      "word_count_1": 2,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "Exercise Interventions",
+      "intervention_2": "digital intervention",
+      "similarity_score": 0.6667,
+      "length_diff": 2,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Metformin",
+      "intervention_2": "adjuvant metformin",
+      "similarity_score": 0.6667,
+      "length_diff": 9,
+      "word_count_1": 1,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Peer Intervention (PI)",
+      "intervention_2": "computerized interventions",
+      "similarity_score": 0.6667,
+      "length_diff": 4,
+      "word_count_1": 3,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "SGLT2 inhibitor",
+      "intervention_2": "complement inhibitors",
+      "similarity_score": 0.6667,
+      "length_diff": 6,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "Tranexamic acid (TXA)",
+      "intervention_2": "all-trans retinoic acid (ATRA)",
+      "similarity_score": 0.6667,
+      "length_diff": 9,
+      "word_count_1": 3,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "adjuvant metformin",
+      "intervention_2": "metformin",
+      "similarity_score": 0.6667,
+      "length_diff": 9,
+      "word_count_1": 2,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "azithromycin therapy",
+      "intervention_2": "dry cupping therapy",
+      "similarity_score": 0.6667,
+      "length_diff": 1,
+      "word_count_1": 2,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "bismuth-based therapy (BBT)",
+      "intervention_2": "bismuth-containing quadruple therapy (BQT)",
+      "similarity_score": 0.6667,
+      "length_diff": 15,
+      "word_count_1": 3,
+      "word_count_2": 4
+    },
+    {
+      "intervention_1": "cemiplimab",
+      "intervention_2": "mepolizumab",
+      "similarity_score": 0.6667,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "cemiplimab",
+      "intervention_2": "nemolizumab",
+      "similarity_score": 0.6667,
+      "length_diff": 1,
+      "word_count_1": 1,
+      "word_count_2": 1
+    },
+    {
+      "intervention_1": "exercise intervention",
+      "intervention_2": "exercise therapy (ET)",
+      "similarity_score": 0.6667,
+      "length_diff": 0,
+      "word_count_1": 2,
+      "word_count_2": 3
+    },
+    {
+      "intervention_1": "exercise intervention",
+      "intervention_2": "nutritional intervention",
+      "similarity_score": 0.6667,
+      "length_diff": 3,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "exercise intervention",
+      "intervention_2": "physical intervention",
+      "similarity_score": 0.6667,
+      "length_diff": 0,
+      "word_count_1": 2,
+      "word_count_2": 2
+    },
+    {
+      "intervention_1": "music therapy",
+      "intervention_2": "rituximab therapy",
+      "similarity_score": 0.6667,
+      "length_diff": 4,
+      "word_count_1": 2,
+      "word_count_2": 2
+    }
+  ]
+}

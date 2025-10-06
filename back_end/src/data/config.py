@@ -156,6 +156,32 @@ class UnifiedConfig:
         #* Performance settings - FAST_MODE enabled by default for optimal performance
         self.fast_mode = os.getenv('FAST_MODE', '1').lower() in ('1', 'true', 'yes')
 
+        #* Semantic Normalization Configuration (Phase 3.5)
+        # Embedding settings
+        self.semantic_embedding_model = "nomic-embed-text"
+        self.semantic_embedding_dimension = 768
+        self.semantic_embedding_cache_path = self.data_root / "semantic_normalization_cache" / "embeddings.pkl"
+
+        # LLM settings for canonical extraction
+        self.semantic_canonical_llm_model = "qwen3:14b"
+        self.semantic_canonical_cache_path = self.data_root / "semantic_normalization_cache" / "canonicals.pkl"
+        self.semantic_relationship_cache_path = self.data_root / "semantic_normalization_cache" / "llm_decisions.pkl"
+
+        # Similarity thresholds
+        self.semantic_exact_match_threshold = 0.95
+        self.semantic_variant_threshold = 0.85
+        self.semantic_subtype_threshold = 0.75
+        self.semantic_same_category_threshold = 0.70
+        self.semantic_minimum_threshold = 0.70
+
+        # Processing settings
+        self.semantic_batch_size = 50
+        self.semantic_top_k_similar = 5
+
+        # Session and results paths
+        self.semantic_results_dir = self.data_root / "semantic_normalization_results"
+        self.semantic_cache_dir = self.data_root / "semantic_normalization_cache"
+
         #* Creates the directories
         self._ensure_directories()
 
@@ -163,8 +189,9 @@ class UnifiedConfig:
         """Creates the necessary directories"""
         directories = [
             self.raw_data, self.processed_data, self.logs_dir,
-            self.papers_dir, self.metadata_dir, self.fulltext_dir, 
-            self.pmc_dir, self.pdf_dir            
+            self.papers_dir, self.metadata_dir, self.fulltext_dir,
+            self.pmc_dir, self.pdf_dir,
+            self.semantic_results_dir, self.semantic_cache_dir
         ]
         for directory in directories:
             directory.mkdir(parents=True, exist_ok=True)

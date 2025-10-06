@@ -31,10 +31,16 @@ An automated biomedical research pipeline that collects research papers about he
 - **Batch Processing**: Processes 20 interventions/conditions per LLM call
 - **Separation of Concerns**: Categorization separated from extraction for flexibility and re-categorization capability
 
-### 3. **Semantic Grouping** (`back_end/src/llm_processing/`)
-- **Phase 3 Canonical Merging**: Cross-paper unification of intervention names (e.g., "vitamin D", "Vitamin D3", "cholecalciferol" → single canonical entity)
+### 3. **Hierarchical Semantic Normalization** (`back_end/src/semantic_normalization/`) - **Phase 3.5**
+- **Embedding-Based Similarity**: nomic-embed-text (768-dim vectors) for semantic matching
+- **LLM Canonical Extraction**: qwen3:14b extracts canonical intervention groups (Layer 1)
+- **Relationship Classification**: 6 types (EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT)
+- **4-Layer Hierarchy**: Category → Canonical → Variant → Dosage
+- **Cross-Paper Unification**: "vitamin D", "Vitamin D3", "cholecalciferol" → single canonical entity
+- **Database Schema**: `semantic_hierarchy`, `entity_relationships`, `canonical_groups` tables
+- **Performance**: LLM caching (542 canonicals cached), embedding caching, resumable sessions
 
-### 3. **Data Mining** (`back_end/src/data_mining/`)
+### 4. **Data Mining** (`back_end/src/data_mining/`)
 - **Pattern Discovery**: Advanced correlation analysis and biological pattern recognition
 - **Knowledge Graphs**: Multi-edge medical knowledge graphs for relationship mapping
 - **Bayesian Scoring**: Evidence-based scoring for intervention effectiveness
@@ -54,7 +60,8 @@ An automated biomedical research pipeline that collects research papers about he
 - **`rotation_paper_collector.py`**: Multi-source paper collection orchestrator (Phase 1)
 - **`rotation_llm_processor.py`**: LLM extraction coordinator with thermal protection (Phase 2 - extracts WITHOUT categories)
 - **`rotation_llm_categorization.py`**: LLM categorization coordinator (Phase 2.5 - categorizes interventions AND conditions)
-- **`rotation_semantic_grouping_integrator.py`**: Semantic grouping and canonical entity merging (Phase 3)
+- **`rotation_semantic_normalizer.py`**: Hierarchical semantic normalization orchestrator (Phase 3.5)
+- **`rotation_semantic_grouping_integrator.py`**: Legacy semantic grouping (DEPRECATED - use Phase 3.5 instead)
 
 ### Data Mining Tools
 - **`data_mining_orchestrator.py`**: Advanced analytics and pattern discovery coordinator
@@ -100,22 +107,31 @@ An automated biomedical research pipeline that collects research papers about he
    - Methods: `insert_intervention()`, `insert_intervention_normalized()` in [`database_manager.py`](back_end/src/data_collection/database_manager.py)
    - Key fields: intervention_name, health_condition, **mechanism** (biological/behavioral/psychological pathway), correlation_type, sample_size, study_type
 
-### Phase 3 Semantic Grouping Tables (4 tables)
-**Updated by**: [`rotation_semantic_grouping_integrator.py`](back_end/src/orchestration/rotation_semantic_grouping_integrator.py) via [`batch_entity_processor.py`](back_end/src/llm_processing/batch_entity_processor.py)
+### Phase 3.5 Hierarchical Semantic Normalization Tables (3 tables) - **NEW**
+**Updated by**: [`rotation_semantic_normalizer.py`](back_end/src/orchestration/rotation_semantic_normalizer.py) via [`semantic_normalizer.py`](back_end/src/semantic_normalization/semantic_normalizer.py)
 
-3. **`canonical_entities`** - Unified intervention/condition names (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
-   - Created by: `batch_group_entities_semantically()` → `create_canonical_entity()`
-   - Current: 72 canonical entities
+3. **`semantic_hierarchy`** - 4-layer hierarchical structure for interventions and conditions
+   - Created by: `MainNormalizer.process_intervention()` in [`normalizer.py`](back_end/src/semantic_normalization/normalizer.py)
+   - Fields: entity_name, entity_type, layer_0_category, layer_1_canonical, layer_2_variant, layer_3_detail, embedding_vector
+   - Performance: Embeddings cached (nomic-embed-text 768-dim), LLM canonicals cached (542 items)
+   - Current: Operational, tested with "type 2 diabetes"
 
-4. **`entity_mappings`** - Links original names to canonical entities
-   - Created by: `batch_group_entities_semantically()` → `_link_interventions_to_canonical()`
-   - Current: 133 mappings
+4. **`entity_relationships`** - Pairwise relationships between interventions
+   - Created by: `HierarchyManager.create_entity_relationship()` in [`hierarchy_manager.py`](back_end/src/semantic_normalization/hierarchy_manager.py)
+   - Relationship types: EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT
+   - Fields: entity_1_id, entity_2_id, relationship_type, similarity_score, labeled_by (human/llm)
 
-5. **`llm_normalization_cache`** - LLM-based normalization cache for performance
-   - Updated by: `get_or_compute_normalized_term()` in [`batch_entity_processor.py`](back_end/src/llm_processing/batch_entity_processor.py)
+5. **`canonical_groups`** - Layer 1 canonical group aggregations
+   - Created by: `HierarchyManager.get_or_create_canonical_group()` in [`hierarchy_manager.py`](back_end/src/semantic_normalization/hierarchy_manager.py)
+   - Fields: canonical_name, entity_type, layer_0_category, member_count, description
 
-6. **`normalized_terms_cache`** - Fast lookup cache for normalized terms
-   - Updated by: `get_or_compute_normalized_term()` in [`batch_entity_processor.py`](back_end/src/llm_processing/batch_entity_processor.py)
+### Phase 3 Legacy Tables (4 tables) - **DEPRECATED**
+**Note**: These tables are kept for backward compatibility but will be removed after Phase 3.5 integration is complete.
+
+6. **`canonical_entities`** - Legacy unified names (DEPRECATED - use `semantic_hierarchy` instead)
+7. **`entity_mappings`** - Legacy mappings (DEPRECATED - use `entity_relationships` instead)
+8. **`llm_normalization_cache`** - Legacy cache (DEPRECATED)
+9. **`normalized_terms_cache`** - Legacy cache (DEPRECATED)
 
 ### Data Mining Analytics Tables (11 tables)
 **Updated by**: [`data_mining_orchestrator.py`](back_end/src/data_mining/data_mining_orchestrator.py) via specialized analyzers
@@ -218,7 +234,8 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 1. **Collection Phase**: Collects papers for all 60 conditions (PubMed only, S2 disabled, 2 parallel workers)
 2. **Processing Phase**: Single-model extraction with qwen3:14b (batch size: 8 papers) - extracts interventions WITHOUT categories
 2.5. **Categorization Phase**: LLM categorization of interventions AND conditions (batch size: 20 items)
-3. **Semantic Grouping Phase**: Canonical entity merging (batch size: 20 interventions, cross-paper unification)
+3.5. **Semantic Normalization Phase**: Hierarchical normalization with embeddings + LLM (batch size: 50 interventions)
+3. **Legacy Semantic Grouping Phase**: DEPRECATED - use Phase 3.5 instead
 
 ### Individual Components
 ```bash
@@ -233,7 +250,12 @@ python -m back_end.src.orchestration.rotation_llm_categorization --interventions
 python -m back_end.src.orchestration.rotation_llm_categorization --conditions-only
 python -m back_end.src.orchestration.rotation_llm_categorization  # Both
 
-# Semantic grouping only (Phase 3)
+# Hierarchical semantic normalization (Phase 3.5 - RECOMMENDED)
+python -m back_end.src.orchestration.rotation_semantic_normalizer "type 2 diabetes"  # Single condition
+python -m back_end.src.orchestration.rotation_semantic_normalizer --all  # All conditions
+python -m back_end.src.orchestration.rotation_semantic_normalizer --status  # Check status
+
+# Legacy semantic grouping (Phase 3 - DEPRECATED)
 python -m back_end.src.orchestration.rotation_semantic_grouping_integrator
 
 # Data mining and analysis
@@ -251,6 +273,21 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 # Toggle FAST_MODE for debugging
 # In .env: FAST_MODE=0 (enables full logging)
 # In .env: FAST_MODE=1 (default, suppresses non-critical logs)
+```
+
+### Ground Truth Labeling & Validation
+```bash
+# Interactive pair labeling (with duplicate detection)
+cd back_end/src/semantic_normalization/ground_truth
+python label_in_batches.py --batch-size 20
+
+# Ground truth validation (requires 50+ labeled pairs)
+cd back_end/src/semantic_normalization/ground_truth
+python evaluator.py
+
+# Full database smoke test (all 542+ interventions)
+python -m back_end.src.orchestration.rotation_semantic_normalizer --all --force
+python -m back_end.src.orchestration.rotation_semantic_normalizer --status
 ```
 
 ## Project Conventions
@@ -441,3 +478,156 @@ python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
 - Removed subcategory handling entirely (subcategories no longer used)
 - Database schema has no `intervention_subcategory` column
 - All 284 existing interventions preserved during expansion
+## Hierarchical Semantic Normalization (October 2025) ✅ PRODUCTION
+
+**Location**: `back_end/src/semantic_normalization/` (migrated from experiments/ in Phase 2)
+
+**Purpose**: Advanced intervention name normalization using hierarchical semantic grouping with LLM-based canonical extraction and relationship classification.
+
+### Architecture
+
+**4-Layer Hierarchical System**:
+- **Layer 0**: Category (from 13-category taxonomy)
+- **Layer 1**: Canonical group (e.g., "probiotics", "statins", "vitamin d")
+- **Layer 2**: Specific variant (e.g., "L. reuteri", "atorvastatin")
+- **Layer 3**: Dosage/details (e.g., "atorvastatin 20mg")
+
+**6 Relationship Types**:
+1. **EXACT_MATCH**: Identical interventions (synonyms)
+2. **VARIANT**: Same concept, different formulation (e.g., biosimilars)
+3. **SUBTYPE**: Related but clinically distinct (e.g., IBS-D vs IBS-C)
+4. **SAME_CATEGORY**: Different entities in same class (e.g., different probiotics)
+5. **DOSAGE_VARIANT**: Same intervention, different dose
+6. **DIFFERENT**: Completely unrelated
+
+### Core Modules (8 files in `back_end/src/semantic_normalization/`)
+
+1. **embedding_engine.py** - Ollama nomic-embed-text semantic embeddings (768-dim vectors, cosine similarity, batch processing)
+2. **llm_classifier.py** - qwen3:14b canonical extraction + relationship classification (few-shot learning, multi-threshold)
+3. **hierarchy_manager.py** - Database operations for hierarchical schema (semantic_hierarchy, entity_relationships, canonical_groups)
+4. **normalizer.py** - Full pipeline orchestration (processes all interventions, resumable sessions)
+5. **evaluator.py** - Ground truth accuracy testing (50-500 pair benchmarks, confusion matrix, error analysis)
+6. **test_runner.py** - Batch testing with timestamped results (clustering analysis, LLM usage tracking)
+7. **cluster_reviewer.py** - Interactive manual review tool (terminal-based annotation, false positive/negative detection)
+8. **experiment_logger.py** - Structured experiment documentation (JSON + Markdown reports)
+9. **config.py** - Centralized configuration (paths, models, thresholds)
+
+### Ground Truth Tools (6 files in `back_end/src/semantic_normalization/ground_truth/`)
+
+1. **labeling_interface.py** - Interactive terminal-based labeling (undo, skip, review later features)
+2. **pair_generator.py** - Strategic candidate generation (similarity-based, random, targeted sampling)
+3. **label_in_batches.py** - Batch session management (50 pairs per session, progress tracking)
+4. **generate_candidates.py** - 500-pair candidate generator (stratified sampling)
+5. **data_exporter.py** - Export interventions from database
+6. **prompts.py** - LLM prompts for classification
+
+### Ground Truth Data (`back_end/src/semantic_normalization/ground_truth/data/`)
+
+- **hierarchical_ground_truth_50_pairs.json** - 50 manually labeled pairs (October 2025)
+- **hierarchical_candidates_500_pairs.json** - 500 candidate pairs ready for labeling (stratified sampling)
+
+### Performance Metrics (October 2025)
+
+**Full Dataset Test** (542 interventions):
+- **Runtime**: ~1.5 hours with qwen3:14b (~25 seconds per uncached LLM call)
+- **Cache hit rate**: 40.6% (220/542 cached canonical extractions)
+- **Unique canonical groups**: 486 (from 542 interventions)
+- **Clustering rate**: 10.3% (56 interventions merged into 44 multi-member groups)
+- **Average cluster size**: 1.12
+
+**Top Semantic Groups**:
+1. Proton pump inhibitors (6 members) - omeprazole, tegoprazan-amoxicillin, PPIs
+2. Probiotics (4 members) - Bifidobacterium animalis, multi-strain probiotics
+3. JAK inhibitors (3) - Baricitinib, Tofacitinib, JAKi
+4. Robot-assisted gait training (3) - Continuous, low-intensity interval, standard RAGT
+5. Metformin, Statins, Corticosteroids, Vitamin D (3 members each)
+6. 36 groups with 2 members (Acupuncture, CBT, SGLT2 inhibitors, GLP-1 agonists, etc.)
+7. 442 singleton groups
+
+**Ground Truth Dataset**:
+- ✅ **50 labeled pairs** (Phase 0 - October 2025)
+- ⏳ **500 candidate pairs** ready for labeling (Phase 1 - stratified sampling)
+
+### Key Findings
+
+✅ **Drug class grouping works well**: JAK inhibitors, statins, PPIs, corticosteroids correctly unified
+✅ **Therapy variants recognized**: Robot-assisted gait training protocols, CBT spelling variants
+✅ **Dosage/formulation handling**: Metformin adjuvant, atorvastatin pretreatment correctly linked
+✅ **Biosimilar detection**: Cetuximab-β correctly identified as variant
+
+⚠️ **Low clustering rate (10%)**: Most interventions became singletons - expected for diverse medical dataset
+⚠️ **Threshold tuning needed**: May require adjusted similarity thresholds for better clustering
+
+### Usage Examples
+
+**Ground Truth Labeling**:
+```bash
+cd back_end/src/semantic_normalization/ground_truth
+
+# Generate 500 candidates (one-time)
+python generate_candidates.py
+
+# Start labeling first batch
+python label_in_batches.py --batch-size 50 --start-from 0
+
+# Check progress
+python label_in_batches.py --status
+
+# Continue with next batch
+python label_in_batches.py --batch-size 50 --start-from 50
+```
+
+**Semantic Normalization**:
+```python
+from back_end.src.semantic_normalization.normalizer import SemanticNormalizer
+from back_end.src.semantic_normalization.config import DB_PATH
+
+normalizer = SemanticNormalizer(db_path=str(DB_PATH))
+results = normalizer.normalize_all_interventions()
+```
+
+**Evaluation & Review**:
+```bash
+cd back_end/src/semantic_normalization
+
+# Run full test
+python test_runner.py --no-relationships
+
+# Review clusters interactively
+python cluster_reviewer.py results/test_run_YYYYMMDD_HHMMSS.json
+
+# Evaluate against ground truth
+python evaluator.py
+```
+
+### Technology Stack
+
+- **Ollama**: Local LLM (qwen3:14b) + embeddings (nomic-embed-text)
+- **SQLite**: Hierarchical database schema (semantic_hierarchy, entity_relationships, canonical_groups)
+- **Python 3.13**: Core implementation with pickle caching
+- **Resumable design**: All operations support interruption and recovery
+
+### Migration History (Phase 2 - October 2025)
+
+**Original Location**: `back_end/experiments/semantic_normalization/` (experimental)
+**New Location**: `back_end/src/semantic_normalization/` (production)
+
+**Migrated**:
+- ✅ 8 core modules (embedding, LLM, hierarchy, normalizer, evaluator, test_runner, cluster_reviewer, experiment_logger)
+- ✅ 6 ground truth tools (labeling_interface, pair_generator, label_in_batches, generate_candidates, data_exporter, prompts)
+- ✅ Ground truth data (50 labeled + 500 candidate pairs)
+- ✅ Cache files (embeddings.pkl, llm_decisions.pkl, canonicals.pkl)
+- ✅ Configuration (merged into config.py)
+
+**Archived**:
+- Test results → `back_end/data/archives/semantic_normalization_experiment/results/`
+- Old documentation preserved in experiments/ folder for reference
+
+**Deleted**:
+- Test logs (5 files: test_output*.log)
+- One-time scripts (apply_corrections.py, run_phase1.py)
+- Temporary files (nul, __pycache__, START_LABELING.bat)
+
+**Cache Location**: `back_end/data/semantic_normalization_cache/`
+**Results Location**: `back_end/data/semantic_normalization_results/`
+**Documentation**: See [`back_end/src/semantic_normalization/README.md`](back_end/src/semantic_normalization/README.md)

@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(python:*)",
+      "Bash(sqlite3:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

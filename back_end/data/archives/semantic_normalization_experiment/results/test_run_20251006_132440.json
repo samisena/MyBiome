@@ -1,0 +1,4794 @@
+{
+  "run_timestamp": "20251006_132440",
+  "config_path": "c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/config/config_phase2.yaml",
+  "source_db": "c:/Users/samis/Desktop/MyBiome/back_end/data/processed/intervention_research.db",
+  "stats": {
+    "total_interventions": 542,
+    "unique_canonicals": 486,
+    "llm_canonical_extractions": 542,
+    "llm_relationship_classifications": 0,
+    "cache_hits_canonical": 220,
+    "cache_hits_relationship": 0,
+    "relationship_type_counts": {}
+  },
+  "stats_summary": {
+    "total_interventions": 542,
+    "unique_canonicals": 486,
+    "llm_canonical_extractions": 542,
+    "llm_relationship_classifications": 0,
+    "canonical_cache_hit_rate": 0.4059040590405904,
+    "relationship_cache_hit_rate": 0.0
+  },
+  "interventions": [
+    {
+      "original_name": "'Living with the Sun' (LWS) educational programme",
+      "canonical_group": "educational programmes",
+      "reasoning": "The intervention is an educational programme, which is a type of non-pharmacological intervention",
+      "source": "llm"
+    },
+    {
+      "original_name": "18F-PSMA PET/CT",
+      "canonical_group": "pet ct",
+      "reasoning": "18f-psma pet/ct is a diagnostic imaging technique, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "30% supramolecular salicylic acid (SSA)",
+      "canonical_group": "salicylic acid",
+      "reasoning": "Remove percentage and form, use base drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "5-fluorouracil (5-FU)",
+      "canonical_group": "5-fluorouracil",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "ACL preservation procedures",
+      "canonical_group": "acl preservation procedures",
+      "reasoning": "Specific procedure name, use base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "ACL reconstruction surgery using a graft",
+      "canonical_group": "acl reconstruction surgery",
+      "reasoning": "Surgical procedure for ACL reconstruction using a graft, normalized to base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "ACL repair with InternalBrace (Arthrex© implant system) ligament augmentation",
+      "canonical_group": "acl repair with ligament augmentation",
+      "reasoning": "Removed brand name (Arthrex©) and focused on the procedure name",
+      "source": "llm"
+    },
+    {
+      "original_name": "AKI care bundles",
+      "canonical_group": "aki care bundles",
+      "reasoning": "The intervention name is used as the canonical group since it refers to a specific care bundle and no specific drug or class is indicated",
+      "source": "llm"
+    },
+    {
+      "original_name": "Acetyl-L-Carnitine",
+      "canonical_group": "acetyl-l-carnitine",
+      "reasoning": "Standalone drug, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "Acupuncture",
+      "canonical_group": "acupuncture",
+      "reasoning": "Acupuncture is a standalone therapeutic intervention and does not belong to a specific drug class",
+      "source": "llm"
+    },
+    {
+      "original_name": "AskShareKnow questions",
+      "canonical_group": "askshareknow",
+      "reasoning": "The intervention name is used as is, since it is a specific program or method and not a drug or therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "Asvard capsule",
+      "canonical_group": "asvard",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Azetukalner",
+      "canonical_group": "azetukalner",
+      "reasoning": "No known therapeutic class identified, use base drug name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Baduanjin",
+      "canonical_group": "baduanjin",
+      "reasoning": "Baduanjin is a traditional Chinese exercise regimen, classified as a standalone intervention with no known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "Baricitinib",
+      "canonical_group": "janus kinase inhibitors",
+      "reasoning": "Baricitinib is a janus kinase inhibitor used in the treatment of rheumatoid arthritis and other inflammatory conditions",
+      "source": "llm"
+    },
+    {
+      "original_name": "Benzoyl peroxide (BPO) wash preparation",
+      "canonical_group": "benzoyl peroxide",
+      "reasoning": "Base drug name extracted, dosage and preparation removed",
+      "source": "llm"
+    },
+    {
+      "original_name": "Bifidobacterium animalis",
+      "canonical_group": "probiotics",
+      "reasoning": "Bifidobacterium is a probiotic bacterial genus",
+      "source": "llm"
+    },
+    {
+      "original_name": "Bir Pletok",
+      "canonical_group": "bir pletok",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Bone Health model",
+      "canonical_group": "bone health",
+      "reasoning": "The intervention name is already the canonical therapeutic group",
+      "source": "llm"
+    },
+    {
+      "original_name": "Cemiplimab",
+      "canonical_group": "cemiplimab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "Cetuximab",
+      "canonical_group": "cetuximab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "Cetuximab-β",
+      "canonical_group": "cetuximab",
+      "reasoning": "Biosimilar variant of cetuximab",
+      "source": "llm"
+    },
+    {
+      "original_name": "Citro-Soda®",
+      "canonical_group": "sodium bicarbonate",
+      "reasoning": "Citro-Soda is a brand name for sodium bicarbonate, which is a known therapeutic class as an antacid and electrolyte replenisher",
+      "source": "llm"
+    },
+    {
+      "original_name": "Clinical pharmacist integration",
+      "canonical_group": "clinical pharmacist integration",
+      "reasoning": "The intervention is a service model, not a drug or therapeutic class, so it is used as-is in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Clomiphene",
+      "canonical_group": "clomiphene",
+      "reasoning": "Clomiphene is a specific drug, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "CoQ10",
+      "canonical_group": "coq10",
+      "reasoning": "CoQ10 is a standalone drug, use normalized drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "Comprehensive Behavioral (ComB) model",
+      "canonical_group": "comprehensive behavioral model",
+      "reasoning": "The intervention name is used as the canonical group since it is a specific behavioral model and not part of a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "Continuous robot-assisted gait training (RAGT)",
+      "canonical_group": "robot-assisted gait training",
+      "reasoning": "Continuous robot-assisted gait training is a known therapeutic class under physical therapy interventions",
+      "source": "llm"
+    },
+    {
+      "original_name": "Conventional surgery",
+      "canonical_group": "conventional surgery",
+      "reasoning": "Intervention name is already canonical, no further normalization needed",
+      "source": "llm"
+    },
+    {
+      "original_name": "Curcuma longa",
+      "canonical_group": "curcuma longa",
+      "reasoning": "Specific plant species, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "DOACs (direct oral anticoagulants)",
+      "canonical_group": "direct oral anticoagulants",
+      "reasoning": "DOACs is the known therapeutic class for direct oral anticoagulants",
+      "source": "llm"
+    },
+    {
+      "original_name": "Deprescribing model",
+      "canonical_group": "deprescribing",
+      "reasoning": "The intervention is a model related to deprescribing, which is a therapeutic approach involving the reduction or discontinuation of medications.",
+      "source": "llm"
+    },
+    {
+      "original_name": "Digital health (DH)",
+      "canonical_group": "digital health",
+      "reasoning": "Intervention name is already in base form and refers to a known therapeutic category",
+      "source": "llm"
+    },
+    {
+      "original_name": "EEG",
+      "canonical_group": "electroencephalography",
+      "reasoning": "EEG is a diagnostic procedure used to measure electrical activity in the brain, classified under neurodiagnostic techniques",
+      "source": "llm"
+    },
+    {
+      "original_name": "Eggshell membrane (ESM)",
+      "canonical_group": "eggshell membrane",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "Exercise Interventions",
+      "canonical_group": "exercise interventions",
+      "reasoning": "The intervention is already a known therapeutic class and is normalized to lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Extracorporeal shock wave lithotripsy (ESWL)",
+      "canonical_group": "extracorporeal shock wave lithotripsy",
+      "reasoning": "Specific medical intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "FOLFIRI",
+      "canonical_group": "folfiri",
+      "reasoning": "FOLFIRI is a known therapeutic class of chemotherapy regimen, consisting of folinic acid, fluorouracil, and irinotecan",
+      "source": "llm"
+    },
+    {
+      "original_name": "FenuflakesTM",
+      "canonical_group": "fenugreek",
+      "reasoning": "FenuflakesTM is a brand name for fenugreek, a plant used in traditional medicine",
+      "source": "llm"
+    },
+    {
+      "original_name": "Firsekibart",
+      "canonical_group": "firsekibart",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "GLP-1 receptor agonists (GLP-1 RAs)",
+      "canonical_group": "glp-1 receptor agonists",
+      "reasoning": "Known therapeutic class, use the class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Galohgor",
+      "canonical_group": "galohgor",
+      "reasoning": "No known therapeutic class identified; use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Healthy Eating Advice (HE)",
+      "canonical_group": "healthy eating advice",
+      "reasoning": "Intervention name is already in base form, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "Hericium erinaceus (HE)",
+      "canonical_group": "hericium erinaceus",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Hewei Jiangni recipe (HWJNR)",
+      "canonical_group": "hewei jiangni recipe",
+      "reasoning": "The intervention is a specific traditional medicine formula, and no known therapeutic class is associated with it. The base name is used in lowercase.",
+      "source": "llm"
+    },
+    {
+      "original_name": "IKAP theory-based digital health management",
+      "canonical_group": "digital health management",
+      "reasoning": "The intervention is a digital health management approach based on the IKAP theory, which is a known therapeutic class in digital health interventions.",
+      "source": "llm"
+    },
+    {
+      "original_name": "IL-17 antagonists",
+      "canonical_group": "il-17 antagonists",
+      "reasoning": "IL-17 antagonists is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "IL-23p19 inhibitors",
+      "canonical_group": "il-23p19 inhibitors",
+      "reasoning": "Specific therapeutic class based on the target IL-23p19",
+      "source": "llm"
+    },
+    {
+      "original_name": "IPL therapy",
+      "canonical_group": "intense pulsed light therapy",
+      "reasoning": "IPL therapy is a known therapeutic class, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Imiquimod",
+      "canonical_group": "imiquimod",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Individualized targeting",
+      "canonical_group": "individualized targeting",
+      "reasoning": "The intervention is a general approach and not a specific drug or class, so it is used as is in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Injury Prevention model",
+      "canonical_group": "injury prevention",
+      "reasoning": "The intervention name is already a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "Interferon Gamma Injection",
+      "canonical_group": "interferon gamma",
+      "reasoning": "Base drug name, remove injection route and use lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Intravenous Immunoglobulin (IVIG)",
+      "canonical_group": "intravenous immunoglobulin",
+      "reasoning": "Base drug name with route removed, normalized to lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Janus kinase inhibitors (JAKi)",
+      "canonical_group": "janus kinase inhibitors",
+      "reasoning": "Known therapeutic class of drugs",
+      "source": "llm"
+    },
+    {
+      "original_name": "L-Arginine",
+      "canonical_group": "l-arginine",
+      "reasoning": "L-arginine is a specific amino acid, not part of a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "Leflunomide",
+      "canonical_group": "leflunomide",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Low-intensity interval robot-assisted gait training (LowRAGT)",
+      "canonical_group": "robot-assisted gait training",
+      "reasoning": "Low-intensity interval robot-assisted gait training is a type of robot-assisted gait training, which is the canonical therapeutic group",
+      "source": "llm"
+    },
+    {
+      "original_name": "LuCUS-guided strategy",
+      "canonical_group": "lucus-guided strategy",
+      "reasoning": "Specific intervention name, normalized to lowercase without additional details",
+      "source": "llm"
+    },
+    {
+      "original_name": "MCV (Measles-containing vaccine)",
+      "canonical_group": "measles-containing vaccine",
+      "reasoning": "Base intervention name, remove dosage and route, use lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "MG puncture needle",
+      "canonical_group": "mg puncture needle",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "Mavacamten",
+      "canonical_group": "mavacamten",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Mediterranean diet",
+      "canonical_group": "mediterranean diet",
+      "reasoning": "The intervention is a specific dietary pattern, not a drug or therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "Meridian-Sinew Release Therapy (MSRT)",
+      "canonical_group": "meridian-sinew release therapy",
+      "reasoning": "Specific therapy name, use base form in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Metformin",
+      "canonical_group": "metformin",
+      "reasoning": "Base drug name, remove dosage if present",
+      "source": "llm"
+    },
+    {
+      "original_name": "Methotrexate",
+      "canonical_group": "methotrexate",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Mohs Micrographic Surgery (MMS)",
+      "canonical_group": "mohs micrographic surgery",
+      "reasoning": "Mohs Micrographic Surgery is a specific surgical procedure, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Mono-Segment Fixation (MSF)",
+      "canonical_group": "mono-segment fixation",
+      "reasoning": "Intervention name is used as canonical group since it is a specific surgical procedure",
+      "source": "llm"
+    },
+    {
+      "original_name": "Moringa oleifera (MO) supplementation",
+      "canonical_group": "moringa oleifera",
+      "reasoning": "Base plant name used, no known therapeutic class specified",
+      "source": "llm"
+    },
+    {
+      "original_name": "NCX 701",
+      "canonical_group": "ncx 701",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Nintendo Switch-based therapy",
+      "canonical_group": "nintendo switch-based therapy",
+      "reasoning": "The intervention is a specific therapy using the Nintendo Switch, so it is normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Noninvasive brain stimulation (NIBS)",
+      "canonical_group": "noninvasive brain stimulation",
+      "reasoning": "Base intervention name, already in lowercase and recognized as a therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "Nordic hamstring exercise (NHE)",
+      "canonical_group": "nordic hamstring exercise",
+      "reasoning": "Specific exercise intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Nucleos(t)ide analogues (NAs)",
+      "canonical_group": "nucleos(t)ide analogues",
+      "reasoning": "Known therapeutic class, use the class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Nutraceutical combination containing Monacolin K (MK) alone",
+      "canonical_group": "monacolin k",
+      "reasoning": "Monacolin K is a specific compound, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Nutraceutical combination containing Monacolin K (MK) and Morus alba",
+      "canonical_group": "nutraceutical combination",
+      "reasoning": "The intervention is a combination of nutraceuticals, specifically Monacolin K and Morus alba, which are not classified under a specific therapeutic class but are part of a nutraceutical category.",
+      "source": "llm"
+    },
+    {
+      "original_name": "Orem's self-care model nursing",
+      "canonical_group": "nursing",
+      "reasoning": "Orem's self-care model is a nursing theory, not a drug or therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "PARPi",
+      "canonical_group": "parp inhibitors",
+      "reasoning": "PARPi is a known therapeutic class of PARP inhibitors",
+      "source": "llm"
+    },
+    {
+      "original_name": "PD-1 antibody",
+      "canonical_group": "pd-1 antibody",
+      "reasoning": "PD-1 antibody is a known therapeutic class of monoclonal antibodies used in immunotherapy",
+      "source": "llm"
+    },
+    {
+      "original_name": "PD-1 antibody combined with PEG-IFNα",
+      "canonical_group": "pd-1 antibody",
+      "reasoning": "PD-1 antibody is a known therapeutic class, PEG-IFNα is a specific drug but the primary intervention is the PD-1 antibody",
+      "source": "llm"
+    },
+    {
+      "original_name": "PD-1/PD-L1 inhibitors combined with chemotherapy",
+      "canonical_group": "pd-1/pd-l1 inhibitors",
+      "reasoning": "The intervention is part of a known therapeutic class, use the class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "PET-guided targeting",
+      "canonical_group": "pet-guided targeting",
+      "reasoning": "Specific intervention technique, use base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Peer Intervention (PI)",
+      "canonical_group": "peer intervention",
+      "reasoning": "Base intervention name, already in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Pegylated interferon alpha (Peg-IFNα)",
+      "canonical_group": "pegylated interferon alpha",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Percutaneous Mechanical Aspiration (PMA)",
+      "canonical_group": "percutaneous mechanical aspiration",
+      "reasoning": "Intervention name is already base form, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "Persimmon leaf extract (PLE)",
+      "canonical_group": "persimmon leaf extract",
+      "reasoning": "Standalone extract, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Posterior Drainage Lithotripsy System (PDLS)",
+      "canonical_group": "posterior drainage lithotripsy system",
+      "reasoning": "Specific medical device, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Potassium-competitive acid blockers (PCABs)",
+      "canonical_group": "potassium competitive acid blockers",
+      "reasoning": "Known therapeutic class of drugs used for gastroesophageal reflux disease",
+      "source": "llm"
+    },
+    {
+      "original_name": "Proton pump inhibitors (PPIs)",
+      "canonical_group": "proton pump inhibitors",
+      "reasoning": "Proton pump inhibitors is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "Retrograde Intrarenal Ureteral Lithotripsy (RIRS)",
+      "canonical_group": "ureteral lithotripsy",
+      "reasoning": "Retrograde Intrarenal Ureteral Lithotripsy is a specific procedure, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Rifampin-based regimen (2 months daily)",
+      "canonical_group": "rifampin",
+      "reasoning": "Base drug name extracted, dosage and duration removed",
+      "source": "llm"
+    },
+    {
+      "original_name": "Rifampin-based regimen (4 months daily)",
+      "canonical_group": "rifampin",
+      "reasoning": "Rifampin is the base drug name, dosage and regimen duration removed",
+      "source": "llm"
+    },
+    {
+      "original_name": "Robot-assisted gait training (RAGT)",
+      "canonical_group": "robot-assisted gait training",
+      "reasoning": "Base intervention name, lowercase, no dosage or brand names",
+      "source": "llm"
+    },
+    {
+      "original_name": "Ruxolitinib",
+      "canonical_group": "ruxolitinib",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "SGLT2 inhibitor",
+      "canonical_group": "sglt2 inhibitors",
+      "reasoning": "SGLT2 inhibitor is a known therapeutic class, use the class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "SGLT2 inhibitors (SGLT2is)",
+      "canonical_group": "sglt2 inhibitors",
+      "reasoning": "SGLT2 inhibitors is a known therapeutic class, use the class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "SRS (stereotactic radiosurgery)",
+      "canonical_group": "stereotactic radiosurgery",
+      "reasoning": "Specific intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "SSRIs (Selective Serotonin Reuptake Inhibitors)",
+      "canonical_group": "selective serotonin reuptake inhibitors",
+      "reasoning": "SSRIs is a known therapeutic class, use the class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "SUGAR Handshake",
+      "canonical_group": "sugar handshake",
+      "reasoning": "The intervention name is used as is, since it does not correspond to a known therapeutic class or drug name.",
+      "source": "llm"
+    },
+    {
+      "original_name": "Salvia miltiorrhiza",
+      "canonical_group": "salvia miltiorrhiza",
+      "reasoning": "Standalone drug, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "Self-paced overground gait training (OGT)",
+      "canonical_group": "gait training",
+      "reasoning": "Self-paced overground gait training is a type of physical therapy intervention, classified under gait training",
+      "source": "llm"
+    },
+    {
+      "original_name": "Short-Segment Fixation (SSF)",
+      "canonical_group": "short-segment fixation",
+      "reasoning": "Intervention name is used as canonical group since it is a specific procedure",
+      "source": "llm"
+    },
+    {
+      "original_name": "Sincrolab Adults program",
+      "canonical_group": "sincrolab adults program",
+      "reasoning": "The intervention name is used as is since it does not correspond to a known therapeutic class or drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "Stress First Aid (SFA)",
+      "canonical_group": "stress first aid",
+      "reasoning": "Stress First Aid (SFA) is a standalone intervention name and not part of a known therapeutic class.",
+      "source": "llm"
+    },
+    {
+      "original_name": "Structural MRI",
+      "canonical_group": "magnetic resonance imaging",
+      "reasoning": "Structural MRI is a type of medical imaging technique, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Surgical left atrial appendage occlusion (SLAAO)",
+      "canonical_group": "surgical left atrial appendage occlusion",
+      "reasoning": "Specific surgical procedure, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "TTFields (Tumor Treating Fields)",
+      "canonical_group": "ttfields",
+      "reasoning": "Base treatment name, lowercase, no dosage or brand names",
+      "source": "llm"
+    },
+    {
+      "original_name": "Time-restricted eating (TRE)",
+      "canonical_group": "time-restricted eating",
+      "reasoning": "The intervention is a dietary approach, not a drug or specific therapeutic class; use the base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "Tofacitinib",
+      "canonical_group": "janus kinase inhibitors",
+      "reasoning": "Tofacitinib is a janus kinase inhibitor used in the treatment of rheumatoid arthritis and other inflammatory conditions",
+      "source": "llm"
+    },
+    {
+      "original_name": "Tranexamic acid (TXA)",
+      "canonical_group": "tranexamic acid",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Tripterygium wilfordii",
+      "canonical_group": "tripterygium wilfordii",
+      "reasoning": "Standalone drug, use normalized drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "Upadacitinib",
+      "canonical_group": "upadacitinib",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Vagus nerve stimulation (VNS)",
+      "canonical_group": "vagus nerve stimulation",
+      "reasoning": "Specific intervention, use base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Vonoprazan",
+      "canonical_group": "vonoprazan",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Wedang Uwuh",
+      "canonical_group": "wedang uwuh",
+      "reasoning": "Traditional herbal remedy, no known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "Yangxiao Fukang granule (YXFKG)",
+      "canonical_group": "yangxiao fukang granule",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Yiqi Chupi powder",
+      "canonical_group": "yiqi chupi powder",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "Yoga",
+      "canonical_group": "yoga",
+      "reasoning": "Yoga is a standalone intervention and does not belong to a specific therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "Zingiber officinale",
+      "canonical_group": "zingiber officinale",
+      "reasoning": "Specific plant-based intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "abiraterone plus prednisone",
+      "canonical_group": "abiraterone",
+      "reasoning": "Abiraterone is a specific drug used in combination with prednisone, normalize to base drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "absorbable suture material",
+      "canonical_group": "absorbable suture material",
+      "reasoning": "Specific type of suture material, use base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "accelerated initiation of kidney replacement therapy (KRT)",
+      "canonical_group": "kidney replacement therapy",
+      "reasoning": "Accelerated initiation refers to the timing of the therapy, not the class. Kidney replacement therapy is the base intervention name.",
+      "source": "llm"
+    },
+    {
+      "original_name": "acetaminophen",
+      "canonical_group": "acetaminophen",
+      "reasoning": "Standalone drug, use normalized drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "active video games (AVGs)",
+      "canonical_group": "active video games",
+      "reasoning": "The intervention is a type of interactive digital activity, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "adaptive Cognitive Training Kit (COGNI-TRAcK)",
+      "canonical_group": "cognitive training",
+      "reasoning": "The intervention is a cognitive training kit, which falls under the therapeutic class of cognitive training",
+      "source": "llm"
+    },
+    {
+      "original_name": "adjuvant hormone therapy",
+      "canonical_group": "hormone therapy",
+      "reasoning": "Adjuvant hormone therapy is a known therapeutic class, use the class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "adjuvant metformin",
+      "canonical_group": "metformin",
+      "reasoning": "Remove dosage, use base drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "aerobic exercise",
+      "canonical_group": "aerobic exercise",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "aerobic training",
+      "canonical_group": "aerobic training",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "aerobic training (AET)",
+      "canonical_group": "aerobic training",
+      "reasoning": "Aerobic training is a standalone intervention, use base form in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "alendronate",
+      "canonical_group": "bisphosphonates",
+      "reasoning": "Alendronate belongs to the bisphosphonates therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "alendronate (ALN)",
+      "canonical_group": "alendronate",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "alkaloid",
+      "canonical_group": "alkaloid",
+      "reasoning": "Alkaloid is a known therapeutic class of organic compounds",
+      "source": "llm"
+    },
+    {
+      "original_name": "all-trans retinoic acid (ATRA)",
+      "canonical_group": "all-trans retinoic acid",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "ammonium chloride",
+      "canonical_group": "ammonium chloride",
+      "reasoning": "Standalone drug, use normalized drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "androgen deprivation therapy (ADT)",
+      "canonical_group": "androgen deprivation therapy",
+      "reasoning": "Base treatment name, known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "androgen-receptor pathway inhibitors (ARPI)",
+      "canonical_group": "androgen receptor pathway inhibitors",
+      "reasoning": "Known therapeutic class, use the class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "anthocyanin",
+      "canonical_group": "anthocyanin",
+      "reasoning": "Standalone compound, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "anti-TNF agents",
+      "canonical_group": "anti-tumor necrosis factor agents",
+      "reasoning": "Anti-TNF agents belong to the known therapeutic class of anti-tumor necrosis factor agents",
+      "source": "llm"
+    },
+    {
+      "original_name": "anti-adrenomedullin",
+      "canonical_group": "anti-adrenomedullin",
+      "reasoning": "Base intervention name, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "anti-inflammatory diet",
+      "canonical_group": "anti-inflammatory diet",
+      "reasoning": "The intervention is a known therapeutic class, use the class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "anti-inflammatory dietary program",
+      "canonical_group": "anti-inflammatory diet",
+      "reasoning": "The intervention is a dietary program with anti-inflammatory properties, classified under anti-inflammatory diet",
+      "source": "llm"
+    },
+    {
+      "original_name": "anticoagulant therapy",
+      "canonical_group": "anticoagulants",
+      "reasoning": "Anticoagulant is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "antihypertensive medication",
+      "canonical_group": "antihypertensive medications",
+      "reasoning": "Base drug name used, lowercase, known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "antiplatelet therapy",
+      "canonical_group": "antiplatelet therapy",
+      "reasoning": "Base treatment name, already a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "antipsychotic medications",
+      "canonical_group": "antipsychotics",
+      "reasoning": "Antipsychotic medications belong to the known therapeutic class of antipsychotics",
+      "source": "llm"
+    },
+    {
+      "original_name": "antiretroviral regimens",
+      "canonical_group": "antiretroviral agents",
+      "reasoning": "Antiretroviral regimens belong to the therapeutic class of antiretroviral agents",
+      "source": "llm"
+    },
+    {
+      "original_name": "antitubercular therapy (ATT)",
+      "canonical_group": "antitubercular therapy",
+      "reasoning": "Base treatment name, already in lowercase and refers to a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "antiviral drugs",
+      "canonical_group": "antiviral drugs",
+      "reasoning": "Base drug/treatment name, already in lowercase, and is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "aortic valve replacement (AVR)",
+      "canonical_group": "aortic valve replacement",
+      "reasoning": "Specific surgical procedure, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "apixaban",
+      "canonical_group": "apixaban",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "apremilast",
+      "canonical_group": "apremilast",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "arch bar splinting",
+      "canonical_group": "arch bar splinting",
+      "reasoning": "Specific intervention, use base name",
+      "source": "llm"
+    },
+    {
+      "original_name": "arsenic trioxide (ATO)",
+      "canonical_group": "arsenic trioxide",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "arthroscopic reduction with internal fixation (ARIF) using cannulated screws",
+      "canonical_group": "arthroscopic reduction with internal fixation",
+      "reasoning": "Remove specific fixation method (cannulated screws), use base procedure name",
+      "source": "llm"
+    },
+    {
+      "original_name": "arthroscopic reduction without fixation (ARnF)",
+      "canonical_group": "arthroscopic reduction without fixation",
+      "reasoning": "Specific surgical procedure, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "arthroscopic rotator cuff repair (RCR)",
+      "canonical_group": "arthroscopic rotator cuff repair",
+      "reasoning": "Specific surgical procedure, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "assertive community treatment (ACT)",
+      "canonical_group": "assertive community treatment",
+      "reasoning": "Assertive community treatment is a known therapeutic approach in mental health care, classified as a psychosocial intervention.",
+      "source": "llm"
+    },
+    {
+      "original_name": "asthma treatment guided by spirometry plus symptoms",
+      "canonical_group": "asthma treatment",
+      "reasoning": "The intervention refers to a treatment approach for asthma, not a specific drug or class",
+      "source": "llm"
+    },
+    {
+      "original_name": "asthma treatment guided by symptoms only",
+      "canonical_group": "asthma treatment",
+      "reasoning": "The intervention refers to a treatment approach for asthma, not a specific drug or class",
+      "source": "llm"
+    },
+    {
+      "original_name": "atezolizumab+chemo",
+      "canonical_group": "atezolizumab",
+      "reasoning": "Atezolizumab is a monoclonal antibody drug, and the intervention is normalized to the base drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "atorvastatin",
+      "canonical_group": "statins",
+      "reasoning": "Atorvastatin is a statin drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "atorvastatin pretreatment",
+      "canonical_group": "statins",
+      "reasoning": "Atorvastatin is a statin drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "auricular acupressure",
+      "canonical_group": "acupuncture",
+      "reasoning": "Auricular acupressure is a type of acupuncture technique",
+      "source": "llm"
+    },
+    {
+      "original_name": "autologous platelet-rich plasma (PRP)",
+      "canonical_group": "platelet-rich plasma",
+      "reasoning": "Autologous platelet-rich plasma (PRP) is a therapeutic intervention classified under platelet-rich plasma, removing the autologous descriptor as per normalization rules",
+      "source": "llm"
+    },
+    {
+      "original_name": "azithromycin therapy",
+      "canonical_group": "azithromycin",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "biofeedback training with Biometrics device",
+      "canonical_group": "biofeedback",
+      "reasoning": "Biofeedback is a known therapeutic class, and the device is not a drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "bioinductive collagen patch (REGENETEN)",
+      "canonical_group": "collagen patch",
+      "reasoning": "Base treatment name, remove brand name and use lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "biologics",
+      "canonical_group": "biologics",
+      "reasoning": "The term 'biologics' refers to a known therapeutic class of drugs derived from biological sources.",
+      "source": "llm"
+    },
+    {
+      "original_name": "bismuth-based quadruple therapy",
+      "canonical_group": "bismuth-based quadruple therapy",
+      "reasoning": "Base treatment name used, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "bismuth-based therapy (BBT)",
+      "canonical_group": "bismuth-based therapy",
+      "reasoning": "Base treatment name used, lowercase and canonical group name",
+      "source": "llm"
+    },
+    {
+      "original_name": "bismuth-containing quadruple therapy (BQT)",
+      "canonical_group": "bismuth-containing quadruple therapy",
+      "reasoning": "Base treatment name used, removed dosage and brand names",
+      "source": "llm"
+    },
+    {
+      "original_name": "blood flow restriction training (BFRT)",
+      "canonical_group": "blood flow restriction training",
+      "reasoning": "Base intervention name, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "blood flow restriction training combined with electrical muscle stimulation",
+      "canonical_group": "blood flow restriction training",
+      "reasoning": "Blood flow restriction training is the primary intervention, electrical muscle stimulation is an adjunct and not a therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "bone marrow aspirate concentrate (BMAC) injection",
+      "canonical_group": "bone marrow aspirate concentrate",
+      "reasoning": "Base treatment name, removed injection route",
+      "source": "llm"
+    },
+    {
+      "original_name": "botulinum neurotoxin of type A (BoNT-A)",
+      "canonical_group": "botulinum neurotoxin type a",
+      "reasoning": "Base drug name used, lowercase, no dosage or brand names",
+      "source": "llm"
+    },
+    {
+      "original_name": "botulinum toxin A",
+      "canonical_group": "botulinum toxin",
+      "reasoning": "Base drug name, remove specific variant identifier",
+      "source": "llm"
+    },
+    {
+      "original_name": "budesonide-formoterol",
+      "canonical_group": "budesonide-formoterol",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "cabazitaxel",
+      "canonical_group": "cabazitaxel",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "calcineurin inhibitors",
+      "canonical_group": "calcineurin inhibitors",
+      "reasoning": "Known therapeutic class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "calorie restriction",
+      "canonical_group": "calorie restriction",
+      "reasoning": "Standalone intervention, use base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "capecitabine plus oxaliplatin (XELOX)",
+      "canonical_group": "capecitabine plus oxaliplatin",
+      "reasoning": "Base drug names used, no dosage or brand names included",
+      "source": "llm"
+    },
+    {
+      "original_name": "catechin",
+      "canonical_group": "catechin",
+      "reasoning": "Catechin is a specific flavonoid compound, not part of a broader therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "catheter ablation",
+      "canonical_group": "catheter ablation",
+      "reasoning": "Standalone medical intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "catheter-directed thrombolysis",
+      "canonical_group": "thrombolysis",
+      "reasoning": "Catheter-directed thrombolysis is a specific form of thrombolysis, use the base therapeutic class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "celecoxib",
+      "canonical_group": "celecoxib",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "cemiplimab",
+      "canonical_group": "cemiplimab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "checkpoint inhibitors targeting Programmed Cell Death Protein 1/Programmed Death-Ligand 1 inhibitors (anti-PD-1/PD-L1)",
+      "canonical_group": "checkpoint inhibitors",
+      "reasoning": "The intervention belongs to the known therapeutic class of checkpoint inhibitors",
+      "source": "llm"
+    },
+    {
+      "original_name": "chemotherapy",
+      "canonical_group": "chemotherapy",
+      "reasoning": "Base treatment name, no specific class identified",
+      "source": "llm"
+    },
+    {
+      "original_name": "cinnamon",
+      "canonical_group": "cinnamon",
+      "reasoning": "Cinnamon is a standalone herbal intervention, not part of a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "clofarabine plus cytarabine",
+      "canonical_group": "clofarabine plus cytarabine",
+      "reasoning": "Specific combination of drugs, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "cognitive behavioral therapy",
+      "canonical_group": "cognitive behavioral therapy",
+      "reasoning": "Standalone therapeutic intervention, use lowercase base name",
+      "source": "llm"
+    },
+    {
+      "original_name": "cognitive behavioral therapy for insomnia (CBT-I)",
+      "canonical_group": "cognitive behavioral therapy for insomnia",
+      "reasoning": "Remove the acronym (CBT-I) and use the full lowercase name of the intervention",
+      "source": "llm"
+    },
+    {
+      "original_name": "cognitive rehabilitation nursing (CRN)",
+      "canonical_group": "cognitive rehabilitation nursing",
+      "reasoning": "Intervention name is used as canonical group since it is a specific nursing intervention",
+      "source": "llm"
+    },
+    {
+      "original_name": "cognitive-behavioral therapy (CBT)",
+      "canonical_group": "cognitive behavioral therapy",
+      "reasoning": "CBT is a known therapeutic class of psychotherapy",
+      "source": "llm"
+    },
+    {
+      "original_name": "colchicine",
+      "canonical_group": "colchicine",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "collateral puncture therapy",
+      "canonical_group": "collateral puncture therapy",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "colonoscopic auxiliary devices",
+      "canonical_group": "colonoscopic auxiliary devices",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "combination biologic therapy (IL-17 antagonist + IL-36 antagonist)",
+      "canonical_group": "combination biologic therapy",
+      "reasoning": "The intervention is a combination of two biologic therapies targeting specific interleukins, normalized to the general class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "combination of traditional Chinese and Western medicine",
+      "canonical_group": "traditional chinese and western medicine",
+      "reasoning": "Combination of two distinct medical systems, normalized to lowercase base forms",
+      "source": "llm"
+    },
+    {
+      "original_name": "community orchestra intervention",
+      "canonical_group": "community orchestra intervention",
+      "reasoning": "No known therapeutic class, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "complement component 5a inhibitors (anti-C5a)",
+      "canonical_group": "complement component 5a inhibitors",
+      "reasoning": "The intervention is a known therapeutic class targeting complement component 5a.",
+      "source": "llm"
+    },
+    {
+      "original_name": "complement inhibitors",
+      "canonical_group": "complement inhibitors",
+      "reasoning": "The intervention is already the name of a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "complete revascularization",
+      "canonical_group": "revascularization",
+      "reasoning": "The intervention is a procedure, not a drug, and 'complete revascularization' is the base term without dosage or brand names",
+      "source": "llm"
+    },
+    {
+      "original_name": "component therapy",
+      "canonical_group": "component therapy",
+      "reasoning": "The intervention is already the base name and does not belong to a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "compound betamethasone (CB)",
+      "canonical_group": "betamethasone",
+      "reasoning": "Compound betamethasone is a corticosteroid, and the base drug name is used",
+      "source": "llm"
+    },
+    {
+      "original_name": "computerized interventions",
+      "canonical_group": "computerized interventions",
+      "reasoning": "The intervention is already a general term and does not correspond to a specific drug or known therapeutic class.",
+      "source": "llm"
+    },
+    {
+      "original_name": "concomitant therapy",
+      "canonical_group": "concomitant therapy",
+      "reasoning": "The intervention is already a known therapeutic term and does not require further normalization",
+      "source": "llm"
+    },
+    {
+      "original_name": "conservative treatment",
+      "canonical_group": "conservative treatment",
+      "reasoning": "The intervention is already a recognized therapeutic approach and does not require further normalization",
+      "source": "llm"
+    },
+    {
+      "original_name": "continuing angiotensin-converting enzyme inhibitors (ACEIs) and angiotensin receptor blockers (ARBs)",
+      "canonical_group": "angiotensin-converting enzyme inhibitors and angiotensin receptor blockers",
+      "reasoning": "Known therapeutic classes, use the class names",
+      "source": "llm"
+    },
+    {
+      "original_name": "continuous care model (CCM)",
+      "canonical_group": "continuous care model",
+      "reasoning": "The intervention is a care model, not a specific drug or class, so it is used as is in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "continuous infusion of β-lactam antibiotics",
+      "canonical_group": "beta-lactam antibiotics",
+      "reasoning": "Known therapeutic class of antibiotics",
+      "source": "llm"
+    },
+    {
+      "original_name": "continuous intertransverse process block",
+      "canonical_group": "intertransverse process block",
+      "reasoning": "Specific intervention, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "continuous positive airway pressure (CPAP)",
+      "canonical_group": "continuous positive airway pressure",
+      "reasoning": "Base treatment name, already in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "conventional Western medicine (WM)",
+      "canonical_group": "conventional western medicine",
+      "reasoning": "Base form of the intervention name, lowercase as per rules",
+      "source": "llm"
+    },
+    {
+      "original_name": "coronary artery bypass grafting (CABG)",
+      "canonical_group": "coronary artery bypass grafting",
+      "reasoning": "Surgical procedure for coronary artery disease, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "coronary computed tomography angiography (CCTA)",
+      "canonical_group": "computed tomography angiography",
+      "reasoning": "CCTA is a type of imaging technique, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "corticosteroids",
+      "canonical_group": "corticosteroids",
+      "reasoning": "Corticosteroids is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "culprit-only revascularization",
+      "canonical_group": "revascularization",
+      "reasoning": "Culprit-only revascularization is a procedure, and the canonical group is the base term without modifiers",
+      "source": "llm"
+    },
+    {
+      "original_name": "curcumin",
+      "canonical_group": "curcumin",
+      "reasoning": "Standalone drug, use normalized drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "cycling",
+      "canonical_group": "cycling",
+      "reasoning": "Cycling is a form of physical exercise and does not belong to a known therapeutic class; use the base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "cyclophosphamide",
+      "canonical_group": "cyclophosphamide",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "cyclosporine",
+      "canonical_group": "cyclosporine",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "cysteamine",
+      "canonical_group": "cysteamine",
+      "reasoning": "Standalone drug, use normalized drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "daunorubicin and etoposide combined with low-dose cytarabine",
+      "canonical_group": "daunorubicin, etoposide, cytarabine",
+      "reasoning": "Remove dosage, use base drug names",
+      "source": "llm"
+    },
+    {
+      "original_name": "delamanid",
+      "canonical_group": "delamanid",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "denosumab biosimilar",
+      "canonical_group": "denosumab",
+      "reasoning": "Biosimilar variant of denosumab",
+      "source": "llm"
+    },
+    {
+      "original_name": "desloratadine",
+      "canonical_group": "desloratadine",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "deucravacitinib",
+      "canonical_group": "deucravacitinib",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "dexamethasone",
+      "canonical_group": "corticosteroids",
+      "reasoning": "Dexamethasone is a corticosteroid medication",
+      "source": "llm"
+    },
+    {
+      "original_name": "dextran sulfate sodium (DSS)-induced diet",
+      "canonical_group": "dextran sulfate sodium",
+      "reasoning": "Base drug name extracted, no dosage or route specified",
+      "source": "llm"
+    },
+    {
+      "original_name": "diaphragmatic breathing",
+      "canonical_group": "diaphragmatic breathing",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "digital intervention",
+      "canonical_group": "digital intervention",
+      "reasoning": "The intervention is already a recognized therapeutic group and does not require further normalization.",
+      "source": "llm"
+    },
+    {
+      "original_name": "digital therapeutics (DTx)",
+      "canonical_group": "digital therapeutics",
+      "reasoning": "The intervention is already the base name of the therapeutic group, no modifications needed",
+      "source": "llm"
+    },
+    {
+      "original_name": "diluted nitrous oxide inhalation",
+      "canonical_group": "nitrous oxide",
+      "reasoning": "Base drug name, remove route of administration",
+      "source": "llm"
+    },
+    {
+      "original_name": "docetaxel",
+      "canonical_group": "docetaxel",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "donanemab",
+      "canonical_group": "donanemab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "doxorubicin",
+      "canonical_group": "doxorubicin",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "drug-coated balloon (DCB)",
+      "canonical_group": "drug-coated balloon",
+      "reasoning": "Base intervention name, no dosage or brand specified",
+      "source": "llm"
+    },
+    {
+      "original_name": "drug-eluting stent (DES)",
+      "canonical_group": "drug-eluting stent",
+      "reasoning": "Base intervention name without dosage or brand, known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "dry cupping therapy",
+      "canonical_group": "dry cupping therapy",
+      "reasoning": "Dry cupping therapy is a standalone traditional intervention and not classified under a specific therapeutic drug class",
+      "source": "llm"
+    },
+    {
+      "original_name": "dupilumab",
+      "canonical_group": "dupilumab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "durvalumab+chemo",
+      "canonical_group": "durvalumab",
+      "reasoning": "Durvalumab is a specific monoclonal antibody drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "durvalumab+tremelimumab+chemo",
+      "canonical_group": "durvalumab+tremelimumab+chemotherapy",
+      "reasoning": "Base drug names used, chemotherapy is the normalized form of chemo",
+      "source": "llm"
+    },
+    {
+      "original_name": "earlobe acupressure",
+      "canonical_group": "acupressure",
+      "reasoning": "Earlobe acupressure is a type of acupressure technique",
+      "source": "llm"
+    },
+    {
+      "original_name": "egg ladder (EL)",
+      "canonical_group": "egg ladder",
+      "reasoning": "No known therapeutic class, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "electrical muscle stimulation (EMS)",
+      "canonical_group": "electrical muscle stimulation",
+      "reasoning": "Base intervention name, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "electro-acupuncture",
+      "canonical_group": "electro-acupuncture",
+      "reasoning": "Electro-acupuncture is a specific form of acupuncture, normalized to base treatment name",
+      "source": "llm"
+    },
+    {
+      "original_name": "electroacupuncture",
+      "canonical_group": "electroacupuncture",
+      "reasoning": "Electroacupuncture is a specific form of acupuncture therapy, and no broader therapeutic class applies",
+      "source": "llm"
+    },
+    {
+      "original_name": "elobixibat",
+      "canonical_group": "elobixibat",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "eltrombopag (EPAG)",
+      "canonical_group": "eltrombopag",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "empirical antifungal treatment",
+      "canonical_group": "antifungal agents",
+      "reasoning": "Empirical antifungal treatment refers to a known therapeutic class of antifungal agents",
+      "source": "llm"
+    },
+    {
+      "original_name": "empowerment program",
+      "canonical_group": "empowerment program",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "enzalutamide",
+      "canonical_group": "enzalutamide",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "etoricoxib",
+      "canonical_group": "coxibs",
+      "reasoning": "Etoricoxib is a cyclooxygenase-2 inhibitor (COXIB)",
+      "source": "llm"
+    },
+    {
+      "original_name": "exercise and nutritional intervention",
+      "canonical_group": "exercise and nutritional intervention",
+      "reasoning": "The intervention is a combination of exercise and nutrition, which are standalone therapeutic approaches and not part of a known drug class.",
+      "source": "llm"
+    },
+    {
+      "original_name": "exercise intervention",
+      "canonical_group": "exercise",
+      "reasoning": "Exercise is a standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "exercise programme",
+      "canonical_group": "exercise",
+      "reasoning": "Exercise programme is a general intervention, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "exercise therapy (ET)",
+      "canonical_group": "exercise therapy",
+      "reasoning": "Base intervention name, already in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "extracorporeal shock wave lithotripsy (ESWL)",
+      "canonical_group": "extracorporeal shock wave lithotripsy",
+      "reasoning": "Base treatment name, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "fMRI",
+      "canonical_group": "functional magnetic resonance imaging",
+      "reasoning": "fMRI is a neuroimaging technique, canonical name is in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "firsekibart",
+      "canonical_group": "firsekibart",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "fractional flow reserve (FFR)-guided percutaneous coronary intervention (PCI)",
+      "canonical_group": "percutaneous coronary intervention",
+      "reasoning": "PCI is the base intervention name, FFR-guided indicates a method of guidance, not a therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "fractional microneedle radiofrequency (FMR)",
+      "canonical_group": "fractional microneedle radiofrequency",
+      "reasoning": "Base treatment name used, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "fracture fixation",
+      "canonical_group": "fracture fixation",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "gallic acid",
+      "canonical_group": "gallic acid",
+      "reasoning": "Standalone drug, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "game-based interventions",
+      "canonical_group": "game-based interventions",
+      "reasoning": "Intervention name is already canonical, no further normalization needed",
+      "source": "llm"
+    },
+    {
+      "original_name": "gemtuzumab ozogamicin",
+      "canonical_group": "gemtuzumab ozogamicin",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "glucagon-like peptide-1 receptor agonists (GLP-1RA)",
+      "canonical_group": "glucagon-like peptide-1 receptor agonists",
+      "reasoning": "Known therapeutic class, use class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "glucagon-like peptide-1 receptor agonists (GLP-1Ra)",
+      "canonical_group": "glucagon-like peptide-1 receptor agonists",
+      "reasoning": "Known therapeutic class, use the class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "gluten-free diet (GFD)",
+      "canonical_group": "gluten-free diet",
+      "reasoning": "The intervention is a dietary approach, not a drug, and is classified under its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "guided transdiagnostic iCBT",
+      "canonical_group": "internet based cognitive behavioral therapy",
+      "reasoning": "Guided transdiagnostic iCBT is a form of internet-based cognitive behavioral therapy, a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "gut microbiota-targeted therapy (GMTT)",
+      "canonical_group": "gut microbiota-targeted therapy",
+      "reasoning": "The intervention is already a known therapeutic class targeting the gut microbiota",
+      "source": "llm"
+    },
+    {
+      "original_name": "gut-directed hypnotherapy",
+      "canonical_group": "gut-directed hypnotherapy",
+      "reasoning": "Specific therapeutic intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "heart valve clinic (HVC)",
+      "canonical_group": "heart valve clinic",
+      "reasoning": "The intervention is a clinic focused on heart valve issues, not a drug or therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "high molecular weight non-cross-linked hyaluronic acid plus succinic acid mesotherapy",
+      "canonical_group": "hyaluronic acid",
+      "reasoning": "High molecular weight non-cross-linked hyaluronic acid is a form of hyaluronic acid, a known therapeutic class used in mesotherapy",
+      "source": "llm"
+    },
+    {
+      "original_name": "high protein diet",
+      "canonical_group": "high protein diet",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "high-dose cytarabine",
+      "canonical_group": "cytarabine",
+      "reasoning": "Remove dosage, use base drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "high-dose vitamin D",
+      "canonical_group": "vitamin d",
+      "reasoning": "Remove dosage, use base drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "high-fat-high-glucose meal challenge",
+      "canonical_group": "high-fat-high-glucose meal challenge",
+      "reasoning": "The intervention is a specific type of dietary challenge, not a drug or therapeutic class, so it is normalized to its base form.",
+      "source": "llm"
+    },
+    {
+      "original_name": "high-intensity interval training",
+      "canonical_group": "high-intensity interval training",
+      "reasoning": "The intervention is a specific type of exercise regimen, and no broader therapeutic class is applicable",
+      "source": "llm"
+    },
+    {
+      "original_name": "high-intensity laser therapy (HILT)",
+      "canonical_group": "high-intensity laser therapy",
+      "reasoning": "Base treatment name used, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "home-based support",
+      "canonical_group": "home-based support",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "household ventilation",
+      "canonical_group": "household ventilation",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "human umbilical cord-derived mesenchymal stem cells (hUC-MSCs)",
+      "canonical_group": "mesenchymal stem cells",
+      "reasoning": "hUC-MSCs belong to the mesenchymal stem cells therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "hydroxychloroquine",
+      "canonical_group": "hydroxychloroquine",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "hypocaloric diet",
+      "canonical_group": "hypocaloric diet",
+      "reasoning": "The intervention is a specific type of diet, and no broader therapeutic class is applicable",
+      "source": "llm"
+    },
+    {
+      "original_name": "hypomethylating agents (HMA)",
+      "canonical_group": "hypomethylating agents",
+      "reasoning": "Known therapeutic class, use the class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "hypoxic conditioning",
+      "canonical_group": "hypoxic conditioning",
+      "reasoning": "Hypoxic conditioning is a known therapeutic intervention, use the base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "i-mTOR",
+      "canonical_group": "imtor",
+      "reasoning": "Base drug name, lowercase, no dosage or brand names",
+      "source": "llm"
+    },
+    {
+      "original_name": "idarubicin (IDA)",
+      "canonical_group": "idarubicin",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "immediate surgical repair",
+      "canonical_group": "surgical repair",
+      "reasoning": "Base intervention name, lowercase, no dosage or brand names",
+      "source": "llm"
+    },
+    {
+      "original_name": "immune checkpoint inhibitor therapy",
+      "canonical_group": "immune checkpoint inhibitor",
+      "reasoning": "Known therapeutic class for the intervention",
+      "source": "llm"
+    },
+    {
+      "original_name": "immune checkpoint inhibitors (ICIs)",
+      "canonical_group": "immune checkpoint inhibitors",
+      "reasoning": "Known therapeutic class, use the class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "increased water intake",
+      "canonical_group": "increased water intake",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "individualised patient-centred counselling about physical activity",
+      "canonical_group": "counselling",
+      "reasoning": "The intervention is a form of patient-centred counselling, which falls under the general therapeutic group of counselling",
+      "source": "llm"
+    },
+    {
+      "original_name": "indole-3-acetic acid (IAA)",
+      "canonical_group": "indole-3-acetic acid",
+      "reasoning": "Specific compound, no known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "infrapatellar intramedullary nailing",
+      "canonical_group": "intramedullary nailing",
+      "reasoning": "Specific surgical procedure, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "inhaled antibiotics (IAs)",
+      "canonical_group": "inhaled antibiotics",
+      "reasoning": "Base treatment name, removed route and dosage",
+      "source": "llm"
+    },
+    {
+      "original_name": "inotropes",
+      "canonical_group": "inotropes",
+      "reasoning": "Inotropes is a known therapeutic class of drugs used to affect the heart's contractility",
+      "source": "llm"
+    },
+    {
+      "original_name": "intense pulsed light combined with 3% tranexamic acid",
+      "canonical_group": "intense pulsed light combined with tranexamic acid",
+      "reasoning": "Removed dosage percentage, used base treatment names",
+      "source": "llm"
+    },
+    {
+      "original_name": "intense pulsed light only",
+      "canonical_group": "intense pulsed light",
+      "reasoning": "Base treatment name without dosage or modifiers",
+      "source": "llm"
+    },
+    {
+      "original_name": "intermittent infusion of β-lactam antibiotics",
+      "canonical_group": "beta-lactam antibiotics",
+      "reasoning": "Intermittent infusion is the route, beta-lactam is the known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "intermittent theta burst stimulation (iTBS)",
+      "canonical_group": "intermittent theta burst stimulation",
+      "reasoning": "The intervention name is used as the canonical group since it is a specific type of neuromodulation technique.",
+      "source": "llm"
+    },
+    {
+      "original_name": "intra-articular pulsed radiofrequency (IAPRF)",
+      "canonical_group": "pulsed radiofrequency",
+      "reasoning": "Intra-articular pulsed radiofrequency is a therapeutic modality classified under radiofrequency interventions",
+      "source": "llm"
+    },
+    {
+      "original_name": "intra-articular steroid injection (IASI)",
+      "canonical_group": "intra-articular steroid injection",
+      "reasoning": "Base treatment name, removed route and dosage, lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "intravenous iron dextran",
+      "canonical_group": "iron",
+      "reasoning": "Intravenous iron dextran is a form of iron supplement, canonical group is iron",
+      "source": "llm"
+    },
+    {
+      "original_name": "intrinsic antitachycardia pacing (iATP)",
+      "canonical_group": "intrinsic antitachycardia pacing",
+      "reasoning": "Specific intervention name, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "inulin/oligofructose mixture",
+      "canonical_group": "inulin/oligofructose mixture",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "ipilimumab+chemo",
+      "canonical_group": "ipilimumab",
+      "reasoning": "Ipilimumab is a specific monoclonal antibody drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "iscalimab (CFZ533)",
+      "canonical_group": "iscalimab",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "isoniazid",
+      "canonical_group": "isoniazid",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "kaempferol",
+      "canonical_group": "kaempferol",
+      "reasoning": "Kaempferol is a flavonoid compound, and as a standalone drug, it is normalized to its base name",
+      "source": "llm"
+    },
+    {
+      "original_name": "ketogenic diet (KD)",
+      "canonical_group": "ketogenic diet",
+      "reasoning": "The intervention is a known therapeutic class, use the class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "lacto-ovo-vegetarian diet",
+      "canonical_group": "vegetarian diet",
+      "reasoning": "Lacto-ovo-vegetarian diet is a type of vegetarian diet, which is the canonical therapeutic group",
+      "source": "llm"
+    },
+    {
+      "original_name": "latissimus dorsi-thoracolumbar fascia (LD-TLF) complex stretching",
+      "canonical_group": "muscle stretching",
+      "reasoning": "The intervention involves stretching of the latissimus dorsi and thoracolumbar fascia, which falls under the general category of muscle stretching",
+      "source": "llm"
+    },
+    {
+      "original_name": "levetiracetam",
+      "canonical_group": "levetiracetam",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "levocetirizine",
+      "canonical_group": "levocetirizine",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "levofloxacin triple therapy",
+      "canonical_group": "levofloxacin",
+      "reasoning": "Levofloxacin is a fluoroquinolone antibiotic, but the intervention is referred to as 'triple therapy' which suggests it is part of a broader treatment regimen. However, the base drug name is 'levofloxacin' and it is not part of a known therapeutic class in this context.",
+      "source": "llm"
+    },
+    {
+      "original_name": "levofloxacin-based TB preventive treatment (TPT)",
+      "canonical_group": "levofloxacin",
+      "reasoning": "Base drug name extracted, dosage and route removed",
+      "source": "llm"
+    },
+    {
+      "original_name": "levothyroxine (LT4)",
+      "canonical_group": "levothyroxine",
+      "reasoning": "Base drug name, no dosage or brand name present",
+      "source": "llm"
+    },
+    {
+      "original_name": "linaclotide",
+      "canonical_group": "linaclotide",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "liraglutide",
+      "canonical_group": "glp-1 receptor agonists",
+      "reasoning": "Liraglutide belongs to the class of GLP-1 receptor agonists",
+      "source": "llm"
+    },
+    {
+      "original_name": "lisdexamfetamine",
+      "canonical_group": "lisdexamfetamine",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "listening support (The Wren project)",
+      "canonical_group": "listening support",
+      "reasoning": "Intervention name is used as canonical group since it is a specific type of support intervention",
+      "source": "llm"
+    },
+    {
+      "original_name": "liver fibrosis blood tests",
+      "canonical_group": "liver fibrosis blood tests",
+      "reasoning": "The intervention is a diagnostic test, not a therapeutic drug or class",
+      "source": "llm"
+    },
+    {
+      "original_name": "low fermentable oligo-, di-, and monosaccharides and polyols (FODMAP) diet",
+      "canonical_group": "low fodmap diet",
+      "reasoning": "The intervention is a specific dietary approach, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "low-glycemic-index treatment (LGIT)",
+      "canonical_group": "low-glycemic-index treatment",
+      "reasoning": "The intervention is classified as a low-glycemic-index treatment, which is a known therapeutic class.",
+      "source": "llm"
+    },
+    {
+      "original_name": "low-level laser therapy (LLLT)",
+      "canonical_group": "low-level laser therapy",
+      "reasoning": "Base treatment name, already in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "lower body resistance training (RTL)",
+      "canonical_group": "lower body resistance training",
+      "reasoning": "The intervention is a type of physical exercise, normalized to its base form as per rules",
+      "source": "llm"
+    },
+    {
+      "original_name": "lubiprostone",
+      "canonical_group": "lubiprostone",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "lymph node boost",
+      "canonical_group": "lymph node boost",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "mask use",
+      "canonical_group": "mask use",
+      "reasoning": "Standalone intervention, use lowercase base name",
+      "source": "llm"
+    },
+    {
+      "original_name": "mechanical thrombectomy",
+      "canonical_group": "mechanical thrombectomy",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "medication for opioid use disorder (MOUD)",
+      "canonical_group": "medication for opioid use disorder",
+      "reasoning": "Base intervention name without dosage or brand, recognized therapeutic group",
+      "source": "llm"
+    },
+    {
+      "original_name": "medication labels",
+      "canonical_group": "medication labels",
+      "reasoning": "The intervention is explicitly stated as 'medication labels', which is a standalone term and not part of a known therapeutic class.",
+      "source": "llm"
+    },
+    {
+      "original_name": "medication reminders",
+      "canonical_group": "medication reminders",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "medication summary guide",
+      "canonical_group": "medication summary guide",
+      "reasoning": "Standalone intervention name, use normalized form",
+      "source": "llm"
+    },
+    {
+      "original_name": "mental fatigue induction through Stroop task",
+      "canonical_group": "mental fatigue induction",
+      "reasoning": "The intervention describes a method of inducing mental fatigue, not a specific drug or therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "mepolizumab",
+      "canonical_group": "mepolizumab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "mesenchymal stem cell (MSC) augmentation",
+      "canonical_group": "mesenchymal stem cell",
+      "reasoning": "Base treatment name, remove augmentation and use lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "mesenchymal stem cell (MSC) injections",
+      "canonical_group": "mesenchymal stem cell",
+      "reasoning": "Base treatment name, remove 'injections' as per rule 1",
+      "source": "llm"
+    },
+    {
+      "original_name": "mesenchymal stem cell therapy",
+      "canonical_group": "mesenchymal stem cell therapy",
+      "reasoning": "Base treatment name, already in lowercase and represents a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "message-based intervention",
+      "canonical_group": "message-based intervention",
+      "reasoning": "The intervention is already a recognized therapeutic group and does not require further normalization",
+      "source": "llm"
+    },
+    {
+      "original_name": "metabolic and bariatric surgery (MBS)",
+      "canonical_group": "metabolic and bariatric surgery",
+      "reasoning": "Base intervention name, already in lowercase and represents a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "metacognitive training",
+      "canonical_group": "metacognitive training",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "metastasis-directed RT",
+      "canonical_group": "radiotherapy",
+      "reasoning": "Metastasis-directed RT refers to radiotherapy used for treating metastases, which is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "metformin",
+      "canonical_group": "metformin",
+      "reasoning": "Base drug name, remove dosage, use lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "methionine",
+      "canonical_group": "methionine",
+      "reasoning": "Methionine is a standalone amino acid, not part of a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "methylphenidate",
+      "canonical_group": "methylphenidate",
+      "reasoning": "Specific drug, use base drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "microneedle radiofrequency (MRF)",
+      "canonical_group": "microneedle radiofrequency",
+      "reasoning": "Base treatment name used, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "microneedling-assisted PDT",
+      "canonical_group": "photodynamic therapy",
+      "reasoning": "Microneedling-assisted PDT is a form of photodynamic therapy, a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "minodronate",
+      "canonical_group": "minodronate",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "mitiperstat",
+      "canonical_group": "mitiperstat",
+      "reasoning": "Standalone drug, use normalized drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "moderate-intensity continuous training",
+      "canonical_group": "moderate-intensity continuous training",
+      "reasoning": "The intervention is a known therapeutic class of exercise training, no further normalization needed",
+      "source": "llm"
+    },
+    {
+      "original_name": "modified Atkins diet (MAD)",
+      "canonical_group": "modified atkins diet",
+      "reasoning": "The intervention is a specific dietary regimen, normalized to its base name",
+      "source": "llm"
+    },
+    {
+      "original_name": "monoclonal antibodies against Interleukin-6 (IL-6)",
+      "canonical_group": "monoclonal antibodies against interleukin-6",
+      "reasoning": "Specific monoclonal antibody drug targeting IL-6",
+      "source": "llm"
+    },
+    {
+      "original_name": "monoclonal antibodies against Tumor Necrosis Factor-alpha (TNF-α)",
+      "canonical_group": "monoclonal antibodies against tumor necrosis factor-alpha",
+      "reasoning": "Specific monoclonal antibody drug class targeting TNF-alpha",
+      "source": "llm"
+    },
+    {
+      "original_name": "monoclonal antibodies against endotoxin",
+      "canonical_group": "monoclonal antibodies against endotoxin",
+      "reasoning": "Specific monoclonal antibody treatment, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "montelukast",
+      "canonical_group": "leukotriene receptor antagonists",
+      "reasoning": "Montelukast belongs to the class of leukotriene receptor antagonists",
+      "source": "llm"
+    },
+    {
+      "original_name": "moxibustion with aconite cake",
+      "canonical_group": "moxibustion",
+      "reasoning": "Moxibustion is a traditional therapeutic technique, and aconite cake is a type of moxa used in the practice",
+      "source": "llm"
+    },
+    {
+      "original_name": "multi-strain probiotics",
+      "canonical_group": "probiotics",
+      "reasoning": "multi-strain probiotics belong to the probiotics therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "music therapy",
+      "canonical_group": "music therapy",
+      "reasoning": "Music therapy is a standalone intervention and does not belong to a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "mycophenolate mofetil (MMF)",
+      "canonical_group": "mycophenolate mofetil",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "myricetin",
+      "canonical_group": "myricetin",
+      "reasoning": "Standalone drug, use normalized drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "nemolizumab",
+      "canonical_group": "nemolizumab",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "nightly separation of tuberculosis patients",
+      "canonical_group": "infection control measures",
+      "reasoning": "Nightly separation of tuberculosis patients is a public health intervention aimed at preventing the spread of tuberculosis, which falls under infection control measures",
+      "source": "llm"
+    },
+    {
+      "original_name": "nivolumab monotherapy",
+      "canonical_group": "nivolumab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "nivolumab plus relatlimab",
+      "canonical_group": "nivolumab plus relatlimab",
+      "reasoning": "Specific drug combination, normalize to base drug names",
+      "source": "llm"
+    },
+    {
+      "original_name": "non-absorbable suture material",
+      "canonical_group": "non-absorbable suture material",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "non-invasive pulsed radiofrequency (NipRF)",
+      "canonical_group": "non-invasive pulsed radiofrequency",
+      "reasoning": "Base treatment name used, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "non-invasive vagus nerve stimulation (nVNS)",
+      "canonical_group": "vagus nerve stimulation",
+      "reasoning": "Non-invasive vagus nerve stimulation is a therapeutic intervention classified under vagus nerve stimulation",
+      "source": "llm"
+    },
+    {
+      "original_name": "non-operative treatment",
+      "canonical_group": "non-operative treatment",
+      "reasoning": "The intervention is already a general therapeutic approach and does not require further normalization",
+      "source": "llm"
+    },
+    {
+      "original_name": "nutritional intervention",
+      "canonical_group": "nutritional intervention",
+      "reasoning": "The intervention is already a recognized therapeutic class and does not require further normalization",
+      "source": "llm"
+    },
+    {
+      "original_name": "oat β-glucan",
+      "canonical_group": "beta-glucans",
+      "reasoning": "Oat beta-glucan is a type of beta-glucan, which is a known therapeutic class of dietary fiber with immunomodulatory and cholesterol-lowering properties",
+      "source": "llm"
+    },
+    {
+      "original_name": "olanzapine",
+      "canonical_group": "atypical antipsychotics",
+      "reasoning": "Olanzapine belongs to the class of atypical antipsychotics",
+      "source": "llm"
+    },
+    {
+      "original_name": "omalizumab",
+      "canonical_group": "omalizumab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "omega-3 fatty acids",
+      "canonical_group": "omega-3 fatty acids",
+      "reasoning": "Base drug name, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "omeprazole",
+      "canonical_group": "proton pump inhibitors",
+      "reasoning": "Omeprazole is a proton pump inhibitor",
+      "source": "llm"
+    },
+    {
+      "original_name": "online Pilates classes",
+      "canonical_group": "pilates",
+      "reasoning": "Online Pilates classes fall under the general exercise and physical therapy category, normalized to the base form 'pilates'",
+      "source": "llm"
+    },
+    {
+      "original_name": "open reduction internal fixation (ORIF)",
+      "canonical_group": "open reduction internal fixation",
+      "reasoning": "Surgical procedure for fracture fixation, no dosage or class needed",
+      "source": "llm"
+    },
+    {
+      "original_name": "opioid use",
+      "canonical_group": "opioids",
+      "reasoning": "Opioid is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "optimal medical therapy (OMT)",
+      "canonical_group": "optimal medical therapy",
+      "reasoning": "The intervention is already a recognized therapeutic group name, no further normalization needed",
+      "source": "llm"
+    },
+    {
+      "original_name": "oral anticoagulation (OAC)",
+      "canonical_group": "anticoagulants",
+      "reasoning": "Oral anticoagulation is a known therapeutic class, use the class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "oral isotretinoin",
+      "canonical_group": "isotretinoin",
+      "reasoning": "Remove route (oral), use base drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "oral liposomal iron",
+      "canonical_group": "iron",
+      "reasoning": "Oral liposomal iron is a form of iron supplement, canonical group is the base drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "originator denosumab",
+      "canonical_group": "denosumab",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "oseltamivir",
+      "canonical_group": "oseltamivir",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "oxygen",
+      "canonical_group": "oxygen",
+      "reasoning": "Oxygen is a standalone therapeutic intervention used for respiratory support",
+      "source": "llm"
+    },
+    {
+      "original_name": "pain education",
+      "canonical_group": "pain education",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "pegloticase",
+      "canonical_group": "pegloticase",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "pegylated interferon α (PEG-IFNα)",
+      "canonical_group": "pegylated interferon alpha",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "pelvic RT",
+      "canonical_group": "radiation therapy",
+      "reasoning": "Pelvic RT refers to radiation therapy applied to the pelvic region, which is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "pelvic lymph node dissection (PLND)",
+      "canonical_group": "pelvic lymph node dissection",
+      "reasoning": "Specific surgical procedure, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "pembrolizumab",
+      "canonical_group": "pembrolizumab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "penalimab",
+      "canonical_group": "penalimab",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "penalimab+chemo",
+      "canonical_group": "penalimab",
+      "reasoning": "Penalimab is a specific monoclonal antibody drug, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "penalimab+tremelimumab+chemo",
+      "canonical_group": "penalimab+tremelimumab+chemotherapy",
+      "reasoning": "Base drug names used, 'chemo' normalized to 'chemotherapy'",
+      "source": "llm"
+    },
+    {
+      "original_name": "percutaneous coronary intervention (PCI)",
+      "canonical_group": "percutaneous coronary intervention",
+      "reasoning": "Base intervention name, already in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "percutaneous nephrolithotomy (PCNL)",
+      "canonical_group": "percutaneous nephrolithotomy",
+      "reasoning": "Intervention name is already in base form, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "pharmacological therapy",
+      "canonical_group": "pharmacological therapy",
+      "reasoning": "The intervention is already the base term, no further normalization needed",
+      "source": "llm"
+    },
+    {
+      "original_name": "pharmacomechanical thrombectomy",
+      "canonical_group": "pharmacomechanical thrombectomy",
+      "reasoning": "The intervention is a known therapeutic procedure, use the base name",
+      "source": "llm"
+    },
+    {
+      "original_name": "pharmacotherapies",
+      "canonical_group": "pharmacotherapies",
+      "reasoning": "The intervention is already the base term for a class of treatments, no further normalization needed",
+      "source": "llm"
+    },
+    {
+      "original_name": "photodynamic therapy (PDT)",
+      "canonical_group": "photodynamic therapy",
+      "reasoning": "Photodynamic therapy is a known therapeutic class, use the class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "photoprotection equipment delivery",
+      "canonical_group": "photoprotection",
+      "reasoning": "Photoprotection equipment delivery falls under the photoprotection therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "physical activity intervention",
+      "canonical_group": "physical activity",
+      "reasoning": "Base form of the intervention, lowercase and normalized",
+      "source": "llm"
+    },
+    {
+      "original_name": "physical intervention",
+      "canonical_group": "physical intervention",
+      "reasoning": "The intervention is already a general category and does not require further normalization",
+      "source": "llm"
+    },
+    {
+      "original_name": "physical therapy",
+      "canonical_group": "physical therapy",
+      "reasoning": "Physical therapy is a standalone intervention and does not belong to a specific therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "plecanatide",
+      "canonical_group": "plecanatide",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "point-of-care decision aid (RA Choice)",
+      "canonical_group": "point-of-care decision aid",
+      "reasoning": "The intervention is a point-of-care decision aid, which is a type of tool used to support clinical decision-making at the point of care.",
+      "source": "llm"
+    },
+    {
+      "original_name": "polyunsaturated fatty acids (PUFAs)",
+      "canonical_group": "polyunsaturated fatty acids",
+      "reasoning": "Base drug name, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "positive psychological intervention based on PERMA model",
+      "canonical_group": "positive psychological intervention",
+      "reasoning": "The intervention is based on the PERMA model, which is a known therapeutic approach in psychology",
+      "source": "llm"
+    },
+    {
+      "original_name": "potassium citrate",
+      "canonical_group": "potassium citrate",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "potassium-competitive acid blockers (P-CABs)",
+      "canonical_group": "potassium-competitive acid blockers",
+      "reasoning": "Known therapeutic class, use the class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "povidone-iodine (PI)",
+      "canonical_group": "povidone-iodine",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "precision medicine approach",
+      "canonical_group": "precision medicine",
+      "reasoning": "The intervention is a broad approach rather than a specific drug, so it is normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "preoperative exercise training",
+      "canonical_group": "preoperative exercise training",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "probiotic supplementation",
+      "canonical_group": "probiotics",
+      "reasoning": "Probiotic supplementation falls under the probiotics therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "probiotics",
+      "canonical_group": "probiotics",
+      "reasoning": "Probiotics is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "progressive muscle relaxation exercises",
+      "canonical_group": "progressive muscle relaxation",
+      "reasoning": "Base form of the intervention, lowercase and normalized",
+      "source": "llm"
+    },
+    {
+      "original_name": "prostaglandins",
+      "canonical_group": "prostaglandins",
+      "reasoning": "Prostaglandins is a known therapeutic class, use the class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "prostate bed boost",
+      "canonical_group": "prostate bed boost",
+      "reasoning": "Specific intervention name, no known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "prostate-specific membrane antigen PET-guided intensification of salvage radiotherapy (PSMAiSRT)",
+      "canonical_group": "salvage radiotherapy",
+      "reasoning": "The intervention refers to a specific type of radiotherapy, 'salvage radiotherapy,' guided by PSMA PET imaging, which is classified under the broader therapeutic group of salvage radiotherapy.",
+      "source": "llm"
+    },
+    {
+      "original_name": "proton pump inhibitors",
+      "canonical_group": "proton pump inhibitors",
+      "reasoning": "Proton pump inhibitors is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "proton pump inhibitors (PPIs)",
+      "canonical_group": "proton pump inhibitors",
+      "reasoning": "Known therapeutic class for PPIs",
+      "source": "llm"
+    },
+    {
+      "original_name": "prucalopride",
+      "canonical_group": "prucalopride",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "psychological intervention",
+      "canonical_group": "psychological intervention",
+      "reasoning": "The intervention is already a recognized therapeutic group and does not require further normalization",
+      "source": "llm"
+    },
+    {
+      "original_name": "psychological support",
+      "canonical_group": "psychological support",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "psychologist-led behaviour-change support",
+      "canonical_group": "behaviour-change support",
+      "reasoning": "The intervention is a form of psychological support aimed at behaviour change, not a specific drug or class",
+      "source": "llm"
+    },
+    {
+      "original_name": "quercetin",
+      "canonical_group": "quercetin",
+      "reasoning": "Quercetin is a specific flavonoid compound, not part of a broader therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "ramp pacing",
+      "canonical_group": "ramp pacing",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "rehabilitation training",
+      "canonical_group": "rehabilitation training",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "repetitive transcranial magnetic stimulation (rTMS)",
+      "canonical_group": "repetitive transcranial magnetic stimulation",
+      "reasoning": "Base treatment name, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "resilience training",
+      "canonical_group": "resilience training",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "resistance exercise",
+      "canonical_group": "resistance exercise",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "resistance training",
+      "canonical_group": "resistance training",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "resveratrol",
+      "canonical_group": "resveratrol",
+      "reasoning": "Standalone drug, use normalized drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "reverse total shoulder arthroplasty",
+      "canonical_group": "reverse total shoulder arthroplasty",
+      "reasoning": "Specific surgical procedure, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "revision arthroplasty",
+      "canonical_group": "revision arthroplasty",
+      "reasoning": "Standalone surgical procedure, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "rhPTH(1-34)",
+      "canonical_group": "rhpth",
+      "reasoning": "rhPTH(1-34) is a recombinant human parathyroid hormone, normalized to base drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "rheumatology clinician training",
+      "canonical_group": "rheumatology clinician training",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "ribavirin",
+      "canonical_group": "ribavirin",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "risankizumab",
+      "canonical_group": "risankizumab",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "rituximab",
+      "canonical_group": "rituximab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "rituximab therapy",
+      "canonical_group": "rituximab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "rivaroxaban",
+      "canonical_group": "rivaroxaban",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "robot-assisted total knee arthroplasty (TKA)",
+      "canonical_group": "robot-assisted total knee arthroplasty",
+      "reasoning": "The intervention is a specific surgical procedure, normalized to its base form without additional details",
+      "source": "llm"
+    },
+    {
+      "original_name": "rotator cuff repair surgery",
+      "canonical_group": "rotator cuff repair surgery",
+      "reasoning": "Specific surgical procedure, no known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "rusfertide",
+      "canonical_group": "rusfertide",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "safer opioid prescribing",
+      "canonical_group": "opioid prescribing",
+      "reasoning": "Safer opioid prescribing refers to the therapeutic class of opioid management strategies",
+      "source": "llm"
+    },
+    {
+      "original_name": "salbutamol",
+      "canonical_group": "beta agonists",
+      "reasoning": "Salbutamol is a beta-agonist medication used for bronchodilation",
+      "source": "llm"
+    },
+    {
+      "original_name": "salvage radiotherapy (SRT)",
+      "canonical_group": "radiotherapy",
+      "reasoning": "Salvage radiotherapy is a type of radiotherapy, use the base treatment name",
+      "source": "llm"
+    },
+    {
+      "original_name": "saponin",
+      "canonical_group": "saponin",
+      "reasoning": "Saponin is a standalone compound and not part of a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "second-generation virtual reality intervention (SG-VRI)",
+      "canonical_group": "virtual reality intervention",
+      "reasoning": "Second-generation virtual reality intervention is a type of virtual reality intervention, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "seed cycling",
+      "canonical_group": "seed cycling",
+      "reasoning": "Seed cycling is a dietary intervention and not a specific drug or known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "self-care education based on conceptual mapping",
+      "canonical_group": "self-care education",
+      "reasoning": "The intervention is a form of patient education, which falls under self-care education without specific drug or therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "self-care training using the teach-back method",
+      "canonical_group": "self-care training",
+      "reasoning": "The intervention is a training method, not a drug or therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "self-compassion based writing",
+      "canonical_group": "self-compassion based writing",
+      "reasoning": "Intervention name is already in base form and not part of a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "sham cupping",
+      "canonical_group": "sham cupping",
+      "reasoning": "Specific intervention, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "shared decision making (SDM)",
+      "canonical_group": "shared decision making",
+      "reasoning": "The intervention is a recognized therapeutic approach, not a drug or specific treatment, so it is used as is in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "slow movement training with tonic force generation",
+      "canonical_group": "slow movement training",
+      "reasoning": "The intervention is a type of physical therapy, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "smart pillbox",
+      "canonical_group": "smart pillbox",
+      "reasoning": "Standalone device, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "smoking cessation programme",
+      "canonical_group": "smoking cessation",
+      "reasoning": "The intervention is a program aimed at quitting smoking, which falls under the therapeutic group of smoking cessation",
+      "source": "llm"
+    },
+    {
+      "original_name": "sodium bicarbonate",
+      "canonical_group": "sodium bicarbonate",
+      "reasoning": "Standalone drug, use normalized base name",
+      "source": "llm"
+    },
+    {
+      "original_name": "sodium-glucose transport protein 2 inhibitors (SGLT2i)",
+      "canonical_group": "sodium-glucose transport protein 2 inhibitors",
+      "reasoning": "Known therapeutic class, use the class name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "sofosbuvir/daclatasvir",
+      "canonical_group": "sofosbuvir/daclatasvir",
+      "reasoning": "Specific drug combination, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "sofosbuvir/daclatasvir regimen",
+      "canonical_group": "sofosbuvir/daclatasvir",
+      "reasoning": "Base drug names used, no dosage or brand names included",
+      "source": "llm"
+    },
+    {
+      "original_name": "standard initiation of kidney replacement therapy (KRT)",
+      "canonical_group": "kidney replacement therapy",
+      "reasoning": "Standard initiation of kidney replacement therapy is a known therapeutic class, use the base treatment name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "standard preoperative diet",
+      "canonical_group": "preoperative diet",
+      "reasoning": "Standard preoperative diet is a general intervention, use lowercase base name",
+      "source": "llm"
+    },
+    {
+      "original_name": "standard quadruple therapy",
+      "canonical_group": "quadruple therapy",
+      "reasoning": "Standard quadruple therapy is a known therapeutic class used in the treatment of certain infections, such as Helicobacter pylori, and refers to the combination of four different drugs.",
+      "source": "llm"
+    },
+    {
+      "original_name": "standard-of-care therapy",
+      "canonical_group": "standard of care",
+      "reasoning": "The intervention is a general term referring to the standard of care therapy, which is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "starch- and sucrose-reduced diet (SSRD)",
+      "canonical_group": "starch- and sucrose-reduced diet",
+      "reasoning": "Base name of the intervention, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "statin use",
+      "canonical_group": "statins",
+      "reasoning": "Statin is the known therapeutic class for atorvastatin",
+      "source": "llm"
+    },
+    {
+      "original_name": "steroids",
+      "canonical_group": "steroids",
+      "reasoning": "Base drug name, known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "strength training",
+      "canonical_group": "strength training",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "stress testing modalities",
+      "canonical_group": "stress testing",
+      "reasoning": "Stress testing is a known diagnostic modality used to assess cardiac function under increased workload",
+      "source": "llm"
+    },
+    {
+      "original_name": "sugemalimab+chemo",
+      "canonical_group": "sugemalimab",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "supervised sensorimotor training",
+      "canonical_group": "sensorimotor training",
+      "reasoning": "Supervised sensorimotor training is a type of rehabilitation intervention, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "suprapatellar intramedullary nailing",
+      "canonical_group": "intramedullary nailing",
+      "reasoning": "Suprapatellar intramedullary nailing is a surgical procedure, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "suprascapular nerve block",
+      "canonical_group": "suprascapular nerve block",
+      "reasoning": "Specific intervention, use base name",
+      "source": "llm"
+    },
+    {
+      "original_name": "suraxavir marboxil (GP681)",
+      "canonical_group": "suraxavir",
+      "reasoning": "Base drug name extracted, dosage and other suffixes removed",
+      "source": "llm"
+    },
+    {
+      "original_name": "surgical intervention",
+      "canonical_group": "surgical intervention",
+      "reasoning": "Intervention is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "sutureless bioprosthetic valve (SU-AVR)",
+      "canonical_group": "bioprosthetic valve",
+      "reasoning": "The intervention refers to a bioprosthetic valve, which is a known therapeutic class in cardiac surgery",
+      "source": "llm"
+    },
+    {
+      "original_name": "synbiotics",
+      "canonical_group": "synbiotics",
+      "reasoning": "Synbiotics is a known therapeutic class combining prebiotics and probiotics",
+      "source": "llm"
+    },
+    {
+      "original_name": "systemic corticosteroids",
+      "canonical_group": "corticosteroids",
+      "reasoning": "Systemic corticosteroids belong to the corticosteroid therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "systemic thrombolysis",
+      "canonical_group": "systemic thrombolysis",
+      "reasoning": "Intervention name is already canonical, no further normalization needed",
+      "source": "llm"
+    },
+    {
+      "original_name": "tacrolimus",
+      "canonical_group": "tacrolimus",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "tadalafil",
+      "canonical_group": "tadalafil",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "tamsulosin",
+      "canonical_group": "alpha adrenergic blockers",
+      "reasoning": "Tamsulosin belongs to the class of alpha adrenergic blockers",
+      "source": "llm"
+    },
+    {
+      "original_name": "tegoprazan-amoxicillin dual therapy",
+      "canonical_group": "proton pump inhibitors",
+      "reasoning": "Tegoprazan is a proton pump inhibitor, amoxicillin is an antibiotic; dual therapy is a known class for eradication of H. pylori",
+      "source": "llm"
+    },
+    {
+      "original_name": "tegoprazan-based therapies",
+      "canonical_group": "proton pump inhibitors",
+      "reasoning": "Tegoprazan is a proton pump inhibitor used in the treatment of gastrointestinal disorders",
+      "source": "llm"
+    },
+    {
+      "original_name": "tele-genetic counseling (GC)",
+      "canonical_group": "tele-genetic counseling",
+      "reasoning": "The intervention is a form of genetic counseling delivered via telecommunication, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "tenapanor",
+      "canonical_group": "tenapanor",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "tenofovir alafenamide (TAF)",
+      "canonical_group": "tenofovir alafenamide",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "tenofovir disoproxil fumarate (TDF)",
+      "canonical_group": "tenofovir disoproxil fumarate",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "terpenoid",
+      "canonical_group": "terpenoids",
+      "reasoning": "Terpenoid is a known therapeutic class, use the class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "text message and video support programme",
+      "canonical_group": "text message and video support programme",
+      "reasoning": "Intervention name is used as it is a specific type of support programme, not a drug or therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "thiazides",
+      "canonical_group": "thiazides",
+      "reasoning": "Thiazides are a known therapeutic class of diuretics",
+      "source": "llm"
+    },
+    {
+      "original_name": "thyroidectomy",
+      "canonical_group": "thyroidectomy",
+      "reasoning": "Surgical procedure involving removal of the thyroid gland",
+      "source": "llm"
+    },
+    {
+      "original_name": "tibiotalocalcaneal arthrodesis (TTCA)",
+      "canonical_group": "tibiotalocalcaneal arthrodesis",
+      "reasoning": "Specific surgical procedure, use base intervention name",
+      "source": "llm"
+    },
+    {
+      "original_name": "tolvaptan",
+      "canonical_group": "tolvaptan",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "toothbrushing",
+      "canonical_group": "toothbrushing",
+      "reasoning": "Standalone intervention, use lowercase base name",
+      "source": "llm"
+    },
+    {
+      "original_name": "topical treatments",
+      "canonical_group": "topical treatments",
+      "reasoning": "Base treatment name, already in lowercase and represents a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "traditional Asian nutraceuticals",
+      "canonical_group": "traditional asian nutraceuticals",
+      "reasoning": "Base name used, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "traditional Chinese medicine transdermal therapy",
+      "canonical_group": "traditional chinese medicine",
+      "reasoning": "Base treatment name, removed route of administration",
+      "source": "llm"
+    },
+    {
+      "original_name": "traditional board game therapy",
+      "canonical_group": "board game therapy",
+      "reasoning": "Traditional board game therapy is a form of therapeutic intervention, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "traditional physiotherapy",
+      "canonical_group": "physiotherapy",
+      "reasoning": "Traditional physiotherapy is a general therapeutic approach, normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "traditional therapy",
+      "canonical_group": "traditional therapy",
+      "reasoning": "The intervention is already a recognized therapeutic group name, no further normalization needed",
+      "source": "llm"
+    },
+    {
+      "original_name": "tranexamic acid",
+      "canonical_group": "tranexamic acid",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "transcatheter aortic valve replacement (TAVR)",
+      "canonical_group": "transcatheter aortic valve replacement",
+      "reasoning": "Intervention name is already canonical, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "transcranial direct current stimulation (tDCS)",
+      "canonical_group": "transcranial direct current stimulation",
+      "reasoning": "The intervention is a known therapeutic class of non-invasive brain stimulation",
+      "source": "llm"
+    },
+    {
+      "original_name": "trastuzumab deruxtecan (T-DXd)",
+      "canonical_group": "trastuzumab deruxtecan",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "treatment-as-usual (TAU)",
+      "canonical_group": "treatment-as-usual",
+      "reasoning": "The intervention name is already in its base form and is not part of a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "trimetazidine",
+      "canonical_group": "trimetazidine",
+      "reasoning": "Trimetazidine is a standalone drug, use normalized drug name",
+      "source": "llm"
+    },
+    {
+      "original_name": "triple therapy",
+      "canonical_group": "triple therapy",
+      "reasoning": "The intervention name is already the canonical therapeutic group name",
+      "source": "llm"
+    },
+    {
+      "original_name": "tubeless PCNL",
+      "canonical_group": "pnl",
+      "reasoning": "tubeless pcnl is a type of percutaneous nephrolithotomy, normalized to its base procedure name",
+      "source": "llm"
+    },
+    {
+      "original_name": "unguided transdiagnostic iCBT",
+      "canonical_group": "internet-based cognitive behavioral therapy",
+      "reasoning": "unguided transdiagnostic iCBT is a form of internet-based cognitive behavioral therapy",
+      "source": "llm"
+    },
+    {
+      "original_name": "uniportal video-assisted thoracoscopic surgery (VATS)",
+      "canonical_group": "video-assisted thoracoscopic surgery",
+      "reasoning": "Surgical procedure, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "upper body resistance training (RTU)",
+      "canonical_group": "upper body resistance training",
+      "reasoning": "Specific type of physical exercise, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "ureteral access sheath (UAS)",
+      "canonical_group": "ureteral access sheath",
+      "reasoning": "Specific medical device, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "ureteroscopy (URS)",
+      "canonical_group": "ureteroscopy",
+      "reasoning": "Ureteroscopy is a specific medical procedure, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "ustekinumab",
+      "canonical_group": "ustekinumab",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "vasopressor and/or inotropic support",
+      "canonical_group": "vasopressors and inotropes",
+      "reasoning": "Known therapeutic class for drugs that increase blood pressure and cardiac contractility",
+      "source": "llm"
+    },
+    {
+      "original_name": "vasopressors",
+      "canonical_group": "vasopressors",
+      "reasoning": "Vasopressors is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "vedolizumab",
+      "canonical_group": "vedolizumab",
+      "reasoning": "Specific monoclonal antibody drug",
+      "source": "llm"
+    },
+    {
+      "original_name": "vegan diet",
+      "canonical_group": "vegan diet",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "venous stenting",
+      "canonical_group": "venous stenting",
+      "reasoning": "Standalone intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "virtual reality technology (VRT)",
+      "canonical_group": "virtual reality technology",
+      "reasoning": "Base form of the intervention, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "visual art therapy",
+      "canonical_group": "visual art therapy",
+      "reasoning": "Standalone therapeutic intervention, use base name in lowercase",
+      "source": "llm"
+    },
+    {
+      "original_name": "vitamin D",
+      "canonical_group": "vitamin d",
+      "reasoning": "Base drug name, lowercase, no dosage or brand names",
+      "source": "llm"
+    },
+    {
+      "original_name": "vitamin D and calcium supplementation",
+      "canonical_group": "vitamin d and calcium supplementation",
+      "reasoning": "Base intervention name used, no dosage or brand names present",
+      "source": "llm"
+    },
+    {
+      "original_name": "vitamin D supplementation",
+      "canonical_group": "vitamin d",
+      "reasoning": "Base drug name, lowercase, vitamin D is a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "vonoprazan and amoxicillin dual therapy",
+      "canonical_group": "vonoprazan and amoxicillin",
+      "reasoning": "Remove dosage, route, brand names and use base drug names",
+      "source": "llm"
+    },
+    {
+      "original_name": "walking",
+      "canonical_group": "walking",
+      "reasoning": "Walking is a physical activity and not a drug or therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "warfarin",
+      "canonical_group": "warfarin",
+      "reasoning": "Specific drug, normalize to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "web-based telerehabilitation monitoring",
+      "canonical_group": "telerehabilitation",
+      "reasoning": "Web-based monitoring is a form of telerehabilitation, a known therapeutic class",
+      "source": "llm"
+    },
+    {
+      "original_name": "whole blood transfusion",
+      "canonical_group": "whole blood transfusion",
+      "reasoning": "Specific intervention, use base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "wire composite splinting",
+      "canonical_group": "wire composite splinting",
+      "reasoning": "Standalone intervention, use normalized name",
+      "source": "llm"
+    },
+    {
+      "original_name": "withholding angiotensin-converting enzyme inhibitors (ACEIs) and angiotensin receptor blockers (ARBs)",
+      "canonical_group": "angiotensin-converting enzyme inhibitors and angiotensin receptor blockers",
+      "reasoning": "Known therapeutic classes, use the class names",
+      "source": "llm"
+    },
+    {
+      "original_name": "withholding angiotensin-converting enzyme inhibitors or angiotensin receptor blockers",
+      "canonical_group": "angiotensin-converting enzyme inhibitors or angiotensin receptor blockers",
+      "reasoning": "Known therapeutic class, use the class name",
+      "source": "llm"
+    },
+    {
+      "original_name": "yellow information letter",
+      "canonical_group": "information letter",
+      "reasoning": "The intervention is a document, not a drug or treatment, so it is normalized to its base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "zinc therapy",
+      "canonical_group": "zinc",
+      "reasoning": "Zinc is a mineral supplement, standalone drug, normalized to base name",
+      "source": "llm"
+    }
+  ],
+  "clusters": {
+    "educational programmes": [
+      "'Living with the Sun' (LWS) educational programme"
+    ],
+    "pet ct": [
+      "18F-PSMA PET/CT"
+    ],
+    "salicylic acid": [
+      "30% supramolecular salicylic acid (SSA)"
+    ],
+    "5-fluorouracil": [
+      "5-fluorouracil (5-FU)"
+    ],
+    "acl preservation procedures": [
+      "ACL preservation procedures"
+    ],
+    "acl reconstruction surgery": [
+      "ACL reconstruction surgery using a graft"
+    ],
+    "acl repair with ligament augmentation": [
+      "ACL repair with InternalBrace (Arthrex© implant system) ligament augmentation"
+    ],
+    "aki care bundles": [
+      "AKI care bundles"
+    ],
+    "acetyl-l-carnitine": [
+      "Acetyl-L-Carnitine"
+    ],
+    "acupuncture": [
+      "Acupuncture",
+      "auricular acupressure"
+    ],
+    "askshareknow": [
+      "AskShareKnow questions"
+    ],
+    "asvard": [
+      "Asvard capsule"
+    ],
+    "azetukalner": [
+      "Azetukalner"
+    ],
+    "baduanjin": [
+      "Baduanjin"
+    ],
+    "janus kinase inhibitors": [
+      "Baricitinib",
+      "Janus kinase inhibitors (JAKi)",
+      "Tofacitinib"
+    ],
+    "benzoyl peroxide": [
+      "Benzoyl peroxide (BPO) wash preparation"
+    ],
+    "probiotics": [
+      "Bifidobacterium animalis",
+      "multi-strain probiotics",
+      "probiotic supplementation",
+      "probiotics"
+    ],
+    "bir pletok": [
+      "Bir Pletok"
+    ],
+    "bone health": [
+      "Bone Health model"
+    ],
+    "cemiplimab": [
+      "Cemiplimab",
+      "cemiplimab"
+    ],
+    "cetuximab": [
+      "Cetuximab",
+      "Cetuximab-β"
+    ],
+    "sodium bicarbonate": [
+      "Citro-Soda®",
+      "sodium bicarbonate"
+    ],
+    "clinical pharmacist integration": [
+      "Clinical pharmacist integration"
+    ],
+    "clomiphene": [
+      "Clomiphene"
+    ],
+    "coq10": [
+      "CoQ10"
+    ],
+    "comprehensive behavioral model": [
+      "Comprehensive Behavioral (ComB) model"
+    ],
+    "robot-assisted gait training": [
+      "Continuous robot-assisted gait training (RAGT)",
+      "Low-intensity interval robot-assisted gait training (LowRAGT)",
+      "Robot-assisted gait training (RAGT)"
+    ],
+    "conventional surgery": [
+      "Conventional surgery"
+    ],
+    "curcuma longa": [
+      "Curcuma longa"
+    ],
+    "direct oral anticoagulants": [
+      "DOACs (direct oral anticoagulants)"
+    ],
+    "deprescribing": [
+      "Deprescribing model"
+    ],
+    "digital health": [
+      "Digital health (DH)"
+    ],
+    "electroencephalography": [
+      "EEG"
+    ],
+    "eggshell membrane": [
+      "Eggshell membrane (ESM)"
+    ],
+    "exercise interventions": [
+      "Exercise Interventions"
+    ],
+    "extracorporeal shock wave lithotripsy": [
+      "Extracorporeal shock wave lithotripsy (ESWL)",
+      "extracorporeal shock wave lithotripsy (ESWL)"
+    ],
+    "folfiri": [
+      "FOLFIRI"
+    ],
+    "fenugreek": [
+      "FenuflakesTM"
+    ],
+    "firsekibart": [
+      "Firsekibart",
+      "firsekibart"
+    ],
+    "glp-1 receptor agonists": [
+      "GLP-1 receptor agonists (GLP-1 RAs)",
+      "liraglutide"
+    ],
+    "galohgor": [
+      "Galohgor"
+    ],
+    "healthy eating advice": [
+      "Healthy Eating Advice (HE)"
+    ],
+    "hericium erinaceus": [
+      "Hericium erinaceus (HE)"
+    ],
+    "hewei jiangni recipe": [
+      "Hewei Jiangni recipe (HWJNR)"
+    ],
+    "digital health management": [
+      "IKAP theory-based digital health management"
+    ],
+    "il-17 antagonists": [
+      "IL-17 antagonists"
+    ],
+    "il-23p19 inhibitors": [
+      "IL-23p19 inhibitors"
+    ],
+    "intense pulsed light therapy": [
+      "IPL therapy"
+    ],
+    "imiquimod": [
+      "Imiquimod"
+    ],
+    "individualized targeting": [
+      "Individualized targeting"
+    ],
+    "injury prevention": [
+      "Injury Prevention model"
+    ],
+    "interferon gamma": [
+      "Interferon Gamma Injection"
+    ],
+    "intravenous immunoglobulin": [
+      "Intravenous Immunoglobulin (IVIG)"
+    ],
+    "l-arginine": [
+      "L-Arginine"
+    ],
+    "leflunomide": [
+      "Leflunomide"
+    ],
+    "lucus-guided strategy": [
+      "LuCUS-guided strategy"
+    ],
+    "measles-containing vaccine": [
+      "MCV (Measles-containing vaccine)"
+    ],
+    "mg puncture needle": [
+      "MG puncture needle"
+    ],
+    "mavacamten": [
+      "Mavacamten"
+    ],
+    "mediterranean diet": [
+      "Mediterranean diet"
+    ],
+    "meridian-sinew release therapy": [
+      "Meridian-Sinew Release Therapy (MSRT)"
+    ],
+    "metformin": [
+      "Metformin",
+      "adjuvant metformin",
+      "metformin"
+    ],
+    "methotrexate": [
+      "Methotrexate"
+    ],
+    "mohs micrographic surgery": [
+      "Mohs Micrographic Surgery (MMS)"
+    ],
+    "mono-segment fixation": [
+      "Mono-Segment Fixation (MSF)"
+    ],
+    "moringa oleifera": [
+      "Moringa oleifera (MO) supplementation"
+    ],
+    "ncx 701": [
+      "NCX 701"
+    ],
+    "nintendo switch-based therapy": [
+      "Nintendo Switch-based therapy"
+    ],
+    "noninvasive brain stimulation": [
+      "Noninvasive brain stimulation (NIBS)"
+    ],
+    "nordic hamstring exercise": [
+      "Nordic hamstring exercise (NHE)"
+    ],
+    "nucleos(t)ide analogues": [
+      "Nucleos(t)ide analogues (NAs)"
+    ],
+    "monacolin k": [
+      "Nutraceutical combination containing Monacolin K (MK) alone"
+    ],
+    "nutraceutical combination": [
+      "Nutraceutical combination containing Monacolin K (MK) and Morus alba"
+    ],
+    "nursing": [
+      "Orem's self-care model nursing"
+    ],
+    "parp inhibitors": [
+      "PARPi"
+    ],
+    "pd-1 antibody": [
+      "PD-1 antibody",
+      "PD-1 antibody combined with PEG-IFNα"
+    ],
+    "pd-1/pd-l1 inhibitors": [
+      "PD-1/PD-L1 inhibitors combined with chemotherapy"
+    ],
+    "pet-guided targeting": [
+      "PET-guided targeting"
+    ],
+    "peer intervention": [
+      "Peer Intervention (PI)"
+    ],
+    "pegylated interferon alpha": [
+      "Pegylated interferon alpha (Peg-IFNα)",
+      "pegylated interferon α (PEG-IFNα)"
+    ],
+    "percutaneous mechanical aspiration": [
+      "Percutaneous Mechanical Aspiration (PMA)"
+    ],
+    "persimmon leaf extract": [
+      "Persimmon leaf extract (PLE)"
+    ],
+    "posterior drainage lithotripsy system": [
+      "Posterior Drainage Lithotripsy System (PDLS)"
+    ],
+    "potassium competitive acid blockers": [
+      "Potassium-competitive acid blockers (PCABs)"
+    ],
+    "proton pump inhibitors": [
+      "Proton pump inhibitors (PPIs)",
+      "omeprazole",
+      "proton pump inhibitors",
+      "proton pump inhibitors (PPIs)",
+      "tegoprazan-amoxicillin dual therapy",
+      "tegoprazan-based therapies"
+    ],
+    "ureteral lithotripsy": [
+      "Retrograde Intrarenal Ureteral Lithotripsy (RIRS)"
+    ],
+    "rifampin": [
+      "Rifampin-based regimen (2 months daily)",
+      "Rifampin-based regimen (4 months daily)"
+    ],
+    "ruxolitinib": [
+      "Ruxolitinib"
+    ],
+    "sglt2 inhibitors": [
+      "SGLT2 inhibitor",
+      "SGLT2 inhibitors (SGLT2is)"
+    ],
+    "stereotactic radiosurgery": [
+      "SRS (stereotactic radiosurgery)"
+    ],
+    "selective serotonin reuptake inhibitors": [
+      "SSRIs (Selective Serotonin Reuptake Inhibitors)"
+    ],
+    "sugar handshake": [
+      "SUGAR Handshake"
+    ],
+    "salvia miltiorrhiza": [
+      "Salvia miltiorrhiza"
+    ],
+    "gait training": [
+      "Self-paced overground gait training (OGT)"
+    ],
+    "short-segment fixation": [
+      "Short-Segment Fixation (SSF)"
+    ],
+    "sincrolab adults program": [
+      "Sincrolab Adults program"
+    ],
+    "stress first aid": [
+      "Stress First Aid (SFA)"
+    ],
+    "magnetic resonance imaging": [
+      "Structural MRI"
+    ],
+    "surgical left atrial appendage occlusion": [
+      "Surgical left atrial appendage occlusion (SLAAO)"
+    ],
+    "ttfields": [
+      "TTFields (Tumor Treating Fields)"
+    ],
+    "time-restricted eating": [
+      "Time-restricted eating (TRE)"
+    ],
+    "tranexamic acid": [
+      "Tranexamic acid (TXA)",
+      "tranexamic acid"
+    ],
+    "tripterygium wilfordii": [
+      "Tripterygium wilfordii"
+    ],
+    "upadacitinib": [
+      "Upadacitinib"
+    ],
+    "vagus nerve stimulation": [
+      "Vagus nerve stimulation (VNS)",
+      "non-invasive vagus nerve stimulation (nVNS)"
+    ],
+    "vonoprazan": [
+      "Vonoprazan"
+    ],
+    "wedang uwuh": [
+      "Wedang Uwuh"
+    ],
+    "yangxiao fukang granule": [
+      "Yangxiao Fukang granule (YXFKG)"
+    ],
+    "yiqi chupi powder": [
+      "Yiqi Chupi powder"
+    ],
+    "yoga": [
+      "Yoga"
+    ],
+    "zingiber officinale": [
+      "Zingiber officinale"
+    ],
+    "abiraterone": [
+      "abiraterone plus prednisone"
+    ],
+    "absorbable suture material": [
+      "absorbable suture material"
+    ],
+    "kidney replacement therapy": [
+      "accelerated initiation of kidney replacement therapy (KRT)",
+      "standard initiation of kidney replacement therapy (KRT)"
+    ],
+    "acetaminophen": [
+      "acetaminophen"
+    ],
+    "active video games": [
+      "active video games (AVGs)"
+    ],
+    "cognitive training": [
+      "adaptive Cognitive Training Kit (COGNI-TRAcK)"
+    ],
+    "hormone therapy": [
+      "adjuvant hormone therapy"
+    ],
+    "aerobic exercise": [
+      "aerobic exercise"
+    ],
+    "aerobic training": [
+      "aerobic training",
+      "aerobic training (AET)"
+    ],
+    "bisphosphonates": [
+      "alendronate"
+    ],
+    "alendronate": [
+      "alendronate (ALN)"
+    ],
+    "alkaloid": [
+      "alkaloid"
+    ],
+    "all-trans retinoic acid": [
+      "all-trans retinoic acid (ATRA)"
+    ],
+    "ammonium chloride": [
+      "ammonium chloride"
+    ],
+    "androgen deprivation therapy": [
+      "androgen deprivation therapy (ADT)"
+    ],
+    "androgen receptor pathway inhibitors": [
+      "androgen-receptor pathway inhibitors (ARPI)"
+    ],
+    "anthocyanin": [
+      "anthocyanin"
+    ],
+    "anti-tumor necrosis factor agents": [
+      "anti-TNF agents"
+    ],
+    "anti-adrenomedullin": [
+      "anti-adrenomedullin"
+    ],
+    "anti-inflammatory diet": [
+      "anti-inflammatory diet",
+      "anti-inflammatory dietary program"
+    ],
+    "anticoagulants": [
+      "anticoagulant therapy",
+      "oral anticoagulation (OAC)"
+    ],
+    "antihypertensive medications": [
+      "antihypertensive medication"
+    ],
+    "antiplatelet therapy": [
+      "antiplatelet therapy"
+    ],
+    "antipsychotics": [
+      "antipsychotic medications"
+    ],
+    "antiretroviral agents": [
+      "antiretroviral regimens"
+    ],
+    "antitubercular therapy": [
+      "antitubercular therapy (ATT)"
+    ],
+    "antiviral drugs": [
+      "antiviral drugs"
+    ],
+    "aortic valve replacement": [
+      "aortic valve replacement (AVR)"
+    ],
+    "apixaban": [
+      "apixaban"
+    ],
+    "apremilast": [
+      "apremilast"
+    ],
+    "arch bar splinting": [
+      "arch bar splinting"
+    ],
+    "arsenic trioxide": [
+      "arsenic trioxide (ATO)"
+    ],
+    "arthroscopic reduction with internal fixation": [
+      "arthroscopic reduction with internal fixation (ARIF) using cannulated screws"
+    ],
+    "arthroscopic reduction without fixation": [
+      "arthroscopic reduction without fixation (ARnF)"
+    ],
+    "arthroscopic rotator cuff repair": [
+      "arthroscopic rotator cuff repair (RCR)"
+    ],
+    "assertive community treatment": [
+      "assertive community treatment (ACT)"
+    ],
+    "asthma treatment": [
+      "asthma treatment guided by spirometry plus symptoms",
+      "asthma treatment guided by symptoms only"
+    ],
+    "atezolizumab": [
+      "atezolizumab+chemo"
+    ],
+    "statins": [
+      "atorvastatin",
+      "atorvastatin pretreatment",
+      "statin use"
+    ],
+    "platelet-rich plasma": [
+      "autologous platelet-rich plasma (PRP)"
+    ],
+    "azithromycin": [
+      "azithromycin therapy"
+    ],
+    "biofeedback": [
+      "biofeedback training with Biometrics device"
+    ],
+    "collagen patch": [
+      "bioinductive collagen patch (REGENETEN)"
+    ],
+    "biologics": [
+      "biologics"
+    ],
+    "bismuth-based quadruple therapy": [
+      "bismuth-based quadruple therapy"
+    ],
+    "bismuth-based therapy": [
+      "bismuth-based therapy (BBT)"
+    ],
+    "bismuth-containing quadruple therapy": [
+      "bismuth-containing quadruple therapy (BQT)"
+    ],
+    "blood flow restriction training": [
+      "blood flow restriction training (BFRT)",
+      "blood flow restriction training combined with electrical muscle stimulation"
+    ],
+    "bone marrow aspirate concentrate": [
+      "bone marrow aspirate concentrate (BMAC) injection"
+    ],
+    "botulinum neurotoxin type a": [
+      "botulinum neurotoxin of type A (BoNT-A)"
+    ],
+    "botulinum toxin": [
+      "botulinum toxin A"
+    ],
+    "budesonide-formoterol": [
+      "budesonide-formoterol"
+    ],
+    "cabazitaxel": [
+      "cabazitaxel"
+    ],
+    "calcineurin inhibitors": [
+      "calcineurin inhibitors"
+    ],
+    "calorie restriction": [
+      "calorie restriction"
+    ],
+    "capecitabine plus oxaliplatin": [
+      "capecitabine plus oxaliplatin (XELOX)"
+    ],
+    "catechin": [
+      "catechin"
+    ],
+    "catheter ablation": [
+      "catheter ablation"
+    ],
+    "thrombolysis": [
+      "catheter-directed thrombolysis"
+    ],
+    "celecoxib": [
+      "celecoxib"
+    ],
+    "checkpoint inhibitors": [
+      "checkpoint inhibitors targeting Programmed Cell Death Protein 1/Programmed Death-Ligand 1 inhibitors (anti-PD-1/PD-L1)"
+    ],
+    "chemotherapy": [
+      "chemotherapy"
+    ],
+    "cinnamon": [
+      "cinnamon"
+    ],
+    "clofarabine plus cytarabine": [
+      "clofarabine plus cytarabine"
+    ],
+    "cognitive behavioral therapy": [
+      "cognitive behavioral therapy",
+      "cognitive-behavioral therapy (CBT)"
+    ],
+    "cognitive behavioral therapy for insomnia": [
+      "cognitive behavioral therapy for insomnia (CBT-I)"
+    ],
+    "cognitive rehabilitation nursing": [
+      "cognitive rehabilitation nursing (CRN)"
+    ],
+    "colchicine": [
+      "colchicine"
+    ],
+    "collateral puncture therapy": [
+      "collateral puncture therapy"
+    ],
+    "colonoscopic auxiliary devices": [
+      "colonoscopic auxiliary devices"
+    ],
+    "combination biologic therapy": [
+      "combination biologic therapy (IL-17 antagonist + IL-36 antagonist)"
+    ],
+    "traditional chinese and western medicine": [
+      "combination of traditional Chinese and Western medicine"
+    ],
+    "community orchestra intervention": [
+      "community orchestra intervention"
+    ],
+    "complement component 5a inhibitors": [
+      "complement component 5a inhibitors (anti-C5a)"
+    ],
+    "complement inhibitors": [
+      "complement inhibitors"
+    ],
+    "revascularization": [
+      "complete revascularization",
+      "culprit-only revascularization"
+    ],
+    "component therapy": [
+      "component therapy"
+    ],
+    "betamethasone": [
+      "compound betamethasone (CB)"
+    ],
+    "computerized interventions": [
+      "computerized interventions"
+    ],
+    "concomitant therapy": [
+      "concomitant therapy"
+    ],
+    "conservative treatment": [
+      "conservative treatment"
+    ],
+    "angiotensin-converting enzyme inhibitors and angiotensin receptor blockers": [
+      "continuing angiotensin-converting enzyme inhibitors (ACEIs) and angiotensin receptor blockers (ARBs)",
+      "withholding angiotensin-converting enzyme inhibitors (ACEIs) and angiotensin receptor blockers (ARBs)"
+    ],
+    "continuous care model": [
+      "continuous care model (CCM)"
+    ],
+    "beta-lactam antibiotics": [
+      "continuous infusion of β-lactam antibiotics",
+      "intermittent infusion of β-lactam antibiotics"
+    ],
+    "intertransverse process block": [
+      "continuous intertransverse process block"
+    ],
+    "continuous positive airway pressure": [
+      "continuous positive airway pressure (CPAP)"
+    ],
+    "conventional western medicine": [
+      "conventional Western medicine (WM)"
+    ],
+    "coronary artery bypass grafting": [
+      "coronary artery bypass grafting (CABG)"
+    ],
+    "computed tomography angiography": [
+      "coronary computed tomography angiography (CCTA)"
+    ],
+    "corticosteroids": [
+      "corticosteroids",
+      "dexamethasone",
+      "systemic corticosteroids"
+    ],
+    "curcumin": [
+      "curcumin"
+    ],
+    "cycling": [
+      "cycling"
+    ],
+    "cyclophosphamide": [
+      "cyclophosphamide"
+    ],
+    "cyclosporine": [
+      "cyclosporine"
+    ],
+    "cysteamine": [
+      "cysteamine"
+    ],
+    "daunorubicin, etoposide, cytarabine": [
+      "daunorubicin and etoposide combined with low-dose cytarabine"
+    ],
+    "delamanid": [
+      "delamanid"
+    ],
+    "denosumab": [
+      "denosumab biosimilar",
+      "originator denosumab"
+    ],
+    "desloratadine": [
+      "desloratadine"
+    ],
+    "deucravacitinib": [
+      "deucravacitinib"
+    ],
+    "dextran sulfate sodium": [
+      "dextran sulfate sodium (DSS)-induced diet"
+    ],
+    "diaphragmatic breathing": [
+      "diaphragmatic breathing"
+    ],
+    "digital intervention": [
+      "digital intervention"
+    ],
+    "digital therapeutics": [
+      "digital therapeutics (DTx)"
+    ],
+    "nitrous oxide": [
+      "diluted nitrous oxide inhalation"
+    ],
+    "docetaxel": [
+      "docetaxel"
+    ],
+    "donanemab": [
+      "donanemab"
+    ],
+    "doxorubicin": [
+      "doxorubicin"
+    ],
+    "drug-coated balloon": [
+      "drug-coated balloon (DCB)"
+    ],
+    "drug-eluting stent": [
+      "drug-eluting stent (DES)"
+    ],
+    "dry cupping therapy": [
+      "dry cupping therapy"
+    ],
+    "dupilumab": [
+      "dupilumab"
+    ],
+    "durvalumab": [
+      "durvalumab+chemo"
+    ],
+    "durvalumab+tremelimumab+chemotherapy": [
+      "durvalumab+tremelimumab+chemo"
+    ],
+    "acupressure": [
+      "earlobe acupressure"
+    ],
+    "egg ladder": [
+      "egg ladder (EL)"
+    ],
+    "electrical muscle stimulation": [
+      "electrical muscle stimulation (EMS)"
+    ],
+    "electro-acupuncture": [
+      "electro-acupuncture"
+    ],
+    "electroacupuncture": [
+      "electroacupuncture"
+    ],
+    "elobixibat": [
+      "elobixibat"
+    ],
+    "eltrombopag": [
+      "eltrombopag (EPAG)"
+    ],
+    "antifungal agents": [
+      "empirical antifungal treatment"
+    ],
+    "empowerment program": [
+      "empowerment program"
+    ],
+    "enzalutamide": [
+      "enzalutamide"
+    ],
+    "coxibs": [
+      "etoricoxib"
+    ],
+    "exercise and nutritional intervention": [
+      "exercise and nutritional intervention"
+    ],
+    "exercise": [
+      "exercise intervention",
+      "exercise programme"
+    ],
+    "exercise therapy": [
+      "exercise therapy (ET)"
+    ],
+    "functional magnetic resonance imaging": [
+      "fMRI"
+    ],
+    "percutaneous coronary intervention": [
+      "fractional flow reserve (FFR)-guided percutaneous coronary intervention (PCI)",
+      "percutaneous coronary intervention (PCI)"
+    ],
+    "fractional microneedle radiofrequency": [
+      "fractional microneedle radiofrequency (FMR)"
+    ],
+    "fracture fixation": [
+      "fracture fixation"
+    ],
+    "gallic acid": [
+      "gallic acid"
+    ],
+    "game-based interventions": [
+      "game-based interventions"
+    ],
+    "gemtuzumab ozogamicin": [
+      "gemtuzumab ozogamicin"
+    ],
+    "glucagon-like peptide-1 receptor agonists": [
+      "glucagon-like peptide-1 receptor agonists (GLP-1RA)",
+      "glucagon-like peptide-1 receptor agonists (GLP-1Ra)"
+    ],
+    "gluten-free diet": [
+      "gluten-free diet (GFD)"
+    ],
+    "internet based cognitive behavioral therapy": [
+      "guided transdiagnostic iCBT"
+    ],
+    "gut microbiota-targeted therapy": [
+      "gut microbiota-targeted therapy (GMTT)"
+    ],
+    "gut-directed hypnotherapy": [
+      "gut-directed hypnotherapy"
+    ],
+    "heart valve clinic": [
+      "heart valve clinic (HVC)"
+    ],
+    "hyaluronic acid": [
+      "high molecular weight non-cross-linked hyaluronic acid plus succinic acid mesotherapy"
+    ],
+    "high protein diet": [
+      "high protein diet"
+    ],
+    "cytarabine": [
+      "high-dose cytarabine"
+    ],
+    "vitamin d": [
+      "high-dose vitamin D",
+      "vitamin D",
+      "vitamin D supplementation"
+    ],
+    "high-fat-high-glucose meal challenge": [
+      "high-fat-high-glucose meal challenge"
+    ],
+    "high-intensity interval training": [
+      "high-intensity interval training"
+    ],
+    "high-intensity laser therapy": [
+      "high-intensity laser therapy (HILT)"
+    ],
+    "home-based support": [
+      "home-based support"
+    ],
+    "household ventilation": [
+      "household ventilation"
+    ],
+    "mesenchymal stem cells": [
+      "human umbilical cord-derived mesenchymal stem cells (hUC-MSCs)"
+    ],
+    "hydroxychloroquine": [
+      "hydroxychloroquine"
+    ],
+    "hypocaloric diet": [
+      "hypocaloric diet"
+    ],
+    "hypomethylating agents": [
+      "hypomethylating agents (HMA)"
+    ],
+    "hypoxic conditioning": [
+      "hypoxic conditioning"
+    ],
+    "imtor": [
+      "i-mTOR"
+    ],
+    "idarubicin": [
+      "idarubicin (IDA)"
+    ],
+    "surgical repair": [
+      "immediate surgical repair"
+    ],
+    "immune checkpoint inhibitor": [
+      "immune checkpoint inhibitor therapy"
+    ],
+    "immune checkpoint inhibitors": [
+      "immune checkpoint inhibitors (ICIs)"
+    ],
+    "increased water intake": [
+      "increased water intake"
+    ],
+    "counselling": [
+      "individualised patient-centred counselling about physical activity"
+    ],
+    "indole-3-acetic acid": [
+      "indole-3-acetic acid (IAA)"
+    ],
+    "intramedullary nailing": [
+      "infrapatellar intramedullary nailing",
+      "suprapatellar intramedullary nailing"
+    ],
+    "inhaled antibiotics": [
+      "inhaled antibiotics (IAs)"
+    ],
+    "inotropes": [
+      "inotropes"
+    ],
+    "intense pulsed light combined with tranexamic acid": [
+      "intense pulsed light combined with 3% tranexamic acid"
+    ],
+    "intense pulsed light": [
+      "intense pulsed light only"
+    ],
+    "intermittent theta burst stimulation": [
+      "intermittent theta burst stimulation (iTBS)"
+    ],
+    "pulsed radiofrequency": [
+      "intra-articular pulsed radiofrequency (IAPRF)"
+    ],
+    "intra-articular steroid injection": [
+      "intra-articular steroid injection (IASI)"
+    ],
+    "iron": [
+      "intravenous iron dextran",
+      "oral liposomal iron"
+    ],
+    "intrinsic antitachycardia pacing": [
+      "intrinsic antitachycardia pacing (iATP)"
+    ],
+    "inulin/oligofructose mixture": [
+      "inulin/oligofructose mixture"
+    ],
+    "ipilimumab": [
+      "ipilimumab+chemo"
+    ],
+    "iscalimab": [
+      "iscalimab (CFZ533)"
+    ],
+    "isoniazid": [
+      "isoniazid"
+    ],
+    "kaempferol": [
+      "kaempferol"
+    ],
+    "ketogenic diet": [
+      "ketogenic diet (KD)"
+    ],
+    "vegetarian diet": [
+      "lacto-ovo-vegetarian diet"
+    ],
+    "muscle stretching": [
+      "latissimus dorsi-thoracolumbar fascia (LD-TLF) complex stretching"
+    ],
+    "levetiracetam": [
+      "levetiracetam"
+    ],
+    "levocetirizine": [
+      "levocetirizine"
+    ],
+    "levofloxacin": [
+      "levofloxacin triple therapy",
+      "levofloxacin-based TB preventive treatment (TPT)"
+    ],
+    "levothyroxine": [
+      "levothyroxine (LT4)"
+    ],
+    "linaclotide": [
+      "linaclotide"
+    ],
+    "lisdexamfetamine": [
+      "lisdexamfetamine"
+    ],
+    "listening support": [
+      "listening support (The Wren project)"
+    ],
+    "liver fibrosis blood tests": [
+      "liver fibrosis blood tests"
+    ],
+    "low fodmap diet": [
+      "low fermentable oligo-, di-, and monosaccharides and polyols (FODMAP) diet"
+    ],
+    "low-glycemic-index treatment": [
+      "low-glycemic-index treatment (LGIT)"
+    ],
+    "low-level laser therapy": [
+      "low-level laser therapy (LLLT)"
+    ],
+    "lower body resistance training": [
+      "lower body resistance training (RTL)"
+    ],
+    "lubiprostone": [
+      "lubiprostone"
+    ],
+    "lymph node boost": [
+      "lymph node boost"
+    ],
+    "mask use": [
+      "mask use"
+    ],
+    "mechanical thrombectomy": [
+      "mechanical thrombectomy"
+    ],
+    "medication for opioid use disorder": [
+      "medication for opioid use disorder (MOUD)"
+    ],
+    "medication labels": [
+      "medication labels"
+    ],
+    "medication reminders": [
+      "medication reminders"
+    ],
+    "medication summary guide": [
+      "medication summary guide"
+    ],
+    "mental fatigue induction": [
+      "mental fatigue induction through Stroop task"
+    ],
+    "mepolizumab": [
+      "mepolizumab"
+    ],
+    "mesenchymal stem cell": [
+      "mesenchymal stem cell (MSC) augmentation",
+      "mesenchymal stem cell (MSC) injections"
+    ],
+    "mesenchymal stem cell therapy": [
+      "mesenchymal stem cell therapy"
+    ],
+    "message-based intervention": [
+      "message-based intervention"
+    ],
+    "metabolic and bariatric surgery": [
+      "metabolic and bariatric surgery (MBS)"
+    ],
+    "metacognitive training": [
+      "metacognitive training"
+    ],
+    "radiotherapy": [
+      "metastasis-directed RT",
+      "salvage radiotherapy (SRT)"
+    ],
+    "methionine": [
+      "methionine"
+    ],
+    "methylphenidate": [
+      "methylphenidate"
+    ],
+    "microneedle radiofrequency": [
+      "microneedle radiofrequency (MRF)"
+    ],
+    "photodynamic therapy": [
+      "microneedling-assisted PDT",
+      "photodynamic therapy (PDT)"
+    ],
+    "minodronate": [
+      "minodronate"
+    ],
+    "mitiperstat": [
+      "mitiperstat"
+    ],
+    "moderate-intensity continuous training": [
+      "moderate-intensity continuous training"
+    ],
+    "modified atkins diet": [
+      "modified Atkins diet (MAD)"
+    ],
+    "monoclonal antibodies against interleukin-6": [
+      "monoclonal antibodies against Interleukin-6 (IL-6)"
+    ],
+    "monoclonal antibodies against tumor necrosis factor-alpha": [
+      "monoclonal antibodies against Tumor Necrosis Factor-alpha (TNF-α)"
+    ],
+    "monoclonal antibodies against endotoxin": [
+      "monoclonal antibodies against endotoxin"
+    ],
+    "leukotriene receptor antagonists": [
+      "montelukast"
+    ],
+    "moxibustion": [
+      "moxibustion with aconite cake"
+    ],
+    "music therapy": [
+      "music therapy"
+    ],
+    "mycophenolate mofetil": [
+      "mycophenolate mofetil (MMF)"
+    ],
+    "myricetin": [
+      "myricetin"
+    ],
+    "nemolizumab": [
+      "nemolizumab"
+    ],
+    "infection control measures": [
+      "nightly separation of tuberculosis patients"
+    ],
+    "nivolumab": [
+      "nivolumab monotherapy"
+    ],
+    "nivolumab plus relatlimab": [
+      "nivolumab plus relatlimab"
+    ],
+    "non-absorbable suture material": [
+      "non-absorbable suture material"
+    ],
+    "non-invasive pulsed radiofrequency": [
+      "non-invasive pulsed radiofrequency (NipRF)"
+    ],
+    "non-operative treatment": [
+      "non-operative treatment"
+    ],
+    "nutritional intervention": [
+      "nutritional intervention"
+    ],
+    "beta-glucans": [
+      "oat β-glucan"
+    ],
+    "atypical antipsychotics": [
+      "olanzapine"
+    ],
+    "omalizumab": [
+      "omalizumab"
+    ],
+    "omega-3 fatty acids": [
+      "omega-3 fatty acids"
+    ],
+    "pilates": [
+      "online Pilates classes"
+    ],
+    "open reduction internal fixation": [
+      "open reduction internal fixation (ORIF)"
+    ],
+    "opioids": [
+      "opioid use"
+    ],
+    "optimal medical therapy": [
+      "optimal medical therapy (OMT)"
+    ],
+    "isotretinoin": [
+      "oral isotretinoin"
+    ],
+    "oseltamivir": [
+      "oseltamivir"
+    ],
+    "oxygen": [
+      "oxygen"
+    ],
+    "pain education": [
+      "pain education"
+    ],
+    "pegloticase": [
+      "pegloticase"
+    ],
+    "radiation therapy": [
+      "pelvic RT"
+    ],
+    "pelvic lymph node dissection": [
+      "pelvic lymph node dissection (PLND)"
+    ],
+    "pembrolizumab": [
+      "pembrolizumab"
+    ],
+    "penalimab": [
+      "penalimab",
+      "penalimab+chemo"
+    ],
+    "penalimab+tremelimumab+chemotherapy": [
+      "penalimab+tremelimumab+chemo"
+    ],
+    "percutaneous nephrolithotomy": [
+      "percutaneous nephrolithotomy (PCNL)"
+    ],
+    "pharmacological therapy": [
+      "pharmacological therapy"
+    ],
+    "pharmacomechanical thrombectomy": [
+      "pharmacomechanical thrombectomy"
+    ],
+    "pharmacotherapies": [
+      "pharmacotherapies"
+    ],
+    "photoprotection": [
+      "photoprotection equipment delivery"
+    ],
+    "physical activity": [
+      "physical activity intervention"
+    ],
+    "physical intervention": [
+      "physical intervention"
+    ],
+    "physical therapy": [
+      "physical therapy"
+    ],
+    "plecanatide": [
+      "plecanatide"
+    ],
+    "point-of-care decision aid": [
+      "point-of-care decision aid (RA Choice)"
+    ],
+    "polyunsaturated fatty acids": [
+      "polyunsaturated fatty acids (PUFAs)"
+    ],
+    "positive psychological intervention": [
+      "positive psychological intervention based on PERMA model"
+    ],
+    "potassium citrate": [
+      "potassium citrate"
+    ],
+    "potassium-competitive acid blockers": [
+      "potassium-competitive acid blockers (P-CABs)"
+    ],
+    "povidone-iodine": [
+      "povidone-iodine (PI)"
+    ],
+    "precision medicine": [
+      "precision medicine approach"
+    ],
+    "preoperative exercise training": [
+      "preoperative exercise training"
+    ],
+    "progressive muscle relaxation": [
+      "progressive muscle relaxation exercises"
+    ],
+    "prostaglandins": [
+      "prostaglandins"
+    ],
+    "prostate bed boost": [
+      "prostate bed boost"
+    ],
+    "salvage radiotherapy": [
+      "prostate-specific membrane antigen PET-guided intensification of salvage radiotherapy (PSMAiSRT)"
+    ],
+    "prucalopride": [
+      "prucalopride"
+    ],
+    "psychological intervention": [
+      "psychological intervention"
+    ],
+    "psychological support": [
+      "psychological support"
+    ],
+    "behaviour-change support": [
+      "psychologist-led behaviour-change support"
+    ],
+    "quercetin": [
+      "quercetin"
+    ],
+    "ramp pacing": [
+      "ramp pacing"
+    ],
+    "rehabilitation training": [
+      "rehabilitation training"
+    ],
+    "repetitive transcranial magnetic stimulation": [
+      "repetitive transcranial magnetic stimulation (rTMS)"
+    ],
+    "resilience training": [
+      "resilience training"
+    ],
+    "resistance exercise": [
+      "resistance exercise"
+    ],
+    "resistance training": [
+      "resistance training"
+    ],
+    "resveratrol": [
+      "resveratrol"
+    ],
+    "reverse total shoulder arthroplasty": [
+      "reverse total shoulder arthroplasty"
+    ],
+    "revision arthroplasty": [
+      "revision arthroplasty"
+    ],
+    "rhpth": [
+      "rhPTH(1-34)"
+    ],
+    "rheumatology clinician training": [
+      "rheumatology clinician training"
+    ],
+    "ribavirin": [
+      "ribavirin"
+    ],
+    "risankizumab": [
+      "risankizumab"
+    ],
+    "rituximab": [
+      "rituximab",
+      "rituximab therapy"
+    ],
+    "rivaroxaban": [
+      "rivaroxaban"
+    ],
+    "robot-assisted total knee arthroplasty": [
+      "robot-assisted total knee arthroplasty (TKA)"
+    ],
+    "rotator cuff repair surgery": [
+      "rotator cuff repair surgery"
+    ],
+    "rusfertide": [
+      "rusfertide"
+    ],
+    "opioid prescribing": [
+      "safer opioid prescribing"
+    ],
+    "beta agonists": [
+      "salbutamol"
+    ],
+    "saponin": [
+      "saponin"
+    ],
+    "virtual reality intervention": [
+      "second-generation virtual reality intervention (SG-VRI)"
+    ],
+    "seed cycling": [
+      "seed cycling"
+    ],
+    "self-care education": [
+      "self-care education based on conceptual mapping"
+    ],
+    "self-care training": [
+      "self-care training using the teach-back method"
+    ],
+    "self-compassion based writing": [
+      "self-compassion based writing"
+    ],
+    "sham cupping": [
+      "sham cupping"
+    ],
+    "shared decision making": [
+      "shared decision making (SDM)"
+    ],
+    "slow movement training": [
+      "slow movement training with tonic force generation"
+    ],
+    "smart pillbox": [
+      "smart pillbox"
+    ],
+    "smoking cessation": [
+      "smoking cessation programme"
+    ],
+    "sodium-glucose transport protein 2 inhibitors": [
+      "sodium-glucose transport protein 2 inhibitors (SGLT2i)"
+    ],
+    "sofosbuvir/daclatasvir": [
+      "sofosbuvir/daclatasvir",
+      "sofosbuvir/daclatasvir regimen"
+    ],
+    "preoperative diet": [
+      "standard preoperative diet"
+    ],
+    "quadruple therapy": [
+      "standard quadruple therapy"
+    ],
+    "standard of care": [
+      "standard-of-care therapy"
+    ],
+    "starch- and sucrose-reduced diet": [
+      "starch- and sucrose-reduced diet (SSRD)"
+    ],
+    "steroids": [
+      "steroids"
+    ],
+    "strength training": [
+      "strength training"
+    ],
+    "stress testing": [
+      "stress testing modalities"
+    ],
+    "sugemalimab": [
+      "sugemalimab+chemo"
+    ],
+    "sensorimotor training": [
+      "supervised sensorimotor training"
+    ],
+    "suprascapular nerve block": [
+      "suprascapular nerve block"
+    ],
+    "suraxavir": [
+      "suraxavir marboxil (GP681)"
+    ],
+    "surgical intervention": [
+      "surgical intervention"
+    ],
+    "bioprosthetic valve": [
+      "sutureless bioprosthetic valve (SU-AVR)"
+    ],
+    "synbiotics": [
+      "synbiotics"
+    ],
+    "systemic thrombolysis": [
+      "systemic thrombolysis"
+    ],
+    "tacrolimus": [
+      "tacrolimus"
+    ],
+    "tadalafil": [
+      "tadalafil"
+    ],
+    "alpha adrenergic blockers": [
+      "tamsulosin"
+    ],
+    "tele-genetic counseling": [
+      "tele-genetic counseling (GC)"
+    ],
+    "tenapanor": [
+      "tenapanor"
+    ],
+    "tenofovir alafenamide": [
+      "tenofovir alafenamide (TAF)"
+    ],
+    "tenofovir disoproxil fumarate": [
+      "tenofovir disoproxil fumarate (TDF)"
+    ],
+    "terpenoids": [
+      "terpenoid"
+    ],
+    "text message and video support programme": [
+      "text message and video support programme"
+    ],
+    "thiazides": [
+      "thiazides"
+    ],
+    "thyroidectomy": [
+      "thyroidectomy"
+    ],
+    "tibiotalocalcaneal arthrodesis": [
+      "tibiotalocalcaneal arthrodesis (TTCA)"
+    ],
+    "tolvaptan": [
+      "tolvaptan"
+    ],
+    "toothbrushing": [
+      "toothbrushing"
+    ],
+    "topical treatments": [
+      "topical treatments"
+    ],
+    "traditional asian nutraceuticals": [
+      "traditional Asian nutraceuticals"
+    ],
+    "traditional chinese medicine": [
+      "traditional Chinese medicine transdermal therapy"
+    ],
+    "board game therapy": [
+      "traditional board game therapy"
+    ],
+    "physiotherapy": [
+      "traditional physiotherapy"
+    ],
+    "traditional therapy": [
+      "traditional therapy"
+    ],
+    "transcatheter aortic valve replacement": [
+      "transcatheter aortic valve replacement (TAVR)"
+    ],
+    "transcranial direct current stimulation": [
+      "transcranial direct current stimulation (tDCS)"
+    ],
+    "trastuzumab deruxtecan": [
+      "trastuzumab deruxtecan (T-DXd)"
+    ],
+    "treatment-as-usual": [
+      "treatment-as-usual (TAU)"
+    ],
+    "trimetazidine": [
+      "trimetazidine"
+    ],
+    "triple therapy": [
+      "triple therapy"
+    ],
+    "pnl": [
+      "tubeless PCNL"
+    ],
+    "internet-based cognitive behavioral therapy": [
+      "unguided transdiagnostic iCBT"
+    ],
+    "video-assisted thoracoscopic surgery": [
+      "uniportal video-assisted thoracoscopic surgery (VATS)"
+    ],
+    "upper body resistance training": [
+      "upper body resistance training (RTU)"
+    ],
+    "ureteral access sheath": [
+      "ureteral access sheath (UAS)"
+    ],
+    "ureteroscopy": [
+      "ureteroscopy (URS)"
+    ],
+    "ustekinumab": [
+      "ustekinumab"
+    ],
+    "vasopressors and inotropes": [
+      "vasopressor and/or inotropic support"
+    ],
+    "vasopressors": [
+      "vasopressors"
+    ],
+    "vedolizumab": [
+      "vedolizumab"
+    ],
+    "vegan diet": [
+      "vegan diet"
+    ],
+    "venous stenting": [
+      "venous stenting"
+    ],
+    "virtual reality technology": [
+      "virtual reality technology (VRT)"
+    ],
+    "visual art therapy": [
+      "visual art therapy"
+    ],
+    "vitamin d and calcium supplementation": [
+      "vitamin D and calcium supplementation"
+    ],
+    "vonoprazan and amoxicillin": [
+      "vonoprazan and amoxicillin dual therapy"
+    ],
+    "walking": [
+      "walking"
+    ],
+    "warfarin": [
+      "warfarin"
+    ],
+    "telerehabilitation": [
+      "web-based telerehabilitation monitoring"
+    ],
+    "whole blood transfusion": [
+      "whole blood transfusion"
+    ],
+    "wire composite splinting": [
+      "wire composite splinting"
+    ],
+    "angiotensin-converting enzyme inhibitors or angiotensin receptor blockers": [
+      "withholding angiotensin-converting enzyme inhibitors or angiotensin receptor blockers"
+    ],
+    "information letter": [
+      "yellow information letter"
+    ],
+    "zinc": [
+      "zinc therapy"
+    ]
+  },
+  "relationships": [],
+  "relationship_type_distribution": {}
+}
