@@ -1,0 +1,9 @@
+2025-10-05 23:08:12,428 - embedding_engine - INFO - Loaded 0 embeddings from cache
+2025-10-05 23:08:12,428 - embedding_engine - INFO - EmbeddingEngine initialized with model: nomic-embed-text
+2025-10-05 23:08:12,433 - llm_classifier - INFO - Loaded 20 items from c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/canonicals.pkl
+2025-10-05 23:08:12,433 - llm_classifier - INFO - Loaded 0 items from c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/llm_decisions.pkl
+2025-10-05 23:08:12,433 - llm_classifier - INFO - LLMClassifier initialized with model: qwen3:14b
+2025-10-05 23:08:12,435 - __main__ - INFO - TestRunner initialized
+2025-10-05 23:08:12,436 - __main__ - INFO - Starting test run: 20251005_230812
+2025-10-05 23:08:12,437 - __main__ - INFO - Loaded 50 interventions from database
+2025-10-05 23:08:12,437 - __main__ - INFO - Processing interventions...

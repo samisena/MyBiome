@@ -1,0 +1,6 @@
+2025-10-05 22:24:29,105 - embedding_engine - INFO - EmbeddingEngine initialized with model: nomic-embed-text
+2025-10-05 22:24:29,109 - llm_classifier - INFO - LLMClassifier initialized with model: qwen3:14b
+2025-10-05 22:24:29,109 - __main__ - INFO - TestRunner initialized
+2025-10-05 22:24:29,109 - __main__ - INFO - Starting test run: 20251005_222429
+2025-10-05 22:24:29,111 - __main__ - INFO - Loaded 50 interventions from database
+2025-10-05 22:24:29,111 - __main__ - INFO - Processing interventions...

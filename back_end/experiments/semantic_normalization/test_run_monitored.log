@@ -1,0 +1,46 @@
+2025-10-06 11:40:27,751 - embedding_engine - INFO - Loaded 0 embeddings from cache
+2025-10-06 11:40:27,751 - embedding_engine - INFO - EmbeddingEngine initialized with model: nomic-embed-text
+2025-10-06 11:40:27,781 - llm_classifier - INFO - Loaded 40 items from c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/canonicals.pkl
+2025-10-06 11:40:27,783 - llm_classifier - INFO - Loaded 0 items from c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/llm_decisions.pkl
+2025-10-06 11:40:27,784 - llm_classifier - INFO - LLMClassifier initialized with model: qwen3:14b
+2025-10-06 11:40:27,784 - __main__ - INFO - TestRunner initialized
+2025-10-06 11:40:27,784 - __main__ - INFO - Starting test run: 20251006_114027
+2025-10-06 11:40:27,793 - __main__ - INFO - Loaded 50 interventions from database
+2025-10-06 11:40:27,793 - __main__ - INFO - Processing interventions...
+2025-10-06 11:44:05,502 - __main__ - INFO - Processed 50/50 interventions
+2025-10-06 11:44:29,792 - __main__ - INFO - Test results saved to: c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/results\test_run_20251006_114027.json
+
+================================================================================
+TEST RUN SUMMARY - 20251006_114027
+================================================================================
+
+--- PROCESSING STATS ---
+Total interventions: 50
+Unique canonical groups: 49
+Average cluster size: 1.02
+
+--- LLM USAGE ---
+Canonical extractions (LLM): 50
+Relationship classifications (LLM): 0
+Canonical cache hit rate: 80.00%
+Relationship cache hit rate: 0.00%
+
+--- TOP 20 CANONICAL GROUPS (by member count) ---
+
+1. cetuximab (2 members)
+   - Cetuximab
+Traceback (most recent call last):
+  File "C:\Users\samis\Desktop\MyBiome\back_end\experiments\semantic_normalization\test_runner.py", line 478, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\samis\Desktop\MyBiome\back_end\experiments\semantic_normalization\test_runner.py", line 472, in main
+    runner.print_summary(results)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\samis\Desktop\MyBiome\back_end\experiments\semantic_normalization\test_runner.py", line 363, in print_summary
+    print(f"   - {member}")
+    ~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u03b2' in position 15: character maps to <undefined>
+2025-10-06 11:44:29,826 - embedding_engine - INFO - Saved 0 embeddings to cache

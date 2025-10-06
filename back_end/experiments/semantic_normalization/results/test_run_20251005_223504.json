@@ -1,0 +1,55 @@
+{
+  "run_timestamp": "20251005_223504",
+  "config_path": "c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/config/config_phase2.yaml",
+  "source_db": "c:/Users/samis/Desktop/MyBiome/back_end/data/processed/intervention_research.db",
+  "stats": {
+    "total_interventions": 3,
+    "unique_canonicals": 3,
+    "llm_canonical_extractions": 3,
+    "llm_relationship_classifications": 0,
+    "cache_hits_canonical": 3,
+    "cache_hits_relationship": 0,
+    "relationship_type_counts": {}
+  },
+  "stats_summary": {
+    "total_interventions": 3,
+    "unique_canonicals": 3,
+    "llm_canonical_extractions": 3,
+    "llm_relationship_classifications": 0,
+    "canonical_cache_hit_rate": 1.0,
+    "relationship_cache_hit_rate": 0.0
+  },
+  "interventions": [
+    {
+      "original_name": "'Living with the Sun' (LWS) educational programme",
+      "canonical_group": "educational programmes",
+      "reasoning": "The intervention is an educational programme, which is a type of non-pharmacological intervention",
+      "source": "llm"
+    },
+    {
+      "original_name": "18F-PSMA PET/CT",
+      "canonical_group": "pet ct",
+      "reasoning": "18f-psma pet/ct is a diagnostic imaging technique, normalized to base form",
+      "source": "llm"
+    },
+    {
+      "original_name": "30% supramolecular salicylic acid (SSA)",
+      "canonical_group": "salicylic acid",
+      "reasoning": "Remove percentage and form, use base drug name",
+      "source": "llm"
+    }
+  ],
+  "clusters": {
+    "educational programmes": [
+      "'Living with the Sun' (LWS) educational programme"
+    ],
+    "pet ct": [
+      "18F-PSMA PET/CT"
+    ],
+    "salicylic acid": [
+      "30% supramolecular salicylic acid (SSA)"
+    ]
+  },
+  "relationships": [],
+  "relationship_type_distribution": {}
+}

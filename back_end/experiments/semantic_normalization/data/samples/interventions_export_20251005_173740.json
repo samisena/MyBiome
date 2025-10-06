@@ -1,0 +1,4483 @@
+{
+  "metadata": {
+    "export_timestamp": "20251005_173740",
+    "total_records": 500,
+    "unique_intervention_names": 469,
+    "min_frequency": 1,
+    "export_limit": 500,
+    "source_database": "c:\\Users\\samis\\Desktop\\MyBiome\\back_end\\data\\processed\\intervention_research.db"
+  },
+  "interventions": [
+    {
+      "intervention_name": "Vonoprazan",
+      "health_condition": "Non-erosive reflux disease (NERD)",
+      "frequency": 2,
+      "category": "device",
+      "correlation_types": "neutral,positive",
+      "avg_sample_size": 2540
+    },
+    {
+      "intervention_name": "atorvastatin pretreatment",
+      "health_condition": "ST-segment elevation myocardial infarction (STEMI)",
+      "frequency": 2,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 2426
+    },
+    {
+      "intervention_name": "methylphenidate",
+      "health_condition": "attention-deficit/hyperactivity disorder (ADHD)",
+      "frequency": 2,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 133
+    },
+    {
+      "intervention_name": "'Living with the Sun' (LWS) educational programme",
+      "health_condition": "sun protection behaviours",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 1452
+    },
+    {
+      "intervention_name": "18F-PSMA PET/CT",
+      "health_condition": "prostate cancer with lymph node metastasis detection",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "positive",
+      "avg_sample_size": 120
+    },
+    {
+      "intervention_name": "30% supramolecular salicylic acid (SSA)",
+      "health_condition": "papulopustular rosacea",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 480
+    },
+    {
+      "intervention_name": "5-fluorouracil (5-FU)",
+      "health_condition": "vitiligo",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "ACL preservation procedures",
+      "health_condition": "Anterior cruciate ligament injury",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "positive",
+      "avg_sample_size": 1101
+    },
+    {
+      "intervention_name": "ACL reconstruction surgery using a graft",
+      "health_condition": "Anterior cruciate ligament injury",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "ACL repair with InternalBrace (Arthrex© implant system) ligament augmentation",
+      "health_condition": "Anterior cruciate ligament injury",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "AKI care bundles",
+      "health_condition": "Acute kidney injury (AKI)",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 30152
+    },
+    {
+      "intervention_name": "Acetyl-L-Carnitine",
+      "health_condition": "Polycystic ovary syndrome (PCOS)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": 63
+    },
+    {
+      "intervention_name": "Acupuncture",
+      "health_condition": "polycystic ovary syndrome (PCOS)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "neutral",
+      "avg_sample_size": 1000
+    },
+    {
+      "intervention_name": "AskShareKnow questions",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Asvard capsule",
+      "health_condition": "non-cardiac chest pain related to gastroesophageal reflux disease (GERD)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Azetukalner",
+      "health_condition": "Major Depressive Disorder and Anhedonia",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": 60
+    },
+    {
+      "intervention_name": "Baduanjin",
+      "health_condition": "chemotherapy-related cognitive impairment, upper limb dysfunction",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 70
+    },
+    {
+      "intervention_name": "Baricitinib",
+      "health_condition": "Large vessel vasculitis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Benzoyl peroxide (BPO) wash preparation",
+      "health_condition": "Cutibacterium acnes burden in shoulder arthroplasty",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "negative",
+      "avg_sample_size": 82
+    },
+    {
+      "intervention_name": "Bifidobacterium animalis",
+      "health_condition": "respiratory tract infections (RTIs)",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "negative",
+      "avg_sample_size": 3
+    },
+    {
+      "intervention_name": "Bir Pletok",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Bone Health model",
+      "health_condition": "injurious falls",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Cemiplimab",
+      "health_condition": "locally advanced and metastatic cutaneous squamous cell carcinoma (SCC)",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Cetuximab",
+      "health_condition": "RAS/BRAF wild-type metastatic colorectal cancer (mCRC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Cetuximab-β",
+      "health_condition": "RAS/BRAF wild-type metastatic colorectal cancer (mCRC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Citro-Soda®",
+      "health_condition": "kidney stones",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Clinical pharmacist integration",
+      "health_condition": "secondary stroke prevention",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Clomiphene",
+      "health_condition": "polycystic ovary syndrome (PCOS)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 1000
+    },
+    {
+      "intervention_name": "CoQ10",
+      "health_condition": "Polycystic ovary syndrome (PCOS)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": 63
+    },
+    {
+      "intervention_name": "Comprehensive Behavioral (ComB) model",
+      "health_condition": "trichotillomania",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Continuous robot-assisted gait training (RAGT)",
+      "health_condition": "multiple sclerosis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "neutral",
+      "avg_sample_size": 24
+    },
+    {
+      "intervention_name": "Conventional surgery",
+      "health_condition": "non-melanoma skin cancer (NMSCs)",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Curcuma longa",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "DOACs (direct oral anticoagulants)",
+      "health_condition": "thrombogenic nature of mechanical heart valves",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Deprescribing model",
+      "health_condition": "injurious falls",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Digital health (DH)",
+      "health_condition": "Arthritis",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": 2449
+    },
+    {
+      "intervention_name": "EEG",
+      "health_condition": "psychiatric disorders",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Eggshell membrane (ESM)",
+      "health_condition": "inflammatory bowel disease (IBD)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Exercise Interventions",
+      "health_condition": "Breast Cancer During Adjuvant Therapy",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 2696
+    },
+    {
+      "intervention_name": "Extracorporeal shock wave lithotripsy (ESWL)",
+      "health_condition": "urinary stones",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": 412
+    },
+    {
+      "intervention_name": "FOLFIRI",
+      "health_condition": "RAS/BRAF wild-type metastatic colorectal cancer (mCRC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "FenuflakesTM",
+      "health_condition": "type 2 diabetes",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": 21
+    },
+    {
+      "intervention_name": "Firsekibart",
+      "health_condition": "acute gout flares",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": 311
+    },
+    {
+      "intervention_name": "GLP-1 receptor agonists (GLP-1 RAs)",
+      "health_condition": "bipolar disorder",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "GLP-1 receptor agonists (GLP-1 RAs)",
+      "health_condition": "major depressive disorder (MDD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "GLP-1 receptor agonists (GLP-1 RAs)",
+      "health_condition": "metabolic dysfunction",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Galohgor",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Healthy Eating Advice (HE)",
+      "health_condition": "Autosomal dominant polycystic kidney disease (ADPKD)",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": 29
+    },
+    {
+      "intervention_name": "Hericium erinaceus (HE)",
+      "health_condition": "neural stimulation",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Hewei Jiangni recipe (HWJNR)",
+      "health_condition": "nonerosive gastroesophageal reflux disease (NERD) with cold-heat complex syndrome",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": 72
+    },
+    {
+      "intervention_name": "IKAP theory-based digital health management",
+      "health_condition": "postmastectomy breast cancer survivors",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 200
+    },
+    {
+      "intervention_name": "IL-17 antagonists",
+      "health_condition": "lupus nephritis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "IL-23p19 inhibitors",
+      "health_condition": "inflammatory bowel disease (IBD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "IPL therapy",
+      "health_condition": "erythematotelangiectatic rosacea (ETR)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 60
+    },
+    {
+      "intervention_name": "Imiquimod",
+      "health_condition": "superficial basal cell carcinoma (sBCC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Individualized targeting",
+      "health_condition": "psychiatric disorders",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 1651
+    },
+    {
+      "intervention_name": "Injury Prevention model",
+      "health_condition": "injurious falls",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Interferon Gamma Injection",
+      "health_condition": "hospital-acquired pneumonia (HAP)",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "neutral",
+      "avg_sample_size": 94
+    },
+    {
+      "intervention_name": "Intravenous Immunoglobulin (IVIG)",
+      "health_condition": "sepsis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Janus kinase inhibitors (JAKi)",
+      "health_condition": "Large vessel vasculitis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "L-Arginine",
+      "health_condition": "Polycystic ovary syndrome (PCOS)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": 63
+    },
+    {
+      "intervention_name": "Leflunomide",
+      "health_condition": "Large vessel vasculitis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Low-intensity interval robot-assisted gait training (LowRAGT)",
+      "health_condition": "multiple sclerosis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 24
+    },
+    {
+      "intervention_name": "LuCUS-guided strategy",
+      "health_condition": "dyspnoea",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "positive",
+      "avg_sample_size": 504
+    },
+    {
+      "intervention_name": "MCV (Measles-containing vaccine)",
+      "health_condition": "SARS-CoV-2 infection, COVID-19",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 3411
+    },
+    {
+      "intervention_name": "MG puncture needle",
+      "health_condition": "large kidney stones",
+      "frequency": 1,
+      "category": "device",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Mavacamten",
+      "health_condition": "obstructive hypertrophic cardiomyopathy (HCM)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Mediterranean diet",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Mediterranean diet",
+      "health_condition": "rheumatoid arthritis (RA)",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Meridian-Sinew Release Therapy (MSRT)",
+      "health_condition": "gouty arthritis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 376
+    },
+    {
+      "intervention_name": "Metformin",
+      "health_condition": "Polycystic ovary syndrome (PCOS)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 63
+    },
+    {
+      "intervention_name": "Methotrexate",
+      "health_condition": "Large vessel vasculitis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Mohs Micrographic Surgery (MMS)",
+      "health_condition": "non-melanoma skin cancer",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Mono-Segment Fixation (MSF)",
+      "health_condition": "Thoracolumbar Spine Fractures",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "positive",
+      "avg_sample_size": 13
+    },
+    {
+      "intervention_name": "Moringa oleifera (MO) supplementation",
+      "health_condition": "Human Immunodeficiency Virus (HIV)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "NCX 701",
+      "health_condition": "endotoxemia",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 40
+    },
+    {
+      "intervention_name": "Nintendo Switch-based therapy",
+      "health_condition": "ADHD",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 17
+    },
+    {
+      "intervention_name": "Noninvasive brain stimulation (NIBS)",
+      "health_condition": "psychiatric disorders",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "neutral",
+      "avg_sample_size": 1651
+    },
+    {
+      "intervention_name": "Nordic hamstring exercise (NHE)",
+      "health_condition": "anterior cruciate ligament injury risk",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 35
+    },
+    {
+      "intervention_name": "Nucleos(t)ide analogues (NAs)",
+      "health_condition": "chronic hepatitis B virus (HBV) infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 90
+    },
+    {
+      "intervention_name": "Nutraceutical combination containing Monacolin K (MK) alone",
+      "health_condition": "cardiometabolic risk",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "negative",
+      "avg_sample_size": 359
+    },
+    {
+      "intervention_name": "Nutraceutical combination containing Monacolin K (MK) and Morus alba",
+      "health_condition": "cardiometabolic risk",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "negative",
+      "avg_sample_size": 359
+    },
+    {
+      "intervention_name": "Orem's self-care model nursing",
+      "health_condition": "colorectal cancer (CRC)",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 42
+    },
+    {
+      "intervention_name": "PARPi",
+      "health_condition": "solid tumors (prostate, breast, ovarian, pancreatic, glioblastoma, small-cell lung cancer, non-small-cell lung cancer)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 15008
+    },
+    {
+      "intervention_name": "PD-1 antibody",
+      "health_condition": "chronic hepatitis B (CHB)",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "PD-1 antibody combined with PEG-IFNα",
+      "health_condition": "chronic hepatitis B (CHB)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "PD-1/PD-L1 inhibitors combined with chemotherapy",
+      "health_condition": "stage IIIb-IV non-small-cell lung cancer (NSCLC)",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": 9335
+    },
+    {
+      "intervention_name": "PET-guided targeting",
+      "health_condition": "psychiatric disorders",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "positive",
+      "avg_sample_size": 1651
+    },
+    {
+      "intervention_name": "Peer Intervention (PI)",
+      "health_condition": "sun protection behaviours",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 1452
+    },
+    {
+      "intervention_name": "Pegylated interferon alpha (Peg-IFNα)",
+      "health_condition": "chronic hepatitis B (CHB)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 378
+    },
+    {
+      "intervention_name": "Percutaneous Mechanical Aspiration (PMA)",
+      "health_condition": "right-sided infective endocarditis (RSIE)",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "positive",
+      "avg_sample_size": 256
+    },
+    {
+      "intervention_name": "Persimmon leaf extract (PLE)",
+      "health_condition": "dyslipidemia",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "negative",
+      "avg_sample_size": 1572
+    },
+    {
+      "intervention_name": "Posterior Drainage Lithotripsy System (PDLS)",
+      "health_condition": "residual fragments after retrograde intrarenal surgery",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": 136
+    },
+    {
+      "intervention_name": "Potassium-competitive acid blockers (PCABs)",
+      "health_condition": "H. pylori infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Potassium-competitive acid blockers (PCABs)",
+      "health_condition": "Helicobacter pylori infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Potassium-competitive acid blockers (PCABs)",
+      "health_condition": "gastroesophageal reflux disease (GERD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Potassium-competitive acid blockers (PCABs)",
+      "health_condition": "peptic ulcer disease",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Potassium-competitive acid blockers (PCABs)",
+      "health_condition": "symptomatic and erosive GERD",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Proton pump inhibitors (PPIs)",
+      "health_condition": "gastroesophageal reflux disease (GERD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Retrograde Intrarenal Ureteral Lithotripsy (RIRS)",
+      "health_condition": "residual fragments after retrograde intrarenal surgery",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": 136
+    },
+    {
+      "intervention_name": "Rifampin-based regimen (2 months daily)",
+      "health_condition": "Tuberculosis infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 461
+    },
+    {
+      "intervention_name": "Rifampin-based regimen (4 months daily)",
+      "health_condition": "Tuberculosis infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 454
+    },
+    {
+      "intervention_name": "Robot-assisted gait training (RAGT)",
+      "health_condition": "multiple sclerosis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 24
+    },
+    {
+      "intervention_name": "Ruxolitinib",
+      "health_condition": "Large vessel vasculitis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "SGLT2 inhibitor",
+      "health_condition": "new-onset diabetes after transplantation (NODAT)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "SGLT2 inhibitors (SGLT2is)",
+      "health_condition": "chronic kidney disease (CKD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "SRS (stereotactic radiosurgery)",
+      "health_condition": "brain metastases from non-small cell lung cancer",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "SSRIs (Selective Serotonin Reuptake Inhibitors)",
+      "health_condition": "Major Depressive Disorder (MDD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "SUGAR Handshake",
+      "health_condition": "hypoglycaemia",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 104
+    },
+    {
+      "intervention_name": "Salvia miltiorrhiza",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Self-paced overground gait training (OGT)",
+      "health_condition": "multiple sclerosis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 24
+    },
+    {
+      "intervention_name": "Short-Segment Fixation (SSF)",
+      "health_condition": "Thoracolumbar Spine Fractures",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "positive",
+      "avg_sample_size": 13
+    },
+    {
+      "intervention_name": "Sincrolab Adults program",
+      "health_condition": "ADHD",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": 104
+    },
+    {
+      "intervention_name": "Stress First Aid (SFA)",
+      "health_condition": "chronic stress",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 862
+    },
+    {
+      "intervention_name": "Structural MRI",
+      "health_condition": "psychiatric disorders",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Surgical left atrial appendage occlusion (SLAAO)",
+      "health_condition": "valvular heart disease without atrial fibrillation, CHA₂DS₂-VASc ≥2",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": 2118
+    },
+    {
+      "intervention_name": "TTFields (Tumor Treating Fields)",
+      "health_condition": "brain metastases from non-small cell lung cancer",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": 298
+    },
+    {
+      "intervention_name": "Time-restricted eating (TRE)",
+      "health_condition": "Autosomal dominant polycystic kidney disease (ADPKD)",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": 29
+    },
+    {
+      "intervention_name": "Tofacitinib",
+      "health_condition": "Large vessel vasculitis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Tranexamic acid (TXA)",
+      "health_condition": "postoperative pain after arthroscopic rotator cuff repair",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 165
+    },
+    {
+      "intervention_name": "Tripterygium wilfordii",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Upadacitinib",
+      "health_condition": "Giant Cell Arteritis (GCA)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Vagus nerve stimulation (VNS)",
+      "health_condition": "drug-resistant epilepsy (DRE)",
+      "frequency": 1,
+      "category": "device",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Wedang Uwuh",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Yangxiao Fukang granule (YXFKG)",
+      "health_condition": "stage III hepatitis B related liver cancer",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": 216
+    },
+    {
+      "intervention_name": "Yiqi Chupi powder",
+      "health_condition": "cancer-related fatigue in patients following colorectal cancer surgery",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": 78
+    },
+    {
+      "intervention_name": "Yoga",
+      "health_condition": "Thyroid Diseases",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "Zingiber officinale",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "abiraterone plus prednisone",
+      "health_condition": "poor-prognosis metastatic castration-resistant prostate cancer (mCRPC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 106
+    },
+    {
+      "intervention_name": "absorbable suture material",
+      "health_condition": "esophageal atresia (EA)",
+      "frequency": 1,
+      "category": "device",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": 97
+    },
+    {
+      "intervention_name": "accelerated initiation of kidney replacement therapy (KRT)",
+      "health_condition": "severe acute kidney injury (AKI) in critically ill patients",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "neutral",
+      "avg_sample_size": 73
+    },
+    {
+      "intervention_name": "acetaminophen",
+      "health_condition": "endotoxemia",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 40
+    },
+    {
+      "intervention_name": "active video games (AVGs)",
+      "health_condition": "schizophrenia",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 82
+    },
+    {
+      "intervention_name": "adaptive Cognitive Training Kit (COGNI-TRAcK)",
+      "health_condition": "multiple sclerosis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 34
+    },
+    {
+      "intervention_name": "adjuvant hormone therapy",
+      "health_condition": "prostate cancer",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 128
+    },
+    {
+      "intervention_name": "adjuvant metformin",
+      "health_condition": "metabolic adverse effects",
+      "frequency": 1,
+      "category": null,
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "aerobic exercise",
+      "health_condition": "lung cancer",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 17
+    },
+    {
+      "intervention_name": "aerobic exercise",
+      "health_condition": "osteoporosis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "negative",
+      "avg_sample_size": 1067
+    },
+    {
+      "intervention_name": "aerobic exercise",
+      "health_condition": "polycystic ovary syndrome (PCOS)",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 316
+    },
+    {
+      "intervention_name": "aerobic exercise",
+      "health_condition": "pulmonary embolism",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "aerobic training",
+      "health_condition": "liver cirrhosis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "aerobic training (AET)",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 36
+    },
+    {
+      "intervention_name": "alendronate",
+      "health_condition": "osteoporosis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 330
+    },
+    {
+      "intervention_name": "alendronate (ALN)",
+      "health_condition": "type 2 diabetic bone disease",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "alkaloid",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "all-trans retinoic acid (ATRA)",
+      "health_condition": "acute promyelocytic leukemia (APL)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "ammonium chloride",
+      "health_condition": "kidney stones",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "androgen deprivation therapy (ADT)",
+      "health_condition": "metastatic hormone-sensitive prostate cancer",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "androgen-receptor pathway inhibitors (ARPI)",
+      "health_condition": "metastatic hormone-sensitive prostate cancer",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "anthocyanin",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "anti-TNF agents",
+      "health_condition": "inflammatory bowel disease (IBD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "anti-adrenomedullin",
+      "health_condition": "sepsis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "anti-inflammatory diet",
+      "health_condition": "rheumatoid arthritis (RA)",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "anti-inflammatory dietary program",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "negative",
+      "avg_sample_size": 144
+    },
+    {
+      "intervention_name": "anticoagulant therapy",
+      "health_condition": "ischemic stroke with active cancer",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 135
+    },
+    {
+      "intervention_name": "antihypertensive medication",
+      "health_condition": "hypertension",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 8
+    },
+    {
+      "intervention_name": "antiplatelet therapy",
+      "health_condition": "ischemic stroke with active cancer",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 135
+    },
+    {
+      "intervention_name": "antiplatelet therapy",
+      "health_condition": "symptomatic severe aortic stenosis post-TAVR",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 454
+    },
+    {
+      "intervention_name": "antipsychotic medications",
+      "health_condition": "schizophrenia",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 100
+    },
+    {
+      "intervention_name": "antiretroviral regimens",
+      "health_condition": "HIV-1 infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "antitubercular therapy (ATT)",
+      "health_condition": "uveitis of undetermined cause with positive interferon-gamma release assay",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 76
+    },
+    {
+      "intervention_name": "antiviral drugs",
+      "health_condition": "colitis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "aortic valve replacement (AVR)",
+      "health_condition": "asymptomatic severe aortic stenosis",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "apixaban",
+      "health_condition": "atrial fibrillation (AF)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 257
+    },
+    {
+      "intervention_name": "apremilast",
+      "health_condition": "moderate-to-severe plaque psoriasis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "arch bar splinting",
+      "health_condition": "dentoalveolar fractures",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "arsenic trioxide (ATO)",
+      "health_condition": "acute promyelocytic leukemia (APL)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "arthroscopic reduction with internal fixation (ARIF) using cannulated screws",
+      "health_condition": "Broberg & Morrey Type II radial head fractures with a mechanical rotation block",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "arthroscopic reduction without fixation (ARnF)",
+      "health_condition": "Broberg & Morrey Type II radial head fractures with a mechanical rotation block",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "neutral",
+      "avg_sample_size": 11
+    },
+    {
+      "intervention_name": "arthroscopic rotator cuff repair (RCR)",
+      "health_condition": "rotator cuff tear (RCT)",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": 415
+    },
+    {
+      "intervention_name": "assertive community treatment (ACT)",
+      "health_condition": "severe mental disorders",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 63
+    },
+    {
+      "intervention_name": "asthma treatment guided by spirometry plus symptoms",
+      "health_condition": "asthma",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "asthma treatment guided by symptoms only",
+      "health_condition": "asthma",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "atezolizumab+chemo",
+      "health_condition": "advanced squamous non-small cell lung cancer (SqNSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "atorvastatin",
+      "health_condition": "ST-segment elevation myocardial infarction (STEMI)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 2426
+    },
+    {
+      "intervention_name": "auricular acupressure",
+      "health_condition": "diabetic peripheral neuropathy",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 41
+    },
+    {
+      "intervention_name": "autologous platelet-rich plasma (PRP)",
+      "health_condition": "thyroidectomy scars",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": 32
+    },
+    {
+      "intervention_name": "azithromycin therapy",
+      "health_condition": "chronic obstructive pulmonary disease (COPD) with Pseudomonas aeruginosa colonization",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "negative",
+      "avg_sample_size": 32753
+    },
+    {
+      "intervention_name": "biofeedback training with Biometrics device",
+      "health_condition": "stroke",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": 120
+    },
+    {
+      "intervention_name": "bioinductive collagen patch (REGENETEN)",
+      "health_condition": "rotator cuff retear",
+      "frequency": 1,
+      "category": "device",
+      "correlation_types": "positive",
+      "avg_sample_size": 21
+    },
+    {
+      "intervention_name": "biologics",
+      "health_condition": "asthma",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "bismuth-based quadruple therapy",
+      "health_condition": "Helicobacter pylori infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 709
+    },
+    {
+      "intervention_name": "bismuth-based therapy (BBT)",
+      "health_condition": "Helicobacter pylori infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 2039
+    },
+    {
+      "intervention_name": "bismuth-containing quadruple therapy (BQT)",
+      "health_condition": "Helicobacter pylori infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 468
+    },
+    {
+      "intervention_name": "blood flow restriction training (BFRT)",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 64
+    },
+    {
+      "intervention_name": "blood flow restriction training combined with electrical muscle stimulation",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 64
+    },
+    {
+      "intervention_name": "bone marrow aspirate concentrate (BMAC) injection",
+      "health_condition": "chronic rat rotator cuff tear",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "botulinum neurotoxin of type A (BoNT-A)",
+      "health_condition": "Major Depressive Disorder (MDD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "botulinum toxin A",
+      "health_condition": "hyperhidrosis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "budesonide-formoterol",
+      "health_condition": "asthma",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 360
+    },
+    {
+      "intervention_name": "cabazitaxel",
+      "health_condition": "poor-prognosis metastatic castration-resistant prostate cancer (mCRPC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 106
+    },
+    {
+      "intervention_name": "calcineurin inhibitors",
+      "health_condition": "nephrotic syndrome",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 372
+    },
+    {
+      "intervention_name": "calorie restriction",
+      "health_condition": "obesity",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "capecitabine plus oxaliplatin (XELOX)",
+      "health_condition": "colorectal cancer",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 78
+    },
+    {
+      "intervention_name": "catechin",
+      "health_condition": "respiratory tract infections (RTIs)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "negative",
+      "avg_sample_size": 5
+    },
+    {
+      "intervention_name": "catheter ablation",
+      "health_condition": "atrial flutter (AFl)",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "catheter-directed thrombolysis",
+      "health_condition": "deep venous thrombosis (DVT)",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "celecoxib",
+      "health_condition": "Knee osteoarthritis (KOA)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 40
+    },
+    {
+      "intervention_name": "cemiplimab",
+      "health_condition": "advanced squamous non-small cell lung cancer (SqNSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "checkpoint inhibitors targeting Programmed Cell Death Protein 1/Programmed Death-Ligand 1 inhibitors (anti-PD-1/PD-L1)",
+      "health_condition": "sepsis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "chemotherapy",
+      "health_condition": "advanced squamous non-small cell lung cancer (SqNSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 25
+    },
+    {
+      "intervention_name": "chemotherapy",
+      "health_condition": "metastatic triple-negative breast cancer",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "chemotherapy",
+      "health_condition": "stage IIIb-IV non-small-cell lung cancer (NSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "cinnamon",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "clofarabine plus cytarabine",
+      "health_condition": "pediatric AML",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "cognitive behavioral therapy",
+      "health_condition": "anxiety and substance use disorders",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 26
+    },
+    {
+      "intervention_name": "cognitive behavioral therapy",
+      "health_condition": "panic disorder",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 30
+    },
+    {
+      "intervention_name": "cognitive behavioral therapy for insomnia (CBT-I)",
+      "health_condition": "Crohn's disease",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 26
+    },
+    {
+      "intervention_name": "cognitive rehabilitation nursing (CRN)",
+      "health_condition": "schizophrenia",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "cognitive-behavioral therapy (CBT)",
+      "health_condition": "depression and anxiety",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 720
+    },
+    {
+      "intervention_name": "colchicine",
+      "health_condition": "gout",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 200
+    },
+    {
+      "intervention_name": "collateral puncture therapy",
+      "health_condition": "erythematotelangiectatic rosacea (ETR)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 60
+    },
+    {
+      "intervention_name": "colonoscopic auxiliary devices",
+      "health_condition": "polyp detection",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "positive",
+      "avg_sample_size": 264
+    },
+    {
+      "intervention_name": "combination biologic therapy (IL-17 antagonist + IL-36 antagonist)",
+      "health_condition": "lupus nephritis",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "combination of traditional Chinese and Western medicine",
+      "health_condition": "refractory epilepsy (RE)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 1521
+    },
+    {
+      "intervention_name": "community orchestra intervention",
+      "health_condition": "Parkinson's disease",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 22
+    },
+    {
+      "intervention_name": "complement component 5a inhibitors (anti-C5a)",
+      "health_condition": "sepsis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "complement inhibitors",
+      "health_condition": "C3 glomerulopathy (C3G)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "complete revascularization",
+      "health_condition": "myocardial infarction with multivessel disease",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "negative",
+      "avg_sample_size": 1445
+    },
+    {
+      "intervention_name": "component therapy",
+      "health_condition": "traumatic injuries",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 59213
+    },
+    {
+      "intervention_name": "compound betamethasone (CB)",
+      "health_condition": "acute gout flares",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 311
+    },
+    {
+      "intervention_name": "computerized interventions",
+      "health_condition": "schizophrenia",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "concomitant therapy",
+      "health_condition": "Helicobacter pylori infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 709
+    },
+    {
+      "intervention_name": "conservative treatment",
+      "health_condition": "acute Anterior cruciate ligament injury",
+      "frequency": 1,
+      "category": null,
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "continuing angiotensin-converting enzyme inhibitors (ACEIs) and angiotensin receptor blockers (ARBs)",
+      "health_condition": "noncardiac surgery",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 4063
+    },
+    {
+      "intervention_name": "continuous care model (CCM)",
+      "health_condition": "Parkinson's disease",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 80
+    },
+    {
+      "intervention_name": "continuous infusion of β-lactam antibiotics",
+      "health_condition": "sepsis or septic shock",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 9166
+    },
+    {
+      "intervention_name": "continuous intertransverse process block",
+      "health_condition": "postoperative analgesia after uniportal video-assisted thoracoscopic surgery",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 96
+    },
+    {
+      "intervention_name": "continuous positive airway pressure (CPAP)",
+      "health_condition": "Refractory hypertension",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "conventional Western medicine (WM)",
+      "health_condition": "gouty arthritis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 376
+    },
+    {
+      "intervention_name": "coronary artery bypass grafting (CABG)",
+      "health_condition": "ischemic left ventricular systolic dysfunction",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "coronary artery bypass grafting (CABG)",
+      "health_condition": "multivessel coronary artery disease (CAD)",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "coronary computed tomography angiography (CCTA)",
+      "health_condition": "stable angina pectoris",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "positive",
+      "avg_sample_size": 5551
+    },
+    {
+      "intervention_name": "corticosteroids",
+      "health_condition": "congenital diaphragmatic hernia (CDH)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "corticosteroids",
+      "health_condition": "sepsis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 176
+    },
+    {
+      "intervention_name": "culprit-only revascularization",
+      "health_condition": "myocardial infarction with multivessel disease",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "neutral",
+      "avg_sample_size": 1445
+    },
+    {
+      "intervention_name": "curcumin",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "cycling",
+      "health_condition": "hip or knee osteoarthritis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 94
+    },
+    {
+      "intervention_name": "cycling",
+      "health_condition": "osteoarthritis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "cyclophosphamide",
+      "health_condition": "breast cancer",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 50
+    },
+    {
+      "intervention_name": "cyclosporine",
+      "health_condition": "new-onset diabetes after transplantation (NODAT)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "cysteamine",
+      "health_condition": "melasma",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "daunorubicin and etoposide combined with low-dose cytarabine",
+      "health_condition": "pediatric AML",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "delamanid",
+      "health_condition": "multidrug-resistant tuberculosis",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "neutral",
+      "avg_sample_size": 3452
+    },
+    {
+      "intervention_name": "denosumab biosimilar",
+      "health_condition": "postmenopausal osteoporosis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": 1784
+    },
+    {
+      "intervention_name": "desloratadine",
+      "health_condition": "acne vulgaris",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 675
+    },
+    {
+      "intervention_name": "deucravacitinib",
+      "health_condition": "moderate-to-severe plaque psoriasis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "dexamethasone",
+      "health_condition": "severe influenza infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 243
+    },
+    {
+      "intervention_name": "dextran sulfate sodium (DSS)-induced diet",
+      "health_condition": "inflammatory bowel disease (IBD)",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "diaphragmatic breathing",
+      "health_condition": "gastroesophageal reflux disease-induced chronic cough",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "digital intervention",
+      "health_condition": "type 2 diabetes (T2D)",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "negative",
+      "avg_sample_size": 3240
+    },
+    {
+      "intervention_name": "digital therapeutics (DTx)",
+      "health_condition": "overweight and obesity",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "diluted nitrous oxide inhalation",
+      "health_condition": "burn scar contracture pain",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 80
+    },
+    {
+      "intervention_name": "docetaxel",
+      "health_condition": "metastatic hormone-sensitive prostate cancer",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "donanemab",
+      "health_condition": "preclinical Alzheimer's disease (AD)",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "doxorubicin",
+      "health_condition": "breast cancer",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 50
+    },
+    {
+      "intervention_name": "drug-coated balloon (DCB)",
+      "health_condition": "de novo lesions of large coronary arteries",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 9745
+    },
+    {
+      "intervention_name": "drug-eluting stent (DES)",
+      "health_condition": "de novo lesions of large coronary arteries",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 9745
+    },
+    {
+      "intervention_name": "dry cupping therapy",
+      "health_condition": "knee osteoarthritis (KOA)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "neutral",
+      "avg_sample_size": 62
+    },
+    {
+      "intervention_name": "dupilumab",
+      "health_condition": "prurigo nodularis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "durvalumab+chemo",
+      "health_condition": "advanced squamous non-small cell lung cancer (SqNSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "durvalumab+tremelimumab+chemo",
+      "health_condition": "advanced squamous non-small cell lung cancer (SqNSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "earlobe acupressure",
+      "health_condition": "anxiety and depression",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 45
+    },
+    {
+      "intervention_name": "egg ladder (EL)",
+      "health_condition": "IgE-mediated hen's egg allergy",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": 84
+    },
+    {
+      "intervention_name": "electrical muscle stimulation (EMS)",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "device",
+      "correlation_types": "positive",
+      "avg_sample_size": 64
+    },
+    {
+      "intervention_name": "electro-acupuncture",
+      "health_condition": "irritable bowel syndrome with constipation (IBS-C)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 30
+    },
+    {
+      "intervention_name": "electroacupuncture",
+      "health_condition": "urinary incontinence after radical prostatectomy",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 110
+    },
+    {
+      "intervention_name": "elobixibat",
+      "health_condition": "constipation",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "eltrombopag (EPAG)",
+      "health_condition": "acute myeloid leukemia (AML)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "empirical antifungal treatment",
+      "health_condition": "influenza-associated pulmonary aspergillosis (IAPA)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 172
+    },
+    {
+      "intervention_name": "empowerment program",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 98
+    },
+    {
+      "intervention_name": "enzalutamide",
+      "health_condition": "poor-prognosis metastatic castration-resistant prostate cancer (mCRPC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 106
+    },
+    {
+      "intervention_name": "etoricoxib",
+      "health_condition": "gout flares",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 62
+    },
+    {
+      "intervention_name": "exercise and nutritional intervention",
+      "health_condition": "frailty in patients with cirrhosis listed for liver transplantation",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 66
+    },
+    {
+      "intervention_name": "exercise intervention",
+      "health_condition": "rotator cuff tear arthropathy",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "neutral",
+      "avg_sample_size": 102
+    },
+    {
+      "intervention_name": "exercise programme",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "exercise therapy (ET)",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 90
+    },
+    {
+      "intervention_name": "extracorporeal shock wave lithotripsy (ESWL)",
+      "health_condition": "urolithiasis in chronic kidney disease patients",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": 6
+    },
+    {
+      "intervention_name": "fMRI",
+      "health_condition": "psychiatric disorders",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "firsekibart",
+      "health_condition": "gout flares",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 61
+    },
+    {
+      "intervention_name": "fractional flow reserve (FFR)-guided percutaneous coronary intervention (PCI)",
+      "health_condition": "multivessel coronary artery disease (CAD)",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "fractional microneedle radiofrequency (FMR)",
+      "health_condition": "hyperhidrosis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "fracture fixation",
+      "health_condition": "periprosthetic fractures around elbow prosthesis",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": 85
+    },
+    {
+      "intervention_name": "gallic acid",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "game-based interventions",
+      "health_condition": "schizophrenia",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "gemtuzumab ozogamicin",
+      "health_condition": "acute promyelocytic leukemia (APL)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "glucagon-like peptide-1 receptor agonists (GLP-1RA)",
+      "health_condition": "cardiovascular and renal outcomes in type 2 diabetes",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "glucagon-like peptide-1 receptor agonists (GLP-1Ra)",
+      "health_condition": "obesity",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "gluten-free diet (GFD)",
+      "health_condition": "refractory irritable bowel syndrome and functional dyspepsia",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": 252
+    },
+    {
+      "intervention_name": "guided transdiagnostic iCBT",
+      "health_condition": "depression and anxiety",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 720
+    },
+    {
+      "intervention_name": "gut microbiota-targeted therapy (GMTT)",
+      "health_condition": "psoriasis",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": 409
+    },
+    {
+      "intervention_name": "gut-directed hypnotherapy",
+      "health_condition": "disorders of gut-brain interaction",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 32
+    },
+    {
+      "intervention_name": "heart valve clinic (HVC)",
+      "health_condition": "valvular heart disease",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 1082
+    },
+    {
+      "intervention_name": "high molecular weight non-cross-linked hyaluronic acid plus succinic acid mesotherapy",
+      "health_condition": "rosacea",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": 20
+    },
+    {
+      "intervention_name": "high protein diet",
+      "health_condition": "kidney stones",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "high-dose cytarabine",
+      "health_condition": "pediatric AML",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "high-dose vitamin D",
+      "health_condition": "COVID-19 or influenza prevention",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "negative",
+      "avg_sample_size": 9
+    },
+    {
+      "intervention_name": "high-fat-high-glucose meal challenge",
+      "health_condition": "increased liver fat",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "neutral",
+      "avg_sample_size": 66
+    },
+    {
+      "intervention_name": "high-intensity interval training",
+      "health_condition": "breast cancer",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "high-intensity laser therapy (HILT)",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 45
+    },
+    {
+      "intervention_name": "home-based support",
+      "health_condition": "chronic obstructive pulmonary disease (COPD)",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "household ventilation",
+      "health_condition": "tuberculosis transmission",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "neutral",
+      "avg_sample_size": 329
+    },
+    {
+      "intervention_name": "human umbilical cord-derived mesenchymal stem cells (hUC-MSCs)",
+      "health_condition": "hepatitis B virus-associated decompensated liver cirrhosis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": 24
+    },
+    {
+      "intervention_name": "hydroxychloroquine",
+      "health_condition": "incomplete lupus (ILE)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 187
+    },
+    {
+      "intervention_name": "hypocaloric diet",
+      "health_condition": "psoriatic arthritis (PsA)",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "hypomethylating agents (HMA)",
+      "health_condition": "acute myeloid leukemia (AML)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "hypoxic conditioning",
+      "health_condition": "Parkinson's disease",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": 20
+    },
+    {
+      "intervention_name": "i-mTOR",
+      "health_condition": "new-onset diabetes after transplantation (NODAT)",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "idarubicin (IDA)",
+      "health_condition": "acute promyelocytic leukemia (APL)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "immediate surgical repair",
+      "health_condition": "acute Anterior cruciate ligament injury",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "immune checkpoint inhibitor therapy",
+      "health_condition": "advanced or metastatic non-small cell lung cancer",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "neutral",
+      "avg_sample_size": 5027
+    },
+    {
+      "intervention_name": "immune checkpoint inhibitors (ICIs)",
+      "health_condition": "advanced non-small cell lung cancer",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "neutral",
+      "avg_sample_size": 1175
+    },
+    {
+      "intervention_name": "immune checkpoint inhibitors (ICIs)",
+      "health_condition": "advanced squamous non-small cell lung cancer (SqNSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 25
+    },
+    {
+      "intervention_name": "increased water intake",
+      "health_condition": "polycystic kidney disease (ADPKD)",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "individualised patient-centred counselling about physical activity",
+      "health_condition": "hip or knee osteoarthritis",
+      "frequency": 1,
+      "category": null,
+      "correlation_types": "positive",
+      "avg_sample_size": 94
+    },
+    {
+      "intervention_name": "indole-3-acetic acid (IAA)",
+      "health_condition": "pneumonia",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "negative",
+      "avg_sample_size": 13464
+    },
+    {
+      "intervention_name": "infrapatellar intramedullary nailing",
+      "health_condition": "extra-articular tibial fractures",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "inhaled antibiotics (IAs)",
+      "health_condition": "chronic obstructive pulmonary disease (COPD) with Pseudomonas aeruginosa colonization",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "negative",
+      "avg_sample_size": 32753
+    },
+    {
+      "intervention_name": "inotropes",
+      "health_condition": "congenital diaphragmatic hernia (CDH)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "intense pulsed light combined with 3% tranexamic acid",
+      "health_condition": "facial erythema associated with acne and rosacea",
+      "frequency": 1,
+      "category": "device",
+      "correlation_types": "positive",
+      "avg_sample_size": 28
+    },
+    {
+      "intervention_name": "intense pulsed light only",
+      "health_condition": "facial erythema associated with acne and rosacea",
+      "frequency": 1,
+      "category": "device",
+      "correlation_types": "positive",
+      "avg_sample_size": 28
+    },
+    {
+      "intervention_name": "intermittent infusion of β-lactam antibiotics",
+      "health_condition": "sepsis or septic shock",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 9166
+    },
+    {
+      "intervention_name": "intermittent theta burst stimulation (iTBS)",
+      "health_condition": "schizophrenia with negative symptoms",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 60
+    },
+    {
+      "intervention_name": "intra-articular pulsed radiofrequency (IAPRF)",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "positive",
+      "avg_sample_size": 54
+    },
+    {
+      "intervention_name": "intra-articular steroid injection (IASI)",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "positive",
+      "avg_sample_size": 54
+    },
+    {
+      "intervention_name": "intravenous iron dextran",
+      "health_condition": "pediatric CKD anemia",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "negative",
+      "avg_sample_size": 30
+    },
+    {
+      "intervention_name": "intrinsic antitachycardia pacing (iATP)",
+      "health_condition": "atrial flutter (AFl)",
+      "frequency": 1,
+      "category": "device",
+      "correlation_types": "positive",
+      "avg_sample_size": 17
+    },
+    {
+      "intervention_name": "inulin/oligofructose mixture",
+      "health_condition": "constipation-predominant irritable bowel syndrome",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": 34
+    },
+    {
+      "intervention_name": "ipilimumab+chemo",
+      "health_condition": "advanced squamous non-small cell lung cancer (SqNSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "iscalimab (CFZ533)",
+      "health_condition": "proliferative lupus nephritis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": 39
+    },
+    {
+      "intervention_name": "isoniazid",
+      "health_condition": "multidrug-resistant tuberculosis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 3452
+    },
+    {
+      "intervention_name": "kaempferol",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "ketogenic diet (KD)",
+      "health_condition": "drug-resistant epilepsy",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "lacto-ovo-vegetarian diet",
+      "health_condition": "kidney stones",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "latissimus dorsi-thoracolumbar fascia (LD-TLF) complex stretching",
+      "health_condition": "chronic low back pain (CLBP)",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 30
+    },
+    {
+      "intervention_name": "levetiracetam",
+      "health_condition": "self-limited epilepsy with centrotemporal spikes (SeLECTS)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 192
+    },
+    {
+      "intervention_name": "levocetirizine",
+      "health_condition": "acne vulgaris",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 675
+    },
+    {
+      "intervention_name": "levofloxacin triple therapy",
+      "health_condition": "Helicobacter pylori infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 709
+    },
+    {
+      "intervention_name": "levofloxacin-based TB preventive treatment (TPT)",
+      "health_condition": "multidrug-resistant tuberculosis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "levothyroxine (LT4)",
+      "health_condition": "thyroid dysfunction, subclinical hypothyroidism (SCH), thyroid peroxidase antibody (TPOAb) positivity",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "linaclotide",
+      "health_condition": "constipation",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "liraglutide",
+      "health_condition": "obesity and pre-diabetes",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "lisdexamfetamine",
+      "health_condition": "attention-deficit/hyperactivity disorder (ADHD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 148
+    },
+    {
+      "intervention_name": "listening support (The Wren project)",
+      "health_condition": "lupus",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 124
+    },
+    {
+      "intervention_name": "liver fibrosis blood tests",
+      "health_condition": "cirrhosis, hepatocellular carcinoma surveillance",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "positive",
+      "avg_sample_size": 2470
+    },
+    {
+      "intervention_name": "low fermentable oligo-, di-, and monosaccharides and polyols (FODMAP) diet",
+      "health_condition": "Irritable bowel syndrome",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": 237
+    },
+    {
+      "intervention_name": "low-glycemic-index treatment (LGIT)",
+      "health_condition": "drug-resistant epilepsy",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "low-level laser therapy (LLLT)",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 45
+    },
+    {
+      "intervention_name": "lower body resistance training (RTL)",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 36
+    },
+    {
+      "intervention_name": "lubiprostone",
+      "health_condition": "constipation",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "lymph node boost",
+      "health_condition": "prostate cancer",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "neutral",
+      "avg_sample_size": 128
+    },
+    {
+      "intervention_name": "mask use",
+      "health_condition": "tuberculosis transmission",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "neutral",
+      "avg_sample_size": 329
+    },
+    {
+      "intervention_name": "mechanical thrombectomy",
+      "health_condition": "deep venous thrombosis (DVT)",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "medication for opioid use disorder (MOUD)",
+      "health_condition": "opioid overdose fatalities",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "medication labels",
+      "health_condition": "drug-sensitive tuberculosis",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "neutral",
+      "avg_sample_size": 3858
+    },
+    {
+      "intervention_name": "medication reminders",
+      "health_condition": "drug-resistant epilepsy",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 100
+    },
+    {
+      "intervention_name": "medication summary guide",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "mental fatigue induction through Stroop task",
+      "health_condition": "non-contact anterior cruciate ligament injury risk",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "negative",
+      "avg_sample_size": 38
+    },
+    {
+      "intervention_name": "mepolizumab",
+      "health_condition": "severe therapy resistant asthma",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "mesenchymal stem cell (MSC) augmentation",
+      "health_condition": "rotator cuff tear (RCT)",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": 415
+    },
+    {
+      "intervention_name": "mesenchymal stem cell (MSC) injections",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": 467
+    },
+    {
+      "intervention_name": "mesenchymal stem cell therapy",
+      "health_condition": "lupus nephritis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "message-based intervention",
+      "health_condition": "serious mental illness",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 39
+    },
+    {
+      "intervention_name": "metabolic and bariatric surgery (MBS)",
+      "health_condition": "obesity",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "metacognitive training",
+      "health_condition": "bipolar disorder",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 55
+    },
+    {
+      "intervention_name": "metastasis-directed RT",
+      "health_condition": "prostate cancer",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "neutral",
+      "avg_sample_size": 128
+    },
+    {
+      "intervention_name": "metformin",
+      "health_condition": "autosomal dominant polycystic kidney disease (ADPKD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 1174
+    },
+    {
+      "intervention_name": "metformin",
+      "health_condition": "olanzapine-induced metabolic adverse effects",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "methionine",
+      "health_condition": "kidney stones",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "microneedle radiofrequency (MRF)",
+      "health_condition": "acne vulgaris",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "microneedling-assisted PDT",
+      "health_condition": "actinic keratoses",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "minodronate",
+      "health_condition": "osteoporosis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 330
+    },
+    {
+      "intervention_name": "mitiperstat",
+      "health_condition": "chronic obstructive pulmonary disease (COPD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "moderate-intensity continuous training",
+      "health_condition": "breast cancer",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "modified Atkins diet (MAD)",
+      "health_condition": "drug-resistant epilepsy",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "monoclonal antibodies against Interleukin-6 (IL-6)",
+      "health_condition": "sepsis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "monoclonal antibodies against Tumor Necrosis Factor-alpha (TNF-α)",
+      "health_condition": "sepsis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "monoclonal antibodies against endotoxin",
+      "health_condition": "sepsis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "montelukast",
+      "health_condition": "doxorubicin-induced cardiotoxicity in breast cancer patients",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 50
+    },
+    {
+      "intervention_name": "moxibustion with aconite cake",
+      "health_condition": "anxiety and depression",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 45
+    },
+    {
+      "intervention_name": "multi-strain probiotics",
+      "health_condition": "respiratory tract infections (RTIs)",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "negative",
+      "avg_sample_size": 16
+    },
+    {
+      "intervention_name": "music therapy",
+      "health_condition": "neurological conditions",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 469
+    },
+    {
+      "intervention_name": "mycophenolate mofetil (MMF)",
+      "health_condition": "IgA nephropathy",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "myricetin",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "nemolizumab",
+      "health_condition": "prurigo nodularis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "nightly separation of tuberculosis patients",
+      "health_condition": "tuberculosis transmission",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "neutral",
+      "avg_sample_size": 329
+    },
+    {
+      "intervention_name": "nivolumab monotherapy",
+      "health_condition": "advanced melanoma",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": 714
+    },
+    {
+      "intervention_name": "nivolumab plus relatlimab",
+      "health_condition": "advanced melanoma",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": 714
+    },
+    {
+      "intervention_name": "non-absorbable suture material",
+      "health_condition": "esophageal atresia (EA)",
+      "frequency": 1,
+      "category": "device",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": 97
+    },
+    {
+      "intervention_name": "non-invasive pulsed radiofrequency (NipRF)",
+      "health_condition": "diabetic neuropathic pain",
+      "frequency": 1,
+      "category": "device",
+      "correlation_types": "positive",
+      "avg_sample_size": 64
+    },
+    {
+      "intervention_name": "non-invasive vagus nerve stimulation (nVNS)",
+      "health_condition": "drug-resistant epilepsy",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 120
+    },
+    {
+      "intervention_name": "non-operative treatment",
+      "health_condition": "periprosthetic fractures around elbow prosthesis without stem loosening (type 1)",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "neutral",
+      "avg_sample_size": 85
+    },
+    {
+      "intervention_name": "nutritional intervention",
+      "health_condition": "colorectal cancer (CRC)",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": 42
+    },
+    {
+      "intervention_name": "oat β-glucan",
+      "health_condition": "hypertension",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "neutral",
+      "avg_sample_size": 21
+    },
+    {
+      "intervention_name": "olanzapine",
+      "health_condition": "schizophrenia, bipolar disorder, major depressive disorder",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "omalizumab",
+      "health_condition": "severe therapy resistant asthma",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "omega-3 fatty acids",
+      "health_condition": "psoriatic arthritis (PsA)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "omega-3 fatty acids",
+      "health_condition": "pulmonary embolism",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "omeprazole",
+      "health_condition": "gastroesophageal reflux disease",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "omeprazole",
+      "health_condition": "non-cardiac chest pain related to gastroesophageal reflux disease (GERD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "omeprazole",
+      "health_condition": "nonerosive gastroesophageal reflux disease (NERD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 72
+    },
+    {
+      "intervention_name": "online Pilates classes",
+      "health_condition": "lupus",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 124
+    },
+    {
+      "intervention_name": "open reduction internal fixation (ORIF)",
+      "health_condition": "trimalleolar ankle fractures",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "negative",
+      "avg_sample_size": 602
+    },
+    {
+      "intervention_name": "opioid use",
+      "health_condition": "chronic low back pain (CLBP)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "optimal medical therapy (OMT)",
+      "health_condition": "ischemic left ventricular systolic dysfunction",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "optimal medical therapy (OMT)",
+      "health_condition": "stable coronary artery disease involving ≥50% stenosis in the left main coronary artery",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "oral anticoagulation (OAC)",
+      "health_condition": "nonvalvular atrial fibrillation (NVAF) for stroke prevention",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "oral isotretinoin",
+      "health_condition": "acne vulgaris",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 675
+    },
+    {
+      "intervention_name": "oral liposomal iron",
+      "health_condition": "pediatric CKD anemia",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": 30
+    },
+    {
+      "intervention_name": "originator denosumab",
+      "health_condition": "postmenopausal osteoporosis",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": 1784
+    },
+    {
+      "intervention_name": "oseltamivir",
+      "health_condition": "severe influenza infection",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "oxygen",
+      "health_condition": "burn scar contracture pain",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 80
+    },
+    {
+      "intervention_name": "pain education",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "neutral",
+      "avg_sample_size": 36
+    },
+    {
+      "intervention_name": "pegloticase",
+      "health_condition": "uncontrolled gout",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": 145
+    },
+    {
+      "intervention_name": "pegylated interferon α (PEG-IFNα)",
+      "health_condition": "chronic hepatitis B (CHB)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "pelvic RT",
+      "health_condition": "prostate cancer",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "neutral",
+      "avg_sample_size": 128
+    },
+    {
+      "intervention_name": "pelvic lymph node dissection (PLND)",
+      "health_condition": "prostate cancer",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": 120
+    },
+    {
+      "intervention_name": "pembrolizumab",
+      "health_condition": "metastatic triple-negative breast cancer",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "penalimab",
+      "health_condition": "advanced squamous non-small cell lung cancer (SqNSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "penalimab+chemo",
+      "health_condition": "advanced squamous non-small cell lung cancer (SqNSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "penalimab+tremelimumab+chemo",
+      "health_condition": "advanced squamous non-small cell lung cancer (SqNSCLC)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "percutaneous coronary intervention (PCI)",
+      "health_condition": "ischemic left ventricular systolic dysfunction",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "percutaneous nephrolithotomy (PCNL)",
+      "health_condition": "urolithiasis in chronic kidney disease patients",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": 6
+    },
+    {
+      "intervention_name": "pharmacological therapy",
+      "health_condition": "atrial flutter (AFl)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "pharmacomechanical thrombectomy",
+      "health_condition": "deep venous thrombosis (DVT)",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "pharmacotherapies",
+      "health_condition": "stimulant use disorder and attention deficit hyperactivity disorder",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "photodynamic therapy (PDT)",
+      "health_condition": "acne vulgaris",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "photoprotection equipment delivery",
+      "health_condition": "sun protection behaviours",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 1452
+    },
+    {
+      "intervention_name": "physical activity intervention",
+      "health_condition": "HIV",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 302
+    },
+    {
+      "intervention_name": "physical intervention",
+      "health_condition": "heart valve disease",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "physical therapy",
+      "health_condition": "knee osteoarthritis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "plecanatide",
+      "health_condition": "constipation",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "point-of-care decision aid (RA Choice)",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "test",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "polyunsaturated fatty acids (PUFAs)",
+      "health_condition": "axial spondyloarthritis (axSpA)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "positive psychological intervention based on PERMA model",
+      "health_condition": "inflammatory bowel disease (IBD)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 47
+    },
+    {
+      "intervention_name": "potassium citrate",
+      "health_condition": "nephrolithiasis recurrence",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "potassium-competitive acid blockers (P-CABs)",
+      "health_condition": "gastroesophageal reflux disease (GERD) and chronic respiratory symptoms",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "povidone-iodine (PI)",
+      "health_condition": "ventilator-associated pneumonia prevention",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 20
+    },
+    {
+      "intervention_name": "precision medicine approach",
+      "health_condition": "congenital diaphragmatic hernia (CDH)",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "preoperative exercise training",
+      "health_condition": "operable non-small cell lung cancer",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 1022
+    },
+    {
+      "intervention_name": "probiotic supplementation",
+      "health_condition": "Helicobacter pylori infection",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "negative",
+      "avg_sample_size": 305
+    },
+    {
+      "intervention_name": "probiotics",
+      "health_condition": "inflammatory bowel disease (IBD)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "progressive muscle relaxation exercises",
+      "health_condition": "anxiety before ECT",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "negative",
+      "avg_sample_size": 30
+    },
+    {
+      "intervention_name": "prostaglandins",
+      "health_condition": "congenital diaphragmatic hernia (CDH)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "prostate bed boost",
+      "health_condition": "prostate cancer",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "neutral",
+      "avg_sample_size": 128
+    },
+    {
+      "intervention_name": "prostate-specific membrane antigen PET-guided intensification of salvage radiotherapy (PSMAiSRT)",
+      "health_condition": "prostate cancer",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 128
+    },
+    {
+      "intervention_name": "proton pump inhibitors",
+      "health_condition": "gastroesophageal reflux disease",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "inconclusive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "proton pump inhibitors (PPIs)",
+      "health_condition": "gastroesophageal reflux disease (GERD)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "proton pump inhibitors (PPIs)",
+      "health_condition": "gastroesophageal reflux disease (GERD) and chronic respiratory symptoms",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "prucalopride",
+      "health_condition": "chronic constipation in Parkinson's disease",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 57
+    },
+    {
+      "intervention_name": "prucalopride",
+      "health_condition": "constipation",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "psychological intervention",
+      "health_condition": "heart valve disease",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "psychological support",
+      "health_condition": "pulmonary embolism",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "psychologist-led behaviour-change support",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "quercetin",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "ramp pacing",
+      "health_condition": "atrial flutter (AFl)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "negative",
+      "avg_sample_size": 17
+    },
+    {
+      "intervention_name": "rehabilitation training",
+      "health_condition": "burn scar contracture",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 80
+    },
+    {
+      "intervention_name": "repetitive transcranial magnetic stimulation (rTMS)",
+      "health_condition": "schizophrenia",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 100
+    },
+    {
+      "intervention_name": "resilience training",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "resistance exercise",
+      "health_condition": "osteoporosis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 1067
+    },
+    {
+      "intervention_name": "resistance training",
+      "health_condition": "breast cancer",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "resistance training",
+      "health_condition": "liver cirrhosis",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "resistance training",
+      "health_condition": "pulmonary embolism",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "resveratrol",
+      "health_condition": "endometriosis",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "resveratrol",
+      "health_condition": "metabolic syndrome",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "reverse total shoulder arthroplasty",
+      "health_condition": "rotator cuff tear arthropathy",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": 102
+    },
+    {
+      "intervention_name": "revision arthroplasty",
+      "health_condition": "periprosthetic fractures around elbow prosthesis",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "neutral",
+      "avg_sample_size": 85
+    },
+    {
+      "intervention_name": "rhPTH(1-34)",
+      "health_condition": "type 2 diabetic bone disease",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "rheumatology clinician training",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "ribavirin",
+      "health_condition": "hepatitis C (HCV) with cirrhosis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "ribavirin",
+      "health_condition": "hepatitis C (cirrhosis)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "risankizumab",
+      "health_condition": "psoriatic arthritis",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 1038
+    },
+    {
+      "intervention_name": "rituximab",
+      "health_condition": "nephrotic syndrome",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "neutral",
+      "avg_sample_size": 372
+    },
+    {
+      "intervention_name": "rituximab",
+      "health_condition": "recurrent glomerular disease (GN)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "rituximab therapy",
+      "health_condition": "idiopathic membranous nephropathy (IMN)",
+      "frequency": 1,
+      "category": "biologics",
+      "correlation_types": "positive",
+      "avg_sample_size": 140
+    },
+    {
+      "intervention_name": "rivaroxaban",
+      "health_condition": "acute myocardial infarction and new-onset atrial fibrillation",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 2477
+    },
+    {
+      "intervention_name": "rivaroxaban",
+      "health_condition": "symptomatic severe aortic stenosis post-TAVR",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 454
+    },
+    {
+      "intervention_name": "robot-assisted total knee arthroplasty (TKA)",
+      "health_condition": "end-stage osteoarthritis of the knee",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": 40
+    },
+    {
+      "intervention_name": "rotator cuff repair surgery",
+      "health_condition": "chronic rat rotator cuff tear",
+      "frequency": 1,
+      "category": "surgery",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "rusfertide",
+      "health_condition": "polycythemia vera",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "neutral",
+      "avg_sample_size": 60
+    },
+    {
+      "intervention_name": "safer opioid prescribing",
+      "health_condition": "opioid overdose fatalities",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "salbutamol",
+      "health_condition": "asthma",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": 360
+    },
+    {
+      "intervention_name": "salvage radiotherapy (SRT)",
+      "health_condition": "prostate cancer",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 128
+    },
+    {
+      "intervention_name": "saponin",
+      "health_condition": "Type 2 diabetes mellitus (T2DM)",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "second-generation virtual reality intervention (SG-VRI)",
+      "health_condition": "attention-deficit/hyperactivity disorder (ADHD)",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "positive",
+      "avg_sample_size": 35
+    },
+    {
+      "intervention_name": "seed cycling",
+      "health_condition": "premenstrual syndrome (PMS)",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "positive",
+      "avg_sample_size": 635
+    },
+    {
+      "intervention_name": "self-care education based on conceptual mapping",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "negative",
+      "avg_sample_size": 35
+    },
+    {
+      "intervention_name": "self-care training using the teach-back method",
+      "health_condition": "hypothyroidism",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": 62
+    },
+    {
+      "intervention_name": "self-compassion based writing",
+      "health_condition": "systemic lupus erythematosus",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "positive",
+      "avg_sample_size": 86
+    },
+    {
+      "intervention_name": "sham cupping",
+      "health_condition": "knee osteoarthritis (KOA)",
+      "frequency": 1,
+      "category": "therapy",
+      "correlation_types": "neutral",
+      "avg_sample_size": 62
+    },
+    {
+      "intervention_name": "shared decision making (SDM)",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "slow movement training with tonic force generation",
+      "health_condition": "lung cancer",
+      "frequency": 1,
+      "category": "exercise",
+      "correlation_types": "positive",
+      "avg_sample_size": 17
+    },
+    {
+      "intervention_name": "smart pillbox",
+      "health_condition": "drug-sensitive tuberculosis",
+      "frequency": 1,
+      "category": "emerging",
+      "correlation_types": "neutral",
+      "avg_sample_size": 3858
+    },
+    {
+      "intervention_name": "smoking cessation programme",
+      "health_condition": "rheumatoid arthritis",
+      "frequency": 1,
+      "category": "lifestyle",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "sodium bicarbonate",
+      "health_condition": "kidney stones",
+      "frequency": 1,
+      "category": "supplement",
+      "correlation_types": "positive",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "sodium-glucose transport protein 2 inhibitors (SGLT2i)",
+      "health_condition": "cardiovascular and renal outcomes in type 2 diabetes",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "negative",
+      "avg_sample_size": null
+    },
+    {
+      "intervention_name": "sofosbuvir/daclatasvir",
+      "health_condition": "hepatitis C (HCV)",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 979
+    },
+    {
+      "intervention_name": "sofosbuvir/daclatasvir regimen",
+      "health_condition": "hepatitis C",
+      "frequency": 1,
+      "category": "medication",
+      "correlation_types": "positive",
+      "avg_sample_size": 1021
+    },
+    {
+      "intervention_name": "standard initiation of kidney replacement therapy (KRT)",
+      "health_condition": "severe acute kidney injury (AKI) in critically ill patients",
+      "frequency": 1,
+      "category": "procedure",
+      "correlation_types": "neutral",
+      "avg_sample_size": 73
+    },
+    {
+      "intervention_name": "standard preoperative diet",
+      "health_condition": "colorectal cancer surgery",
+      "frequency": 1,
+      "category": "diet",
+      "correlation_types": "neutral",
+      "avg_sample_size": null
+    }
+  ],
+  "unique_names": [
+    "'Living with the Sun' (LWS) educational programme",
+    "18F-PSMA PET/CT",
+    "30% supramolecular salicylic acid (SSA)",
+    "5-fluorouracil (5-FU)",
+    "ACL preservation procedures",
+    "ACL reconstruction surgery using a graft",
+    "ACL repair with InternalBrace (Arthrex© implant system) ligament augmentation",
+    "AKI care bundles",
+    "Acetyl-L-Carnitine",
+    "Acupuncture",
+    "AskShareKnow questions",
+    "Asvard capsule",
+    "Azetukalner",
+    "Baduanjin",
+    "Baricitinib",
+    "Benzoyl peroxide (BPO) wash preparation",
+    "Bifidobacterium animalis",
+    "Bir Pletok",
+    "Bone Health model",
+    "Cemiplimab",
+    "Cetuximab",
+    "Cetuximab-β",
+    "Citro-Soda®",
+    "Clinical pharmacist integration",
+    "Clomiphene",
+    "CoQ10",
+    "Comprehensive Behavioral (ComB) model",
+    "Continuous robot-assisted gait training (RAGT)",
+    "Conventional surgery",
+    "Curcuma longa",
+    "DOACs (direct oral anticoagulants)",
+    "Deprescribing model",
+    "Digital health (DH)",
+    "EEG",
+    "Eggshell membrane (ESM)",
+    "Exercise Interventions",
+    "Extracorporeal shock wave lithotripsy (ESWL)",
+    "FOLFIRI",
+    "FenuflakesTM",
+    "Firsekibart",
+    "GLP-1 receptor agonists (GLP-1 RAs)",
+    "Galohgor",
+    "Healthy Eating Advice (HE)",
+    "Hericium erinaceus (HE)",
+    "Hewei Jiangni recipe (HWJNR)",
+    "IKAP theory-based digital health management",
+    "IL-17 antagonists",
+    "IL-23p19 inhibitors",
+    "IPL therapy",
+    "Imiquimod",
+    "Individualized targeting",
+    "Injury Prevention model",
+    "Interferon Gamma Injection",
+    "Intravenous Immunoglobulin (IVIG)",
+    "Janus kinase inhibitors (JAKi)",
+    "L-Arginine",
+    "Leflunomide",
+    "Low-intensity interval robot-assisted gait training (LowRAGT)",
+    "LuCUS-guided strategy",
+    "MCV (Measles-containing vaccine)",
+    "MG puncture needle",
+    "Mavacamten",
+    "Mediterranean diet",
+    "Meridian-Sinew Release Therapy (MSRT)",
+    "Metformin",
+    "Methotrexate",
+    "Mohs Micrographic Surgery (MMS)",
+    "Mono-Segment Fixation (MSF)",
+    "Moringa oleifera (MO) supplementation",
+    "NCX 701",
+    "Nintendo Switch-based therapy",
+    "Noninvasive brain stimulation (NIBS)",
+    "Nordic hamstring exercise (NHE)",
+    "Nucleos(t)ide analogues (NAs)",
+    "Nutraceutical combination containing Monacolin K (MK) alone",
+    "Nutraceutical combination containing Monacolin K (MK) and Morus alba",
+    "Orem's self-care model nursing",
+    "PARPi",
+    "PD-1 antibody",
+    "PD-1 antibody combined with PEG-IFNα",
+    "PD-1/PD-L1 inhibitors combined with chemotherapy",
+    "PET-guided targeting",
+    "Peer Intervention (PI)",
+    "Pegylated interferon alpha (Peg-IFNα)",
+    "Percutaneous Mechanical Aspiration (PMA)",
+    "Persimmon leaf extract (PLE)",
+    "Posterior Drainage Lithotripsy System (PDLS)",
+    "Potassium-competitive acid blockers (PCABs)",
+    "Proton pump inhibitors (PPIs)",
+    "Retrograde Intrarenal Ureteral Lithotripsy (RIRS)",
+    "Rifampin-based regimen (2 months daily)",
+    "Rifampin-based regimen (4 months daily)",
+    "Robot-assisted gait training (RAGT)",
+    "Ruxolitinib",
+    "SGLT2 inhibitor",
+    "SGLT2 inhibitors (SGLT2is)",
+    "SRS (stereotactic radiosurgery)",
+    "SSRIs (Selective Serotonin Reuptake Inhibitors)",
+    "SUGAR Handshake",
+    "Salvia miltiorrhiza",
+    "Self-paced overground gait training (OGT)",
+    "Short-Segment Fixation (SSF)",
+    "Sincrolab Adults program",
+    "Stress First Aid (SFA)",
+    "Structural MRI",
+    "Surgical left atrial appendage occlusion (SLAAO)",
+    "TTFields (Tumor Treating Fields)",
+    "Time-restricted eating (TRE)",
+    "Tofacitinib",
+    "Tranexamic acid (TXA)",
+    "Tripterygium wilfordii",
+    "Upadacitinib",
+    "Vagus nerve stimulation (VNS)",
+    "Vonoprazan",
+    "Wedang Uwuh",
+    "Yangxiao Fukang granule (YXFKG)",
+    "Yiqi Chupi powder",
+    "Yoga",
+    "Zingiber officinale",
+    "abiraterone plus prednisone",
+    "absorbable suture material",
+    "accelerated initiation of kidney replacement therapy (KRT)",
+    "acetaminophen",
+    "active video games (AVGs)",
+    "adaptive Cognitive Training Kit (COGNI-TRAcK)",
+    "adjuvant hormone therapy",
+    "adjuvant metformin",
+    "aerobic exercise",
+    "aerobic training",
+    "aerobic training (AET)",
+    "alendronate",
+    "alendronate (ALN)",
+    "alkaloid",
+    "all-trans retinoic acid (ATRA)",
+    "ammonium chloride",
+    "androgen deprivation therapy (ADT)",
+    "androgen-receptor pathway inhibitors (ARPI)",
+    "anthocyanin",
+    "anti-TNF agents",
+    "anti-adrenomedullin",
+    "anti-inflammatory diet",
+    "anti-inflammatory dietary program",
+    "anticoagulant therapy",
+    "antihypertensive medication",
+    "antiplatelet therapy",
+    "antipsychotic medications",
+    "antiretroviral regimens",
+    "antitubercular therapy (ATT)",
+    "antiviral drugs",
+    "aortic valve replacement (AVR)",
+    "apixaban",
+    "apremilast",
+    "arch bar splinting",
+    "arsenic trioxide (ATO)",
+    "arthroscopic reduction with internal fixation (ARIF) using cannulated screws",
+    "arthroscopic reduction without fixation (ARnF)",
+    "arthroscopic rotator cuff repair (RCR)",
+    "assertive community treatment (ACT)",
+    "asthma treatment guided by spirometry plus symptoms",
+    "asthma treatment guided by symptoms only",
+    "atezolizumab+chemo",
+    "atorvastatin",
+    "atorvastatin pretreatment",
+    "auricular acupressure",
+    "autologous platelet-rich plasma (PRP)",
+    "azithromycin therapy",
+    "biofeedback training with Biometrics device",
+    "bioinductive collagen patch (REGENETEN)",
+    "biologics",
+    "bismuth-based quadruple therapy",
+    "bismuth-based therapy (BBT)",
+    "bismuth-containing quadruple therapy (BQT)",
+    "blood flow restriction training (BFRT)",
+    "blood flow restriction training combined with electrical muscle stimulation",
+    "bone marrow aspirate concentrate (BMAC) injection",
+    "botulinum neurotoxin of type A (BoNT-A)",
+    "botulinum toxin A",
+    "budesonide-formoterol",
+    "cabazitaxel",
+    "calcineurin inhibitors",
+    "calorie restriction",
+    "capecitabine plus oxaliplatin (XELOX)",
+    "catechin",
+    "catheter ablation",
+    "catheter-directed thrombolysis",
+    "celecoxib",
+    "cemiplimab",
+    "checkpoint inhibitors targeting Programmed Cell Death Protein 1/Programmed Death-Ligand 1 inhibitors (anti-PD-1/PD-L1)",
+    "chemotherapy",
+    "cinnamon",
+    "clofarabine plus cytarabine",
+    "cognitive behavioral therapy",
+    "cognitive behavioral therapy for insomnia (CBT-I)",
+    "cognitive rehabilitation nursing (CRN)",
+    "cognitive-behavioral therapy (CBT)",
+    "colchicine",
+    "collateral puncture therapy",
+    "colonoscopic auxiliary devices",
+    "combination biologic therapy (IL-17 antagonist + IL-36 antagonist)",
+    "combination of traditional Chinese and Western medicine",
+    "community orchestra intervention",
+    "complement component 5a inhibitors (anti-C5a)",
+    "complement inhibitors",
+    "complete revascularization",
+    "component therapy",
+    "compound betamethasone (CB)",
+    "computerized interventions",
+    "concomitant therapy",
+    "conservative treatment",
+    "continuing angiotensin-converting enzyme inhibitors (ACEIs) and angiotensin receptor blockers (ARBs)",
+    "continuous care model (CCM)",
+    "continuous infusion of β-lactam antibiotics",
+    "continuous intertransverse process block",
+    "continuous positive airway pressure (CPAP)",
+    "conventional Western medicine (WM)",
+    "coronary artery bypass grafting (CABG)",
+    "coronary computed tomography angiography (CCTA)",
+    "corticosteroids",
+    "culprit-only revascularization",
+    "curcumin",
+    "cycling",
+    "cyclophosphamide",
+    "cyclosporine",
+    "cysteamine",
+    "daunorubicin and etoposide combined with low-dose cytarabine",
+    "delamanid",
+    "denosumab biosimilar",
+    "desloratadine",
+    "deucravacitinib",
+    "dexamethasone",
+    "dextran sulfate sodium (DSS)-induced diet",
+    "diaphragmatic breathing",
+    "digital intervention",
+    "digital therapeutics (DTx)",
+    "diluted nitrous oxide inhalation",
+    "docetaxel",
+    "donanemab",
+    "doxorubicin",
+    "drug-coated balloon (DCB)",
+    "drug-eluting stent (DES)",
+    "dry cupping therapy",
+    "dupilumab",
+    "durvalumab+chemo",
+    "durvalumab+tremelimumab+chemo",
+    "earlobe acupressure",
+    "egg ladder (EL)",
+    "electrical muscle stimulation (EMS)",
+    "electro-acupuncture",
+    "electroacupuncture",
+    "elobixibat",
+    "eltrombopag (EPAG)",
+    "empirical antifungal treatment",
+    "empowerment program",
+    "enzalutamide",
+    "etoricoxib",
+    "exercise and nutritional intervention",
+    "exercise intervention",
+    "exercise programme",
+    "exercise therapy (ET)",
+    "extracorporeal shock wave lithotripsy (ESWL)",
+    "fMRI",
+    "firsekibart",
+    "fractional flow reserve (FFR)-guided percutaneous coronary intervention (PCI)",
+    "fractional microneedle radiofrequency (FMR)",
+    "fracture fixation",
+    "gallic acid",
+    "game-based interventions",
+    "gemtuzumab ozogamicin",
+    "glucagon-like peptide-1 receptor agonists (GLP-1RA)",
+    "glucagon-like peptide-1 receptor agonists (GLP-1Ra)",
+    "gluten-free diet (GFD)",
+    "guided transdiagnostic iCBT",
+    "gut microbiota-targeted therapy (GMTT)",
+    "gut-directed hypnotherapy",
+    "heart valve clinic (HVC)",
+    "high molecular weight non-cross-linked hyaluronic acid plus succinic acid mesotherapy",
+    "high protein diet",
+    "high-dose cytarabine",
+    "high-dose vitamin D",
+    "high-fat-high-glucose meal challenge",
+    "high-intensity interval training",
+    "high-intensity laser therapy (HILT)",
+    "home-based support",
+    "household ventilation",
+    "human umbilical cord-derived mesenchymal stem cells (hUC-MSCs)",
+    "hydroxychloroquine",
+    "hypocaloric diet",
+    "hypomethylating agents (HMA)",
+    "hypoxic conditioning",
+    "i-mTOR",
+    "idarubicin (IDA)",
+    "immediate surgical repair",
+    "immune checkpoint inhibitor therapy",
+    "immune checkpoint inhibitors (ICIs)",
+    "increased water intake",
+    "individualised patient-centred counselling about physical activity",
+    "indole-3-acetic acid (IAA)",
+    "infrapatellar intramedullary nailing",
+    "inhaled antibiotics (IAs)",
+    "inotropes",
+    "intense pulsed light combined with 3% tranexamic acid",
+    "intense pulsed light only",
+    "intermittent infusion of β-lactam antibiotics",
+    "intermittent theta burst stimulation (iTBS)",
+    "intra-articular pulsed radiofrequency (IAPRF)",
+    "intra-articular steroid injection (IASI)",
+    "intravenous iron dextran",
+    "intrinsic antitachycardia pacing (iATP)",
+    "inulin/oligofructose mixture",
+    "ipilimumab+chemo",
+    "iscalimab (CFZ533)",
+    "isoniazid",
+    "kaempferol",
+    "ketogenic diet (KD)",
+    "lacto-ovo-vegetarian diet",
+    "latissimus dorsi-thoracolumbar fascia (LD-TLF) complex stretching",
+    "levetiracetam",
+    "levocetirizine",
+    "levofloxacin triple therapy",
+    "levofloxacin-based TB preventive treatment (TPT)",
+    "levothyroxine (LT4)",
+    "linaclotide",
+    "liraglutide",
+    "lisdexamfetamine",
+    "listening support (The Wren project)",
+    "liver fibrosis blood tests",
+    "low fermentable oligo-, di-, and monosaccharides and polyols (FODMAP) diet",
+    "low-glycemic-index treatment (LGIT)",
+    "low-level laser therapy (LLLT)",
+    "lower body resistance training (RTL)",
+    "lubiprostone",
+    "lymph node boost",
+    "mask use",
+    "mechanical thrombectomy",
+    "medication for opioid use disorder (MOUD)",
+    "medication labels",
+    "medication reminders",
+    "medication summary guide",
+    "mental fatigue induction through Stroop task",
+    "mepolizumab",
+    "mesenchymal stem cell (MSC) augmentation",
+    "mesenchymal stem cell (MSC) injections",
+    "mesenchymal stem cell therapy",
+    "message-based intervention",
+    "metabolic and bariatric surgery (MBS)",
+    "metacognitive training",
+    "metastasis-directed RT",
+    "metformin",
+    "methionine",
+    "methylphenidate",
+    "microneedle radiofrequency (MRF)",
+    "microneedling-assisted PDT",
+    "minodronate",
+    "mitiperstat",
+    "moderate-intensity continuous training",
+    "modified Atkins diet (MAD)",
+    "monoclonal antibodies against Interleukin-6 (IL-6)",
+    "monoclonal antibodies against Tumor Necrosis Factor-alpha (TNF-α)",
+    "monoclonal antibodies against endotoxin",
+    "montelukast",
+    "moxibustion with aconite cake",
+    "multi-strain probiotics",
+    "music therapy",
+    "mycophenolate mofetil (MMF)",
+    "myricetin",
+    "nemolizumab",
+    "nightly separation of tuberculosis patients",
+    "nivolumab monotherapy",
+    "nivolumab plus relatlimab",
+    "non-absorbable suture material",
+    "non-invasive pulsed radiofrequency (NipRF)",
+    "non-invasive vagus nerve stimulation (nVNS)",
+    "non-operative treatment",
+    "nutritional intervention",
+    "oat β-glucan",
+    "olanzapine",
+    "omalizumab",
+    "omega-3 fatty acids",
+    "omeprazole",
+    "online Pilates classes",
+    "open reduction internal fixation (ORIF)",
+    "opioid use",
+    "optimal medical therapy (OMT)",
+    "oral anticoagulation (OAC)",
+    "oral isotretinoin",
+    "oral liposomal iron",
+    "originator denosumab",
+    "oseltamivir",
+    "oxygen",
+    "pain education",
+    "pegloticase",
+    "pegylated interferon α (PEG-IFNα)",
+    "pelvic RT",
+    "pelvic lymph node dissection (PLND)",
+    "pembrolizumab",
+    "penalimab",
+    "penalimab+chemo",
+    "penalimab+tremelimumab+chemo",
+    "percutaneous coronary intervention (PCI)",
+    "percutaneous nephrolithotomy (PCNL)",
+    "pharmacological therapy",
+    "pharmacomechanical thrombectomy",
+    "pharmacotherapies",
+    "photodynamic therapy (PDT)",
+    "photoprotection equipment delivery",
+    "physical activity intervention",
+    "physical intervention",
+    "physical therapy",
+    "plecanatide",
+    "point-of-care decision aid (RA Choice)",
+    "polyunsaturated fatty acids (PUFAs)",
+    "positive psychological intervention based on PERMA model",
+    "potassium citrate",
+    "potassium-competitive acid blockers (P-CABs)",
+    "povidone-iodine (PI)",
+    "precision medicine approach",
+    "preoperative exercise training",
+    "probiotic supplementation",
+    "probiotics",
+    "progressive muscle relaxation exercises",
+    "prostaglandins",
+    "prostate bed boost",
+    "prostate-specific membrane antigen PET-guided intensification of salvage radiotherapy (PSMAiSRT)",
+    "proton pump inhibitors",
+    "proton pump inhibitors (PPIs)",
+    "prucalopride",
+    "psychological intervention",
+    "psychological support",
+    "psychologist-led behaviour-change support",
+    "quercetin",
+    "ramp pacing",
+    "rehabilitation training",
+    "repetitive transcranial magnetic stimulation (rTMS)",
+    "resilience training",
+    "resistance exercise",
+    "resistance training",
+    "resveratrol",
+    "reverse total shoulder arthroplasty",
+    "revision arthroplasty",
+    "rhPTH(1-34)",
+    "rheumatology clinician training",
+    "ribavirin",
+    "risankizumab",
+    "rituximab",
+    "rituximab therapy",
+    "rivaroxaban",
+    "robot-assisted total knee arthroplasty (TKA)",
+    "rotator cuff repair surgery",
+    "rusfertide",
+    "safer opioid prescribing",
+    "salbutamol",
+    "salvage radiotherapy (SRT)",
+    "saponin",
+    "second-generation virtual reality intervention (SG-VRI)",
+    "seed cycling",
+    "self-care education based on conceptual mapping",
+    "self-care training using the teach-back method",
+    "self-compassion based writing",
+    "sham cupping",
+    "shared decision making (SDM)",
+    "slow movement training with tonic force generation",
+    "smart pillbox",
+    "smoking cessation programme",
+    "sodium bicarbonate",
+    "sodium-glucose transport protein 2 inhibitors (SGLT2i)",
+    "sofosbuvir/daclatasvir",
+    "sofosbuvir/daclatasvir regimen",
+    "standard initiation of kidney replacement therapy (KRT)",
+    "standard preoperative diet"
+  ]
+}

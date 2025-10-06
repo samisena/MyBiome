@@ -1,0 +1,121 @@
+# Phase 2: Hierarchical Semantic Normalization Configuration
+
+# Embedding Configuration
+embedding:
+  model: "nomic-embed-text"  # Sentence transformer model
+  dimension: 768
+  cache_embeddings: true
+  batch_size: 32
+
+# LLM Configuration (Local Ollama)
+llm:
+  model: "qwen3:14b"
+  temperature: 0.0
+  base_url: "http://localhost:11434"
+  timeout: 60  # seconds
+  max_retries: 3
+  strip_think_tags: true  # Remove <think></think> from responses
+
+# Similarity Thresholds (Multi-Layer)
+thresholds:
+  # Relationship type thresholds
+  exact_match: 0.95           # Auto-assign EXACT_MATCH (> 0.95)
+  variant_high: 0.85          # LLM verify: EXACT_MATCH or VARIANT (0.85-0.95)
+  subtype_high: 0.75          # LLM verify: VARIANT or SUBTYPE (0.75-0.85)
+  same_category_high: 0.70    # LLM verify: SUBTYPE or SAME_CATEGORY (0.70-0.80)
+  minimum: 0.70               # Below 0.70 = DIFFERENT
+
+  # Layer-specific thresholds
+  layer_1_canonical: 0.70     # Broad semantic grouping
+  layer_2_variant: 0.90       # Specific entity matching
+  layer_3_detail: 0.95        # Dosage/formulation exact match
+
+# Relationship Type Configuration
+relationship_types:
+  EXACT_MATCH:
+    similarity_range: [0.95, 1.0]
+    share_layer_1: true
+    share_layer_2: true
+    aggregation: "merge_completely"
+
+  VARIANT:
+    similarity_range: [0.85, 0.95]
+    share_layer_1: true
+    share_layer_2: false
+    aggregation: "share_layer_1_link_layer_2"
+
+  SUBTYPE:
+    similarity_range: [0.75, 0.85]
+    share_layer_1: true
+    share_layer_2: false
+    aggregation: "share_layer_1_separate_layer_2"
+
+  SAME_CATEGORY:
+    similarity_range: [0.70, 0.80]
+    share_layer_1: false  # No canonical linking at Layer 1
+    share_layer_2: false
+    aggregation: "separate_all_layers"
+
+  DOSAGE_VARIANT:
+    similarity_range: [0.90, 0.95]
+    share_layer_1: true
+    share_layer_2: true
+    aggregation: "share_layers_1_2"
+
+  DIFFERENT:
+    similarity_range: [0.0, 0.70]
+    share_layer_1: false
+    share_layer_2: false
+    aggregation: "no_relationship"
+
+# Valid Relationship Types (for validation)
+valid_relationship_types:
+  - "EXACT_MATCH"
+  - "VARIANT"
+  - "SUBTYPE"
+  - "SAME_CATEGORY"
+  - "DOSAGE_VARIANT"
+  - "DIFFERENT"
+
+# Cache Configuration
+cache:
+  embedding_cache_path: "c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/embeddings.pkl"
+  llm_cache_path: "c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/llm_decisions.pkl"
+  canonical_cache_path: "c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/canonicals.pkl"
+  exact_match_cache_path: "c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/exact_matches.pkl"
+  save_frequency: 100  # Save cache every N interventions
+
+# Processing Configuration
+processing:
+  top_k_similar: 5  # Number of similar entities to retrieve
+  batch_size: 50    # Number of interventions to process before saving
+  log_interval: 10  # Log progress every N interventions
+
+# Normalization Rules (for canonical extraction fallback)
+normalization:
+  lowercase: true
+  remove_dosage: true          # Remove "500mg", "10^9 CFU", etc.
+  remove_route: true           # Remove "intravenous", "oral", etc.
+  remove_abbreviations: false  # Keep abbreviations like "PEG-IFNα"
+  remove_parentheses_content: false  # Keep content in parentheses for now
+
+# Dosage Detection Patterns (for Layer 3 extraction)
+dosage_patterns:
+  - '\d+\s*(mg|g|mcg|µg|ug)'                    # 500mg, 1g, 100mcg
+  - '\d+\s*(IU|iu)'                             # 1000 IU
+  - '\d+\s*x?\s*10\^?\d+\s*(CFU|cfu)'           # 10^9 CFU
+  - '\d+(\.\d+)?\s*(ml|mL)'                     # 5ml, 2.5mL
+  - '\d+\s*(units?)'                            # 10 units
+
+# Paths
+paths:
+  cache_dir: "c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache"
+  results_dir: "c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/results"
+  logs_dir: "c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/logs"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_enabled: true
+  console_enabled: true
