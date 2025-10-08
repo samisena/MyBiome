@@ -1,34 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git rm:*)",
       "Bash(python:*)",
-      "Bash(sqlite3:*)",
-      "Bash(find:*)",
-      "Bash(wmic:*)",
-      "Bash(systeminfo)",
+      "Bash(git log:*)",
       "Bash(findstr:*)",
-      "Bash(cat:*)",
-      "Bash(curl:*)",
-      "Bash(nvidia-smi:*)",
-      "Bash(timeout 10 curl -s http://localhost:11434/api/generate -d '{\"\"model\"\":\"\"qwen3:14b\"\",\"\"prompt\"\":\"\"Hi\"\",\"\"stream\"\":false}')",
-      "Bash(tasklist)",
-      "Bash(timeout 10 curl -s http://localhost:11434/api/generate -d '{\"\"\"\"model\"\"\"\":\"\"\"\"qwen3:14b\"\"\"\",\"\"\"\"prompt\"\"\"\":\"\"\"\"Say hi\"\"\"\",\"\"\"\"stream\"\"\"\":false}')",
-      "Bash(time curl -s http://localhost:11434/api/generate -d '{\"\"\"\"model\"\"\"\":\"\"\"\"qwen3:14b\"\"\"\",\"\"\"\"prompt\"\"\"\":\"\"\"\"Respond with just: OK\"\"\"\",\"\"\"\"stream\"\"\"\":false}')",
-      "Bash(where:*)",
-      "Bash(ollama ps:*)",
-      "Bash(taskkill:*)",
-      "Bash(setx:*)",
-      "Bash(start \"\" \"C:\\Users\\samis\\AppData\\Local\\Programs\\Ollama\\ollama.exe\" serve)",
-      "Bash(cmd:*)",
-      "Bash(timeout:*)",
-      "Bash(awk:*)",
-      "Bash(xargs kill:*)",
-      "Bash(tee:*)",
-      "Bash(ollama list:*)",
-      "Bash(echo:*)",
       "Bash(dir:*)",
-      "Bash(del back_enddatasemantic_normalization_resultssemantic_norm_session_*.json)"
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

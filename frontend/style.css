@@ -252,6 +252,31 @@ body {
     color: #495057;
 }
 
+/* Canonical group badge */
+.canonical-group {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-transform: capitalize;
+}
+
+/* Mechanism text */
+.mechanism-text {
+    font-size: 0.85rem;
+    color: #555;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.mechanism-none {
+    font-size: 0.75rem;
+    color: #999;
+    font-style: italic;
+}
+
 /* Correlation type badges */
 .correlation-badge {
     padding: 0.25rem 0.75rem;
@@ -311,8 +336,43 @@ body {
     color: #721c24;
 }
 
-/* Strength and confidence bars */
-.strength-bar,
+/* Strength labels */
+.strength-label {
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.strength-very-strong {
+    background-color: #28a745;
+    color: white;
+}
+
+.strength-strong {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.strength-weak {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.strength-very-weak {
+    background-color: #dc3545;
+    color: white;
+}
+
+.strength-unknown {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Confidence bars */
 .confidence-bar {
     height: 20px;
     background-color: #e9ecef;
@@ -321,10 +381,9 @@ body {
     position: relative;
 }
 
-.strength-fill,
 .confidence-fill {
     height: 100%;
-    background: linear-gradient(90deg, #28a745, #20c997);
+    background: linear-gradient(90deg, #667eea, #764ba2);
     border-radius: 10px;
     transition: width 0.3s ease;
 }

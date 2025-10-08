@@ -61,7 +61,8 @@ function populateSummaryStats() {
     document.getElementById('unique-interventions').textContent = meta.unique_interventions.toLocaleString();
     document.getElementById('unique-conditions').textContent = meta.unique_conditions.toLocaleString();
     document.getElementById('unique-papers').textContent = meta.unique_papers.toLocaleString();
-    document.getElementById('canonical-entities').textContent = meta.canonical_entities.toLocaleString();
+    document.getElementById('canonical-groups').textContent = (meta.canonical_groups || 0).toLocaleString();
+    document.getElementById('semantic-relationships').textContent = (meta.total_relationships || 0).toLocaleString();
     document.getElementById('positive-correlations').textContent = meta.positive_correlations.toLocaleString();
     document.getElementById('negative-correlations').textContent = meta.negative_correlations.toLocaleString();
 }
@@ -92,9 +93,24 @@ function populateFilterOptions() {
 
 // Initialize DataTables
 function initializeDataTable() {
+    // Debug: Check data quality
+    const hasStrength = interventionsData.interventions.filter(i => i.correlation.strength !== null && i.correlation.strength !== undefined).length;
+    const hasConfidence = interventionsData.interventions.filter(i => i.correlation.extraction_confidence !== null && i.correlation.extraction_confidence !== undefined).length;
+    const hasMechanism = interventionsData.interventions.filter(i => i.mechanism && i.mechanism !== '').length;
+    console.log(`Data Quality Check:`);
+    console.log(`  - ${hasStrength}/${interventionsData.interventions.length} have strength values (${(hasStrength/interventionsData.interventions.length*100).toFixed(1)}%)`);
+    console.log(`  - ${hasConfidence}/${interventionsData.interventions.length} have confidence values (${(hasConfidence/interventionsData.interventions.length*100).toFixed(1)}%)`);
+    console.log(`  - ${hasMechanism}/${interventionsData.interventions.length} have mechanism values (${(hasMechanism/interventionsData.interventions.length*100).toFixed(1)}%)`);
+
+    // Debug first intervention
+    console.log('Sample intervention data:', interventionsData.interventions[0]);
+    console.log('Sample mechanism:', interventionsData.interventions[0].mechanism);
+
     const tableData = interventionsData.interventions.map(intervention => [
         formatInterventionName(intervention.intervention),
         formatCategory(intervention.intervention.category),
+        formatCanonicalGroup(intervention.intervention.hierarchy),
+        formatMechanism(intervention.mechanism),
         formatConditionName(intervention.condition),
         formatCategory(intervention.condition.category),
         formatCorrelationType(intervention.correlation.type),
@@ -110,22 +126,22 @@ function initializeDataTable() {
         data: tableData,
         pageLength: 25,
         responsive: true,
-        order: [[6, 'desc'], [5, 'desc']], // Sort by confidence, then strength
+        order: [[8, 'desc'], [7, 'desc']], // Sort by confidence, then strength
         buttons: [
             'csv', 'excel'
         ],
         dom: 'Bfrtip',
         columnDefs: [
             {
-                targets: [4, 5, 6, 10],
+                targets: [6, 7, 8, 12],
                 orderable: false
             },
             {
-                targets: [5, 6],
+                targets: [7, 8],
                 width: '100px'
             },
             {
-                targets: [10],
+                targets: [12],
                 width: '80px'
             }
         ],
@@ -144,7 +160,7 @@ function initializeDataTable() {
 // Format intervention name (with canonical name if available)
 function formatInterventionName(intervention) {
     if (intervention.canonical_name && intervention.canonical_name !== intervention.name) {
-        return `<strong>${intervention.canonical_name}</strong><br><small>(${intervention.name})</small>`;
+        return `${intervention.canonical_name}<br><small>(${intervention.name})</small>`;
     }
     return intervention.name;
 }
@@ -152,7 +168,7 @@ function formatInterventionName(intervention) {
 // Format condition name (with canonical name if available)
 function formatConditionName(condition) {
     if (condition.canonical_name && condition.canonical_name !== condition.name) {
-        return `<strong>${condition.canonical_name}</strong><br><small>(${condition.name})</small>`;
+        return `${condition.canonical_name}<br><small>(${condition.name})</small>`;
     }
     return condition.name;
 }
@@ -161,6 +177,20 @@ function formatConditionName(condition) {
 function formatCategory(category) {
     if (!category) return 'N/A';
     return `<span class="category-badge">${category}</span>`;
+}
+
+// Format canonical group from hierarchical data
+function formatCanonicalGroup(hierarchy) {
+    if (!hierarchy || !hierarchy.layer_1_canonical) return 'N/A';
+    return `<span class="canonical-group">${hierarchy.layer_1_canonical}</span>`;
+}
+
+// Format mechanism of action
+function formatMechanism(mechanism) {
+    if (!mechanism) return '<span class="mechanism-none">Not specified</span>';
+
+    const truncated = mechanism.length > 100 ? mechanism.substring(0, 97) + '...' : mechanism;
+    return `<span class="mechanism-text" title="${mechanism}">${truncated}</span>`;
 }
 
 // Format correlation type with color coding
@@ -176,17 +206,36 @@ function formatCorrelationType(type) {
     return `<span class="correlation-badge ${className}">${type || 'N/A'}</span>`;
 }
 
-// Format strength as progress bar
+// Helper function to get strength label
+function getStrengthLabel(strength) {
+    if (!strength && strength !== 0) return 'N/A';
+
+    if (strength >= 0.75) return 'Very Strong';
+    if (strength >= 0.5) return 'Strong';
+    if (strength >= 0.25) return 'Weak';
+    if (strength >= 0) return 'Very Weak';
+    return 'N/A';
+}
+
+// Format strength as categorical label
 function formatStrengthBar(strength) {
     if (!strength && strength !== 0) return 'N/A';
 
-    const percentage = Math.round(strength * 100);
-    return `
-        <div class="strength-bar">
-            <div class="strength-fill" style="width: ${percentage}%"></div>
-            <div class="bar-text">${percentage}%</div>
-        </div>
-    `;
+    // Map numeric values to categorical labels
+    let label = getStrengthLabel(strength);
+    let className = 'strength-unknown';
+
+    if (strength >= 0.75) {
+        className = 'strength-very-strong';
+    } else if (strength >= 0.5) {
+        className = 'strength-strong';
+    } else if (strength >= 0.25) {
+        className = 'strength-weak';
+    } else if (strength >= 0) {
+        className = 'strength-very-weak';
+    }
+
+    return `<span class="strength-label ${className}">${label}</span>`;
 }
 
 // Format confidence as progress bar
@@ -230,18 +279,36 @@ function showDetails(interventionId) {
     const intervention = interventionsData.interventions.find(i => i.id === interventionId);
     if (!intervention) return;
 
+    const hierarchyInfo = intervention.intervention.hierarchy || {};
+    const conditionHierarchyInfo = intervention.condition.hierarchy || {};
+
     const details = `
 Intervention: ${intervention.intervention.canonical_name || intervention.intervention.name}
 Category: ${intervention.intervention.category || 'N/A'}
 Details: ${intervention.intervention.details || 'N/A'}
 Delivery Method: ${intervention.intervention.delivery_method || 'N/A'}
 
+Hierarchical Classification:
+- Category (L0): ${hierarchyInfo.layer_0_category || 'N/A'}
+- Canonical Group (L1): ${hierarchyInfo.layer_1_canonical || 'N/A'}
+- Specific Variant (L2): ${hierarchyInfo.layer_2_variant || 'N/A'}
+- Dosage/Details (L3): ${hierarchyInfo.layer_3_detail || 'N/A'}
+
+Mechanism of Action:
+${intervention.mechanism || 'Not specified'}
+
 Health Condition: ${intervention.condition.canonical_name || intervention.condition.name}
 Condition Category: ${intervention.condition.category || 'N/A'}
 Severity: ${intervention.condition.severity || 'N/A'}
 
+Condition Hierarchy:
+- Category (L0): ${conditionHierarchyInfo.layer_0_category || 'N/A'}
+- Canonical Group (L1): ${conditionHierarchyInfo.layer_1_canonical || 'N/A'}
+- Specific Variant (L2): ${conditionHierarchyInfo.layer_2_variant || 'N/A'}
+- Details (L3): ${conditionHierarchyInfo.layer_3_detail || 'N/A'}
+
 Correlation Type: ${intervention.correlation.type || 'N/A'}
-Correlation Strength: ${intervention.correlation.strength || 'N/A'}
+Correlation Strength: ${getStrengthLabel(intervention.correlation.strength)} (${intervention.correlation.strength || 'N/A'})
 Extraction Confidence: ${intervention.correlation.extraction_confidence || 'N/A'}
 Study Confidence: ${intervention.correlation.study_confidence || 'N/A'}
 

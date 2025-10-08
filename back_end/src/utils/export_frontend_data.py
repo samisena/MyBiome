@@ -28,7 +28,7 @@ def export_interventions_data() -> Dict[str, Any]:
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
-    # Query to get interventions with paper details and canonical entities
+    # Query to get interventions with paper details and hierarchical semantic data (Phase 3.5)
     query = """
     SELECT
         i.id,
@@ -37,6 +37,7 @@ def export_interventions_data() -> Dict[str, Any]:
         i.intervention_details,
         i.health_condition,
         i.condition_category,
+        i.mechanism,
         i.correlation_type,
         i.correlation_strength,
         i.extraction_confidence,
@@ -55,14 +56,22 @@ def export_interventions_data() -> Dict[str, Any]:
         p.publication_date,
         p.pmid as pubmed_id,
         p.doi,
-        ie.canonical_name as intervention_canonical_name,
-        ce.canonical_name as condition_canonical_name,
+        sh_i.layer_1_canonical as intervention_canonical_name,
+        sh_c.layer_1_canonical as condition_canonical_name,
+        sh_i.layer_0_category as intervention_l0_category,
+        sh_i.layer_1_canonical as intervention_l1_canonical,
+        sh_i.layer_2_variant as intervention_l2_variant,
+        sh_i.layer_3_detail as intervention_l3_detail,
+        sh_c.layer_0_category as condition_l0_category,
+        sh_c.layer_1_canonical as condition_l1_canonical,
+        sh_c.layer_2_variant as condition_l2_variant,
+        sh_c.layer_3_detail as condition_l3_detail,
         i.extraction_model,
         i.extraction_timestamp
     FROM interventions i
     LEFT JOIN papers p ON i.paper_id = p.pmid
-    LEFT JOIN canonical_entities ie ON i.intervention_canonical_id = ie.id
-    LEFT JOIN canonical_entities ce ON i.condition_canonical_id = ce.id
+    LEFT JOIN semantic_hierarchy sh_i ON i.intervention_name = sh_i.entity_name AND sh_i.entity_type = 'intervention'
+    LEFT JOIN semantic_hierarchy sh_c ON i.health_condition = sh_c.entity_name AND sh_c.entity_type = 'condition'
     ORDER BY i.extraction_timestamp DESC
     """
 
@@ -79,13 +88,26 @@ def export_interventions_data() -> Dict[str, Any]:
                 'category': row['intervention_category'],
                 'details': row['intervention_details'],
                 'delivery_method': row['delivery_method'],
+                'hierarchy': {
+                    'layer_0_category': row['intervention_l0_category'],
+                    'layer_1_canonical': row['intervention_l1_canonical'],
+                    'layer_2_variant': row['intervention_l2_variant'],
+                    'layer_3_detail': row['intervention_l3_detail']
+                }
             },
             'condition': {
                 'name': row['health_condition'],
                 'canonical_name': row['condition_canonical_name'],
                 'category': row['condition_category'],
-                'severity': row['severity']
+                'severity': row['severity'],
+                'hierarchy': {
+                    'layer_0_category': row['condition_l0_category'],
+                    'layer_1_canonical': row['condition_l1_canonical'],
+                    'layer_2_variant': row['condition_l2_variant'],
+                    'layer_3_detail': row['condition_l3_detail']
+                }
             },
+            'mechanism': row['mechanism'],
             'correlation': {
                 'type': row['correlation_type'],
                 'strength': row['correlation_strength'],
@@ -132,37 +154,44 @@ def export_interventions_data() -> Dict[str, Any]:
     cursor.execute("SELECT COUNT(*) FROM interventions WHERE correlation_type = 'negative'")
     negative_correlations = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM canonical_entities")
-    total_canonical_entities = cursor.fetchone()[0]
+    # Get semantic hierarchy statistics (Phase 3.5 - current system)
+    cursor.execute("SELECT COUNT(*) FROM semantic_hierarchy WHERE entity_type = 'intervention'")
+    semantic_interventions = cursor.fetchone()[0]
 
-    # Get top interventions by frequency
+    cursor.execute("SELECT COUNT(DISTINCT layer_1_canonical) FROM semantic_hierarchy WHERE entity_type = 'intervention' AND layer_1_canonical IS NOT NULL")
+    canonical_groups = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM entity_relationships")
+    total_relationships = cursor.fetchone()[0]
+
+    # Get top interventions by frequency (using Phase 3.5 hierarchical canonical names)
     cursor.execute("""
         SELECT
-            COALESCE(ce.canonical_name, i.intervention_name) as name,
+            COALESCE(sh.layer_1_canonical, i.intervention_name) as name,
             i.intervention_category,
             COUNT(*) as count,
             AVG(i.correlation_strength) as avg_strength,
             COUNT(DISTINCT i.paper_id) as paper_count
         FROM interventions i
-        LEFT JOIN canonical_entities ce ON i.intervention_canonical_id = ce.id
+        LEFT JOIN semantic_hierarchy sh ON i.intervention_name = sh.entity_name AND sh.entity_type = 'intervention'
         WHERE i.correlation_type = 'positive'
-        GROUP BY COALESCE(ce.canonical_name, i.intervention_name), i.intervention_category
+        GROUP BY COALESCE(sh.layer_1_canonical, i.intervention_name), i.intervention_category
         ORDER BY count DESC
         LIMIT 10
     """)
     top_interventions = [dict(row) for row in cursor.fetchall()]
 
-    # Get top conditions by frequency
+    # Get top conditions by frequency (using Phase 3.5 hierarchical canonical names)
     cursor.execute("""
         SELECT
-            COALESCE(ce.canonical_name, i.health_condition) as name,
+            COALESCE(sh.layer_1_canonical, i.health_condition) as name,
             i.condition_category,
             COUNT(*) as count,
             COUNT(DISTINCT i.intervention_name) as intervention_count,
             COUNT(DISTINCT i.paper_id) as paper_count
         FROM interventions i
-        LEFT JOIN canonical_entities ce ON i.condition_canonical_id = ce.id
-        GROUP BY COALESCE(ce.canonical_name, i.health_condition), i.condition_category
+        LEFT JOIN semantic_hierarchy sh ON i.health_condition = sh.entity_name AND sh.entity_type = 'condition'
+        GROUP BY COALESCE(sh.layer_1_canonical, i.health_condition), i.condition_category
         ORDER BY count DESC
         LIMIT 10
     """)
@@ -197,7 +226,9 @@ def export_interventions_data() -> Dict[str, Any]:
             'unique_interventions': unique_interventions,
             'unique_conditions': unique_conditions,
             'unique_papers': unique_papers,
-            'canonical_entities': total_canonical_entities,
+            'semantic_interventions': semantic_interventions,
+            'canonical_groups': canonical_groups,
+            'total_relationships': total_relationships,
             'positive_correlations': positive_correlations,
             'negative_correlations': negative_correlations,
             'intervention_categories': intervention_categories,
@@ -233,7 +264,8 @@ def main():
     print(f"Unique interventions: {data['metadata']['unique_interventions']}")
     print(f"Unique conditions: {data['metadata']['unique_conditions']}")
     print(f"Papers referenced: {data['metadata']['unique_papers']}")
-    print(f"Canonical entities: {data['metadata']['canonical_entities']}")
+    print(f"Canonical groups: {data['metadata']['canonical_groups']}")
+    print(f"Semantic relationships: {data['metadata']['total_relationships']}")
 
 if __name__ == "__main__":
     main()

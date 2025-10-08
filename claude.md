@@ -2,249 +2,107 @@
 
 ## Project Overview
 
-An automated biomedical research pipeline that collects research papers about health conditions, extracts key intervention-outcome relationships using local LLMs, stores data in SQLite, and performs advanced data mining for correlation discovery. The system will eventually present findings through an elegant web interface.
+Automated biomedical research pipeline that collects research papers about health conditions, extracts intervention-outcome relationships using local LLMs, and performs semantic normalization and data mining. Presents findings through an interactive web interface.
 
-## Architecture
+## Quick Start
 
-**Backend**: Python-based research automation pipeline
-**Frontend**: Web interface for presenting research findings
-**Database**: SQLite with comprehensive schema for papers, interventions, and correlations
-**LLM**: Local single-model extraction (qwen3:14b) via Ollama 
-
-## Core Pipeline Stages
-
-### 1. **Data Collection** (`back_end/src/data_collection/`)
-- **PubMed Collection**: Automated paper retrieval via PubMed API (PRIMARY source for batch_medical_rotation)
-- **Semantic Scholar**: Available but DISABLED in batch pipeline to prevent hanging (use_interleaved_s2=False)
-- **Fulltext Retrieval**: PMC and Unpaywall integration for complete paper access
-- **Database Management**: SQLite operations with robust schema
-
-### 2. **LLM Processing** (`back_end/src/llm_processing/`)
-- **Single-Model Extraction**: Fast processing with qwen3:14b (optimized with chain-of-thought suppression)
-- **Intervention Extraction**: Structured extraction of treatment-outcome relationships including **mechanism of action** (biological/behavioral/psychological pathways)
-- **Categorization Deferred**: Categories assigned in Phase 2.5 (categorization happens separately)
-- **Batch Processing**: Efficient processing with thermal protection and memory management
-
-### 2.5. **Categorization Phase** (`back_end/src/orchestration/`)
-- **Intervention Categorization**: LLM-based categorization of interventions into 13 categories (exercise, diet, supplement, medication, therapy, lifestyle, surgery, test, device, procedure, biologics, gene_therapy, emerging)
-- **Condition Categorization**: LLM-based categorization of health conditions into 18 categories (cardiac, neurological, digestive, etc.)
-- **Batch Processing**: Processes 20 interventions/conditions per LLM call
-- **Separation of Concerns**: Categorization separated from extraction for flexibility and re-categorization capability
-
-### 3. **Hierarchical Semantic Normalization** (`back_end/src/semantic_normalization/`) - **Phase 3.5** ✅
-- **Embedding-Based Similarity**: nomic-embed-text (768-dim vectors) for semantic matching
-- **LLM Canonical Extraction**: qwen3:14b extracts canonical intervention groups (Layer 1)
-- **Relationship Classification**: 6 types (EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT)
-- **4-Layer Hierarchy**: Category → Canonical → Variant → Dosage
-- **Cross-Paper Unification**: "vitamin D", "Vitamin D3", "cholecalciferol" → single canonical entity
-- **Database Schema**: `semantic_hierarchy`, `entity_relationships`, `canonical_groups` tables
-- **Performance**: 1,028 interventions normalized, 796 canonical groups, 297 relationships, 1,028 embeddings cached
-- **Unicode Handling**: Console-safe display for medical notation (≥, ≤, etc.) on Windows systems
-
-### 4. **Data Mining** (`back_end/src/data_mining/`)
-- **Pattern Discovery**: Advanced correlation analysis and biological pattern recognition
-- **Knowledge Graphs**: Multi-edge medical knowledge graphs for relationship mapping
-- **Bayesian Scoring**: Evidence-based scoring for intervention effectiveness
-- **Treatment Recommendations**: AI-powered treatment suggestion engine
-- **Research Gap Analysis**: Identification of under-researched areas
-
-### 4. **Orchestration** (`back_end/src/orchestration/`)
-- **Main Medical Rotation**: Circular processing through 60 medical conditions (12 specialties × 5 conditions)
-- **Session Management**: Resumable execution with comprehensive state persistence
-- **Error Recovery**: Robust fault tolerance with automatic retry and recovery
-- **Thermal Protection**: GPU monitoring with predictive cooling algorithms
-
-## Key Execution Scripts
-
-### Primary Orchestrators
-- **`batch_medical_rotation.py`**: Complete batch workflow orchestration for 60 medical conditions
-- **`rotation_paper_collector.py`**: Multi-source paper collection orchestrator (Phase 1)
-- **`rotation_llm_processor.py`**: LLM extraction coordinator with thermal protection (Phase 2 - extracts WITHOUT categories)
-- **`rotation_llm_categorization.py`**: LLM categorization coordinator (Phase 2.5 - categorizes interventions AND conditions)
-- **`rotation_semantic_normalizer.py`**: Hierarchical semantic normalization orchestrator (Phase 3.5)
-- **`rotation_semantic_grouping_integrator.py`**: Legacy semantic grouping (DEPRECATED - use Phase 3.5 instead)
-
-### Data Mining Tools
-- **`data_mining_orchestrator.py`**: Advanced analytics and pattern discovery coordinator
-- **`medical_knowledge_graph.py`**: Knowledge graph construction and analysis
-- **`treatment_recommendation_engine.py`**: AI treatment recommendation system
-- **`bayesian_scorer.py`**: Evidence-based intervention scoring
-
-## Technology Stack
-
-### Backend
-- **Python 3.13**: Core language
-- **SQLite**: Primary database with comprehensive medical schema
-- **Ollama**: Local LLM inference (qwen3:14b with optimized prompting)
-- **Requests**: API integrations (PubMed, Semantic Scholar, PMC)
-- **Circuit Breaker Pattern**: Robust error handling and retry logic
-- **FAST_MODE**: Performance optimization via logging suppression (enabled by default)
-
-### APIs & Data Sources
-- **PubMed API**: Primary research paper source
-- **Semantic Scholar API**: Paper enrichment and discovery
-- **PMC (PubMed Central)**: Fulltext paper access
-- **Unpaywall API**: Open access paper retrieval
-
-### Frontend (In Development)
-- **HTML/CSS/JavaScript**: Core web technologies
-- **DataTables.js**: Interactive data presentation
-- **GitHub Pages**: Static hosting (planned)
-
-## Database Schema
-
-**Database**: `intervention_research.db` (SQLite)
-**Total Tables**: 19 tables organized into 4 categories
-
-### Core Data Tables (2 tables)
-**Updated by**: Data collection pipeline
-
-1. **`papers`** - PubMed articles with metadata and fulltext
-   - Updated by: [`pubmed_collector.py`](back_end/src/data_collection/pubmed_collector.py), [`semantic_scholar_enrichment.py`](back_end/src/data_collection/semantic_scholar_enrichment.py)
-   - Methods: `insert_paper()`, `insert_papers_batch()` in [`database_manager.py`](back_end/src/data_collection/database_manager.py)
-
-2. **`interventions`** - Extracted treatments and outcomes with LLM processing metadata
-   - Updated by: [`single_model_analyzer.py`](back_end/src/llm_processing/single_model_analyzer.py), [`batch_entity_processor.py`](back_end/src/llm_processing/batch_entity_processor.py)
-   - Methods: `insert_intervention()`, `insert_intervention_normalized()` in [`database_manager.py`](back_end/src/data_collection/database_manager.py)
-   - Key fields: intervention_name, health_condition, **mechanism** (biological/behavioral/psychological pathway), correlation_type, sample_size, study_type
-
-### Phase 3.5 Hierarchical Semantic Normalization Tables (3 tables) - **NEW**
-**Updated by**: [`rotation_semantic_normalizer.py`](back_end/src/orchestration/rotation_semantic_normalizer.py) via [`semantic_normalizer.py`](back_end/src/semantic_normalization/semantic_normalizer.py)
-
-3. **`semantic_hierarchy`** - 4-layer hierarchical structure for interventions and conditions
-   - Created by: `MainNormalizer.process_intervention()` in [`normalizer.py`](back_end/src/semantic_normalization/normalizer.py)
-   - Fields: entity_name, entity_type, layer_0_category, layer_1_canonical, layer_2_variant, layer_3_detail, embedding_vector
-   - Performance: Embeddings cached (nomic-embed-text 768-dim), LLM canonicals cached (542 items)
-   - Current: Operational, tested with "type 2 diabetes"
-
-4. **`entity_relationships`** - Pairwise relationships between interventions
-   - Created by: `HierarchyManager.create_entity_relationship()` in [`hierarchy_manager.py`](back_end/src/semantic_normalization/hierarchy_manager.py)
-   - Relationship types: EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT
-   - Fields: entity_1_id, entity_2_id, relationship_type, similarity_score, labeled_by (human/llm)
-
-5. **`canonical_groups`** - Layer 1 canonical group aggregations
-   - Created by: `HierarchyManager.get_or_create_canonical_group()` in [`hierarchy_manager.py`](back_end/src/semantic_normalization/hierarchy_manager.py)
-   - Fields: canonical_name, entity_type, layer_0_category, member_count, description
-
-### Phase 3 Legacy Tables (4 tables) - **DEPRECATED**
-**Note**: These tables are kept for backward compatibility but will be removed after Phase 3.5 integration is complete.
-
-6. **`canonical_entities`** - Legacy unified names (DEPRECATED - use `semantic_hierarchy` instead)
-7. **`entity_mappings`** - Legacy mappings (DEPRECATED - use `entity_relationships` instead)
-8. **`llm_normalization_cache`** - Legacy cache (DEPRECATED)
-9. **`normalized_terms_cache`** - Legacy cache (DEPRECATED)
-
-### Data Mining Analytics Tables (11 tables)
-**Updated by**: [`data_mining_orchestrator.py`](back_end/src/data_mining/data_mining_orchestrator.py) via specialized analyzers
-
-7. **`knowledge_graph_nodes`** - Nodes in medical knowledge graph (interventions, conditions)
-   - Updated by: [`medical_knowledge_graph.py`](back_end/src/data_mining/medical_knowledge_graph.py)
-   - Repository: `save_knowledge_graph_node()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
-
-8. **`knowledge_graph_edges`** - Multi-edge graph relationships with full study metadata
-   - Updated by: [`medical_knowledge_graph.py`](back_end/src/data_mining/medical_knowledge_graph.py)
-   - Repository: `save_knowledge_graph_edge()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
-
-9. **`bayesian_scores`** - Bayesian evidence scoring with Beta distribution analysis
-   - Updated by: [`bayesian_scorer.py`](back_end/src/data_mining/bayesian_scorer.py)
-   - Repository: `save_bayesian_score()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
-
-10. **`treatment_recommendations`** - AI-powered treatment recommendations
-    - Updated by: [`treatment_recommendation_engine.py`](back_end/src/data_mining/treatment_recommendation_engine.py)
-    - Repository: `save_treatment_recommendation()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
-
-11. **`research_gaps`** - Identified under-researched areas
-    - Updated by: [`research_gaps.py`](back_end/src/data_mining/research_gaps.py)
-    - Repository: `save_research_gap()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
-
-12. **`innovation_tracking`** - Emerging treatment tracking
-    - Updated by: [`innovation_tracking_system.py`](back_end/src/data_mining/innovation_tracking_system.py)
-
-13. **`biological_patterns`** - Mechanism and pattern discovery
-    - Updated by: [`biological_patterns.py`](back_end/src/data_mining/biological_patterns.py)
-
-14. **`condition_similarities`** - Condition similarity matrix
-    - Updated by: [`condition_similarity_mapping.py`](back_end/src/data_mining/condition_similarity_mapping.py)
-
-15. **`intervention_combinations`** - Synergistic combination analysis
-    - Updated by: [`power_combinations.py`](back_end/src/data_mining/power_combinations.py)
-
-16. **`failed_interventions`** - Catalog of ineffective treatments
-    - Updated by: [`failed_interventions.py`](back_end/src/data_mining/failed_interventions.py)
-
-17. **`data_mining_sessions`** - Session tracking for analytics pipeline
-    - Updated by: [`data_mining_orchestrator.py`](back_end/src/data_mining/data_mining_orchestrator.py)
-    - Repository: `save_data_mining_session()` in [`data_mining_repository.py`](back_end/src/data_collection/data_mining_repository.py)
-
-### Configuration & System Tables (2 tables)
-
-18. **`intervention_categories`** - Intervention taxonomy configuration (13 categories)
-    - Updated by: `setup_intervention_categories()` in [`database_manager.py`](back_end/src/data_collection/database_manager.py)
-    - Categories: exercise, diet, supplement, medication, therapy, lifestyle, surgery, test, **device**, **procedure**, **biologics**, **gene_therapy**, emerging
-
-19. **`sqlite_sequence`** - SQLite internal auto-increment tracking (system table)
-
-## Current Capabilities
-
-### Data Collection
-- ✅ Automated PubMed paper collection with intelligent search strategies
-- ✅ Semantic Scholar enrichment (6x paper expansion through citations)
-- ✅ PMC and Unpaywall fulltext retrieval
-- ✅ Multi-condition batch processing with session persistence
-
-### LLM Processing
-- ✅ Single-model extraction with qwen3:14b (optimized with chain-of-thought suppression)
-- ✅ Extraction WITHOUT categories (separate categorization phase)
-- ✅ Superior extraction detail with 1.3x speed improvement over qwen2.5
-- ✅ Thermal protection with GPU monitoring (RTX 4090)
-- ✅ Automatic memory management and cleanup
-- ✅ Session recovery and resumable processing
-- ✅ Quality validation and scoring
-
-### Categorization Phase (Phase 2.5) ✅
-- ✅ LLM-based intervention categorization (13 categories) - 1,371/1,371 interventions categorized
-- ✅ LLM-based condition categorization (18 categories) - 411/411 conditions categorized
-- ✅ Batch processing (20 items per LLM call)
-- ✅ Separation of concerns for re-categorization flexibility
-
-### Semantic Normalization (Phase 3.5) ✅
-- ✅ Hierarchical 4-layer intervention normalization complete
-- ✅ 1,028 interventions normalized across 598 conditions
-- ✅ 796 canonical groups created (e.g., "probiotics", "statins", "vitamin D")
-- ✅ 297 semantic relationships tracked
-- ✅ Cross-paper intervention unification working
-- ✅ Unicode handling for medical notation (≥, ≤, etc.)
-
-### Data Mining
-- ✅ Advanced correlation analysis and pattern recognition
-- ✅ Medical knowledge graph construction
-- ✅ Bayesian evidence scoring
-- ✅ Treatment recommendation engine
-- ✅ Research gap identification
-
-## Operational Commands
-
-### Complete Workflow (batch_medical_rotation.py)
+**Environment**: Conda environment called 'venv'
 ```bash
-# Start batch medical rotation pipeline (recommended: 10 papers per condition across 60 conditions)
+conda activate venv
+
+# Run complete pipeline (10 papers per condition across 60 conditions)
 python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10
 
 # Resume interrupted session
 python -m back_end.src.orchestration.batch_medical_rotation --resume
 
-# Resume from specific phase (collection, processing, or semantic_grouping)
-python -m back_end.src.orchestration.batch_medical_rotation --resume --start-phase processing
-
-# Check current status
+# Check status
 python -m back_end.src.orchestration.batch_medical_rotation --status
 ```
 
-**Pipeline Phases**:
-1. **Collection Phase**: Collects papers for all 60 conditions (PubMed only, S2 disabled, 2 parallel workers)
-2. **Processing Phase**: Single-model extraction with qwen3:14b (batch size: 8 papers) - extracts interventions WITHOUT categories
-2.5. **Categorization Phase**: LLM categorization of interventions AND conditions (batch size: 20 items)
-3.5. **Semantic Normalization Phase**: Hierarchical normalization with embeddings + LLM (batch size: 50 interventions)
-3. **Legacy Semantic Grouping Phase**: DEPRECATED - use Phase 3.5 instead
+---
+
+## Architecture
+
+**Backend**: Python 3.13 research automation pipeline
+**Frontend**: HTML/CSS/JavaScript web interface with DataTables.js
+**Database**: SQLite with 19 tables for papers, interventions, and analytics
+**LLM**: Local single-model extraction (qwen3:14b) via Ollama
+
+---
+
+## Core Pipeline Phases
+
+### Phase 1: Data Collection
+- **PubMed API**: Primary source for paper collection
+- **PMC & Unpaywall**: Fulltext retrieval
+- **Output**: Papers stored in `papers` table with `processing_status = 'pending'`
+
+### Phase 2: LLM Processing
+- **Model**: qwen3:14b (optimized with chain-of-thought suppression)
+- **Extracts**: Intervention-outcome relationships + **mechanism of action** (biological/behavioral/psychological pathways)
+- **Output**: Interventions saved WITHOUT categories → `intervention_category = NULL`
+- **Performance**: ~38-39 papers/hour (~93s per paper)
+
+### Phase 2.5: Categorization
+- **Intervention Categories**: 13 categories (exercise, diet, supplement, medication, therapy, lifestyle, surgery, test, device, procedure, biologics, gene_therapy, emerging)
+- **Condition Categories**: 18 categories (cardiac, neurological, digestive, etc.)
+- **Batch Processing**: 20 items per LLM call (qwen3:14b)
+- **Output**: All interventions and conditions categorized
+
+### Phase 3.5: Hierarchical Semantic Normalization ✅
+- **4-Layer Hierarchy**:
+  - **Layer 0**: Category (from 13-category taxonomy)
+  - **Layer 1**: Canonical group (e.g., "vitamin D", "statins", "probiotics")
+  - **Layer 2**: Specific variant (e.g., "atorvastatin", "L. reuteri")
+  - **Layer 3**: Dosage/details (e.g., "atorvastatin 20mg")
+- **6 Relationship Types**: EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT
+- **Technology**: nomic-embed-text embeddings (768-dim) + qwen3:14b classification
+- **Output**: Cross-paper intervention unification (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
+
+---
+
+## Database Schema (19 Tables)
+
+### Core Data Tables (2 tables)
+1. **`papers`** - PubMed articles with metadata and fulltext
+2. **`interventions`** - Extracted treatments and outcomes with mechanism data
+
+### Phase 3.5 Hierarchical Normalization (3 tables)
+3. **`semantic_hierarchy`** - 4-layer hierarchical structure
+4. **`entity_relationships`** - Pairwise relationship types (6 types)
+5. **`canonical_groups`** - Canonical entity groupings
+
+### Data Mining Analytics (11 tables)
+6. **`knowledge_graph_nodes`** - Nodes in medical knowledge graph
+7. **`knowledge_graph_edges`** - Multi-edge graph relationships
+8. **`bayesian_scores`** - Bayesian evidence scoring
+9. **`treatment_recommendations`** - AI treatment recommendations
+10. **`research_gaps`** - Under-researched areas
+11. **`innovation_tracking`** - Emerging treatment tracking
+12. **`biological_patterns`** - Mechanism and pattern discovery
+13. **`condition_similarities`** - Condition similarity matrix
+14. **`intervention_combinations`** - Synergistic combination analysis
+15. **`failed_interventions`** - Catalog of ineffective treatments
+16. **`data_mining_sessions`** - Session tracking
+
+### Configuration & System (2 tables)
+17. **`intervention_categories`** - 13-category taxonomy configuration
+18. **`sqlite_sequence`** - SQLite internal auto-increment
+
+### Legacy Tables (4 tables - DEPRECATED)
+19. **`canonical_entities`, `entity_mappings`, `llm_normalization_cache`, `normalized_terms_cache`** - Replaced by Phase 3.5
+
+---
+
+## Key Commands
+
+### Complete Workflow
+```bash
+# Collection → Processing → Categorization → Normalization
+python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10
+python -m back_end.src.orchestration.batch_medical_rotation --resume --start-phase processing
+```
 
 ### Individual Components
 ```bash
@@ -254,425 +112,271 @@ python -m back_end.src.orchestration.rotation_paper_collector diabetes --count 1
 # LLM processing only (Phase 2 - extracts WITHOUT categories)
 python -m back_end.src.orchestration.rotation_llm_processor diabetes --max-papers 50
 
-# Categorization only (Phase 2.5 - categorizes interventions AND conditions)
+# Categorization only (Phase 2.5)
 python -m back_end.src.orchestration.rotation_llm_categorization --interventions-only
 python -m back_end.src.orchestration.rotation_llm_categorization --conditions-only
 python -m back_end.src.orchestration.rotation_llm_categorization  # Both
 
 # Hierarchical semantic normalization (Phase 3.5 - RECOMMENDED)
-python -m back_end.src.orchestration.rotation_semantic_normalizer "type 2 diabetes"  # Single condition
+python -m back_end.src.orchestration.rotation_semantic_normalizer "type 2 diabetes"  # Single
 python -m back_end.src.orchestration.rotation_semantic_normalizer --all  # All conditions
-python -m back_end.src.orchestration.rotation_semantic_normalizer --all --force  # Skip prompts
-python -m back_end.src.orchestration.rotation_semantic_normalizer --status  # Check status
-
-# Legacy semantic grouping (Phase 3 - DEPRECATED)
-python -m back_end.src.orchestration.rotation_semantic_grouping_integrator
+python -m back_end.src.orchestration.rotation_semantic_normalizer --status  # Check progress
 
 # Data mining and analysis
 python -m back_end.src.data_mining.data_mining_orchestrator --all
 ```
 
-### Testing & Utilities
+### Ground Truth Labeling
 ```bash
-# Test single condition
-python back_end/src/orchestration/main_medical_rotation.py --test-condition "hypertension" --papers 5
-
-# Check thermal status
-python back_end/src/orchestration/rotation_llm_processor.py --thermal-status
-
-# Toggle FAST_MODE for debugging
-# In .env: FAST_MODE=0 (enables full logging)
-# In .env: FAST_MODE=1 (default, suppresses non-critical logs)
-```
-
-### Ground Truth Labeling & Validation
-```bash
-# Interactive pair labeling (with duplicate detection)
 cd back_end/src/semantic_normalization/ground_truth
+
+# Interactive labeling (with duplicate detection)
 python label_in_batches.py --batch-size 20
 
-# Ground truth validation (requires 50+ labeled pairs)
-cd back_end/src/semantic_normalization/ground_truth
+# Validate accuracy
 python evaluator.py
-
-# Full database normalization (all 1,028+ interventions) - COMPLETED ✅
-python -m back_end.src.orchestration.rotation_semantic_normalizer --all --force
-python -m back_end.src.orchestration.rotation_semantic_normalizer --status
 ```
+
+---
+
+## Technology Stack
+
+- **Python 3.13**: Core language
+- **SQLite**: Database with connection pooling
+- **Ollama**: Local LLM inference (qwen3:14b, nomic-embed-text)
+- **PubMed API**: Primary paper source
+- **PMC & Unpaywall**: Fulltext retrieval
+- **Circuit Breaker Pattern**: Robust error handling
+- **FAST_MODE**: Logging suppression for high-throughput (enabled by default)
+
+---
+
+## Current Status (October 8, 2025 - Post-Cleanup)
+
+- **Papers**: 365 research papers (high quality, all with mechanism data)
+- **Interventions**: 792 with **100% mechanism coverage** ✅
+- **Interventions categorized**: 792/792 (100%) - 13 categories
+- **Conditions**: 406 unique conditions
+- **Conditions categorized**: 406/406 (100%) - 18 categories
+- **Semantic normalization**: 676/676 interventions normalized (100%) ✅
+- **Canonical groups**: 571 intervention groups created
+- **Semantic relationships**: 141 cross-paper relationships tracked
+- **Processing rate**: ~38-39 papers/hour (qwen3:14b with mechanism extraction)
+- **Ground Truth Labeling**: 80/500 pairs labeled (16% complete)
+
+---
 
 ## Project Conventions
 
 ### Code Style
-- **No emojis in print statements or code comments**
-- **Comprehensive error handling with circuit breaker patterns**
-- **Session persistence for all long-running operations**
-- **Detailed logging and progress tracking**
-- **Thermal protection for GPU-intensive operations**
+- No emojis in print statements or code comments
+- Comprehensive error handling with circuit breaker patterns
+- Session persistence for all long-running operations
+- Thermal protection for GPU-intensive operations
 
 ### File Organization
-- **Source code**: All core modules in `back_end/src/`
-- **Execution scripts**: Primary orchestrators in `back_end/src/orchestration/`
-- **Data mining**: Advanced analytics in `back_end/src/data_mining/`
-- **Configuration**: Centralized config management in `back_end/src/data/config.py`
-- **Session files**: JSON session state files in `back_end/data/`
-
-### Development Workflow
-- **Resumable by design**: All operations support interruption and recovery
-- **Modular architecture**: Clear separation between collection, processing, and analysis
-- **Comprehensive validation**: Multi-level validation for data quality
-- **Thermal awareness**: GPU temperature monitoring for sustainable operation
+- **Source code**: `back_end/src/`
+- **Execution scripts**: `back_end/src/orchestration/`
+- **Data mining**: `back_end/src/data_mining/`
+- **Configuration**: `back_end/src/data/config.py`
+- **Session files**: `back_end/data/` (JSON state files)
 
 ### Performance Optimization
-- **FAST_MODE**: Logging suppression for high-throughput processing
-  - **Enabled (default)**: `FAST_MODE=1` in `.env` - Only logs CRITICAL errors, no file logging
-  - **Disabled**: `FAST_MODE=0` - Full logging (ERROR/INFO/DEBUG) with file output
-  - **Impact**: Reduces I/O overhead during 1000+ papers/hour processing
-  - **Implementation**: [`config.py:218-227`](back_end/src/data/config.py#L218), [`batch_file_operations.py`](back_end/src/utils/batch_file_operations.py)
-  - **When to disable**: Active debugging or troubleshooting specific issues
+- **FAST_MODE**: Logging suppression for 1000+ papers/hour processing
+  - **Enabled (default)**: `FAST_MODE=1` in `.env` - Only CRITICAL errors
+  - **Disabled**: `FAST_MODE=0` - Full logging (ERROR/INFO/DEBUG)
+  - **When to disable**: Active debugging or troubleshooting
 
-## Current Database Status (October 2025)
-- **Medical conditions**: 598 unique conditions processed
-- **Papers collected**: 1,371+ research papers
-- **Interventions extracted**: 1,371 interventions with mechanism data
-- **Interventions categorized**: 1,371/1,371 (100%) - 13 categories
-- **Conditions categorized**: 411/411 (100%) - 18 categories
-- **Semantic normalization**: 1,028/1,028 interventions normalized (100%) ✅
-- **Canonical groups**: 796 intervention groups created
-- **Semantic relationships**: 297 cross-paper relationships tracked
-- **Processing capability**: ~38-39 papers per hour (qwen3:14b with mechanism extraction)
-- **Architecture**: Single-model (qwen3:14b) - January 2025 optimization validated ✅
-- **Ground Truth Labeling**: 80/500 pairs labeled for validation (16% complete)
+---
 
-## Critical Concepts: Pipeline Architecture
+## Frontend (Web Interface)
 
-### **Architecture Change (October 2025)**: Dual-Model → Single-Model ✅
-**Previous**: Used gemma2:9b + qwen2.5:14b with Phase 2 consensus-before-save deduplication
-**Current**: Uses qwen3:14b only - eliminates Phase 2 deduplication entirely
+### File Structure
+- **[index.html](frontend/index.html)** - Main webpage with DataTables integration
+- **[script.js](frontend/script.js)** - Data loading, filtering, and display
+- **[style.css](frontend/style.css)** - Custom styling and responsive design
+- **[data/interventions.json](frontend/data/interventions.json)** - Exported data (generated by `export_frontend_data.py`)
+
+### Key Features
+- **Interactive DataTables**: Sortable, searchable, paginated intervention table
+- **Summary Statistics**: Total interventions, conditions, papers, canonical groups, relationships
+- **Correlation Strength Display**: Categorical labels (Very Strong ≥0.75, Strong ≥0.50, Weak ≥0.25, Very Weak <0.25)
+- **Filtering**: By intervention category (13), condition category (18), correlation type, confidence threshold
+- **Semantic Integration**: Displays canonical groups and 4-layer hierarchical classifications
+- **Details Modal**: Full intervention data, mechanism of action, study details, paper information
+
+### Data Export
+```bash
+python -m back_end.src.utils.export_frontend_data
+```
+Exports SQLite → JSON with Phase 3.5 hierarchical data, metadata, and top performers.
+
+---
+
+## Important Architecture Changes
+
+### Single-Model Architecture (October 2025) ✅
+**Previous**: Dual-model (gemma2:9b + qwen2.5:14b) with Phase 2 deduplication
+**Current**: Single-model (qwen3:14b only) - no deduplication needed
 
 **Benefits**:
-- 2.6x speed improvement (no dual extraction overhead + qwen3 optimization)
-- No Phase 2 deduplication needed (single extraction = no same-paper duplicates)
-- Preserves Qwen's superior extraction detail
+- 2.6x speed improvement (no dual extraction overhead)
 - Simpler error handling and debugging
+- Preserves superior extraction detail
 - Increased batch size from 5 to 8 papers
 
-### **Model Optimization (January 2025)**: qwen2.5:14b → qwen3:14b ✅
-**Challenge**: qwen3:14b natively generates chain-of-thought reasoning (8x slower)
-**Solution**: System prompt suppression + think tag stripping
+### Model Optimization: qwen3:14b (January 2025) ✅
+**Challenge**: qwen3:14b generates chain-of-thought reasoning (8x slower)
+**Solution**: System prompt suppression + `<think>` tag stripping
+**Result**: qwen3:14b runs 1.3x faster than qwen2.5:14b (22.0s vs 28.9s per paper - baseline)
 
-**Implementation**:
-- **System Message**: `"Provide only the final JSON output without showing your reasoning process or using <think> tags. Start your response immediately with the [ character."`
-- **Post-Processing**: Strip `<think>...</think>` tags from response via regex
-- **Result**: qwen3:14b runs 1.3x faster than qwen2.5:14b (22.0s vs 28.9s per paper - without mechanism extraction)
+**Current Performance** (with mechanism extraction):
+- qwen3:14b: ~93s per paper (~38-39 papers/hour)
+- Trade-off: Richer mechanism data (biological/behavioral/psychological pathways)
 
-**Performance Comparison** (baseline without mechanism extraction):
-- qwen3:14b (unoptimized): 257.5s, 7,001 chars (chain-of-thought reasoning)
-- qwen3:14b (optimized): 22.0s, 630 chars (suppressed reasoning)
-- qwen2.5:14b (baseline): 28.9s, 625 chars
-
-**Current Performance** (with mechanism extraction - October 2025):
-- qwen3:14b (with mechanism): ~93s per paper (4.2x slower than baseline, includes biological/behavioral/psychological pathway extraction)
-- Processing rate: ~38-39 papers/hour
-- Trade-off: Slower processing for richer mechanism data
-
-**Benefits**:
-- 1.3x faster extraction than qwen2.5:14b (baseline comparison)
-- Same extraction quality and accuracy
-- Same token efficiency as qwen2.5:14b
-- Validates PRIMARY vs SECONDARY condition extraction correctly
-- Enhanced with mechanism of action extraction (biological/behavioral/psychological pathways)
-
-### **Categorization Change (October 2025)**: Inline → Separate Phase ✅
-**Previous**: Categorization happened during extraction (in prompt)
-**Current**: Categorization happens in separate Phase 2.5 (after extraction)
+### Categorization Architecture (October 2025) ✅
+**Previous**: Categorization during extraction (in prompt)
+**Current**: Separate Phase 2.5 after extraction
 
 **Benefits**:
 - Separation of concerns (extraction vs classification)
 - Can re-categorize without re-extraction
 - Faster extraction (fewer tokens in prompt)
-- Same LLM categorizes interventions AND conditions together
 - More accurate categorization with focused prompts
 
 **Workflow**:
-1. **Phase 2 (Extraction)**: Extract interventions WITHOUT categories → `intervention_category = NULL`
-2. **Phase 2.5 (Categorization)**: LLM categorizes interventions into 13 categories (including 'emerging' as fallback)
-3. **Phase 3 (Semantic Grouping)**: Canonical entity merging across papers
+1. **Phase 2**: Extract interventions WITHOUT categories → `intervention_category = NULL`
+2. **Phase 2.5**: LLM categorizes into 13 categories (batch of 20 items)
+3. **Phase 3.5**: Hierarchical semantic normalization
 
-### **Phase 2.5: Categorization Phase** (NEW - October 2025) ✅
-**Purpose**: Categorize interventions AND conditions using LLM
-
-**When**: Runs AFTER extraction, BEFORE semantic grouping
-
-**How it works**:
-- Interventions extracted with `intervention_category = NULL`
-- LLM categorizes in batches of 20 items
-- Assigns one of 13 categories (exercise, diet, supplement, medication, therapy, lifestyle, surgery, test, device, procedure, biologics, gene_therapy, emerging)
-- 'emerging' used as fallback for interventions that don't fit other categories
-- Same script also categorizes health conditions into 18 categories
-
-**Stats Tracking**:
-- During extraction: `category_counts['uncategorized']` tracks NULL categories
-- After categorization: All interventions have proper categories (including 'emerging')
-
-### **Phase 3.5: Hierarchical Semantic Normalization** (CURRENT - October 2025) ✅
+### Phase 3.5: Hierarchical Semantic Normalization (October 2025) ✅
 
 **Problem**: Cross-paper intervention name unification
-- Paper A mentions "vitamin D"
-- Paper B mentions "Vitamin D3"
-- Paper C mentions "cholecalciferol"
-- These are the same thing but with different names
+**Solution**: 4-Layer hierarchical system with embedding-based similarity + LLM classification
 
-**Solution** (4-Layer Hierarchical System):
-- **Layer 0**: Category (from 13-category taxonomy)
-- **Layer 1**: Canonical group (e.g., "vitamin D", "statins", "probiotics")
-- **Layer 2**: Specific variant (e.g., "atorvastatin", "L. reuteri")
-- **Layer 3**: Dosage/details (e.g., "atorvastatin 20mg")
-
-**Technology**:
-- **Embedding-based similarity**: nomic-embed-text (768-dim vectors, cosine similarity)
-- **LLM canonical extraction**: qwen3:14b extracts Layer 1 canonical groups
-- **Relationship classification**: 6 types (EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT)
-- **Caching**: Embeddings + LLM decisions cached for performance
-
-**Performance**:
-- **Batch size**: 50 interventions per batch
-- **Cache hit rate**: 40%+ (542 canonicals cached from experimental run)
-- **Processing speed**: ~25 seconds per uncached LLM call
-- **Clustering rate**: 10-20% (expected for diverse medical dataset)
-
-**Database Schema**:
-- `semantic_hierarchy` - 4-layer hierarchical structure
-- `entity_relationships` - Pairwise relationship tracking
-- `canonical_groups` - Layer 1 canonical aggregations
-
-**Result**: Unified analysis showing "150 papers support vitamin D" instead of fragmented counts
-
-**Ground Truth Validation**: 80/500 pairs labeled (16% complete, target: 500 pairs)
-
----
-
-### **Phase 3: Legacy Semantic Grouping** (DEPRECATED - Use Phase 3.5 Instead)
-
-**Status**: DEPRECATED - Replaced by Phase 3.5 hierarchical system
-
-**Legacy Tables** (kept for backward compatibility):
-- `canonical_entities` (71 entities) - Will be removed after Phase 3.5 integration
-- `entity_mappings` (204 mappings) - Will be removed after Phase 3.5 integration
-
-**Validation Results** (October 2025):
-- ✅ 284 interventions preserved (0 deletions)
-- ✅ 71 canonical entities created
-- ✅ 204 entity mappings created
-- ✅ Semantic grouping working correctly (e.g., "metformin" = "metformin therapy" = "metformin treatment")
-
-## Intervention Taxonomy (13 Categories)
-
-**Last Updated**: October 2025 - Expanded from 9 to 13 categories
-**Subcategories**: Removed - all intervention classification is done at the primary category level
-
-### Category Definitions
-
-| # | Category | Display Name | Description | Examples |
-|---|----------|-------------|-------------|----------|
-| 1 | `exercise` | Exercise & Physical Activity | Physical exercise interventions | Aerobic exercise, resistance training, yoga, walking, swimming, HIIT |
-| 2 | `diet` | Diet & Nutrition | Dietary interventions and nutritional modifications | Mediterranean diet, ketogenic diet, intermittent fasting, caloric restriction |
-| 3 | `supplement` | Supplements & Nutraceuticals | Nutritional supplements | Vitamin D, probiotics, omega-3, herbal supplements, minerals |
-| 4 | `medication` | Medications & Pharmaceuticals | Small molecule pharmaceutical drugs | Statins, metformin, antidepressants, antibiotics, pain medications |
-| 5 | `therapy` | Therapy & Counseling | Psychological, physical, and behavioral therapies | Cognitive behavioral therapy, physical therapy, massage, acupuncture |
-| 6 | `lifestyle` | Lifestyle Modifications | Behavioral and lifestyle changes | Sleep hygiene, stress management, smoking cessation, social support |
-| 7 | `surgery` | Surgical Interventions | Surgical procedures and operations | Laparoscopic surgery, cardiac surgery, bariatric surgery, joint replacement |
-| 8 | `test` | Tests & Diagnostics | Medical tests and diagnostic procedures | Blood tests, genetic testing, colonoscopy, biomarker analysis, imaging |
-| 9 | **`device`** | Medical Devices & Implants | Medical devices, implants, wearables, monitors | **Pacemakers, insulin pumps, CPAP machines, continuous glucose monitors, hearing aids** |
-| 10 | **`procedure`** | Medical Procedures | Non-surgical medical procedures | **Endoscopy, dialysis, blood transfusion, radiation therapy, chemotherapy** |
-| 11 | **`biologics`** | Biological Medicines | Biological drugs and immunotherapies | **Monoclonal antibodies, vaccines, immunotherapies, insulin, TNF inhibitors** |
-| 12 | **`gene_therapy`** | Gene & Cellular Therapy | Genetic and cellular interventions | **CRISPR gene editing, CAR-T cell therapy, stem cell therapy, gene transfer** |
-| 13 | `emerging` | Emerging Interventions | Novel interventions that don't fit existing categories | Digital therapeutics, precision medicine, AI-guided interventions |
-
-### Design Philosophy
-
-**LLM-Based Classification**: All category assignment is performed by the LLM (qwen3:14b) in **Phase 2.5** (separate from extraction)
-- **Broad categories**: Designed to group similar interventions (e.g., swimming + cycling = exercise)
-- **Strict validation**: LLM must select exactly one of the 13 categories
-- **No subcategories**: Removed for simplicity and flexibility
-- **Emerging category**: Safety valve for truly novel interventions that don't fit any category
-
-**Key Distinctions**:
-- **medication vs biologics**: Small molecules vs biological drugs (antibodies, vaccines)
-- **surgery vs procedure**: Surgical operations vs non-surgical procedures (dialysis, endoscopy)
-- **device vs medication**: Hardware/implants vs pharmaceuticals
-- **therapy vs lifestyle**: Professional therapeutic interventions vs self-directed behavioral changes
-
-### Technical Implementation
-
-**Files**:
-- [`taxonomy.py`](back_end/src/interventions/taxonomy.py) - Category definitions and structures
-- [`category_validators.py`](back_end/src/interventions/category_validators.py) - Validation logic
-- [`validators.py`](back_end/src/data/validators.py) - Base validation rules (allows NULL categories)
-- [`rotation_llm_categorization.py`](back_end/src/orchestration/rotation_llm_categorization.py) - Categorization orchestrator
-- [`search_terms.py`](back_end/src/interventions/search_terms.py) - PubMed search terms per category
-
-**Workflow** (Updated October 2025):
-1. **Phase 2 (Extraction)**: LLM extracts intervention WITHOUT category → `intervention_category = NULL`
-2. **Phase 2.5 (Categorization)**: LLM categorizes interventions in batches of 20
-3. **Validation**: Category validated against 13 allowed values
-4. **Database Update**: `intervention_category` field updated from NULL to assigned category
-
-**Migration Notes** (October 2025):
-- Expanded from 9 to 13 categories (added: device, procedure, biologics, gene_therapy)
-- Removed subcategory handling entirely (subcategories no longer used)
-- Database schema has no `intervention_subcategory` column
-- All 284 existing interventions preserved during expansion
-## Hierarchical Semantic Normalization (October 2025) ✅ PRODUCTION
-
-**Location**: `back_end/src/semantic_normalization/` (migrated from experiments/ in Phase 2)
-
-**Purpose**: Advanced intervention name normalization using hierarchical semantic grouping with LLM-based canonical extraction and relationship classification.
-
-### Architecture
-
-**4-Layer Hierarchical System**:
-- **Layer 0**: Category (from 13-category taxonomy)
-- **Layer 1**: Canonical group (e.g., "probiotics", "statins", "vitamin d")
-- **Layer 2**: Specific variant (e.g., "L. reuteri", "atorvastatin")
-- **Layer 3**: Dosage/details (e.g., "atorvastatin 20mg")
-
-**6 Relationship Types**:
-1. **EXACT_MATCH**: Identical interventions (synonyms)
-2. **VARIANT**: Same concept, different formulation (e.g., biosimilars)
-3. **SUBTYPE**: Related but clinically distinct (e.g., IBS-D vs IBS-C)
-4. **SAME_CATEGORY**: Different entities in same class (e.g., different probiotics)
-5. **DOSAGE_VARIANT**: Same intervention, different dose
-6. **DIFFERENT**: Completely unrelated
-
-### Core Modules (8 files in `back_end/src/semantic_normalization/`)
-
-1. **embedding_engine.py** - Ollama nomic-embed-text semantic embeddings (768-dim vectors, cosine similarity, batch processing)
-2. **llm_classifier.py** - qwen3:14b canonical extraction + relationship classification (few-shot learning, multi-threshold)
-3. **hierarchy_manager.py** - Database operations for hierarchical schema (semantic_hierarchy, entity_relationships, canonical_groups)
-4. **normalizer.py** - Full pipeline orchestration (processes all interventions, resumable sessions)
-5. **evaluator.py** - Ground truth accuracy testing (50-500 pair benchmarks, confusion matrix, error analysis)
-6. **test_runner.py** - Batch testing with timestamped results (clustering analysis, LLM usage tracking)
-7. **cluster_reviewer.py** - Interactive manual review tool (terminal-based annotation, false positive/negative detection)
-8. **experiment_logger.py** - Structured experiment documentation (JSON + Markdown reports)
-9. **config.py** - Centralized configuration (paths, models, thresholds)
-
-### Ground Truth Tools (6 files in `back_end/src/semantic_normalization/ground_truth/`)
-
-1. **labeling_interface.py** - Interactive terminal-based labeling (undo, skip, review later features)
-2. **pair_generator.py** - Strategic candidate generation (similarity-based, random, targeted sampling)
-3. **label_in_batches.py** - Batch session management (50 pairs per session, progress tracking)
-4. **generate_candidates.py** - 500-pair candidate generator (stratified sampling)
-5. **data_exporter.py** - Export interventions from database
-6. **prompts.py** - LLM prompts for classification
-
-### Ground Truth Data (`back_end/src/semantic_normalization/ground_truth/data/`)
-
-- **hierarchical_ground_truth_50_pairs.json** - 50 manually labeled pairs (October 2025)
-- **hierarchical_candidates_500_pairs.json** - 500 candidate pairs ready for labeling (stratified sampling)
-
-### Performance Metrics (October 2025) - PRODUCTION RUN ✅
-
-**Full Database Normalization** (1,028 interventions across 598 conditions):
-- **Runtime**: ~22 hours with qwen3:14b (~25 seconds per uncached LLM call)
-- **Interventions processed**: 1,028 unique interventions
+**Performance** (Full Database Normalization - 1,028 interventions):
+- **Runtime**: ~22 hours with qwen3:14b (~25s per uncached LLM call)
 - **Canonical groups created**: 796 (Layer 1 hierarchy)
 - **Relationships tracked**: 297 semantic connections
 - **Embeddings cached**: 1,028 (nomic-embed-text 768-dim vectors)
-- **LLM decisions cached**: 307 canonical extractions
-- **Conditions processed**: 598 (100% of database)
-- **Errors**: 0 (Unicode handling successful)
+- **Cache hit rate**: 40%+
 
-**Key Achievement**:
-- Cross-paper intervention unification working (e.g., "metformin" = "metformin therapy" = "metformin treatment")
-- Drug class grouping successful (JAK inhibitors, statins, PPIs, corticosteroids)
-- Therapy variants recognized (robot-assisted gait training protocols, CBT variants)
-- Unicode medical notation handled gracefully (≥, ≤, etc.)
+**Result**: Unified analysis showing "150 papers support vitamin D" instead of fragmented counts
 
-**Ground Truth Dataset**:
-- ✅ **50 labeled pairs** (Phase 0 - October 2025)
-- ⏳ **500 candidate pairs** ready for labeling (Phase 1 - stratified sampling)
+---
 
-### Technical Achievements
+## Intervention Taxonomy (13 Categories)
 
-✅ **Unicode Medical Notation Handling**: Windows console compatibility for special characters (≥, ≤, etc.)
-  - **Solution**: Try/except blocks with ASCII encoding fallback (`errors='replace'`)
-  - **Scope**: Display-only replacement - database integrity preserved
-  - **Implementation**: Lines 217-225, 302-307 in `rotation_semantic_normalizer.py`
+| # | Category | Description | Examples |
+|---|----------|-------------|----------|
+| 1 | exercise | Physical exercise interventions | Aerobic exercise, resistance training, yoga, walking |
+| 2 | diet | Dietary interventions | Mediterranean diet, ketogenic diet, intermittent fasting |
+| 3 | supplement | Nutritional supplements | Vitamin D, probiotics, omega-3, herbal supplements |
+| 4 | medication | Small molecule drugs | Statins, metformin, antidepressants, antibiotics |
+| 5 | therapy | Psychological/physical/behavioral therapies | CBT, physical therapy, massage, acupuncture |
+| 6 | lifestyle | Behavioral and lifestyle changes | Sleep hygiene, stress management, smoking cessation |
+| 7 | surgery | Surgical procedures | Laparoscopic surgery, cardiac surgery, bariatric surgery |
+| 8 | test | Medical tests and diagnostics | Blood tests, genetic testing, colonoscopy, imaging |
+| 9 | device | Medical devices and implants | Pacemakers, insulin pumps, CPAP machines, CGMs |
+| 10 | procedure | Non-surgical medical procedures | Endoscopy, dialysis, blood transfusion, radiation therapy |
+| 11 | biologics | Biological drugs | Monoclonal antibodies, vaccines, immunotherapies, insulin |
+| 12 | gene_therapy | Genetic and cellular interventions | CRISPR, CAR-T cell therapy, stem cell therapy |
+| 13 | emerging | Novel interventions | Digital therapeutics, precision medicine, AI-guided |
 
-✅ **Cross-Paper Intervention Unification**: Successfully groups intervention variants across papers
-✅ **Drug Class Grouping**: JAK inhibitors, statins, PPIs, corticosteroids correctly unified
-✅ **Therapy Variants**: Robot-assisted gait training protocols, CBT spelling variants recognized
+**Key Distinctions**:
+- medication vs biologics: Small molecules vs biological drugs
+- surgery vs procedure: Surgical operations vs non-surgical procedures
+- device vs medication: Hardware/implants vs pharmaceuticals
 
-### Usage Examples
+---
 
-**Ground Truth Labeling**:
-```bash
-cd back_end/src/semantic_normalization/ground_truth
+## Database Cleanup (October 8, 2025) ✅
 
-# Generate 500 candidates (one-time)
-python generate_candidates.py
+**Issue**: 579 interventions (42.2%) extracted before mechanism field added (Oct 2-4, 2025)
 
-# Start labeling first batch
-python label_in_batches.py --batch-size 50 --start-from 0
+**Actions Taken**:
+1. Deleted 579 old interventions (without mechanisms)
+2. Deleted 91 papers with only old interventions
+3. Cleaned semantic hierarchy (352 entries, 156 relationships, 225 canonical groups)
+4. Backup created: `intervention_research_backup_cleanup_20251008_173314.db`
 
-# Check progress
-python label_in_batches.py --status
+**Results**:
+- Interventions: 1,371 → **792** (-42.2%)
+- Mechanism coverage: 57.8% → **100%** ✅
+- Papers: 456 → **365** (-20.0%)
+- All remaining interventions have complete mechanism data
 
-# Continue with next batch
-python label_in_batches.py --batch-size 50 --start-from 50
-```
+**Documentation**: See [CLEANUP_SUMMARY_20251008.md](back_end/data/CLEANUP_SUMMARY_20251008.md)
 
-**Semantic Normalization**:
-```python
-from back_end.src.semantic_normalization.normalizer import SemanticNormalizer
-from back_end.src.semantic_normalization.config import DB_PATH
+---
 
-normalizer = SemanticNormalizer(db_path=str(DB_PATH))
-results = normalizer.normalize_all_interventions()
-```
+## Data Mining Tools
 
-**Evaluation & Review**:
-```bash
-cd back_end/src/semantic_normalization
+Located in `back_end/src/data_mining/`:
 
-# Run full test
-python test_runner.py --no-relationships
+### Shared Utility Modules
+- **medical_knowledge.py**: Centralized medical domain knowledge (condition clusters, synergies, mechanisms)
+- **similarity_utils.py**: Unified similarity calculations (cosine, Jaccard, Dice, mechanism similarity)
+- **scoring_utils.py**: Scoring and statistical utilities (effectiveness, confidence, thresholds)
 
-# Review clusters interactively
-python cluster_reviewer.py results/test_run_YYYYMMDD_HHMMSS.json
+### Analytics Scripts
+- **data_mining_orchestrator.py**: Coordinator for pattern discovery and analytics
+- **medical_knowledge_graph.py**: Knowledge graph construction and analysis
+- **bayesian_scorer.py**: Evidence-based intervention scoring (Beta distributions)
+- **treatment_recommendation_engine.py**: AI treatment recommendation system
+- **research_gaps.py**: Identification of under-researched areas
+- **innovation_tracking_system.py**: Emerging treatment tracking
+- **biological_patterns.py**: Mechanism and pattern discovery
+- **condition_similarity_mapping.py**: Condition similarity matrix
+- **power_combinations.py**: Synergistic combination analysis
+- **failed_interventions.py**: Catalog of ineffective treatments
 
-# Evaluate against ground truth
-python evaluator.py
-```
+---
 
-### Technology Stack
+## Semantic Normalization Module
 
-- **Ollama**: Local LLM (qwen3:14b) + embeddings (nomic-embed-text)
-- **SQLite**: Hierarchical database schema (semantic_hierarchy, entity_relationships, canonical_groups)
-- **Python 3.13**: Core implementation with pickle caching
-- **Resumable design**: All operations support interruption and recovery
+**Location**: `back_end/src/semantic_normalization/`
 
-### Migration History (Phase 2 - October 2025)
+**Purpose**: Advanced intervention name normalization using hierarchical semantic grouping
 
-**Original Location**: `back_end/experiments/semantic_normalization/` (experimental)
-**New Location**: `back_end/src/semantic_normalization/` (production)
+### Core Components (8 files)
+1. **embedding_engine.py** - Semantic embeddings (nomic-embed-text 768-dim)
+2. **llm_classifier.py** - Canonical extraction & relationship classification (qwen3:14b)
+3. **hierarchy_manager.py** - Database operations for hierarchical schema
+4. **normalizer.py** - Full pipeline orchestration
+5. **evaluator.py** - Ground truth accuracy testing
+6. **test_runner.py** - Batch testing framework
+7. **cluster_reviewer.py** - Interactive manual review
+8. **experiment_logger.py** - Experiment documentation
 
-**Migrated**:
-- ✅ 8 core modules (embedding, LLM, hierarchy, normalizer, evaluator, test_runner, cluster_reviewer, experiment_logger)
-- ✅ 6 ground truth tools (labeling_interface, pair_generator, label_in_batches, generate_candidates, data_exporter, prompts)
-- ✅ Ground truth data (50 labeled + 500 candidate pairs)
-- ✅ Cache files (embeddings.pkl, llm_decisions.pkl, canonicals.pkl)
-- ✅ Configuration (merged into config.py)
+### Ground Truth Tools (6 files in `ground_truth/`)
+9. **labeling_interface.py** - Interactive labeling (undo, skip, review later)
+10. **pair_generator.py** - Candidate pair generation (stratified sampling)
+11. **label_in_batches.py** - Batch labeling session management
+12. **generate_candidates.py** - 500-pair candidate generator
+13. **data_exporter.py** - Export interventions from database
+14. **prompts.py** - LLM prompts for classification
 
-**Archived**:
-- Test results → `back_end/data/archives/semantic_normalization_experiment/results/`
-- Old documentation preserved in experiments/ folder for reference
+**Documentation**: See [back_end/src/semantic_normalization/README.md](back_end/src/semantic_normalization/README.md)
 
-**Deleted**:
-- Test logs (5 files: test_output*.log)
-- One-time scripts (apply_corrections.py, run_phase1.py)
-- Temporary files (nul, __pycache__, START_LABELING.bat)
+---
 
-**Cache Location**: `back_end/data/semantic_normalization_cache/`
-**Results Location**: `back_end/data/semantic_normalization_results/`
-**Documentation**: See [`back_end/src/semantic_normalization/README.md`](back_end/src/semantic_normalization/README.md)
+## Support & Troubleshooting
+
+**For help**:
+- Run status check: `python -m back_end.src.orchestration.batch_medical_rotation --status`
+- Check semantic normalization: `python -m back_end.src.orchestration.rotation_semantic_normalizer --status`
+- Review logs: `back_end/logs/*.log`
+- Run tests: Check test files in `back_end/testing/`
+
+**Common Issues**:
+- GPU overheating: Check thermal status, wait for cooling
+- LLM timeout: Increase timeout in config
+- Database locked: Ensure no concurrent processes
+- Missing dependencies: `conda activate venv`, check Ollama models
+
+---
+
+*Last Updated: October 8, 2025*
+*Architecture: Single-model (qwen3:14b)*
+*Status: Production Ready ✅*
