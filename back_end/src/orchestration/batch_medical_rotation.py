@@ -42,6 +42,7 @@ Usage:
 """
 
 import sys
+import os
 import time
 import signal
 import argparse
@@ -53,6 +54,11 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any, Tuple
 from enum import Enum
 from dataclasses import dataclass
+
+# Configure Ollama for optimal GPU usage (95% VRAM with RAM offload)
+os.environ.setdefault("OLLAMA_NUM_GPU_LAYERS", "35")
+os.environ.setdefault("OLLAMA_MAX_LOADED_MODELS", "1")
+os.environ.setdefault("OLLAMA_KEEP_ALIVE", "30m")
 
 # Platform-specific file locking
 if platform.system() == 'Windows':

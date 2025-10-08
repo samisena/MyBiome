@@ -139,6 +139,10 @@ class HierarchyManager:
             embedding_vector, embedding_model, embedding_dimension,
             source_table, source_ids, occurrence_count
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+        ON CONFLICT(entity_name, entity_type, layer_2_variant)
+        DO UPDATE SET
+            occurrence_count = occurrence_count + 1,
+            updated_at = CURRENT_TIMESTAMP
         """
 
         embedding_dim = 768 if embedding_vector else None

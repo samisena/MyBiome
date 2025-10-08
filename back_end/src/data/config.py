@@ -49,9 +49,9 @@ class UnifiedConfig:
         self.llm_temperature = 0.3
         self.llm_max_tokens = 4096
         # Single-model architecture for 2x speed improvement
-        self.llm_model = "qwen2.5:14b"
+        self.llm_model = "qwen3:14b"
         # Legacy dual_models kept for backward compatibility with old code
-        self.dual_models = ["qwen2.5:14b"]
+        self.dual_models = ["qwen3:14b"]
 
         #* Data collection
         self.intervention_categories = [

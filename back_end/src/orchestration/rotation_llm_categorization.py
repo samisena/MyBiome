@@ -260,12 +260,18 @@ No explanations. Just the JSON array."""
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
-                messages=[{"role": "user", "content": prompt}],
+                messages=[
+                    {"role": "system", "content": "Provide only the final JSON output without showing your reasoning process or using <think> tags. Start your response immediately with the [ character."},
+                    {"role": "user", "content": prompt}
+                ],
                 temperature=0.3,
                 max_tokens=2000
             )
 
             response_text = response.choices[0].message.content.strip()
+
+            # Strip think tags if present (qwen3:14b optimization)
+            response_text = self._strip_think_tags(response_text)
 
             # Parse JSON response
             results = self._parse_categorization_response(response_text)
@@ -331,12 +337,18 @@ No explanations. Just the JSON array."""
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
-                messages=[{"role": "user", "content": prompt}],
+                messages=[
+                    {"role": "system", "content": "Provide only the final JSON output without showing your reasoning process or using <think> tags. Start your response immediately with the [ character."},
+                    {"role": "user", "content": prompt}
+                ],
                 temperature=0.3,
                 max_tokens=2000
             )
 
             response_text = response.choices[0].message.content.strip()
+
+            # Strip think tags if present (qwen3:14b optimization)
+            response_text = self._strip_think_tags(response_text)
 
             # Parse JSON response
             results = self._parse_categorization_response(response_text)
@@ -362,6 +374,21 @@ No explanations. Just the JSON array."""
         except Exception as e:
             logger.error(f"LLM categorization failed: {e}")
             raise LLMCategorizationError(f"Failed to categorize conditions: {e}")
+
+    def _strip_think_tags(self, text: str) -> str:
+        """
+        Remove <think>...</think> tags from LLM response.
+        qwen3:14b optimization to suppress chain-of-thought reasoning.
+
+        Args:
+            text: Raw LLM response
+
+        Returns:
+            Text with think tags removed
+        """
+        import re
+        text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL)
+        return text.strip()
 
     def _parse_categorization_response(self, response_text: str) -> List[Dict]:
         """

@@ -31,14 +31,15 @@ An automated biomedical research pipeline that collects research papers about he
 - **Batch Processing**: Processes 20 interventions/conditions per LLM call
 - **Separation of Concerns**: Categorization separated from extraction for flexibility and re-categorization capability
 
-### 3. **Hierarchical Semantic Normalization** (`back_end/src/semantic_normalization/`) - **Phase 3.5**
+### 3. **Hierarchical Semantic Normalization** (`back_end/src/semantic_normalization/`) - **Phase 3.5** ✅
 - **Embedding-Based Similarity**: nomic-embed-text (768-dim vectors) for semantic matching
 - **LLM Canonical Extraction**: qwen3:14b extracts canonical intervention groups (Layer 1)
 - **Relationship Classification**: 6 types (EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT)
 - **4-Layer Hierarchy**: Category → Canonical → Variant → Dosage
 - **Cross-Paper Unification**: "vitamin D", "Vitamin D3", "cholecalciferol" → single canonical entity
 - **Database Schema**: `semantic_hierarchy`, `entity_relationships`, `canonical_groups` tables
-- **Performance**: LLM caching (542 canonicals cached), embedding caching, resumable sessions
+- **Performance**: 1,028 interventions normalized, 796 canonical groups, 297 relationships, 1,028 embeddings cached
+- **Unicode Handling**: Console-safe display for medical notation (≥, ≤, etc.) on Windows systems
 
 ### 4. **Data Mining** (`back_end/src/data_mining/`)
 - **Pattern Discovery**: Advanced correlation analysis and biological pattern recognition
@@ -200,11 +201,19 @@ An automated biomedical research pipeline that collects research papers about he
 - ✅ Session recovery and resumable processing
 - ✅ Quality validation and scoring
 
-### Categorization Phase (NEW - Phase 2.5)
-- ✅ LLM-based intervention categorization (13 categories)
-- ✅ LLM-based condition categorization (18 categories)
+### Categorization Phase (Phase 2.5) ✅
+- ✅ LLM-based intervention categorization (13 categories) - 1,371/1,371 interventions categorized
+- ✅ LLM-based condition categorization (18 categories) - 411/411 conditions categorized
 - ✅ Batch processing (20 items per LLM call)
 - ✅ Separation of concerns for re-categorization flexibility
+
+### Semantic Normalization (Phase 3.5) ✅
+- ✅ Hierarchical 4-layer intervention normalization complete
+- ✅ 1,028 interventions normalized across 598 conditions
+- ✅ 796 canonical groups created (e.g., "probiotics", "statins", "vitamin D")
+- ✅ 297 semantic relationships tracked
+- ✅ Cross-paper intervention unification working
+- ✅ Unicode handling for medical notation (≥, ≤, etc.)
 
 ### Data Mining
 - ✅ Advanced correlation analysis and pattern recognition
@@ -253,6 +262,7 @@ python -m back_end.src.orchestration.rotation_llm_categorization  # Both
 # Hierarchical semantic normalization (Phase 3.5 - RECOMMENDED)
 python -m back_end.src.orchestration.rotation_semantic_normalizer "type 2 diabetes"  # Single condition
 python -m back_end.src.orchestration.rotation_semantic_normalizer --all  # All conditions
+python -m back_end.src.orchestration.rotation_semantic_normalizer --all --force  # Skip prompts
 python -m back_end.src.orchestration.rotation_semantic_normalizer --status  # Check status
 
 # Legacy semantic grouping (Phase 3 - DEPRECATED)
@@ -285,7 +295,7 @@ python label_in_batches.py --batch-size 20
 cd back_end/src/semantic_normalization/ground_truth
 python evaluator.py
 
-# Full database smoke test (all 542+ interventions)
+# Full database normalization (all 1,028+ interventions) - COMPLETED ✅
 python -m back_end.src.orchestration.rotation_semantic_normalizer --all --force
 python -m back_end.src.orchestration.rotation_semantic_normalizer --status
 ```
@@ -320,12 +330,18 @@ python -m back_end.src.orchestration.rotation_semantic_normalizer --status
   - **Implementation**: [`config.py:218-227`](back_end/src/data/config.py#L218), [`batch_file_operations.py`](back_end/src/utils/batch_file_operations.py)
   - **When to disable**: Active debugging or troubleshooting specific issues
 
-## Current Database Status
-- **Medical conditions**: 60 conditions across 12 medical specialties
-- **Processing capability**: 1200+ papers per hour (qwen3:14b with optimized prompting)
-- **Session management**: Comprehensive state persistence and recovery
-- **Quality assurance**: Multi-stage validation and scoring
+## Current Database Status (October 2025)
+- **Medical conditions**: 598 unique conditions processed
+- **Papers collected**: 1,371+ research papers
+- **Interventions extracted**: 1,371 interventions with mechanism data
+- **Interventions categorized**: 1,371/1,371 (100%) - 13 categories
+- **Conditions categorized**: 411/411 (100%) - 18 categories
+- **Semantic normalization**: 1,028/1,028 interventions normalized (100%) ✅
+- **Canonical groups**: 796 intervention groups created
+- **Semantic relationships**: 297 cross-paper relationships tracked
+- **Processing capability**: ~38-39 papers per hour (qwen3:14b with mechanism extraction)
 - **Architecture**: Single-model (qwen3:14b) - January 2025 optimization validated ✅
+- **Ground Truth Labeling**: 80/500 pairs labeled for validation (16% complete)
 
 ## Critical Concepts: Pipeline Architecture
 
@@ -347,18 +363,24 @@ python -m back_end.src.orchestration.rotation_semantic_normalizer --status
 **Implementation**:
 - **System Message**: `"Provide only the final JSON output without showing your reasoning process or using <think> tags. Start your response immediately with the [ character."`
 - **Post-Processing**: Strip `<think>...</think>` tags from response via regex
-- **Result**: qwen3:14b runs 1.3x faster than qwen2.5:14b (22.0s vs 28.9s per paper)
+- **Result**: qwen3:14b runs 1.3x faster than qwen2.5:14b (22.0s vs 28.9s per paper - without mechanism extraction)
 
-**Performance Comparison**:
+**Performance Comparison** (baseline without mechanism extraction):
 - qwen3:14b (unoptimized): 257.5s, 7,001 chars (chain-of-thought reasoning)
 - qwen3:14b (optimized): 22.0s, 630 chars (suppressed reasoning)
 - qwen2.5:14b (baseline): 28.9s, 625 chars
 
+**Current Performance** (with mechanism extraction - October 2025):
+- qwen3:14b (with mechanism): ~93s per paper (4.2x slower than baseline, includes biological/behavioral/psychological pathway extraction)
+- Processing rate: ~38-39 papers/hour
+- Trade-off: Slower processing for richer mechanism data
+
 **Benefits**:
-- 1.3x faster extraction than qwen2.5:14b
+- 1.3x faster extraction than qwen2.5:14b (baseline comparison)
 - Same extraction quality and accuracy
 - Same token efficiency as qwen2.5:14b
 - Validates PRIMARY vs SECONDARY condition extraction correctly
+- Enhanced with mechanism of action extraction (biological/behavioral/psychological pathways)
 
 ### **Categorization Change (October 2025)**: Inline → Separate Phase ✅
 **Previous**: Categorization happened during extraction (in prompt)
@@ -392,34 +414,56 @@ python -m back_end.src.orchestration.rotation_semantic_normalizer --status
 - During extraction: `category_counts['uncategorized']` tracks NULL categories
 - After categorization: All interventions have proper categories (including 'emerging')
 
-### **Phase 3: Semantic Grouping** (Cross-Paper Entity Unification) ✅ VALIDATED
+### **Phase 3.5: Hierarchical Semantic Normalization** (CURRENT - October 2025) ✅
 
-**Problem**:
+**Problem**: Cross-paper intervention name unification
 - Paper A mentions "vitamin D"
 - Paper B mentions "Vitamin D3"
 - Paper C mentions "cholecalciferol"
 - These are the same thing but with different names
 
-**Solution** (in `batch_entity_processor.py` → `batch_group_entities_semantically()`):
-- All three interventions point to the same canonical entity (e.g., `canonical_id: 1, canonical_name: "vitamin D"`)
-- Statistical analysis aggregates all evidence under the canonical entity
-- **CRITICAL**: Original intervention names are preserved for transparency (NO DELETIONS)
-- Uses LLM semantic analysis (qwen3:14b) for intelligent grouping
-- Batch size: 20 interventions per LLM call
+**Solution** (4-Layer Hierarchical System):
+- **Layer 0**: Category (from 13-category taxonomy)
+- **Layer 1**: Canonical group (e.g., "vitamin D", "statins", "probiotics")
+- **Layer 2**: Specific variant (e.g., "atorvastatin", "L. reuteri")
+- **Layer 3**: Dosage/details (e.g., "atorvastatin 20mg")
+
+**Technology**:
+- **Embedding-based similarity**: nomic-embed-text (768-dim vectors, cosine similarity)
+- **LLM canonical extraction**: qwen3:14b extracts Layer 1 canonical groups
+- **Relationship classification**: 6 types (EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT)
+- **Caching**: Embeddings + LLM decisions cached for performance
 
 **Performance**:
-- **Batch size**: 20 interventions per LLM call
-- **Input size**: ~600 tokens (20 short intervention names)
-- **Task**: Simple name comparison and grouping
+- **Batch size**: 50 interventions per batch
+- **Cache hit rate**: 40%+ (542 canonicals cached from experimental run)
+- **Processing speed**: ~25 seconds per uncached LLM call
+- **Clustering rate**: 10-20% (expected for diverse medical dataset)
+
+**Database Schema**:
+- `semantic_hierarchy` - 4-layer hierarchical structure
+- `entity_relationships` - Pairwise relationship tracking
+- `canonical_groups` - Layer 1 canonical aggregations
+
+**Result**: Unified analysis showing "150 papers support vitamin D" instead of fragmented counts
+
+**Ground Truth Validation**: 80/500 pairs labeled (16% complete, target: 500 pairs)
+
+---
+
+### **Phase 3: Legacy Semantic Grouping** (DEPRECATED - Use Phase 3.5 Instead)
+
+**Status**: DEPRECATED - Replaced by Phase 3.5 hierarchical system
+
+**Legacy Tables** (kept for backward compatibility):
+- `canonical_entities` (71 entities) - Will be removed after Phase 3.5 integration
+- `entity_mappings` (204 mappings) - Will be removed after Phase 3.5 integration
 
 **Validation Results** (October 2025):
 - ✅ 284 interventions preserved (0 deletions)
 - ✅ 71 canonical entities created
 - ✅ 204 entity mappings created
-- ✅ 204 interventions linked to canonical entities
 - ✅ Semantic grouping working correctly (e.g., "metformin" = "metformin therapy" = "metformin treatment")
-
-**Result**: Unified analysis showing "150 papers support vitamin D" instead of fragmented counts
 
 ## Intervention Taxonomy (13 Categories)
 
@@ -526,37 +570,38 @@ python -m back_end.src.orchestration.rotation_semantic_normalizer --status
 - **hierarchical_ground_truth_50_pairs.json** - 50 manually labeled pairs (October 2025)
 - **hierarchical_candidates_500_pairs.json** - 500 candidate pairs ready for labeling (stratified sampling)
 
-### Performance Metrics (October 2025)
+### Performance Metrics (October 2025) - PRODUCTION RUN ✅
 
-**Full Dataset Test** (542 interventions):
-- **Runtime**: ~1.5 hours with qwen3:14b (~25 seconds per uncached LLM call)
-- **Cache hit rate**: 40.6% (220/542 cached canonical extractions)
-- **Unique canonical groups**: 486 (from 542 interventions)
-- **Clustering rate**: 10.3% (56 interventions merged into 44 multi-member groups)
-- **Average cluster size**: 1.12
+**Full Database Normalization** (1,028 interventions across 598 conditions):
+- **Runtime**: ~22 hours with qwen3:14b (~25 seconds per uncached LLM call)
+- **Interventions processed**: 1,028 unique interventions
+- **Canonical groups created**: 796 (Layer 1 hierarchy)
+- **Relationships tracked**: 297 semantic connections
+- **Embeddings cached**: 1,028 (nomic-embed-text 768-dim vectors)
+- **LLM decisions cached**: 307 canonical extractions
+- **Conditions processed**: 598 (100% of database)
+- **Errors**: 0 (Unicode handling successful)
 
-**Top Semantic Groups**:
-1. Proton pump inhibitors (6 members) - omeprazole, tegoprazan-amoxicillin, PPIs
-2. Probiotics (4 members) - Bifidobacterium animalis, multi-strain probiotics
-3. JAK inhibitors (3) - Baricitinib, Tofacitinib, JAKi
-4. Robot-assisted gait training (3) - Continuous, low-intensity interval, standard RAGT
-5. Metformin, Statins, Corticosteroids, Vitamin D (3 members each)
-6. 36 groups with 2 members (Acupuncture, CBT, SGLT2 inhibitors, GLP-1 agonists, etc.)
-7. 442 singleton groups
+**Key Achievement**:
+- Cross-paper intervention unification working (e.g., "metformin" = "metformin therapy" = "metformin treatment")
+- Drug class grouping successful (JAK inhibitors, statins, PPIs, corticosteroids)
+- Therapy variants recognized (robot-assisted gait training protocols, CBT variants)
+- Unicode medical notation handled gracefully (≥, ≤, etc.)
 
 **Ground Truth Dataset**:
 - ✅ **50 labeled pairs** (Phase 0 - October 2025)
 - ⏳ **500 candidate pairs** ready for labeling (Phase 1 - stratified sampling)
 
-### Key Findings
+### Technical Achievements
 
-✅ **Drug class grouping works well**: JAK inhibitors, statins, PPIs, corticosteroids correctly unified
-✅ **Therapy variants recognized**: Robot-assisted gait training protocols, CBT spelling variants
-✅ **Dosage/formulation handling**: Metformin adjuvant, atorvastatin pretreatment correctly linked
-✅ **Biosimilar detection**: Cetuximab-β correctly identified as variant
+✅ **Unicode Medical Notation Handling**: Windows console compatibility for special characters (≥, ≤, etc.)
+  - **Solution**: Try/except blocks with ASCII encoding fallback (`errors='replace'`)
+  - **Scope**: Display-only replacement - database integrity preserved
+  - **Implementation**: Lines 217-225, 302-307 in `rotation_semantic_normalizer.py`
 
-⚠️ **Low clustering rate (10%)**: Most interventions became singletons - expected for diverse medical dataset
-⚠️ **Threshold tuning needed**: May require adjusted similarity thresholds for better clustering
+✅ **Cross-Paper Intervention Unification**: Successfully groups intervention variants across papers
+✅ **Drug Class Grouping**: JAK inhibitors, statins, PPIs, corticosteroids correctly unified
+✅ **Therapy Variants**: Robot-assisted gait training protocols, CBT spelling variants recognized
 
 ### Usage Examples
 

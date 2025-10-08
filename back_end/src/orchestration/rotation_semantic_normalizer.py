@@ -77,7 +77,7 @@ class SemanticNormalizationOrchestrator:
 
         logger.info(f"Initialized SemanticNormalizationOrchestrator with DB: {self.db_path}")
 
-    def load_or_create_session(self, session_file: Path = None) -> Dict:
+    def load_or_create_session(self, session_file: Path = None, force: bool = False) -> Dict:
         """Load existing session or create new one."""
         if session_file is None:
             # Check for existing session
@@ -86,7 +86,12 @@ class SemanticNormalizationOrchestrator:
                 latest_session = max(session_files, key=lambda p: p.stat().st_mtime)
 
                 print(f"\nFound existing session: {latest_session.name}")
-                response = input("Resume this session? (y/n): ").strip().lower()
+
+                if force:
+                    response = 'y'
+                    print("Auto-resuming (force=True)")
+                else:
+                    response = input("Resume this session? (y/n): ").strip().lower()
 
                 if response == 'y':
                     with open(latest_session, 'r', encoding='utf-8') as f:
@@ -209,9 +214,15 @@ class SemanticNormalizationOrchestrator:
         Returns:
             Dictionary with normalization results
         """
-        print(f"\n{'='*80}")
-        print(f"NORMALIZING: {condition}")
-        print(f"{'='*80}")
+        try:
+            print(f"\n{'='*80}")
+            print(f"NORMALIZING: {condition}")
+            print(f"{'='*80}")
+        except UnicodeEncodeError:
+            safe_condition = condition.encode('ascii', errors='replace').decode('ascii')
+            print(f"\n{'='*80}")
+            print(f"NORMALIZING: {safe_condition}")
+            print(f"{'='*80}")
 
         # Load interventions
         interventions = self.get_interventions_for_condition(condition)
@@ -255,7 +266,8 @@ class SemanticNormalizationOrchestrator:
             }
 
         except Exception as e:
-            logger.error(f"Error normalizing {condition}: {e}", exc_info=True)
+            safe_condition = condition.encode('ascii', errors='replace').decode('ascii')
+            logger.error(f"Error normalizing {safe_condition}: {e}", exc_info=True)
             print(f"\n[ERROR] Error: {e}")
 
             return {
@@ -265,10 +277,10 @@ class SemanticNormalizationOrchestrator:
                 "failed_at": datetime.now().isoformat()
             }
 
-    def normalize_all_conditions(self, batch_size: int = 50):
+    def normalize_all_conditions(self, batch_size: int = 50, force: bool = False):
         """Normalize all conditions in database."""
         # Load or create session
-        self.load_or_create_session()
+        self.load_or_create_session(force=force)
 
         # Get all conditions
         all_conditions = self.get_conditions_from_db()
@@ -287,9 +299,14 @@ class SemanticNormalizationOrchestrator:
 
         # Process each condition
         for i, condition in enumerate(pending_conditions, 1):
-            print(f"\n[{i}/{len(pending_conditions)}] Processing: {condition}")
+            try:
+                print(f"\n[{i}/{len(pending_conditions)}] Processing: {condition}")
+            except UnicodeEncodeError:
+                # Handle Unicode characters that can't be printed to console
+                safe_condition = condition.encode('ascii', errors='replace').decode('ascii')
+                print(f"\n[{i}/{len(pending_conditions)}] Processing: {safe_condition}")
 
-            result = self.normalize_condition(condition, batch_size=batch_size)
+            result = self.normalize_condition(condition, batch_size=batch_size, force=force)
 
             # Update session
             if 'error' not in result:
@@ -435,7 +452,7 @@ def main():
         orchestrator.display_status()
 
     elif args.all or args.resume:
-        orchestrator.normalize_all_conditions(batch_size=args.batch_size)
+        orchestrator.normalize_all_conditions(batch_size=args.batch_size, force=args.force)
 
     elif args.condition:
         result = orchestrator.normalize_condition(args.condition, batch_size=args.batch_size, force=args.force)

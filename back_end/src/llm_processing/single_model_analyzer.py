@@ -84,9 +84,9 @@ class SingleModelAnalyzer:
         self.repository_mgr = repository_mgr or repository_manager
 
         # Single model configuration
-        self.model_name = 'qwen3:14b'
+        self.model_name = 'qwen2.5:14b'
         self.model_config = {
-            'client': get_llm_client('qwen3:14b'),
+            'client': get_llm_client('qwen2.5:14b'),
             'temperature': 0.3,
             'max_tokens': None,  # Will be calculated dynamically
             'max_context': 32768,  # Model's maximum context length
@@ -232,15 +232,15 @@ class SingleModelAnalyzer:
             # Calculate dynamic max_tokens
             dynamic_max_tokens = self._calculate_dynamic_max_tokens(prompt)
 
-            # Combine system message and user prompt
+            # Get system message for <think> tag suppression
             system_message = self.prompt_service.create_system_message()
-            full_prompt = f"{system_message}\n\n{prompt}"
 
-            # Call LLM
+            # Call LLM with separate system and user messages
             response = client.generate(
-                prompt=full_prompt,
+                prompt=prompt,
                 temperature=self.model_config['temperature'],
-                max_tokens=dynamic_max_tokens
+                max_tokens=dynamic_max_tokens,
+                system_message=system_message
             )
 
             # Extract response

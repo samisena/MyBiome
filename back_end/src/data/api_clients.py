@@ -274,11 +274,16 @@ class LLMClient:
 
     @handle_llm_errors("LLM text generation", max_retries=2)
     def generate(self, prompt: str, temperature: Optional[float] = None,
-                 max_tokens: Optional[int] = None) -> Dict:
+                 max_tokens: Optional[int] = None, system_message: Optional[str] = None) -> Dict:
         """Generate text output from LLM."""
+        messages = []
+        if system_message:
+            messages.append({"role": "system", "content": system_message})
+        messages.append({"role": "user", "content": prompt})
+
         response = self.client.chat.completions.create(
             model=self.model_name,
-            messages=[{"role":"user", "content":prompt}],
+            messages=messages,
             temperature=temperature or config.llm_temperature,
             max_tokens=max_tokens or config.llm_max_tokens
         )
