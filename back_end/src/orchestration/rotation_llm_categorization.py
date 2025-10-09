@@ -5,6 +5,7 @@ Separate categorization phase that runs after extraction.
 
 import json
 import logging
+import time
 from typing import List, Dict, Optional, Tuple
 from openai import OpenAI
 
@@ -24,14 +25,18 @@ class LLMCategorizationError(Exception):
 class RotationLLMCategorizer:
     """Categorizes interventions and conditions using LLM."""
 
-    def __init__(self, batch_size: int = 20):
+    def __init__(self, batch_size: int = 20, max_retries: int = 3, retry_delay: float = 2.0):
         """
         Initialize categorizer.
 
         Args:
             batch_size: Number of items to categorize per LLM call
+            max_retries: Maximum number of retry attempts for failed LLM calls
+            retry_delay: Initial delay between retries in seconds (exponential backoff)
         """
         self.batch_size = batch_size
+        self.max_retries = max_retries
+        self.retry_delay = retry_delay
         self.client = OpenAI(
             base_url=config.llm_base_url,
             api_key="not-needed"
@@ -87,7 +92,7 @@ class RotationLLMCategorizer:
             logger.info(f"Processing intervention batch {batch_num}/{total_batches} ({len(batch)} items)")
 
             try:
-                categories = self._categorize_intervention_batch(batch)
+                categories = self._categorize_intervention_batch_with_retry(batch)
 
                 # Update database
                 with database_manager.get_connection() as conn:
@@ -107,7 +112,7 @@ class RotationLLMCategorizer:
                 logger.info(f"Batch {batch_num} complete: {len([c for c in categories.values() if c])} categorized")
 
             except Exception as e:
-                logger.error(f"Batch {batch_num} failed: {e}")
+                logger.error(f"Batch {batch_num} failed after all retries: {e}")
                 failed += len(batch)
 
         result = {
@@ -166,7 +171,7 @@ class RotationLLMCategorizer:
             logger.info(f"Processing condition batch {batch_num}/{total_batches} ({len(batch)} items)")
 
             try:
-                categories = self._categorize_condition_batch(batch)
+                categories = self._categorize_condition_batch_with_retry(batch)
 
                 # Update database for all interventions with these conditions
                 with database_manager.get_connection() as conn:
@@ -186,7 +191,7 @@ class RotationLLMCategorizer:
                 logger.info(f"Batch {batch_num} complete: {len([c for c in categories.values() if c])} categorized")
 
             except Exception as e:
-                logger.error(f"Batch {batch_num} failed: {e}")
+                logger.error(f"Batch {batch_num} failed after all retries: {e}")
                 failed += len(batch)
 
         result = {
@@ -221,6 +226,29 @@ class RotationLLMCategorizer:
             "conditions": condition_stats
         }
 
+    def _categorize_intervention_batch_with_retry(self, batch: List[Dict]) -> Dict[int, str]:
+        """
+        Categorize a batch of interventions with retry logic.
+
+        Args:
+            batch: List of dicts with 'id' and 'name' keys
+
+        Returns:
+            Dictionary mapping intervention_id -> category
+        """
+        for attempt in range(self.max_retries):
+            try:
+                return self._categorize_intervention_batch(batch)
+            except Exception as e:
+                if attempt < self.max_retries - 1:
+                    delay = self.retry_delay * (2 ** attempt)
+                    logger.warning(f"Intervention batch categorization failed (attempt {attempt + 1}/{self.max_retries}): {e}")
+                    logger.info(f"Retrying in {delay:.1f} seconds...")
+                    time.sleep(delay)
+                else:
+                    logger.error(f"Intervention batch categorization failed after {self.max_retries} attempts")
+                    raise
+
     def _categorize_intervention_batch(self, batch: List[Dict]) -> Dict[int, str]:
         """
         Categorize a batch of interventions using LLM.
@@ -231,20 +259,38 @@ class RotationLLMCategorizer:
         Returns:
             Dictionary mapping intervention_id -> category
         """
-        # Create prompt
+        # Create prompt with detailed category descriptions
         intervention_list = "\n".join([
             f"{i+1}. {item['name']}"
             for i, item in enumerate(batch)
         ])
 
-        categories_str = ", ".join([cat.value for cat in InterventionType])
+        prompt = f"""Classify each health intervention into ONE category from the list below.
 
-        prompt = f"""Classify each health intervention into ONE category.
+CATEGORY DEFINITIONS:
+- exercise: Physical exercise interventions (aerobic, resistance training, yoga, walking)
+- diet: Dietary interventions (Mediterranean diet, ketogenic diet, intermittent fasting)
+- supplement: Nutritional supplements taken orally (vitamins, minerals, probiotics, herbs, omega-3)
+- medication: Small molecule pharmaceutical drugs (statins, metformin, antibiotics, antidepressants)
+- therapy: Psychological/physical/behavioral therapies (CBT, physical therapy, massage, acupuncture)
+- lifestyle: Behavioral changes (sleep hygiene, stress management, smoking cessation)
+- surgery: Surgical procedures requiring incisions (bariatric surgery, cardiac surgery, transplant operations)
+- test: Medical tests and diagnostics (blood tests, imaging, genetic testing, colonoscopy for diagnosis)
+- device: Medical devices and implants (pacemakers, insulin pumps, CPAP, hearing aids)
+- procedure: Non-surgical medical procedures and one-time/periodic interventions (endoscopy, dialysis, blood transfusion, fecal transplant, radiation therapy, platelet-rich plasma injection)
+- biologics: Biological drugs from living organisms (monoclonal antibodies, vaccines, immunotherapies, insulin)
+- gene_therapy: Genetic and cellular interventions (CRISPR, CAR-T cell therapy, stem cell therapy)
+- emerging: Novel interventions that don't fit existing categories
 
-CATEGORIES:
-{categories_str}
+KEY DISTINCTIONS:
+- Blood transfusion, fecal microbiota transplant, platelet injections → procedure (NOT medication/supplement/biologics)
+- Probiotics in pill form → supplement; fecal transplant → procedure
+- Insulin, vaccines, monoclonal antibodies → biologics (NOT medication)
+- Small molecule drugs → medication; biological drugs → biologics
+- Pacemaker implantation surgery → surgery; using pacemaker → device
+- Colonoscopy for diagnosis → test; colonoscopy for polyp removal → procedure
 
-INTERVENTIONS:
+INTERVENTIONS TO CLASSIFY:
 {intervention_list}
 
 Return ONLY JSON array:
@@ -298,6 +344,29 @@ No explanations. Just the JSON array."""
             logger.error(f"LLM categorization failed: {e}")
             raise LLMCategorizationError(f"Failed to categorize interventions: {e}")
 
+    def _categorize_condition_batch_with_retry(self, batch: List[str]) -> Dict[str, str]:
+        """
+        Categorize a batch of conditions with retry logic.
+
+        Args:
+            batch: List of condition names
+
+        Returns:
+            Dictionary mapping condition_name -> category
+        """
+        for attempt in range(self.max_retries):
+            try:
+                return self._categorize_condition_batch(batch)
+            except Exception as e:
+                if attempt < self.max_retries - 1:
+                    delay = self.retry_delay * (2 ** attempt)
+                    logger.warning(f"Condition batch categorization failed (attempt {attempt + 1}/{self.max_retries}): {e}")
+                    logger.info(f"Retrying in {delay:.1f} seconds...")
+                    time.sleep(delay)
+                else:
+                    logger.error(f"Condition batch categorization failed after {self.max_retries} attempts")
+                    raise
+
     def _categorize_condition_batch(self, batch: List[str]) -> Dict[str, str]:
         """
         Categorize a batch of conditions using LLM.
@@ -308,20 +377,44 @@ No explanations. Just the JSON array."""
         Returns:
             Dictionary mapping condition_name -> category
         """
-        # Create prompt
+        # Create prompt with detailed category descriptions
         condition_list = "\n".join([
             f"{i+1}. {condition}"
             for i, condition in enumerate(batch)
         ])
 
-        categories_str = ", ".join([cat.value for cat in ConditionType])
+        prompt = f"""Classify each health condition into ONE category from the list below.
 
-        prompt = f"""Classify each health condition into ONE category.
+CATEGORY DEFINITIONS:
+- cardiac: Heart and blood vessel conditions (coronary artery disease, heart failure, hypertension, arrhythmias, MI)
+- neurological: Brain, spinal cord, nervous system (stroke, Alzheimer's, Parkinson's, epilepsy, MS, dementia, neuropathy)
+- digestive: Gastrointestinal system (GERD, IBD, IBS, cirrhosis, Crohn's, ulcerative colitis, H. pylori)
+- pulmonary: Lungs and respiratory system (COPD, asthma, pneumonia, pulmonary embolism, respiratory failure)
+- endocrine: Hormones and metabolism (diabetes, thyroid disorders, obesity, PCOS, metabolic syndrome)
+- renal: Kidneys and urinary system (chronic kidney disease, acute kidney injury, kidney stones, glomerulonephritis)
+- oncological: All cancers and malignant neoplasms (lung cancer, breast cancer, colorectal cancer, leukemia)
+- rheumatological: Autoimmune and rheumatic diseases (rheumatoid arthritis, lupus, gout, vasculitis, fibromyalgia)
+- psychiatric: Mental health conditions (depression, anxiety, bipolar disorder, schizophrenia, ADHD, PTSD)
+- musculoskeletal: Bones, muscles, tendons, ligaments (fractures, osteoarthritis, back pain, ACL injury, tendinitis)
+- dermatological: Skin, hair, nails (acne, psoriasis, eczema, atopic dermatitis, melanoma, rosacea)
+- infectious: Bacterial, viral, fungal infections (HIV, tuberculosis, hepatitis, sepsis, COVID-19, influenza)
+- immunological: Allergies and immune disorders (food allergies, allergic rhinitis, immunodeficiency, anaphylaxis)
+- hematological: Blood cells and clotting (anemia, thrombocytopenia, hemophilia, sickle cell disease, thrombosis)
+- nutritional: Nutrient deficiencies (vitamin D deficiency, B12 deficiency, iron deficiency, malnutrition)
+- toxicological: Poisoning and drug toxicity (drug toxicity, heavy metal poisoning, overdose, carbon monoxide poisoning)
+- parasitic: Parasitic infections (malaria, toxoplasmosis, giardiasis, schistosomiasis, helminth infections)
+- other: Conditions that don't fit standard categories or are multisystem
 
-CATEGORIES:
-{categories_str}
+KEY DISTINCTIONS:
+- Type 2 diabetes, diabetic neuropathy, PCOS → endocrine (metabolic/hormonal)
+- Diabetic foot ulcer, foot complications → infectious or dermatological (depending on context)
+- Osteoarthritis in rheumatological context (autoimmune) → rheumatological
+- Osteoarthritis as mechanical wear → musculoskeletal
+- Heart failure, hypertension, atrial fibrillation → cardiac
+- Depression, anxiety, bipolar disorder → psychiatric
+- H. pylori infection, sepsis → infectious (NOT digestive/cardiac - it's the infection itself)
 
-CONDITIONS:
+CONDITIONS TO CLASSIFY:
 {condition_list}
 
 Return ONLY JSON array:
@@ -433,10 +526,18 @@ if __name__ == "__main__":
                        help="Limit number of conditions to process")
     parser.add_argument("--batch-size", type=int, default=20,
                        help="Batch size for LLM calls (default: 20)")
+    parser.add_argument("--max-retries", type=int, default=3,
+                       help="Maximum retry attempts for failed LLM calls (default: 3)")
+    parser.add_argument("--retry-delay", type=float, default=2.0,
+                       help="Initial retry delay in seconds, uses exponential backoff (default: 2.0)")
 
     args = parser.parse_args()
 
-    categorizer = RotationLLMCategorizer(batch_size=args.batch_size)
+    categorizer = RotationLLMCategorizer(
+        batch_size=args.batch_size,
+        max_retries=args.max_retries,
+        retry_delay=args.retry_delay
+    )
 
     if args.interventions_only:
         stats = categorizer.categorize_interventions(args.intervention_limit)

@@ -293,7 +293,7 @@ class PubMedCollector:
         # Search for papers one by one and process immediately
         for seed_count in range(max_results):
             # Step 1: Get the next PubMed paper
-            pmid_list = self._search_papers_with_offset(query, min_year, 10, max_year, search_offset)
+            pmid_list = self._search_papers_with_offset(query, min_year, 1, max_year, search_offset)
 
             if not pmid_list:
                 # No more papers found - stopping search

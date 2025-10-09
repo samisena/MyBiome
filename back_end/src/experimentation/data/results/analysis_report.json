@@ -1,0 +1,43 @@
+{
+  "optimal_batch_size": 4,
+  "papers_per_hour": 85.87547696476172,
+  "improvement_vs_baseline": 9.101138370525025,
+  "all_results": [
+    {
+      "experiment_id": "EXP-001",
+      "batch_size": 4,
+      "total_time_seconds": 670.7386326789856,
+      "papers_per_hour": 85.87547696476172,
+      "error_count": 0,
+      "gpu_temp_max": 60.0,
+      "gpu_memory_peak_mb": 6643.0
+    },
+    {
+      "experiment_id": "EXP-002",
+      "batch_size": 8,
+      "total_time_seconds": 731.7834837436676,
+      "papers_per_hour": 78.71180653781519,
+      "error_count": 0,
+      "gpu_temp_max": 60.0,
+      "gpu_memory_peak_mb": 6643.0
+    },
+    {
+      "experiment_id": "EXP-003",
+      "batch_size": 12,
+      "total_time_seconds": 685.257321357727,
+      "papers_per_hour": 84.05601546273869,
+      "error_count": 0,
+      "gpu_temp_max": 61.0,
+      "gpu_memory_peak_mb": 6643.0
+    },
+    {
+      "experiment_id": "EXP-004",
+      "batch_size": 16,
+      "total_time_seconds": 699.7527453899384,
+      "papers_per_hour": 82.31478958743106,
+      "error_count": 0,
+      "gpu_temp_max": 61.0,
+      "gpu_memory_peak_mb": 6643.0
+    }
+  ]
+}

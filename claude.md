@@ -10,13 +10,25 @@ Automated biomedical research pipeline that collects research papers about healt
 ```bash
 conda activate venv
 
-# Run complete pipeline (10 papers per condition across 60 conditions)
+# Run single pipeline iteration (10 papers per condition across 60 conditions)
 python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10
+
+# Run continuous mode (infinite loop - restarts Phase 1 after Phase 3)
+python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous
+
+# Run limited iterations (e.g., 5 complete cycles)
+python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous --max-iterations 5
+
+# Custom delay between iterations (5 minutes = 300 seconds, default: 60s)
+python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous --iteration-delay 300
 
 # Resume interrupted session
 python -m back_end.src.orchestration.batch_medical_rotation --resume
 
-# Check status
+# Resume in continuous mode
+python -m back_end.src.orchestration.batch_medical_rotation --resume --continuous
+
+# Check status (shows iteration history in continuous mode)
 python -m back_end.src.orchestration.batch_medical_rotation --status
 ```
 
@@ -48,6 +60,8 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 - **Intervention Categories**: 13 categories (exercise, diet, supplement, medication, therapy, lifestyle, surgery, test, device, procedure, biologics, gene_therapy, emerging)
 - **Condition Categories**: 18 categories (cardiac, neurological, digestive, etc.)
 - **Batch Processing**: 20 items per LLM call (qwen3:14b)
+- **Retry Logic**: 3 automatic retries with exponential backoff (2s → 4s → 8s) for failed LLM calls
+- **Enhanced Prompts**: Detailed category descriptions with edge case handling (e.g., blood transfusion → procedure, NOT medication)
 - **Output**: All interventions and conditions categorized
 
 ### Phase 3.5: Hierarchical Semantic Normalization ✅
@@ -99,8 +113,16 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 
 ### Complete Workflow
 ```bash
-# Collection → Processing → Categorization → Normalization
+# Single iteration: Collection → Processing → Categorization → Normalization
 python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10
+
+# Continuous mode: Infinite loop (restarts Phase 1 after Phase 3)
+python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous
+
+# Limited iterations (e.g., 5 complete cycles)
+python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous --max-iterations 5
+
+# Resume from specific phase
 python -m back_end.src.orchestration.batch_medical_rotation --resume --start-phase processing
 ```
 
@@ -112,10 +134,11 @@ python -m back_end.src.orchestration.rotation_paper_collector diabetes --count 1
 # LLM processing only (Phase 2 - extracts WITHOUT categories)
 python -m back_end.src.orchestration.rotation_llm_processor diabetes --max-papers 50
 
-# Categorization only (Phase 2.5)
+# Categorization only (Phase 2.5 - with automatic retry logic)
 python -m back_end.src.orchestration.rotation_llm_categorization --interventions-only
 python -m back_end.src.orchestration.rotation_llm_categorization --conditions-only
 python -m back_end.src.orchestration.rotation_llm_categorization  # Both
+python -m back_end.src.orchestration.rotation_llm_categorization --max-retries 5 --retry-delay 3.0  # Custom retry settings
 
 # Hierarchical semantic normalization (Phase 3.5 - RECOMMENDED)
 python -m back_end.src.orchestration.rotation_semantic_normalizer "type 2 diabetes"  # Single
@@ -147,6 +170,8 @@ python evaluator.py
 - **PubMed API**: Primary paper source
 - **PMC & Unpaywall**: Fulltext retrieval
 - **Circuit Breaker Pattern**: Robust error handling
+- **Retry Logic**: Automatic retry with exponential backoff for LLM failures
+- **Continuous Mode**: Infinite loop execution for unattended multi-iteration data collection
 - **FAST_MODE**: Logging suppression for high-throughput (enabled by default)
 
 ---
@@ -236,17 +261,21 @@ Exports SQLite → JSON with Phase 3.5 hierarchical data, metadata, and top perf
 
 ### Categorization Architecture (October 2025) ✅
 **Previous**: Categorization during extraction (in prompt)
-**Current**: Separate Phase 2.5 after extraction
+**Current**: Separate Phase 2.5 after extraction with retry logic and enhanced prompts
 
 **Benefits**:
 - Separation of concerns (extraction vs classification)
 - Can re-categorize without re-extraction
 - Faster extraction (fewer tokens in prompt)
 - More accurate categorization with focused prompts
+- Automatic retry logic prevents pipeline stoppage
+- Enhanced prompts with edge case handling
 
 **Workflow**:
 1. **Phase 2**: Extract interventions WITHOUT categories → `intervention_category = NULL`
 2. **Phase 2.5**: LLM categorizes into 13 categories (batch of 20 items)
+   - **Retry Logic**: 3 attempts with exponential backoff (2s → 4s → 8s)
+   - **Enhanced Prompts**: Detailed category descriptions + edge cases (e.g., blood transfusion → procedure)
 3. **Phase 3.5**: Hierarchical semantic normalization
 
 ### Phase 3.5: Hierarchical Semantic Normalization (October 2025) ✅
@@ -263,6 +292,48 @@ Exports SQLite → JSON with Phase 3.5 hierarchical data, metadata, and top perf
 
 **Result**: Unified analysis showing "150 papers support vitamin D" instead of fragmented counts
 
+### Continuous Mode: Infinite Loop Execution (October 2025) ✅
+
+**Problem**: Manual pipeline re-runs required for large-scale data collection
+**Solution**: Continuous mode that automatically restarts Phase 1 after Phase 3 completion
+
+**Features**:
+- **Infinite loop**: Automatically restarts collection after semantic normalization completes
+- **Iteration tracking**: Full history of all completed iterations with timestamps and statistics
+- **Thermal protection**: Configurable delay between iterations (default: 60s) prevents GPU overheating
+- **Graceful shutdown**: Ctrl+C stops cleanly between iterations (won't interrupt mid-phase)
+- **Iteration limits**: Optional max iterations (unlimited by default)
+- **Resumable**: Can resume continuous mode from saved session
+- **Backward compatible**: Default behavior unchanged (single iteration)
+
+**Usage**:
+```bash
+# Infinite loop (runs until Ctrl+C)
+python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous
+
+# Limited iterations (e.g., 5 complete cycles)
+python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous --max-iterations 5
+
+# Custom delay (5 minutes between iterations)
+python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous --iteration-delay 300
+```
+
+**Iteration Flow**:
+1. Phase 1 → Phase 2 → Phase 2.5 → Phase 3 (complete)
+2. Save iteration statistics to history
+3. Reset phase flags and counters
+4. Wait `iteration_delay_seconds` (thermal protection)
+5. Increment iteration counter
+6. **Loop back to Phase 1** ↻
+7. Continue until max iterations reached or Ctrl+C
+
+**Benefits**:
+- Unattended data collection over days/weeks
+- Automatic expansion of research database
+- No manual intervention required
+- Full audit trail via iteration history
+- GPU thermal protection between cycles
+
 ---
 
 ## Intervention Taxonomy (13 Categories)
@@ -278,15 +349,20 @@ Exports SQLite → JSON with Phase 3.5 hierarchical data, metadata, and top perf
 | 7 | surgery | Surgical procedures | Laparoscopic surgery, cardiac surgery, bariatric surgery |
 | 8 | test | Medical tests and diagnostics | Blood tests, genetic testing, colonoscopy, imaging |
 | 9 | device | Medical devices and implants | Pacemakers, insulin pumps, CPAP machines, CGMs |
-| 10 | procedure | Non-surgical medical procedures | Endoscopy, dialysis, blood transfusion, radiation therapy |
+| 10 | procedure | Non-surgical medical procedures | Endoscopy, dialysis, **blood transfusion**, **fecal microbiota transplant**, radiation therapy, PRP injections |
 | 11 | biologics | Biological drugs | Monoclonal antibodies, vaccines, immunotherapies, insulin |
 | 12 | gene_therapy | Genetic and cellular interventions | CRISPR, CAR-T cell therapy, stem cell therapy |
 | 13 | emerging | Novel interventions | Digital therapeutics, precision medicine, AI-guided |
 
 **Key Distinctions**:
-- medication vs biologics: Small molecules vs biological drugs
-- surgery vs procedure: Surgical operations vs non-surgical procedures
-- device vs medication: Hardware/implants vs pharmaceuticals
+- **medication vs biologics**: Small molecules vs biological drugs
+- **surgery vs procedure**: Surgical operations vs non-surgical procedures
+- **device vs medication**: Hardware/implants vs pharmaceuticals
+- **Edge Cases** (fixed with enhanced prompts):
+  - Blood transfusion → **procedure** (NOT medication/biologics)
+  - Fecal microbiota transplant → **procedure** (NOT supplement)
+  - Probiotics pills → **supplement**; fecal transplant → **procedure**
+  - Insulin, vaccines → **biologics** (NOT medication)
 
 ---
 
@@ -370,13 +446,15 @@ Located in `back_end/src/data_mining/`:
 - Run tests: Check test files in `back_end/testing/`
 
 **Common Issues**:
-- GPU overheating: Check thermal status, wait for cooling
-- LLM timeout: Increase timeout in config
+- GPU overheating: Check thermal status, wait for cooling (or use `--iteration-delay` in continuous mode)
+- LLM timeout: Increase timeout in config or use automatic retry logic (`--max-retries`)
+- LLM categorization failures: Retry logic now handles transient failures automatically
 - Database locked: Ensure no concurrent processes
 - Missing dependencies: `conda activate venv`, check Ollama models
+- Pipeline stops during Phase 2.5: Automatic retry logic (3 attempts) prevents stoppage
 
 ---
 
 *Last Updated: October 8, 2025*
-*Architecture: Single-model (qwen3:14b)*
+*Architecture: Single-model (qwen3:14b) with continuous mode and automatic retry logic*
 *Status: Production Ready ✅*

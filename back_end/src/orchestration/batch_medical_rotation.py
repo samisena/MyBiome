@@ -3,15 +3,15 @@
 Batch Medical Rotation Pipeline - Optimized Orchestrator
 
 Simplified batch-oriented pipeline that processes all 60 medical conditions
-in four distinct phases: collection → processing → categorization → canonical grouping.
+in four distinct phases: collection → processing → semantic normalization → group categorization.
 This replaces the complex condition-by-condition approach with an efficient
 batch processing workflow.
 
 Pipeline Flow:
 1. BATCH COLLECTION: Collect N papers for all 60 conditions in parallel
-2. BATCH PROCESSING: Process all papers with single LLM (qwen2.5:14b) - 2x faster!
-3. CATEGORIZATION: Classify interventions and conditions using focused LLM prompts
-4. CANONICAL GROUPING: Cross-paper semantic merging (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
+2. BATCH PROCESSING: Process all papers with single LLM (qwen3:14b) - 2x faster!
+3. SEMANTIC NORMALIZATION: Cross-paper semantic merging (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
+4. GROUP CATEGORIZATION: Classify canonical groups (not individual interventions) using semantic context
 
 Features:
 - 4 clear phases with natural breakpoints for recovery
@@ -22,17 +22,33 @@ Features:
 - Simple session management with phase-level recovery
 - Quality gates between phases
 - Comprehensive progress tracking
+- **Continuous mode**: Infinite loop that restarts Phase 1 after Phase 3 completion
+- **Iteration tracking**: Full history of all completed iterations with statistics
+- **Thermal protection**: Configurable delay between iterations
 
 Architecture Changes (2025-10):
-- Switched from dual-model (gemma2:9b + qwen2.5:14b) to single-model (qwen2.5:14b)
+- Switched from dual-model (gemma2:9b + qwen2.5:14b) to single-model (qwen3:14b)
 - Eliminated Phase 2 consensus building complexity
-- Separated categorization from extraction for simpler, more reliable prompts
+- Moved categorization AFTER semantic normalization (Phase 2.5 → Phase 3.5)
+- Group-based categorization: categorize semantic groups instead of individual interventions
+- 80% reduction in LLM calls for categorization (10,000 interventions → ~2,000 groups)
+- Better semantic context: group name + member names inform categorization
 - Preserved Qwen's superior extraction detail
 - 2x faster processing with simpler error handling
+- Added continuous mode for unattended multi-iteration data collection
 
 Usage:
-    # Run complete batch pipeline
+    # Run single iteration
     python batch_medical_rotation.py --papers-per-condition 10
+
+    # Run continuous mode (infinite loop until Ctrl+C)
+    python batch_medical_rotation.py --papers-per-condition 10 --continuous
+
+    # Run limited iterations (e.g., 5 complete cycles)
+    python batch_medical_rotation.py --papers-per-condition 10 --continuous --max-iterations 5
+
+    # Custom delay between iterations (5 minutes)
+    python batch_medical_rotation.py --papers-per-condition 10 --continuous --iteration-delay 300
 
     # Resume from specific phase
     python batch_medical_rotation.py --resume --start-phase categorization
@@ -53,7 +69,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any, Tuple
 from enum import Enum
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 # Configure Ollama for optimal GPU usage (95% VRAM with RAM offload)
 os.environ.setdefault("OLLAMA_NUM_GPU_LAYERS", "35")
@@ -70,8 +86,8 @@ try:
     from ..data.config import config, setup_logging
     from .rotation_paper_collector import RotationPaperCollector, BatchCollectionResult
     from .rotation_llm_processor import RotationLLMProcessor
-    from .rotation_llm_categorization import RotationLLMCategorizer
     from .rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
+    from .rotation_group_categorization import RotationGroupCategorizer
 except ImportError:
     # Fallback for standalone execution
     import sys
@@ -80,8 +96,8 @@ except ImportError:
     from back_end.src.data.config import config, setup_logging
     from back_end.src.orchestration.rotation_paper_collector import RotationPaperCollector, BatchCollectionResult
     from back_end.src.orchestration.rotation_llm_processor import RotationLLMProcessor
-    from back_end.src.orchestration.rotation_llm_categorization import RotationLLMCategorizer
     from back_end.src.orchestration.rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
+    from back_end.src.orchestration.rotation_group_categorization import RotationGroupCategorizer
 
 logger = setup_logging(__name__, 'batch_medical_rotation.log')
 
@@ -90,8 +106,8 @@ class BatchPhase(Enum):
     """Pipeline phases for batch processing."""
     COLLECTION = "collection"
     PROCESSING = "processing"
-    CATEGORIZATION = "categorization"
-    CANONICAL_GROUPING = "canonical_grouping"
+    SEMANTIC_NORMALIZATION = "semantic_normalization"  # Phase 3 (formerly CANONICAL_GROUPING)
+    GROUP_CATEGORIZATION = "group_categorization"      # Phase 3.5 (NEW - formerly CATEGORIZATION)
     COMPLETED = "completed"
 
 
@@ -107,22 +123,31 @@ class BatchSession:
     # Phase completion tracking
     collection_completed: bool = False
     processing_completed: bool = False
-    categorization_completed: bool = False
-    canonical_grouping_completed: bool = False
+    semantic_normalization_completed: bool = False  # Phase 3 (formerly canonical_grouping_completed)
+    group_categorization_completed: bool = False     # Phase 3.5 (NEW - formerly categorization_completed)
 
-    # Statistics
+    # Statistics (current iteration)
     total_papers_collected: int = 0
     total_papers_processed: int = 0
     total_interventions_extracted: int = 0
-    total_interventions_categorized: int = 0
-    total_conditions_categorized: int = 0
-    total_canonical_entities_created: int = 0
+    total_canonical_groups_created: int = 0         # Phase 3
+    total_groups_categorized: int = 0               # Phase 3.5
+    total_interventions_categorized: int = 0        # Phase 3.5 (via propagation)
+    total_orphans_categorized: int = 0              # Phase 3.5 (fallback)
+
+    # Continuous mode settings
+    continuous_mode: bool = False
+    max_iterations: Optional[int] = None
+    iteration_delay_seconds: float = 60.0
+
+    # Iteration history (tracks each completed iteration)
+    iteration_history: List[Dict[str, Any]] = field(default_factory=list)
 
     # Phase results
     collection_result: Optional[Dict[str, Any]] = None
     processing_result: Optional[Dict[str, Any]] = None
-    categorization_result: Optional[Dict[str, Any]] = None
-    canonical_grouping_result: Optional[Dict[str, Any]] = None
+    semantic_normalization_result: Optional[Dict[str, Any]] = None  # Phase 3
+    group_categorization_result: Optional[Dict[str, Any]] = None     # Phase 3.5
 
     def is_completed(self) -> bool:
         """Check if entire pipeline is completed."""
@@ -140,8 +165,8 @@ class BatchMedicalRotationPipeline:
         # Initialize components
         self.paper_collector = RotationPaperCollector()
         self.llm_processor = RotationLLMProcessor()
-        self.categorizer = None  # Lazy loaded
         self.dedup_integrator = RotationSemanticGroupingIntegrator()
+        self.group_categorizer = None  # Lazy loaded (Phase 3.5)
 
         # Control flags
         self.shutdown_requested = False
@@ -161,7 +186,10 @@ class BatchMedicalRotationPipeline:
         logger.info(f"Received signal {signum}, initiating graceful shutdown...")
         self.shutdown_requested = True
 
-    def create_new_session(self, papers_per_condition: int) -> BatchSession:
+    def create_new_session(self, papers_per_condition: int,
+                          continuous_mode: bool = False,
+                          max_iterations: Optional[int] = None,
+                          iteration_delay: float = 60.0) -> BatchSession:
         """Create a new batch session."""
         session_id = f"batch_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 
@@ -170,13 +198,18 @@ class BatchMedicalRotationPipeline:
             papers_per_condition=papers_per_condition,
             current_phase=BatchPhase.COLLECTION,
             iteration_number=1,
-            start_time=datetime.now().isoformat()
+            start_time=datetime.now().isoformat(),
+            continuous_mode=continuous_mode,
+            max_iterations=max_iterations,
+            iteration_delay_seconds=iteration_delay
         )
 
         self.current_session = session
         self._save_session()
 
         logger.info(f"Created new batch session: {session_id}")
+        if continuous_mode:
+            logger.info(f"Continuous mode enabled: max_iterations={max_iterations or 'unlimited'}, delay={iteration_delay}s")
         return session
 
     def load_existing_session(self) -> Optional[BatchSession]:
@@ -196,18 +229,28 @@ class BatchMedicalRotationPipeline:
                 start_time=data['start_time'],
                 collection_completed=data.get('collection_completed', False),
                 processing_completed=data.get('processing_completed', False),
+                categorization_completed=data.get('categorization_completed', False),
                 canonical_grouping_completed=data.get('canonical_grouping_completed', False),
                 total_papers_collected=data.get('total_papers_collected', 0),
                 total_papers_processed=data.get('total_papers_processed', 0),
                 total_interventions_extracted=data.get('total_interventions_extracted', 0),
-                total_duplicates_removed=data.get('total_duplicates_removed', 0),
+                total_interventions_categorized=data.get('total_interventions_categorized', 0),
+                total_conditions_categorized=data.get('total_conditions_categorized', 0),
+                total_canonical_entities_created=data.get('total_canonical_entities_created', 0),
+                continuous_mode=data.get('continuous_mode', False),
+                max_iterations=data.get('max_iterations'),
+                iteration_delay_seconds=data.get('iteration_delay_seconds', 60.0),
+                iteration_history=data.get('iteration_history', []),
                 collection_result=data.get('collection_result'),
                 processing_result=data.get('processing_result'),
+                categorization_result=data.get('categorization_result'),
                 canonical_grouping_result=data.get('canonical_grouping_result')
             )
 
             self.current_session = session
             logger.info(f"Loaded existing session: {session.session_id}")
+            if session.continuous_mode:
+                logger.info(f"Continuous mode: max_iterations={session.max_iterations or 'unlimited'}, iteration={session.iteration_number}")
             return session
 
         except Exception as e:
@@ -235,13 +278,21 @@ class BatchMedicalRotationPipeline:
                 'start_time': self.current_session.start_time,
                 'collection_completed': self.current_session.collection_completed,
                 'processing_completed': self.current_session.processing_completed,
+                'categorization_completed': self.current_session.categorization_completed,
                 'canonical_grouping_completed': self.current_session.canonical_grouping_completed,
                 'total_papers_collected': self.current_session.total_papers_collected,
                 'total_papers_processed': self.current_session.total_papers_processed,
                 'total_interventions_extracted': self.current_session.total_interventions_extracted,
-                'total_duplicates_removed': self.current_session.total_duplicates_removed,
+                'total_interventions_categorized': self.current_session.total_interventions_categorized,
+                'total_conditions_categorized': self.current_session.total_conditions_categorized,
+                'total_canonical_entities_created': self.current_session.total_canonical_entities_created,
+                'continuous_mode': self.current_session.continuous_mode,
+                'max_iterations': self.current_session.max_iterations,
+                'iteration_delay_seconds': self.current_session.iteration_delay_seconds,
+                'iteration_history': self.current_session.iteration_history,
                 'collection_result': self.current_session.collection_result,
                 'processing_result': self.current_session.processing_result,
+                'categorization_result': self.current_session.categorization_result,
                 'canonical_grouping_result': self.current_session.canonical_grouping_result
             }
 
@@ -271,7 +322,10 @@ class BatchMedicalRotationPipeline:
 
     def run_batch_pipeline(self, papers_per_condition: int = 10,
                           resume: bool = False,
-                          start_phase: Optional[str] = None) -> Dict[str, Any]:
+                          start_phase: Optional[str] = None,
+                          continuous_mode: bool = False,
+                          max_iterations: Optional[int] = None,
+                          iteration_delay: float = 60.0) -> Dict[str, Any]:
         """
         Run the complete batch pipeline.
 
@@ -279,6 +333,9 @@ class BatchMedicalRotationPipeline:
             papers_per_condition: Number of papers to collect per condition
             resume: Whether to resume existing session
             start_phase: Specific phase to start from (collection, processing, categorization, canonical_grouping)
+            continuous_mode: Enable infinite loop mode (restarts Phase 1 after Phase 3)
+            max_iterations: Maximum iterations to run (None = unlimited, only applies in continuous mode)
+            iteration_delay: Delay in seconds between iterations (default: 60s)
 
         Returns:
             Pipeline execution summary
@@ -289,11 +346,27 @@ class BatchMedicalRotationPipeline:
                 session = self.load_existing_session()
                 if not session:
                     logger.warning("No existing session found, creating new session")
-                    session = self.create_new_session(papers_per_condition)
+                    session = self.create_new_session(
+                        papers_per_condition,
+                        continuous_mode=continuous_mode,
+                        max_iterations=max_iterations,
+                        iteration_delay=iteration_delay
+                    )
                 else:
                     logger.info(f"Resumed session: {session.session_id}")
+                    # Update continuous mode settings if provided
+                    if continuous_mode and not session.continuous_mode:
+                        session.continuous_mode = True
+                        session.max_iterations = max_iterations
+                        session.iteration_delay_seconds = iteration_delay
+                        logger.info("Enabled continuous mode for resumed session")
             else:
-                session = self.create_new_session(papers_per_condition)
+                session = self.create_new_session(
+                    papers_per_condition,
+                    continuous_mode=continuous_mode,
+                    max_iterations=max_iterations,
+                    iteration_delay=iteration_delay
+                )
 
             # Override start phase if specified
             if start_phase:
@@ -310,106 +383,173 @@ class BatchMedicalRotationPipeline:
             logger.info(f"Session: {session.session_id}")
             logger.info(f"Papers per condition: {session.papers_per_condition}")
             logger.info(f"Starting phase: {session.current_phase.value}")
+            logger.info(f"Continuous mode: {'ENABLED' if session.continuous_mode else 'DISABLED'}")
+            if session.continuous_mode:
+                logger.info(f"Max iterations: {session.max_iterations or 'unlimited'}")
+                logger.info(f"Iteration delay: {session.iteration_delay_seconds}s")
             logger.info(f"Total conditions: 60 (12 specialties × 5 conditions)")
 
-            # Execute pipeline phases
+            # Execute pipeline phases (infinite loop if continuous_mode enabled)
             pipeline_start = time.time()
 
-            # Phase 1: Batch Collection
-            if session.current_phase == BatchPhase.COLLECTION and not session.collection_completed:
-                logger.info("\n" + "="*40)
-                logger.info("PHASE 1: BATCH COLLECTION")
-                logger.info("="*40)
+            # Iteration loop (runs once if continuous_mode=False, infinite if True)
+            while True:
+                # Check iteration limit
+                if session.continuous_mode and session.max_iterations is not None:
+                    if session.iteration_number > session.max_iterations:
+                        logger.info(f"Reached max iterations ({session.max_iterations}), stopping")
+                        break
 
-                collection_result = self._run_collection_phase(session)
-                if not collection_result['success']:
-                    return collection_result
+                # Check shutdown request
+                if self.shutdown_requested:
+                    logger.info("Shutdown requested, stopping after current phase")
+                    break
 
-                session.collection_completed = True
-                session.current_phase = BatchPhase.PROCESSING
-                self._save_session()
+                # Log iteration start
+                if session.continuous_mode:
+                    logger.info("\n" + "="*60)
+                    logger.info(f"ITERATION {session.iteration_number} STARTING")
+                    logger.info("="*60)
 
-            # Phase 2: Batch Processing
-            if session.current_phase == BatchPhase.PROCESSING and not session.processing_completed:
-                logger.info("\n" + "="*40)
-                logger.info("PHASE 2: BATCH PROCESSING")
-                logger.info("="*40)
+                iteration_start = time.time()
 
-                processing_result = self._run_processing_phase(session)
-                if not processing_result['success']:
-                    return processing_result
+                # Phase 1: Batch Collection
+                if session.current_phase == BatchPhase.COLLECTION and not session.collection_completed:
+                    logger.info("\n" + "="*40)
+                    logger.info("PHASE 1: BATCH COLLECTION")
+                    logger.info("="*40)
 
-                session.processing_completed = True
-                session.current_phase = BatchPhase.CATEGORIZATION
-                self._save_session()
+                    collection_result = self._run_collection_phase(session)
+                    if not collection_result['success']:
+                        return collection_result
 
-            # Phase 2.5: Categorization
-            if session.current_phase == BatchPhase.CATEGORIZATION and not session.categorization_completed:
-                logger.info("\n" + "="*40)
-                logger.info("PHASE 2.5: CATEGORIZATION")
-                logger.info("="*40)
+                    session.collection_completed = True
+                    session.current_phase = BatchPhase.PROCESSING
+                    self._save_session()
 
-                categorization_result = self._run_categorization_phase(session)
-                if not categorization_result['success']:
-                    return categorization_result
+                # Phase 2: Batch Processing
+                if session.current_phase == BatchPhase.PROCESSING and not session.processing_completed:
+                    logger.info("\n" + "="*40)
+                    logger.info("PHASE 2: BATCH PROCESSING")
+                    logger.info("="*40)
 
-                session.categorization_completed = True
-                session.current_phase = BatchPhase.CANONICAL_GROUPING
-                self._save_session()
+                    processing_result = self._run_processing_phase(session)
+                    if not processing_result['success']:
+                        return processing_result
 
-            # Phase 3: Canonical Name Grouping
-            if session.current_phase == BatchPhase.CANONICAL_GROUPING and not session.canonical_grouping_completed:
-                logger.info("\n" + "="*40)
-                logger.info("PHASE 3: CANONICAL NAME GROUPING")
-                logger.info("="*40)
+                    session.processing_completed = True
+                    session.current_phase = BatchPhase.SEMANTIC_NORMALIZATION
+                    self._save_session()
 
-                canonical_grouping_result = self._run_canonical_grouping_phase(session)
-                if not canonical_grouping_result['success']:
-                    return canonical_grouping_result
+                # Phase 3: Semantic Normalization (formerly Canonical Grouping)
+                if session.current_phase == BatchPhase.SEMANTIC_NORMALIZATION and not session.semantic_normalization_completed:
+                    logger.info("\n" + "="*40)
+                    logger.info("PHASE 3: SEMANTIC NORMALIZATION")
+                    logger.info("="*40)
 
-                session.canonical_grouping_completed = True
-                session.current_phase = BatchPhase.COMPLETED
-                self._save_session()
+                    semantic_normalization_result = self._run_semantic_normalization_phase(session)
+                    if not semantic_normalization_result['success']:
+                        return semantic_normalization_result
 
-            # Pipeline completed
-            total_time = time.time() - pipeline_start
+                    session.semantic_normalization_completed = True
+                    session.current_phase = BatchPhase.GROUP_CATEGORIZATION
+                    self._save_session()
 
-            logger.info("\n" + "="*60)
-            logger.info("BATCH PIPELINE COMPLETED SUCCESSFULLY")
-            logger.info("="*60)
-            logger.info(f"Total time: {total_time:.1f} seconds ({total_time/60:.1f} minutes)")
-            logger.info(f"Papers collected: {session.total_papers_collected}")
-            logger.info(f"Papers processed: {session.total_papers_processed}")
-            logger.info(f"Interventions extracted: {session.total_interventions_extracted}")
-            logger.info(f"Interventions categorized: {session.total_interventions_categorized}")
-            logger.info(f"Conditions categorized: {session.total_conditions_categorized}")
-            logger.info(f"Canonical entities created: {session.total_canonical_entities_created}")
+                # Phase 3.5: Group-Based Categorization (NEW - moved from Phase 2.5)
+                if session.current_phase == BatchPhase.GROUP_CATEGORIZATION and not session.group_categorization_completed:
+                    logger.info("\n" + "="*40)
+                    logger.info("PHASE 3.5: GROUP-BASED CATEGORIZATION")
+                    logger.info("="*40)
 
-            # Prepare for next iteration
-            session.iteration_number += 1
-            session.current_phase = BatchPhase.COLLECTION
-            session.collection_completed = False
-            session.processing_completed = False
-            session.categorization_completed = False
-            session.canonical_grouping_completed = False
-            self._save_session()
+                    group_categorization_result = self._run_group_categorization_phase(session)
+                    if not group_categorization_result['success']:
+                        return group_categorization_result
 
-            logger.info(f"\nPrepared for iteration {session.iteration_number}")
+                    session.group_categorization_completed = True
+                    session.current_phase = BatchPhase.COMPLETED
+                    self._save_session()
 
-            return {
-                'success': True,
-                'session_id': session.session_id,
-                'iteration_completed': session.iteration_number - 1,
-                'total_time_seconds': total_time,
-                'statistics': {
+                # Iteration completed
+                iteration_time = time.time() - iteration_start
+
+                logger.info("\n" + "="*60)
+                logger.info(f"ITERATION {session.iteration_number} COMPLETED SUCCESSFULLY")
+                logger.info("="*60)
+                logger.info(f"Iteration time: {iteration_time:.1f} seconds ({iteration_time/60:.1f} minutes)")
+                logger.info(f"Papers collected: {session.total_papers_collected}")
+                logger.info(f"Papers processed: {session.total_papers_processed}")
+                logger.info(f"Interventions extracted: {session.total_interventions_extracted}")
+                logger.info(f"Canonical groups created: {session.total_canonical_groups_created}")
+                logger.info(f"Groups categorized: {session.total_groups_categorized}")
+                logger.info(f"Interventions categorized: {session.total_interventions_categorized}")
+                logger.info(f"Orphans categorized: {session.total_orphans_categorized}")
+
+                # Save iteration history
+                iteration_summary = {
+                    'iteration_number': session.iteration_number,
+                    'completion_time': datetime.now().isoformat(),
+                    'iteration_duration_seconds': iteration_time,
                     'papers_collected': session.total_papers_collected,
                     'papers_processed': session.total_papers_processed,
                     'interventions_extracted': session.total_interventions_extracted,
+                    'canonical_groups_created': session.total_canonical_groups_created,
+                    'groups_categorized': session.total_groups_categorized,
                     'interventions_categorized': session.total_interventions_categorized,
-                    'conditions_categorized': session.total_conditions_categorized,
-                    'canonical_entities_created': session.total_canonical_entities_created
+                    'orphans_categorized': session.total_orphans_categorized
                 }
-            }
+                session.iteration_history.append(iteration_summary)
+
+                # Check if we should continue or exit
+                if not session.continuous_mode:
+                    # Single iteration mode - exit after first completion
+                    total_time = time.time() - pipeline_start
+                    self._save_session()
+
+                    return {
+                        'success': True,
+                        'session_id': session.session_id,
+                        'iteration_completed': session.iteration_number,
+                        'total_time_seconds': total_time,
+                        'statistics': {
+                            'papers_collected': session.total_papers_collected,
+                            'papers_processed': session.total_papers_processed,
+                            'interventions_extracted': session.total_interventions_extracted,
+                            'canonical_groups_created': session.total_canonical_groups_created,
+                            'groups_categorized': session.total_groups_categorized,
+                            'interventions_categorized': session.total_interventions_categorized,
+                            'orphans_categorized': session.total_orphans_categorized
+                        }
+                    }
+
+                # Continuous mode - prepare for next iteration
+                logger.info(f"\nPreparing for iteration {session.iteration_number + 1}...")
+
+                # Reset for next iteration
+                session.iteration_number += 1
+                session.current_phase = BatchPhase.COLLECTION
+                session.collection_completed = False
+                session.processing_completed = False
+                session.semantic_normalization_completed = False
+                session.group_categorization_completed = False
+
+                # Reset iteration statistics (cumulative tracking happens in iteration_history)
+                session.total_papers_collected = 0
+                session.total_papers_processed = 0
+                session.total_interventions_extracted = 0
+                session.total_canonical_groups_created = 0
+                session.total_groups_categorized = 0
+                session.total_interventions_categorized = 0
+                session.total_orphans_categorized = 0
+
+                self._save_session()
+
+                # Delay before next iteration (thermal protection)
+                if session.iteration_delay_seconds > 0:
+                    logger.info(f"Waiting {session.iteration_delay_seconds}s before next iteration (thermal protection)...")
+                    time.sleep(session.iteration_delay_seconds)
+
+                # Continue to next iteration
+                continue
 
         except Exception as e:
             logger.error(f"Batch pipeline failed: {e}")
@@ -511,92 +651,114 @@ class BatchMedicalRotationPipeline:
             logger.error(f"Processing phase failed: {e}")
             return {'success': False, 'error': str(e), 'phase': 'processing'}
 
-    def _run_categorization_phase(self, session: BatchSession) -> Dict[str, Any]:
-        """Run the categorization phase for interventions and conditions."""
-        logger.info("Categorizing interventions and conditions...")
+    def _run_semantic_normalization_phase(self, session: BatchSession) -> Dict[str, Any]:
+        """
+        Run Phase 3: Semantic normalization (cross-paper canonical grouping).
+
+        Creates canonical groups that merge semantically equivalent interventions.
+        Example: "vitamin D" = "Vitamin D3" = "cholecalciferol" → group "vitamin D"
+        """
+        logger.info("Running Phase 3: Semantic normalization...")
 
         try:
             if self.shutdown_requested:
-                return {'success': False, 'error': 'Shutdown requested during categorization'}
-
-            # Lazy load categorizer
-            if self.categorizer is None:
-                self.categorizer = RotationLLMCategorizer(batch_size=20)
-
-            # Categorize all interventions and conditions
-            categorization_result = self.categorizer.categorize_all()
-
-            # Update session with results
-            session.categorization_result = categorization_result
-            session.total_interventions_categorized = categorization_result['interventions']['success']
-            session.total_conditions_categorized = categorization_result['conditions']['success']
-
-            intervention_success = categorization_result['interventions']['success']
-            intervention_total = categorization_result['interventions']['total']
-            condition_success = categorization_result['conditions']['success']
-            condition_total = categorization_result['conditions']['total']
-
-            logger.info("[SUCCESS] Categorization phase completed successfully")
-            logger.info(f"  Interventions categorized: {intervention_success}/{intervention_total}")
-            logger.info(f"  Conditions categorized: {condition_success}/{condition_total}")
-
-            return {'success': True, 'result': session.categorization_result}
-
-        except Exception as e:
-            logger.error(f"Categorization phase failed: {e}")
-            return {'success': False, 'error': str(e), 'phase': 'categorization'}
-
-    def _run_canonical_grouping_phase(self, session: BatchSession) -> Dict[str, Any]:
-        """
-        Run Phase 3: Cross-paper canonical name grouping.
-
-        With single-model extraction (qwen2.5:14b only), same-paper duplicates cannot exist.
-        This phase ONLY performs cross-paper semantic analysis to group semantically equivalent
-        interventions under canonical names (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol").
-        """
-        logger.info("Running Phase 3: Cross-paper canonical name grouping...")
-
-        try:
-            if self.shutdown_requested:
-                return {'success': False, 'error': 'Shutdown requested during canonical grouping'}
+                return {'success': False, 'error': 'Shutdown requested during semantic normalization'}
 
             # Run semantic grouping
             grouping_result = self.dedup_integrator.group_all_data_semantically_batch()
 
             # Update session with results
             total_processed = grouping_result.get('interventions_processed', 0)
-            canonical_entities_created = grouping_result.get('canonical_entities_created', 0)
+            canonical_groups_created = grouping_result.get('canonical_entities_created', 0)
 
-            session.canonical_grouping_result = {
+            session.semantic_normalization_result = {
                 'total_interventions_processed': total_processed,
-                'canonical_entities_created': canonical_entities_created,
+                'canonical_groups_created': canonical_groups_created,
                 'interventions_grouped': grouping_result.get('total_merged', 0),
                 'processing_time_seconds': grouping_result.get('processing_time_seconds', 0),
                 'semantic_groups_found': grouping_result.get('duplicate_groups_found', 0),
                 'method': grouping_result.get('method', 'llm_semantic_grouping')
             }
 
-            session.total_canonical_entities_created = canonical_entities_created
+            session.total_canonical_groups_created = canonical_groups_created
 
             if not grouping_result['success']:
-                logger.error(f"Canonical grouping phase failed: {grouping_result.get('error', 'Unknown error')}")
+                logger.error(f"Semantic normalization failed: {grouping_result.get('error', 'Unknown error')}")
                 return {
                     'success': False,
-                    'error': f"Canonical grouping failed: {grouping_result.get('error', 'Unknown error')}",
-                    'phase': 'canonical_grouping'
+                    'error': f"Semantic normalization failed: {grouping_result.get('error', 'Unknown error')}",
+                    'phase': 'semantic_normalization'
                 }
 
-            logger.info("[SUCCESS] Canonical name grouping phase completed successfully")
+            logger.info("[SUCCESS] Semantic normalization completed successfully")
             logger.info(f"  Interventions analyzed: {total_processed}")
-            logger.info(f"  Canonical entities created: {canonical_entities_created}")
+            logger.info(f"  Canonical groups created: {canonical_groups_created}")
             logger.info(f"  Semantic groups found: {grouping_result.get('duplicate_groups_found', 0)}")
-            logger.info(f"  Method: {grouping_result.get('method', 'llm_semantic_grouping')}")
 
-            return {'success': True, 'result': session.canonical_grouping_result}
+            return {'success': True, 'result': session.semantic_normalization_result}
 
         except Exception as e:
-            logger.error(f"Canonical grouping phase failed: {e}")
-            return {'success': False, 'error': str(e), 'phase': 'canonical_grouping'}
+            logger.error(f"Semantic normalization failed: {e}")
+            return {'success': False, 'error': str(e), 'phase': 'semantic_normalization'}
+
+    def _run_group_categorization_phase(self, session: BatchSession) -> Dict[str, Any]:
+        """
+        Run Phase 3.5: Group-based categorization (NEW).
+
+        Categorizes canonical groups (not individual interventions) using semantic context.
+        Then propagates categories to interventions via UPDATE-JOIN (Option A).
+        """
+        logger.info("Running Phase 3.5: Group-based categorization...")
+
+        try:
+            if self.shutdown_requested:
+                return {'success': False, 'error': 'Shutdown requested during group categorization'}
+
+            # Lazy load group categorizer
+            if not hasattr(self, 'group_categorizer') or self.group_categorizer is None:
+                self.group_categorizer = RotationGroupCategorizer(
+                    db_path=config.db_path,
+                    batch_size=20,
+                    include_members=True,
+                    validate_results=True
+                )
+
+            # Run group categorization
+            group_cat_result = self.group_categorizer.run()
+
+            # Update session with results
+            session.group_categorization_result = {
+                'groups_categorized': group_cat_result['group_categorization']['processed'],
+                'groups_failed': group_cat_result['group_categorization']['failed'],
+                'interventions_updated': group_cat_result['propagation']['updated'],
+                'orphans_found': group_cat_result['propagation']['orphans'],
+                'orphans_categorized': group_cat_result['orphan_categorization']['processed'],
+                'total_llm_calls': group_cat_result['performance']['total_llm_calls'],
+                'elapsed_time_seconds': group_cat_result['elapsed_time_seconds'],
+                'validation_passed': group_cat_result.get('validation', {}).get('all_passed', False)
+            }
+
+            session.total_groups_categorized = group_cat_result['group_categorization']['processed']
+            session.total_interventions_categorized = group_cat_result['propagation']['updated']
+            session.total_orphans_categorized = group_cat_result['orphan_categorization']['processed']
+
+            logger.info("[SUCCESS] Group-based categorization completed successfully")
+            logger.info(f"  Groups categorized: {session.total_groups_categorized}")
+            logger.info(f"  Interventions updated: {session.total_interventions_categorized}")
+            logger.info(f"  Orphans categorized: {session.total_orphans_categorized}")
+            logger.info(f"  LLM calls: {group_cat_result['performance']['total_llm_calls']}")
+
+            if group_cat_result.get('validation'):
+                validation_passed = group_cat_result['validation']['all_passed']
+                logger.info(f"  Validation: {'PASSED' if validation_passed else 'FAILED'}")
+
+            return {'success': True, 'result': session.group_categorization_result}
+
+        except Exception as e:
+            logger.error(f"Group categorization failed: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            return {'success': False, 'error': str(e), 'phase': 'group_categorization'}
 
     def get_status(self) -> Dict[str, Any]:
         """Get current pipeline status."""
@@ -614,23 +776,34 @@ class BatchMedicalRotationPipeline:
             'iteration_number': session.iteration_number,
             'current_phase': session.current_phase.value,
             'papers_per_condition': session.papers_per_condition,
+            'continuous_mode': {
+                'enabled': session.continuous_mode,
+                'max_iterations': session.max_iterations,
+                'iteration_delay_seconds': session.iteration_delay_seconds,
+                'completed_iterations': len(session.iteration_history)
+            },
             'progress': {
                 'collection_completed': session.collection_completed,
                 'processing_completed': session.processing_completed,
-                'canonical_grouping_completed': session.canonical_grouping_completed,
+                'semantic_normalization_completed': session.semantic_normalization_completed,
+                'group_categorization_completed': session.group_categorization_completed,
                 'pipeline_completed': session.is_completed()
             },
             'statistics': {
                 'papers_collected': session.total_papers_collected,
                 'papers_processed': session.total_papers_processed,
                 'interventions_extracted': session.total_interventions_extracted,
-                'canonical_entities_created': session.total_canonical_entities_created
+                'canonical_groups_created': session.total_canonical_groups_created,
+                'groups_categorized': session.total_groups_categorized,
+                'interventions_categorized': session.total_interventions_categorized,
+                'orphans_categorized': session.total_orphans_categorized
             },
+            'iteration_history': session.iteration_history,
             'phase_results': {
                 'collection': session.collection_result,
                 'processing': session.processing_result,
-                'categorization': session.categorization_result,
-                'canonical_grouping': session.canonical_grouping_result
+                'semantic_normalization': session.semantic_normalization_result,
+                'group_categorization': session.group_categorization_result
             }
         }
 
@@ -642,11 +815,23 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Run complete batch pipeline
+  # Run single iteration
   python batch_medical_rotation.py --papers-per-condition 10
+
+  # Run continuous mode (infinite loop until Ctrl+C)
+  python batch_medical_rotation.py --papers-per-condition 10 --continuous
+
+  # Run limited iterations (e.g., 5 complete cycles)
+  python batch_medical_rotation.py --papers-per-condition 10 --continuous --max-iterations 5
+
+  # Custom delay between iterations (5 minutes = 300 seconds)
+  python batch_medical_rotation.py --papers-per-condition 10 --continuous --iteration-delay 300
 
   # Resume existing session
   python batch_medical_rotation.py --resume
+
+  # Resume in continuous mode
+  python batch_medical_rotation.py --resume --continuous
 
   # Resume from specific phase
   python batch_medical_rotation.py --resume --start-phase processing
@@ -662,6 +847,12 @@ Examples:
                         help='Resume existing session')
     parser.add_argument('--start-phase', choices=['collection', 'processing', 'categorization', 'canonical_grouping'],
                         help='Specific phase to start from (use with --resume)')
+    parser.add_argument('--continuous', action='store_true',
+                        help='Enable continuous mode (infinite loop, restarts Phase 1 after Phase 3)')
+    parser.add_argument('--max-iterations', type=int,
+                        help='Maximum iterations to run in continuous mode (default: unlimited)')
+    parser.add_argument('--iteration-delay', type=float, default=60.0,
+                        help='Delay in seconds between iterations for thermal protection (default: 60)')
     parser.add_argument('--status', action='store_true',
                         help='Show current pipeline status')
     parser.add_argument('--verbose', '-v', action='store_true',
@@ -681,7 +872,10 @@ Examples:
         result = pipeline.run_batch_pipeline(
             papers_per_condition=args.papers_per_condition,
             resume=args.resume,
-            start_phase=args.start_phase
+            start_phase=args.start_phase,
+            continuous_mode=args.continuous,
+            max_iterations=args.max_iterations,
+            iteration_delay=args.iteration_delay
         )
 
         if result['success']:

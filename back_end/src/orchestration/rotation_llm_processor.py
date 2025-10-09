@@ -207,8 +207,8 @@ class RotationLLMProcessor:
         self.max_retries = 2
         self.retry_delays = [30, 60]  # seconds
 
-        # Processing configuration - increased from 3 since single model uses less memory
-        self.batch_size = 8  # Larger batches possible with single model
+        # Processing configuration - optimized based on Phase 2 batch size experiments
+        self.batch_size = 12  # Optimized based on Phase 2 batch size experiments
 
         # Enhanced thermal protection
         self.thermal_monitor = ThermalMonitor(max_temp=85.0, cooling_temp=75.0)

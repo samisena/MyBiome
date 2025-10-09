@@ -7,7 +7,19 @@
       "Bash(dir:*)",
       "Bash(rm:*)",
       "Bash(find:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(conda run:*)",
+      "Bash(tee:*)",
+      "Bash(for:*)",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(done)",
+      "Bash(do python -c \"import json; data=json.load(open(''$file'')); print(f\"\"{data[''experiment_id'']}: Batch={data[''batch_size'']}, Time={data[''total_pipeline_seconds'']:.1f}s, Papers/hr={data[''papers_per_hour'']:.1f}, Interventions={data[''phase2_results''][''total_interventions'']}\"\")\")",
+      "Bash(conda activate:*)",
+      "Bash(tasklist)",
+      "Bash(timeout:*)",
+      "Bash(tasklist:*)",
+      "Bash(taskkill:*)",
+      "Bash(sqlite3:*)"
     ],
     "deny": [],
     "ask": []

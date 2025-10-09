@@ -119,10 +119,10 @@ class SingleModelAnalyzer:
         if gpu_available:
             gpu_memory_gb = torch.cuda.get_device_properties(0).total_memory / (1024**3)
             # Optimal batch size for single model (can be higher than dual-model)
-            optimal_batch_size = 8  # Increased from 5 since we're only using one model
+            optimal_batch_size = 12  # Optimized based on Phase 2 batch size experiments
         else:
             gpu_memory_gb = 0
-            optimal_batch_size = 8
+            optimal_batch_size = 12
 
         try:
             import psutil
@@ -456,7 +456,7 @@ class SingleModelAnalyzer:
                 logger.error(f"Error saving intervention: {e}")
 
     def get_unprocessed_papers(self, limit: Optional[int] = None) -> List[Dict]:
-        """Get papers that haven't been processed yet."""
+        """Get papers that haven't been processed yet (truly unprocessed only)."""
         with self.repository_mgr.db_manager.get_connection() as conn:
             cursor = conn.cursor()
 
@@ -465,12 +465,7 @@ class SingleModelAnalyzer:
                 FROM papers p
                 WHERE p.abstract IS NOT NULL
                   AND p.abstract != ''
-                  AND (p.processing_status IS NULL OR p.processing_status != 'failed')
-                  AND p.pmid NOT IN (
-                      SELECT DISTINCT paper_id
-                      FROM interventions
-                      WHERE extraction_model = ?
-                  )
+                  AND (p.processing_status IS NULL OR p.processing_status = 'pending')
                 ORDER BY
                     COALESCE(p.influence_score, 0) DESC,
                     COALESCE(p.citation_count, 0) DESC,
@@ -480,7 +475,7 @@ class SingleModelAnalyzer:
             if limit:
                 query += f' LIMIT {limit}'
 
-            cursor.execute(query, [self.model_name])
+            cursor.execute(query)
             columns = [desc[0] for desc in cursor.description]
             papers = [dict(zip(columns, row)) for row in cursor.fetchall()]
 
