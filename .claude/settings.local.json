@@ -19,7 +19,9 @@
       "Bash(timeout:*)",
       "Bash(tasklist:*)",
       "Bash(taskkill:*)",
-      "Bash(sqlite3:*)"
+      "Bash(sqlite3:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nRemove 5 unused files (4.3% codebase reduction)\n\nDeleted files:\n- back_end/src/semantic_normalization/ground_truth/prompts.py (exact duplicate)\n- back_end/src/utils/integration_success_summary.py (old integration test output)\n- back_end/src/experimentation/analyze_interventions.py (old experiment script)\n- back_end/src/experimentation/check_progress.py (old experiment utility)\n- back_end/src/experimentation/show_interventions.py (old experiment utility)\n\nVerified no active imports or dependencies via comprehensive import analysis.\nAll pipeline phases tested and working.\n\nKept for review:\n- back_end/src/data_mining/emerging_category_analyzer.py (potentially useful)\n- back_end/src/semantic_normalization/ground_truth/evaluator.py (verify workflow usage)\n\nGenerated with Claude Code (https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []
