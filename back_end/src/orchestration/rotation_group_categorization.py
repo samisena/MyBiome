@@ -28,8 +28,8 @@ from pathlib import Path
 from typing import Dict, Optional
 
 from back_end.src.data.config import config, setup_logging
-from back_end.src.experimentation.group_categorization.group_categorizer import GroupBasedCategorizer
-from back_end.src.experimentation.group_categorization.validation import validate_all
+from back_end.src.semantic_normalization.group_categorizer import GroupBasedCategorizer
+from back_end.src.semantic_normalization.validation import validate_all
 
 logger = setup_logging(__name__)
 
@@ -130,7 +130,7 @@ class RotationGroupCategorizer:
         logger.info("=" * 80)
 
         # Initialize condition categorizer
-        from back_end.src.experimentation.group_categorization.condition_group_categorizer import ConditionGroupBasedCategorizer
+        from back_end.src.semantic_normalization.condition_group_categorizer import ConditionGroupBasedCategorizer
         condition_categorizer = ConditionGroupBasedCategorizer(
             db_path=self.db_path,
             batch_size=self.batch_size,

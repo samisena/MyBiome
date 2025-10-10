@@ -510,7 +510,9 @@ Located in `back_end/src/data_mining/`:
 
 **Purpose**: Advanced entity name normalization using hierarchical semantic grouping (interventions AND conditions)
 
-### Core Components (5 files, 1,618 lines)
+### Core Components (8 files, 2,996 lines)
+
+**Phase 3: Semantic Normalization** (5 files, 1,618 lines)
 1. **embedding_engine.py** (214 lines) - Semantic embeddings with caching
    - nomic-embed-text model (768-dimensional vectors)
    - Persistent embedding cache to avoid recomputation
@@ -541,6 +543,27 @@ Located in `back_end/src/data_mining/`:
    - Generates 6×6 confusion matrix for relationship types
    - Per-type accuracy metrics and overall system accuracy
    - Error pattern identification (e.g., VARIANT misclassified as EXACT_MATCH)
+
+**Phase 3.5: Group-Based Categorization** (3 files, 1,378 lines)
+6. **group_categorizer.py** (561 lines) - Intervention group categorizer
+   - Categorizes canonical intervention groups (13 categories)
+   - Includes group members in prompt for semantic context
+   - Batch processing (20 groups per LLM call)
+   - Propagation to member interventions via UPDATE-JOIN
+   - Orphan intervention handling (fallback categorization)
+
+7. **condition_group_categorizer.py** (493 lines) - Condition group categorizer
+   - Categorizes canonical condition groups (18 categories)
+   - Includes group members in prompt for semantic context
+   - Batch processing (20 groups per LLM call)
+   - Propagation to conditions in interventions table
+   - Orphan condition handling (fallback categorization)
+
+8. **validation.py** (324 lines) - Categorization validation
+   - Coverage validation (% of entities categorized)
+   - Purity validation (consistency within groups)
+   - Comparison with existing categorizations
+   - Overall validation scoring with pass/fail thresholds
 
 ### Ground Truth Labeling Workflow (5 files, 1,776 lines)
 
@@ -603,29 +626,6 @@ python ground_truth_cli.py clean                 # Step 4: Remove duplicates
 **Documentation**: See [back_end/src/semantic_normalization/README.md](back_end/src/semantic_normalization/README.md)
 
 ---
-
-## Group Categorization Module
-
-**Location**: `back_end/src/experimentation/group_categorization/`
-
-**Purpose**: LLM-based categorization of canonical groups for both interventions and conditions
-
-### Components (2 files)
-1. **[group_categorizer.py](back_end/src/experimentation/group_categorization/group_categorizer.py)** - Intervention group categorizer (13 categories)
-   - Categorizes canonical intervention groups using semantic context
-   - Includes group members in prompt for accurate classification
-   - Batch processing (20 groups per LLM call)
-   - Propagation to member interventions
-   - Orphan intervention handling
-
-2. **[condition_group_categorizer.py](back_end/src/experimentation/group_categorization/condition_group_categorizer.py)** - Condition group categorizer (18 categories)
-   - Categorizes canonical condition groups using semantic context
-   - Includes group members in prompt for accurate classification
-   - Batch processing (20 groups per LLM call)
-   - Propagation to conditions in interventions table
-   - Orphan condition handling
-
-**Usage**: Both categorizers are called automatically by Phase 3.5 in the main pipeline
 
 ---
 
