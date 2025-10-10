@@ -217,7 +217,7 @@ remove_duplicate_labels.py (standalone, cleans session file)
 
 ## Summary & Final Recommendations
 
-### Files to Keep (All 19 files after deleting duplicate)
+### Files to Keep (17 files after cleanup)
 
 **Core Module (8 files):**
 1. ✅ `__init__.py` - Module exports
@@ -229,28 +229,29 @@ remove_duplicate_labels.py (standalone, cleans session file)
 7. ✅ `normalizer.py` - Main pipeline
 8. ✅ `semantic_normalizer.py` - Adapter wrapper
 
-**Testing/Validation (4 files):**
-9. ✅ `evaluator.py` - Accuracy testing
-10. ✅ `test_runner.py` - Batch testing
-11. ✅ `cluster_reviewer.py` - Manual review
-12. ✅ `experiment_logger.py` - Experiment tracking
+**Testing/Validation (2 files):**
+9. ✅ `evaluator.py` - Accuracy testing (ground truth validation)
+10. ✅ `cluster_reviewer.py` - Manual cluster review (quality assurance)
 
 **Ground Truth Workflow (7 files):**
-13. ✅ `ground_truth/__init__.py` - Submodule init
-14. ✅ `ground_truth/data_exporter.py` - Export from DB
-15. ✅ `ground_truth/pair_generator.py` - Generate pairs
-16. ✅ `ground_truth/generate_candidates.py` - 500-pair script
-17. ✅ `ground_truth/labeling_interface.py` - Interactive UI
-18. ✅ `ground_truth/label_in_batches.py` - Batch manager
-19. ✅ `ground_truth/remove_duplicate_labels.py` - Cleanup utility
+11. ✅ `ground_truth/__init__.py` - Submodule init
+12. ✅ `ground_truth/data_exporter.py` - Export from DB
+13. ✅ `ground_truth/pair_generator.py` - Generate pairs
+14. ✅ `ground_truth/generate_candidates.py` - 500-pair script
+15. ✅ `ground_truth/labeling_interface.py` - Interactive UI
+16. ✅ `ground_truth/label_in_batches.py` - Batch manager
+17. ✅ `ground_truth/remove_duplicate_labels.py` - Cleanup utility
 
 ### Actions Taken
-- ✅ Deleted `ground_truth/evaluator.py` (exact duplicate)
+- ✅ Deleted `ground_truth/evaluator.py` (exact duplicate, 399 lines)
+- ✅ Deleted `test_runner.py` (unused research tool, 478 lines)
+- ✅ Deleted `experiment_logger.py` (unused research tool, 432 lines)
+- **Total removed: 1,309 lines (21% codebase reduction)**
 
 ### Actions NOT Recommended
 - ❌ Do NOT merge normalizer.py + semantic_normalizer.py
 - ❌ Do NOT consolidate ground truth files
-- ❌ Do NOT reduce file count
+- ❌ Do NOT reduce file count further
 
 ### Rationale
 This codebase follows **excellent software engineering principles**:
@@ -286,4 +287,25 @@ This codebase follows **excellent software engineering principles**:
 
 ---
 
-**Conclusion:** The semantic_normalization module is well-architected and does NOT need consolidation. The 19 files are appropriately sized and scoped. Consolidation would **reduce code quality** and **harm maintainability**.
+**Conclusion:** The semantic_normalization module is well-architected and does NOT need further consolidation. The remaining 17 files are appropriately sized and scoped. Additional consolidation would **reduce code quality** and **harm maintainability**.
+
+---
+
+## Cleanup Summary (October 10, 2025)
+
+### Files Deleted (3 files, 1,309 lines)
+1. `ground_truth/evaluator.py` (399 lines) - Exact duplicate
+2. `test_runner.py` (478 lines) - Unused research tool
+3. `experiment_logger.py` (432 lines) - Unused research tool
+
+### Impact
+- **Before:** 19 files, ~6,291 lines
+- **After:** 17 files, ~4,982 lines
+- **Reduction:** 21% codebase reduction, 0% functionality loss
+
+### Remaining File Count by Category
+- Core pipeline: 8 files
+- Validation: 2 files (evaluator.py, cluster_reviewer.py)
+- Ground truth workflow: 7 files
+
+All remaining files are actively used or essential for future workflows.
