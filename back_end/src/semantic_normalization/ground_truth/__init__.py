@@ -7,8 +7,7 @@ semantic normalization evaluation.
 Components:
 - labeling_interface: Interactive terminal-based labeling interface
 - pair_generator: Strategic candidate pair generation (similarity-based, random, targeted)
-- label_in_batches: Batch labeling session management
-- generate_candidates: 500-pair candidate generation script
+- ground_truth_cli: Unified CLI for workflow (generate, label, status, clean)
 - data_exporter: Export interventions from database for labeling
 
 Features:
@@ -22,15 +21,20 @@ Features:
 - Undo, skip, review later features
 
 Usage:
-    # Generate candidates
-    from back_end.src.semantic_normalization.ground_truth.generate_candidates import main
-    main()
+    # Unified CLI interface
+    cd back_end/src/semantic_normalization/ground_truth
+
+    # Generate candidate pairs
+    python ground_truth_cli.py generate
 
     # Start labeling session
-    python -m back_end.src.semantic_normalization.ground_truth.label_in_batches --batch-size 50
+    python ground_truth_cli.py label --batch-size 50
 
     # Check progress
-    python -m back_end.src.semantic_normalization.ground_truth.label_in_batches --status
+    python ground_truth_cli.py status
+
+    # Remove duplicate labels
+    python ground_truth_cli.py clean
 """
 
 from .labeling_interface import HierarchicalLabelingInterface
