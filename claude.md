@@ -167,10 +167,20 @@ python -m back_end.src.data_mining.data_mining_orchestrator --all
 ```bash
 cd back_end/src/semantic_normalization/ground_truth
 
-# Interactive labeling (with duplicate detection)
-python label_in_batches.py --batch-size 20
+# Generate candidate pairs (500 pairs with stratified sampling)
+python ground_truth_cli.py generate
 
-# Validate accuracy
+# Interactive batch labeling (with auto-save, undo, skip)
+python ground_truth_cli.py label --batch-size 50
+
+# Check labeling progress
+python ground_truth_cli.py status
+
+# Remove duplicate labels
+python ground_truth_cli.py clean
+
+# Validate accuracy (parent folder)
+cd ..
 python evaluator.py
 ```
 
@@ -500,23 +510,95 @@ Located in `back_end/src/data_mining/`:
 
 **Purpose**: Advanced entity name normalization using hierarchical semantic grouping (interventions AND conditions)
 
-### Core Components (8 files)
-1. **embedding_engine.py** - Semantic embeddings (nomic-embed-text 768-dim)
-2. **llm_classifier.py** - Canonical extraction & relationship classification (qwen3:14b)
-3. **hierarchy_manager.py** - Database operations for hierarchical schema
-4. **normalizer.py** - Full pipeline orchestration
-5. **evaluator.py** - Ground truth accuracy testing
-6. **test_runner.py** - Batch testing framework
-7. **cluster_reviewer.py** - Interactive manual review
-8. **experiment_logger.py** - Experiment documentation
+### Core Components (5 files, 1,618 lines)
+1. **embedding_engine.py** (214 lines) - Semantic embeddings with caching
+   - nomic-embed-text model (768-dimensional vectors)
+   - Persistent embedding cache to avoid recomputation
+   - Batch embedding support for efficiency
+   - Cosine similarity calculations for finding related entities
 
-### Ground Truth Tools (6 files in `ground_truth/`)
-9. **labeling_interface.py** - Interactive labeling (undo, skip, review later)
-10. **pair_generator.py** - Candidate pair generation (stratified sampling)
-11. **label_in_batches.py** - Batch labeling session management
-12. **generate_candidates.py** - 500-pair candidate generator
-13. **data_exporter.py** - Export interventions from database
-14. **prompts.py** - LLM prompts for classification
+2. **llm_classifier.py** (267 lines) - LLM-based relationship classification
+   - Uses qwen3:14b for canonical extraction and relationship typing
+   - 6 relationship types: EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT
+   - Extracts canonical forms (e.g., "vitamin D" from "Vitamin D3 1000IU")
+   - Chain-of-thought reasoning for accurate classification
+
+3. **hierarchy_manager.py** (307 lines) - Database operations
+   - Manages 3-table schema: `semantic_hierarchy`, `entity_relationships`, `canonical_groups`
+   - CRUD operations for entities, relationships, and canonical groups
+   - Query methods for fetching hierarchies and group members
+   - Transaction support for atomic updates
+
+4. **normalizer.py** (488 lines) - Pipeline orchestrator
+   - MainNormalizer class coordinates full normalization workflow
+   - Workflow: Load entities → Generate embeddings → Extract canonicals → Find similar → Classify relationships → Populate DB
+   - Supports both intervention and condition normalization
+   - Progress tracking and session persistence
+   - Configurable similarity thresholds and batch sizes
+
+5. **evaluator.py** (342 lines) - Accuracy validation
+   - Tests automated system against ground truth labeled data
+   - Generates 6×6 confusion matrix for relationship types
+   - Per-type accuracy metrics and overall system accuracy
+   - Error pattern identification (e.g., VARIANT misclassified as EXACT_MATCH)
+
+### Ground Truth Labeling Workflow (5 files, 1,776 lines)
+
+Complete **human-in-the-loop** workflow for creating labeled training data
+
+1. **Export** data from DB (**`data_exporter.py`** - 160 lines)
+    - Exports unique intervention names with metadata (frequency, category, health conditions)
+    - Query: Groups by intervention name, filters by min frequency, limits to top 500
+    - Output: JSON file with intervention list + metadata for candidate generation
+
+2. **Unified CLI** for workflow management (**`ground_truth_cli.py`** - 567 lines)
+    - Single entry point with 4 subcommands: `generate`, `label`, `status`, `clean`
+    - **Subcommand: generate** - Creates 500 candidate pairs using stratified sampling
+        - Calls `pair_generator.py` (442 lines) with fuzzy matching (rapidfuzz/fuzzywuzzy)
+        - Stratified sampling: 60% similarity-based + 20% random + 20% targeted same-category
+        - Output: `hierarchical_candidates_500_pairs.json` (168 KB)
+    - **Subcommand: label** - Interactive batch labeling with resume capability
+        - Uses `labeling_interface.py` (559 lines) terminal UI with 6 relationship types
+        - Manages batches (default: 50 pairs), auto-save every 5 labels, undo/skip features
+        - Progress grid, time estimation, performance tracking (labels per minute)
+        - Example: Batch 1 (pairs 1-50) → Batch 2 (pairs 51-100) → ... → Batch 10 (pairs 451-500)
+    - **Subcommand: status** - Displays completion percentage, batch grid, time remaining
+    - **Subcommand: clean** - Removes duplicate labels, creates backup, updates counters
+
+3. **Pair generation library** (**`pair_generator.py`** - 442 lines)
+    - SmartPairGenerator class with fuzzy matching algorithms
+    - Stratified sampling strategy:
+        - 60% similarity-based (ranges: 0.85-0.95, 0.75-0.85, 0.65-0.75)
+        - 20% random low-similarity (0.40-0.65) for DIFFERENT examples
+        - 20% targeted same-category (probiotics vs probiotics, statins vs statins)
+    - Category-aware pair selection and deduplication logic
+
+4. **Interactive labeling UI** (**`labeling_interface.py`** - 559 lines)
+    - HierarchicalLabelingInterface class - reusable terminal interface
+    - Features:
+        - Undo history (last 10 labels)
+        - Skip pairs (review later)
+        - Performance tracking (labels per minute)
+        - Session auto-save every 5 labels
+        - Displays similarity score and metadata
+    - Relationship types: EXACT_MATCH (1), VARIANT (2), SUBTYPE (3), SAME_CATEGORY (4), DOSAGE_VARIANT (5), DIFFERENT (6)
+    - Output: Session JSON with labeled pairs + progress tracking
+
+5. **Module documentation** (**`__init__.py`** - 48 lines)
+    - Package-level documentation and imports
+    - Usage examples for CLI workflow
+    - Feature summary and component descriptions
+
+**Current Progress**: 80/500 pairs labeled (16% complete)
+
+**Usage**:
+```bash
+cd back_end/src/semantic_normalization/ground_truth
+python ground_truth_cli.py generate              # Step 1: Generate candidates
+python ground_truth_cli.py label --batch-size 50 # Step 2: Label in batches
+python ground_truth_cli.py status                # Step 3: Check progress
+python ground_truth_cli.py clean                 # Step 4: Remove duplicates
+```
 
 **Documentation**: See [back_end/src/semantic_normalization/README.md](back_end/src/semantic_normalization/README.md)
 
