@@ -67,7 +67,7 @@ class RotationGroupCategorizer:
 
     def run(self, condition: Optional[str] = None) -> Dict:
         """
-        Run Phase 3.5: Group-based categorization.
+        Run Phase 3.5: Group-based categorization for BOTH interventions AND conditions.
 
         Args:
             condition: Optional condition filter (for single-condition runs)
@@ -81,49 +81,99 @@ class RotationGroupCategorizer:
 
         start_time = time.time()
 
-        # Initialize categorizer
-        categorizer = GroupBasedCategorizer(
+        # ========== PART A: INTERVENTION CATEGORIZATION ==========
+        logger.info("\n" + "=" * 80)
+        logger.info("PART A: INTERVENTION CATEGORIZATION")
+        logger.info("=" * 80)
+
+        # Initialize intervention categorizer
+        intervention_categorizer = GroupBasedCategorizer(
             db_path=self.db_path,
             batch_size=self.batch_size,
             include_members=self.include_members,
             max_members_in_prompt=self.max_members_in_prompt
         )
 
-        # Step 1: Categorize canonical groups
-        logger.info("\nStep 1: Categorizing canonical groups")
+        # Step 1: Categorize intervention canonical groups
+        logger.info("\nStep 1: Categorizing intervention canonical groups")
         logger.info("-" * 80)
 
-        group_stats = categorizer.categorize_all_groups()
-        logger.info(f"Group categorization complete:")
-        logger.info(f"  Total groups: {group_stats['total']}")
-        logger.info(f"  Successfully categorized: {group_stats['processed']}")
-        logger.info(f"  Failed: {group_stats['failed']}")
-        logger.info(f"  LLM calls: {group_stats['llm_calls']}")
+        intervention_group_stats = intervention_categorizer.categorize_all_groups()
+        logger.info(f"Intervention group categorization complete:")
+        logger.info(f"  Total groups: {intervention_group_stats['total']}")
+        logger.info(f"  Successfully categorized: {intervention_group_stats['processed']}")
+        logger.info(f"  Failed: {intervention_group_stats['failed']}")
+        logger.info(f"  LLM calls: {intervention_group_stats['llm_calls']}")
 
-        # Step 2: Propagate categories to interventions (Option A)
+        # Step 2: Propagate categories to interventions
         logger.info("\nStep 2: Propagating categories to interventions")
         logger.info("-" * 80)
 
-        propagate_stats = categorizer.propagate_to_interventions()
+        intervention_propagate_stats = intervention_categorizer.propagate_to_interventions()
         logger.info(f"Category propagation complete:")
-        logger.info(f"  Interventions updated: {propagate_stats['updated']}")
-        logger.info(f"  Orphan interventions: {propagate_stats['orphans']}")
+        logger.info(f"  Interventions updated: {intervention_propagate_stats['updated']}")
+        logger.info(f"  Orphan interventions: {intervention_propagate_stats['orphans']}")
 
         # Step 3: Handle orphan interventions (fallback)
         logger.info("\nStep 3: Categorizing orphan interventions (fallback)")
         logger.info("-" * 80)
 
-        orphan_stats = categorizer.categorize_orphan_interventions()
+        intervention_orphan_stats = intervention_categorizer.categorize_orphan_interventions()
         logger.info(f"Orphan categorization complete:")
-        logger.info(f"  Total orphans: {orphan_stats['total']}")
-        logger.info(f"  Successfully categorized: {orphan_stats['processed']}")
-        logger.info(f"  Failed: {orphan_stats['failed']}")
+        logger.info(f"  Total orphans: {intervention_orphan_stats['total']}")
+        logger.info(f"  Successfully categorized: {intervention_orphan_stats['processed']}")
+        logger.info(f"  Failed: {intervention_orphan_stats['failed']}")
 
-        # Step 4: Validation (optional)
+        # ========== PART B: CONDITION CATEGORIZATION ==========
+        logger.info("\n" + "=" * 80)
+        logger.info("PART B: CONDITION CATEGORIZATION")
+        logger.info("=" * 80)
+
+        # Initialize condition categorizer
+        from back_end.src.experimentation.group_categorization.condition_group_categorizer import ConditionGroupBasedCategorizer
+        condition_categorizer = ConditionGroupBasedCategorizer(
+            db_path=self.db_path,
+            batch_size=self.batch_size,
+            include_members=self.include_members,
+            max_members_in_prompt=self.max_members_in_prompt
+        )
+
+        # Step 4: Categorize condition canonical groups
+        logger.info("\nStep 4: Categorizing condition canonical groups")
+        logger.info("-" * 80)
+
+        condition_group_stats = condition_categorizer.categorize_all_groups()
+        logger.info(f"Condition group categorization complete:")
+        logger.info(f"  Total groups: {condition_group_stats['total_groups']}")
+        logger.info(f"  Successfully categorized: {condition_group_stats['processed_groups']}")
+        logger.info(f"  Failed: {condition_group_stats['failed_groups']}")
+        logger.info(f"  LLM calls: {condition_group_stats['llm_calls']}")
+
+        # Step 5: Propagate categories to conditions
+        logger.info("\nStep 5: Propagating categories to conditions")
+        logger.info("-" * 80)
+
+        condition_propagate_stats = condition_categorizer.propagate_to_conditions()
+        logger.info(f"Category propagation complete:")
+        logger.info(f"  Conditions updated: {condition_propagate_stats['updated']}")
+        logger.info(f"  Orphan conditions: {condition_propagate_stats['orphans']}")
+
+        # Step 6: Handle orphan conditions (fallback)
+        logger.info("\nStep 6: Categorizing orphan conditions (fallback)")
+        logger.info("-" * 80)
+
+        condition_orphan_stats = condition_categorizer.categorize_orphan_conditions()
+        logger.info(f"Orphan categorization complete:")
+        logger.info(f"  Total orphans: {condition_orphan_stats['total']}")
+        logger.info(f"  Successfully categorized: {condition_orphan_stats['processed']}")
+        logger.info(f"  Failed: {condition_orphan_stats['failed']}")
+
+        # ========== VALIDATION ==========
         validation_results = None
         if self.validate_results:
-            logger.info("\nStep 4: Validating results")
-            logger.info("-" * 80)
+            logger.info("\n" + "=" * 80)
+            logger.info("VALIDATION")
+            logger.info("=" * 80)
 
             validation_results = validate_all(self.db_path)
 
@@ -138,31 +188,50 @@ class RotationGroupCategorizer:
         elapsed_time = end_time - start_time
 
         # Compile results
+        total_llm_calls = (
+            intervention_group_stats['llm_calls'] +
+            intervention_orphan_stats.get('llm_calls', 0) +
+            condition_group_stats['llm_calls'] +
+            condition_orphan_stats.get('llm_calls', 0)
+        )
+
         results = {
             'phase': '3.5',
             'timestamp': datetime.now().isoformat(),
             'elapsed_time_seconds': elapsed_time,
-            'group_categorization': group_stats,
-            'propagation': propagate_stats,
-            'orphan_categorization': orphan_stats,
+            'intervention_group_categorization': intervention_group_stats,
+            'intervention_propagation': intervention_propagate_stats,
+            'intervention_orphan_categorization': intervention_orphan_stats,
+            'condition_group_categorization': condition_group_stats,
+            'condition_propagation': condition_propagate_stats,
+            'condition_orphan_categorization': condition_orphan_stats,
             'validation': validation_results,
             'performance': {
-                'total_llm_calls': group_stats['llm_calls'] + orphan_stats.get('llm_calls', 0),
-                'time_per_llm_call': elapsed_time / max(group_stats['llm_calls'], 1)
-            }
+                'total_llm_calls': total_llm_calls,
+                'time_per_llm_call': elapsed_time / max(total_llm_calls, 1)
+            },
+            # Legacy fields for backward compatibility
+            'group_categorization': intervention_group_stats,
+            'propagation': intervention_propagate_stats,
+            'orphan_categorization': intervention_orphan_stats
         }
 
         logger.info("\n" + "=" * 80)
         logger.info("PHASE 3.5 COMPLETE")
         logger.info("=" * 80)
         logger.info(f"Total time: {elapsed_time:.1f} seconds")
-        logger.info(f"Total LLM calls: {results['performance']['total_llm_calls']}")
-        logger.info(f"Groups categorized: {group_stats['processed']}/{group_stats['total']}")
-        logger.info(f"Interventions updated: {propagate_stats['updated']}")
-        logger.info(f"Orphans handled: {orphan_stats['processed']}/{orphan_stats['total']}")
+        logger.info(f"Total LLM calls: {total_llm_calls}")
+        logger.info(f"\nIntervention Results:")
+        logger.info(f"  Groups categorized: {intervention_group_stats['processed']}/{intervention_group_stats['total']}")
+        logger.info(f"  Interventions updated: {intervention_propagate_stats['updated']}")
+        logger.info(f"  Orphans handled: {intervention_orphan_stats['processed']}/{intervention_orphan_stats['total']}")
+        logger.info(f"\nCondition Results:")
+        logger.info(f"  Groups categorized: {condition_group_stats['processed_groups']}/{condition_group_stats['total_groups']}")
+        logger.info(f"  Conditions updated: {condition_propagate_stats['updated']}")
+        logger.info(f"  Orphans handled: {condition_orphan_stats['processed']}/{condition_orphan_stats['total']}")
 
         if self.validate_results and validation_results:
-            logger.info(f"Validation: {'PASSED ✓' if validation_results['all_passed'] else 'FAILED ✗'}")
+            logger.info(f"\nValidation: {'PASSED ✓' if validation_results['all_passed'] else 'FAILED ✗'}")
 
         return results
 

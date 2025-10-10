@@ -1,0 +1,293 @@
+{
+  "analysis_date": "2025-10-10",
+  "total_files_analyzed": 117,
+  "summary": {
+    "entry_points": 7,
+    "executables": 43,
+    "libraries": 45,
+    "init_files": 15,
+    "unused": 7,
+    "duplicates": 8
+  },
+  "immediate_deletions": {
+    "description": "Files safe to delete immediately - exact duplicates or empty files",
+    "count": 3,
+    "files": [
+      {
+        "path": "back_end/src/semantic_normalization/ground_truth/prompts.py",
+        "reason": "Exact duplicate of parent prompts.py (222 lines, diff shows identical)",
+        "verification": "diff back_end/src/semantic_normalization/prompts.py back_end/src/semantic_normalization/ground_truth/prompts.py",
+        "confidence": "100%"
+      },
+      {
+        "path": "back_end/src/utils/integration_success_summary.py",
+        "reason": "Empty/minimal file with 0 imports, never imported, no __main__",
+        "verification": "grep -r 'integration_success_summary' back_end/",
+        "confidence": "100%"
+      },
+      {
+        "path": "back_end/src/experimentation/analyze_interventions.py",
+        "reason": "Old experiment analysis script, never imported, no __main__",
+        "verification": "grep -r 'analyze_interventions' back_end/",
+        "confidence": "95%"
+      }
+    ]
+  },
+  "verify_then_delete": {
+    "description": "Files likely safe to delete but require verification first",
+    "count": 4,
+    "files": [
+      {
+        "path": "back_end/src/semantic_normalization/ground_truth/evaluator.py",
+        "reason": "Exact duplicate of parent evaluator.py (399 lines, diff shows identical)",
+        "verification": "Check if used in standalone ground truth labeling workflow before deletion",
+        "confidence": "90%",
+        "action": "Verify not used in ground_truth/ scripts, then delete"
+      },
+      {
+        "path": "back_end/src/experimentation/check_progress.py",
+        "reason": "Old experiment progress checker, never imported, no __main__",
+        "verification": "Check if referenced in any documentation or scripts",
+        "confidence": "90%",
+        "action": "Verify not mentioned in docs, then delete"
+      },
+      {
+        "path": "back_end/src/experimentation/show_interventions.py",
+        "reason": "Old experiment display utility, never imported, no __main__",
+        "verification": "Check if referenced in any documentation or scripts",
+        "confidence": "90%",
+        "action": "Verify not mentioned in docs, then delete"
+      },
+      {
+        "path": "back_end/src/data_mining/emerging_category_analyzer.py",
+        "reason": "Never imported, no __main__, but contains useful functionality",
+        "verification": "Consider integrating into data_mining_orchestrator.py instead of deleting",
+        "confidence": "80%",
+        "action": "Either integrate into pipeline or delete"
+      }
+    ]
+  },
+  "consider_integration": {
+    "description": "Unused files with potentially useful functionality",
+    "count": 2,
+    "files": [
+      {
+        "path": "back_end/src/data_mining/emerging_category_analyzer.py",
+        "functionality": "Analyzes 'emerging' category interventions to suggest new categories",
+        "recommendation": "Add to data_mining_orchestrator.py if functionality is desired",
+        "imports": 7,
+        "complexity": "Medium"
+      },
+      {
+        "path": "back_end/src/data_mining/fundamental_functions.py",
+        "functionality": "Discovers fundamental body functions via cross-mechanism interventions",
+        "recommendation": "Add to data_mining_orchestrator.py if functionality is desired",
+        "imports": 3,
+        "complexity": "Medium"
+      }
+    ]
+  },
+  "intentional_duplicates": {
+    "description": "Files with similar names but different purposes - KEEP ALL",
+    "count": 6,
+    "pairs": [
+      {
+        "files": [
+          "back_end/src/conditions/category_validators.py",
+          "back_end/src/interventions/category_validators.py"
+        ],
+        "reason": "Different taxonomies (18 vs 13 categories)",
+        "status": "Keep both"
+      },
+      {
+        "files": [
+          "back_end/src/conditions/search_terms.py",
+          "back_end/src/interventions/search_terms.py"
+        ],
+        "reason": "Different search domains",
+        "status": "Keep both"
+      },
+      {
+        "files": [
+          "back_end/src/conditions/taxonomy.py",
+          "back_end/src/interventions/taxonomy.py"
+        ],
+        "reason": "Different taxonomies (18 vs 13 categories)",
+        "status": "Keep both"
+      },
+      {
+        "files": [
+          "back_end/src/data/config.py",
+          "back_end/src/semantic_normalization/config.py"
+        ],
+        "reason": "Different scopes (global vs module-specific)",
+        "status": "Keep both"
+      },
+      {
+        "files": [
+          "back_end/src/data_mining/review_correlations.py",
+          "back_end/src/utils/review_correlations.py"
+        ],
+        "reason": "Launcher pattern (one imports from other)",
+        "status": "Keep both"
+      },
+      {
+        "files": [
+          "back_end/src/experimentation/group_categorization/experiment_runner.py",
+          "back_end/src/experimentation/runners/experiment_runner.py"
+        ],
+        "reason": "Different experiment types (323 vs 270 lines)",
+        "status": "Keep both (verify different purposes)"
+      }
+    ]
+  },
+  "critical_infrastructure": {
+    "description": "Files with highest import counts - require careful maintenance",
+    "files": [
+      {
+        "path": "back_end/src/data/config.py",
+        "import_count": 45,
+        "risk_level": "Critical",
+        "recommendation": "Ensure comprehensive test coverage"
+      },
+      {
+        "path": "back_end/src/data_collection/database_manager.py",
+        "import_count": 20,
+        "risk_level": "Critical",
+        "recommendation": "Ensure comprehensive test coverage"
+      },
+      {
+        "path": "back_end/src/data/utils.py",
+        "import_count": 9,
+        "risk_level": "High",
+        "recommendation": "Monitor for breaking changes"
+      },
+      {
+        "path": "back_end/src/interventions/taxonomy.py",
+        "import_count": 8,
+        "risk_level": "High",
+        "recommendation": "Changes affect categorization pipeline"
+      },
+      {
+        "path": "back_end/src/data/api_clients.py",
+        "import_count": 7,
+        "risk_level": "High",
+        "recommendation": "External API changes impact many modules"
+      }
+    ]
+  },
+  "well_used_utilities": {
+    "description": "Utility modules that appeared unused but are actually well-used via relative imports",
+    "files": [
+      {
+        "path": "back_end/src/data_mining/medical_knowledge.py",
+        "import_count": 3,
+        "used_by": [
+          "condition_similarity_mapping.py",
+          "power_combinations.py",
+          "research_gaps.py"
+        ],
+        "status": "KEEP - actively used"
+      },
+      {
+        "path": "back_end/src/data_mining/scoring_utils.py",
+        "import_count": 4,
+        "used_by": [
+          "bayesian_scorer.py",
+          "condition_similarity_mapping.py",
+          "power_combinations.py",
+          "research_gaps.py"
+        ],
+        "status": "KEEP - actively used"
+      },
+      {
+        "path": "back_end/src/data_mining/similarity_utils.py",
+        "import_count": 2,
+        "used_by": [
+          "condition_similarity_mapping.py",
+          "research_gaps.py"
+        ],
+        "status": "KEEP - actively used"
+      },
+      {
+        "path": "back_end/src/data_mining/graph_utils.py",
+        "import_count": 1,
+        "used_by": [
+          "power_combinations.py"
+        ],
+        "status": "KEEP - actively used"
+      }
+    ]
+  },
+  "migration_scripts": {
+    "description": "Database migration scripts - keep for reference and rollback capability",
+    "recommendation": "Keep all for database evolution history",
+    "files": [
+      "back_end/scripts/migrate_add_mechanism.py",
+      "back_end/scripts/migrate_intervention_category_nullable.py",
+      "back_end/scripts/backfill_condition_categories.py",
+      "back_end/scripts/classify_conditions.py",
+      "back_end/src/migrations/add_semantic_normalization_tables.py",
+      "back_end/src/migrations/create_interventions_view_option_b.py"
+    ]
+  },
+  "cleanup_summary": {
+    "total_files": 117,
+    "guaranteed_safe_to_delete": 3,
+    "verify_then_delete": 4,
+    "total_cleanup_potential": 7,
+    "percentage_reduction": "6%",
+    "space_saved_estimate": "~2000 lines of code"
+  },
+  "dependency_health": {
+    "circular_dependencies": 0,
+    "max_import_depth": 5,
+    "single_points_of_failure": 2,
+    "well_organized_directories": [
+      "src/orchestration/",
+      "src/data/",
+      "src/data_collection/",
+      "src/conditions/",
+      "src/interventions/"
+    ],
+    "needs_cleanup_directories": [
+      "src/experimentation/",
+      "src/semantic_normalization/ground_truth/"
+    ]
+  },
+  "next_steps": [
+    {
+      "step": 1,
+      "action": "Create backup branch",
+      "command": "git checkout -b cleanup-unused-files"
+    },
+    {
+      "step": 2,
+      "action": "Delete immediate deletions (3 files)",
+      "files": [
+        "back_end/src/semantic_normalization/ground_truth/prompts.py",
+        "back_end/src/utils/integration_success_summary.py",
+        "back_end/src/experimentation/analyze_interventions.py"
+      ]
+    },
+    {
+      "step": 3,
+      "action": "Verify usage of 4 files before deletion",
+      "verification_steps": [
+        "Check ground_truth/evaluator.py usage in labeling workflow",
+        "Verify experiment scripts not mentioned in documentation",
+        "Decide whether to integrate or delete emerging_category_analyzer.py"
+      ]
+    },
+    {
+      "step": 4,
+      "action": "Run all tests",
+      "command": "python -m pytest back_end/"
+    },
+    {
+      "step": 5,
+      "action": "Commit changes if tests pass",
+      "command": "git add -A && git commit -m 'Remove unused files: cleanup phase 1'"
+    }
+  ]
+}

@@ -331,6 +331,65 @@ class SemanticNormalizationOrchestrator:
             print(f"\n[WARNING]  Errors: {len(self.session_data['errors'])}")
         print(f"{'='*80}\n")
 
+    def normalize_all_condition_entities(self, batch_size: int = 50, force: bool = False):
+        """
+        Normalize condition entities (not interventions FOR conditions, but conditions themselves).
+
+        This creates semantic groups for conditions (e.g., "IBS" → "IBS-C", "IBS-D", "IBS-M").
+        """
+        print(f"\n{'='*80}")
+        print("NORMALIZING CONDITION ENTITIES")
+        print(f"{'='*80}")
+
+        # Get all unique conditions
+        all_conditions = self.get_conditions_from_db()
+        print(f"Found {len(all_conditions)} unique condition entities to normalize")
+
+        if not all_conditions:
+            print("No conditions found, skipping")
+            return {
+                "total_conditions": 0,
+                "processed": 0,
+                "canonical_groups": 0,
+                "relationships": 0,
+                "errors": 0
+            }
+
+        # Run normalization on condition entities
+        try:
+            print(f"\nRunning condition entity normalization (batch size: {batch_size})...")
+            results = self.normalizer.normalize_interventions(
+                interventions=all_conditions,
+                entity_type='condition',  # Process as condition entities
+                source_table='interventions',
+                batch_size=batch_size
+            )
+
+            print(f"\n[OK] Condition entity normalization complete!")
+            print(f"  - Conditions processed: {results['total_processed']}")
+            print(f"  - Canonical condition groups: {results['canonical_groups_created']}")
+            print(f"  - Relationships created: {results['relationships_created']}")
+
+            return {
+                "total_conditions": len(all_conditions),
+                "processed": results['total_processed'],
+                "canonical_groups": results['canonical_groups_created'],
+                "relationships": results['relationships_created'],
+                "errors": results.get('errors', 0)
+            }
+
+        except Exception as e:
+            logger.error(f"Error normalizing condition entities: {e}", exc_info=True)
+            print(f"\n[ERROR] Error: {e}")
+            return {
+                "total_conditions": len(all_conditions),
+                "processed": 0,
+                "canonical_groups": 0,
+                "relationships": 0,
+                "errors": len(all_conditions),
+                "error": str(e)
+            }
+
     def display_status(self):
         """Display normalization status."""
         print(f"\n{'='*80}")
@@ -355,27 +414,45 @@ class SemanticNormalizationOrchestrator:
             conn.close()
             return
 
-        # Get counts
+        # Get intervention counts
         cursor.execute("SELECT COUNT(*) FROM semantic_hierarchy WHERE entity_type = 'intervention'")
         intervention_count = cursor.fetchone()[0]
 
         cursor.execute("SELECT COUNT(DISTINCT layer_1_canonical) FROM semantic_hierarchy WHERE entity_type = 'intervention' AND layer_1_canonical IS NOT NULL")
-        canonical_count = cursor.fetchone()[0]
-
-        cursor.execute("SELECT COUNT(*) FROM entity_relationships")
-        relationship_count = cursor.fetchone()[0]
+        intervention_canonical_count = cursor.fetchone()[0]
 
         cursor.execute("SELECT COUNT(*) FROM canonical_groups WHERE entity_type = 'intervention'")
-        group_count = cursor.fetchone()[0]
+        intervention_group_count = cursor.fetchone()[0]
+
+        # Get condition counts
+        cursor.execute("SELECT COUNT(*) FROM semantic_hierarchy WHERE entity_type = 'condition'")
+        condition_count = cursor.fetchone()[0]
+
+        cursor.execute("SELECT COUNT(DISTINCT layer_1_canonical) FROM semantic_hierarchy WHERE entity_type = 'condition' AND layer_1_canonical IS NOT NULL")
+        condition_canonical_count = cursor.fetchone()[0]
+
+        cursor.execute("SELECT COUNT(*) FROM canonical_groups WHERE entity_type = 'condition'")
+        condition_group_count = cursor.fetchone()[0]
+
+        # Get relationship counts
+        cursor.execute("SELECT COUNT(*) FROM entity_relationships")
+        relationship_count = cursor.fetchone()[0]
 
         conn.close()
 
         print(f"\nDatabase: {self.db_path}")
-        print(f"\nSemantic Hierarchy:")
+        print(f"\nSemantic Hierarchy (Interventions):")
         print(f"  - Interventions normalized: {intervention_count}")
-        print(f"  - Canonical groups (Layer 1): {canonical_count}")
-        print(f"  - Relationships tracked: {relationship_count}")
-        print(f"  - Canonical group records: {group_count}")
+        print(f"  - Canonical groups (Layer 1): {intervention_canonical_count}")
+        print(f"  - Canonical group records: {intervention_group_count}")
+
+        print(f"\nSemantic Hierarchy (Conditions):")
+        print(f"  - Conditions normalized: {condition_count}")
+        print(f"  - Canonical groups (Layer 1): {condition_canonical_count}")
+        print(f"  - Canonical group records: {condition_group_count}")
+
+        print(f"\nRelationships:")
+        print(f"  - Total relationships tracked: {relationship_count}")
 
         # Check session
         session_files = list(self.results_dir.glob("semantic_norm_session_*.json"))
@@ -442,6 +519,12 @@ def main():
         help='Force re-normalization without prompting'
     )
 
+    parser.add_argument(
+        '--normalize-conditions',
+        action='store_true',
+        help='Normalize condition entities (e.g., "IBS" → "IBS-C", "IBS-D")'
+    )
+
     args = parser.parse_args()
 
     # Initialize orchestrator
@@ -450,6 +533,17 @@ def main():
     # Handle commands
     if args.status:
         orchestrator.display_status()
+
+    elif args.normalize_conditions:
+        # Normalize condition entities (not interventions for conditions)
+        result = orchestrator.normalize_all_condition_entities(batch_size=args.batch_size, force=args.force)
+        print(f"\nCondition entity normalization complete:")
+        print(f"  Total conditions: {result['total_conditions']}")
+        print(f"  Processed: {result['processed']}")
+        print(f"  Canonical groups: {result['canonical_groups']}")
+        print(f"  Relationships: {result['relationships']}")
+        if result.get('errors', 0) > 0:
+            print(f"  Errors: {result['errors']}")
 
     elif args.all or args.resume:
         orchestrator.normalize_all_conditions(batch_size=args.batch_size, force=args.force)
@@ -461,11 +555,14 @@ def main():
     else:
         parser.print_help()
         print("\nExamples:")
-        print("  # Normalize single condition")
+        print("  # Normalize interventions for a single condition")
         print("  python -m back_end.src.orchestration.rotation_semantic_normalizer diabetes")
         print()
-        print("  # Normalize all conditions")
+        print("  # Normalize interventions for all conditions")
         print("  python -m back_end.src.orchestration.rotation_semantic_normalizer --all")
+        print()
+        print("  # Normalize condition entities (create semantic groups for conditions)")
+        print("  python -m back_end.src.orchestration.rotation_semantic_normalizer --normalize-conditions")
         print()
         print("  # Check status")
         print("  python -m back_end.src.orchestration.rotation_semantic_normalizer --status")

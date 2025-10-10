@@ -56,23 +56,35 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 - **Output**: Interventions saved WITHOUT categories → `intervention_category = NULL`
 - **Performance**: ~38-39 papers/hour (~93s per paper)
 
-### Phase 2.5: Categorization
-- **Intervention Categories**: 13 categories (exercise, diet, supplement, medication, therapy, lifestyle, surgery, test, device, procedure, biologics, gene_therapy, emerging)
-- **Condition Categories**: 18 categories (cardiac, neurological, digestive, etc.)
-- **Batch Processing**: 20 items per LLM call (qwen3:14b)
-- **Retry Logic**: 3 automatic retries with exponential backoff (2s → 4s → 8s) for failed LLM calls
-- **Enhanced Prompts**: Detailed category descriptions with edge case handling (e.g., blood transfusion → procedure, NOT medication)
-- **Output**: All interventions and conditions categorized
+### Phase 2.5: Categorization (DEPRECATED - Now Phase 3.5)
+- **Status**: Standalone script available but NOT integrated into main pipeline
+- **Use Case**: Manual re-categorization outside pipeline
+- **Replaced By**: Phase 3.5 group-based categorization
 
-### Phase 3.5: Hierarchical Semantic Normalization ✅
-- **4-Layer Hierarchy**:
-  - **Layer 0**: Category (from 13-category taxonomy)
-  - **Layer 1**: Canonical group (e.g., "vitamin D", "statins", "probiotics")
-  - **Layer 2**: Specific variant (e.g., "atorvastatin", "L. reuteri")
-  - **Layer 3**: Dosage/details (e.g., "atorvastatin 20mg")
-- **6 Relationship Types**: EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT
+### Phase 3: Semantic Normalization ✅
+- **Scope**: Both interventions AND conditions
 - **Technology**: nomic-embed-text embeddings (768-dim) + qwen3:14b classification
-- **Output**: Cross-paper intervention unification (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
+- **6 Relationship Types**: EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT
+- **Output**:
+  - **Interventions**: Cross-paper unification (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
+  - **Conditions**: Hierarchical grouping (e.g., "IBS" → "IBS-C", "IBS-D", "IBS-M")
+- **Performance**: Creates ~571 intervention groups + ~200-300 condition groups
+
+### Phase 3.5: Group-Based Categorization ✅
+- **Scope**: Both interventions AND conditions
+- **Efficiency**: Categorizes canonical groups instead of individual entities (~80% fewer LLM calls)
+- **Intervention Categories**: 13 categories (medication, supplement, therapy, etc.)
+- **Condition Categories**: 18 categories (cardiac, neurological, digestive, etc.)
+- **Workflow**:
+  - **PART A (Interventions)**:
+    1. Categorize intervention canonical groups (571 groups in batches of 20)
+    2. Propagate categories from groups to member interventions
+    3. Fallback categorization for orphan interventions (no group membership)
+  - **PART B (Conditions)**:
+    4. Categorize condition canonical groups (batches of 20)
+    5. Propagate categories from groups to conditions in interventions table
+    6. Fallback categorization for orphan conditions (no group membership)
+- **Performance**: 28% LLM call reduction vs individual categorization
 
 ---
 
@@ -82,10 +94,10 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 1. **`papers`** - PubMed articles with metadata and fulltext
 2. **`interventions`** - Extracted treatments and outcomes with mechanism data
 
-### Phase 3.5 Hierarchical Normalization (3 tables)
-3. **`semantic_hierarchy`** - 4-layer hierarchical structure
-4. **`entity_relationships`** - Pairwise relationship types (6 types)
-5. **`canonical_groups`** - Canonical entity groupings
+### Phase 3 & 3.5 Semantic Normalization (3 tables)
+3. **`semantic_hierarchy`** - Hierarchical structure linking interventions AND conditions to canonical groups
+4. **`entity_relationships`** - Pairwise relationship types (6 types) for both entity types
+5. **`canonical_groups`** - Canonical entity groupings with Layer 0 categories for both interventions and conditions
 
 ### Data Mining Analytics (11 tables)
 6. **`knowledge_graph_nodes`** - Nodes in medical knowledge graph
@@ -105,7 +117,7 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 18. **`sqlite_sequence`** - SQLite internal auto-increment
 
 ### Legacy Tables (4 tables - DEPRECATED)
-19. **`canonical_entities`, `entity_mappings`, `llm_normalization_cache`, `normalized_terms_cache`** - Replaced by Phase 3.5
+19. **`canonical_entities`, `entity_mappings`, `llm_normalization_cache`, `normalized_terms_cache`** - Replaced by Phase 3 semantic normalization
 
 ---
 
@@ -113,10 +125,10 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 
 ### Complete Workflow
 ```bash
-# Single iteration: Collection → Processing → Categorization → Normalization
+# Single iteration: Collection → Processing → Categorization → Normalization → Group Categorization
 python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10
 
-# Continuous mode: Infinite loop (restarts Phase 1 after Phase 3)
+# Continuous mode: Infinite loop (restarts Phase 1 after Phase 3.5)
 python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous
 
 # Limited iterations (e.g., 5 complete cycles)
@@ -134,16 +146,18 @@ python -m back_end.src.orchestration.rotation_paper_collector diabetes --count 1
 # LLM processing only (Phase 2 - extracts WITHOUT categories)
 python -m back_end.src.orchestration.rotation_llm_processor diabetes --max-papers 50
 
-# Categorization only (Phase 2.5 - with automatic retry logic)
+# Semantic normalization (Phase 3)
+python -m back_end.src.orchestration.rotation_semantic_normalizer "type 2 diabetes"  # Normalize interventions for single condition
+python -m back_end.src.orchestration.rotation_semantic_normalizer --all  # Normalize interventions for all conditions
+python -m back_end.src.orchestration.rotation_semantic_normalizer --normalize-conditions  # Normalize condition entities (e.g., "IBS" → "IBS-C", "IBS-D")
+python -m back_end.src.orchestration.rotation_semantic_normalizer --status  # Check progress
+
+# Group-based categorization (Phase 3.5)
+python -m back_end.src.orchestration.rotation_group_categorization  # Categorize both interventions and conditions
+
+# Manual categorization (standalone - NOT in pipeline)
 python -m back_end.src.orchestration.rotation_llm_categorization --interventions-only
 python -m back_end.src.orchestration.rotation_llm_categorization --conditions-only
-python -m back_end.src.orchestration.rotation_llm_categorization  # Both
-python -m back_end.src.orchestration.rotation_llm_categorization --max-retries 5 --retry-delay 3.0  # Custom retry settings
-
-# Hierarchical semantic normalization (Phase 3.5 - RECOMMENDED)
-python -m back_end.src.orchestration.rotation_semantic_normalizer "type 2 diabetes"  # Single
-python -m back_end.src.orchestration.rotation_semantic_normalizer --all  # All conditions
-python -m back_end.src.orchestration.rotation_semantic_normalizer --status  # Check progress
 
 # Data mining and analysis
 python -m back_end.src.data_mining.data_mining_orchestrator --all
@@ -176,17 +190,18 @@ python evaluator.py
 
 ---
 
-## Current Status (October 8, 2025 - Post-Cleanup)
+## Current Status (October 10, 2025)
 
-- **Papers**: 365 research papers (high quality, all with mechanism data)
-- **Interventions**: 792 with **100% mechanism coverage** ✅
-- **Interventions categorized**: 792/792 (100%) - 13 categories
+- **Papers**: 533 research papers (high quality, all with mechanism data)
+- **Interventions**: 777 with **100% mechanism coverage** ✅
+- **Intervention Groups**: 571 canonical groups created ✅
+- **Intervention Categorization**: 777/777 (100%) via group propagation ✅
 - **Conditions**: 406 unique conditions
-- **Conditions categorized**: 406/406 (100%) - 18 categories
-- **Semantic normalization**: 676/676 interventions normalized (100%) ✅
-- **Canonical groups**: 571 intervention groups created
-- **Semantic relationships**: 141 cross-paper relationships tracked
-- **Processing rate**: ~38-39 papers/hour (qwen3:14b with mechanism extraction)
+- **Condition Groups**: ~200-300 canonical groups (semantic normalization enabled) ✅
+- **Condition Categorization**: 406/406 (100%) via group propagation - 18 categories ✅
+- **Semantic Relationships**: 141+ cross-paper relationships tracked (both entity types)
+- **Processing Rate**: ~38-39 papers/hour (qwen3:14b with mechanism extraction)
+- **Architecture**: Phase 3 + 3.5 fully support both interventions AND conditions ✅
 - **Ground Truth Labeling**: 80/500 pairs labeled (16% complete)
 
 ---
@@ -261,36 +276,74 @@ Exports SQLite → JSON with Phase 3.5 hierarchical data, metadata, and top perf
 
 ### Categorization Architecture (October 2025) ✅
 **Previous**: Categorization during extraction (in prompt)
-**Current**: Separate Phase 2.5 after extraction with retry logic and enhanced prompts
+**Current**: Group-based categorization in Phase 3.5 (after semantic normalization)
 
 **Benefits**:
-- Separation of concerns (extraction vs classification)
+- Separation of concerns (extraction → normalization → categorization)
 - Can re-categorize without re-extraction
 - Faster extraction (fewer tokens in prompt)
-- More accurate categorization with focused prompts
+- More accurate categorization with semantic context from groups
 - Automatic retry logic prevents pipeline stoppage
 - Enhanced prompts with edge case handling
 
-**Workflow**:
-1. **Phase 2**: Extract interventions WITHOUT categories → `intervention_category = NULL`
-2. **Phase 2.5**: LLM categorizes into 13 categories (batch of 20 items)
-   - **Retry Logic**: 3 attempts with exponential backoff (2s → 4s → 8s)
-   - **Enhanced Prompts**: Detailed category descriptions + edge cases (e.g., blood transfusion → procedure)
-3. **Phase 3.5**: Hierarchical semantic normalization
+**Current Pipeline Flow**:
+1. **Phase 2**: Extract interventions WITHOUT categories → `intervention_category = NULL`, `condition_category = NULL`
+2. **Phase 3**: Semantic normalization (create canonical groups for interventions AND conditions)
+3. **Phase 3.5**: Group-based categorization
+   - Categorize intervention groups (13 categories, batch of 20)
+   - Propagate to member interventions
+   - Categorize condition groups (18 categories, batch of 20)
+   - Propagate to conditions in interventions table
+   - Fallback categorization for orphans
 
-### Phase 3.5: Hierarchical Semantic Normalization (October 2025) ✅
+### Phase 3: Semantic Normalization (October 2025) ✅
 
-**Problem**: Cross-paper intervention name unification
-**Solution**: 4-Layer hierarchical system with embedding-based similarity + LLM classification
+**Problem**: Cross-paper entity name unification (interventions AND conditions)
+**Solution**: Embedding-based similarity + LLM classification to create canonical groups
 
-**Performance** (Full Database Normalization - 1,028 interventions):
-- **Runtime**: ~22 hours with qwen3:14b (~25s per uncached LLM call)
-- **Canonical groups created**: 796 (Layer 1 hierarchy)
-- **Relationships tracked**: 297 semantic connections
-- **Embeddings cached**: 1,028 (nomic-embed-text 768-dim vectors)
+**Scope**: Both interventions and conditions processed
+- **Interventions**: Unify variant names (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
+- **Conditions**: Hierarchical grouping (e.g., "IBS" parent with "IBS-C", "IBS-D", "IBS-M" subtypes)
+
+**Performance** (Current Database):
+- **Interventions**: 777 entities → 571 canonical groups
+- **Conditions**: 406 entities → ~200-300 canonical groups
+- **Total Relationships**: 141+ semantic connections
+- **Embeddings**: nomic-embed-text 768-dim vectors for all entities
+- **Runtime**: ~25s per uncached LLM call
 - **Cache hit rate**: 40%+
 
-**Result**: Unified analysis showing "150 papers support vitamin D" instead of fragmented counts
+**Result**:
+- Unified cross-paper analysis (e.g., "150 papers support vitamin D" instead of fragmented counts)
+- Condition variant tracking (e.g., "IBS" studies include "IBS-C", "IBS-D", "IBS-M" subtypes)
+
+### Phase 3.5: Group-Based Categorization (October 2025) ✅
+
+**Problem**: Categorizing individual entities is inefficient (792 LLM calls for interventions alone)
+**Solution**: Categorize canonical groups then propagate to member entities (both interventions AND conditions)
+
+**Benefits**:
+- 28% reduction in LLM calls vs individual categorization
+- Consistent categorization across variant names
+- Can re-categorize all entities by updating group categories
+- Single phase handles both entity types
+
+**Workflow (6 Steps)**:
+- **PART A (Interventions)**:
+  1. Categorize intervention canonical groups (571 groups, 13 categories, batches of 20)
+  2. Propagate categories from groups to member interventions
+  3. Fallback categorization for orphan interventions (no group membership)
+- **PART B (Conditions)**:
+  4. Categorize condition canonical groups (~200-300 groups, 18 categories, batches of 20)
+  5. Propagate categories from groups to conditions in interventions table
+  6. Fallback categorization for orphan conditions (no group membership)
+
+**Performance**:
+- **Interventions**: 571 LLM calls (vs 792 individual) = 28% reduction
+- **Conditions**: ~10-15 LLM calls (vs ~20 individual) = ~40% reduction
+- **Total**: ~580-590 LLM calls for complete categorization of both entity types
+
+**Integration**: Fully integrated into main pipeline as Phase 3.5 (runs after Phase 3 semantic normalization)
 
 ### Continuous Mode: Infinite Loop Execution (October 2025) ✅
 
@@ -319,7 +372,7 @@ python -m back_end.src.orchestration.batch_medical_rotation --papers-per-conditi
 ```
 
 **Iteration Flow**:
-1. Phase 1 → Phase 2 → Phase 2.5 → Phase 3 (complete)
+1. Phase 1 → Phase 2 → Phase 2.5 → Phase 3 → Phase 3.5 (complete)
 2. Save iteration statistics to history
 3. Reset phase flags and counters
 4. Wait `iteration_delay_seconds` (thermal protection)
@@ -363,6 +416,38 @@ python -m back_end.src.orchestration.batch_medical_rotation --papers-per-conditi
   - Fecal microbiota transplant → **procedure** (NOT supplement)
   - Probiotics pills → **supplement**; fecal transplant → **procedure**
   - Insulin, vaccines → **biologics** (NOT medication)
+
+---
+
+## Condition Taxonomy (18 Categories)
+
+| # | Category | Description | Examples |
+|---|----------|-------------|----------|
+| 1 | cardiac | Heart and blood vessel conditions | Coronary artery disease, heart failure, hypertension, arrhythmias, MI |
+| 2 | neurological | Brain, spinal cord, nervous system | Stroke, Alzheimer's, Parkinson's, epilepsy, MS, dementia, neuropathy |
+| 3 | digestive | Gastrointestinal system | GERD, IBD, IBS, cirrhosis, Crohn's, ulcerative colitis, H. pylori |
+| 4 | pulmonary | Lungs and respiratory system | COPD, asthma, pneumonia, pulmonary embolism, respiratory failure |
+| 5 | endocrine | Hormones and metabolism | Diabetes, thyroid disorders, obesity, PCOS, metabolic syndrome |
+| 6 | renal | Kidneys and urinary system | Chronic kidney disease, acute kidney injury, kidney stones, glomerulonephritis |
+| 7 | oncological | All cancers and malignant neoplasms | Lung cancer, breast cancer, colorectal cancer, leukemia |
+| 8 | rheumatological | Autoimmune and rheumatic diseases | Rheumatoid arthritis, lupus, gout, vasculitis, fibromyalgia |
+| 9 | psychiatric | Mental health conditions | Depression, anxiety, bipolar disorder, schizophrenia, ADHD, PTSD |
+| 10 | musculoskeletal | Bones, muscles, tendons, ligaments | Fractures, osteoarthritis, back pain, ACL injury, tendinitis |
+| 11 | dermatological | Skin, hair, nails | Acne, psoriasis, eczema, atopic dermatitis, melanoma, rosacea |
+| 12 | infectious | Bacterial, viral, fungal infections | HIV, tuberculosis, hepatitis, sepsis, COVID-19, influenza |
+| 13 | immunological | Allergies and immune disorders | Food allergies, allergic rhinitis, immunodeficiency, anaphylaxis |
+| 14 | hematological | Blood cells and clotting | Anemia, thrombocytopenia, hemophilia, sickle cell disease, thrombosis |
+| 15 | nutritional | Nutrient deficiencies | Vitamin D deficiency, B12 deficiency, iron deficiency, malnutrition |
+| 16 | toxicological | Poisoning and drug toxicity | Drug toxicity, heavy metal poisoning, overdose, carbon monoxide poisoning |
+| 17 | parasitic | Parasitic infections | Malaria, toxoplasmosis, giardiasis, schistosomiasis, helminth infections |
+| 18 | other | Conditions that don't fit standard categories | Rare diseases, multisystem conditions, unclassified syndromes |
+
+**Key Distinctions**:
+- **Type 2 diabetes** → **endocrine** (metabolic/hormonal, NOT digestive)
+- **H. pylori infection** → **infectious** (infection itself, NOT digestive complications)
+- **Osteoarthritis** → **rheumatological** (autoimmune context) or **musculoskeletal** (mechanical wear)
+- **Diabetic foot ulcer** → **infectious** or **dermatological** (depending on context, NOT endocrine)
+- **IBS variants** (IBS-C, IBS-D, IBS-M) → All **digestive** with hierarchical grouping
 
 ---
 
@@ -413,7 +498,7 @@ Located in `back_end/src/data_mining/`:
 
 **Location**: `back_end/src/semantic_normalization/`
 
-**Purpose**: Advanced intervention name normalization using hierarchical semantic grouping
+**Purpose**: Advanced entity name normalization using hierarchical semantic grouping (interventions AND conditions)
 
 ### Core Components (8 files)
 1. **embedding_engine.py** - Semantic embeddings (nomic-embed-text 768-dim)
@@ -437,6 +522,31 @@ Located in `back_end/src/data_mining/`:
 
 ---
 
+## Group Categorization Module
+
+**Location**: `back_end/src/experimentation/group_categorization/`
+
+**Purpose**: LLM-based categorization of canonical groups for both interventions and conditions
+
+### Components (2 files)
+1. **[group_categorizer.py](back_end/src/experimentation/group_categorization/group_categorizer.py)** - Intervention group categorizer (13 categories)
+   - Categorizes canonical intervention groups using semantic context
+   - Includes group members in prompt for accurate classification
+   - Batch processing (20 groups per LLM call)
+   - Propagation to member interventions
+   - Orphan intervention handling
+
+2. **[condition_group_categorizer.py](back_end/src/experimentation/group_categorization/condition_group_categorizer.py)** - Condition group categorizer (18 categories)
+   - Categorizes canonical condition groups using semantic context
+   - Includes group members in prompt for accurate classification
+   - Batch processing (20 groups per LLM call)
+   - Propagation to conditions in interventions table
+   - Orphan condition handling
+
+**Usage**: Both categorizers are called automatically by Phase 3.5 in the main pipeline
+
+---
+
 ## Support & Troubleshooting
 
 **For help**:
@@ -455,6 +565,6 @@ Located in `back_end/src/data_mining/`:
 
 ---
 
-*Last Updated: October 8, 2025*
-*Architecture: Single-model (qwen3:14b) with continuous mode and automatic retry logic*
+*Last Updated: October 10, 2025*
+*Architecture: Single-model (qwen3:14b) with semantic normalization + group-based categorization for both interventions AND conditions*
 *Status: Production Ready ✅*

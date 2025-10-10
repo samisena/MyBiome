@@ -1,0 +1,2518 @@
+{
+  "summary": {
+    "total_files": 117,
+    "entry_points": 7,
+    "executables": 43,
+    "libraries": 45,
+    "unused": 7,
+    "init_files": 15,
+    "duplicates": 8
+  },
+  "categories": {
+    "entry_points": [
+      "src/orchestration/batch_medical_rotation.py",
+      "src/orchestration/rotation_group_categorization.py",
+      "src/orchestration/rotation_llm_categorization.py",
+      "src/orchestration/rotation_llm_processor.py",
+      "src/orchestration/rotation_paper_collector.py",
+      "src/orchestration/rotation_semantic_grouping_integrator.py",
+      "src/orchestration/rotation_semantic_normalizer.py"
+    ],
+    "executables": [
+      "scripts/backfill_condition_categories.py",
+      "scripts/classify_conditions.py",
+      "scripts/migrate_add_mechanism.py",
+      "scripts/migrate_intervention_category_nullable.py",
+      "src/data_mining/correlation_consistency_checker.py",
+      "src/data_mining/data_mining_orchestrator.py",
+      "src/data_mining/review_correlations.py",
+      "src/experimentation/analysis/results_analyzer.py",
+      "src/experimentation/group_categorization/experiment_runner.py",
+      "src/experimentation/group_categorization/group_categorizer.py",
+      "src/experimentation/group_categorization/validation.py",
+      "src/experimentation/runners/dataset_selector.py",
+      "src/experimentation/runners/experiment_runner.py",
+      "src/llm_processing/batch_entity_processor.py",
+      "src/llm_processing/export_to_json.py",
+      "src/migrations/add_semantic_normalization_tables.py",
+      "src/migrations/create_interventions_view_option_b.py",
+      "src/semantic_normalization/cluster_reviewer.py",
+      "src/semantic_normalization/embedding_engine.py",
+      "src/semantic_normalization/evaluator.py",
+      "src/semantic_normalization/experiment_logger.py",
+      "src/semantic_normalization/hierarchy_manager.py",
+      "src/semantic_normalization/llm_classifier.py",
+      "src/semantic_normalization/normalizer.py",
+      "src/semantic_normalization/test_runner.py",
+      "src/semantic_normalization/ground_truth/data_exporter.py",
+      "src/semantic_normalization/ground_truth/evaluator.py",
+      "src/semantic_normalization/ground_truth/generate_candidates.py",
+      "src/semantic_normalization/ground_truth/labeling_interface.py",
+      "src/semantic_normalization/ground_truth/label_in_batches.py",
+      "src/semantic_normalization/ground_truth/pair_generator.py",
+      "src/semantic_normalization/ground_truth/remove_duplicate_labels.py",
+      "src/utils/analyze_mapping_suggestions.py",
+      "src/utils/analyze_reviews.py",
+      "src/utils/batch_process_summary.py",
+      "src/utils/batch_process_unmapped_terms.py",
+      "src/utils/cleanup_old_interventions.py",
+      "src/utils/create_manual_mappings.py",
+      "src/utils/drop_legacy_tables.py",
+      "src/utils/export_frontend_data.py",
+      "src/utils/reextract_mechanisms.py",
+      "src/utils/review_correlations.py",
+      "src/utils/run_correlation_extraction.py"
+    ],
+    "libraries": [
+      "src/conditions/category_validators.py",
+      "src/conditions/search_terms.py",
+      "src/conditions/taxonomy.py",
+      "src/data/api_clients.py",
+      "src/data/config.py",
+      "src/data/error_handler.py",
+      "src/data/repositories.py",
+      "src/data/utils.py",
+      "src/data/validators.py",
+      "src/data_collection/database_manager.py",
+      "src/data_collection/data_mining_repository.py",
+      "src/data_collection/fulltext_retriever.py",
+      "src/data_collection/paper_parser.py",
+      "src/data_collection/pubmed_collector.py",
+      "src/data_collection/semantic_scholar_enrichment.py",
+      "src/data_mining/bayesian_scorer.py",
+      "src/data_mining/biological_patterns.py",
+      "src/data_mining/condition_similarity_mapping.py",
+      "src/data_mining/failed_interventions.py",
+      "src/data_mining/graph_utils.py",
+      "src/data_mining/innovation_tracking_system.py",
+      "src/data_mining/intervention_consensus_analyzer.py",
+      "src/data_mining/medical_knowledge.py",
+      "src/data_mining/medical_knowledge_graph.py",
+      "src/data_mining/power_combinations.py",
+      "src/data_mining/research_gaps.py",
+      "src/data_mining/scoring_utils.py",
+      "src/data_mining/similarity_utils.py",
+      "src/data_mining/treatment_recommendation_engine.py",
+      "src/experimentation/config/experiment_config.py",
+      "src/experimentation/evaluation/system_monitor.py",
+      "src/experimentation/group_categorization/condition_group_categorizer.py",
+      "src/interventions/category_validators.py",
+      "src/interventions/search_terms.py",
+      "src/interventions/taxonomy.py",
+      "src/llm_processing/entity_operations.py",
+      "src/llm_processing/entity_utils.py",
+      "src/llm_processing/prompt_service.py",
+      "src/llm_processing/single_model_analyzer.py",
+      "src/orchestration/rotation_session_manager.py",
+      "src/semantic_normalization/config.py",
+      "src/semantic_normalization/prompts.py",
+      "src/semantic_normalization/semantic_normalizer.py",
+      "src/utils/batch_file_operations.py",
+      "src/utils/imports.py"
+    ],
+    "unused": [
+      "src/data_mining/emerging_category_analyzer.py",
+      "src/data_mining/fundamental_functions.py",
+      "src/experimentation/analyze_interventions.py",
+      "src/experimentation/check_progress.py",
+      "src/experimentation/show_interventions.py",
+      "src/semantic_normalization/ground_truth/prompts.py",
+      "src/utils/integration_success_summary.py"
+    ],
+    "init_files": [
+      "src/__init__.py",
+      "src/data/__init__.py",
+      "src/data_collection/__init__.py",
+      "src/experimentation/__init__.py",
+      "src/experimentation/analysis/__init__.py",
+      "src/experimentation/config/__init__.py",
+      "src/experimentation/evaluation/__init__.py",
+      "src/experimentation/group_categorization/__init__.py",
+      "src/experimentation/runners/__init__.py",
+      "src/interventions/__init__.py",
+      "src/llm_processing/__init__.py",
+      "src/orchestration/__init__.py",
+      "src/semantic_normalization/__init__.py",
+      "src/semantic_normalization/ground_truth/__init__.py",
+      "src/utils/__init__.py"
+    ]
+  },
+  "duplicates": [
+    {
+      "name": "category_validators.py",
+      "paths": [
+        "src/conditions/category_validators.py",
+        "src/interventions/category_validators.py"
+      ],
+      "reason": "Same filename in multiple locations"
+    },
+    {
+      "name": "search_terms.py",
+      "paths": [
+        "src/conditions/search_terms.py",
+        "src/interventions/search_terms.py"
+      ],
+      "reason": "Same filename in multiple locations"
+    },
+    {
+      "name": "taxonomy.py",
+      "paths": [
+        "src/conditions/taxonomy.py",
+        "src/interventions/taxonomy.py"
+      ],
+      "reason": "Same filename in multiple locations"
+    },
+    {
+      "name": "config.py",
+      "paths": [
+        "src/data/config.py",
+        "src/semantic_normalization/config.py"
+      ],
+      "reason": "Same filename in multiple locations"
+    },
+    {
+      "name": "review_correlations.py",
+      "paths": [
+        "src/data_mining/review_correlations.py",
+        "src/utils/review_correlations.py"
+      ],
+      "reason": "Same filename in multiple locations"
+    },
+    {
+      "name": "experiment_runner.py",
+      "paths": [
+        "src/experimentation/group_categorization/experiment_runner.py",
+        "src/experimentation/runners/experiment_runner.py"
+      ],
+      "reason": "Same filename in multiple locations"
+    },
+    {
+      "name": "evaluator.py",
+      "paths": [
+        "src/semantic_normalization/evaluator.py",
+        "src/semantic_normalization/ground_truth/evaluator.py"
+      ],
+      "reason": "Same filename in multiple locations"
+    },
+    {
+      "name": "prompts.py",
+      "paths": [
+        "src/semantic_normalization/prompts.py",
+        "src/semantic_normalization/ground_truth/prompts.py"
+      ],
+      "reason": "Same filename in multiple locations"
+    }
+  ],
+  "file_details": {
+    "scripts/backfill_condition_categories.py": {
+      "has_main": true,
+      "from_imports_count": 5,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 2,
+      "imported_by": [],
+      "imports": [
+        "src/data_collection/database_manager.py",
+        "src/conditions/taxonomy.py"
+      ],
+      "relative_imports": []
+    },
+    "scripts/classify_conditions.py": {
+      "has_main": true,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 4,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "scripts/migrate_add_mechanism.py": {
+      "has_main": true,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 1,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "scripts/migrate_intervention_category_nullable.py": {
+      "has_main": true,
+      "from_imports_count": 1,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 12,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 8,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py",
+        "src/data_collection/database_manager.py",
+        "src/data_collection/pubmed_collector.py",
+        "src/data_collection/paper_parser.py",
+        "src/data_collection/fulltext_retriever.py",
+        "src/data/utils.py",
+        "src/data/validators.py",
+        "src/data/error_handler.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".data.config",
+          "items": "config, setup_logging"
+        },
+        {
+          "module": ".data_collection.database_manager",
+          "items": "DatabaseManager, database_manager"
+        },
+        {
+          "module": ".paper_collection.database_manager",
+          "items": "DatabaseManager, database_manager"
+        },
+        {
+          "module": ".data_collection.pubmed_collector",
+          "items": "PubMedCollector"
+        },
+        {
+          "module": ".paper_collection.pubmed_collector",
+          "items": "PubMedCollector"
+        },
+        {
+          "module": ".data_collection.paper_parser",
+          "items": "PubmedParser"
+        },
+        {
+          "module": ".paper_collection.paper_parser",
+          "items": "PubmedParser"
+        },
+        {
+          "module": ".data_collection.fulltext_retriever",
+          "items": "FullTextRetriever"
+        },
+        {
+          "module": ".paper_collection.fulltext_retriever",
+          "items": "FullTextRetriever"
+        },
+        {
+          "module": ".data.utils",
+          "items": "("
+        },
+        {
+          "module": ".data.validators",
+          "items": "validation_manager"
+        },
+        {
+          "module": ".data.error_handler",
+          "items": "error_handler"
+        }
+      ]
+    },
+    "src/conditions/category_validators.py": {
+      "has_main": false,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 1,
+      "imported_by": [
+        "src/interventions/category_validators.py"
+      ],
+      "imports": [
+        "src/conditions/taxonomy.py"
+      ],
+      "relative_imports": []
+    },
+    "src/conditions/search_terms.py": {
+      "has_main": false,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 1,
+      "imported_by": [
+        "src/data_collection/database_manager.py"
+      ],
+      "imports": [
+        "src/conditions/taxonomy.py"
+      ],
+      "relative_imports": []
+    },
+    "src/conditions/taxonomy.py": {
+      "has_main": false,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": true,
+      "imported_by_count": 5,
+      "imports_count": 0,
+      "imported_by": [
+        "scripts/backfill_condition_categories.py",
+        "src/conditions/category_validators.py",
+        "src/conditions/search_terms.py",
+        "src/data_collection/database_manager.py",
+        "src/orchestration/rotation_llm_categorization.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data/api_clients.py": {
+      "has_main": false,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 7,
+      "imports_count": 2,
+      "imported_by": [
+        "src/data/__init__.py",
+        "src/data_collection/fulltext_retriever.py",
+        "src/data_collection/pubmed_collector.py",
+        "src/data_collection/semantic_scholar_enrichment.py",
+        "src/llm_processing/entity_operations.py",
+        "src/llm_processing/single_model_analyzer.py",
+        "src/utils/reextract_mechanisms.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data/error_handler.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data/config.py": {
+      "has_main": false,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 45,
+      "imports_count": 0,
+      "imported_by": [
+        "scripts/migrate_add_mechanism.py",
+        "src/__init__.py",
+        "src/data/api_clients.py",
+        "src/data/error_handler.py",
+        "src/data/repositories.py",
+        "src/data/utils.py",
+        "src/data/validators.py",
+        "src/data/__init__.py",
+        "src/data_collection/database_manager.py",
+        "src/data_collection/data_mining_repository.py",
+        "src/data_collection/fulltext_retriever.py",
+        "src/data_collection/paper_parser.py",
+        "src/data_collection/pubmed_collector.py",
+        "src/data_collection/semantic_scholar_enrichment.py",
+        "src/data_mining/bayesian_scorer.py",
+        "src/data_mining/data_mining_orchestrator.py",
+        "src/data_mining/emerging_category_analyzer.py",
+        "src/data_mining/medical_knowledge_graph.py",
+        "src/data_mining/research_gaps.py",
+        "src/data_mining/treatment_recommendation_engine.py",
+        "src/experimentation/group_categorization/condition_group_categorizer.py",
+        "src/experimentation/group_categorization/experiment_runner.py",
+        "src/experimentation/group_categorization/group_categorizer.py",
+        "src/experimentation/group_categorization/validation.py",
+        "src/experimentation/runners/dataset_selector.py",
+        "src/experimentation/runners/experiment_runner.py",
+        "src/llm_processing/batch_entity_processor.py",
+        "src/llm_processing/export_to_json.py",
+        "src/llm_processing/prompt_service.py",
+        "src/llm_processing/single_model_analyzer.py",
+        "src/migrations/add_semantic_normalization_tables.py",
+        "src/migrations/create_interventions_view_option_b.py",
+        "src/orchestration/batch_medical_rotation.py",
+        "src/orchestration/rotation_group_categorization.py",
+        "src/orchestration/rotation_llm_categorization.py",
+        "src/orchestration/rotation_llm_processor.py",
+        "src/orchestration/rotation_paper_collector.py",
+        "src/orchestration/rotation_semantic_grouping_integrator.py",
+        "src/orchestration/rotation_semantic_normalizer.py",
+        "src/orchestration/rotation_session_manager.py",
+        "src/utils/analyze_reviews.py",
+        "src/utils/batch_file_operations.py",
+        "src/utils/reextract_mechanisms.py",
+        "src/utils/review_correlations.py",
+        "src/utils/run_correlation_extraction.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data/error_handler.py": {
+      "has_main": false,
+      "from_imports_count": 5,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 4,
+      "imports_count": 1,
+      "imported_by": [
+        "src/__init__.py",
+        "src/data/api_clients.py",
+        "src/data/__init__.py",
+        "src/llm_processing/single_model_analyzer.py"
+      ],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data/repositories.py": {
+      "has_main": false,
+      "from_imports_count": 5,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": true,
+      "imported_by_count": 5,
+      "imports_count": 2,
+      "imported_by": [
+        "src/data/__init__.py",
+        "src/data_mining/data_mining_orchestrator.py",
+        "src/data_mining/emerging_category_analyzer.py",
+        "src/llm_processing/single_model_analyzer.py",
+        "src/orchestration/rotation_llm_processor.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data_collection/database_manager.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data/utils.py": {
+      "has_main": false,
+      "from_imports_count": 3,
+      "relative_imports_count": 1,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 9,
+      "imports_count": 1,
+      "imported_by": [
+        "src/__init__.py",
+        "src/data/__init__.py",
+        "src/data_collection/fulltext_retriever.py",
+        "src/data_collection/paper_parser.py",
+        "src/data_collection/pubmed_collector.py",
+        "src/llm_processing/entity_operations.py",
+        "src/llm_processing/prompt_service.py",
+        "src/llm_processing/single_model_analyzer.py",
+        "src/utils/reextract_mechanisms.py"
+      ],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".config",
+          "items": "setup_logging"
+        }
+      ]
+    },
+    "src/data/validators.py": {
+      "has_main": false,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 5,
+      "imports_count": 1,
+      "imported_by": [
+        "src/__init__.py",
+        "src/data/__init__.py",
+        "src/data_collection/database_manager.py",
+        "src/data_collection/paper_parser.py",
+        "src/interventions/category_validators.py"
+      ],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 6,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 6,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py",
+        "src/data/utils.py",
+        "src/data/api_clients.py",
+        "src/data/repositories.py",
+        "src/data/validators.py",
+        "src/data/error_handler.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".config",
+          "items": "config, setup_logging, LLMConfig"
+        },
+        {
+          "module": ".utils",
+          "items": "("
+        },
+        {
+          "module": ".api_clients",
+          "items": "("
+        },
+        {
+          "module": ".repositories",
+          "items": "repository_manager"
+        },
+        {
+          "module": ".validators",
+          "items": "validation_manager"
+        },
+        {
+          "module": ".error_handler",
+          "items": "error_handler"
+        }
+      ]
+    },
+    "src/data_collection/database_manager.py": {
+      "has_main": false,
+      "from_imports_count": 9,
+      "relative_imports_count": 5,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 20,
+      "imports_count": 9,
+      "imported_by": [
+        "scripts/backfill_condition_categories.py",
+        "src/__init__.py",
+        "src/data/repositories.py",
+        "src/data_collection/data_mining_repository.py",
+        "src/data_collection/fulltext_retriever.py",
+        "src/data_collection/paper_parser.py",
+        "src/data_collection/pubmed_collector.py",
+        "src/data_collection/semantic_scholar_enrichment.py",
+        "src/data_mining/correlation_consistency_checker.py",
+        "src/data_mining/data_mining_orchestrator.py",
+        "src/experimentation/runners/dataset_selector.py",
+        "src/llm_processing/batch_entity_processor.py",
+        "src/llm_processing/export_to_json.py",
+        "src/orchestration/rotation_llm_categorization.py",
+        "src/orchestration/rotation_llm_processor.py",
+        "src/orchestration/rotation_paper_collector.py",
+        "src/orchestration/rotation_semantic_grouping_integrator.py",
+        "src/utils/batch_process_summary.py",
+        "src/utils/review_correlations.py",
+        "src/utils/run_correlation_extraction.py"
+      ],
+      "imports": [
+        "src/llm_processing/batch_entity_processor.py",
+        "src/interventions/taxonomy.py",
+        "src/interventions/search_terms.py",
+        "src/conditions/taxonomy.py",
+        "src/conditions/search_terms.py",
+        "src/data/config.py",
+        "src/data/validators.py",
+        "src/interventions/category_validators.py",
+        "src/utils/batch_file_operations.py"
+      ],
+      "relative_imports": [
+        {
+          "module": "..llm_processing.batch_entity_processor",
+          "items": "BatchEntityProcessor as EntityNormalizer"
+        },
+        {
+          "module": "..interventions.taxonomy",
+          "items": "intervention_taxonomy"
+        },
+        {
+          "module": "..interventions.search_terms",
+          "items": "search_terms"
+        },
+        {
+          "module": "..conditions.taxonomy",
+          "items": "condition_taxonomy"
+        },
+        {
+          "module": "..conditions.search_terms",
+          "items": "search_terms as condition_search_terms"
+        }
+      ]
+    },
+    "src/data_collection/data_mining_repository.py": {
+      "has_main": false,
+      "from_imports_count": 6,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 4,
+      "imports_count": 2,
+      "imported_by": [
+        "src/data_mining/bayesian_scorer.py",
+        "src/data_mining/medical_knowledge_graph.py",
+        "src/data_mining/research_gaps.py",
+        "src/data_mining/treatment_recommendation_engine.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data_collection/database_manager.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_collection/fulltext_retriever.py": {
+      "has_main": false,
+      "from_imports_count": 6,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 4,
+      "imported_by": [
+        "src/__init__.py",
+        "src/data_collection/pubmed_collector.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data/api_clients.py",
+        "src/data_collection/database_manager.py",
+        "src/data/utils.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_collection/paper_parser.py": {
+      "has_main": false,
+      "from_imports_count": 6,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 4,
+      "imported_by": [
+        "src/__init__.py",
+        "src/data_collection/pubmed_collector.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data_collection/database_manager.py",
+        "src/data/utils.py",
+        "src/data/validators.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_collection/pubmed_collector.py": {
+      "has_main": false,
+      "from_imports_count": 11,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 8,
+      "imported_by": [
+        "src/__init__.py",
+        "src/orchestration/rotation_paper_collector.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data/api_clients.py",
+        "src/data_collection/database_manager.py",
+        "src/data_collection/paper_parser.py",
+        "src/data_collection/fulltext_retriever.py",
+        "src/data/utils.py",
+        "src/interventions/search_terms.py",
+        "src/data_collection/semantic_scholar_enrichment.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_collection/semantic_scholar_enrichment.py": {
+      "has_main": false,
+      "from_imports_count": 6,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 3,
+      "imported_by": [
+        "src/data_collection/pubmed_collector.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data/api_clients.py",
+        "src/data_collection/database_manager.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_collection/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data_mining/bayesian_scorer.py": {
+      "has_main": false,
+      "from_imports_count": 6,
+      "relative_imports_count": 1,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 3,
+      "imported_by": [
+        "src/data_mining/data_mining_orchestrator.py"
+      ],
+      "imports": [
+        "src/data_mining/scoring_utils.py",
+        "src/data_collection/data_mining_repository.py",
+        "src/data/config.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".scoring_utils",
+          "items": "EffectivenessScorer, ConfidenceCalculator, ScoringResult, StatisticalHelpers"
+        }
+      ]
+    },
+    "src/data_mining/biological_patterns.py": {
+      "has_main": false,
+      "from_imports_count": 8,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 0,
+      "imported_by": [
+        "src/data_mining/data_mining_orchestrator.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data_mining/condition_similarity_mapping.py": {
+      "has_main": false,
+      "from_imports_count": 7,
+      "relative_imports_count": 3,
+      "direct_imports_count": 4,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 3,
+      "imported_by": [
+        "src/data_mining/data_mining_orchestrator.py"
+      ],
+      "imports": [
+        "src/data_mining/similarity_utils.py",
+        "src/data_mining/medical_knowledge.py",
+        "src/data_mining/scoring_utils.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".similarity_utils",
+          "items": "SimilarityCalculator, ConditionSimilarityMetrics"
+        },
+        {
+          "module": ".medical_knowledge",
+          "items": "MedicalKnowledge"
+        },
+        {
+          "module": ".scoring_utils",
+          "items": "ConfidenceCalculator"
+        }
+      ]
+    },
+    "src/data_mining/correlation_consistency_checker.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 1,
+      "imported_by": [
+        "src/data_mining/data_mining_orchestrator.py"
+      ],
+      "imports": [
+        "src/data_collection/database_manager.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_mining/data_mining_orchestrator.py": {
+      "has_main": true,
+      "from_imports_count": 18,
+      "relative_imports_count": 0,
+      "direct_imports_count": 7,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 13,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py",
+        "src/data/repositories.py",
+        "src/data_collection/database_manager.py",
+        "src/data_mining/bayesian_scorer.py",
+        "src/data_mining/medical_knowledge_graph.py",
+        "src/data_mining/treatment_recommendation_engine.py",
+        "src/data_mining/research_gaps.py",
+        "src/data_mining/innovation_tracking_system.py",
+        "src/data_mining/biological_patterns.py",
+        "src/data_mining/condition_similarity_mapping.py",
+        "src/data_mining/power_combinations.py",
+        "src/data_mining/failed_interventions.py",
+        "src/data_mining/correlation_consistency_checker.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_mining/emerging_category_analyzer.py": {
+      "has_main": false,
+      "from_imports_count": 7,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 3,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py",
+        "src/data/repositories.py",
+        "src/interventions/taxonomy.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_mining/failed_interventions.py": {
+      "has_main": false,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 0,
+      "imported_by": [
+        "src/data_mining/data_mining_orchestrator.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data_mining/fundamental_functions.py": {
+      "has_main": false,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data_mining/graph_utils.py": {
+      "has_main": false,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 0,
+      "imported_by": [
+        "src/data_mining/power_combinations.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data_mining/innovation_tracking_system.py": {
+      "has_main": false,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 5,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 0,
+      "imported_by": [
+        "src/data_mining/data_mining_orchestrator.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data_mining/intervention_consensus_analyzer.py": {
+      "has_main": false,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 1,
+      "imported_by": [
+        "src/data_mining/intervention_consensus_analyzer.py"
+      ],
+      "imports": [
+        "src/data_mining/intervention_consensus_analyzer.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_mining/medical_knowledge.py": {
+      "has_main": false,
+      "from_imports_count": 1,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": true,
+      "imported_by_count": 3,
+      "imports_count": 0,
+      "imported_by": [
+        "src/data_mining/condition_similarity_mapping.py",
+        "src/data_mining/power_combinations.py",
+        "src/data_mining/research_gaps.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data_mining/medical_knowledge_graph.py": {
+      "has_main": false,
+      "from_imports_count": 7,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 2,
+      "imported_by": [
+        "src/data_mining/data_mining_orchestrator.py"
+      ],
+      "imports": [
+        "src/data_collection/data_mining_repository.py",
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_mining/power_combinations.py": {
+      "has_main": false,
+      "from_imports_count": 4,
+      "relative_imports_count": 3,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 3,
+      "imported_by": [
+        "src/data_mining/data_mining_orchestrator.py"
+      ],
+      "imports": [
+        "src/data_mining/medical_knowledge.py",
+        "src/data_mining/scoring_utils.py",
+        "src/data_mining/graph_utils.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".medical_knowledge",
+          "items": "MedicalKnowledge"
+        },
+        {
+          "module": ".scoring_utils",
+          "items": "EffectivenessScorer, StatisticalHelpers"
+        },
+        {
+          "module": ".graph_utils",
+          "items": "EdgeAggregation"
+        }
+      ]
+    },
+    "src/data_mining/research_gaps.py": {
+      "has_main": false,
+      "from_imports_count": 9,
+      "relative_imports_count": 3,
+      "direct_imports_count": 4,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 5,
+      "imported_by": [
+        "src/data_mining/data_mining_orchestrator.py"
+      ],
+      "imports": [
+        "src/data_mining/medical_knowledge.py",
+        "src/data_mining/similarity_utils.py",
+        "src/data_mining/scoring_utils.py",
+        "src/data_collection/data_mining_repository.py",
+        "src/data/config.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".medical_knowledge",
+          "items": "MedicalKnowledge"
+        },
+        {
+          "module": ".similarity_utils",
+          "items": "SimilarityCalculator, ConditionSimilarityMetrics"
+        },
+        {
+          "module": ".scoring_utils",
+          "items": "EffectivenessScorer, ConfidenceCalculator"
+        }
+      ]
+    },
+    "src/data_mining/review_correlations.py": {
+      "has_main": true,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 1,
+      "imported_by": [],
+      "imports": [
+        "src/utils/review_correlations.py"
+      ],
+      "relative_imports": []
+    },
+    "src/data_mining/scoring_utils.py": {
+      "has_main": false,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 4,
+      "imports_count": 0,
+      "imported_by": [
+        "src/data_mining/bayesian_scorer.py",
+        "src/data_mining/condition_similarity_mapping.py",
+        "src/data_mining/power_combinations.py",
+        "src/data_mining/research_gaps.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data_mining/similarity_utils.py": {
+      "has_main": false,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 0,
+      "imported_by": [
+        "src/data_mining/condition_similarity_mapping.py",
+        "src/data_mining/research_gaps.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/data_mining/treatment_recommendation_engine.py": {
+      "has_main": false,
+      "from_imports_count": 7,
+      "relative_imports_count": 0,
+      "direct_imports_count": 5,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 2,
+      "imported_by": [
+        "src/data_mining/data_mining_orchestrator.py"
+      ],
+      "imports": [
+        "src/data_collection/data_mining_repository.py",
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/experimentation/analyze_interventions.py": {
+      "has_main": false,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/experimentation/check_progress.py": {
+      "has_main": false,
+      "from_imports_count": 1,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/experimentation/show_interventions.py": {
+      "has_main": false,
+      "from_imports_count": 1,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/experimentation/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/experimentation/analysis/results_analyzer.py": {
+      "has_main": true,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/experimentation/analysis/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/experimentation/config/experiment_config.py": {
+      "has_main": false,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 0,
+      "imported_by": [
+        "src/experimentation/runners/experiment_runner.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/experimentation/config/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/experimentation/evaluation/system_monitor.py": {
+      "has_main": false,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 0,
+      "imported_by": [
+        "src/experimentation/runners/experiment_runner.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/experimentation/evaluation/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/experimentation/group_categorization/condition_group_categorizer.py": {
+      "has_main": false,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 4,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 1,
+      "imported_by": [
+        "src/orchestration/rotation_group_categorization.py"
+      ],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/experimentation/group_categorization/experiment_runner.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 2,
+      "direct_imports_count": 4,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 3,
+      "imported_by": [
+        "src/experimentation/group_categorization/__init__.py"
+      ],
+      "imports": [
+        "src/experimentation/group_categorization/group_categorizer.py",
+        "src/experimentation/group_categorization/validation.py",
+        "src/data/config.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".group_categorizer",
+          "items": "GroupBasedCategorizer"
+        },
+        {
+          "module": ".validation",
+          "items": "validate_all"
+        }
+      ]
+    },
+    "src/experimentation/group_categorization/group_categorizer.py": {
+      "has_main": true,
+      "from_imports_count": 5,
+      "relative_imports_count": 0,
+      "direct_imports_count": 4,
+      "is_imported": true,
+      "imported_by_count": 3,
+      "imports_count": 1,
+      "imported_by": [
+        "src/experimentation/group_categorization/experiment_runner.py",
+        "src/experimentation/group_categorization/__init__.py",
+        "src/orchestration/rotation_group_categorization.py"
+      ],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/experimentation/group_categorization/validation.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 3,
+      "imports_count": 1,
+      "imported_by": [
+        "src/experimentation/group_categorization/experiment_runner.py",
+        "src/experimentation/group_categorization/__init__.py",
+        "src/orchestration/rotation_group_categorization.py"
+      ],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/experimentation/group_categorization/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 3,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 3,
+      "imported_by": [],
+      "imports": [
+        "src/experimentation/group_categorization/group_categorizer.py",
+        "src/experimentation/group_categorization/validation.py",
+        "src/experimentation/group_categorization/experiment_runner.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".group_categorizer",
+          "items": "GroupBasedCategorizer"
+        },
+        {
+          "module": ".validation",
+          "items": "validate_category_coverage, validate_group_purity, compare_with_existing"
+        },
+        {
+          "module": ".experiment_runner",
+          "items": "run_experiment"
+        }
+      ]
+    },
+    "src/experimentation/runners/dataset_selector.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 2,
+      "imported_by": [
+        "src/experimentation/runners/experiment_runner.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data_collection/database_manager.py"
+      ],
+      "relative_imports": []
+    },
+    "src/experimentation/runners/experiment_runner.py": {
+      "has_main": true,
+      "from_imports_count": 10,
+      "relative_imports_count": 0,
+      "direct_imports_count": 4,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 6,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py",
+        "src/llm_processing/single_model_analyzer.py",
+        "src/orchestration/rotation_llm_categorization.py",
+        "src/experimentation/config/experiment_config.py",
+        "src/experimentation/evaluation/system_monitor.py",
+        "src/experimentation/runners/dataset_selector.py"
+      ],
+      "relative_imports": []
+    },
+    "src/experimentation/runners/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/interventions/category_validators.py": {
+      "has_main": false,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 3,
+      "imports_count": 3,
+      "imported_by": [
+        "src/data_collection/database_manager.py",
+        "src/interventions/__init__.py",
+        "src/llm_processing/single_model_analyzer.py"
+      ],
+      "imports": [
+        "src/interventions/taxonomy.py",
+        "src/data/validators.py",
+        "src/conditions/category_validators.py"
+      ],
+      "relative_imports": []
+    },
+    "src/interventions/search_terms.py": {
+      "has_main": false,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": true,
+      "imported_by_count": 3,
+      "imports_count": 1,
+      "imported_by": [
+        "src/data_collection/database_manager.py",
+        "src/data_collection/pubmed_collector.py",
+        "src/interventions/__init__.py"
+      ],
+      "imports": [
+        "src/interventions/taxonomy.py"
+      ],
+      "relative_imports": []
+    },
+    "src/interventions/taxonomy.py": {
+      "has_main": false,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": true,
+      "imported_by_count": 8,
+      "imports_count": 0,
+      "imported_by": [
+        "src/data_collection/database_manager.py",
+        "src/data_mining/emerging_category_analyzer.py",
+        "src/interventions/category_validators.py",
+        "src/interventions/search_terms.py",
+        "src/interventions/__init__.py",
+        "src/llm_processing/prompt_service.py",
+        "src/llm_processing/single_model_analyzer.py",
+        "src/orchestration/rotation_llm_categorization.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/interventions/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 3,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 3,
+      "imported_by": [],
+      "imports": [
+        "src/interventions/taxonomy.py",
+        "src/interventions/category_validators.py",
+        "src/interventions/search_terms.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".taxonomy",
+          "items": "InterventionTaxonomy, InterventionCategory"
+        },
+        {
+          "module": ".category_validators",
+          "items": "category_validator"
+        },
+        {
+          "module": ".search_terms",
+          "items": "InterventionSearchTerms"
+        }
+      ]
+    },
+    "src/llm_processing/batch_entity_processor.py": {
+      "has_main": true,
+      "from_imports_count": 5,
+      "relative_imports_count": 2,
+      "direct_imports_count": 9,
+      "is_imported": true,
+      "imported_by_count": 6,
+      "imports_count": 4,
+      "imported_by": [
+        "src/data_collection/database_manager.py",
+        "src/llm_processing/export_to_json.py",
+        "src/orchestration/rotation_semantic_grouping_integrator.py",
+        "src/utils/batch_process_summary.py",
+        "src/utils/batch_process_unmapped_terms.py",
+        "src/utils/create_manual_mappings.py"
+      ],
+      "imports": [
+        "src/llm_processing/entity_utils.py",
+        "src/llm_processing/entity_operations.py",
+        "src/data_collection/database_manager.py",
+        "src/data/config.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".entity_utils",
+          "items": "("
+        },
+        {
+          "module": ".entity_operations",
+          "items": "EntityRepository, LLMProcessor, SemanticGrouper"
+        }
+      ]
+    },
+    "src/llm_processing/entity_operations.py": {
+      "has_main": false,
+      "from_imports_count": 6,
+      "relative_imports_count": 1,
+      "direct_imports_count": 5,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 4,
+      "imported_by": [
+        "src/llm_processing/batch_entity_processor.py"
+      ],
+      "imports": [
+        "src/llm_processing/entity_utils.py",
+        "src/data/api_clients.py",
+        "src/data/utils.py",
+        "src/llm_processing/prompt_service.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".entity_utils",
+          "items": "("
+        }
+      ]
+    },
+    "src/llm_processing/entity_utils.py": {
+      "has_main": false,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 0,
+      "imported_by": [
+        "src/llm_processing/batch_entity_processor.py",
+        "src/llm_processing/entity_operations.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/llm_processing/export_to_json.py": {
+      "has_main": true,
+      "from_imports_count": 6,
+      "relative_imports_count": 1,
+      "direct_imports_count": 3,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 3,
+      "imported_by": [],
+      "imports": [
+        "src/llm_processing/batch_entity_processor.py",
+        "src/data_collection/database_manager.py",
+        "src/data/config.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".batch_entity_processor",
+          "items": "BatchEntityProcessor as EntityNormalizer"
+        }
+      ]
+    },
+    "src/llm_processing/prompt_service.py": {
+      "has_main": false,
+      "from_imports_count": 5,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 3,
+      "imported_by": [
+        "src/llm_processing/entity_operations.py",
+        "src/llm_processing/single_model_analyzer.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data/utils.py",
+        "src/interventions/taxonomy.py"
+      ],
+      "relative_imports": []
+    },
+    "src/llm_processing/single_model_analyzer.py": {
+      "has_main": false,
+      "from_imports_count": 12,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 8,
+      "imported_by": [
+        "src/experimentation/runners/experiment_runner.py",
+        "src/orchestration/rotation_llm_processor.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data/api_clients.py",
+        "src/data/repositories.py",
+        "src/data/utils.py",
+        "src/data/error_handler.py",
+        "src/interventions/category_validators.py",
+        "src/interventions/taxonomy.py",
+        "src/llm_processing/prompt_service.py"
+      ],
+      "relative_imports": []
+    },
+    "src/llm_processing/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/migrations/add_semantic_normalization_tables.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 1,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/migrations/create_interventions_view_option_b.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 1,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/orchestration/batch_medical_rotation.py": {
+      "has_main": true,
+      "from_imports_count": 11,
+      "relative_imports_count": 6,
+      "direct_imports_count": 8,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 6,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py",
+        "src/orchestration/rotation_paper_collector.py",
+        "src/orchestration/rotation_llm_processor.py",
+        "src/orchestration/rotation_semantic_grouping_integrator.py",
+        "src/orchestration/rotation_group_categorization.py",
+        "src/orchestration/rotation_semantic_normalizer.py"
+      ],
+      "relative_imports": [
+        {
+          "module": "..data.config",
+          "items": "config, setup_logging"
+        },
+        {
+          "module": ".rotation_paper_collector",
+          "items": "RotationPaperCollector, BatchCollectionResult"
+        },
+        {
+          "module": ".rotation_llm_processor",
+          "items": "RotationLLMProcessor"
+        },
+        {
+          "module": ".rotation_semantic_grouping_integrator",
+          "items": "RotationSemanticGroupingIntegrator"
+        },
+        {
+          "module": ".rotation_group_categorization",
+          "items": "RotationGroupCategorizer"
+        },
+        {
+          "module": ".rotation_semantic_normalizer",
+          "items": "SemanticNormalizationOrchestrator"
+        }
+      ]
+    },
+    "src/orchestration/rotation_group_categorization.py": {
+      "has_main": true,
+      "from_imports_count": 8,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 5,
+      "imported_by": [
+        "src/orchestration/batch_medical_rotation.py",
+        "src/orchestration/rotation_group_categorization.py"
+      ],
+      "imports": [
+        "src/orchestration/rotation_group_categorization.py",
+        "src/data/config.py",
+        "src/experimentation/group_categorization/group_categorizer.py",
+        "src/experimentation/group_categorization/validation.py",
+        "src/experimentation/group_categorization/condition_group_categorizer.py"
+      ],
+      "relative_imports": []
+    },
+    "src/orchestration/rotation_llm_categorization.py": {
+      "has_main": true,
+      "from_imports_count": 6,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 4,
+      "imported_by": [
+        "src/experimentation/runners/experiment_runner.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data_collection/database_manager.py",
+        "src/interventions/taxonomy.py",
+        "src/conditions/taxonomy.py"
+      ],
+      "relative_imports": []
+    },
+    "src/orchestration/rotation_llm_processor.py": {
+      "has_main": true,
+      "from_imports_count": 10,
+      "relative_imports_count": 4,
+      "direct_imports_count": 5,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 4,
+      "imported_by": [
+        "src/orchestration/batch_medical_rotation.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data_collection/database_manager.py",
+        "src/llm_processing/single_model_analyzer.py",
+        "src/data/repositories.py"
+      ],
+      "relative_imports": [
+        {
+          "module": "..data.config",
+          "items": "config, setup_logging"
+        },
+        {
+          "module": "..data_collection.database_manager",
+          "items": "database_manager"
+        },
+        {
+          "module": "..llm_processing.single_model_analyzer",
+          "items": "SingleModelAnalyzer"
+        },
+        {
+          "module": "..data.repositories",
+          "items": "repository_manager"
+        }
+      ]
+    },
+    "src/orchestration/rotation_paper_collector.py": {
+      "has_main": true,
+      "from_imports_count": 10,
+      "relative_imports_count": 4,
+      "direct_imports_count": 4,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 4,
+      "imported_by": [
+        "src/orchestration/batch_medical_rotation.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/data_collection/database_manager.py",
+        "src/data_collection/pubmed_collector.py",
+        "src/orchestration/rotation_session_manager.py"
+      ],
+      "relative_imports": [
+        {
+          "module": "..data.config",
+          "items": "config, setup_logging"
+        },
+        {
+          "module": "..data_collection.database_manager",
+          "items": "database_manager"
+        },
+        {
+          "module": "..data_collection.pubmed_collector",
+          "items": "PubMedCollector"
+        },
+        {
+          "module": ".rotation_session_manager",
+          "items": "("
+        }
+      ]
+    },
+    "src/orchestration/rotation_semantic_grouping_integrator.py": {
+      "has_main": true,
+      "from_imports_count": 7,
+      "relative_imports_count": 3,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 3,
+      "imported_by": [
+        "src/orchestration/batch_medical_rotation.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/llm_processing/batch_entity_processor.py",
+        "src/data_collection/database_manager.py"
+      ],
+      "relative_imports": [
+        {
+          "module": "..data.config",
+          "items": "config, setup_logging"
+        },
+        {
+          "module": "..llm_processing.batch_entity_processor",
+          "items": "create_batch_processor"
+        },
+        {
+          "module": "..data_collection.database_manager",
+          "items": "database_manager"
+        }
+      ]
+    },
+    "src/orchestration/rotation_semantic_normalizer.py": {
+      "has_main": true,
+      "from_imports_count": 7,
+      "relative_imports_count": 0,
+      "direct_imports_count": 5,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 3,
+      "imported_by": [
+        "src/orchestration/batch_medical_rotation.py"
+      ],
+      "imports": [
+        "src/data/config.py",
+        "src/semantic_normalization/__init__.py",
+        "src/semantic_normalization/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/orchestration/rotation_session_manager.py": {
+      "has_main": false,
+      "from_imports_count": 7,
+      "relative_imports_count": 1,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 1,
+      "imported_by": [
+        "src/orchestration/rotation_paper_collector.py"
+      ],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": [
+        {
+          "module": "..data.config",
+          "items": "config, setup_logging"
+        }
+      ]
+    },
+    "src/orchestration/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/cluster_reviewer.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/config.py": {
+      "has_main": false,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 0,
+      "imported_by": [
+        "src/orchestration/rotation_semantic_normalizer.py",
+        "src/semantic_normalization/normalizer.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/embedding_engine.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 5,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 0,
+      "imported_by": [
+        "src/semantic_normalization/normalizer.py",
+        "src/semantic_normalization/__init__.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/evaluator.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 4,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/experiment_logger.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/hierarchy_manager.py": {
+      "has_main": true,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 0,
+      "imported_by": [
+        "src/semantic_normalization/normalizer.py",
+        "src/semantic_normalization/__init__.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/llm_classifier.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 1,
+      "direct_imports_count": 6,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 1,
+      "imported_by": [
+        "src/semantic_normalization/normalizer.py",
+        "src/semantic_normalization/__init__.py"
+      ],
+      "imports": [
+        "src/semantic_normalization/prompts.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".prompts",
+          "items": "("
+        }
+      ]
+    },
+    "src/semantic_normalization/normalizer.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 6,
+      "direct_imports_count": 6,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 4,
+      "imported_by": [
+        "src/semantic_normalization/semantic_normalizer.py",
+        "src/semantic_normalization/__init__.py"
+      ],
+      "imports": [
+        "src/semantic_normalization/embedding_engine.py",
+        "src/semantic_normalization/llm_classifier.py",
+        "src/semantic_normalization/hierarchy_manager.py",
+        "src/semantic_normalization/config.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".embedding_engine",
+          "items": "EmbeddingEngine"
+        },
+        {
+          "module": ".llm_classifier",
+          "items": "LLMClassifier"
+        },
+        {
+          "module": ".hierarchy_manager",
+          "items": "HierarchyManager, initialize_database_schema"
+        },
+        {
+          "module": ".config",
+          "items": "CACHE_DIR, RESULTS_DIR"
+        },
+        {
+          "module": ".config",
+          "items": "CACHE_DIR"
+        },
+        {
+          "module": ".config",
+          "items": "CACHE_DIR"
+        }
+      ]
+    },
+    "src/semantic_normalization/prompts.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 0,
+      "imported_by": [
+        "src/semantic_normalization/llm_classifier.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/semantic_normalizer.py": {
+      "has_main": false,
+      "from_imports_count": 2,
+      "relative_imports_count": 1,
+      "direct_imports_count": 1,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 1,
+      "imported_by": [
+        "src/semantic_normalization/__init__.py"
+      ],
+      "imports": [
+        "src/semantic_normalization/normalizer.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".normalizer",
+          "items": "MainNormalizer"
+        }
+      ]
+    },
+    "src/semantic_normalization/test_runner.py": {
+      "has_main": true,
+      "from_imports_count": 7,
+      "relative_imports_count": 0,
+      "direct_imports_count": 4,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 5,
+      "direct_imports_count": 0,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 5,
+      "imported_by": [
+        "src/orchestration/rotation_semantic_normalizer.py"
+      ],
+      "imports": [
+        "src/semantic_normalization/embedding_engine.py",
+        "src/semantic_normalization/llm_classifier.py",
+        "src/semantic_normalization/hierarchy_manager.py",
+        "src/semantic_normalization/normalizer.py",
+        "src/semantic_normalization/semantic_normalizer.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".embedding_engine",
+          "items": "EmbeddingEngine"
+        },
+        {
+          "module": ".llm_classifier",
+          "items": "LLMClassifier"
+        },
+        {
+          "module": ".hierarchy_manager",
+          "items": "HierarchyManager"
+        },
+        {
+          "module": ".normalizer",
+          "items": "MainNormalizer"
+        },
+        {
+          "module": ".semantic_normalizer",
+          "items": "SemanticNormalizer"
+        }
+      ]
+    },
+    "src/semantic_normalization/ground_truth/data_exporter.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 4,
+      "is_imported": true,
+      "imported_by_count": 2,
+      "imports_count": 0,
+      "imported_by": [
+        "src/semantic_normalization/ground_truth/pair_generator.py",
+        "src/semantic_normalization/ground_truth/__init__.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/ground_truth/evaluator.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 4,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/ground_truth/generate_candidates.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 0,
+      "imported_by": [
+        "src/semantic_normalization/ground_truth/__init__.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/ground_truth/labeling_interface.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 4,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 0,
+      "imported_by": [
+        "src/semantic_normalization/ground_truth/__init__.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/ground_truth/label_in_batches.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/ground_truth/pair_generator.py": {
+      "has_main": true,
+      "from_imports_count": 7,
+      "relative_imports_count": 1,
+      "direct_imports_count": 4,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 1,
+      "imported_by": [
+        "src/semantic_normalization/ground_truth/__init__.py"
+      ],
+      "imports": [
+        "src/semantic_normalization/ground_truth/data_exporter.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".data_exporter",
+          "items": "InterventionDataExporter"
+        }
+      ]
+    },
+    "src/semantic_normalization/ground_truth/prompts.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/ground_truth/remove_duplicate_labels.py": {
+      "has_main": true,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/semantic_normalization/ground_truth/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 1,
+      "relative_imports_count": 3,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 4,
+      "imported_by": [],
+      "imports": [
+        "src/semantic_normalization/ground_truth/labeling_interface.py",
+        "src/semantic_normalization/ground_truth/pair_generator.py",
+        "src/semantic_normalization/ground_truth/data_exporter.py",
+        "src/semantic_normalization/ground_truth/generate_candidates.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".labeling_interface",
+          "items": "HierarchicalLabelingInterface"
+        },
+        {
+          "module": ".pair_generator",
+          "items": "SmartPairGenerator"
+        },
+        {
+          "module": ".data_exporter",
+          "items": "InterventionDataExporter"
+        }
+      ]
+    },
+    "src/utils/analyze_mapping_suggestions.py": {
+      "has_main": true,
+      "from_imports_count": 1,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/utils/analyze_reviews.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 1,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/utils/batch_file_operations.py": {
+      "has_main": false,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 1,
+      "imported_by": [
+        "src/data_collection/database_manager.py"
+      ],
+      "imports": [
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/utils/batch_process_summary.py": {
+      "has_main": true,
+      "from_imports_count": 1,
+      "relative_imports_count": 1,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 2,
+      "imported_by": [],
+      "imports": [
+        "src/llm_processing/batch_entity_processor.py",
+        "src/data_collection/database_manager.py"
+      ],
+      "relative_imports": [
+        {
+          "module": "..llm_processing.batch_entity_processor",
+          "items": "BatchEntityProcessor as EntityNormalizer"
+        }
+      ]
+    },
+    "src/utils/batch_process_unmapped_terms.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 1,
+      "direct_imports_count": 6,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 1,
+      "imported_by": [],
+      "imports": [
+        "src/llm_processing/batch_entity_processor.py"
+      ],
+      "relative_imports": [
+        {
+          "module": "..llm_processing.batch_entity_processor",
+          "items": "BatchEntityProcessor as EntityNormalizer"
+        }
+      ]
+    },
+    "src/utils/cleanup_old_interventions.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/utils/create_manual_mappings.py": {
+      "has_main": true,
+      "from_imports_count": 0,
+      "relative_imports_count": 1,
+      "direct_imports_count": 3,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 1,
+      "imported_by": [],
+      "imports": [
+        "src/llm_processing/batch_entity_processor.py"
+      ],
+      "relative_imports": [
+        {
+          "module": "..llm_processing.batch_entity_processor",
+          "items": "BatchEntityProcessor as EntityNormalizer"
+        }
+      ]
+    },
+    "src/utils/drop_legacy_tables.py": {
+      "has_main": true,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/utils/export_frontend_data.py": {
+      "has_main": true,
+      "from_imports_count": 3,
+      "relative_imports_count": 0,
+      "direct_imports_count": 2,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/utils/imports.py": {
+      "has_main": false,
+      "from_imports_count": 2,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 0,
+      "imported_by": [
+        "src/utils/__init__.py"
+      ],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/utils/integration_success_summary.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 0,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 0,
+      "imported_by": [],
+      "imports": [],
+      "relative_imports": []
+    },
+    "src/utils/reextract_mechanisms.py": {
+      "has_main": true,
+      "from_imports_count": 7,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 3,
+      "imported_by": [],
+      "imports": [
+        "src/data/config.py",
+        "src/data/api_clients.py",
+        "src/data/utils.py"
+      ],
+      "relative_imports": []
+    },
+    "src/utils/review_correlations.py": {
+      "has_main": true,
+      "from_imports_count": 6,
+      "relative_imports_count": 0,
+      "direct_imports_count": 3,
+      "is_imported": true,
+      "imported_by_count": 1,
+      "imports_count": 2,
+      "imported_by": [
+        "src/data_mining/review_correlations.py"
+      ],
+      "imports": [
+        "src/data_collection/database_manager.py",
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/utils/run_correlation_extraction.py": {
+      "has_main": true,
+      "from_imports_count": 4,
+      "relative_imports_count": 0,
+      "direct_imports_count": 1,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 2,
+      "imported_by": [],
+      "imports": [
+        "src/data_collection/database_manager.py",
+        "src/data/config.py"
+      ],
+      "relative_imports": []
+    },
+    "src/utils/__init__.py": {
+      "has_main": false,
+      "from_imports_count": 0,
+      "relative_imports_count": 1,
+      "direct_imports_count": 0,
+      "is_imported": false,
+      "imported_by_count": 0,
+      "imports_count": 1,
+      "imported_by": [],
+      "imports": [
+        "src/utils/imports.py"
+      ],
+      "relative_imports": [
+        {
+          "module": ".imports",
+          "items": "ImportManager, import_manager, import_optional_dependency"
+        }
+      ]
+    }
+  }
+}

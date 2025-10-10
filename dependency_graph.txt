@@ -1,0 +1,201 @@
+MYBIOME BACK_END DEPENDENCY GRAPH
+================================================================================
+
+LEVEL 0: ENTRY POINTS (Orchestration Scripts)
+================================================================================
+batch_medical_rotation.py (Main Pipeline)
+├── rotation_paper_collector.py (Phase 1)
+├── rotation_llm_processor.py (Phase 2)
+├── rotation_llm_categorization.py (Phase 2.5)
+├── rotation_semantic_normalizer.py (Phase 3)
+└── rotation_group_categorization.py (Phase 3.5)
+
+================================================================================
+LEVEL 1: CORE INFRASTRUCTURE (Most Imported)
+================================================================================
+
+config.py [45 IMPORTS] ⭐⭐⭐
+├── Used by: Almost all modules
+├── Purpose: Global configuration, logging, paths
+└── Critical: Yes
+
+database_manager.py [20 IMPORTS] ⭐⭐⭐
+├── Used by: All data access layers
+├── Purpose: SQLite connection management
+└── Critical: Yes
+
+================================================================================
+LEVEL 2: DOMAIN MODELS & VALIDATION
+================================================================================
+
+interventions/taxonomy.py [8 IMPORTS]
+├── Used by: LLM processing, categorization, validation
+├── Purpose: 13-category intervention taxonomy
+└── Related: interventions/category_validators.py, search_terms.py
+
+conditions/taxonomy.py [5 IMPORTS]
+├── Used by: Paper collection, categorization
+├── Purpose: 18-category condition taxonomy
+└── Related: conditions/category_validators.py, search_terms.py
+
+================================================================================
+LEVEL 3: DATA COLLECTION & PROCESSING
+================================================================================
+
+Paper Collection Chain:
+    pubmed_collector.py
+    ├── api_clients.py [7 IMPORTS]
+    ├── fulltext_retriever.py
+    └── paper_parser.py
+
+LLM Processing Chain:
+    batch_entity_processor.py [6 IMPORTS]
+    ├── single_model_analyzer.py
+    └── prompt_service.py
+
+================================================================================
+LEVEL 4: DATA MINING & ANALYTICS
+================================================================================
+
+Shared Utilities (Well-Connected):
+    medical_knowledge.py [3 IMPORTS]
+    ├── Used by: condition_similarity_mapping.py
+    ├── Used by: power_combinations.py
+    └── Used by: research_gaps.py
+
+    scoring_utils.py [4 IMPORTS]
+    ├── Used by: bayesian_scorer.py
+    ├── Used by: condition_similarity_mapping.py
+    ├── Used by: power_combinations.py
+    └── Used by: research_gaps.py
+
+    similarity_utils.py [2 IMPORTS]
+    ├── Used by: condition_similarity_mapping.py
+    └── Used by: research_gaps.py
+
+    graph_utils.py [1 IMPORT]
+    └── Used by: power_combinations.py
+
+Data Mining Modules (Standalone Executables):
+    data_mining_orchestrator.py
+    ├── medical_knowledge_graph.py
+    ├── bayesian_scorer.py
+    ├── treatment_recommendation_engine.py
+    ├── research_gaps.py
+    ├── innovation_tracking_system.py
+    ├── biological_patterns.py
+    ├── condition_similarity_mapping.py
+    ├── power_combinations.py
+    └── failed_interventions.py
+
+================================================================================
+LEVEL 5: SEMANTIC NORMALIZATION
+================================================================================
+
+Normalization Pipeline:
+    normalizer.py (MainNormalizer)
+    ├── embedding_engine.py (nomic-embed-text)
+    ├── llm_classifier.py (qwen3:14b)
+    ├── hierarchy_manager.py (DB operations)
+    └── prompts.py (LLM prompts)
+
+Ground Truth Labeling:
+    label_in_batches.py
+    ├── labeling_interface.py
+    ├── pair_generator.py
+    ├── data_exporter.py
+    └── evaluator.py ⚠️ (duplicate of parent)
+
+================================================================================
+UNUSED FILES (7 FILES - CANDIDATES FOR REMOVAL)
+================================================================================
+
+⚠️ CONFIRMED DUPLICATES (DELETE):
+    src/semantic_normalization/ground_truth/prompts.py
+    └── Exact duplicate of parent prompts.py
+
+⚠️ VERIFY THEN DELETE:
+    src/semantic_normalization/ground_truth/evaluator.py
+    └── Exact duplicate, but check ground truth workflow
+
+❌ NEVER IMPORTED, NO __MAIN__:
+    src/data_mining/emerging_category_analyzer.py
+    src/data_mining/fundamental_functions.py
+    src/experimentation/analyze_interventions.py
+    src/experimentation/check_progress.py
+    src/experimentation/show_interventions.py
+    src/utils/integration_success_summary.py
+
+================================================================================
+CRITICAL PATH (Main Pipeline Flow)
+================================================================================
+
+1. batch_medical_rotation.py
+   ↓
+2. rotation_paper_collector.py
+   ├── pubmed_collector.py
+   ├── fulltext_retriever.py
+   └── database_manager.py
+   ↓
+3. rotation_llm_processor.py
+   ├── batch_entity_processor.py
+   ├── single_model_analyzer.py
+   └── database_manager.py
+   ↓
+4. rotation_llm_categorization.py
+   ├── interventions/taxonomy.py
+   └── conditions/taxonomy.py
+   ↓
+5. rotation_semantic_normalizer.py
+   ├── normalizer.py
+   ├── embedding_engine.py
+   └── llm_classifier.py
+   ↓
+6. rotation_group_categorization.py
+   └── interventions/taxonomy.py
+
+================================================================================
+IMPORT STATISTICS
+================================================================================
+
+Top 15 Most Imported Files:
+  1. config.py                              45 imports ⭐⭐⭐
+  2. database_manager.py                    20 imports ⭐⭐⭐
+  3. utils.py                                9 imports ⭐⭐
+  4. interventions/taxonomy.py               8 imports ⭐⭐
+  5. api_clients.py                          7 imports ⭐⭐
+  6. batch_entity_processor.py               6 imports ⭐
+  7. conditions/taxonomy.py                  5 imports ⭐
+  8. validators.py                           5 imports ⭐
+  9. repositories.py                         5 imports ⭐
+ 10. error_handler.py                        4 imports
+ 11. scoring_utils.py                        4 imports
+ 12. data_mining_repository.py               4 imports
+ 13. interventions/search_terms.py           3 imports
+ 14. interventions/category_validators.py    3 imports
+ 15. medical_knowledge.py                    3 imports
+
+Import Density Distribution:
+  - Never imported: 22 files (19%)
+    └── 15 are __init__ or executables (expected)
+    └── 7 are truly unused (candidates for removal)
+  - Imported 1-3 times: 28 files (24%)
+  - Imported 4+ times: 17 files (15%) - core infrastructure
+
+================================================================================
+DEPENDENCY HEALTH METRICS
+================================================================================
+
+✅ No Circular Dependencies: Graph is acyclic
+✅ Clear Separation of Concerns: Modules well-organized
+✅ Utility Module Usage: All data_mining utilities actively used
+⚠️  Single Points of Failure: config.py (45 imports), database_manager.py (20 imports)
+⚠️  Duplicate Files: 3 exact duplicates identified
+❌ Unused Files: 7 files never imported and not executable
+
+Cleanup Potential:
+  - Guaranteed safe: 3 files (prompts, integration_success_summary, analyze_interventions)
+  - Verify first: 4 files (evaluator duplicate, 3 experiment scripts)
+  - Total reduction: 6% of codebase
+
+================================================================================

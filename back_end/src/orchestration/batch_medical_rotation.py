@@ -655,8 +655,9 @@ class BatchMedicalRotationPipeline:
         """
         Run Phase 3: Semantic normalization (cross-paper canonical grouping).
 
-        Creates canonical groups that merge semantically equivalent interventions.
-        Example: "vitamin D" = "Vitamin D3" = "cholecalciferol" → group "vitamin D"
+        Creates canonical groups that merge semantically equivalent interventions AND conditions.
+        Example (interventions): "vitamin D" = "Vitamin D3" = "cholecalciferol" → group "vitamin D"
+        Example (conditions): "IBS" → "IBS-C", "IBS-D", "IBS-M"
         """
         logger.info("Running Phase 3: Semantic normalization...")
 
@@ -664,36 +665,63 @@ class BatchMedicalRotationPipeline:
             if self.shutdown_requested:
                 return {'success': False, 'error': 'Shutdown requested during semantic normalization'}
 
-            # Run semantic grouping
+            # Step 1: Run semantic grouping for interventions
+            logger.info("  Step 1: Normalizing interventions...")
             grouping_result = self.dedup_integrator.group_all_data_semantically_batch()
 
-            # Update session with results
-            total_processed = grouping_result.get('interventions_processed', 0)
-            canonical_groups_created = grouping_result.get('canonical_entities_created', 0)
+            # Update session with intervention results
+            total_interventions_processed = grouping_result.get('interventions_processed', 0)
+            intervention_groups_created = grouping_result.get('canonical_entities_created', 0)
+
+            # Step 2: Run semantic grouping for conditions
+            logger.info("  Step 2: Normalizing condition entities...")
+            from .rotation_semantic_normalizer import SemanticNormalizationOrchestrator
+            condition_orchestrator = SemanticNormalizationOrchestrator(db_path=str(config.db_path))
+            condition_result = condition_orchestrator.normalize_all_condition_entities(batch_size=50, force=True)
+
+            total_conditions_processed = condition_result.get('processed', 0)
+            condition_groups_created = condition_result.get('canonical_groups', 0)
+
+            # Combine results
+            total_canonical_groups = intervention_groups_created + condition_groups_created
 
             session.semantic_normalization_result = {
-                'total_interventions_processed': total_processed,
-                'canonical_groups_created': canonical_groups_created,
+                'total_interventions_processed': total_interventions_processed,
+                'intervention_groups_created': intervention_groups_created,
+                'total_conditions_processed': total_conditions_processed,
+                'condition_groups_created': condition_groups_created,
+                'canonical_groups_created': total_canonical_groups,
                 'interventions_grouped': grouping_result.get('total_merged', 0),
+                'condition_relationships': condition_result.get('relationships', 0),
                 'processing_time_seconds': grouping_result.get('processing_time_seconds', 0),
                 'semantic_groups_found': grouping_result.get('duplicate_groups_found', 0),
                 'method': grouping_result.get('method', 'llm_semantic_grouping')
             }
 
-            session.total_canonical_groups_created = canonical_groups_created
+            session.total_canonical_groups_created = total_canonical_groups
 
             if not grouping_result['success']:
-                logger.error(f"Semantic normalization failed: {grouping_result.get('error', 'Unknown error')}")
+                logger.error(f"Intervention semantic normalization failed: {grouping_result.get('error', 'Unknown error')}")
                 return {
                     'success': False,
                     'error': f"Semantic normalization failed: {grouping_result.get('error', 'Unknown error')}",
                     'phase': 'semantic_normalization'
                 }
 
+            if condition_result.get('errors', 0) > 0 and condition_result.get('processed', 0) == 0:
+                logger.error(f"Condition semantic normalization failed")
+                return {
+                    'success': False,
+                    'error': f"Condition normalization failed: {condition_result.get('error', 'Unknown error')}",
+                    'phase': 'semantic_normalization'
+                }
+
             logger.info("[SUCCESS] Semantic normalization completed successfully")
-            logger.info(f"  Interventions analyzed: {total_processed}")
-            logger.info(f"  Canonical groups created: {canonical_groups_created}")
-            logger.info(f"  Semantic groups found: {grouping_result.get('duplicate_groups_found', 0)}")
+            logger.info(f"  Interventions analyzed: {total_interventions_processed}")
+            logger.info(f"  Intervention groups created: {intervention_groups_created}")
+            logger.info(f"  Conditions analyzed: {total_conditions_processed}")
+            logger.info(f"  Condition groups created: {condition_groups_created}")
+            logger.info(f"  Total canonical groups: {total_canonical_groups}")
 
             return {'success': True, 'result': session.semantic_normalization_result}
 
@@ -723,30 +751,52 @@ class BatchMedicalRotationPipeline:
                     validate_results=True
                 )
 
-            # Run group categorization
+            # Run group categorization (both interventions AND conditions)
             group_cat_result = self.group_categorizer.run()
 
-            # Update session with results
+            # Update session with results (both intervention and condition stats)
             session.group_categorization_result = {
-                'groups_categorized': group_cat_result['group_categorization']['processed'],
-                'groups_failed': group_cat_result['group_categorization']['failed'],
+                # Intervention statistics
+                'intervention_groups_categorized': group_cat_result['group_categorization']['processed'],
+                'intervention_groups_failed': group_cat_result['group_categorization']['failed'],
                 'interventions_updated': group_cat_result['propagation']['updated'],
-                'orphans_found': group_cat_result['propagation']['orphans'],
-                'orphans_categorized': group_cat_result['orphan_categorization']['processed'],
+                'intervention_orphans_found': group_cat_result['propagation']['orphans'],
+                'intervention_orphans_categorized': group_cat_result['orphan_categorization']['processed'],
+                # Condition statistics (new)
+                'condition_groups_categorized': group_cat_result.get('condition_group_categorization', {}).get('processed_groups', 0),
+                'condition_groups_failed': group_cat_result.get('condition_group_categorization', {}).get('failed_groups', 0),
+                'conditions_updated': group_cat_result.get('condition_propagation', {}).get('updated', 0),
+                'condition_orphans_found': group_cat_result.get('condition_propagation', {}).get('orphans', 0),
+                'condition_orphans_categorized': group_cat_result.get('condition_orphan_categorization', {}).get('processed', 0),
+                # Overall statistics
                 'total_llm_calls': group_cat_result['performance']['total_llm_calls'],
                 'elapsed_time_seconds': group_cat_result['elapsed_time_seconds'],
-                'validation_passed': group_cat_result.get('validation', {}).get('all_passed', False)
+                'validation_passed': group_cat_result.get('validation', {}).get('all_passed', False),
+                # Legacy fields for backward compatibility
+                'groups_categorized': group_cat_result['group_categorization']['processed'],
+                'groups_failed': group_cat_result['group_categorization']['failed'],
+                'orphans_found': group_cat_result['propagation']['orphans'],
+                'orphans_categorized': group_cat_result['orphan_categorization']['processed']
             }
 
-            session.total_groups_categorized = group_cat_result['group_categorization']['processed']
+            session.total_groups_categorized = (
+                group_cat_result['group_categorization']['processed'] +
+                group_cat_result.get('condition_group_categorization', {}).get('processed_groups', 0)
+            )
             session.total_interventions_categorized = group_cat_result['propagation']['updated']
-            session.total_orphans_categorized = group_cat_result['orphan_categorization']['processed']
+            session.total_orphans_categorized = (
+                group_cat_result['orphan_categorization']['processed'] +
+                group_cat_result.get('condition_orphan_categorization', {}).get('processed', 0)
+            )
 
             logger.info("[SUCCESS] Group-based categorization completed successfully")
-            logger.info(f"  Groups categorized: {session.total_groups_categorized}")
+            logger.info(f"  Intervention groups categorized: {group_cat_result['group_categorization']['processed']}")
             logger.info(f"  Interventions updated: {session.total_interventions_categorized}")
-            logger.info(f"  Orphans categorized: {session.total_orphans_categorized}")
-            logger.info(f"  LLM calls: {group_cat_result['performance']['total_llm_calls']}")
+            logger.info(f"  Intervention orphans categorized: {group_cat_result['orphan_categorization']['processed']}")
+            logger.info(f"  Condition groups categorized: {group_cat_result.get('condition_group_categorization', {}).get('processed_groups', 0)}")
+            logger.info(f"  Conditions updated: {session.group_categorization_result['conditions_updated']}")
+            logger.info(f"  Condition orphans categorized: {group_cat_result.get('condition_orphan_categorization', {}).get('processed', 0)}")
+            logger.info(f"  Total LLM calls: {group_cat_result['performance']['total_llm_calls']}")
 
             if group_cat_result.get('validation'):
                 validation_passed = group_cat_result['validation']['all_passed']
