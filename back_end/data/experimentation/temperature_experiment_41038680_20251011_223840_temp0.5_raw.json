@@ -1,0 +1,70 @@
+[{
+  "health_condition": "type 2 diabetes mellitus",
+  "study_focus": ["antidiabetic effects of traditional nutraceuticals", "gene expression modulation in T2DM"],
+  "measured_metrics": ["glucose homeostasis", "insulin sensitivity", "β-cell function", "insulin signaling pathway activity", "oxidative stress levels"],
+  "findings": ["nutraceuticals reduced hyperglycemia, oxidative stress, and obesity in T2DM", "bioactive compounds modulate gene expression related to β-cell function and insulin signaling", "compounds like curcumin, kaempferol, and cinnamon improve glucose homeostasis and insulin sensitivity"],
+  "study_location": null,
+  "publisher": null,
+  "sample_size": null,
+  "study_duration": null,
+  "study_type": "systematic review",
+  "population_details": "patients with type 2 diabetes mellitus",
+  "interventions": [
+    {
+      "intervention_name": "Galohgor (Indonesian herbal beverage)",
+      "dosage": null,
+      "duration": null,
+      "frequency": null,
+      "intensity": null,
+      "administration_route": null,
+      "mechanism": "modulation of insulin signaling pathway genes",
+      "correlation_type": "positive",
+      "correlation_strength": "moderate",
+      "delivery_method": "oral",
+      "adverse_effects": null,
+      "extraction_confidence": "medium"
+    },
+    {
+      "intervention_name": "Curcumin (from turmeric)",
+      "dosage": null,
+      "duration": null,
+      "frequency": null,
+      "intensity": null,
+      "administration_route": null,
+      "mechanism": "enhancement of β-cell function through antioxidant gene regulation",
+      "correlation_type": "positive",
+      "correlation_strength": "strong",
+      "delivery_method": "oral",
+      "adverse_effects": null,
+      "extraction_confidence": "high"
+    },
+    {
+      "intervention_name": "Kaempferol (flavonoid compound)",
+      "dosage": null,
+      "duration": null,
+      "frequency": null,
+      "intensity": null,
+      "administration_route": null,
+      "mechanism": "improvement of insulin sensitivity via modulation of PPARγ gene expression",
+      "correlation_type": "positive",
+      "correlation_strength": "moderate",
+      "delivery_method": "oral",
+      "adverse_effects": null,
+      "extraction_confidence": "medium"
+    },
+    {
+      "intervention_name": "Cinnamon extract",
+      "dosage": null,
+      "duration": null,
+      "frequency": null,
+      "intensity": null,
+      "administration_route": null,
+      "mechanism": "activation of AMPK pathway genes to enhance glucose uptake",
+      "correlation_type": "positive",
+      "correlation_strength": "moderate",
+      "delivery_method": "oral",
+      "adverse_effects": null,
+      "extraction_confidence": "medium"
+    }
+  ]
+}]

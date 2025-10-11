@@ -1,0 +1,361 @@
+{
+  "paper": {
+    "pmid": "41038680",
+    "title": "Modulation of gene expression by traditional Asian antidiabetic nutraceuticals: A review of potential effects.",
+    "abstract": "BACKGROUND AND OBJECTIVES: Type 2 diabetes mellitus (T2DM) has emerged as a significant global public health concern. Multiple studies have shown that traditional nutraceuticals are potential to treat T2DM and its complications. This review will explore traditional nutraceuticals with antidiabetic properties with a focus on traditional Asian nutraceuticals and their antioxidant effects on gene expression associated to T2DM. METHODS AND STUDY DESIGN: Literature searching was conducted in Pubmed, Scopus, and Science Direct using the keywords \"nutraceutical\", \"antidiabetic\", \"insulin resistance\", \"Diabetes Mellitus\", \"herbal medicine\", \"mechanism\", \"pathway\", \"traditional food\", \"functional food\", \"antioxidant\", \"clinical\", \"preclinical\", \"animal studies\", and \"Asian\" combined with Boolean operators \"OR\". RESULTS: Nutraceuticals sourced from traditional Indonesian herbal beverages, including Galohgor, Bir Pletok, and Wedang Uwuh, have shown potential efficacy in reducing hyperglycemia, oxidative stress, and obesity in T2DM. Furthermore, multiple Asian plants and their bioactive compounds, such as curcumin, kaempferol, cinnamon, saponin, quercetin, myricetin, anthocyanin, terpenoid, alkaloid, and gallic acid, have been shown to beneficially influence glucose ho-meostasis, insulin sensitivity, and problems associated with diabetes. Moreover, bioactive compounds of these traditional nutraceuticals have been proven in modulating gene expression associated with β-cell function, insulin signaling pathway, and antioxidant activity, which may offer a new therapeutic target. CONCLUSIONS: This review highlights the increasing scientific evidence on the role of traditional nutraceuticals for the prevention and management of diabetes mellitus, presenting promising alternatives to standard pharmacologi-cal therapy. Nonetheless, double-blind randomized clinical trials are required to validate these antidiabetic effects."
+  },
+  "model": "qwen3:14b",
+  "temperatures_tested": [
+    0.3,
+    0.4,
+    0.5
+  ],
+  "timestamp": "2025-10-11T22:38:40.056545",
+  "results": [
+    {
+      "temperature": 0.3,
+      "extraction_time": 217.52645468711853,
+      "total_interventions": 6,
+      "raw_response": "[{\n  \"health_condition\": \"type 2 diabetes mellitus\",\n  \"study_focus\": [\"gene expression modulation in T2DM\", \"antioxidant effects on T2DM\", \"glucose homeostasis improvement\"],\n  \"measured_metrics\": [\"gene expression levels related to β-cell function\", \"insulin signaling pathway activity\", \"antioxidant enzyme activity\"],\n  \"findings\": [\"nutraceuticals reduced hyperglycemia in T2DM models\", \"decreased oxidative stress markers\", \"modulation of β-cell function genes\", \"enhanced insulin signaling pathway activity\"],\n  \"study_location\": null,\n  \"publisher\": null,\n  \"sample_size\": null,\n  \"study_duration\": null,\n  \"study_type\": \"systematic review\",\n  \"population_details\": \"T2DM animal models and human studies\",\n  \"interventions\": [{\n    \"intervention_name\": \"Galohgor herbal beverage\",\n    \"dosage\": null,\n    \"duration\": null,\n    \"frequency\": null,\n    \"intensity\": null,\n    \"administration_route\": null,\n    \"mechanism\": \"modulates antioxidant enzyme gene expression\",\n    \"correlation_type\": \"positive\",\n    \"correlation_strength\": \"moderate\",\n    \"delivery_method\": \"oral\",\n    \"adverse_effects\": null,\n    \"extraction_confidence\": \"medium\"\n  },{\n    \"intervention_name\": \"Bir Pletok herbal beverage\",\n    \"dosage\": null,\n    \"duration\": null,\n    \"frequency\": null,\n    \"intensity\": null,\n    \"administration_route\": null,\n    \"mechanism\": \"enhances insulin signaling pathway activity\",\n    \"correlation_type\": \"positive\",\n    \"correlation_strength\": \"moderate\",\n    \"delivery_method\": \"oral\",\n    \"adverse_effects\": null,\n    \"extraction_confidence\": \"medium\"\n  },{\n    \"intervention_name\": \"Wedang Uwuh herbal beverage\",\n    \"dosage\": null,\n    \"duration\": null,\n    \"frequency\": null,\n    \"intensity\": null,\n    \"administration_route\": null,\n    \"mechanism\": \"reduces oxidative stress through gene modulation\",\n    \"correlation_type\": \"positive\",\n    \"correlation_strength\": \"moderate\",\n    \"delivery_method\": \"oral\",\n    \"adverse_effects\": null,\n    \"extraction_confidence\": \"medium\"\n  },{\n    \"intervention_name\": \"curcumin\",\n    \"dosage\": null,\n    \"duration\": null,\n    \"frequency\": null,\n    \"intensity\": null,\n    \"administration_route\": null,\n    \"mechanism\": \"inhibits inflammatory pathways and enhances insulin sensitivity\",\n    \"correlation_type\": \"positive\",\n    \"correlation_strength\": \"strong\",\n    \"delivery_method\": \"oral\",\n    \"adverse_effects\": null,\n    \"extraction_confidence\": \"medium\"\n  },{\n    \"intervention_name\": \"kaempferol\",\n    \"dosage\": null,\n    \"duration\": null,\n    \"frequency\": null,\n    \"intensity\": null,\n    \"administration_route\": null,\n    \"mechanism\": \"modulates β-cell function-related gene expression\",\n    \"correlation_type\": \"positive\",\n    \"correlation_strength\": \"moderate\",\n    \"delivery_method\": \"oral\",\n    \"adverse_effects\": null,\n    \"extraction_confidence\": \"medium\"\n  },{\n    \"intervention_name\": \"cinnamon extract\",\n    \"dosage\": null,\n    \"duration\": null,\n    \"frequency\": null,\n    \"intensity\": null,\n    \"administration_route\": null,\n    \"mechanism\": \"improves glucose uptake via insulin sensitization\",\n    \"correlation_type\": \"positive\",\n    \"correlation_strength\": \"moderate\",\n    \"delivery_method\": \"oral\",\n    \"adverse_effects\": null,\n    \"extraction_confidence\": \"medium\"\n  }]\n}]",
+      "parsed_data": [
+        {
+          "health_condition": "type 2 diabetes mellitus",
+          "study_focus": [
+            "gene expression modulation in T2DM",
+            "antioxidant effects on T2DM",
+            "glucose homeostasis improvement"
+          ],
+          "measured_metrics": [
+            "gene expression levels related to β-cell function",
+            "insulin signaling pathway activity",
+            "antioxidant enzyme activity"
+          ],
+          "findings": [
+            "nutraceuticals reduced hyperglycemia in T2DM models",
+            "decreased oxidative stress markers",
+            "modulation of β-cell function genes",
+            "enhanced insulin signaling pathway activity"
+          ],
+          "study_location": null,
+          "publisher": null,
+          "sample_size": null,
+          "study_duration": null,
+          "study_type": "systematic review",
+          "population_details": "T2DM animal models and human studies",
+          "interventions": [
+            {
+              "intervention_name": "Galohgor herbal beverage",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "modulates antioxidant enzyme gene expression",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "medium"
+            },
+            {
+              "intervention_name": "Bir Pletok herbal beverage",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "enhances insulin signaling pathway activity",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "medium"
+            },
+            {
+              "intervention_name": "Wedang Uwuh herbal beverage",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "reduces oxidative stress through gene modulation",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "medium"
+            },
+            {
+              "intervention_name": "curcumin",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "inhibits inflammatory pathways and enhances insulin sensitivity",
+              "correlation_type": "positive",
+              "correlation_strength": "strong",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "medium"
+            },
+            {
+              "intervention_name": "kaempferol",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "modulates β-cell function-related gene expression",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "medium"
+            },
+            {
+              "intervention_name": "cinnamon extract",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "improves glucose uptake via insulin sensitization",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "medium"
+            }
+          ]
+        }
+      ],
+      "error": null,
+      "field_completeness": 50.0,
+      "avg_mechanism_length": 5.666666666666667,
+      "study_fields_present": 6,
+      "json_size": 3254
+    },
+    {
+      "temperature": 0.4,
+      "extraction_time": 212.52666354179382,
+      "total_interventions": 6,
+      "raw_response": "[{\n  \"health_condition\": \"type 2 diabetes\",\n  \"study_focus\": [\"antidiabetic effects of traditional Asian nutraceuticals\", \"gene expression modulation in T2DM\"],\n  \"measured_metrics\": [\"gene expression related to β-cell function\", \"insulin signaling pathway activity\", \"antioxidant activity\", \"hyperglycemia levels\", \"oxidative stress markers\", \"obesity indicators\"],\n  \"findings\": [\"traditional Indonesian herbal beverages (Galohgor, Bir Pletok, Wedang Uwuh) reduced hyperglycemia, oxidative stress, and obesity\", \"bioactive compounds (curcumin, kaempferol, cinnamon, etc.) improved glucose homeostasis and insulin sensitivity\", \"modulation of gene expression associated with β-cell function and antioxidant pathways\"],\n  \"study_location\": null,\n  \"publisher\": null,\n  \"sample_size\": null,\n  \"study_duration\": null,\n  \"study_type\": \"systematic review\",\n  \"population_details\": \"patients with type 2 diabetes mellitus\",\n  \"interventions\": [\n    {\n      \"intervention_name\": \"Galohgor herbal beverage\",\n      \"dosage\": null,\n      \"duration\": null,\n      \"frequency\": null,\n      \"intensity\": null,\n      \"administration_route\": null,\n      \"mechanism\": \"modulation of insulin signaling and antioxidant pathways\",\n      \"correlation_type\": \"positive\",\n      \"correlation_strength\": \"moderate\",\n      \"delivery_method\": \"oral\",\n      \"adverse_effects\": null,\n      \"extraction_confidence\": \"high\"\n    },\n    {\n      \"intervention_name\": \"Bir Pletok herbal beverage\",\n      \"dosage\": null,\n      \"duration\": null,\n      \"frequency\": null,\n      \"intensity\": null,\n      \"administration_route\": null,\n      \"mechanism\": \"reduction of oxidative stress and improvement of glucose homeostasis\",\n      \"correlation_type\": \"positive\",\n      \"correlation_strength\": \"moderate\",\n      \"delivery_method\": \"oral\",\n      \"adverse_effects\": null,\n      \"extraction_confidence\": \"high\"\n    },\n    {\n      \"intervention_name\": \"Wedang Uwuh herbal beverage\",\n      \"dosage\": null,\n      \"duration\": null,\n      \"frequency\": null,\n      \"intensity\": null,\n      \"administration_route\": null,\n      \"mechanism\": \"enhancement of β-cell function and antioxidant activity\",\n      \"correlation_type\": \"positive\",\n      \"correlation_strength\": \"moderate\",\n      \"delivery_method\": \"oral\",\n      \"adverse_effects\": null,\n      \"extraction_confidence\": \"high\"\n    },\n    {\n      \"intervention_name\": \"curcumin\",\n      \"dosage\": null,\n      \"duration\": null,\n      \"frequency\": null,\n      \"intensity\": null,\n      \"administration_route\": null,\n      \"mechanism\": \"modulation of insulin signaling and anti-inflammatory pathways\",\n      \"correlation_type\": \"positive\",\n      \"correlation_strength\": \"strong\",\n      \"delivery_method\": \"oral\",\n      \"adverse_effects\": null,\n      \"extraction_confidence\": \"high\"\n    },\n    {\n      \"intervention_name\": \"kaempferol\",\n      \"dosage\": null,\n      \"duration\": null,\n      \"frequency\": null,\n      \"intensity\": null,\n      \"administration_route\": null,\n      \"mechanism\": \"improvement of insulin sensitivity and antioxidant activity\",\n      \"correlation_type\": \"positive\",\n      \"correlation_strength\": \"moderate\",\n      \"delivery_method\": \"oral\",\n      \"adverse_effects\": null,\n      \"extraction_confidence\": \"high\"\n    },\n    {\n      \"intervention_name\": \"cinnamon extract\",\n      \"dosage\": null,\n      \"duration\": null,\n      \"frequency\": null,\n      \"intensity\": null,\n      \"administration_route\": null,\n      \"mechanism\": \"enhancement of glucose uptake and modulation of metabolic pathways\",\n      \"correlation_type\": \"positive\",\n      \"correlation_strength\": \"moderate\",\n      \"delivery_method\": \"oral\",\n      \"adverse_effects\": null,\n      \"extraction_confidence\": \"high\"\n    }\n  ]\n}]",
+      "parsed_data": [
+        {
+          "health_condition": "type 2 diabetes",
+          "study_focus": [
+            "antidiabetic effects of traditional Asian nutraceuticals",
+            "gene expression modulation in T2DM"
+          ],
+          "measured_metrics": [
+            "gene expression related to β-cell function",
+            "insulin signaling pathway activity",
+            "antioxidant activity",
+            "hyperglycemia levels",
+            "oxidative stress markers",
+            "obesity indicators"
+          ],
+          "findings": [
+            "traditional Indonesian herbal beverages (Galohgor, Bir Pletok, Wedang Uwuh) reduced hyperglycemia, oxidative stress, and obesity",
+            "bioactive compounds (curcumin, kaempferol, cinnamon, etc.) improved glucose homeostasis and insulin sensitivity",
+            "modulation of gene expression associated with β-cell function and antioxidant pathways"
+          ],
+          "study_location": null,
+          "publisher": null,
+          "sample_size": null,
+          "study_duration": null,
+          "study_type": "systematic review",
+          "population_details": "patients with type 2 diabetes mellitus",
+          "interventions": [
+            {
+              "intervention_name": "Galohgor herbal beverage",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "modulation of insulin signaling and antioxidant pathways",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "high"
+            },
+            {
+              "intervention_name": "Bir Pletok herbal beverage",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "reduction of oxidative stress and improvement of glucose homeostasis",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "high"
+            },
+            {
+              "intervention_name": "Wedang Uwuh herbal beverage",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "enhancement of β-cell function and antioxidant activity",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "high"
+            },
+            {
+              "intervention_name": "curcumin",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "modulation of insulin signaling and anti-inflammatory pathways",
+              "correlation_type": "positive",
+              "correlation_strength": "strong",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "high"
+            },
+            {
+              "intervention_name": "kaempferol",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "improvement of insulin sensitivity and antioxidant activity",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "high"
+            },
+            {
+              "intervention_name": "cinnamon extract",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "enhancement of glucose uptake and modulation of metabolic pathways",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "high"
+            }
+          ]
+        }
+      ],
+      "error": null,
+      "field_completeness": 50.0,
+      "avg_mechanism_length": 7.666666666666667,
+      "study_fields_present": 6,
+      "json_size": 3706
+    },
+    {
+      "temperature": 0.5,
+      "extraction_time": 256.6678612232208,
+      "total_interventions": 4,
+      "raw_response": "[{\n  \"health_condition\": \"type 2 diabetes mellitus\",\n  \"study_focus\": [\"antidiabetic effects of traditional nutraceuticals\", \"gene expression modulation in T2DM\"],\n  \"measured_metrics\": [\"glucose homeostasis\", \"insulin sensitivity\", \"β-cell function\", \"insulin signaling pathway activity\", \"oxidative stress levels\"],\n  \"findings\": [\"nutraceuticals reduced hyperglycemia, oxidative stress, and obesity in T2DM\", \"bioactive compounds modulate gene expression related to β-cell function and insulin signaling\", \"compounds like curcumin, kaempferol, and cinnamon improve glucose homeostasis and insulin sensitivity\"],\n  \"study_location\": null,\n  \"publisher\": null,\n  \"sample_size\": null,\n  \"study_duration\": null,\n  \"study_type\": \"systematic review\",\n  \"population_details\": \"patients with type 2 diabetes mellitus\",\n  \"interventions\": [\n    {\n      \"intervention_name\": \"Galohgor (Indonesian herbal beverage)\",\n      \"dosage\": null,\n      \"duration\": null,\n      \"frequency\": null,\n      \"intensity\": null,\n      \"administration_route\": null,\n      \"mechanism\": \"modulation of insulin signaling pathway genes\",\n      \"correlation_type\": \"positive\",\n      \"correlation_strength\": \"moderate\",\n      \"delivery_method\": \"oral\",\n      \"adverse_effects\": null,\n      \"extraction_confidence\": \"medium\"\n    },\n    {\n      \"intervention_name\": \"Curcumin (from turmeric)\",\n      \"dosage\": null,\n      \"duration\": null,\n      \"frequency\": null,\n      \"intensity\": null,\n      \"administration_route\": null,\n      \"mechanism\": \"enhancement of β-cell function through antioxidant gene regulation\",\n      \"correlation_type\": \"positive\",\n      \"correlation_strength\": \"strong\",\n      \"delivery_method\": \"oral\",\n      \"adverse_effects\": null,\n      \"extraction_confidence\": \"high\"\n    },\n    {\n      \"intervention_name\": \"Kaempferol (flavonoid compound)\",\n      \"dosage\": null,\n      \"duration\": null,\n      \"frequency\": null,\n      \"intensity\": null,\n      \"administration_route\": null,\n      \"mechanism\": \"improvement of insulin sensitivity via modulation of PPARγ gene expression\",\n      \"correlation_type\": \"positive\",\n      \"correlation_strength\": \"moderate\",\n      \"delivery_method\": \"oral\",\n      \"adverse_effects\": null,\n      \"extraction_confidence\": \"medium\"\n    },\n    {\n      \"intervention_name\": \"Cinnamon extract\",\n      \"dosage\": null,\n      \"duration\": null,\n      \"frequency\": null,\n      \"intensity\": null,\n      \"administration_route\": null,\n      \"mechanism\": \"activation of AMPK pathway genes to enhance glucose uptake\",\n      \"correlation_type\": \"positive\",\n      \"correlation_strength\": \"moderate\",\n      \"delivery_method\": \"oral\",\n      \"adverse_effects\": null,\n      \"extraction_confidence\": \"medium\"\n    }\n  ]\n}]",
+      "parsed_data": [
+        {
+          "health_condition": "type 2 diabetes mellitus",
+          "study_focus": [
+            "antidiabetic effects of traditional nutraceuticals",
+            "gene expression modulation in T2DM"
+          ],
+          "measured_metrics": [
+            "glucose homeostasis",
+            "insulin sensitivity",
+            "β-cell function",
+            "insulin signaling pathway activity",
+            "oxidative stress levels"
+          ],
+          "findings": [
+            "nutraceuticals reduced hyperglycemia, oxidative stress, and obesity in T2DM",
+            "bioactive compounds modulate gene expression related to β-cell function and insulin signaling",
+            "compounds like curcumin, kaempferol, and cinnamon improve glucose homeostasis and insulin sensitivity"
+          ],
+          "study_location": null,
+          "publisher": null,
+          "sample_size": null,
+          "study_duration": null,
+          "study_type": "systematic review",
+          "population_details": "patients with type 2 diabetes mellitus",
+          "interventions": [
+            {
+              "intervention_name": "Galohgor (Indonesian herbal beverage)",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "modulation of insulin signaling pathway genes",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "medium"
+            },
+            {
+              "intervention_name": "Curcumin (from turmeric)",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "enhancement of β-cell function through antioxidant gene regulation",
+              "correlation_type": "positive",
+              "correlation_strength": "strong",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "high"
+            },
+            {
+              "intervention_name": "Kaempferol (flavonoid compound)",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "improvement of insulin sensitivity via modulation of PPARγ gene expression",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "medium"
+            },
+            {
+              "intervention_name": "Cinnamon extract",
+              "dosage": null,
+              "duration": null,
+              "frequency": null,
+              "intensity": null,
+              "administration_route": null,
+              "mechanism": "activation of AMPK pathway genes to enhance glucose uptake",
+              "correlation_type": "positive",
+              "correlation_strength": "moderate",
+              "delivery_method": "oral",
+              "adverse_effects": null,
+              "extraction_confidence": "medium"
+            }
+          ]
+        }
+      ],
+      "error": null,
+      "field_completeness": 50.0,
+      "avg_mechanism_length": 8.25,
+      "study_fields_present": 6,
+      "json_size": 2719
+    }
+  ]
+}

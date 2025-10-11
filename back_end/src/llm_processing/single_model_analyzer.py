@@ -87,7 +87,7 @@ class SingleModelAnalyzer:
         self.model_name = 'qwen2.5:14b'
         self.model_config = {
             'client': get_llm_client('qwen2.5:14b'),
-            'temperature': 0.3,
+            'temperature': 0.4,  # Optimized based on temperature experiments (0.4 provides best balance of speed + quality)
             'max_tokens': None,  # Will be calculated dynamically
             'max_context': 32768,  # Model's maximum context length
             'recommended_max_output': 16384  # Reasonable upper bound for output

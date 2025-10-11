@@ -46,7 +46,7 @@ class UnifiedConfig:
 
         #* LLM configuration
         self.llm_base_url = "http://localhost:11434/v1"
-        self.llm_temperature = 0.3
+        self.llm_temperature = 0.4  # Optimized based on temperature experiments (0.4 provides best balance of speed + quality)
         self.llm_max_tokens = 4096
         # Single-model architecture for 2x speed improvement
         self.llm_model = "qwen3:14b"
