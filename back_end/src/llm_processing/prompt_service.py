@@ -377,149 +377,186 @@ Respond with ONLY valid JSON:
         return content_sections
     
     def _build_intervention_prompt(self, paper_content: str) -> str:
-        """Build the complete intervention extraction prompt."""
-        return f"""You are a biomedical research expert specializing in extracting structured intervention data from medical literature.
+        """Build the complete intervention extraction prompt (hierarchical format)."""
+        return f"""You are a biomedical research expert extracting structured intervention data from medical literature.
 
-PAPER:
-{paper_content}
-
-TASK: Extract ALL health interventions from this paper as a JSON array.
+TASK: Extract interventions from the paper as a JSON array. Return ONLY the JSON array—no markdown, no explanations.
 
 OUTPUT FORMAT (CRITICAL):
 Your response MUST start with [ and end with ]. NO explanations, NO markdown code blocks (```), NO commentary.
-WRONG: ```json[{{...}}]```  or  "Here are the interventions: [{{...}}]"
+WRONG: ```json[{{...}}]``` or "Here are the conditions: [{{...}}]"
 CORRECT: [{{...}}]
 
-REQUIRED FIELDS:
-- intervention_name: specific name (e.g., "cognitive behavioral therapy", "metformin", "Mediterranean diet")
-- dosage: string or null
-- duration: string or null
-- frequency: string or null
-- intensity: string or null
-- administration_route: string or null
-- health_condition: PRIMARY condition directly targeted (NOT underlying disease)
-- mechanism: concise description of HOW the intervention works (e.g., "gut microbiome modulation", "reduced inflammation", "improved insulin sensitivity") - NO repetition of intervention/condition names
-- correlation_type: "positive" | "negative" | "neutral" | "inconclusive"
-- correlation_strength: "very strong" | "strong" | "moderate" | "weak" | "very weak" | null
-- extraction_confidence: "very high" | "high" | "medium" | "low" | "very low" (YOUR confidence extracting this)
-- study_confidence: "very high" | "high" | "medium" | "low" | "very low" | null (AUTHORS' confidence in findings)
-- sample_size: number or null
-- study_duration: string or null
-- study_type: string or null
-- population_details: string describing study population or null
-- delivery_method: "oral" | "injection" | "topical" | "inhalation" | "behavioral" | "digital" | "surgical" | etc. or null
-- severity: "mild" | "moderate" | "severe" | null (severity of the condition in the affected population being studied)
-- adverse_effects: string or null
-
-CRITICAL RULES:
-1. Extract the PRIMARY/DIRECT target condition, not underlying disease
-2. intervention_name must be specific (not "therapy" or "medication" - too generic)
-3. Return [] if no specific interventions found
-
-EXAMPLE (Tricky - Primary vs Secondary Condition):
-Paper title: "Effect of writing based on self-compassion on body image and psychological distress among women with systemic lupus erythematosus: a randomized clinical trial"
-
-CORRECT OUTPUT:
+FORMAT:
 [{{
-  "intervention_name": "self-compassion writing therapy",
-  "dosage": null,
-  "duration": "4 weeks",
-  "frequency": "twice weekly",
-  "intensity": null,
-  "administration_route": null,
-  "health_condition": "body image disturbance",
-  "mechanism": "psychological restructuring and improved self-perception",
-  "correlation_type": "positive",
-  "correlation_strength": "strong",
-  "extraction_confidence": "very high",
-  "study_confidence": "high",
-  "sample_size": 60,
-  "study_duration": "4 weeks",
-  "study_type": "randomized controlled trial",
-  "population_details": "women with systemic lupus erythematosus",
-  "delivery_method": "behavioral",
-  "severity": null,
-  "adverse_effects": null
+  "health_condition": "primary condition targeted (NOT underlying disease)",
+  "study_focus": ["research question 1", "research question 2"],
+  "measured_metrics": ["specific measurement 1", "specific measurement 2"],
+  "findings": ["key result 1", "key result 2"],
+  "study_location": "string or null",
+  "publisher": "journal name or null",
+  "sample_size": number or null,
+  "study_duration": "string or null",
+  "study_type": "string or null",
+  "population_details": "string or null",
+  "interventions": [{{
+    "intervention_name": "specific name",
+    "dosage": "string or null",
+    "duration": "string or null",
+    "frequency": "string or null",
+    "intensity": "string or null",
+    "administration_route": "string or null",
+    "mechanism": "concise HOW it works (3-10 words)",
+    "correlation_type": "positive|negative|neutral|inconclusive",
+    "correlation_strength": "very strong|strong|moderate|weak|very weak|null",
+    "delivery_method": "oral|injection|topical|behavioral|etc or null",
+    "adverse_effects": "string or null",
+    "extraction_confidence": "very high|high|medium|low|very low"
+  }}]
 }}]
 
-WHY: The intervention targets body image disturbance (PRIMARY condition), NOT systemic lupus erythematosus (underlying disease context). SLE goes in population_details.
+KEY DISTINCTIONS:
+- study_focus = WHAT they studied (research questions)
+- measured_metrics = HOW they measured it (tools/instruments)
+- findings = WHAT they found (results with data when available)
 
-EXAMPLE 2 (Diabetes Foot Care):
-Paper title: "Family-centered training and counselling for enhancing foot self-care knowledge and practices towards prevention of diabetes foot - a randomized controlled trial in urban Jodhpur."
-Abstract: "A randomized controlled trial was conducted in a primary care setting. Persons with diabetes mellitus aged 18-60 years (54 in each group) and their family members (2 per participant) were the study participants. Foot care-related knowledge, practices, family support, and foot condition were the outcomes. Intervention included family centered training and counselling for improving foot care knowledge and practices through family support. An end-line assessment was done nine months after the intervention. Foot care-related knowledge and practice scores were significantly higher in the intervention group compared to the control group at the end-line (13.4±1.2 vs. 9.9±2.7, p<0.001 and 7.9±1.4 vs. 6.2±1.3, p<0.001). None from the intervention group and four individuals (8%) from the control group reported an incidence of foot ulcer during the follow-up period."
+RULES:
+1. One entry per condition studied
+2. Multiple interventions for same condition → same entry, multiple objects in interventions array
+3. Multiple conditions studied → separate entries
+4. health_condition = specific complication, NOT underlying disease (e.g., "diabetes foot" not "diabetes")
+5. mechanism = biological/behavioral pathway, NOT intervention name repeated
+6. Extract 2-5 key findings with quantitative data when available
+7. Return [] if no interventions found
 
-CORRECT OUTPUT:
+EXAMPLES:
+
+Paper: "Family-centered training for diabetes foot prevention in Jodhpur"
+Abstract: "RCT with 54 diabetic patients per group. Intervention included family training for foot care. Knowledge scores: 13.4±1.2 vs 9.9±2.7 (p<0.001). Practice scores: 7.9±1.4 vs 6.2±1.3 (p<0.001). Foot ulcers: 0 vs 4 (8%)."
+
 [{{
-  "intervention_name": "family-centered training and counselling",
-  "dosage": null,
-  "duration": "nine months",
-  "frequency": null,
-  "intensity": null,
-  "administration_route": null,
   "health_condition": "diabetes foot",
-  "mechanism": "improved foot care practices through family education",
-  "correlation_type": "positive",
-  "correlation_strength": "strong",
-  "extraction_confidence": "very high",
-  "study_confidence": "high",
+  "study_focus": ["foot care knowledge improvement", "foot ulcer prevention"],
+  "measured_metrics": ["foot care knowledge scores", "practice scores", "foot ulcer incidence"],
+  "findings": ["knowledge scores higher in intervention group (13.4±1.2 vs 9.9±2.7, p<0.001)", "practice scores higher (7.9±1.4 vs 6.2±1.3, p<0.001)", "zero ulcers in intervention vs 4 (8%) in control"],
+  "study_location": "India",
+  "publisher": null,
   "sample_size": 54,
-  "study_duration": "nine months",
+  "study_duration": "9 months",
   "study_type": "randomized controlled trial",
-  "population_details": "persons with diabetes mellitus aged 18-60 years and their family members",
-  "delivery_method": "behavioral",
-  "severity": null,
-  "adverse_effects": null
+  "population_details": "diabetic patients aged 18-60 and family members",
+  "interventions": [{{
+    "intervention_name": "family-centered foot care training",
+    "dosage": null,
+    "duration": "9 months",
+    "frequency": null,
+    "intensity": null,
+    "administration_route": null,
+    "mechanism": "improved adherence through family education",
+    "correlation_type": "positive",
+    "correlation_strength": "strong",
+    "delivery_method": "behavioral",
+    "adverse_effects": null,
+    "extraction_confidence": "very high"
+  }}]
 }}]
 
-WHY: The condition is "diabetes foot" (diabetic foot complications), NOT just "diabetes" or "foot self-care knowledge".
-- Don't use the underlying disease alone ("diabetes") - too broad
-- Don't use the outcome measures ("foot self-care knowledge and practices") - too specific
-- Use the actual medical complication being addressed ("diabetes foot" or "diabetic foot")
-- The intervention targets a specific complication of the underlying disease
+---
 
-EXAMPLE 3 (Biological Mechanism):
-Paper title: "Effects of probiotics on irritable bowel syndrome: A randomized controlled trial"
-Abstract: "Irritable bowel syndrome (IBS) affects gut microbiota composition. This randomized controlled trial evaluated probiotic effects on IBS symptoms. 120 patients received either probiotic Lactobacillus plantarum (10^9 CFU daily) or placebo for 8 weeks. The probiotic group showed significant improvement in abdominal pain scores (p<0.001) and bowel movement frequency. Gut microbiota analysis revealed increased beneficial bacteria and reduced inflammatory markers."
+Paper: "Probiotics for IBS: 8-week RCT"
+Abstract: "120 IBS patients received Lactobacillus plantarum 10^9 CFU daily or placebo. Pain scores improved significantly (p<0.001). Microbiota analysis showed increased beneficial bacteria."
 
-CORRECT OUTPUT:
 [{{
-  "intervention_name": "Lactobacillus plantarum probiotic",
-  "dosage": "10^9 CFU daily",
-  "duration": "8 weeks",
-  "frequency": "daily",
-  "intensity": null,
-  "administration_route": "oral",
   "health_condition": "irritable bowel syndrome",
-  "mechanism": "gut microbiome modulation and reduced intestinal inflammation",
-  "correlation_type": "positive",
-  "correlation_strength": "strong",
-  "extraction_confidence": "very high",
-  "study_confidence": "high",
+  "study_focus": ["probiotic efficacy on IBS symptoms", "gut microbiota changes"],
+  "measured_metrics": ["abdominal pain scores", "gut microbiota composition", "inflammatory markers"],
+  "findings": ["pain scores improved significantly (p<0.001)", "increased beneficial bacteria", "reduced inflammatory markers"],
+  "study_location": null,
+  "publisher": null,
   "sample_size": 120,
   "study_duration": "8 weeks",
   "study_type": "randomized controlled trial",
-  "population_details": "patients with irritable bowel syndrome",
-  "delivery_method": "oral",
-  "severity": null,
-  "adverse_effects": null
+  "population_details": "IBS patients",
+  "interventions": [{{
+    "intervention_name": "Lactobacillus plantarum probiotic",
+    "dosage": "10^9 CFU daily",
+    "duration": "8 weeks",
+    "frequency": "daily",
+    "intensity": null,
+    "administration_route": "oral",
+    "mechanism": "gut microbiome modulation",
+    "correlation_type": "positive",
+    "correlation_strength": "strong",
+    "delivery_method": "oral",
+    "adverse_effects": null,
+    "extraction_confidence": "very high"
+  }}]
 }}]
 
-WHY: This demonstrates a clear biological mechanism - probiotics work through microbiome modulation, not just "improved gut health".
+---
 
-GENERAL PRINCIPLE FOR TRICKY ABSTRACTS:
-When a paper studies an intervention for a COMPLICATION or SPECIFIC MANIFESTATION of a disease:
-- health_condition = the specific complication/manifestation (e.g., "diabetes foot", "body image disturbance")
-- population_details = the broader context/underlying disease (e.g., "persons with diabetes", "women with lupus")
-- Don't confuse outcome measures with the condition being treated
+Paper: "Exercise vs diet vs combined for type 2 diabetes"
+Abstract: "200 patients (50 per group). HbA1c reduction: exercise 0.8% (p<0.01), diet 1.1% (p<0.001), combined 1.5% (p<0.001). Weight loss: -3.1kg, -4.5kg, -8.2kg respectively."
 
-MECHANISM EXTRACTION GUIDELINES:
-- Be CONCISE - describe HOW the intervention works in 3-10 words
-- Extract ONLY what is explicitly mentioned in the paper
-- DO NOT repeat intervention or condition names in the mechanism
-- Good examples: "gut microbiome modulation", "reduced inflammation", "improved insulin sensitivity", "enhanced behavioral adherence"
-- Bad examples: "unknown", "improves symptoms", "the intervention helps the condition by working through various pathways"
+[{{
+  "health_condition": "type 2 diabetes",
+  "study_focus": ["glycemic control efficacy", "weight management"],
+  "measured_metrics": ["HbA1c levels", "body weight", "quality of life scores"],
+  "findings": ["exercise reduced HbA1c by 0.8% (p<0.01)", "diet reduced HbA1c by 1.1% (p<0.001)", "combined reduced HbA1c by 1.5% (p<0.001)", "combined achieved greatest weight loss (-8.2kg)"],
+  "study_location": null,
+  "publisher": "Diabetes Care",
+  "sample_size": 200,
+  "study_duration": "12 months",
+  "study_type": "randomized controlled trial",
+  "population_details": "adults with type 2 diabetes",
+  "interventions": [
+    {{
+      "intervention_name": "aerobic exercise",
+      "dosage": null,
+      "duration": "12 months",
+      "frequency": null,
+      "intensity": "moderate",
+      "administration_route": null,
+      "mechanism": "improved insulin sensitivity",
+      "correlation_type": "positive",
+      "correlation_strength": "moderate",
+      "delivery_method": "behavioral",
+      "adverse_effects": null,
+      "extraction_confidence": "very high"
+    }},
+    {{
+      "intervention_name": "Mediterranean diet",
+      "dosage": null,
+      "duration": "12 months",
+      "frequency": "daily",
+      "intensity": null,
+      "administration_route": null,
+      "mechanism": "reduced inflammation and improved metabolism",
+      "correlation_type": "positive",
+      "correlation_strength": "strong",
+      "delivery_method": "dietary",
+      "adverse_effects": null,
+      "extraction_confidence": "very high"
+    }},
+    {{
+      "intervention_name": "combined exercise and diet",
+      "dosage": null,
+      "duration": "12 months",
+      "frequency": "daily",
+      "intensity": "moderate",
+      "administration_route": null,
+      "mechanism": "synergistic metabolic improvement",
+      "correlation_type": "positive",
+      "correlation_strength": "very strong",
+      "delivery_method": "behavioral",
+      "adverse_effects": null,
+      "extraction_confidence": "very high"
+    }}
+  ]
+}}]
 
-Return [] if no specific interventions are found."""
+PAPER:
+{paper_content}"""
 
     def create_system_message(self) -> str:
         """Create a standardized system message for LLM calls optimized for qwen3:14b."""

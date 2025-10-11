@@ -402,6 +402,13 @@ class DatabaseManager:
             # Condition category (NEW: added for condition categorization)
             ('condition_category', 'TEXT'),
 
+            # NEW: Hierarchical prompt fields (October 2025)
+            ('study_focus', 'TEXT'),  # JSON array of research questions
+            ('measured_metrics', 'TEXT'),  # JSON array of measurement tools/instruments
+            ('findings', 'TEXT'),  # JSON array of key results with data
+            ('study_location', 'TEXT'),  # Study location (e.g., "India", "USA", etc.)
+            ('publisher', 'TEXT'),  # Journal name or publisher
+
             # Consensus tracking fields
             ('consensus_confidence', 'REAL CHECK(consensus_confidence >= 0 AND consensus_confidence <= 1)'),
             ('model_agreement', 'TEXT CHECK(model_agreement IN (\'full\', \'partial\', \'single\', \'conflict\'))'),
@@ -685,8 +692,9 @@ class DatabaseManager:
                      extraction_confidence, study_confidence,
                      sample_size, study_duration, study_type, population_details,
                      supporting_quote, delivery_method, severity, adverse_effects, cost_category,
+                     study_focus, measured_metrics, findings, study_location, publisher,
                      extraction_model)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
@@ -708,7 +716,13 @@ class DatabaseManager:
                     validated_intervention.get('severity'),
                     validated_intervention.get('adverse_effects'),
                     validated_intervention.get('cost_category'),
-                    validated_intervention.get('extraction_model', 'qwen2.5:14b')
+                    # NEW: Hierarchical prompt fields (serialize arrays to JSON)
+                    json.dumps(validated_intervention.get('study_focus', [])) if validated_intervention.get('study_focus') else None,
+                    json.dumps(validated_intervention.get('measured_metrics', [])) if validated_intervention.get('measured_metrics') else None,
+                    json.dumps(validated_intervention.get('findings', [])) if validated_intervention.get('findings') else None,
+                    validated_intervention.get('study_location'),
+                    validated_intervention.get('publisher'),
+                    validated_intervention.get('extraction_model', 'qwen3:14b')
                 ))
                 
                 was_new = cursor.rowcount > 0

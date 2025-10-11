@@ -50,11 +50,15 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 - **PMC & Unpaywall**: Fulltext retrieval
 - **Output**: Papers stored in `papers` table with `processing_status = 'pending'`
 
-### Phase 2: LLM Processing
+### Phase 2: LLM Processing (Hierarchical Extraction) ✅
 - **Model**: qwen3:14b (optimized with chain-of-thought suppression)
-- **Extracts**: Intervention-outcome relationships + **mechanism of action** (biological/behavioral/psychological pathways)
-- **Output**: Interventions saved WITHOUT categories → `intervention_category = NULL`
-- **Performance**: ~38-39 papers/hour (~93s per paper)
+- **Format**: Hierarchical extraction (study-level + intervention-level fields)
+- **Extracts**:
+  - **Study-level**: health_condition, study_focus (research questions), measured_metrics (measurement tools), findings (key results with data), study_location, publisher, sample_size, study_duration, study_type, population_details
+  - **Intervention-level**: intervention_name, dosage, duration, frequency, intensity, mechanism (biological/behavioral pathway), correlation_type, correlation_strength, delivery_method, adverse_effects, extraction_confidence
+- **Output**: Hierarchical JSON → Flattened to database (study fields duplicated per intervention)
+- **Performance**: ~31 papers/hour (~115s per paper) - 25% slower than old format but provides richer study context
+- **Database**: 5 new fields added (study_focus, measured_metrics, findings, study_location, publisher)
 
 ### Phase 2.5: Categorization (DEPRECATED - Now Phase 3.5)
 - **Status**: Standalone script available but NOT integrated into main pipeline
@@ -647,6 +651,6 @@ python ground_truth_cli.py clean                 # Step 4: Remove duplicates
 
 ---
 
-*Last Updated: October 10, 2025*
-*Architecture: Single-model (qwen3:14b) with semantic normalization + group-based categorization for both interventions AND conditions*
+*Last Updated: October 11, 2025*
+*Architecture: Single-model (qwen3:14b) with hierarchical extraction + semantic normalization + group-based categorization*
 *Status: Production Ready ✅*

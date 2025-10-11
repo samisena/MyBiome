@@ -51,6 +51,11 @@ def export_interventions_data() -> Dict[str, Any]:
         i.adverse_effects,
         i.cost_category,
         i.supporting_quote,
+        i.study_focus,
+        i.measured_metrics,
+        i.findings,
+        i.study_location,
+        i.publisher,
         p.title as paper_title,
         p.journal as paper_journal,
         p.publication_date,
@@ -120,7 +125,12 @@ def export_interventions_data() -> Dict[str, Any]:
                 'duration': row['study_duration'],
                 'population': row['population_details'],
                 'adverse_effects': row['adverse_effects'],
-                'cost_category': row['cost_category']
+                'cost_category': row['cost_category'],
+                'study_focus': json.loads(row['study_focus']) if row['study_focus'] else None,
+                'measured_metrics': json.loads(row['measured_metrics']) if row['measured_metrics'] else None,
+                'findings': json.loads(row['findings']) if row['findings'] else None,
+                'study_location': row['study_location'],
+                'publisher': row['publisher']
             },
             'paper': {
                 'title': row['paper_title'],

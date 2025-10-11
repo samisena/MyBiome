@@ -248,12 +248,16 @@ class SingleModelAnalyzer:
             extraction_time = time.time() - start_time
 
             # Parse JSON response
-            interventions = parse_json_safely(response_text, f"{pmid}_{self.model_name}")
+            hierarchical_data = parse_json_safely(response_text, f"{pmid}_{self.model_name}")
 
-            # Validate and enhance interventions
-            if interventions:
+            # Flatten hierarchical format to individual interventions
+            if hierarchical_data:
+                flat_interventions = self._flatten_hierarchical_to_interventions(
+                    hierarchical_data, paper['pmid']
+                )
+                # Validate and enhance interventions
                 validated_interventions = self._validate_and_enhance_interventions(
-                    interventions, paper, self.model_name
+                    flat_interventions, paper, self.model_name
                 )
             else:
                 validated_interventions = []
@@ -288,6 +292,92 @@ class SingleModelAnalyzer:
                 'error': str(e),
                 'extraction_time': extraction_time
             }
+
+    def _flatten_hierarchical_to_interventions(self, hierarchical_data: List[Dict], paper_pmid: str) -> List[Dict]:
+        """
+        Convert hierarchical format to flat intervention records for database.
+
+        Input format (hierarchical):
+        [{
+          "health_condition": "...",
+          "study_focus": [...],
+          "measured_metrics": [...],
+          "findings": [...],
+          "study_location": "...",
+          "publisher": "...",
+          "sample_size": ...,
+          "study_duration": "...",
+          "study_type": "...",
+          "population_details": "...",
+          "interventions": [...]
+        }]
+
+        Output format (flat):
+        [{
+          "intervention_name": "...",
+          "health_condition": "...",
+          "study_focus": [...],  # NEW
+          "measured_metrics": [...],  # NEW
+          "findings": [...],  # NEW
+          "study_location": "...",  # NEW
+          "publisher": "...",  # NEW
+          ...all other intervention fields...
+        }]
+        """
+        flat_interventions = []
+
+        for condition_entry in hierarchical_data:
+            # Extract study-level fields
+            health_condition = condition_entry.get('health_condition')
+            study_focus = condition_entry.get('study_focus', [])
+            measured_metrics = condition_entry.get('measured_metrics', [])
+            findings = condition_entry.get('findings', [])
+            study_location = condition_entry.get('study_location')
+            publisher = condition_entry.get('publisher')
+            sample_size = condition_entry.get('sample_size')
+            study_duration = condition_entry.get('study_duration')
+            study_type = condition_entry.get('study_type')
+            population_details = condition_entry.get('population_details')
+
+            # Extract intervention-level array
+            interventions = condition_entry.get('interventions', [])
+
+            # Flatten: create one record per intervention, copying study-level fields
+            for intervention in interventions:
+                flat_record = {
+                    # Intervention-level fields
+                    'intervention_name': intervention.get('intervention_name'),
+                    'dosage': intervention.get('dosage'),
+                    'duration': intervention.get('duration'),
+                    'frequency': intervention.get('frequency'),
+                    'intensity': intervention.get('intensity'),
+                    'administration_route': intervention.get('administration_route'),
+                    'mechanism': intervention.get('mechanism'),
+                    'correlation_type': intervention.get('correlation_type'),
+                    'correlation_strength': intervention.get('correlation_strength'),
+                    'delivery_method': intervention.get('delivery_method'),
+                    'adverse_effects': intervention.get('adverse_effects'),
+                    'extraction_confidence': intervention.get('extraction_confidence'),
+
+                    # Study-level fields (copied to each intervention)
+                    'health_condition': health_condition,
+                    'study_focus': study_focus,  # NEW
+                    'measured_metrics': measured_metrics,  # NEW
+                    'findings': findings,  # NEW
+                    'study_location': study_location,  # NEW
+                    'publisher': publisher,  # NEW
+                    'sample_size': sample_size,
+                    'study_duration': study_duration,
+                    'study_type': study_type,
+                    'population_details': population_details,
+
+                    # Metadata
+                    'paper_id': paper_pmid
+                }
+
+                flat_interventions.append(flat_record)
+
+        return flat_interventions
 
     def _validate_and_enhance_interventions(self, interventions: List[Dict],
                                           paper: Dict, model_name: str) -> List[Dict]:

@@ -1,0 +1,17 @@
+Starting hierarchical prompt test
+Initializing LLM client (qwen3:14b)...
+LLM client initialized
+Fetching sample papers from database...
+Found 1 paper to test
+
+Testing paper: 40976254
+[OK] Successfully extracted 2 interventions
+
+================================================================================
+TEST SUMMARY
+================================================================================
+Papers tested: 1
+Successful extractions: 1
+Total flat interventions created: 2
+
+[SUCCESS] New hierarchical prompt is working correctly!
