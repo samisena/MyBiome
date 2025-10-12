@@ -253,7 +253,7 @@ class MainNormalizer:
                 query_text=intervention_name,
                 candidate_texts=all_intervention_names,
                 top_k=top_k_similar,
-                min_similarity=0.70
+                min_similarity=0.65
             )
 
             # Step 4: Extract Layer 2 variant and Layer 3 detail

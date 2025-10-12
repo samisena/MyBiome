@@ -44,7 +44,7 @@ class LLMClassifier:
         model: str = "qwen3:14b",
         base_url: str = "http://localhost:11434",
         temperature: float = 0.0,
-        timeout: int = 60,
+        timeout: Optional[int] = None,
         max_retries: int = 3,
         strip_think_tags: bool = True,
         canonical_cache_path: Optional[str] = None,
@@ -57,7 +57,7 @@ class LLMClassifier:
             model: Ollama model name
             base_url: Ollama server URL
             temperature: LLM temperature (0.0 for deterministic)
-            timeout: Request timeout in seconds
+            timeout: Request timeout in seconds (None for no timeout)
             max_retries: Maximum retry attempts
             strip_think_tags: Remove <think>...</think> tags from responses
             canonical_cache_path: Path to canonical extraction cache
@@ -293,7 +293,7 @@ class LLMClassifier:
             # High similarity: likely EXACT_MATCH or DOSAGE_VARIANT
             # Let LLM decide
             pass
-        elif similarity < 0.70:
+        elif similarity < 0.60:
             # Very low similarity: auto-classify as DIFFERENT
             result = {
                 'relationship_type': 'DIFFERENT',
@@ -328,7 +328,7 @@ class LLMClassifier:
                     raise ValueError(f"Missing required field: {field}")
 
             # Validate relationship type
-            valid_types = ['EXACT_MATCH', 'VARIANT', 'SUBTYPE', 'SAME_CATEGORY', 'DOSAGE_VARIANT', 'DIFFERENT']
+            valid_types = ['EXACT_MATCH', 'DOSAGE_VARIANT', 'SAME_CATEGORY_TYPE_VARIANT', 'SAME_CATEGORY', 'DIFFERENT']
             if result['relationship_type'] not in valid_types:
                 raise ValueError(f"Invalid relationship type: {result['relationship_type']}")
 
@@ -349,12 +349,12 @@ class LLMClassifier:
         except Exception as e:
             logger.error(f"Failed to classify relationship for '{intervention_1}' vs '{intervention_2}': {e}")
 
-            # Fallback based on similarity ranges
-            if similarity >= 0.85:
-                rel_type = 'VARIANT'
-            elif similarity >= 0.75:
-                rel_type = 'SUBTYPE'
+            # Fallback based on similarity ranges (layer-based taxonomy)
+            if similarity >= 0.90:
+                rel_type = 'DOSAGE_VARIANT'
             elif similarity >= 0.70:
+                rel_type = 'SAME_CATEGORY_TYPE_VARIANT'
+            elif similarity >= 0.60:
                 rel_type = 'SAME_CATEGORY'
             else:
                 rel_type = 'DIFFERENT'
@@ -421,7 +421,7 @@ def load_llm_classifier(config_path: Optional[str] = None) -> LLMClassifier:
         'model': 'qwen3:14b',
         'base_url': 'http://localhost:11434',
         'temperature': 0.0,
-        'timeout': 60,
+        'timeout': None,  # No timeout by default
         'max_retries': 3,
         'strip_think_tags': True,
         'canonical_cache_path': 'c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/canonicals.pkl',

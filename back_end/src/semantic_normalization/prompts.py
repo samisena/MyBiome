@@ -58,104 +58,185 @@ Return ONLY valid JSON with this exact structure:
 # ==============================================================================
 
 RELATIONSHIP_CLASSIFICATION_PROMPT = """
-You are a medical intervention relationship classifier. Analyze these two interventions and determine their hierarchical relationship.
+You are a medical intervention relationship classifier. Analyze these two interventions and determine their hierarchical relationship based on which layer differs in the 4-layer hierarchy.
 
 INTERVENTION 1: "{intervention_1}"
 INTERVENTION 2: "{intervention_2}"
 EMBEDDING SIMILARITY: {similarity:.3f}
 
-RELATIONSHIP TYPES:
-1. EXACT_MATCH - Identical interventions (synonyms, same thing)
-2. VARIANT - Same therapeutic concept, different formulation/biosimilar
-3. SUBTYPE - Related but clinically distinct subtypes
-4. SAME_CATEGORY - Different entities in same therapeutic class
-5. DOSAGE_VARIANT - Same intervention, different dose specification
-6. DIFFERENT - Completely unrelated interventions
+4-LAYER HIERARCHY:
+- Layer 0: Taxonomy category (e.g., supplement, medication, therapy)
+- Layer 1: Canonical group (e.g., probiotics, statins, vitamin d)
+- Layer 2: Specific variant (e.g., L. reuteri, atorvastatin, cholecalciferol)
+- Layer 3: Dosage/strain detail (e.g., DSM 17938, 50mg, 1000 IU)
 
-EXAMPLES (from validated ground truth):
+RELATIONSHIP TYPES (based on which layer differs):
+
+1. EXACT_MATCH - All 4 layers identical (synonyms, spelling variants)
+   Layers: 0✓ 1✓ 2✓ 3✓
+
+2. DOSAGE_VARIANT - Layer 3 differs (same variant, different dosage/strain)
+   Layers: 0✓ 1✓ 2✓ 3✗
+
+3. SAME_CATEGORY_TYPE_VARIANT - Layer 2 differs (same canonical group, different variants)
+   Layers: 0✓ 1✓ 2✗ 3✗
+
+4. SAME_CATEGORY - Layer 1 differs (different canonical groups, same taxonomy category)
+   Layers: 0✓ 1✗ 2✗ 3✗
+
+5. DIFFERENT - Layer 0 differs or completely unrelated
+   Layers: 0✗ 1✗ 2✗ 3✗
+
+EXAMPLES:
 
 Example 1 - EXACT_MATCH (Similarity: 0.96):
 Intervention 1: "Pegylated interferon alpha (Peg-IFNα)"
 Intervention 2: "pegylated interferon α (PEG-IFNα)"
+Analysis:
+  Layer 0: biologics = biologics ✓
+  Layer 1: pegylated interferon alpha = pegylated interferon alpha ✓
+  Layer 2: pegylated interferon alpha = pegylated interferon alpha ✓
+  Layer 3: [none] = [none] ✓
 Output: {{
   "relationship_type": "EXACT_MATCH",
   "layer_1_canonical": "pegylated interferon alpha",
   "layer_2_same_variant": true,
-  "reasoning": "Same drug, different spelling/capitalization of Greek letter alpha"
+  "reasoning": "All layers identical - same drug with spelling/capitalization differences"
 }}
 
-Example 2 - SAME_CATEGORY (Similarity: 0.72):
-Intervention 1: "Lactobacillus reuteri DSM 17938"
-Intervention 2: "Saccharomyces boulardii"
-Output: {{
-  "relationship_type": "SAME_CATEGORY",
-  "layer_1_canonical": "probiotics",
-  "layer_2_same_variant": false,
-  "reasoning": "Both probiotics but different bacterial genera and species"
-}}
-
-Example 3 - VARIANT (Similarity: 0.88):
-Intervention 1: "Cetuximab"
-Intervention 2: "Cetuximab-β"
-Output: {{
-  "relationship_type": "VARIANT",
-  "layer_1_canonical": "cetuximab",
-  "layer_2_same_variant": false,
-  "reasoning": "Cetuximab-β is a biosimilar variant of cetuximab"
-}}
-
-Example 4 - SUBTYPE (Similarity: 0.78):
-Intervention 1: "IBS-D"
-Intervention 2: "IBS-C"
-Output: {{
-  "relationship_type": "SUBTYPE",
-  "layer_1_canonical": "irritable bowel syndrome",
-  "layer_2_same_variant": false,
-  "reasoning": "Both IBS subtypes but clinically distinct (diarrhea vs constipation predominant)"
-}}
-
-Example 5 - DOSAGE_VARIANT (Similarity: 0.92):
+Example 2 - DOSAGE_VARIANT (Similarity: 0.92):
 Intervention 1: "metformin"
 Intervention 2: "metformin 500mg"
+Analysis:
+  Layer 0: medication = medication ✓
+  Layer 1: metformin = metformin ✓
+  Layer 2: metformin = metformin ✓
+  Layer 3: [none] ≠ 500mg ✗
 Output: {{
   "relationship_type": "DOSAGE_VARIANT",
   "layer_1_canonical": "metformin",
   "layer_2_same_variant": true,
-  "reasoning": "Same drug, different dosage specification"
+  "reasoning": "Layer 3 differs - same drug, different dosage specification"
 }}
 
-Example 6 - SAME_CATEGORY (Similarity: 0.74):
+Example 3 - DOSAGE_VARIANT (Similarity: 0.88):
+Intervention 1: "L. reuteri DSM 17938"
+Intervention 2: "L. reuteri ATCC 55730"
+Analysis:
+  Layer 0: supplement = supplement ✓
+  Layer 1: probiotics = probiotics ✓
+  Layer 2: L. reuteri = L. reuteri ✓
+  Layer 3: DSM 17938 ≠ ATCC 55730 ✗
+Output: {{
+  "relationship_type": "DOSAGE_VARIANT",
+  "layer_1_canonical": "probiotics",
+  "layer_2_same_variant": true,
+  "reasoning": "Layer 3 differs - same probiotic species, different strain identifiers"
+}}
+
+Example 4 - SAME_CATEGORY_TYPE_VARIANT (Similarity: 0.78):
+Intervention 1: "vitamin D"
+Intervention 2: "Vitamin D3"
+Analysis:
+  Layer 0: supplement = supplement ✓
+  Layer 1: vitamin d = vitamin d ✓
+  Layer 2: vitamin d (generic) ≠ cholecalciferol (D3 form) ✗
+  Layer 3: [none] = [none]
+Output: {{
+  "relationship_type": "SAME_CATEGORY_TYPE_VARIANT",
+  "layer_1_canonical": "vitamin d",
+  "layer_2_same_variant": false,
+  "reasoning": "Layer 2 differs - vitamin D3 is a specific chemical form of vitamin D family"
+}}
+
+Example 5 - SAME_CATEGORY_TYPE_VARIANT (Similarity: 0.72):
+Intervention 1: "Lactobacillus reuteri"
+Intervention 2: "Saccharomyces boulardii"
+Analysis:
+  Layer 0: supplement = supplement ✓
+  Layer 1: probiotics = probiotics ✓
+  Layer 2: L. reuteri ≠ S. boulardii ✗
+  Layer 3: [different or none]
+Output: {{
+  "relationship_type": "SAME_CATEGORY_TYPE_VARIANT",
+  "layer_1_canonical": "probiotics",
+  "layer_2_same_variant": false,
+  "reasoning": "Layer 2 differs - both probiotics but different species"
+}}
+
+Example 6 - SAME_CATEGORY_TYPE_VARIANT (Similarity: 0.85):
+Intervention 1: "Cetuximab"
+Intervention 2: "Cetuximab-β"
+Analysis:
+  Layer 0: biologics = biologics ✓
+  Layer 1: cetuximab = cetuximab ✓
+  Layer 2: cetuximab ≠ cetuximab-β (biosimilar) ✗
+  Layer 3: [none] = [none]
+Output: {{
+  "relationship_type": "SAME_CATEGORY_TYPE_VARIANT",
+  "layer_1_canonical": "cetuximab",
+  "layer_2_same_variant": false,
+  "reasoning": "Layer 2 differs - cetuximab-β is a biosimilar variant"
+}}
+
+Example 7 - SAME_CATEGORY_TYPE_VARIANT (Similarity: 0.74):
 Intervention 1: "atorvastatin"
 Intervention 2: "simvastatin"
+Analysis:
+  Layer 0: medication = medication ✓
+  Layer 1: statins = statins ✓
+  Layer 2: atorvastatin ≠ simvastatin ✗
+  Layer 3: [different or none]
 Output: {{
-  "relationship_type": "SAME_CATEGORY",
+  "relationship_type": "SAME_CATEGORY_TYPE_VARIANT",
   "layer_1_canonical": "statins",
   "layer_2_same_variant": false,
-  "reasoning": "Both statin drugs but different molecules"
+  "reasoning": "Layer 2 differs - both statin drugs but different molecules"
 }}
 
-Example 7 - DIFFERENT (Similarity: 0.15):
+Example 8 - SAME_CATEGORY (Similarity: 0.68):
+Intervention 1: "probiotics"
+Intervention 2: "magnesium"
+Analysis:
+  Layer 0: supplement = supplement ✓
+  Layer 1: probiotics ≠ magnesium ✗
+  Layer 2: [different]
+  Layer 3: [different]
+Output: {{
+  "relationship_type": "SAME_CATEGORY",
+  "layer_1_canonical": null,
+  "layer_2_same_variant": false,
+  "reasoning": "Layer 1 differs - different supplement types, same taxonomy category"
+}}
+
+Example 9 - DIFFERENT (Similarity: 0.15):
 Intervention 1: "vitamin D"
 Intervention 2: "chemotherapy"
+Analysis:
+  Layer 0: supplement ≠ medication ✗
+  Layer 1: [different]
+  Layer 2: [different]
+  Layer 3: [different]
 Output: {{
   "relationship_type": "DIFFERENT",
   "layer_1_canonical": null,
   "layer_2_same_variant": false,
-  "reasoning": "Completely unrelated interventions"
+  "reasoning": "Layer 0 differs - completely unrelated (supplement vs medication)"
 }}
 
 INSTRUCTIONS:
-1. Classify the relationship type (1-6) based on similarity score and semantic meaning
-2. Identify the Layer 1 canonical group if they share one (use null for DIFFERENT)
-3. Determine if they are the same Layer 2 variant (true/false)
-4. Provide brief reasoning for your classification
+1. Identify which layers are shared and which differ
+2. Use the layer difference pattern to determine relationship type
+3. For SAME_CATEGORY and DIFFERENT, set layer_1_canonical to null
+4. Set layer_2_same_variant to true only for EXACT_MATCH and DOSAGE_VARIANT
+5. Provide brief reasoning explaining which layer differs
 
 GUIDELINES FOR SIMILARITY RANGES:
-- Above 0.95: Usually EXACT_MATCH or DOSAGE_VARIANT
-- 0.85-0.95: Usually VARIANT or EXACT_MATCH
-- 0.75-0.85: Usually SUBTYPE or VARIANT
-- 0.70-0.80: Usually SAME_CATEGORY or SUBTYPE
-- Below 0.70: Usually DIFFERENT
+- 0.95-1.00: Usually EXACT_MATCH or DOSAGE_VARIANT
+- 0.90-0.98: Usually DOSAGE_VARIANT
+- 0.70-0.90: Usually SAME_CATEGORY_TYPE_VARIANT
+- 0.60-0.75: Usually SAME_CATEGORY
+- Below 0.60: Usually DIFFERENT
 
 Return ONLY valid JSON with this exact structure:
 {{
@@ -213,10 +294,9 @@ RELATIONSHIP_CLASSIFICATION_SCHEMA = {
     },
     "valid_relationship_types": [
         "EXACT_MATCH",
-        "VARIANT",
-        "SUBTYPE",
-        "SAME_CATEGORY",
         "DOSAGE_VARIANT",
+        "SAME_CATEGORY_TYPE_VARIANT",
+        "SAME_CATEGORY",
         "DIFFERENT"
     ]
 }

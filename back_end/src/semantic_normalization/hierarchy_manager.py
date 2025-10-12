@@ -33,36 +33,41 @@ class HierarchyManager:
         r'\d+\s*(units?)',
     ]
 
-    # Aggregation rules per relationship type
+    # Aggregation rules per relationship type (layer-based taxonomy)
     AGGREGATION_RULES = {
         'EXACT_MATCH': {
+            'share_layer_0': True,
             'share_layer_1': True,
             'share_layer_2': True,
+            'share_layer_3': True,
             'rule': 'merge_completely'
         },
-        'VARIANT': {
-            'share_layer_1': True,
-            'share_layer_2': False,
-            'rule': 'share_layer_1_link_layer_2'
-        },
-        'SUBTYPE': {
-            'share_layer_1': True,
-            'share_layer_2': False,
-            'rule': 'share_layer_1_separate_layer_2'
-        },
-        'SAME_CATEGORY': {
-            'share_layer_1': False,
-            'share_layer_2': False,
-            'rule': 'separate_all_layers'
-        },
         'DOSAGE_VARIANT': {
+            'share_layer_0': True,
             'share_layer_1': True,
             'share_layer_2': True,
-            'rule': 'share_layers_1_2'
+            'share_layer_3': False,
+            'rule': 'share_layers_0_1_2'
         },
-        'DIFFERENT': {
+        'SAME_CATEGORY_TYPE_VARIANT': {
+            'share_layer_0': True,
+            'share_layer_1': True,
+            'share_layer_2': False,
+            'share_layer_3': False,
+            'rule': 'share_layers_0_1'
+        },
+        'SAME_CATEGORY': {
+            'share_layer_0': True,
             'share_layer_1': False,
             'share_layer_2': False,
+            'share_layer_3': False,
+            'rule': 'share_layer_0_only'
+        },
+        'DIFFERENT': {
+            'share_layer_0': False,
+            'share_layer_1': False,
+            'share_layer_2': False,
+            'share_layer_3': False,
             'rule': 'no_relationship'
         }
     }
@@ -481,8 +486,8 @@ if __name__ == "__main__":
         layer_1_canonical="probiotics",
         layer_2_variant="L. reuteri",
         layer_3_detail="DSM 17938",
-        relationship_type="SAME_CATEGORY",
-        aggregation_rule="separate_all_layers"
+        relationship_type="SAME_CATEGORY_TYPE_VARIANT",
+        aggregation_rule="share_layers_0_1"
     )
     print(f"Created entity 'L. reuteri' with ID: {entity_1_id}")
 
@@ -493,8 +498,8 @@ if __name__ == "__main__":
         layer_1_canonical="probiotics",
         layer_2_variant="S. boulardii",
         layer_3_detail=None,
-        relationship_type="SAME_CATEGORY",
-        aggregation_rule="separate_all_layers"
+        relationship_type="SAME_CATEGORY_TYPE_VARIANT",
+        aggregation_rule="share_layers_0_1"
     )
     print(f"Created entity 'S. boulardii' with ID: {entity_2_id}")
 
@@ -502,7 +507,7 @@ if __name__ == "__main__":
     rel_id = manager.create_entity_relationship(
         entity_1_id=entity_1_id,
         entity_2_id=entity_2_id,
-        relationship_type="SAME_CATEGORY",
+        relationship_type="SAME_CATEGORY_TYPE_VARIANT",
         relationship_confidence=0.85,
         source="llm_inference",
         labeled_by="qwen3:14b",
