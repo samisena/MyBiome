@@ -26,7 +26,11 @@
       "Bash(do wc:*)",
       "Bash(wc:*)",
       "Bash(while read file)",
-      "Bash(do echo \"=== $file imports ===\")"
+      "Bash(do echo \"=== $file imports ===\")",
+      "Bash(mkdir:*)",
+      "Bash(curl:*)",
+      "Bash(nvidia-smi:*)",
+      "Bash(pip install:*)"
     ],
     "deny": [],
     "ask": []
