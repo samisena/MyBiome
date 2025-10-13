@@ -90,9 +90,31 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
     6. Fallback categorization for orphan conditions (no group membership)
 - **Performance**: 28% LLM call reduction vs individual categorization
 
+### Phase 3.6: Mechanism Clustering ✅
+- **Scope**: All intervention mechanisms (biological/behavioral/psychological pathways)
+- **Technology**: HDBSCAN clustering + nomic-embed-text embeddings (768-dim)
+- **100% Assignment Guarantee**: No mechanism left uncategorized
+- **Strategy**: HDBSCAN for natural groupings + singleton clusters for unique mechanisms
+- **Output**:
+  - **mechanism_clusters**: Cluster metadata with canonical names
+  - **mechanism_cluster_membership**: Mechanism-to-cluster assignments
+  - **intervention_mechanisms**: Junction table linking interventions to mechanism clusters
+  - **mechanism_condition_associations**: Analytics for which mechanisms work for which conditions
+- **Performance**:
+  - First run: ~25 minutes (embedding generation for 666 mechanisms)
+  - Subsequent runs: <5 seconds (uses cached embeddings)
+  - Incremental updates: Only embed new mechanisms
+- **Results** (Current Database):
+  - **666 mechanisms** processed → **415 clusters** created
+  - **142 natural clusters** (HDBSCAN multi-member groups)
+  - **273 singleton clusters** (unique mechanisms)
+  - **Assignment rate: 100%** (all mechanisms categorized)
+  - Average cluster size: 1.60 mechanisms per cluster
+  - Silhouette score: 0.228 (acceptable for medical domain complexity)
+
 ---
 
-## Database Schema (19 Tables)
+## Database Schema (23 Tables)
 
 ### Core Data Tables (2 tables)
 1. **`papers`** - PubMed articles with metadata and fulltext
@@ -103,25 +125,31 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 4. **`entity_relationships`** - Pairwise relationship types (6 types) for both entity types
 5. **`canonical_groups`** - Canonical entity groupings with Layer 0 categories for both interventions and conditions
 
+### Phase 3.6 Mechanism Clustering (4 tables)
+6. **`mechanism_clusters`** - Mechanism cluster metadata with canonical names and hierarchy
+7. **`mechanism_cluster_membership`** - Mechanism-to-cluster assignments (HDBSCAN or singleton)
+8. **`intervention_mechanisms`** - Junction table linking interventions to mechanism clusters
+9. **`mechanism_condition_associations`** - Analytics for which mechanisms work for which conditions
+
 ### Data Mining Analytics (11 tables)
-6. **`knowledge_graph_nodes`** - Nodes in medical knowledge graph
-7. **`knowledge_graph_edges`** - Multi-edge graph relationships
-8. **`bayesian_scores`** - Bayesian evidence scoring
-9. **`treatment_recommendations`** - AI treatment recommendations
-10. **`research_gaps`** - Under-researched areas
-11. **`innovation_tracking`** - Emerging treatment tracking
-12. **`biological_patterns`** - Mechanism and pattern discovery
-13. **`condition_similarities`** - Condition similarity matrix
-14. **`intervention_combinations`** - Synergistic combination analysis
-15. **`failed_interventions`** - Catalog of ineffective treatments
-16. **`data_mining_sessions`** - Session tracking
+10. **`knowledge_graph_nodes`** - Nodes in medical knowledge graph
+11. **`knowledge_graph_edges`** - Multi-edge graph relationships
+12. **`bayesian_scores`** - Bayesian evidence scoring
+13. **`treatment_recommendations`** - AI treatment recommendations
+14. **`research_gaps`** - Under-researched areas
+15. **`innovation_tracking`** - Emerging treatment tracking
+16. **`biological_patterns`** - Mechanism and pattern discovery
+17. **`condition_similarities`** - Condition similarity matrix
+18. **`intervention_combinations`** - Synergistic combination analysis
+19. **`failed_interventions`** - Catalog of ineffective treatments
+20. **`data_mining_sessions`** - Session tracking
 
 ### Configuration & System (2 tables)
-17. **`intervention_categories`** - 13-category taxonomy configuration
-18. **`sqlite_sequence`** - SQLite internal auto-increment
+21. **`intervention_categories`** - 13-category taxonomy configuration
+22. **`sqlite_sequence`** - SQLite internal auto-increment
 
 ### Legacy Tables (4 tables - DEPRECATED)
-19. **`canonical_entities`, `entity_mappings`, `llm_normalization_cache`, `normalized_terms_cache`** - Replaced by Phase 3 semantic normalization
+23. **`canonical_entities`, `entity_mappings`, `llm_normalization_cache`, `normalized_terms_cache`** - Replaced by Phase 3 semantic normalization
 
 ---
 
@@ -129,10 +157,10 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 
 ### Complete Workflow
 ```bash
-# Single iteration: Collection → Processing → Categorization → Normalization → Group Categorization
+# Single iteration: Collection → Processing → Semantic Normalization → Group Categorization → Mechanism Clustering
 python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10
 
-# Continuous mode: Infinite loop (restarts Phase 1 after Phase 3.5)
+# Continuous mode: Infinite loop (restarts Phase 1 after Phase 3.6)
 python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous
 
 # Limited iterations (e.g., 5 complete cycles)
@@ -204,7 +232,7 @@ python evaluator.py
 
 ---
 
-## Current Status (October 10, 2025)
+## Current Status (October 13, 2025)
 
 - **Papers**: 533 research papers (high quality, all with mechanism data)
 - **Interventions**: 777 with **100% mechanism coverage** ✅
@@ -213,9 +241,12 @@ python evaluator.py
 - **Conditions**: 406 unique conditions
 - **Condition Groups**: ~200-300 canonical groups (semantic normalization enabled) ✅
 - **Condition Categorization**: 406/406 (100%) via group propagation - 18 categories ✅
+- **Mechanism Clusters**: **666 mechanisms** → **415 clusters** (100% assignment) ✅
+  - 142 natural clusters (HDBSCAN)
+  - 273 singleton clusters (unique mechanisms)
 - **Semantic Relationships**: 141+ cross-paper relationships tracked (both entity types)
 - **Processing Rate**: ~38-39 papers/hour (qwen3:14b with mechanism extraction)
-- **Architecture**: Phase 3 + 3.5 fully support both interventions AND conditions ✅
+- **Architecture**: Phase 3 + 3.5 + 3.6 fully integrated ✅
 - **Ground Truth Labeling**: 80/500 pairs labeled (16% complete)
 
 ---
@@ -386,7 +417,7 @@ python -m back_end.src.orchestration.batch_medical_rotation --papers-per-conditi
 ```
 
 **Iteration Flow**:
-1. Phase 1 → Phase 2 → Phase 2.5 → Phase 3 → Phase 3.5 (complete)
+1. Phase 1 → Phase 2 → Phase 3 → Phase 3.5 → Phase 3.6 (complete)
 2. Save iteration statistics to history
 3. Reset phase flags and counters
 4. Wait `iteration_delay_seconds` (thermal protection)
@@ -651,6 +682,6 @@ python ground_truth_cli.py clean                 # Step 4: Remove duplicates
 
 ---
 
-*Last Updated: October 11, 2025*
-*Architecture: Single-model (qwen3:14b) with hierarchical extraction + semantic normalization + group-based categorization*
+*Last Updated: October 13, 2025*
+*Architecture: Single-model (qwen3:14b) with hierarchical extraction + semantic normalization + group-based categorization + mechanism clustering*
 *Status: Production Ready ✅*
