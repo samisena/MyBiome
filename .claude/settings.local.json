@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(git log:*)",
+      "Bash(findstr:*)",
+      "Bash(dir:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash(conda run:*)",
+      "Bash(tee:*)",
+      "Bash(for:*)",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(done)",
+      "Bash(do python -c \"import json; data=json.load(open(''$file'')); print(f\"\"{data[''experiment_id'']}: Batch={data[''batch_size'']}, Time={data[''total_pipeline_seconds'']:.1f}s, Papers/hr={data[''papers_per_hour'']:.1f}, Interventions={data[''phase2_results''][''total_interventions'']}\"\")\")",
+      "Bash(conda activate:*)",
+      "Bash(tasklist)",
+      "Bash(timeout:*)",
+      "Bash(tasklist:*)",
+      "Bash(taskkill:*)",
+      "Bash(sqlite3:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nRemove 5 unused files (4.3% codebase reduction)\n\nDeleted files:\n- back_end/src/semantic_normalization/ground_truth/prompts.py (exact duplicate)\n- back_end/src/utils/integration_success_summary.py (old integration test output)\n- back_end/src/experimentation/analyze_interventions.py (old experiment script)\n- back_end/src/experimentation/check_progress.py (old experiment utility)\n- back_end/src/experimentation/show_interventions.py (old experiment utility)\n\nVerified no active imports or dependencies via comprehensive import analysis.\nAll pipeline phases tested and working.\n\nKept for review:\n- back_end/src/data_mining/emerging_category_analyzer.py (potentially useful)\n- back_end/src/semantic_normalization/ground_truth/evaluator.py (verify workflow usage)\n\nGenerated with Claude Code (https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit:*)",
+      "Bash(do wc:*)",
+      "Bash(wc:*)",
+      "Bash(while read file)",
+      "Bash(do echo \"=== $file imports ===\")",
+      "Bash(mkdir:*)",
+      "Bash(curl:*)",
+      "Bash(nvidia-smi:*)",
+      "Bash(pip install:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(powershell:*)",
+      "Bash(ls:*)",
+      "Bash(git restore:*)",
+      "Bash(git rm:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

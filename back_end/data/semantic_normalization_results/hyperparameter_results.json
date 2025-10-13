@@ -1,0 +1,145 @@
+{
+  "experiment_timestamp": "2025-10-13T18:30:36.502551",
+  "total_mechanisms": 666,
+  "total_configurations": 8,
+  "param_grid": {
+    "min_cluster_size": [
+      2
+    ],
+    "min_samples": [
+      1
+    ],
+    "cluster_selection_epsilon": [
+      0.0,
+      0.01,
+      0.02,
+      0.03,
+      0.05,
+      0.07,
+      0.1,
+      0.15
+    ]
+  },
+  "results": [
+    {
+      "min_cluster_size": 2,
+      "min_samples": 1,
+      "cluster_selection_epsilon": 0.0,
+      "num_clusters": 142,
+      "num_noise": 273,
+      "singleton_percentage": 40.99099099099099,
+      "silhouette_score": 0.2278224378824234,
+      "davies_bouldin_index": 1.1317775529669185,
+      "calinski_harabasz_score": 5.448530197143555,
+      "avg_cluster_size": 2.767605633802817,
+      "max_cluster_size": 13,
+      "min_cluster_size_actual": 2,
+      "score": 57.51496301261531
+    },
+    {
+      "min_cluster_size": 2,
+      "min_samples": 1,
+      "cluster_selection_epsilon": 0.01,
+      "num_clusters": 142,
+      "num_noise": 273,
+      "singleton_percentage": 40.99099099099099,
+      "silhouette_score": 0.2278224378824234,
+      "davies_bouldin_index": 1.1317775529669185,
+      "calinski_harabasz_score": 5.448530197143555,
+      "avg_cluster_size": 2.767605633802817,
+      "max_cluster_size": 13,
+      "min_cluster_size_actual": 2,
+      "score": 57.51496301261531
+    },
+    {
+      "min_cluster_size": 2,
+      "min_samples": 1,
+      "cluster_selection_epsilon": 0.02,
+      "num_clusters": 142,
+      "num_noise": 273,
+      "singleton_percentage": 40.99099099099099,
+      "silhouette_score": 0.2278224378824234,
+      "davies_bouldin_index": 1.1317775529669185,
+      "calinski_harabasz_score": 5.448530197143555,
+      "avg_cluster_size": 2.767605633802817,
+      "max_cluster_size": 13,
+      "min_cluster_size_actual": 2,
+      "score": 57.51496301261531
+    },
+    {
+      "min_cluster_size": 2,
+      "min_samples": 1,
+      "cluster_selection_epsilon": 0.03,
+      "num_clusters": 142,
+      "num_noise": 273,
+      "singleton_percentage": 40.99099099099099,
+      "silhouette_score": 0.2278224378824234,
+      "davies_bouldin_index": 1.1317775529669185,
+      "calinski_harabasz_score": 5.448530197143555,
+      "avg_cluster_size": 2.767605633802817,
+      "max_cluster_size": 13,
+      "min_cluster_size_actual": 2,
+      "score": 57.51496301261531
+    },
+    {
+      "min_cluster_size": 2,
+      "min_samples": 1,
+      "cluster_selection_epsilon": 0.05,
+      "num_clusters": 142,
+      "num_noise": 273,
+      "singleton_percentage": 40.99099099099099,
+      "silhouette_score": 0.2278224378824234,
+      "davies_bouldin_index": 1.1317775529669185,
+      "calinski_harabasz_score": 5.448530197143555,
+      "avg_cluster_size": 2.767605633802817,
+      "max_cluster_size": 13,
+      "min_cluster_size_actual": 2,
+      "score": 57.51496301261531
+    },
+    {
+      "min_cluster_size": 2,
+      "min_samples": 1,
+      "cluster_selection_epsilon": 0.07,
+      "num_clusters": 142,
+      "num_noise": 273,
+      "singleton_percentage": 40.99099099099099,
+      "silhouette_score": 0.2278224378824234,
+      "davies_bouldin_index": 1.1317775529669185,
+      "calinski_harabasz_score": 5.448530197143555,
+      "avg_cluster_size": 2.767605633802817,
+      "max_cluster_size": 13,
+      "min_cluster_size_actual": 2,
+      "score": 57.51496301261531
+    },
+    {
+      "min_cluster_size": 2,
+      "min_samples": 1,
+      "cluster_selection_epsilon": 0.1,
+      "num_clusters": 142,
+      "num_noise": 273,
+      "singleton_percentage": 40.99099099099099,
+      "silhouette_score": 0.2278224378824234,
+      "davies_bouldin_index": 1.1317775529669185,
+      "calinski_harabasz_score": 5.448530197143555,
+      "avg_cluster_size": 2.767605633802817,
+      "max_cluster_size": 13,
+      "min_cluster_size_actual": 2,
+      "score": 57.51496301261531
+    },
+    {
+      "min_cluster_size": 2,
+      "min_samples": 1,
+      "cluster_selection_epsilon": 0.15,
+      "num_clusters": 142,
+      "num_noise": 273,
+      "singleton_percentage": 40.99099099099099,
+      "silhouette_score": 0.2278224378824234,
+      "davies_bouldin_index": 1.1317775529669185,
+      "calinski_harabasz_score": 5.448530197143555,
+      "avg_cluster_size": 2.767605633802817,
+      "max_cluster_size": 13,
+      "min_cluster_size_actual": 2,
+      "score": 57.51496301261531
+    }
+  ]
+}
