@@ -1,0 +1,4881 @@
+{
+  "metadata": {
+    "total_clusters": 415,
+    "total_mechanisms": 666,
+    "natural_clusters": 142,
+    "singleton_clusters": 273,
+    "avg_cluster_size": 1.6,
+    "assignment_rate": 1.0
+  },
+  "clusters": [
+    {
+      "cluster_id": 55,
+      "canonical_name": "Cluster 55: direct stone removal through minimally invasive surgical access",
+      "member_count": 13,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "direct stone removal through minimally invasive surgical access",
+        "endoscopic removal of stones from the ureter",
+        "enhanced stone expulsion through postural drainage and lithotripsy",
+        "enhances ureteroscopy success and reduces complications",
+        "facilitates ureteral access sheath placements and reduces complications",
+        "facilitates ureteroscopy access and stone removal",
+        "fragmentation of kidney stones using shock waves",
+        "minimally invasive surgical removal of renal tract stones",
+        "non-invasive stone fragmentation",
+        "removal of renal tract stones via flexible endoscope",
+        "stone fragmentation and extraction",
+        "stone fragmentation and extraction via ureteroscope",
+        "stone fragmentation using endoscopic lithotripsy"
+      ]
+    },
+    {
+      "cluster_id": 22,
+      "canonical_name": "Cluster 22: electrical stimulation of the vagus nerve to modulate seizure activity",
+      "member_count": 8,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "electrical stimulation of the vagus nerve to modulate seizure activity",
+        "potential benefit for generalized seizures",
+        "reduces drop seizures",
+        "reduces generalized tonic-clonic and myoclonic seizures",
+        "reduces seizure activity",
+        "reduces seizures and allows polypharmacy reduction",
+        "reduces seizures with better behavioral tolerability than levetiracetam",
+        "seizure control and electroencephalogram normalization"
+      ]
+    },
+    {
+      "cluster_id": 111,
+      "canonical_name": "Cluster 111: alleviates pain perception through neural modulation",
+      "member_count": 7,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "alleviates pain perception through neural modulation",
+        "enhanced pain thresholds and reduced pain sensitivity",
+        "neural modulation and antinociceptive effects",
+        "neural modulation and motor function improvement",
+        "neural stimulation and symptom modulation",
+        "neurobiological modulation and symptom improvement",
+        "neuromodulation of pain pathways"
+      ]
+    },
+    {
+      "cluster_id": 89,
+      "canonical_name": "Cluster 89: improved glucose homeostasis and insulin sensitivity",
+      "member_count": 7,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved glucose homeostasis and insulin sensitivity",
+        "improved insulin sensitivity and metabolic regulation",
+        "improved insulin sensitivity and reduced testosterone levels",
+        "improved insulin sensitivity and reduced weight gain",
+        "improved insulin sensitivity and weight loss",
+        "improved metabolic and hormonal regulation",
+        "modulation of anti-inflammatory factors and improved insulin sensitivity"
+      ]
+    },
+    {
+      "cluster_id": 108,
+      "canonical_name": "Cluster 108: enhanced psychological adaptation and improved functional recovery",
+      "member_count": 5,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced psychological adaptation and improved functional recovery",
+        "enhances psychological resilience and coping strategies",
+        "psychological restructuring and improved coping skills",
+        "psychological restructuring and improved resilience",
+        "psychological restructuring and improved self-perception"
+      ]
+    },
+    {
+      "cluster_id": 112,
+      "canonical_name": "Cluster 112: antiviral and immunomodulatory effects to suppress viral replication",
+      "member_count": 5,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "antiviral and immunomodulatory effects to suppress viral replication",
+        "inhibition of CMV replication",
+        "inhibition of hepatitis B virus replication",
+        "inhibition of viral replication",
+        "inhibition of viral replication through molecular targeting"
+      ]
+    },
+    {
+      "cluster_id": 127,
+      "canonical_name": "Cluster 127: gut microbiome modulation",
+      "member_count": 5,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "gut microbiome modulation",
+        "gut microbiome modulation and reduced infection risk",
+        "gut microbiome modulation and reduced inflammation",
+        "gut microbiome modulation and reduced symptom severity",
+        "gut microbiota modulation and reduced inflammation"
+      ]
+    },
+    {
+      "cluster_id": 140,
+      "canonical_name": "Cluster 140: reduced inflammation",
+      "member_count": 5,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation",
+        "reduced inflammation and symptom relief",
+        "reduced systemic and adipose tissue inflammation",
+        "reduced systemic inflammation",
+        "reduces systemic inflammation and improves disease outcomes"
+      ]
+    },
+    {
+      "cluster_id": 40,
+      "canonical_name": "Cluster 40: epigenetic modification to restore normal gene expression",
+      "member_count": 5,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "epigenetic modification to restore normal gene expression",
+        "gene regulation and expression modification",
+        "gene silencing and regulation of protein expression",
+        "modulation of gene expression related to energy metabolism and oxidative phosphorylation",
+        "targeted gene silencing and regulation of cholesterol metabolism"
+      ]
+    },
+    {
+      "cluster_id": 46,
+      "canonical_name": "Cluster 46: assessment of cardiac response during physical exertion",
+      "member_count": 5,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "assessment of cardiac response during physical exertion",
+        "assessment of left ventricular function during stress",
+        "evaluation of myocardial blood flow during stress",
+        "increased cardiac stress and arrhythmias",
+        "real-time assessment of ventricular performance and hemodynamic status"
+      ]
+    },
+    {
+      "cluster_id": 50,
+      "canonical_name": "Cluster 50: replaces aortic valve through open-heart surgery",
+      "member_count": 5,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "replaces aortic valve through open-heart surgery",
+        "replaces aortic valve with sutureless bioprosthetic valve",
+        "replaces aortic valve without open-heart surgery",
+        "restoration of normal aortic valve function",
+        "restoration of normal heart rhythm"
+      ]
+    },
+    {
+      "cluster_id": 74,
+      "canonical_name": "Cluster 74: reduced blood coagulation and improved venous flow",
+      "member_count": 5,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced blood coagulation and improved venous flow",
+        "reduced thrombosis and improved organ perfusion",
+        "restoration of venous patency and reduction of thrombus",
+        "restoration of venous patency by addressing underlying obstructions",
+        "thrombolysis and improved blood flow"
+      ]
+    },
+    {
+      "cluster_id": 91,
+      "canonical_name": "Cluster 91: cognitive stimulation and improved cognitive performance",
+      "member_count": 5,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "cognitive stimulation and improved cognitive performance",
+        "enhanced brain functional connectivity and cognitive improvements",
+        "enhanced cognitive engagement and neural stimulation",
+        "enhanced cognitive performance through aerobic and integrated physical activities",
+        "improved cognitive function through pharmacological means"
+      ]
+    },
+    {
+      "cluster_id": 106,
+      "canonical_name": "Cluster 106: reduced serum urate and inflammation",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced serum urate and inflammation",
+        "reduces serum uric acid levels",
+        "reduces urate deposition and inflammation",
+        "reduction of serum urate levels and resolution of tophi"
+      ]
+    },
+    {
+      "cluster_id": 121,
+      "canonical_name": "Cluster 121: enhanced education and support for better self-management",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced education and support for better self-management",
+        "enhanced exercise motivation and physical activity levels",
+        "enhanced self-efficacy leading to improved intention to engage in physical activity",
+        "improved physical activity and education for better self-management"
+      ]
+    },
+    {
+      "cluster_id": 132,
+      "canonical_name": "Cluster 132: improves physical function and reduces joint inflammation",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improves physical function and reduces joint inflammation",
+        "reduced inflammation and improved joint mobility",
+        "reduced inflammation and improved muscle strength",
+        "reduced joint pain and improved functional outcomes"
+      ]
+    },
+    {
+      "cluster_id": 19,
+      "canonical_name": "Cluster 19: targeted delivery of RNA molecules to desired renal targets",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "targeted delivery of RNA molecules to desired renal targets",
+        "targeted delivery of cytotoxic agents to leukemic cells via CD33 receptor",
+        "targeted delivery of cytotoxic payload to HER2-expressing cells",
+        "targeted therapy against HER2 protein"
+      ]
+    },
+    {
+      "cluster_id": 24,
+      "canonical_name": "Cluster 24: EGFR inhibition and cell proliferation reduction",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "EGFR inhibition and cell proliferation reduction",
+        "VEGF inhibition and anti-angiogenesis",
+        "reduced tumor angiogenesis and metastasis",
+        "systemic treatment targeting metastases and primary tumor"
+      ]
+    },
+    {
+      "cluster_id": 28,
+      "canonical_name": "Cluster 28: direct reduction of pulmonary artery clot burden",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "direct reduction of pulmonary artery clot burden",
+        "increased systemic vascular resistance",
+        "reduction of pulmonary vascular resistance",
+        "vasodilation of pulmonary arteries"
+      ]
+    },
+    {
+      "cluster_id": 35,
+      "canonical_name": "Cluster 35: restoration of blood flow to all affected coronary vessels",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "restoration of blood flow to all affected coronary vessels",
+        "revascularization of coronary arteries",
+        "revascularization of coronary arteries through surgical bypass",
+        "surgical bypass of blocked coronary arteries"
+      ]
+    },
+    {
+      "cluster_id": 38,
+      "canonical_name": "Cluster 38: photodynamic destruction of C. acnes",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "photodynamic destruction of C. acnes",
+        "phototoxicity-induced destruction of Propionibacterium acnes and comedones",
+        "reduction of C. acnes through antimicrobial action",
+        "synergistic reduction of C. acnes through antimicrobial and photodynamic effects"
+      ]
+    },
+    {
+      "cluster_id": 43,
+      "canonical_name": "Cluster 43: emotional stimulation and mood regulation",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "emotional stimulation and mood regulation",
+        "peripheral modulation of emotional expression and reduced amygdala hyperactivity",
+        "psychosocial intervention for mood stabilization and social rhythm regulation",
+        "restoration of emotional balance through music tones"
+      ]
+    },
+    {
+      "cluster_id": 45,
+      "canonical_name": "Cluster 45: inhibition of interleukin-23 (IL-23) activity",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of interleukin-23 (IL-23) activity",
+        "modulation of IL-23 pathways",
+        "reduced IL-12/23 signaling",
+        "reduced IL-17 signaling"
+      ]
+    },
+    {
+      "cluster_id": 58,
+      "canonical_name": "Cluster 58: activates chloride channels in the intestinal epithelium to increase fluid secre",
+      "member_count": 4,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "activates chloride channels in the intestinal epithelium to increase fluid secretion",
+        "activates guanylate cyclase-C receptors to increase intestinal fluid secretion",
+        "inhibits bile acid reabsorption to increase intestinal motility and reduce constipation",
+        "stimulates intestinal secretion and increases bowel movement frequency"
+      ]
+    },
+    {
+      "cluster_id": 100,
+      "canonical_name": "Cluster 100: enhanced anti-tumor immune response",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced anti-tumor immune response",
+        "immune system activation against tumor cells",
+        "modulation of immune response against cancer cells"
+      ]
+    },
+    {
+      "cluster_id": 113,
+      "canonical_name": "Cluster 113: immune checkpoint inhibition",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "immune checkpoint inhibition",
+        "immune checkpoint inhibition and DNA hypomethylation",
+        "immune checkpoint inhibition to enhance antiviral immune response"
+      ]
+    },
+    {
+      "cluster_id": 114,
+      "canonical_name": "Cluster 114: anti-estrogenic and anti-inflammatory properties",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "anti-estrogenic and anti-inflammatory properties",
+        "anti-inflammatory properties",
+        "nonsteroidal anti-inflammatory action"
+      ]
+    },
+    {
+      "cluster_id": 122,
+      "canonical_name": "Cluster 122: improved metabolic and cardiovascular health through physical activity",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved metabolic and cardiovascular health through physical activity",
+        "improved nutrition and physical activity",
+        "improved physical function and nutritional status"
+      ]
+    },
+    {
+      "cluster_id": 123,
+      "canonical_name": "Cluster 123: improved physiological and psychological functions",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved physiological and psychological functions",
+        "improved physiological functions",
+        "improved psychological functions"
+      ]
+    },
+    {
+      "cluster_id": 124,
+      "canonical_name": "Cluster 124: improved physical and psychological well-being",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved physical and psychological well-being",
+        "improved quality of life and reduced psychological distress",
+        "reduced psychological distress and improved quality of life"
+      ]
+    },
+    {
+      "cluster_id": 128,
+      "canonical_name": "Cluster 128: anti-inflammatory effects through corticosteroid action",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "anti-inflammatory effects through corticosteroid action",
+        "corticosteroid-mediated anti-inflammatory effects",
+        "reduced inflammation and pain through corticosteroid action"
+      ]
+    },
+    {
+      "cluster_id": 12,
+      "canonical_name": "Cluster 12: antibacterial action against Mycobacterium tuberculosis",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "antibacterial action against Mycobacterium tuberculosis",
+        "combined antibacterial action against Mycobacterium tuberculosis",
+        "prevention of tuberculosis progression through antimicrobial action"
+      ]
+    },
+    {
+      "cluster_id": 131,
+      "canonical_name": "Cluster 131: improved renal function",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved renal function",
+        "reduced inflammation and improved renal function",
+        "reduced risk of hospitalization and improved renal function"
+      ]
+    },
+    {
+      "cluster_id": 134,
+      "canonical_name": "Cluster 134: improved cardiorenal function",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved cardiorenal function",
+        "improved cardiorenal function and reduced inflammation",
+        "reduced inflammation and improved cardiorenal function"
+      ]
+    },
+    {
+      "cluster_id": 136,
+      "canonical_name": "Cluster 136: enhanced tendon healing and improved structural integrity",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced tendon healing and improved structural integrity",
+        "promotes healing and reduces inflammation",
+        "promotes tendon healing and reduces inflammation"
+      ]
+    },
+    {
+      "cluster_id": 137,
+      "canonical_name": "Cluster 137: reduced inflammation and improved skin appearance",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation and improved skin appearance",
+        "reduced inflammation and improved skin condition",
+        "reduced inflammation and improvement in skin condition"
+      ]
+    },
+    {
+      "cluster_id": 141,
+      "canonical_name": "Cluster 141: modulation of immune response and reduced inflammation",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulation of immune response and reduced inflammation",
+        "reduced inflammation and immune modulation",
+        "reduced inflammation and improved immune modulation"
+      ]
+    },
+    {
+      "cluster_id": 14,
+      "canonical_name": "Cluster 14: antibiotic treatment to eradicate H. pylori",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "antibiotic treatment to eradicate H. pylori",
+        "antibiotic treatment to eradicate H. pylori in a sequential regimen",
+        "antibiotic treatment to eradicate H. pylori resistant to other antibiotics"
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "canonical_name": "Cluster 1: no active intervention",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "no active intervention",
+        "no intervention",
+        "no therapeutic effect"
+      ]
+    },
+    {
+      "cluster_id": 20,
+      "canonical_name": "Cluster 20: local anesthetic administration to block pain signals from the suprascapular ner",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "local anesthetic administration to block pain signals from the suprascapular nerve",
+        "local anesthetic diffusion in erector spinae plane for pain relief",
+        "local anesthetic diffusion near paravertebral space for pain relief"
+      ]
+    },
+    {
+      "cluster_id": 27,
+      "canonical_name": "Cluster 27: activation of GLP-1 receptor",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "activation of GLP-1 receptor",
+        "glucagon-like peptide-1 receptor agonist action",
+        "induces gastrointestinal side effects through GLP-1 receptor activation"
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "canonical_name": "Cluster 2: detection of lymph node metastasis using PSMA PET/CT imaging",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "detection of lymph node metastasis using PSMA PET/CT imaging",
+        "local tumor removal and pelvic lymph-node dissection",
+        "surgical removal of tumor and associated tissue"
+      ]
+    },
+    {
+      "cluster_id": 31,
+      "canonical_name": "Cluster 31: combined deprescribing and bone health strategies to optimize medication and red",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "combined deprescribing and bone health strategies to optimize medication and reduce fall risk",
+        "improving bone health through targeted medication management to reduce fall risk",
+        "medication optimization through deprescribing to reduce fall risk"
+      ]
+    },
+    {
+      "cluster_id": 32,
+      "canonical_name": "Cluster 32: monitoring pain fluctuations in real-time to improve treatment personalization",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "monitoring pain fluctuations in real-time to improve treatment personalization",
+        "objective monitoring of lung function to adjust treatment",
+        "subjective monitoring of symptoms to adjust treatment"
+      ]
+    },
+    {
+      "cluster_id": 33,
+      "canonical_name": "Cluster 33: clot dissolution through systemic administration of thrombolytic agents",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "clot dissolution through systemic administration of thrombolytic agents",
+        "combination of mechanical clot removal and pharmacological thrombolysis",
+        "mechanical clot removal with high thrombus clearance"
+      ]
+    },
+    {
+      "cluster_id": 36,
+      "canonical_name": "Cluster 36: cognitive behavioral techniques targeting anxiety and substance use behaviors",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "cognitive behavioral techniques targeting anxiety and substance use behaviors",
+        "cognitive behavioral therapy for pain management",
+        "education on pain management, coping strategies, and goal setting"
+      ]
+    },
+    {
+      "cluster_id": 41,
+      "canonical_name": "Cluster 41: behavioral and social skills training",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "behavioral and social skills training",
+        "behavioral therapy for mental health improvement",
+        "behavioral training for parents to improve child behavior"
+      ]
+    },
+    {
+      "cluster_id": 47,
+      "canonical_name": "Cluster 47: inhibition of androgen biosynthesis",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of androgen biosynthesis",
+        "inhibition of androgen receptor signaling",
+        "inhibition of androgen-receptor signaling pathways"
+      ]
+    },
+    {
+      "cluster_id": 49,
+      "canonical_name": "Cluster 49: combined immune and cytotoxic effects",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "combined immune and cytotoxic effects",
+        "cytotoxic chemotherapy",
+        "cytotoxic effects on cancer cells"
+      ]
+    },
+    {
+      "cluster_id": 52,
+      "canonical_name": "Cluster 52: induction of apoptosis and differentiation in leukemic cells",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "induction of apoptosis and differentiation in leukemic cells",
+        "induction of apoptosis and inhibition of DNA synthesis in leukemic cells",
+        "induction of differentiation and apoptosis in leukemic cells"
+      ]
+    },
+    {
+      "cluster_id": 62,
+      "canonical_name": "Cluster 62: reduced appetite and weight loss",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced appetite and weight loss",
+        "weight loss and anatomical changes",
+        "weight loss and metabolic changes"
+      ]
+    },
+    {
+      "cluster_id": 67,
+      "canonical_name": "Cluster 67: reduced acid production and symptom relief",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced acid production and symptom relief",
+        "reduces acid exposure and GERD symptoms",
+        "reduction of esophageal acid exposure"
+      ]
+    },
+    {
+      "cluster_id": 75,
+      "canonical_name": "Cluster 75: nitric oxide release and reduced arterial blood pressure",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "nitric oxide release and reduced arterial blood pressure",
+        "reduced blood pressure through isometric exercise",
+        "reduced vasodilation and decreased blood pressure"
+      ]
+    },
+    {
+      "cluster_id": 78,
+      "canonical_name": "Cluster 78: reduced brain atrophy and neurodegeneration",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced brain atrophy and neurodegeneration",
+        "reduced neuronal excitability and metabolic changes",
+        "reduced vascular injury and neurodegeneration"
+      ]
+    },
+    {
+      "cluster_id": 80,
+      "canonical_name": "Cluster 80: enhanced cognitive function through computerized training",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced cognitive function through computerized training",
+        "enhanced cognitive function through gamified training",
+        "enhanced cognitive function through personalized training"
+      ]
+    },
+    {
+      "cluster_id": 8,
+      "canonical_name": "Cluster 8: inhibition of dipeptidyl peptidase 4",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of dipeptidyl peptidase 4",
+        "inhibition of phosphodiesterase 4 (PDE4) enzyme activity",
+        "modulation of phosphodiesterase 4 (PDE4) enzyme activity"
+      ]
+    },
+    {
+      "cluster_id": 90,
+      "canonical_name": "Cluster 90: enhanced patient-clinician communication and decision-making",
+      "member_count": 3,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced patient-clinician communication and decision-making",
+        "enhancing patient-clinician communication and patient-centered decision-making",
+        "increasing patient engagement and knowledge in treatment decisions"
+      ]
+    },
+    {
+      "cluster_id": 0,
+      "canonical_name": "Cluster 0: angioplasty with drug delivery to prevent restenosis",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "angioplasty with drug delivery to prevent restenosis",
+        "stent placement with drug elution to prevent restenosis"
+      ]
+    },
+    {
+      "cluster_id": 101,
+      "canonical_name": "Cluster 101: anticoagulation to prevent thromboembolic events",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "anticoagulation to prevent thromboembolic events",
+        "anticoagulation to prevent thrombus formation"
+      ]
+    },
+    {
+      "cluster_id": 102,
+      "canonical_name": "Cluster 102: reduces thrombotic risk through anticoagulant action alone",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces thrombotic risk through anticoagulant action alone",
+        "reduces thrombotic risk through dual anticoagulant and antiplatelet action"
+      ]
+    },
+    {
+      "cluster_id": 103,
+      "canonical_name": "Cluster 103: improved respiratory function and patient well-being through structured exercise",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved respiratory function and patient well-being through structured exercises and education",
+        "reduced respiratory exposure through education, mask use, ventilation, and patient separation"
+      ]
+    },
+    {
+      "cluster_id": 104,
+      "canonical_name": "Cluster 104: behavioral adherence improvement through education and follow-up",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "behavioral adherence improvement through education and follow-up",
+        "enhanced behavioral adherence and patient engagement"
+      ]
+    },
+    {
+      "cluster_id": 105,
+      "canonical_name": "Cluster 105: reduces amyloid burden and inflammation",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces amyloid burden and inflammation",
+        "targeting amyloid pathology"
+      ]
+    },
+    {
+      "cluster_id": 107,
+      "canonical_name": "Cluster 107: enhanced adherence to rehabilitation and improved physical function through remo",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced adherence to rehabilitation and improved physical function through remote monitoring and behavioral support",
+        "remote delivery of physical rehabilitation and activity interventions"
+      ]
+    },
+    {
+      "cluster_id": 109,
+      "canonical_name": "Cluster 109: behavioral change through cognitive restructuring",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "behavioral change through cognitive restructuring",
+        "cognitive restructuring and behavioral modification"
+      ]
+    },
+    {
+      "cluster_id": 10,
+      "canonical_name": "Cluster 10: placebo effect modulation through digital interventions",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "placebo effect modulation through digital interventions",
+        "placebo effect with nonpuncturing needles at non-acupoints"
+      ]
+    },
+    {
+      "cluster_id": 110,
+      "canonical_name": "Cluster 110: behavioral modification and lifestyle changes",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "behavioral modification and lifestyle changes",
+        "prevention through lifestyle and behavioural modification"
+      ]
+    },
+    {
+      "cluster_id": 115,
+      "canonical_name": "Cluster 115: reduces immune response in autoimmune diseases",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces immune response in autoimmune diseases",
+        "suppress autoimmunity, reduce inflammatory cytokines"
+      ]
+    },
+    {
+      "cluster_id": 116,
+      "canonical_name": "Cluster 116: modulation of sebum production and inflammatory pathways",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulation of sebum production and inflammatory pathways",
+        "reduced inflammation and sebum production"
+      ]
+    },
+    {
+      "cluster_id": 117,
+      "canonical_name": "Cluster 117: inhibition of JAK1/JAK2 pathways, reducing inflammation",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of JAK1/JAK2 pathways, reducing inflammation",
+        "reduced inflammation via JAK inhibition"
+      ]
+    },
+    {
+      "cluster_id": 118,
+      "canonical_name": "Cluster 118: inhibition of JAK-STAT signaling pathways",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of JAK-STAT signaling pathways",
+        "inhibition of JAK-signal transducer and activator of transcription (STAT) pathway"
+      ]
+    },
+    {
+      "cluster_id": 119,
+      "canonical_name": "Cluster 119: reduced anxiety symptoms",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced anxiety symptoms",
+        "reduction of physiological arousal and anxiety levels"
+      ]
+    },
+    {
+      "cluster_id": 11,
+      "canonical_name": "Cluster 11: improved nocturnal blood pressure control through timed medication release",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved nocturnal blood pressure control through timed medication release",
+        "less effective in controlling nocturnal blood pressure compared to bedtime administration"
+      ]
+    },
+    {
+      "cluster_id": 120,
+      "canonical_name": "Cluster 120: improved shoulder mobility and muscle strength",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved shoulder mobility and muscle strength",
+        "improves shoulder function and range of motion"
+      ]
+    },
+    {
+      "cluster_id": 125,
+      "canonical_name": "Cluster 125: inhibition of interleukin (IL)-1β",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of interleukin (IL)-1β",
+        "inhibition of interleukin-1β, reducing inflammation"
+      ]
+    },
+    {
+      "cluster_id": 126,
+      "canonical_name": "Cluster 126: gut microbiome modulation and immune regulation",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "gut microbiome modulation and immune regulation",
+        "gut microbiome modulation, immune response regulation"
+      ]
+    },
+    {
+      "cluster_id": 129,
+      "canonical_name": "Cluster 129: improved cognition and reduced inflammation",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved cognition and reduced inflammation",
+        "reduced inflammation and improved emotional processing"
+      ]
+    },
+    {
+      "cluster_id": 130,
+      "canonical_name": "Cluster 130: reduced inflammation and endothelium activation markers",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation and endothelium activation markers",
+        "reduced inflammation and improved endothelial function"
+      ]
+    },
+    {
+      "cluster_id": 133,
+      "canonical_name": "Cluster 133: immune modulation",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "immune modulation",
+        "immune system modulation"
+      ]
+    },
+    {
+      "cluster_id": 135,
+      "canonical_name": "Cluster 135: reduced inflammation and improved cardiometabolic parameters",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation and improved cardiometabolic parameters",
+        "reduced inflammation and improved metabolic parameters"
+      ]
+    },
+    {
+      "cluster_id": 138,
+      "canonical_name": "Cluster 138: improved skin barrier function and reduced inflammation",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved skin barrier function and reduced inflammation",
+        "reduced inflammation and improved skin barrier function"
+      ]
+    },
+    {
+      "cluster_id": 139,
+      "canonical_name": "Cluster 139: reduced inflammation and bronchodilation",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation and bronchodilation",
+        "reduced inflammation and improved airway function"
+      ]
+    },
+    {
+      "cluster_id": 13,
+      "canonical_name": "Cluster 13: antibacterial action against H. pylori",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "antibacterial action against H. pylori",
+        "antimicrobial action against H. pylori"
+      ]
+    },
+    {
+      "cluster_id": 15,
+      "canonical_name": "Cluster 15: antibiotic treatment and bismuth to eradicate H. pylori",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "antibiotic treatment and bismuth to eradicate H. pylori",
+        "antibiotic treatment and bismuth to eradicate H. pylori, supplemented with probiotics"
+      ]
+    },
+    {
+      "cluster_id": 16,
+      "canonical_name": "Cluster 16: delayed initiation of renal replacement therapy",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "delayed initiation of renal replacement therapy",
+        "early initiation of renal replacement therapy"
+      ]
+    },
+    {
+      "cluster_id": 17,
+      "canonical_name": "Cluster 17: inhibition of cyclooxygenase-2 (COX-2)",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of cyclooxygenase-2 (COX-2)",
+        "inhibition of vanin-1 and vanin-2 enzymes"
+      ]
+    },
+    {
+      "cluster_id": 18,
+      "canonical_name": "Cluster 18: enhanced engagement through tailored linguistic and demographic features",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced engagement through tailored linguistic and demographic features",
+        "targeted demographic, geographic, and interest-based outreach to recruit diverse participants"
+      ]
+    },
+    {
+      "cluster_id": 21,
+      "canonical_name": "Cluster 21: provision of genetic information and support through in-person communication",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "provision of genetic information and support through in-person communication",
+        "provision of genetic information and support through remote communication"
+      ]
+    },
+    {
+      "cluster_id": 23,
+      "canonical_name": "Cluster 23: education and empowerment through structured care stages",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "education and empowerment through structured care stages",
+        "patient education, empowerment, and transdisciplinary care delivery"
+      ]
+    },
+    {
+      "cluster_id": 25,
+      "canonical_name": "Cluster 25: thermal destruction of sebaceous glands and comedones",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "thermal destruction of sebaceous glands and comedones",
+        "thermal destruction of sweat glands"
+      ]
+    },
+    {
+      "cluster_id": 26,
+      "canonical_name": "Cluster 26: blocks ST2/interleukin-33 binding and subsequent inflammatory cascades",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "blocks ST2/interleukin-33 binding and subsequent inflammatory cascades",
+        "modulating interleukin-4 and interleukin-13 signaling pathways"
+      ]
+    },
+    {
+      "cluster_id": 29,
+      "canonical_name": "Cluster 29: evaluation of inflammation at entheses",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "evaluation of inflammation at entheses",
+        "improved detection of inflammatory enthesitis"
+      ]
+    },
+    {
+      "cluster_id": 30,
+      "canonical_name": "Cluster 30: structured cognitive-behavioral techniques delivered online with practitioner su",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "structured cognitive-behavioral techniques delivered online with practitioner support",
+        "structured cognitive-behavioral techniques delivered online without practitioner support"
+      ]
+    },
+    {
+      "cluster_id": 34,
+      "canonical_name": "Cluster 34: inhibition of gastric acid secretion",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of gastric acid secretion",
+        "profound acid suppression through competitive inhibition of potassium channels in parietal cells"
+      ]
+    },
+    {
+      "cluster_id": 37,
+      "canonical_name": "Cluster 37: direct keratolytic effect on abnormal cells",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "direct keratolytic effect on abnormal cells",
+        "enhanced drug penetration and phototoxicity-induced keratinocyte destruction"
+      ]
+    },
+    {
+      "cluster_id": 39,
+      "canonical_name": "Cluster 39: early stimulation and structured interventions",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "early stimulation and structured interventions",
+        "improved clinical management and early intervention"
+      ]
+    },
+    {
+      "cluster_id": 3,
+      "canonical_name": "Cluster 3: periodic antibiotic concentration in bloodstream",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "periodic antibiotic concentration in bloodstream",
+        "sustained antibiotic concentration in bloodstream"
+      ]
+    },
+    {
+      "cluster_id": 42,
+      "canonical_name": "Cluster 42: reduced toxicity while maintaining cure rates",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced toxicity while maintaining cure rates",
+        "reduces chemotherapy adverse effects, enhances therapeutic efficacy"
+      ]
+    },
+    {
+      "cluster_id": 44,
+      "canonical_name": "Cluster 44: improved sleep continuity and reduced arousal",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved sleep continuity and reduced arousal",
+        "psychological intervention to improve sleep patterns"
+      ]
+    },
+    {
+      "cluster_id": 48,
+      "canonical_name": "Cluster 48: neuroplastic adaptations and symptom alleviation through exercise",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "neuroplastic adaptations and symptom alleviation through exercise",
+        "retraining brain's body representation and neural adaptation"
+      ]
+    },
+    {
+      "cluster_id": 4,
+      "canonical_name": "Cluster 4: direct iron supplementation via intravenous route",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "direct iron supplementation via intravenous route",
+        "improved iron absorption and utilization"
+      ]
+    },
+    {
+      "cluster_id": 51,
+      "canonical_name": "Cluster 51: cell cycle arrest and apoptosis induction in tumor cells",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "cell cycle arrest and apoptosis induction in tumor cells",
+        "cell cycle inhibition and apoptosis induction in tumor cells"
+      ]
+    },
+    {
+      "cluster_id": 53,
+      "canonical_name": "Cluster 53: enhances dopamine and norepinephrine activity in the brain",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhances dopamine and norepinephrine activity in the brain",
+        "increases dopamine and norepinephrine levels in the brain"
+      ]
+    },
+    {
+      "cluster_id": 54,
+      "canonical_name": "Cluster 54: improved hormonal profiles and fertility outcomes",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved hormonal profiles and fertility outcomes",
+        "improved ovarian function and hormonal balance"
+      ]
+    },
+    {
+      "cluster_id": 56,
+      "canonical_name": "Cluster 56: improved diagnosis and guided rehabilitation",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved diagnosis and guided rehabilitation",
+        "improved diagnostic accuracy and appropriate treatment guidance"
+      ]
+    },
+    {
+      "cluster_id": 57,
+      "canonical_name": "Cluster 57: changes in lipid metabolism and intestinal microbiota",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "changes in lipid metabolism and intestinal microbiota",
+        "restoration of intestinal flora balance and regulation of metabolic pathways"
+      ]
+    },
+    {
+      "cluster_id": 59,
+      "canonical_name": "Cluster 59: activates serotonin 5-hydroxytryptamine receptor 4 (5-HT4) to enhance gastrointe",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "activates serotonin 5-hydroxytryptamine receptor 4 (5-HT4) to enhance gastrointestinal motility",
+        "activation of 5-HT4 receptors to enhance gastrointestinal motility"
+      ]
+    },
+    {
+      "cluster_id": 5,
+      "canonical_name": "Cluster 5: rehabilitation with optional delayed surgery in case of persistent instability",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "rehabilitation with optional delayed surgery in case of persistent instability",
+        "surgical intervention within 12 weeks post-injury"
+      ]
+    },
+    {
+      "cluster_id": 60,
+      "canonical_name": "Cluster 60: increased dietary fibre intake to modulate gut microbiota and reduce CRC risk",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "increased dietary fibre intake to modulate gut microbiota and reduce CRC risk",
+        "minimal impact on CRC risk due to low fibre intake"
+      ]
+    },
+    {
+      "cluster_id": 61,
+      "canonical_name": "Cluster 61: reduced fibrinolysis and blood loss",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced fibrinolysis and blood loss",
+        "reduced surgical blood loss through antifibrinolytic action"
+      ]
+    },
+    {
+      "cluster_id": 63,
+      "canonical_name": "Cluster 63: enhanced adherence and monitoring",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced adherence and monitoring",
+        "enhanced adherence and monitoring through video observation"
+      ]
+    },
+    {
+      "cluster_id": 64,
+      "canonical_name": "Cluster 64: enhanced medication adherence through reminders",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced medication adherence through reminders",
+        "improved medication adherence through regular reminders"
+      ]
+    },
+    {
+      "cluster_id": 65,
+      "canonical_name": "Cluster 65: enhanced lower-limb functional performance through targeted physical training",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced lower-limb functional performance through targeted physical training",
+        "modifies lower extremity biomechanics and muscle activity"
+      ]
+    },
+    {
+      "cluster_id": 66,
+      "canonical_name": "Cluster 66: prevention of stone formation through urinary citrate increase",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "prevention of stone formation through urinary citrate increase",
+        "reduced renal stone formation"
+      ]
+    },
+    {
+      "cluster_id": 68,
+      "canonical_name": "Cluster 68: B cell depletion and anti-PLA2R antibody reduction",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "B cell depletion and anti-PLA2R antibody reduction",
+        "targeting B-cells to reduce antibody production"
+      ]
+    },
+    {
+      "cluster_id": 69,
+      "canonical_name": "Cluster 69: emotional engagement and social interaction",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "emotional engagement and social interaction",
+        "enhanced psychological and social engagement"
+      ]
+    },
+    {
+      "cluster_id": 6,
+      "canonical_name": "Cluster 6: improved knowledge and awareness of sun protection practices",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved knowledge and awareness of sun protection practices",
+        "peer-led reinforcement of sun protection knowledge and attitudes"
+      ]
+    },
+    {
+      "cluster_id": 70,
+      "canonical_name": "Cluster 70: enhanced engagement and motivation through interactive gameplay",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced engagement and motivation through interactive gameplay",
+        "enhanced engagement in rewarding activities"
+      ]
+    },
+    {
+      "cluster_id": 71,
+      "canonical_name": "Cluster 71: decreased urinary pH through acid excretion",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "decreased urinary pH through acid excretion",
+        "decreased urinary pH through increased acid load"
+      ]
+    },
+    {
+      "cluster_id": 72,
+      "canonical_name": "Cluster 72: increased urinary pH through bicarbonate excretion",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "increased urinary pH through bicarbonate excretion",
+        "increased urinary pH through citrate and bicarbonate excretion"
+      ]
+    },
+    {
+      "cluster_id": 73,
+      "canonical_name": "Cluster 73: enhanced neuromuscular control and proprioception",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced neuromuscular control and proprioception",
+        "enhanced proprioception and neuromuscular control"
+      ]
+    },
+    {
+      "cluster_id": 76,
+      "canonical_name": "Cluster 76: promotes reverse remodeling and improves cardiac function",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "promotes reverse remodeling and improves cardiac function",
+        "replaces dysfunctional valve, improves cardiac function"
+      ]
+    },
+    {
+      "cluster_id": 77,
+      "canonical_name": "Cluster 77: engagement through structured physical and cognitive activities",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "engagement through structured physical and cognitive activities",
+        "integration of physical movement with cognitive engagement"
+      ]
+    },
+    {
+      "cluster_id": 79,
+      "canonical_name": "Cluster 79: surgical repair and stabilization of the tendon-bone interface",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "surgical repair and stabilization of the tendon-bone interface",
+        "surgical repair of tendon and muscle attachment"
+      ]
+    },
+    {
+      "cluster_id": 7,
+      "canonical_name": "Cluster 7: inhibition of plasminogen activation and reduced melanin transfer",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of plasminogen activation and reduced melanin transfer",
+        "inhibition of tyrosinase activity and reduced melanin production"
+      ]
+    },
+    {
+      "cluster_id": 81,
+      "canonical_name": "Cluster 81: enhanced cognitive engagement and executive function training through immersive ",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced cognitive engagement and executive function training through immersive virtual environments",
+        "enhanced cognitive function through immersive virtual reality training"
+      ]
+    },
+    {
+      "cluster_id": 82,
+      "canonical_name": "Cluster 82: instrumenting one vertebra above and below the fracture to provide stability",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "instrumenting one vertebra above and below the fracture to provide stability",
+        "instrumenting only the fractured vertebra and one adjacent vertebra to reduce surgical morbidity"
+      ]
+    },
+    {
+      "cluster_id": 83,
+      "canonical_name": "Cluster 83: enhanced cardiac function and hemodynamic stability",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced cardiac function and hemodynamic stability",
+        "enhancement of cardiac contractility"
+      ]
+    },
+    {
+      "cluster_id": 84,
+      "canonical_name": "Cluster 84: fixates the fractured bone to promote healing and stability",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "fixates the fractured bone to promote healing and stability",
+        "reduces movement and promotes healing of the fractured bone"
+      ]
+    },
+    {
+      "cluster_id": 85,
+      "canonical_name": "Cluster 85: stabilization through surgical fixation of the fracture",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "stabilization through surgical fixation of the fracture",
+        "surgical stabilization of fracture fragments"
+      ]
+    },
+    {
+      "cluster_id": 86,
+      "canonical_name": "Cluster 86: continued administration of therapy to maintain immune response",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "continued administration of therapy to maintain immune response",
+        "suppressing immune response to prevent disease recurrence"
+      ]
+    },
+    {
+      "cluster_id": 87,
+      "canonical_name": "Cluster 87: improvement of liver function and modulation of immune response",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improvement of liver function and modulation of immune response",
+        "reduces HBV DNA and improves liver function markers"
+      ]
+    },
+    {
+      "cluster_id": 88,
+      "canonical_name": "Cluster 88: enhances muscle activation and neuromuscular recruitment",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhances muscle activation and neuromuscular recruitment",
+        "improves muscle volume and neuromuscular recruitment"
+      ]
+    },
+    {
+      "cluster_id": 92,
+      "canonical_name": "Cluster 92: enhanced cognitive function through structured rehabilitation",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced cognitive function through structured rehabilitation",
+        "enhanced cognitive rehabilitation through interactive exercises"
+      ]
+    },
+    {
+      "cluster_id": 93,
+      "canonical_name": "Cluster 93: bone density increase",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "bone density increase",
+        "increased bone mineral density through bisphosphonate action"
+      ]
+    },
+    {
+      "cluster_id": 94,
+      "canonical_name": "Cluster 94: increased risk of thrombosis through unknown biological pathways",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "increased risk of thrombosis through unknown biological pathways",
+        "reduced thromboembolic risk through anti-inflammatory pathways"
+      ]
+    },
+    {
+      "cluster_id": 95,
+      "canonical_name": "Cluster 95: reduced bacterial load and inflammation in the lower respiratory tract",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced bacterial load and inflammation in the lower respiratory tract",
+        "reduction of viable bacterial load in the lower respiratory tract"
+      ]
+    },
+    {
+      "cluster_id": 96,
+      "canonical_name": "Cluster 96: direct factor Xa inhibition",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "direct factor Xa inhibition",
+        "inhibition of factor Xa to reduce thrombosis risk"
+      ]
+    },
+    {
+      "cluster_id": 97,
+      "canonical_name": "Cluster 97: inhibition of platelet aggregation to reduce thrombosis risk",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of platelet aggregation to reduce thrombosis risk",
+        "reduces platelet aggregation to prevent thrombosis"
+      ]
+    },
+    {
+      "cluster_id": 98,
+      "canonical_name": "Cluster 98: enhance bone metabolism and improve bone quality",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhance bone metabolism and improve bone quality",
+        "enhanced bone turnover and muscle function"
+      ]
+    },
+    {
+      "cluster_id": 99,
+      "canonical_name": "Cluster 99: accelerated bone turnover and bone loss",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "accelerated bone turnover and bone loss",
+        "high turnover bone loss"
+      ]
+    },
+    {
+      "cluster_id": 9,
+      "canonical_name": "Cluster 9: administration of individual blood components to stabilize patients",
+      "member_count": 2,
+      "cluster_type": "hdbscan",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "administration of individual blood components to stabilize patients",
+        "replenishment of blood volume and stabilization of patients"
+      ]
+    },
+    {
+      "cluster_id": 142,
+      "canonical_name": "100% margin evaluation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "100% margin evaluation"
+      ]
+    },
+    {
+      "cluster_id": 143,
+      "canonical_name": "B-cell depletion and immune modulation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "B-cell depletion and immune modulation"
+      ]
+    },
+    {
+      "cluster_id": 144,
+      "canonical_name": "CD123-targeted therapy",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "CD123-targeted therapy"
+      ]
+    },
+    {
+      "cluster_id": 145,
+      "canonical_name": "GABA modulation and sedation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "GABA modulation and sedation"
+      ]
+    },
+    {
+      "cluster_id": 146,
+      "canonical_name": "PARP inhibition and HRR gene alteration targeting",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "PARP inhibition and HRR gene alteration targeting"
+      ]
+    },
+    {
+      "cluster_id": 147,
+      "canonical_name": "accurate fluid status assessment and ultrafiltration guidance",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "accurate fluid status assessment and ultrafiltration guidance"
+      ]
+    },
+    {
+      "cluster_id": 148,
+      "canonical_name": "activation of Toll-like receptors 7 and 8 (TLR7/8) leading to production of pro-inflammatory cytokin",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "activation of Toll-like receptors 7 and 8 (TLR7/8) leading to production of pro-inflammatory cytokines"
+      ]
+    },
+    {
+      "cluster_id": 149,
+      "canonical_name": "addresses maintenance factors of psychotic experiences through imagery focused therapy",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "addresses maintenance factors of psychotic experiences through imagery focused therapy"
+      ]
+    },
+    {
+      "cluster_id": 150,
+      "canonical_name": "advice on physical activity and step goals",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "advice on physical activity and step goals"
+      ]
+    },
+    {
+      "cluster_id": 151,
+      "canonical_name": "aggravates pulmonary damage via aryl hydrocarbon receptor activation and increased reactive oxygen s",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "aggravates pulmonary damage via aryl hydrocarbon receptor activation and increased reactive oxygen species from neutrophils"
+      ]
+    },
+    {
+      "cluster_id": 152,
+      "canonical_name": "alleviation of psychological distress and enhancement of immune function",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "alleviation of psychological distress and enhancement of immune function"
+      ]
+    },
+    {
+      "cluster_id": 153,
+      "canonical_name": "androgen deprivation therapy and immunosuppression",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "androgen deprivation therapy and immunosuppression"
+      ]
+    },
+    {
+      "cluster_id": 154,
+      "canonical_name": "anti-inflammatory, regenerative, and vascular modulatory effects",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "anti-inflammatory, regenerative, and vascular modulatory effects"
+      ]
+    },
+    {
+      "cluster_id": 155,
+      "canonical_name": "antibacterial, immunomodulatory, sebostatic, antioxidant",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "antibacterial, immunomodulatory, sebostatic, antioxidant"
+      ]
+    },
+    {
+      "cluster_id": 156,
+      "canonical_name": "antibiotic treatment for Treponema pallidum infection",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "antibiotic treatment for Treponema pallidum infection"
+      ]
+    },
+    {
+      "cluster_id": 157,
+      "canonical_name": "antidepressant and analgesic effects",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "antidepressant and analgesic effects"
+      ]
+    },
+    {
+      "cluster_id": 158,
+      "canonical_name": "assessing biopsychosocial characteristics to guide personalized treatment",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "assessing biopsychosocial characteristics to guide personalized treatment"
+      ]
+    },
+    {
+      "cluster_id": 159,
+      "canonical_name": "attenuation of oxidative and nitrosative stress and modulation of inflammatory pathways",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "attenuation of oxidative and nitrosative stress and modulation of inflammatory pathways"
+      ]
+    },
+    {
+      "cluster_id": 160,
+      "canonical_name": "behavioral modification and increased physical activity adherence",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "behavioral modification and increased physical activity adherence"
+      ]
+    },
+    {
+      "cluster_id": 161,
+      "canonical_name": "blocking programmed cell death 1 (PD-1) to trigger anti-tumor immune response",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "blocking programmed cell death 1 (PD-1) to trigger anti-tumor immune response"
+      ]
+    },
+    {
+      "cluster_id": 162,
+      "canonical_name": "bone mineral density improvement and pain alleviation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "bone mineral density improvement and pain alleviation"
+      ]
+    },
+    {
+      "cluster_id": 163,
+      "canonical_name": "bone mineral density preservation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "bone mineral density preservation"
+      ]
+    },
+    {
+      "cluster_id": 164,
+      "canonical_name": "bronchodilation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "bronchodilation"
+      ]
+    },
+    {
+      "cluster_id": 165,
+      "canonical_name": "calcium absorption regulation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "calcium absorption regulation"
+      ]
+    },
+    {
+      "cluster_id": 166,
+      "canonical_name": "caloric restriction",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "caloric restriction"
+      ]
+    },
+    {
+      "cluster_id": 167,
+      "canonical_name": "cell cycle inhibition and DNA damage",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "cell cycle inhibition and DNA damage"
+      ]
+    },
+    {
+      "cluster_id": 168,
+      "canonical_name": "cognitive function improvement through multi-domain training",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "cognitive function improvement through multi-domain training"
+      ]
+    },
+    {
+      "cluster_id": 169,
+      "canonical_name": "combined effect of acupuncture and herbal medicine on hormonal regulation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "combined effect of acupuncture and herbal medicine on hormonal regulation"
+      ]
+    },
+    {
+      "cluster_id": 170,
+      "canonical_name": "combining exercise and psychological support based on broaden-and-build theory",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "combining exercise and psychological support based on broaden-and-build theory"
+      ]
+    },
+    {
+      "cluster_id": 171,
+      "canonical_name": "consideration of age, gender, comorbidities, and liver disease severity to mitigate MRP and pDDI",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "consideration of age, gender, comorbidities, and liver disease severity to mitigate MRP and pDDI"
+      ]
+    },
+    {
+      "cluster_id": 172,
+      "canonical_name": "continuous therapist-guided exercises to enhance motor function and self-efficacy",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "continuous therapist-guided exercises to enhance motor function and self-efficacy"
+      ]
+    },
+    {
+      "cluster_id": 173,
+      "canonical_name": "conventional surgical approach for tibial fractures",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "conventional surgical approach for tibial fractures"
+      ]
+    },
+    {
+      "cluster_id": 174,
+      "canonical_name": "correct deficiencies and treat malnutrition, support rehabilitation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "correct deficiencies and treat malnutrition, support rehabilitation"
+      ]
+    },
+    {
+      "cluster_id": 175,
+      "canonical_name": "cyclin-dependent kinase 4 and 6 inhibition",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "cyclin-dependent kinase 4 and 6 inhibition"
+      ]
+    },
+    {
+      "cluster_id": 176,
+      "canonical_name": "debulking of infective vegetations",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "debulking of infective vegetations"
+      ]
+    },
+    {
+      "cluster_id": 177,
+      "canonical_name": "decreased urinary pH through sulfur metabolism",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "decreased urinary pH through sulfur metabolism"
+      ]
+    },
+    {
+      "cluster_id": 178,
+      "canonical_name": "dietary behavior change support through meal logging and nutrient feedback",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "dietary behavior change support through meal logging and nutrient feedback"
+      ]
+    },
+    {
+      "cluster_id": 179,
+      "canonical_name": "direct and indirect DNA damage and generation of reactive oxygen species (ROS) leading to tumor cell",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "direct and indirect DNA damage and generation of reactive oxygen species (ROS) leading to tumor cell death"
+      ]
+    },
+    {
+      "cluster_id": 180,
+      "canonical_name": "direct targeting of PA in the lower respiratory tract",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "direct targeting of PA in the lower respiratory tract"
+      ]
+    },
+    {
+      "cluster_id": 181,
+      "canonical_name": "direct thrombin inhibition",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "direct thrombin inhibition"
+      ]
+    },
+    {
+      "cluster_id": 182,
+      "canonical_name": "direct visualization of coronary artery stenoses and plaque burden",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "direct visualization of coronary artery stenoses and plaque burden"
+      ]
+    },
+    {
+      "cluster_id": 183,
+      "canonical_name": "direct-acting antiviral therapy targeting HCV replication",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "direct-acting antiviral therapy targeting HCV replication"
+      ]
+    },
+    {
+      "cluster_id": 184,
+      "canonical_name": "discontinuation of therapy after 2 years to avoid prolonged exposure",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "discontinuation of therapy after 2 years to avoid prolonged exposure"
+      ]
+    },
+    {
+      "cluster_id": 185,
+      "canonical_name": "disruption of cancer cell division through electric fields",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "disruption of cancer cell division through electric fields"
+      ]
+    },
+    {
+      "cluster_id": 186,
+      "canonical_name": "dual modulation of lipid and glucose metabolism",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "dual modulation of lipid and glucose metabolism"
+      ]
+    },
+    {
+      "cluster_id": 187,
+      "canonical_name": "early detection of cirrhosis and increased participation in HCC surveillance programmes",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "early detection of cirrhosis and increased participation in HCC surveillance programmes"
+      ]
+    },
+    {
+      "cluster_id": 188,
+      "canonical_name": "educational sessions on healthy diets",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "educational sessions on healthy diets"
+      ]
+    },
+    {
+      "cluster_id": 189,
+      "canonical_name": "educational support to avoid hypoglycaemia and manage antidiabetic medication side-effects",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "educational support to avoid hypoglycaemia and manage antidiabetic medication side-effects"
+      ]
+    },
+    {
+      "cluster_id": 190,
+      "canonical_name": "electrophysiological modulation to prevent arrhythmias",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "electrophysiological modulation to prevent arrhythmias"
+      ]
+    },
+    {
+      "cluster_id": 191,
+      "canonical_name": "enhanced aerobic capacity and metabolic efficiency",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced aerobic capacity and metabolic efficiency"
+      ]
+    },
+    {
+      "cluster_id": 192,
+      "canonical_name": "enhanced bone-tendon interface regeneration through increased platelet, nucleated cell, stem cell, T",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced bone-tendon interface regeneration through increased platelet, nucleated cell, stem cell, TGFβ1, and IGF1 concentrations"
+      ]
+    },
+    {
+      "cluster_id": 193,
+      "canonical_name": "enhanced communication and targeted information delivery to improve vaccination adherence",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced communication and targeted information delivery to improve vaccination adherence"
+      ]
+    },
+    {
+      "cluster_id": 194,
+      "canonical_name": "enhanced community support and continuous care coordination",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced community support and continuous care coordination"
+      ]
+    },
+    {
+      "cluster_id": 195,
+      "canonical_name": "enhanced exercise capacity and reduced stress/anxiety",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced exercise capacity and reduced stress/anxiety"
+      ]
+    },
+    {
+      "cluster_id": 196,
+      "canonical_name": "enhanced mental health and HIV knowledge through digital education",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced mental health and HIV knowledge through digital education"
+      ]
+    },
+    {
+      "cluster_id": 197,
+      "canonical_name": "enhanced motivation and adherence through digital engagement",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced motivation and adherence through digital engagement"
+      ]
+    },
+    {
+      "cluster_id": 198,
+      "canonical_name": "enhanced nutritional and immune response through arginine and ω-3 fatty acids",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced nutritional and immune response through arginine and ω-3 fatty acids"
+      ]
+    },
+    {
+      "cluster_id": 199,
+      "canonical_name": "enhanced patient outcomes through coordinated, personalized care and state-of-the-art therapies",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced patient outcomes through coordinated, personalized care and state-of-the-art therapies"
+      ]
+    },
+    {
+      "cluster_id": 200,
+      "canonical_name": "enhanced self-care ability and improved quality of life through structured nursing support",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced self-care ability and improved quality of life through structured nursing support"
+      ]
+    },
+    {
+      "cluster_id": 201,
+      "canonical_name": "enhanced sense of duty and intention to provide support",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced sense of duty and intention to provide support"
+      ]
+    },
+    {
+      "cluster_id": 202,
+      "canonical_name": "enhanced tolerability and reduced mucocutaneous adverse events",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced tolerability and reduced mucocutaneous adverse events"
+      ]
+    },
+    {
+      "cluster_id": 203,
+      "canonical_name": "enhanced topical drug penetration and immune modulation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced topical drug penetration and immune modulation"
+      ]
+    },
+    {
+      "cluster_id": 204,
+      "canonical_name": "enhanced understanding and application of self-care strategies through structured conceptual mapping",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced understanding and application of self-care strategies through structured conceptual mapping"
+      ]
+    },
+    {
+      "cluster_id": 205,
+      "canonical_name": "enhanced visualization and improved inspection of the colon",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced visualization and improved inspection of the colon"
+      ]
+    },
+    {
+      "cluster_id": 206,
+      "canonical_name": "enhanced wound healing and modulated scar formation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhanced wound healing and modulated scar formation"
+      ]
+    },
+    {
+      "cluster_id": 207,
+      "canonical_name": "enhancing initial immunosuppressive effect to reduce recurrence risk",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "enhancing initial immunosuppressive effect to reduce recurrence risk"
+      ]
+    },
+    {
+      "cluster_id": 208,
+      "canonical_name": "fusion of tibiotalocalcaneal joint to stabilize fracture",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "fusion of tibiotalocalcaneal joint to stabilize fracture"
+      ]
+    },
+    {
+      "cluster_id": 209,
+      "canonical_name": "general information dissemination",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "general information dissemination"
+      ]
+    },
+    {
+      "cluster_id": 210,
+      "canonical_name": "generative artificial intelligence to create synthetic datasets that replicate clinical trial data w",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "generative artificial intelligence to create synthetic datasets that replicate clinical trial data while preserving privacy"
+      ]
+    },
+    {
+      "cluster_id": 211,
+      "canonical_name": "guidance and support for ACP conversations",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "guidance and support for ACP conversations"
+      ]
+    },
+    {
+      "cluster_id": 212,
+      "canonical_name": "guideline-based care including physical therapies, alternative treatments, and over-the-counter medi",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "guideline-based care including physical therapies, alternative treatments, and over-the-counter medications"
+      ]
+    },
+    {
+      "cluster_id": 213,
+      "canonical_name": "gut microbiome modulation and potential beta-cell protection",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "gut microbiome modulation and potential beta-cell protection"
+      ]
+    },
+    {
+      "cluster_id": 214,
+      "canonical_name": "gut microbiome modulation, enhanced production of neuroprotective short-chain fatty acids, reduced i",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "gut microbiome modulation, enhanced production of neuroprotective short-chain fatty acids, reduced inflammation, improved gut barrier integrity, immunomodulation"
+      ]
+    },
+    {
+      "cluster_id": 215,
+      "canonical_name": "hemostasis and vessel occlusion",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "hemostasis and vessel occlusion"
+      ]
+    },
+    {
+      "cluster_id": 216,
+      "canonical_name": "hepcidin mimetic action",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "hepcidin mimetic action"
+      ]
+    },
+    {
+      "cluster_id": 217,
+      "canonical_name": "high and sustained pulmonary concentrations allowing for once-daily dosing",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "high and sustained pulmonary concentrations allowing for once-daily dosing"
+      ]
+    },
+    {
+      "cluster_id": 218,
+      "canonical_name": "hormonal modulation and symptom relief",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "hormonal modulation and symptom relief"
+      ]
+    },
+    {
+      "cluster_id": 219,
+      "canonical_name": "identification of ECG markers such as P wave dispersion, P wave peak time, and left atrial volume in",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "identification of ECG markers such as P wave dispersion, P wave peak time, and left atrial volume index"
+      ]
+    },
+    {
+      "cluster_id": 220,
+      "canonical_name": "immune modulation and viral suppression",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "immune modulation and viral suppression"
+      ]
+    },
+    {
+      "cluster_id": 221,
+      "canonical_name": "immunomodulation and reduction of inflammation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "immunomodulation and reduction of inflammation"
+      ]
+    },
+    {
+      "cluster_id": 222,
+      "canonical_name": "immunomodulatory effects and preservation of renal function",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "immunomodulatory effects and preservation of renal function"
+      ]
+    },
+    {
+      "cluster_id": 223,
+      "canonical_name": "immunosuppression and reduced disease activity",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "immunosuppression and reduced disease activity"
+      ]
+    },
+    {
+      "cluster_id": 224,
+      "canonical_name": "improved blood rheological properties, enhanced oxygen-carrying capacity, immune regulation, reduced",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved blood rheological properties, enhanced oxygen-carrying capacity, immune regulation, reduced inflammation and oxidative stress"
+      ]
+    },
+    {
+      "cluster_id": 225,
+      "canonical_name": "improved cardiovascular health and immune function",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved cardiovascular health and immune function"
+      ]
+    },
+    {
+      "cluster_id": 226,
+      "canonical_name": "improved clinical outcomes and reduced pain through optimized knee alignment",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved clinical outcomes and reduced pain through optimized knee alignment"
+      ]
+    },
+    {
+      "cluster_id": 227,
+      "canonical_name": "improved drug penetration in CSF",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved drug penetration in CSF"
+      ]
+    },
+    {
+      "cluster_id": 228,
+      "canonical_name": "improved eccentric hamstring strength",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved eccentric hamstring strength"
+      ]
+    },
+    {
+      "cluster_id": 229,
+      "canonical_name": "improved executive function and dynamic balance",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved executive function and dynamic balance"
+      ]
+    },
+    {
+      "cluster_id": 230,
+      "canonical_name": "improved foot care practices through family education",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved foot care practices through family education"
+      ]
+    },
+    {
+      "cluster_id": 231,
+      "canonical_name": "improved functional capacity and reduced dyspnea",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved functional capacity and reduced dyspnea"
+      ]
+    },
+    {
+      "cluster_id": 232,
+      "canonical_name": "improved joint position sense and balance through targeted physical exercises",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved joint position sense and balance through targeted physical exercises"
+      ]
+    },
+    {
+      "cluster_id": 233,
+      "canonical_name": "improved microcirculatory perfusion and lactate clearance",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved microcirculatory perfusion and lactate clearance"
+      ]
+    },
+    {
+      "cluster_id": 234,
+      "canonical_name": "improved muscle strength and joint stability",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved muscle strength and joint stability"
+      ]
+    },
+    {
+      "cluster_id": 235,
+      "canonical_name": "improved nutritional status and enhanced recovery through dietary support",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved nutritional status and enhanced recovery through dietary support"
+      ]
+    },
+    {
+      "cluster_id": 236,
+      "canonical_name": "improved patient management and adherence to care plans",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved patient management and adherence to care plans"
+      ]
+    },
+    {
+      "cluster_id": 237,
+      "canonical_name": "improved renal outcomes and eGFR trajectory",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved renal outcomes and eGFR trajectory"
+      ]
+    },
+    {
+      "cluster_id": 238,
+      "canonical_name": "improved respiratory outcomes and DNAm alteration",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved respiratory outcomes and DNAm alteration"
+      ]
+    },
+    {
+      "cluster_id": 239,
+      "canonical_name": "improved stone clearance post-SWL",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved stone clearance post-SWL"
+      ]
+    },
+    {
+      "cluster_id": 240,
+      "canonical_name": "improved walking function through self-paced overground movement",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improved walking function through self-paced overground movement"
+      ]
+    },
+    {
+      "cluster_id": 241,
+      "canonical_name": "improvement in social cognition and emotional processing",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improvement in social cognition and emotional processing"
+      ]
+    },
+    {
+      "cluster_id": 242,
+      "canonical_name": "improvement of physical function and mental well-being through exercise",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improvement of physical function and mental well-being through exercise"
+      ]
+    },
+    {
+      "cluster_id": 243,
+      "canonical_name": "improves trial outcome reliability by ensuring consistent treatment follow-up",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improves trial outcome reliability by ensuring consistent treatment follow-up"
+      ]
+    },
+    {
+      "cluster_id": 244,
+      "canonical_name": "improving clinician knowledge and use of SDM techniques",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "improving clinician knowledge and use of SDM techniques"
+      ]
+    },
+    {
+      "cluster_id": 245,
+      "canonical_name": "incorporation of psychological outcomes alongside pharmacological approaches",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "incorporation of psychological outcomes alongside pharmacological approaches"
+      ]
+    },
+    {
+      "cluster_id": 246,
+      "canonical_name": "increased dlPFC-frontoparietal and decreased dmPFC-amygdalo-subcallosal cingulate functional connect",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "increased dlPFC-frontoparietal and decreased dmPFC-amygdalo-subcallosal cingulate functional connectivity"
+      ]
+    },
+    {
+      "cluster_id": 247,
+      "canonical_name": "increased mitochondrial ATP production and enhanced cerebral blood flow",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "increased mitochondrial ATP production and enhanced cerebral blood flow"
+      ]
+    },
+    {
+      "cluster_id": 248,
+      "canonical_name": "increased muscular strength through restricted blood flow",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "increased muscular strength through restricted blood flow"
+      ]
+    },
+    {
+      "cluster_id": 249,
+      "canonical_name": "increased urinary pH through dietary alkaline load",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "increased urinary pH through dietary alkaline load"
+      ]
+    },
+    {
+      "cluster_id": 250,
+      "canonical_name": "increased urine output and sodium excretion",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "increased urine output and sodium excretion"
+      ]
+    },
+    {
+      "cluster_id": 251,
+      "canonical_name": "increases bone formation and decreases resorption",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "increases bone formation and decreases resorption"
+      ]
+    },
+    {
+      "cluster_id": 252,
+      "canonical_name": "induces exercise-induced hypoalgesia",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "induces exercise-induced hypoalgesia"
+      ]
+    },
+    {
+      "cluster_id": 253,
+      "canonical_name": "induces minor bleeding to improve skin condition",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "induces minor bleeding to improve skin condition"
+      ]
+    },
+    {
+      "cluster_id": 254,
+      "canonical_name": "induction of erythropoietin and neurotrophic factors",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "induction of erythropoietin and neurotrophic factors"
+      ]
+    },
+    {
+      "cluster_id": 255,
+      "canonical_name": "induction regimen for AML treatment",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "induction regimen for AML treatment"
+      ]
+    },
+    {
+      "cluster_id": 256,
+      "canonical_name": "influence on the intrinsic barrier to resistance of the regimen",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "influence on the intrinsic barrier to resistance of the regimen"
+      ]
+    },
+    {
+      "cluster_id": 257,
+      "canonical_name": "inhibiting complement system activation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibiting complement system activation"
+      ]
+    },
+    {
+      "cluster_id": 258,
+      "canonical_name": "inhibition of CD40 signaling pathway",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of CD40 signaling pathway"
+      ]
+    },
+    {
+      "cluster_id": 259,
+      "canonical_name": "inhibition of IgE-mediated allergic responses",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of IgE-mediated allergic responses"
+      ]
+    },
+    {
+      "cluster_id": 260,
+      "canonical_name": "inhibition of acetylcholine release",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of acetylcholine release"
+      ]
+    },
+    {
+      "cluster_id": 261,
+      "canonical_name": "inhibition of cardiac myosin to improve cardiac function",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of cardiac myosin to improve cardiac function"
+      ]
+    },
+    {
+      "cluster_id": 262,
+      "canonical_name": "inhibition of microtubule dynamics and cell division",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of microtubule dynamics and cell division"
+      ]
+    },
+    {
+      "cluster_id": 263,
+      "canonical_name": "inhibition of mycolic acid synthesis in Mycobacterium tuberculosis",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of mycolic acid synthesis in Mycobacterium tuberculosis"
+      ]
+    },
+    {
+      "cluster_id": 264,
+      "canonical_name": "inhibition of vitamin K-dependent clotting factors",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibition of vitamin K-dependent clotting factors"
+      ]
+    },
+    {
+      "cluster_id": 265,
+      "canonical_name": "inhibits sodium/hydrogen exchanger isoform 3 (NHE3) to reduce intestinal sodium absorption",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "inhibits sodium/hydrogen exchanger isoform 3 (NHE3) to reduce intestinal sodium absorption"
+      ]
+    },
+    {
+      "cluster_id": 266,
+      "canonical_name": "initiates a state of insulin resistance",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "initiates a state of insulin resistance"
+      ]
+    },
+    {
+      "cluster_id": 267,
+      "canonical_name": "introduction of premature wavefronts into the excitable gap",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "introduction of premature wavefronts into the excitable gap"
+      ]
+    },
+    {
+      "cluster_id": 268,
+      "canonical_name": "lipid reduction with potential negative impact on glycemia",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "lipid reduction with potential negative impact on glycemia"
+      ]
+    },
+    {
+      "cluster_id": 269,
+      "canonical_name": "management of HIV infection and its associated metabolic and immunological complications",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "management of HIV infection and its associated metabolic and immunological complications"
+      ]
+    },
+    {
+      "cluster_id": 270,
+      "canonical_name": "metabolic regulation and inflammation reduction",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "metabolic regulation and inflammation reduction"
+      ]
+    },
+    {
+      "cluster_id": 271,
+      "canonical_name": "mitigates altitude-related hypoxemia and deoxygenation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "mitigates altitude-related hypoxemia and deoxygenation"
+      ]
+    },
+    {
+      "cluster_id": 272,
+      "canonical_name": "model-based statistical method for duration-ranging",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "model-based statistical method for duration-ranging"
+      ]
+    },
+    {
+      "cluster_id": 273,
+      "canonical_name": "modulates TGF-β, NF-κB, NLRP3 inflammasome, oxidative stress signaling; enhances mitochondrial energ",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulates TGF-β, NF-κB, NLRP3 inflammasome, oxidative stress signaling; enhances mitochondrial energetics and endothelial function"
+      ]
+    },
+    {
+      "cluster_id": 274,
+      "canonical_name": "modulates neuroendocrine signaling, inflammatory cascades, cartilage metabolism, and local hemodynam",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulates neuroendocrine signaling, inflammatory cascades, cartilage metabolism, and local hemodynamics; engages neuromodulatory systems involving opioid, serotonergic, and cannabinoid receptors"
+      ]
+    },
+    {
+      "cluster_id": 275,
+      "canonical_name": "modulates white matter tracts in ALIC by operating mechanosensitive potassium channels in nodes of R",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulates white matter tracts in ALIC by operating mechanosensitive potassium channels in nodes of Ranvier"
+      ]
+    },
+    {
+      "cluster_id": 276,
+      "canonical_name": "modulation of N-acetyl-phenylalanine",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulation of N-acetyl-phenylalanine"
+      ]
+    },
+    {
+      "cluster_id": 277,
+      "canonical_name": "modulation of dietary intake to align with Paleolithic food patterns",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulation of dietary intake to align with Paleolithic food patterns"
+      ]
+    },
+    {
+      "cluster_id": 278,
+      "canonical_name": "modulation of dopaminergic reward pathways, enhancement of hippocampal neurogenesis, attenuation of ",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulation of dopaminergic reward pathways, enhancement of hippocampal neurogenesis, attenuation of neuroinflammation, and regulation of appetite and energy balance"
+      ]
+    },
+    {
+      "cluster_id": 279,
+      "canonical_name": "modulation of estrogen receptor activity and reduction of oxidative stress",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulation of estrogen receptor activity and reduction of oxidative stress"
+      ]
+    },
+    {
+      "cluster_id": 280,
+      "canonical_name": "modulation of immune system, microbiome, metabolomics",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulation of immune system, microbiome, metabolomics"
+      ]
+    },
+    {
+      "cluster_id": 281,
+      "canonical_name": "modulation of skin microbiome and reduction in inflammation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulation of skin microbiome and reduction in inflammation"
+      ]
+    },
+    {
+      "cluster_id": 282,
+      "canonical_name": "modulation of sphingosine-1-phosphate receptors",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulation of sphingosine-1-phosphate receptors"
+      ]
+    },
+    {
+      "cluster_id": 283,
+      "canonical_name": "modulation of thyroid hormone regulation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "modulation of thyroid hormone regulation"
+      ]
+    },
+    {
+      "cluster_id": 284,
+      "canonical_name": "monitoring HBV RNA and hepatitis core-related antigen to guide discontinuation of NAs",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "monitoring HBV RNA and hepatitis core-related antigen to guide discontinuation of NAs"
+      ]
+    },
+    {
+      "cluster_id": 285,
+      "canonical_name": "motor skill improvement and gait enhancement",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "motor skill improvement and gait enhancement"
+      ]
+    },
+    {
+      "cluster_id": 286,
+      "canonical_name": "multi-target mechanisms and higher compliance",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "multi-target mechanisms and higher compliance"
+      ]
+    },
+    {
+      "cluster_id": 287,
+      "canonical_name": "multimodal approach to health and healing, physical movement and mental attitude development",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "multimodal approach to health and healing, physical movement and mental attitude development"
+      ]
+    },
+    {
+      "cluster_id": 288,
+      "canonical_name": "muscle strengthening and improved pelvic floor function",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "muscle strengthening and improved pelvic floor function"
+      ]
+    },
+    {
+      "cluster_id": 289,
+      "canonical_name": "near-zero fluid balance maintenance",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "near-zero fluid balance maintenance"
+      ]
+    },
+    {
+      "cluster_id": 290,
+      "canonical_name": "neural modulation over right inferior parietal lobe",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "neural modulation over right inferior parietal lobe"
+      ]
+    },
+    {
+      "cluster_id": 291,
+      "canonical_name": "neurotransmitter modulation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "neurotransmitter modulation"
+      ]
+    },
+    {
+      "cluster_id": 292,
+      "canonical_name": "no specific framing applied",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "no specific framing applied"
+      ]
+    },
+    {
+      "cluster_id": 293,
+      "canonical_name": "nutritional factors, mechanical unloading, hormonal factors, adipokines, and alterations in the gut ",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "nutritional factors, mechanical unloading, hormonal factors, adipokines, and alterations in the gut microbiome"
+      ]
+    },
+    {
+      "cluster_id": 294,
+      "canonical_name": "peer support actions to mitigate psychosocial impact",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "peer support actions to mitigate psychosocial impact"
+      ]
+    },
+    {
+      "cluster_id": 295,
+      "canonical_name": "personalized nursing support and motivational interviewing to improve health literacy and post-disch",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "personalized nursing support and motivational interviewing to improve health literacy and post-discharge care understanding"
+      ]
+    },
+    {
+      "cluster_id": 296,
+      "canonical_name": "pharmacological and lifestyle management of cardiovascular risk factors",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "pharmacological and lifestyle management of cardiovascular risk factors"
+      ]
+    },
+    {
+      "cluster_id": 297,
+      "canonical_name": "platelet production stimulation and potential anti-leukemic effects",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "platelet production stimulation and potential anti-leukemic effects"
+      ]
+    },
+    {
+      "cluster_id": 298,
+      "canonical_name": "positive allosteric modulation of Kv7 channels",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "positive allosteric modulation of Kv7 channels"
+      ]
+    },
+    {
+      "cluster_id": 299,
+      "canonical_name": "predictive modeling using multimodal data to forecast cognitive decline",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "predictive modeling using multimodal data to forecast cognitive decline"
+      ]
+    },
+    {
+      "cluster_id": 300,
+      "canonical_name": "prevention of blood clot formation in the left atrial appendage",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "prevention of blood clot formation in the left atrial appendage"
+      ]
+    },
+    {
+      "cluster_id": 301,
+      "canonical_name": "prevention of fungal infection development",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "prevention of fungal infection development"
+      ]
+    },
+    {
+      "cluster_id": 302,
+      "canonical_name": "prevention of gout flares during urate-lowering therapy initiation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "prevention of gout flares during urate-lowering therapy initiation"
+      ]
+    },
+    {
+      "cluster_id": 303,
+      "canonical_name": "prevents or reverses pulmonary fibrosis",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "prevents or reverses pulmonary fibrosis"
+      ]
+    },
+    {
+      "cluster_id": 304,
+      "canonical_name": "prioritizing cardiomyocyte metabolism to glucose oxidation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "prioritizing cardiomyocyte metabolism to glucose oxidation"
+      ]
+    },
+    {
+      "cluster_id": 305,
+      "canonical_name": "proactive multidisciplinary support for physical functions, employment",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "proactive multidisciplinary support for physical functions, employment"
+      ]
+    },
+    {
+      "cluster_id": 306,
+      "canonical_name": "promotes collagen synthesis and improves healing process",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "promotes collagen synthesis and improves healing process"
+      ]
+    },
+    {
+      "cluster_id": 307,
+      "canonical_name": "promotes enterocyte copper sequestration, reducing systemic copper",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "promotes enterocyte copper sequestration, reducing systemic copper"
+      ]
+    },
+    {
+      "cluster_id": 308,
+      "canonical_name": "promotes guideline-concordant care through EHR alerts",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "promotes guideline-concordant care through EHR alerts"
+      ]
+    },
+    {
+      "cluster_id": 309,
+      "canonical_name": "promotes healthy eating habits and reduces inflammatory diet components",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "promotes healthy eating habits and reduces inflammatory diet components"
+      ]
+    },
+    {
+      "cluster_id": 310,
+      "canonical_name": "promotion of balanced nutritional intake aligned with modern dietary recommendations",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "promotion of balanced nutritional intake aligned with modern dietary recommendations"
+      ]
+    },
+    {
+      "cluster_id": 311,
+      "canonical_name": "provides right ventricular support and improves hemodynamics",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "provides right ventricular support and improves hemodynamics"
+      ]
+    },
+    {
+      "cluster_id": 312,
+      "canonical_name": "providing patients with structured information to support shared decision-making",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "providing patients with structured information to support shared decision-making"
+      ]
+    },
+    {
+      "cluster_id": 313,
+      "canonical_name": "provision of a safe space for emotional expression and support",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "provision of a safe space for emotional expression and support"
+      ]
+    },
+    {
+      "cluster_id": 314,
+      "canonical_name": "provision of naloxone and education on overdose prevention",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "provision of naloxone and education on overdose prevention"
+      ]
+    },
+    {
+      "cluster_id": 315,
+      "canonical_name": "provision of tailored psychosocial support through digital communication",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "provision of tailored psychosocial support through digital communication"
+      ]
+    },
+    {
+      "cluster_id": 316,
+      "canonical_name": "provision of tools for daily management and support",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "provision of tools for daily management and support"
+      ]
+    },
+    {
+      "cluster_id": 317,
+      "canonical_name": "psychological restructuring and symptom reduction through remote therapy sessions",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "psychological restructuring and symptom reduction through remote therapy sessions"
+      ]
+    },
+    {
+      "cluster_id": 318,
+      "canonical_name": "rate control through electrical stimulation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "rate control through electrical stimulation"
+      ]
+    },
+    {
+      "cluster_id": 319,
+      "canonical_name": "real-time dose logging and differentiated response by healthcare workers",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "real-time dose logging and differentiated response by healthcare workers"
+      ]
+    },
+    {
+      "cluster_id": 320,
+      "canonical_name": "reduced AWS-related psychological stress and improved compliance",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced AWS-related psychological stress and improved compliance"
+      ]
+    },
+    {
+      "cluster_id": 321,
+      "canonical_name": "reduced HDM-induced inflammation and hypersensitivity",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced HDM-induced inflammation and hypersensitivity"
+      ]
+    },
+    {
+      "cluster_id": 322,
+      "canonical_name": "reduced TSLP signaling and inflammation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced TSLP signaling and inflammation"
+      ]
+    },
+    {
+      "cluster_id": 323,
+      "canonical_name": "reduced accumulation of SLE features defined by SLICC criteria",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced accumulation of SLE features defined by SLICC criteria"
+      ]
+    },
+    {
+      "cluster_id": 324,
+      "canonical_name": "reduced collagen-derived fragments, improved extracellular-matrix turnover",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced collagen-derived fragments, improved extracellular-matrix turnover"
+      ]
+    },
+    {
+      "cluster_id": 325,
+      "canonical_name": "reduced cyst growth and improved renal function",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced cyst growth and improved renal function"
+      ]
+    },
+    {
+      "cluster_id": 326,
+      "canonical_name": "reduced glycemic variability and improved glycemic control",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced glycemic variability and improved glycemic control"
+      ]
+    },
+    {
+      "cluster_id": 327,
+      "canonical_name": "reduced indoor air pollution and particulate matter exposure",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced indoor air pollution and particulate matter exposure"
+      ]
+    },
+    {
+      "cluster_id": 328,
+      "canonical_name": "reduced infection incidence",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced infection incidence"
+      ]
+    },
+    {
+      "cluster_id": 329,
+      "canonical_name": "reduced inflammation and cardioprotective effects",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation and cardioprotective effects"
+      ]
+    },
+    {
+      "cluster_id": 330,
+      "canonical_name": "reduced inflammation and improved bile acid metabolism",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation and improved bile acid metabolism"
+      ]
+    },
+    {
+      "cluster_id": 331,
+      "canonical_name": "reduced inflammation and improved complement levels",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation and improved complement levels"
+      ]
+    },
+    {
+      "cluster_id": 332,
+      "canonical_name": "reduced inflammation and improved disease activity indices",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation and improved disease activity indices"
+      ]
+    },
+    {
+      "cluster_id": 333,
+      "canonical_name": "reduced inflammation and improved lipid profile",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation and improved lipid profile"
+      ]
+    },
+    {
+      "cluster_id": 334,
+      "canonical_name": "reduced inflammation during CPB",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation during CPB"
+      ]
+    },
+    {
+      "cluster_id": 335,
+      "canonical_name": "reduced inflammation through AhR agonist activity",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation through AhR agonist activity"
+      ]
+    },
+    {
+      "cluster_id": 336,
+      "canonical_name": "reduced inflammation through TYK2 inhibition",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammation through TYK2 inhibition"
+      ]
+    },
+    {
+      "cluster_id": 337,
+      "canonical_name": "reduced inflammatory markers",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced inflammatory markers"
+      ]
+    },
+    {
+      "cluster_id": 338,
+      "canonical_name": "reduced intraglomerular inflammation and delayed progression to ESKD",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced intraglomerular inflammation and delayed progression to ESKD"
+      ]
+    },
+    {
+      "cluster_id": 339,
+      "canonical_name": "reduced intraoperative renal pelvic pressure and operative time, decreased complications",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced intraoperative renal pelvic pressure and operative time, decreased complications"
+      ]
+    },
+    {
+      "cluster_id": 340,
+      "canonical_name": "reduced left uncinate fasciculus microstructural integrity in high-risk ADHD youth",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced left uncinate fasciculus microstructural integrity in high-risk ADHD youth"
+      ]
+    },
+    {
+      "cluster_id": 341,
+      "canonical_name": "reduced liver enzyme levels and improved metabolic parameters",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced liver enzyme levels and improved metabolic parameters"
+      ]
+    },
+    {
+      "cluster_id": 342,
+      "canonical_name": "reduced myocardial ischemia-reperfusion injury",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced myocardial ischemia-reperfusion injury"
+      ]
+    },
+    {
+      "cluster_id": 343,
+      "canonical_name": "reduced neural sensitization and modulation of descending inhibitory pathways",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced neural sensitization and modulation of descending inhibitory pathways"
+      ]
+    },
+    {
+      "cluster_id": 344,
+      "canonical_name": "reduced operative and fluoroscopy time, lower pain scores, improved knee function metrics",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced operative and fluoroscopy time, lower pain scores, improved knee function metrics"
+      ]
+    },
+    {
+      "cluster_id": 345,
+      "canonical_name": "reduced oxidative stress and hyperglycemia",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced oxidative stress and hyperglycemia"
+      ]
+    },
+    {
+      "cluster_id": 346,
+      "canonical_name": "reduced oxidative stress and inflammation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced oxidative stress and inflammation"
+      ]
+    },
+    {
+      "cluster_id": 347,
+      "canonical_name": "reduced pain and improved functional activities through combined anti-inflammatory and neuro-modulat",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced pain and improved functional activities through combined anti-inflammatory and neuro-modulatory effects"
+      ]
+    },
+    {
+      "cluster_id": 348,
+      "canonical_name": "reduced psoriasis severity through targeted biological action",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced psoriasis severity through targeted biological action"
+      ]
+    },
+    {
+      "cluster_id": 349,
+      "canonical_name": "reduced renal hyperfiltration, improved metabolic profile, anti-inflammatory and antifibrotic effect",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced renal hyperfiltration, improved metabolic profile, anti-inflammatory and antifibrotic effects, osmotic diuresis, and restored tubulo-glomerular feedback"
+      ]
+    },
+    {
+      "cluster_id": 350,
+      "canonical_name": "reduced risk of heart failure and improved left ventricular ejection fraction",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced risk of heart failure and improved left ventricular ejection fraction"
+      ]
+    },
+    {
+      "cluster_id": 351,
+      "canonical_name": "reduced tongue coating and bacterial count",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced tongue coating and bacterial count"
+      ]
+    },
+    {
+      "cluster_id": 352,
+      "canonical_name": "reduced type 2 inflammation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduced type 2 inflammation"
+      ]
+    },
+    {
+      "cluster_id": 353,
+      "canonical_name": "reduces HPV-associated lesions and induces clearance",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces HPV-associated lesions and induces clearance"
+      ]
+    },
+    {
+      "cluster_id": 354,
+      "canonical_name": "reduces anticipated fear of judgment and discrimination",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces anticipated fear of judgment and discrimination"
+      ]
+    },
+    {
+      "cluster_id": 355,
+      "canonical_name": "reduces antinephrin antibodies and inflammation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces antinephrin antibodies and inflammation"
+      ]
+    },
+    {
+      "cluster_id": 356,
+      "canonical_name": "reduces cardiovascular risk factors and improves sleep quality",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces cardiovascular risk factors and improves sleep quality"
+      ]
+    },
+    {
+      "cluster_id": 357,
+      "canonical_name": "reduces carnitine metabolism and reshapes tumor microenvironment towards inflammation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces carnitine metabolism and reshapes tumor microenvironment towards inflammation"
+      ]
+    },
+    {
+      "cluster_id": 358,
+      "canonical_name": "reduces intraocular pressure",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces intraocular pressure"
+      ]
+    },
+    {
+      "cluster_id": 359,
+      "canonical_name": "reduces portal hypertension and fluid accumulation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces portal hypertension and fluid accumulation"
+      ]
+    },
+    {
+      "cluster_id": 360,
+      "canonical_name": "reduces postoperative edema",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces postoperative edema"
+      ]
+    },
+    {
+      "cluster_id": 361,
+      "canonical_name": "reduces psychological stress and anxiety",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces psychological stress and anxiety"
+      ]
+    },
+    {
+      "cluster_id": 362,
+      "canonical_name": "reduces right-to-left shunt and risk of recurrent stroke",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduces right-to-left shunt and risk of recurrent stroke"
+      ]
+    },
+    {
+      "cluster_id": 363,
+      "canonical_name": "reducing inflammation, increasing immune cell counts and activity, promoting telomere length and act",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reducing inflammation, increasing immune cell counts and activity, promoting telomere length and activity"
+      ]
+    },
+    {
+      "cluster_id": 364,
+      "canonical_name": "reduction of anxiety through creative expression and emotional processing",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduction of anxiety through creative expression and emotional processing"
+      ]
+    },
+    {
+      "cluster_id": 365,
+      "canonical_name": "reduction of eosinophilic inflammation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduction of eosinophilic inflammation"
+      ]
+    },
+    {
+      "cluster_id": 366,
+      "canonical_name": "reduction of fatigue symptoms and improvement of quality of life",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduction of fatigue symptoms and improvement of quality of life"
+      ]
+    },
+    {
+      "cluster_id": 367,
+      "canonical_name": "reduction of inflammatory and non-inflammatory lesions",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduction of inflammatory and non-inflammatory lesions"
+      ]
+    },
+    {
+      "cluster_id": 368,
+      "canonical_name": "reduction of neuropathic pain and improvement of quality of life",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduction of neuropathic pain and improvement of quality of life"
+      ]
+    },
+    {
+      "cluster_id": 369,
+      "canonical_name": "reduction of opioid-related risks through clinical guidelines",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduction of opioid-related risks through clinical guidelines"
+      ]
+    },
+    {
+      "cluster_id": 370,
+      "canonical_name": "reduction of oxidative stress and neuroprotection",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduction of oxidative stress and neuroprotection"
+      ]
+    },
+    {
+      "cluster_id": 371,
+      "canonical_name": "reduction of psychological distress and symptom-related disability",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduction of psychological distress and symptom-related disability"
+      ]
+    },
+    {
+      "cluster_id": 372,
+      "canonical_name": "reduction of sympathetic nervous system hyperactivation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "reduction of sympathetic nervous system hyperactivation"
+      ]
+    },
+    {
+      "cluster_id": 373,
+      "canonical_name": "regulates bone metabolism through multiple targets",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "regulates bone metabolism through multiple targets"
+      ]
+    },
+    {
+      "cluster_id": 374,
+      "canonical_name": "remote nurse-led decision making supported by a mobile application, patient monitoring of blood pres",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "remote nurse-led decision making supported by a mobile application, patient monitoring of blood pressure, home visits for data collection and medication delivery"
+      ]
+    },
+    {
+      "cluster_id": 375,
+      "canonical_name": "removal of harmful substances and replacement with fresh plasma and albumin",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "removal of harmful substances and replacement with fresh plasma and albumin"
+      ]
+    },
+    {
+      "cluster_id": 376,
+      "canonical_name": "replacement of the elbow prosthesis to stabilize the fracture",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "replacement of the elbow prosthesis to stabilize the fracture"
+      ]
+    },
+    {
+      "cluster_id": 377,
+      "canonical_name": "resilience to misinformation through pre-exposure",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "resilience to misinformation through pre-exposure"
+      ]
+    },
+    {
+      "cluster_id": 378,
+      "canonical_name": "restoration of NO signaling and improvement of hemodynamics",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "restoration of NO signaling and improvement of hemodynamics"
+      ]
+    },
+    {
+      "cluster_id": 379,
+      "canonical_name": "restoration of shoulder joint function and alignment",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "restoration of shoulder joint function and alignment"
+      ]
+    },
+    {
+      "cluster_id": 380,
+      "canonical_name": "restores ligament stability and function",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "restores ligament stability and function"
+      ]
+    },
+    {
+      "cluster_id": 381,
+      "canonical_name": "selective inhibition of cap-dependent nucleic acid endonuclease of influenza virus",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "selective inhibition of cap-dependent nucleic acid endonuclease of influenza virus"
+      ]
+    },
+    {
+      "cluster_id": 382,
+      "canonical_name": "selective treatment of artery blockages based on fractional flow reserve measurements",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "selective treatment of artery blockages based on fractional flow reserve measurements"
+      ]
+    },
+    {
+      "cluster_id": 383,
+      "canonical_name": "self-directed lifestyle modifications and symptom management",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "self-directed lifestyle modifications and symptom management"
+      ]
+    },
+    {
+      "cluster_id": 384,
+      "canonical_name": "shared perception of responsibility for smoking cessation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "shared perception of responsibility for smoking cessation"
+      ]
+    },
+    {
+      "cluster_id": 385,
+      "canonical_name": "skin cell regulation and anti-inflammatory effects",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "skin cell regulation and anti-inflammatory effects"
+      ]
+    },
+    {
+      "cluster_id": 386,
+      "canonical_name": "slowing the rate of kidney function decline",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "slowing the rate of kidney function decline"
+      ]
+    },
+    {
+      "cluster_id": 387,
+      "canonical_name": "social support and self-efficacy enhancement",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "social support and self-efficacy enhancement"
+      ]
+    },
+    {
+      "cluster_id": 388,
+      "canonical_name": "stabilization without surgical intervention",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "stabilization without surgical intervention"
+      ]
+    },
+    {
+      "cluster_id": 389,
+      "canonical_name": "standard knee alignment approach for total knee arthroplasty",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "standard knee alignment approach for total knee arthroplasty"
+      ]
+    },
+    {
+      "cluster_id": 390,
+      "canonical_name": "standard treatment regimen without additional adherence support",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "standard treatment regimen without additional adherence support"
+      ]
+    },
+    {
+      "cluster_id": 391,
+      "canonical_name": "stimulates cartilage repair and regeneration",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "stimulates cartilage repair and regeneration"
+      ]
+    },
+    {
+      "cluster_id": 392,
+      "canonical_name": "stimulation of acupoints to improve urinary continence",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "stimulation of acupoints to improve urinary continence"
+      ]
+    },
+    {
+      "cluster_id": 393,
+      "canonical_name": "stimulation of cognitive domains such as orientation and language",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "stimulation of cognitive domains such as orientation and language"
+      ]
+    },
+    {
+      "cluster_id": 394,
+      "canonical_name": "structural repair and stabilization of heart tissue",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "structural repair and stabilization of heart tissue"
+      ]
+    },
+    {
+      "cluster_id": 395,
+      "canonical_name": "structured support and review of CGM data",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "structured support and review of CGM data"
+      ]
+    },
+    {
+      "cluster_id": 396,
+      "canonical_name": "supports long-term adherence to healthy lifestyle changes",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "supports long-term adherence to healthy lifestyle changes"
+      ]
+    },
+    {
+      "cluster_id": 397,
+      "canonical_name": "suppression of inflammatory response",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "suppression of inflammatory response"
+      ]
+    },
+    {
+      "cluster_id": 398,
+      "canonical_name": "suppression of testosterone to reduce cancer cell proliferation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "suppression of testosterone to reduce cancer cell proliferation"
+      ]
+    },
+    {
+      "cluster_id": 399,
+      "canonical_name": "surgical correction of anatomical defects causing GERD",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "surgical correction of anatomical defects causing GERD"
+      ]
+    },
+    {
+      "cluster_id": 400,
+      "canonical_name": "suture material influence on healing and fibrosis",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "suture material influence on healing and fibrosis"
+      ]
+    },
+    {
+      "cluster_id": 401,
+      "canonical_name": "synergistic immune activation and antiviral effects to promote functional cure",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "synergistic immune activation and antiviral effects to promote functional cure"
+      ]
+    },
+    {
+      "cluster_id": 402,
+      "canonical_name": "targeted cytokine inhibition and reduced inflammation",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "targeted cytokine inhibition and reduced inflammation"
+      ]
+    },
+    {
+      "cluster_id": 403,
+      "canonical_name": "targeted gut inflammation reduction",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "targeted gut inflammation reduction"
+      ]
+    },
+    {
+      "cluster_id": 404,
+      "canonical_name": "targeting interleukin-31 receptor A to reduce pruritus",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "targeting interleukin-31 receptor A to reduce pruritus"
+      ]
+    },
+    {
+      "cluster_id": 405,
+      "canonical_name": "targeting type 2 inflammatory endotype",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "targeting type 2 inflammatory endotype"
+      ]
+    },
+    {
+      "cluster_id": 406,
+      "canonical_name": "therapeutic efficacy in managing stable COPD symptoms",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "therapeutic efficacy in managing stable COPD symptoms"
+      ]
+    },
+    {
+      "cluster_id": 407,
+      "canonical_name": "treatment for PCOS infertility",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "treatment for PCOS infertility"
+      ]
+    },
+    {
+      "cluster_id": 408,
+      "canonical_name": "unknown mechanism for pain relief",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "unknown mechanism for pain relief"
+      ]
+    },
+    {
+      "cluster_id": 409,
+      "canonical_name": "unknown specific mechanism provided in abstract",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "unknown specific mechanism provided in abstract"
+      ]
+    },
+    {
+      "cluster_id": 410,
+      "canonical_name": "uses light energy to improve skin condition",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "uses light energy to improve skin condition"
+      ]
+    },
+    {
+      "cluster_id": 411,
+      "canonical_name": "vasopressin type 2 receptor antagonism",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "vasopressin type 2 receptor antagonism"
+      ]
+    },
+    {
+      "cluster_id": 412,
+      "canonical_name": "vertebral height restoration and pain relief",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "vertebral height restoration and pain relief"
+      ]
+    },
+    {
+      "cluster_id": 413,
+      "canonical_name": "weight management and exercise training",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "weight management and exercise training"
+      ]
+    },
+    {
+      "cluster_id": 414,
+      "canonical_name": "working memory enhancement",
+      "member_count": 1,
+      "cluster_type": "singleton",
+      "hierarchy_level": 0,
+      "avg_silhouette": null,
+      "members": [
+        "working memory enhancement"
+      ]
+    }
+  ],
+  "associations": [],
+  "top_mechanisms": [
+    {
+      "canonical_name": "Cluster 55: direct stone removal through minimally invasive surgical access",
+      "member_count": 13,
+      "cluster_id": 55
+    },
+    {
+      "canonical_name": "Cluster 22: electrical stimulation of the vagus nerve to modulate seizure activity",
+      "member_count": 8,
+      "cluster_id": 22
+    },
+    {
+      "canonical_name": "Cluster 89: improved glucose homeostasis and insulin sensitivity",
+      "member_count": 7,
+      "cluster_id": 89
+    },
+    {
+      "canonical_name": "Cluster 111: alleviates pain perception through neural modulation",
+      "member_count": 7,
+      "cluster_id": 111
+    },
+    {
+      "canonical_name": "Cluster 40: epigenetic modification to restore normal gene expression",
+      "member_count": 5,
+      "cluster_id": 40
+    },
+    {
+      "canonical_name": "Cluster 46: assessment of cardiac response during physical exertion",
+      "member_count": 5,
+      "cluster_id": 46
+    },
+    {
+      "canonical_name": "Cluster 50: replaces aortic valve through open-heart surgery",
+      "member_count": 5,
+      "cluster_id": 50
+    },
+    {
+      "canonical_name": "Cluster 74: reduced blood coagulation and improved venous flow",
+      "member_count": 5,
+      "cluster_id": 74
+    },
+    {
+      "canonical_name": "Cluster 91: cognitive stimulation and improved cognitive performance",
+      "member_count": 5,
+      "cluster_id": 91
+    },
+    {
+      "canonical_name": "Cluster 108: enhanced psychological adaptation and improved functional recovery",
+      "member_count": 5,
+      "cluster_id": 108
+    }
+  ]
+}

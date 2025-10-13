@@ -253,29 +253,153 @@ def export_interventions_data() -> Dict[str, Any]:
 
     return data
 
+def export_mechanism_clusters_data() -> Dict[str, Any]:
+    """
+    Export mechanism cluster data for frontend display.
+
+    Returns:
+        Dictionary with mechanism clusters, membership, and analytics
+    """
+    db_path = get_database_path()
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
+    # Get all mechanism clusters with their members
+    query = """
+    SELECT
+        mc.cluster_id,
+        mc.canonical_name,
+        mc.member_count,
+        mc.hierarchy_level,
+        mc.avg_silhouette,
+        GROUP_CONCAT(mcm.mechanism_text, '|||') as member_mechanisms
+    FROM mechanism_clusters mc
+    LEFT JOIN mechanism_cluster_membership mcm ON mc.cluster_id = mcm.cluster_id
+    GROUP BY mc.cluster_id
+    ORDER BY mc.member_count DESC, mc.canonical_name
+    """
+
+    cursor.execute(query)
+    cluster_rows = cursor.fetchall()
+
+    clusters = []
+    for row in cluster_rows:
+        cluster = {
+            'cluster_id': row['cluster_id'],
+            'canonical_name': row['canonical_name'],
+            'member_count': row['member_count'],
+            'cluster_type': 'singleton' if row['member_count'] == 1 else 'hdbscan',
+            'hierarchy_level': row['hierarchy_level'],
+            'avg_silhouette': row['avg_silhouette'],
+            'members': row['member_mechanisms'].split('|||') if row['member_mechanisms'] else []
+        }
+        clusters.append(cluster)
+
+    # Get mechanism-condition associations (if table exists)
+    try:
+        cursor.execute("""
+            SELECT
+                cluster_id,
+                condition_name,
+                intervention_count,
+                avg_correlation_strength
+            FROM mechanism_condition_associations
+            ORDER BY cluster_id, intervention_count DESC
+        """)
+        associations = [dict(row) for row in cursor.fetchall()]
+    except sqlite3.OperationalError:
+        # Table doesn't exist yet - expected if associations not built
+        associations = []
+
+    # Get summary statistics
+    cursor.execute("SELECT COUNT(*) FROM mechanism_clusters")
+    total_clusters = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM mechanism_cluster_membership")
+    total_mechanisms = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM mechanism_clusters WHERE member_count > 1")
+    natural_clusters = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM mechanism_clusters WHERE member_count = 1")
+    singleton_clusters = cursor.fetchone()[0]
+
+    cursor.execute("SELECT AVG(member_count) FROM mechanism_clusters")
+    avg_cluster_size = cursor.fetchone()[0] or 0.0
+
+    # Get top mechanisms by member count (since intervention_mechanisms might not exist yet)
+    cursor.execute("""
+        SELECT
+            canonical_name,
+            member_count,
+            cluster_id
+        FROM mechanism_clusters
+        ORDER BY member_count DESC
+        LIMIT 10
+    """)
+    top_mechanisms = [dict(row) for row in cursor.fetchall()]
+
+    conn.close()
+
+    return {
+        'metadata': {
+            'total_clusters': total_clusters,
+            'total_mechanisms': total_mechanisms,
+            'natural_clusters': natural_clusters,
+            'singleton_clusters': singleton_clusters,
+            'avg_cluster_size': round(avg_cluster_size, 2),
+            'assignment_rate': 1.0  # 100% by design
+        },
+        'clusters': clusters,
+        'associations': associations,
+        'top_mechanisms': top_mechanisms
+    }
+
 def main():
     """Export data to JSON file for frontend."""
     print("Exporting intervention research data to JSON...")
 
-    # Get data
+    # Get interventions data
     data = export_interventions_data()
 
     # Ensure frontend data directory exists
     frontend_data_path = get_frontend_data_path()
     frontend_data_path.mkdir(parents=True, exist_ok=True)
 
-    # Write to JSON file
+    # Write interventions to JSON file
     output_file = frontend_data_path / "interventions.json"
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-    print(f"Data exported successfully to {output_file}")
+    print(f"Interventions data exported successfully to {output_file}")
     print(f"Total interventions: {data['metadata']['total_interventions']}")
     print(f"Unique interventions: {data['metadata']['unique_interventions']}")
     print(f"Unique conditions: {data['metadata']['unique_conditions']}")
     print(f"Papers referenced: {data['metadata']['unique_papers']}")
     print(f"Canonical groups: {data['metadata']['canonical_groups']}")
     print(f"Semantic relationships: {data['metadata']['total_relationships']}")
+
+    # Export mechanism clusters data (Phase 3.6)
+    print("\nExporting mechanism clusters data...")
+    try:
+        mechanism_data = export_mechanism_clusters_data()
+
+        # Write mechanisms to separate JSON file
+        mechanism_output_file = frontend_data_path / "mechanism_clusters.json"
+        with open(mechanism_output_file, 'w', encoding='utf-8') as f:
+            json.dump(mechanism_data, f, indent=2, ensure_ascii=False)
+
+        print(f"Mechanism clusters data exported successfully to {mechanism_output_file}")
+        print(f"Total mechanism clusters: {mechanism_data['metadata']['total_clusters']}")
+        print(f"  - Natural clusters: {mechanism_data['metadata']['natural_clusters']}")
+        print(f"  - Singleton clusters: {mechanism_data['metadata']['singleton_clusters']}")
+        print(f"Total mechanisms: {mechanism_data['metadata']['total_mechanisms']}")
+        print(f"Average cluster size: {mechanism_data['metadata']['avg_cluster_size']}")
+        print(f"Assignment rate: {mechanism_data['metadata']['assignment_rate']:.1%}")
+    except Exception as e:
+        print(f"Warning: Failed to export mechanism clusters data: {e}")
+        print("This is expected if Phase 3.6 hasn't been run yet.")
 
 if __name__ == "__main__":
     main()

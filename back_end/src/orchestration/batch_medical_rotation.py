@@ -88,6 +88,7 @@ try:
     from .rotation_llm_processor import RotationLLMProcessor
     from .rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
     from .rotation_group_categorization import RotationGroupCategorizer
+    from .rotation_mechanism_clustering import RotationMechanismClusterer
 except ImportError:
     # Fallback for standalone execution
     import sys
@@ -98,6 +99,7 @@ except ImportError:
     from back_end.src.orchestration.rotation_llm_processor import RotationLLMProcessor
     from back_end.src.orchestration.rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
     from back_end.src.orchestration.rotation_group_categorization import RotationGroupCategorizer
+    from back_end.src.orchestration.rotation_mechanism_clustering import RotationMechanismClusterer
 
 logger = setup_logging(__name__, 'batch_medical_rotation.log')
 
@@ -108,6 +110,7 @@ class BatchPhase(Enum):
     PROCESSING = "processing"
     SEMANTIC_NORMALIZATION = "semantic_normalization"  # Phase 3 (formerly CANONICAL_GROUPING)
     GROUP_CATEGORIZATION = "group_categorization"      # Phase 3.5 (NEW - formerly CATEGORIZATION)
+    MECHANISM_CLUSTERING = "mechanism_clustering"      # Phase 3.6 (NEW)
     COMPLETED = "completed"
 
 
@@ -125,6 +128,7 @@ class BatchSession:
     processing_completed: bool = False
     semantic_normalization_completed: bool = False  # Phase 3 (formerly canonical_grouping_completed)
     group_categorization_completed: bool = False     # Phase 3.5 (NEW - formerly categorization_completed)
+    mechanism_clustering_completed: bool = False     # Phase 3.6 (NEW)
 
     # Statistics (current iteration)
     total_papers_collected: int = 0
@@ -134,6 +138,8 @@ class BatchSession:
     total_groups_categorized: int = 0               # Phase 3.5
     total_interventions_categorized: int = 0        # Phase 3.5 (via propagation)
     total_orphans_categorized: int = 0              # Phase 3.5 (fallback)
+    total_mechanisms_processed: int = 0             # Phase 3.6 (NEW)
+    total_mechanism_clusters: int = 0               # Phase 3.6 (NEW)
 
     # Continuous mode settings
     continuous_mode: bool = False
@@ -148,6 +154,7 @@ class BatchSession:
     processing_result: Optional[Dict[str, Any]] = None
     semantic_normalization_result: Optional[Dict[str, Any]] = None  # Phase 3
     group_categorization_result: Optional[Dict[str, Any]] = None     # Phase 3.5
+    mechanism_clustering_result: Optional[Dict[str, Any]] = None     # Phase 3.6 (NEW)
 
     def is_completed(self) -> bool:
         """Check if entire pipeline is completed."""
@@ -167,6 +174,7 @@ class BatchMedicalRotationPipeline:
         self.llm_processor = RotationLLMProcessor()
         self.dedup_integrator = RotationSemanticGroupingIntegrator()
         self.group_categorizer = None  # Lazy loaded (Phase 3.5)
+        self.mechanism_clusterer = None  # Lazy loaded (Phase 3.6)
 
         # Control flags
         self.shutdown_requested = False
@@ -229,22 +237,27 @@ class BatchMedicalRotationPipeline:
                 start_time=data['start_time'],
                 collection_completed=data.get('collection_completed', False),
                 processing_completed=data.get('processing_completed', False),
-                categorization_completed=data.get('categorization_completed', False),
-                canonical_grouping_completed=data.get('canonical_grouping_completed', False),
+                semantic_normalization_completed=data.get('semantic_normalization_completed', False),
+                group_categorization_completed=data.get('group_categorization_completed', False),
+                mechanism_clustering_completed=data.get('mechanism_clustering_completed', False),
                 total_papers_collected=data.get('total_papers_collected', 0),
                 total_papers_processed=data.get('total_papers_processed', 0),
                 total_interventions_extracted=data.get('total_interventions_extracted', 0),
+                total_canonical_groups_created=data.get('total_canonical_groups_created', 0),
+                total_groups_categorized=data.get('total_groups_categorized', 0),
                 total_interventions_categorized=data.get('total_interventions_categorized', 0),
-                total_conditions_categorized=data.get('total_conditions_categorized', 0),
-                total_canonical_entities_created=data.get('total_canonical_entities_created', 0),
+                total_orphans_categorized=data.get('total_orphans_categorized', 0),
+                total_mechanisms_processed=data.get('total_mechanisms_processed', 0),
+                total_mechanism_clusters=data.get('total_mechanism_clusters', 0),
                 continuous_mode=data.get('continuous_mode', False),
                 max_iterations=data.get('max_iterations'),
                 iteration_delay_seconds=data.get('iteration_delay_seconds', 60.0),
                 iteration_history=data.get('iteration_history', []),
                 collection_result=data.get('collection_result'),
                 processing_result=data.get('processing_result'),
-                categorization_result=data.get('categorization_result'),
-                canonical_grouping_result=data.get('canonical_grouping_result')
+                semantic_normalization_result=data.get('semantic_normalization_result'),
+                group_categorization_result=data.get('group_categorization_result'),
+                mechanism_clustering_result=data.get('mechanism_clustering_result')
             )
 
             self.current_session = session
@@ -278,22 +291,27 @@ class BatchMedicalRotationPipeline:
                 'start_time': self.current_session.start_time,
                 'collection_completed': self.current_session.collection_completed,
                 'processing_completed': self.current_session.processing_completed,
-                'categorization_completed': self.current_session.categorization_completed,
-                'canonical_grouping_completed': self.current_session.canonical_grouping_completed,
+                'semantic_normalization_completed': self.current_session.semantic_normalization_completed,
+                'group_categorization_completed': self.current_session.group_categorization_completed,
+                'mechanism_clustering_completed': self.current_session.mechanism_clustering_completed,
                 'total_papers_collected': self.current_session.total_papers_collected,
                 'total_papers_processed': self.current_session.total_papers_processed,
                 'total_interventions_extracted': self.current_session.total_interventions_extracted,
+                'total_canonical_groups_created': self.current_session.total_canonical_groups_created,
+                'total_groups_categorized': self.current_session.total_groups_categorized,
                 'total_interventions_categorized': self.current_session.total_interventions_categorized,
-                'total_conditions_categorized': self.current_session.total_conditions_categorized,
-                'total_canonical_entities_created': self.current_session.total_canonical_entities_created,
+                'total_orphans_categorized': self.current_session.total_orphans_categorized,
+                'total_mechanisms_processed': self.current_session.total_mechanisms_processed,
+                'total_mechanism_clusters': self.current_session.total_mechanism_clusters,
                 'continuous_mode': self.current_session.continuous_mode,
                 'max_iterations': self.current_session.max_iterations,
                 'iteration_delay_seconds': self.current_session.iteration_delay_seconds,
                 'iteration_history': self.current_session.iteration_history,
                 'collection_result': self.current_session.collection_result,
                 'processing_result': self.current_session.processing_result,
-                'categorization_result': self.current_session.categorization_result,
-                'canonical_grouping_result': self.current_session.canonical_grouping_result
+                'semantic_normalization_result': self.current_session.semantic_normalization_result,
+                'group_categorization_result': self.current_session.group_categorization_result,
+                'mechanism_clustering_result': self.current_session.mechanism_clustering_result
             }
 
             # Write with platform-specific file locking
@@ -466,6 +484,20 @@ class BatchMedicalRotationPipeline:
                         return group_categorization_result
 
                     session.group_categorization_completed = True
+                    session.current_phase = BatchPhase.MECHANISM_CLUSTERING
+                    self._save_session()
+
+                # Phase 3.6: Mechanism Clustering (NEW)
+                if session.current_phase == BatchPhase.MECHANISM_CLUSTERING and not session.mechanism_clustering_completed:
+                    logger.info("\n" + "="*40)
+                    logger.info("PHASE 3.6: MECHANISM CLUSTERING")
+                    logger.info("="*40)
+
+                    mechanism_clustering_result = self._run_mechanism_clustering_phase(session)
+                    if not mechanism_clustering_result['success']:
+                        return mechanism_clustering_result
+
+                    session.mechanism_clustering_completed = True
                     session.current_phase = BatchPhase.COMPLETED
                     self._save_session()
 
@@ -483,6 +515,8 @@ class BatchMedicalRotationPipeline:
                 logger.info(f"Groups categorized: {session.total_groups_categorized}")
                 logger.info(f"Interventions categorized: {session.total_interventions_categorized}")
                 logger.info(f"Orphans categorized: {session.total_orphans_categorized}")
+                logger.info(f"Mechanisms processed: {session.total_mechanisms_processed}")
+                logger.info(f"Mechanism clusters created: {session.total_mechanism_clusters}")
 
                 # Save iteration history
                 iteration_summary = {
@@ -495,7 +529,9 @@ class BatchMedicalRotationPipeline:
                     'canonical_groups_created': session.total_canonical_groups_created,
                     'groups_categorized': session.total_groups_categorized,
                     'interventions_categorized': session.total_interventions_categorized,
-                    'orphans_categorized': session.total_orphans_categorized
+                    'orphans_categorized': session.total_orphans_categorized,
+                    'mechanisms_processed': session.total_mechanisms_processed,
+                    'mechanism_clusters_created': session.total_mechanism_clusters
                 }
                 session.iteration_history.append(iteration_summary)
 
@@ -517,7 +553,9 @@ class BatchMedicalRotationPipeline:
                             'canonical_groups_created': session.total_canonical_groups_created,
                             'groups_categorized': session.total_groups_categorized,
                             'interventions_categorized': session.total_interventions_categorized,
-                            'orphans_categorized': session.total_orphans_categorized
+                            'orphans_categorized': session.total_orphans_categorized,
+                            'mechanisms_processed': session.total_mechanisms_processed,
+                            'mechanism_clusters_created': session.total_mechanism_clusters
                         }
                     }
 
@@ -531,6 +569,7 @@ class BatchMedicalRotationPipeline:
                 session.processing_completed = False
                 session.semantic_normalization_completed = False
                 session.group_categorization_completed = False
+                session.mechanism_clustering_completed = False
 
                 # Reset iteration statistics (cumulative tracking happens in iteration_history)
                 session.total_papers_collected = 0
@@ -540,6 +579,8 @@ class BatchMedicalRotationPipeline:
                 session.total_groups_categorized = 0
                 session.total_interventions_categorized = 0
                 session.total_orphans_categorized = 0
+                session.total_mechanisms_processed = 0
+                session.total_mechanism_clusters = 0
 
                 self._save_session()
 
@@ -810,6 +851,68 @@ class BatchMedicalRotationPipeline:
             logger.error(traceback.format_exc())
             return {'success': False, 'error': str(e), 'phase': 'group_categorization'}
 
+    def _run_mechanism_clustering_phase(self, session: BatchSession) -> Dict[str, Any]:
+        """
+        Run Phase 3.6: Mechanism clustering (NEW).
+
+        Clusters intervention mechanisms using HDBSCAN + semantic embeddings.
+        Ensures 100% assignment - no mechanism left uncategorized.
+        """
+        logger.info("Running Phase 3.6: Mechanism clustering...")
+
+        try:
+            if self.shutdown_requested:
+                return {'success': False, 'error': 'Shutdown requested during mechanism clustering'}
+
+            # Lazy load mechanism clusterer
+            if not self.mechanism_clusterer:
+                self.mechanism_clusterer = RotationMechanismClusterer(
+                    db_path=str(config.db_path),
+                    cache_dir=str(config.data_root / "semantic_normalization_cache")
+                )
+
+            # Run mechanism clustering (100% assignment guaranteed)
+            clustering_result = self.mechanism_clusterer.run(force=False)
+
+            # Update session with results
+            session.mechanism_clustering_result = {
+                'mechanisms_processed': clustering_result['mechanisms_processed'],
+                'clusters_created': clustering_result['clusters_created'],
+                'natural_clusters': clustering_result.get('natural_clusters', 0),
+                'singleton_clusters': clustering_result.get('singleton_clusters', 0),
+                'assignment_rate': clustering_result['assignment_rate'],
+                'avg_cluster_size': clustering_result.get('avg_cluster_size', 0.0),
+                'silhouette_score': clustering_result.get('silhouette_score', 0.0),
+                'elapsed_time_seconds': clustering_result['elapsed_time_seconds']
+            }
+
+            session.total_mechanisms_processed = clustering_result['mechanisms_processed']
+            session.total_mechanism_clusters = clustering_result['clusters_created']
+
+            if not clustering_result['success']:
+                logger.error(f"Mechanism clustering failed: {clustering_result.get('error', 'Unknown error')}")
+                return {
+                    'success': False,
+                    'error': f"Mechanism clustering failed: {clustering_result.get('error', 'Unknown error')}",
+                    'phase': 'mechanism_clustering'
+                }
+
+            logger.info("[SUCCESS] Mechanism clustering completed successfully")
+            logger.info(f"  Mechanisms processed: {session.total_mechanisms_processed}")
+            logger.info(f"  Total clusters created: {session.total_mechanism_clusters}")
+            logger.info(f"  Natural clusters: {clustering_result.get('natural_clusters', 0)}")
+            logger.info(f"  Singleton clusters: {clustering_result.get('singleton_clusters', 0)}")
+            logger.info(f"  Assignment rate: {clustering_result['assignment_rate']:.1%}")
+            logger.info(f"  Average cluster size: {clustering_result.get('avg_cluster_size', 0.0):.2f}")
+
+            return {'success': True, 'result': session.mechanism_clustering_result}
+
+        except Exception as e:
+            logger.error(f"Mechanism clustering failed: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            return {'success': False, 'error': str(e), 'phase': 'mechanism_clustering'}
+
     def get_status(self) -> Dict[str, Any]:
         """Get current pipeline status."""
         session = self.load_existing_session()
@@ -837,6 +940,7 @@ class BatchMedicalRotationPipeline:
                 'processing_completed': session.processing_completed,
                 'semantic_normalization_completed': session.semantic_normalization_completed,
                 'group_categorization_completed': session.group_categorization_completed,
+                'mechanism_clustering_completed': session.mechanism_clustering_completed,
                 'pipeline_completed': session.is_completed()
             },
             'statistics': {
@@ -846,14 +950,17 @@ class BatchMedicalRotationPipeline:
                 'canonical_groups_created': session.total_canonical_groups_created,
                 'groups_categorized': session.total_groups_categorized,
                 'interventions_categorized': session.total_interventions_categorized,
-                'orphans_categorized': session.total_orphans_categorized
+                'orphans_categorized': session.total_orphans_categorized,
+                'mechanisms_processed': session.total_mechanisms_processed,
+                'mechanism_clusters_created': session.total_mechanism_clusters
             },
             'iteration_history': session.iteration_history,
             'phase_results': {
                 'collection': session.collection_result,
                 'processing': session.processing_result,
                 'semantic_normalization': session.semantic_normalization_result,
-                'group_categorization': session.group_categorization_result
+                'group_categorization': session.group_categorization_result,
+                'mechanism_clustering': session.mechanism_clustering_result
             }
         }
 
