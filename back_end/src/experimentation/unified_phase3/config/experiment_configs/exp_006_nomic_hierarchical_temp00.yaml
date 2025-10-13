@@ -1,0 +1,38 @@
+# Experiment 006: Hierarchical clustering instead of HDBSCAN
+# ============================================================
+
+_base: "../base_config.yaml"
+
+experiment:
+  name: "exp_006_hierarchical"
+  description: "nomic-embed-text + Hierarchical(ward linkage) + temperature=0.0"
+  tags:
+    - hierarchical
+    - ward
+    - temperature_0.0
+
+clustering:
+  interventions:
+    algorithm: "hierarchical"
+    linkage: "ward"
+    distance_threshold: 0.5
+    n_clusters: null
+    metric: "euclidean"
+
+  conditions:
+    algorithm: "hierarchical"
+    linkage: "ward"
+    distance_threshold: 0.5
+    n_clusters: null
+    metric: "euclidean"
+
+  mechanisms:
+    algorithm: "hierarchical"
+    linkage: "ward"
+    distance_threshold: 0.5
+    n_clusters: null
+    metric: "euclidean"
+
+naming:
+  llm:
+    temperature: 0.0

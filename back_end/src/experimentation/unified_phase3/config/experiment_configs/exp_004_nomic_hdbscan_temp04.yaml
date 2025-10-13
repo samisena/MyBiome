@@ -1,0 +1,16 @@
+# Experiment 004: Temperature 0.4 - more diverse
+# ================================================
+
+_base: "../base_config.yaml"
+
+experiment:
+  name: "exp_004_temp04"
+  description: "nomic-embed-text + HDBSCAN(min_size=2) + temperature=0.4 (more diverse, potentially unstable)"
+  tags:
+    - temperature_0.4
+    - nomic
+    - hdbscan
+
+naming:
+  llm:
+    temperature: 0.4

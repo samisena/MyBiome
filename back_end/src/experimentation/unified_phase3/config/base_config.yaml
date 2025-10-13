@@ -1,0 +1,145 @@
+# Base Configuration for Unified Phase 3 Pipeline
+# =================================================
+
+# Database paths
+database:
+  db_path: "c:/Users/samis/Desktop/MyBiome/back_end/data/processed/intervention_research.db"
+  experiment_db_path: "c:/Users/samis/Desktop/MyBiome/back_end/src/experimentation/unified_phase3/experiment_results.db"
+
+# Cache directories
+cache:
+  base_dir: "c:/Users/samis/Desktop/MyBiome/back_end/data/semantic_normalization_cache"
+  embeddings_dir: "embeddings"
+  clusters_dir: "clusters"
+  naming_dir: "naming"
+
+# Phase 3a: Semantic Embedding
+embedding:
+  # Intervention embeddings
+  interventions:
+    model: "nomic-embed-text"
+    dimension: 768
+    batch_size: 32
+    include_context: false  # Include dosage/duration context
+    normalization: "l2"     # l2 or unit_sphere
+
+  # Condition embeddings
+  conditions:
+    model: "nomic-embed-text"
+    dimension: 768
+    batch_size: 32
+    include_context: false  # Include symptom context
+    normalization: "l2"
+
+  # Mechanism embeddings
+  mechanisms:
+    model: "nomic-embed-text"  # or "mxbai-embed-large"
+    dimension: 768             # 1024 for mxbai
+    batch_size: 10             # Smaller for longer texts
+    include_context: false     # Include intervention/condition context
+    normalization: "l2"
+
+# Phase 3b: Clustering
+clustering:
+  # Intervention clustering
+  interventions:
+    algorithm: "hdbscan"      # hdbscan or hierarchical
+    min_cluster_size: 2
+    min_samples: 1
+    cluster_selection_epsilon: 0.0
+    metric: "euclidean"
+    # Hierarchical-specific (if algorithm=hierarchical)
+    linkage: "ward"
+    distance_threshold: null
+    n_clusters: null
+
+  # Condition clustering
+  conditions:
+    algorithm: "hdbscan"
+    min_cluster_size: 2
+    min_samples: 1
+    cluster_selection_epsilon: 0.0
+    metric: "euclidean"
+
+  # Mechanism clustering
+  mechanisms:
+    algorithm: "hdbscan"
+    min_cluster_size: 2
+    min_samples: 1
+    cluster_selection_epsilon: 0.0
+    metric: "euclidean"
+
+# Phase 3c: LLM Naming
+naming:
+  llm:
+    model: "qwen3:14b"
+    base_url: "http://localhost:11434"
+    temperature: 0.0          # Experiment with: 0.0, 0.2, 0.3, 0.4
+    max_tokens: 2000
+    timeout: null             # No timeout - let LLM take as long as needed
+    max_retries: 3
+    strip_think_tags: true
+
+  # Prompt configuration
+  prompts:
+    max_members_shown: 10     # Top N members to show in prompt
+    include_frequency: true   # Show paper frequency
+    batch_size: 20            # Clusters per LLM call
+
+  # Output validation
+  validation:
+    min_name_length: 3
+    max_name_length: 100
+    allowed_categories:
+      intervention:
+        - exercise
+        - diet
+        - supplement
+        - medication
+        - therapy
+        - lifestyle
+        - surgery
+        - test
+        - device
+        - procedure
+        - biologics
+        - gene_therapy
+        - emerging
+      condition:
+        - cardiac
+        - neurological
+        - digestive
+        - pulmonary
+        - endocrine
+        - renal
+        - oncological
+        - rheumatological
+        - psychiatric
+        - musculoskeletal
+        - dermatological
+        - infectious
+        - immunological
+        - hematological
+        - nutritional
+        - toxicological
+        - parasitic
+        - other
+
+# Experiment tracking
+experiment:
+  name: "baseline"
+  description: "Baseline configuration with temperature=0.0"
+  save_results: true
+  save_provenance: true
+
+# Performance settings
+performance:
+  parallel_embedding: false   # Use multiprocessing for embedding
+  parallel_clustering: false  # Run entity types in parallel
+  cache_aggressive: true      # Cache everything possible
+
+# Logging
+logging:
+  level: "INFO"               # DEBUG, INFO, WARNING, ERROR
+  file: "unified_phase3.log"
+  console: true

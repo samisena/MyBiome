@@ -1,0 +1,132 @@
+{
+  "84992f595ee4d91a2ea6a4e210a7b7939ba1c1a664e069b6ec743a331453a529": {
+    "cluster_id": 9,
+    "canonical_name": "colloidal oatmeal",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b8d903f6db11cd55a28726a35708f1423340bab7b16c9a513af7b369e6eb96f8": {
+    "cluster_id": 8,
+    "canonical_name": "salicylic acid",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "66813f43f3ecd34276bb603e0ed296f84f55d262948510eed699cb710acb5d80": {
+    "cluster_id": 7,
+    "canonical_name": "AKI care bundle",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c87bfce1a0bd51fda26574740c856e0a67765ec05eaefa7e1d910d05207ed013": {
+    "cluster_id": 4,
+    "canonical_name": "Acetyl-L-Carnitine",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "57f2297f81fbb776c5d1a6df990c4698e872168128426880d2ec552cc9f02068": {
+    "cluster_id": 6,
+    "canonical_name": "Acupuncture and Clomiphene",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3961a19a80966c9c432da944588a1365f4e29474741d01cdfc4b5de7bae344d3": {
+    "cluster_id": 3,
+    "canonical_name": "Antiviral agents",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1e781257649f967236fa960a8212433f98e586019f5aed45a1823b728e5f2a1c": {
+    "cluster_id": 5,
+    "canonical_name": "Apixaban",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d15969b9e7c0ef69b2e2dea0296d6cc634bae030f64641a960a9ac6376950e68": {
+    "cluster_id": 2,
+    "canonical_name": "Asvard capsule",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f12889f7ffe3626b5f60bf39b8100f8d883124a38d48ce7204467c9e588ee865": {
+    "cluster_id": 1,
+    "canonical_name": "BI 1595043",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "dfbcccdc80f3bbb867afe595943bbf575d88509a7a35d6337c4e9812d33ce0ad": {
+    "cluster_id": 0,
+    "canonical_name": "Baduanjin exercise",
+    "category": "exercise",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  }
+}

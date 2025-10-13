@@ -1,0 +1,16 @@
+# Experiment 003: Temperature 0.3 - balanced creativity
+# =======================================================
+
+_base: "../base_config.yaml"
+
+experiment:
+  name: "exp_003_temp03"
+  description: "nomic-embed-text + HDBSCAN(min_size=2) + temperature=0.3 (balanced creativity)"
+  tags:
+    - temperature_0.3
+    - nomic
+    - hdbscan
+
+naming:
+  llm:
+    temperature: 0.3

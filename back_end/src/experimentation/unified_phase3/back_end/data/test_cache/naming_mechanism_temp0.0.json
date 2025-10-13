@@ -1,0 +1,145 @@
+{
+  "6ba8a373972c05efc8e9a213303467a36fd72c78c17468257001cadfa76e9813": {
+    "cluster_id": 2,
+    "canonical_name": "Anti-inflammatory pathway inhibition",
+    "category": "anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "2c7c73d5b38c615d50f2bde1dcb9c3ba2789bec8ef8686ec73e09b0e11756e24": {
+    "cluster_id": 1,
+    "canonical_name": "Factor Xa inhibition",
+    "category": "coagulation regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "ce1211114cf41331da59bdb77b93d213c42fb09dbcd0da01365c49fb1b6da924": {
+    "cluster_id": 5,
+    "canonical_name": "Clinical management optimization",
+    "category": "clinical management",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "95a8f11c73a1f51fb1369e8238fb67cbdd637f952fc44921366c7c12e0b72202": {
+    "cluster_id": 3,
+    "canonical_name": "Metabolic and hormonal regulation",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "7428baae0d1cafce680ac88ce1ade8550c1e6d8af36af445471084652fd49c4a": {
+    "cluster_id": 8,
+    "canonical_name": "Skin barrier repair and anti-inflammatory effects",
+    "category": "skin health",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c8636c670b187934e5f529e0f611e687773fbe32563f3dd6d013ab3930ef109d": {
+    "cluster_id": 4,
+    "canonical_name": "Shoulder function and mobility enhancement",
+    "category": "musculoskeletal function",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f4ee9a26877acaf473d9ab76fec46b14a4d1d3f7cafd059119295b92692087b1": {
+    "cluster_id": 7,
+    "canonical_name": "Vanin-1 and -2 enzyme inhibition",
+    "category": "enzyme inhibition",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "38646e8c15fcf9b1386b12461571002a877949ce2490bb24723102edab2515ad": {
+    "cluster_id": 6,
+    "canonical_name": "Viral replication inhibition via molecular targeting",
+    "category": "antiviral",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "60c13294168dbcae6ebb910ea8597569923e5aa1823ae2ea7b10dcc578bc139c": {
+    "cluster_id": 10,
+    "canonical_name": "Physical-cognitive engagement integration",
+    "category": "neurocognitive integration",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a6c9e6596160874a2ca741e05274e7a87a62da4e32aba6da3eb20e9ac376b3da": {
+    "cluster_id": 9,
+    "canonical_name": "Inflammation reduction and symptom relief",
+    "category": "anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "29a2f85114344c451159db190096fb41ba4bf23d5860530c02882ecddda2dbed": {
+    "cluster_id": 0,
+    "canonical_name": "insulin sensitivity enhancement",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  }
+}

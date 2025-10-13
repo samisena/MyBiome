@@ -35,7 +35,8 @@
       "Bash(powershell:*)",
       "Bash(ls:*)",
       "Bash(git restore:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(del nul)"
     ],
     "deny": [],
     "ask": []
