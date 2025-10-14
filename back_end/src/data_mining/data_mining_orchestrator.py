@@ -58,7 +58,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 try:
     from back_end.src.data.config import config, setup_logging
     from back_end.src.data.repositories import repository_manager
-    from back_end.src.data_collection.database_manager import database_manager
+    from back_end.src.phase_1_data_collection.database_manager import database_manager
 
     # Data mining modules
     from back_end.src.data_mining.bayesian_scorer import BayesianEvidenceScorer

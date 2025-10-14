@@ -1,0 +1,40 @@
+# Experiment 010: Distance Threshold 0.4 - Interventions
+# ========================================================
+
+_base: "../base_config.yaml"
+
+experiment:
+  name: "threshold_0.4_interventions"
+  description: "Test distance_threshold=0.4 for intervention clustering (stricter grouping)"
+  tags:
+    - threshold_experiment
+    - hierarchical
+    - interventions
+    - threshold_0.4
+
+clustering:
+  interventions:
+    algorithm: "hierarchical"
+    linkage: "ward"
+    distance_threshold: 0.4
+    n_clusters: null
+    metric: "euclidean"
+
+  # Keep other entity types as HDBSCAN (not testing yet)
+  conditions:
+    algorithm: "hdbscan"
+    min_cluster_size: 2
+    min_samples: 1
+    cluster_selection_epsilon: 0.0
+    metric: "euclidean"
+
+  mechanisms:
+    algorithm: "hdbscan"
+    min_cluster_size: 2
+    min_samples: 1
+    cluster_selection_epsilon: 0.0
+    metric: "euclidean"
+
+naming:
+  llm:
+    temperature: 0.0

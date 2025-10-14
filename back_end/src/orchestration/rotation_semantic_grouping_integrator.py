@@ -23,16 +23,16 @@ from typing import Dict, List, Optional, Any, Tuple
 
 try:
     from ..data.config import config, setup_logging
-    from ..llm_processing.batch_entity_processor import create_batch_processor
-    from ..data_collection.database_manager import database_manager
+    from ..phase_2_llm_processing.batch_entity_processor import create_batch_processor
+    from ..phase_1_data_collection.database_manager import database_manager
 except ImportError:
     # Fallback for standalone execution
     import sys
     from pathlib import Path
     sys.path.append(str(Path(__file__).parent.parent.parent))
     from back_end.src.data.config import config, setup_logging
-    from back_end.src.llm_processing.batch_entity_processor import create_batch_processor
-    from back_end.src.data_collection.database_manager import database_manager
+    from back_end.src.phase_2_llm_processing.phase_2_batch_entity_processor import create_batch_processor
+    from back_end.src.phase_1_data_collection.database_manager import database_manager
 
 logger = setup_logging(__name__, 'rotation_semantic_grouping_integrator.log')
 

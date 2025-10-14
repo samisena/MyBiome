@@ -5,7 +5,7 @@ Reference methods from this file when needing to interact whith the database."""
 from typing import Dict, List, Optional, Any
 from abc import ABC, abstractmethod
 from back_end.src.data.config import setup_logging
-from back_end.src.data_collection.database_manager import database_manager
+from back_end.src.phase_1_data_collection.database_manager import database_manager
 
 logger = setup_logging(__name__, 'repositories.log')
 
@@ -100,7 +100,7 @@ class InterventionRepository(BaseRepository):
     def insert_intervention_normalized(self, intervention: Dict) -> bool:
         """Insert intervention with automatic entity normalization."""
         # Import here to avoid circular imports
-        from back_end.src.llm_processing.enhanced_database_manager import NormalizedDatabaseManager
+        from back_end.src.phase_2_llm_processing.enhanced_database_manager import NormalizedDatabaseManager
 
         # Create normalized database manager if not exists
         if not hasattr(self, '_normalized_db_manager'):

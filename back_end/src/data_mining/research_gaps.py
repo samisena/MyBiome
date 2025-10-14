@@ -24,7 +24,7 @@ from .similarity_utils import SimilarityCalculator, ConditionSimilarityMetrics
 from .scoring_utils import EffectivenessScorer, ConfidenceCalculator
 
 try:
-    from back_end.src.data_collection.data_mining_repository import (
+    from back_end.src.phase_1_data_collection.data_mining_repository import (
         DataMiningRepository,
         ResearchGap as DBResearchGap
     )

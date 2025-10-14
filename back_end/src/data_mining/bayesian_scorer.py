@@ -18,7 +18,7 @@ from datetime import datetime
 from .scoring_utils import EffectivenessScorer, ConfidenceCalculator, ScoringResult, StatisticalHelpers
 
 try:
-    from back_end.src.data_collection.data_mining_repository import DataMiningRepository, BayesianScore
+    from back_end.src.phase_1_data_collection.data_mining_repository import DataMiningRepository, BayesianScore
     from back_end.src.data.config import setup_logging, config
 except ImportError as e:
     print(f"Warning: Could not import database components: {e}")

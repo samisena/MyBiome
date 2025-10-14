@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "total_groups": 2,
+    "functional_count": 1,
+    "therapeutic_count": 1
+  },
+  "groups": [
+    {
+      "functional_category_name": "Gut Flora Modulators",
+      "category_type": "functional",
+      "parent_cluster_id": 100,
+      "parent_cluster_name": "Gut Microbiome Modulation",
+      "member_cluster_ids": [
+        1,
+        2
+      ],
+      "member_cluster_names": [
+        "Probiotics",
+        "FMT"
+      ],
+      "primary_categories_spanned": [
+        "supplement",
+        "procedure"
+      ],
+      "confidence": 0.87,
+      "llm_reasoning": "Modulate gut microbiome composition",
+      "mechanism_similarity": null
+    },
+    {
+      "functional_category_name": "GERD Treatments",
+      "category_type": "therapeutic",
+      "parent_cluster_id": 101,
+      "parent_cluster_name": "GERD Management",
+      "member_cluster_ids": [
+        3,
+        4
+      ],
+      "member_cluster_names": [
+        "Antacids",
+        "LES Surgery"
+      ],
+      "primary_categories_spanned": [
+        "medication",
+        "surgery"
+      ],
+      "confidence": 0.85,
+      "llm_reasoning": "Treat GERD symptoms",
+      "mechanism_similarity": null
+    }
+  ]
+}

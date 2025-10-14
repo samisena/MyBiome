@@ -23,9 +23,9 @@ project_root = Path(__file__).parent.parent.parent
 sys.path.append(str(project_root))
 
 from back_end.src.data.config import config, setup_logging
-from back_end.src.data_collection.database_manager import database_manager
+from back_end.src.phase_1_data_collection.database_manager import database_manager
 from back_end.src.data.api_clients import get_llm_client
-from back_end.src.llm_processing.prompt_service import prompt_service
+from back_end.src.phase_2_llm_processing.phase_2_prompt_service import phase_2_prompt_service
 from back_end.src.data.utils import parse_json_safely
 
 logger = setup_logging(__name__, 'temperature_experiment.log')

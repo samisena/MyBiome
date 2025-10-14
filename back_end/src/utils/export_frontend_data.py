@@ -16,6 +16,49 @@ def get_frontend_data_path() -> Path:
     """Get the path to the frontend data directory."""
     return Path(__file__).parent.parent.parent.parent / "frontend" / "data"
 
+def get_entity_categories(cursor, entity_type: str, entity_id: Any) -> Dict[str, List[str]]:
+    """
+    Get all categories for an entity organized by type.
+
+    Args:
+        cursor: Database cursor
+        entity_type: 'intervention' or 'condition'
+        entity_id: intervention.id or condition name
+
+    Returns:
+        Dict with category types as keys, lists of category names as values
+    """
+    if entity_type == 'intervention':
+        cursor.execute("""
+            SELECT category_type, category_name, confidence
+            FROM intervention_category_mapping
+            WHERE intervention_id = ?
+            ORDER BY category_type, category_name
+        """, (entity_id,))
+    elif entity_type == 'condition':
+        cursor.execute("""
+            SELECT category_type, category_name, confidence
+            FROM condition_category_mapping
+            WHERE condition_name = ?
+            ORDER BY category_type, category_name
+        """, (entity_id,))
+    else:
+        return {}
+
+    rows = cursor.fetchall()
+
+    # Organize by category type
+    categories_by_type = {}
+    for row in rows:
+        cat_type = row['category_type']
+        cat_name = row['category_name']
+
+        if cat_type not in categories_by_type:
+            categories_by_type[cat_type] = []
+        categories_by_type[cat_type].append(cat_name)
+
+    return categories_by_type
+
 def export_interventions_data() -> Dict[str, Any]:
     """
     Export interventions data with papers and canonical entity information.
@@ -85,12 +128,17 @@ def export_interventions_data() -> Dict[str, Any]:
 
     interventions = []
     for row in rows:
+        # Get multi-category data for intervention and condition
+        intervention_categories = get_entity_categories(cursor, 'intervention', row['id'])
+        condition_categories = get_entity_categories(cursor, 'condition', row['health_condition'])
+
         intervention = {
             'id': row['id'],
             'intervention': {
                 'name': row['intervention_name'],
                 'canonical_name': row['intervention_canonical_name'],
-                'category': row['intervention_category'],
+                'category': row['intervention_category'],  # Legacy single category
+                'categories': intervention_categories,  # NEW: Multi-category support
                 'details': row['intervention_details'],
                 'delivery_method': row['delivery_method'],
                 'hierarchy': {
@@ -103,7 +151,8 @@ def export_interventions_data() -> Dict[str, Any]:
             'condition': {
                 'name': row['health_condition'],
                 'canonical_name': row['condition_canonical_name'],
-                'category': row['condition_category'],
+                'category': row['condition_category'],  # Legacy single category
+                'categories': condition_categories,  # NEW: Multi-category support
                 'severity': row['severity'],
                 'hierarchy': {
                     'layer_0_category': row['condition_l0_category'],
@@ -226,6 +275,29 @@ def export_interventions_data() -> Dict[str, Any]:
     """)
     condition_categories = {row['condition_category']: row['count'] for row in cursor.fetchall()}
 
+    # NEW: Get multi-category statistics
+    cursor.execute("""
+        SELECT category_type, category_name, COUNT(*) as count
+        FROM intervention_category_mapping
+        GROUP BY category_type, category_name
+        ORDER BY category_type, count DESC
+    """)
+    multi_category_stats = {}
+    for row in cursor.fetchall():
+        cat_type = row['category_type']
+        if cat_type not in multi_category_stats:
+            multi_category_stats[cat_type] = {}
+        multi_category_stats[cat_type][row['category_name']] = row['count']
+
+    # Count interventions with multiple categories
+    cursor.execute("""
+        SELECT COUNT(DISTINCT intervention_id) as count
+        FROM intervention_category_mapping
+        GROUP BY intervention_id
+        HAVING COUNT(*) > 1
+    """)
+    multi_category_interventions = len(cursor.fetchall())
+
     conn.close()
 
     # Compile the complete dataset
@@ -242,7 +314,9 @@ def export_interventions_data() -> Dict[str, Any]:
             'positive_correlations': positive_correlations,
             'negative_correlations': negative_correlations,
             'intervention_categories': intervention_categories,
-            'condition_categories': condition_categories
+            'condition_categories': condition_categories,
+            'multi_category_stats': multi_category_stats,  # NEW: Multi-category statistics
+            'multi_category_interventions': multi_category_interventions  # NEW: Count of interventions with >1 category
         },
         'top_performers': {
             'interventions': top_interventions,

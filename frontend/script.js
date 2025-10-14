@@ -63,6 +63,7 @@ function populateSummaryStats() {
     document.getElementById('unique-papers').textContent = meta.unique_papers.toLocaleString();
     document.getElementById('canonical-groups').textContent = (meta.canonical_groups || 0).toLocaleString();
     document.getElementById('semantic-relationships').textContent = (meta.total_relationships || 0).toLocaleString();
+    document.getElementById('multi-category-interventions').textContent = (meta.multi_category_interventions || 0).toLocaleString();
     document.getElementById('positive-correlations').textContent = meta.positive_correlations.toLocaleString();
     document.getElementById('negative-correlations').textContent = meta.negative_correlations.toLocaleString();
 }
@@ -71,6 +72,8 @@ function populateSummaryStats() {
 function populateFilterOptions() {
     const categoryFilter = document.getElementById('category-filter');
     const conditionCategoryFilter = document.getElementById('condition-category-filter');
+    const functionalCategoryFilter = document.getElementById('functional-category-filter');
+    const therapeuticCategoryFilter = document.getElementById('therapeutic-category-filter');
 
     // Populate intervention categories
     const interventionCategories = Object.keys(interventionsData.metadata.intervention_categories).sort();
@@ -89,6 +92,28 @@ function populateFilterOptions() {
         option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
         conditionCategoryFilter.appendChild(option);
     });
+
+    // Populate functional categories (multi-category)
+    if (interventionsData.metadata.multi_category_stats && interventionsData.metadata.multi_category_stats.functional) {
+        const functionalCategories = Object.keys(interventionsData.metadata.multi_category_stats.functional).sort();
+        functionalCategories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category.charAt(0).toUpperCase() + category.slice(1).replace(/_/g, ' ');
+            functionalCategoryFilter.appendChild(option);
+        });
+    }
+
+    // Populate therapeutic categories (multi-category)
+    if (interventionsData.metadata.multi_category_stats && interventionsData.metadata.multi_category_stats.therapeutic) {
+        const therapeuticCategories = Object.keys(interventionsData.metadata.multi_category_stats.therapeutic).sort();
+        therapeuticCategories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category.charAt(0).toUpperCase() + category.slice(1).replace(/_/g, ' ');
+            therapeuticCategoryFilter.appendChild(option);
+        });
+    }
 }
 
 // Initialize DataTables
@@ -108,11 +133,11 @@ function initializeDataTable() {
 
     const tableData = interventionsData.interventions.map(intervention => [
         formatInterventionName(intervention.intervention),
-        formatCategory(intervention.intervention.category),
+        formatCategory(intervention.intervention.categories || intervention.intervention.category),
         formatCanonicalGroup(intervention.intervention.hierarchy),
         formatMechanism(intervention.mechanism),
         formatConditionName(intervention.condition),
-        formatCategory(intervention.condition.category),
+        formatCategory(intervention.condition.categories || intervention.condition.category),
         formatCorrelationType(intervention.correlation.type),
         formatStrengthBar(intervention.correlation.strength),
         formatConfidenceBar(intervention.correlation.extraction_confidence),
@@ -173,10 +198,71 @@ function formatConditionName(condition) {
     return condition.name;
 }
 
-// Format category
-function formatCategory(category) {
-    if (!category) return 'N/A';
-    return `<span class="category-badge">${category}</span>`;
+// Format category (supports multi-category display)
+function formatCategory(categoryData) {
+    // Handle legacy single-category format
+    if (typeof categoryData === 'string') {
+        if (!categoryData) return 'N/A';
+        return `<span class="category-badge">${categoryData}</span>`;
+    }
+
+    // Handle multi-category format (categories object)
+    if (!categoryData || typeof categoryData !== 'object') return 'N/A';
+
+    const badges = [];
+
+    // Primary category
+    if (categoryData.primary && categoryData.primary.length > 0) {
+        categoryData.primary.forEach(cat => {
+            badges.push(`<span class="category-badge badge-primary-category" title="Primary: ${cat}">${cat}</span>`);
+        });
+    }
+
+    // Functional categories
+    if (categoryData.functional && categoryData.functional.length > 0) {
+        categoryData.functional.forEach(cat => {
+            badges.push(`<span class="category-badge badge-functional" title="Functional: ${cat}">${cat}</span>`);
+        });
+    }
+
+    // Therapeutic categories
+    if (categoryData.therapeutic && categoryData.therapeutic.length > 0) {
+        categoryData.therapeutic.forEach(cat => {
+            badges.push(`<span class="category-badge badge-therapeutic" title="Therapeutic: ${cat}">${cat}</span>`);
+        });
+    }
+
+    // System categories (for conditions)
+    if (categoryData.system && categoryData.system.length > 0) {
+        categoryData.system.forEach(cat => {
+            badges.push(`<span class="category-badge badge-system" title="System: ${cat}">${cat}</span>`);
+        });
+    }
+
+    // Pathway categories (for mechanisms)
+    if (categoryData.pathway && categoryData.pathway.length > 0) {
+        categoryData.pathway.forEach(cat => {
+            badges.push(`<span class="category-badge badge-pathway" title="Pathway: ${cat}">${cat}</span>`);
+        });
+    }
+
+    // Target categories (for mechanisms)
+    if (categoryData.target && categoryData.target.length > 0) {
+        categoryData.target.forEach(cat => {
+            badges.push(`<span class="category-badge badge-target" title="Target: ${cat}">${cat}</span>`);
+        });
+    }
+
+    // Comorbidity categories (for conditions)
+    if (categoryData.comorbidity && categoryData.comorbidity.length > 0) {
+        categoryData.comorbidity.forEach(cat => {
+            badges.push(`<span class="category-badge badge-comorbidity" title="Comorbidity: ${cat}">${cat}</span>`);
+        });
+    }
+
+    if (badges.length === 0) return 'N/A';
+
+    return `<div class="category-badges">${badges.join(' ')}</div>`;
 }
 
 // Format canonical group from hierarchical data
@@ -282,9 +368,37 @@ function showDetails(interventionId) {
     const hierarchyInfo = intervention.intervention.hierarchy || {};
     const conditionHierarchyInfo = intervention.condition.hierarchy || {};
 
+    // Format categories (multi-category support)
+    function formatCategoriesForModal(entity) {
+        if (entity.categories) {
+            const parts = [];
+            if (entity.categories.primary && entity.categories.primary.length > 0) {
+                parts.push(`Primary: ${entity.categories.primary.join(', ')}`);
+            }
+            if (entity.categories.functional && entity.categories.functional.length > 0) {
+                parts.push(`Functional: ${entity.categories.functional.join(', ')}`);
+            }
+            if (entity.categories.therapeutic && entity.categories.therapeutic.length > 0) {
+                parts.push(`Therapeutic: ${entity.categories.therapeutic.join(', ')}`);
+            }
+            if (entity.categories.system && entity.categories.system.length > 0) {
+                parts.push(`System: ${entity.categories.system.join(', ')}`);
+            }
+            if (entity.categories.comorbidity && entity.categories.comorbidity.length > 0) {
+                parts.push(`Comorbidity: ${entity.categories.comorbidity.join(', ')}`);
+            }
+            return parts.length > 0 ? parts.join('\n  ') : (entity.category || 'N/A');
+        }
+        return entity.category || 'N/A';
+    }
+
+    const interventionCategories = formatCategoriesForModal(intervention.intervention);
+    const conditionCategories = formatCategoriesForModal(intervention.condition);
+
     const details = `
 Intervention: ${intervention.intervention.canonical_name || intervention.intervention.name}
-Category: ${intervention.intervention.category || 'N/A'}
+Categories:
+  ${interventionCategories}
 Details: ${intervention.intervention.details || 'N/A'}
 Delivery Method: ${intervention.intervention.delivery_method || 'N/A'}
 
@@ -298,7 +412,8 @@ Mechanism of Action:
 ${intervention.mechanism || 'Not specified'}
 
 Health Condition: ${intervention.condition.canonical_name || intervention.condition.name}
-Condition Category: ${intervention.condition.category || 'N/A'}
+Categories:
+  ${conditionCategories}
 Severity: ${intervention.condition.severity || 'N/A'}
 
 Condition Hierarchy:
@@ -341,6 +456,8 @@ Extracted: ${intervention.extraction_timestamp ? new Date(intervention.extractio
 function setupFilters() {
     const categoryFilter = document.getElementById('category-filter');
     const conditionCategoryFilter = document.getElementById('condition-category-filter');
+    const functionalCategoryFilter = document.getElementById('functional-category-filter');
+    const therapeuticCategoryFilter = document.getElementById('therapeutic-category-filter');
     const correlationFilter = document.getElementById('correlation-filter');
     const confidenceFilter = document.getElementById('confidence-filter');
     const confidenceValue = document.getElementById('confidence-value');
@@ -355,12 +472,16 @@ function setupFilters() {
     // Apply filters on change
     categoryFilter.addEventListener('change', applyFilters);
     conditionCategoryFilter.addEventListener('change', applyFilters);
+    functionalCategoryFilter.addEventListener('change', applyFilters);
+    therapeuticCategoryFilter.addEventListener('change', applyFilters);
     correlationFilter.addEventListener('change', applyFilters);
 
     // Clear all filters
     clearFiltersBtn.addEventListener('click', function() {
         categoryFilter.value = '';
         conditionCategoryFilter.value = '';
+        functionalCategoryFilter.value = '';
+        therapeuticCategoryFilter.value = '';
         correlationFilter.value = '';
         confidenceFilter.value = '0';
         confidenceValue.textContent = '0.0';
@@ -374,6 +495,8 @@ function applyFilters() {
 
     const categoryFilter = document.getElementById('category-filter').value;
     const conditionCategoryFilter = document.getElementById('condition-category-filter').value;
+    const functionalCategoryFilter = document.getElementById('functional-category-filter').value;
+    const therapeuticCategoryFilter = document.getElementById('therapeutic-category-filter').value;
     const correlationFilter = document.getElementById('correlation-filter').value;
     const confidenceFilter = parseFloat(document.getElementById('confidence-filter').value);
 
@@ -385,13 +508,36 @@ function applyFilters() {
         function(settings, data, dataIndex) {
             const intervention = interventionsData.interventions[dataIndex];
 
-            // Category filter
-            if (categoryFilter && intervention.intervention.category !== categoryFilter) {
+            // Helper function to check if entity has category (supports multi-category)
+            function hasCategory(entity, categoryValue, categoryType = 'primary') {
+                // Check legacy single-category format
+                if (entity.category === categoryValue) return true;
+
+                // Check multi-category format
+                if (entity.categories && entity.categories[categoryType]) {
+                    return entity.categories[categoryType].includes(categoryValue);
+                }
+
+                return false;
+            }
+
+            // Primary intervention category filter
+            if (categoryFilter && !hasCategory(intervention.intervention, categoryFilter, 'primary')) {
                 return false;
             }
 
             // Condition category filter
-            if (conditionCategoryFilter && intervention.condition.category !== conditionCategoryFilter) {
+            if (conditionCategoryFilter && !hasCategory(intervention.condition, conditionCategoryFilter, 'primary')) {
+                return false;
+            }
+
+            // Functional category filter (multi-category)
+            if (functionalCategoryFilter && !hasCategory(intervention.intervention, functionalCategoryFilter, 'functional')) {
+                return false;
+            }
+
+            // Therapeutic category filter (multi-category)
+            if (therapeuticCategoryFilter && !hasCategory(intervention.intervention, therapeuticCategoryFilter, 'therapeutic')) {
                 return false;
             }
 

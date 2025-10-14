@@ -84,22 +84,22 @@ else:
 
 try:
     from ..data.config import config, setup_logging
-    from .rotation_paper_collector import RotationPaperCollector, BatchCollectionResult
-    from .rotation_llm_processor import RotationLLMProcessor
+    from .phase_1_paper_collector import RotationPaperCollector, BatchCollectionResult
+    from .phase_2_llm_processor import RotationLLMProcessor
     from .rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
-    from .rotation_group_categorization import RotationGroupCategorizer
-    from .rotation_mechanism_clustering import RotationMechanismClusterer
+    from .phase_3b_group_categorization import RotationGroupCategorizer
+    from .phase_3c_mechanism_clustering import RotationMechanismClusterer
 except ImportError:
     # Fallback for standalone execution
     import sys
     from pathlib import Path
     sys.path.append(str(Path(__file__).parent.parent.parent))
     from back_end.src.data.config import config, setup_logging
-    from back_end.src.orchestration.rotation_paper_collector import RotationPaperCollector, BatchCollectionResult
-    from back_end.src.orchestration.rotation_llm_processor import RotationLLMProcessor
+    from back_end.src.orchestration.phase_1_paper_collector import RotationPaperCollector, BatchCollectionResult
+    from back_end.src.orchestration.phase_2_llm_processor import RotationLLMProcessor
     from back_end.src.orchestration.rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
-    from back_end.src.orchestration.rotation_group_categorization import RotationGroupCategorizer
-    from back_end.src.orchestration.rotation_mechanism_clustering import RotationMechanismClusterer
+    from back_end.src.orchestration.phase_3b_group_categorization import RotationGroupCategorizer
+    from back_end.src.orchestration.phase_3c_mechanism_clustering import RotationMechanismClusterer
 
 logger = setup_logging(__name__, 'batch_medical_rotation.log')
 
@@ -716,7 +716,7 @@ class BatchMedicalRotationPipeline:
 
             # Step 2: Run semantic grouping for conditions
             logger.info("  Step 2: Normalizing condition entities...")
-            from .rotation_semantic_normalizer import SemanticNormalizationOrchestrator
+            from .phase_3_semantic_normalizer import SemanticNormalizationOrchestrator
             condition_orchestrator = SemanticNormalizationOrchestrator(db_path=str(config.db_path))
             condition_result = condition_orchestrator.normalize_all_condition_entities(batch_size=50, force=True)
 

@@ -21,8 +21,8 @@ back_end_dir = script_dir.parent
 project_root = back_end_dir.parent
 sys.path.insert(0, str(project_root))
 
-from back_end.src.semantic_normalization.llm_classifier import LLMClassifier
-from back_end.src.semantic_normalization.embedding_engine import EmbeddingEngine
+from back_end.src.phase_3_semantic_normalization.phase_3_llm_classifier import LLMClassifier
+from back_end.src.phase_3_semantic_normalization.phase_3_embedding_engine import EmbeddingEngine
 
 def print_header(title):
     """Print formatted section header."""

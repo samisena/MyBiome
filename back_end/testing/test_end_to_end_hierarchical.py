@@ -10,8 +10,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from back_end.src.data.config import setup_logging
-from back_end.src.data_collection.database_manager import database_manager
-from back_end.src.llm_processing.single_model_analyzer import SingleModelAnalyzer
+from back_end.src.phase_1_data_collection.database_manager import database_manager
+from back_end.src.phase_2_llm_processing.phase_2_single_model_analyzer import SingleModelAnalyzer
 
 logger = setup_logging(__name__, 'test_end_to_end.log')
 

@@ -11,8 +11,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 import json
 import time
 from typing import List, Dict
-from back_end.src.data_collection.database_manager import database_manager
-from back_end.src.llm_processing.llm_client import get_llm_client
+from back_end.src.phase_1_data_collection.database_manager import database_manager
+from back_end.src.phase_2_llm_processing.llm_client import get_llm_client
 from back_end.src.conditions.taxonomy import ConditionType
 
 def create_classification_prompt(conditions: List[str]) -> str:

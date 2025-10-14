@@ -1,0 +1,1302 @@
+{
+  "84992f595ee4d91a2ea6a4e210a7b7939ba1c1a664e069b6ec743a331453a529": {
+    "cluster_id": 528,
+    "canonical_name": "colloidal oatmeal cream",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b8d903f6db11cd55a28726a35708f1423340bab7b16c9a513af7b369e6eb96f8": {
+    "cluster_id": 360,
+    "canonical_name": "supramolecular salicylic acid",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "66813f43f3ecd34276bb603e0ed296f84f55d262948510eed699cb710acb5d80": {
+    "cluster_id": 495,
+    "canonical_name": "AKI care bundle",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c87bfce1a0bd51fda26574740c856e0a67765ec05eaefa7e1d910d05207ed013": {
+    "cluster_id": 647,
+    "canonical_name": "Acetyl-L-Carnitine",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "57f2297f81fbb776c5d1a6df990c4698e872168128426880d2ec552cc9f02068": {
+    "cluster_id": 385,
+    "canonical_name": "Acupuncture and Clomiphene",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b0cab2821acdf27eb1b6064ce6a28ca45d00a79d762e186d635f37300539f449": {
+    "cluster_id": 8,
+    "canonical_name": "Antiviral agents",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "69c41b3535533b600c364640d487ea1b11821123a5091475016d387d9b9e4287": {
+    "cluster_id": 27,
+    "canonical_name": "Apixaban",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "d15969b9e7c0ef69b2e2dea0296d6cc634bae030f64641a960a9ac6376950e68": {
+    "cluster_id": 641,
+    "canonical_name": "Asvard capsule",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f12889f7ffe3626b5f60bf39b8100f8d883124a38d48ce7204467c9e588ee865": {
+    "cluster_id": 575,
+    "canonical_name": "BI 1595043",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "dfbcccdc80f3bbb867afe595943bbf575d88509a7a35d6337c4e9812d33ce0ad": {
+    "cluster_id": 511,
+    "canonical_name": "Baduanjin exercise",
+    "category": "exercise",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3dec2305da86200c5344fd6394818da4c1f6173820195d81e1c8f16c839aea40": {
+    "cluster_id": 550,
+    "canonical_name": "Baricitinib",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1820e81fd5bf0bf366de4e1b7f89585ffda283a5e3d185f76c9edcd7af9ae58a": {
+    "cluster_id": 584,
+    "canonical_name": "Benzodiazepines",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "06af3935aa6953ce73861dd6bca2075d07350d2038ae1511db58eae3ed81f232": {
+    "cluster_id": 497,
+    "canonical_name": "Benzoyl peroxide wash",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "26381263339ba8530b05a25b7a946c9ba5d14a18f61a921c35940d0b7a055065": {
+    "cluster_id": 459,
+    "canonical_name": "Best Practices",
+    "category": "lifestyle",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f0a0d6137242a9c3c8b78c8d5e4491c42dca0514864ca990f39c84f51ce81b35": {
+    "cluster_id": 479,
+    "canonical_name": "Bir Pletok",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "31e35825c7075caa984db1e1a9b8daaa6dfc1b97abdf8bf0e90ffd6fa54be48c": {
+    "cluster_id": 621,
+    "canonical_name": "Blue light phototherapy",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c6fd93b96cdfefa8c3d9bfaf88ae5d6f7de0b806f20cb021cbba6cd2882624ef": {
+    "cluster_id": 441,
+    "canonical_name": "Bone Health model",
+    "category": "lifestyle",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d03a007c591d56779fc6e6774b6e82cedfcfed6c37d6c079936231e0fed355b5": {
+    "cluster_id": 616,
+    "canonical_name": "CBT",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3bb73c6ba13fd6ea6acfa8ead2238620d555213ae43b0c6b5da49394ecc78b77": {
+    "cluster_id": 369,
+    "canonical_name": "CDS nudges for deprescribing glycemic medications",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "cebb421cf4d288fc3f508b1736d455917cd5c5ba8a628fc8b1fb516e528fd1c1": {
+    "cluster_id": 563,
+    "canonical_name": "Carnitine + Arginine + CoQ10",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "36dd92e171122bcd461dc02ac6ff35831a34cc2da86d14709ea43242b695fb19": {
+    "cluster_id": 633,
+    "canonical_name": "Catheter-directed thrombectomy",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8c62f02b93967c5fe274e674131b265a3ac662af276542fceaca2828927a81c5": {
+    "cluster_id": 618,
+    "canonical_name": "Cemiplimab",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8e4d8d05de029a24da1e6a409273420d4d3359fdb7307705be97ace22a9e396f": {
+    "cluster_id": 539,
+    "canonical_name": "Chinese Five-Element Music",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3c417d8e9fefef1d4336808b616957bc82ec60cad305188bc78f7cfa44a9b591": {
+    "cluster_id": 503,
+    "canonical_name": "Chinese Herbal Medicine",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "bea64c799e8de3d91b1b518811eca11195130e3161466bc093fb56384ff08c82": {
+    "cluster_id": 595,
+    "canonical_name": "Chinese patent medicines",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "86575f39a09292d295cda2cad3387887b88d078d577438036544e655ab8f99d8": {
+    "cluster_id": 493,
+    "canonical_name": "Citro-Soda\u00ae",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "7e52b4a3b1b6cc7ea45bd2f08a4b7f86ea25d457211cd1e0fdb0e5a186493d7e": {
+    "cluster_id": 504,
+    "canonical_name": "CoQ10",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "42462a89c7335664fca811a2c875a38f7197f3f5324d75731c605f9cd75a9b03": {
+    "cluster_id": 519,
+    "canonical_name": "Cognitive Rehabilitation Nursing",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "db89e672840e9c1ab337b645cfbb9c8497f05ba1c496c145689db4d96f7153dd": {
+    "cluster_id": 21,
+    "canonical_name": "Cognitive behavioral therapy for insomnia",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "63065ab4ee6914376d17f7773649474a8f5e7fd9aa93a0ef2d77b7d5d647d5ae": {
+    "cluster_id": 345,
+    "canonical_name": "Combination of benzoyl peroxide wash and blue light phototherapy",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "7a40691561a1f5a9fb8a72f163bb14f5c29948b802079a0dd50a0c98c7cf50a6": {
+    "cluster_id": 526,
+    "canonical_name": "Continuing Care Program",
+    "category": "lifestyle",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "37a361937a402ab812ee070fc8e343494ab12e59447d38b90587133b09f1b8d4": {
+    "cluster_id": 596,
+    "canonical_name": "Continuous aerobic training",
+    "category": "exercise",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9bf1d2941fb2a835fa9a3a786b8e359be5e7f805112b5ef54ed3fd723abf5971": {
+    "cluster_id": 665,
+    "canonical_name": "CoreDISTparticipation",
+    "category": "lifestyle",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c57d3b00ea3277ef2faf7b37ddee935e5b4e931018c69e84604f861977e09bd9": {
+    "cluster_id": 15,
+    "canonical_name": "Coronary artery bypass grafting",
+    "category": "surgery",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "af787848cbc79d8ecd16bd3e524ffb97372b43b2802657d4a232a117629c925f": {
+    "cluster_id": 442,
+    "canonical_name": "Cucumis sativus L. powder",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "89bdd1c646d4cffe37073922b9abb0622f82cd7dcc43722d7df5927e7c2fadef": {
+    "cluster_id": 382,
+    "canonical_name": "Curcuma longa",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6718200676c55191f9811c1dea515b503c0ed14cde33afd40d6598798e3ae91b": {
+    "cluster_id": 444,
+    "canonical_name": "Dabigatran",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6cff2f128105e58c42307a90a36da4b2851ecf99c356ff24120a18d6fe87b0d5": {
+    "cluster_id": 509,
+    "canonical_name": "Deprescribing model",
+    "category": "lifestyle",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "71b533eef651e0e48ed9e911db0c57dc09fa1f6c8d95ebf64920435148b027f4": {
+    "cluster_id": 622,
+    "canonical_name": "DialBetesPlus mHealth app",
+    "category": "device",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "509b979235ad56e3c9b3b23298691903e4e36833fc30230d30f136ffca4aacf6": {
+    "cluster_id": 461,
+    "canonical_name": "Drug-Coated Balloon",
+    "category": "device",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "790d96a2b074abea3919e3f575245b0b28fd9caa22cca4accbe27ff65b923a15": {
+    "cluster_id": 389,
+    "canonical_name": "Drug-Eluting Stent",
+    "category": "device",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "559fb2ddd05032c485676956614f96b2260b012528e5963116084507a1454557": {
+    "cluster_id": 484,
+    "canonical_name": "ECG monitoring for atrial fibrillation prediction",
+    "category": "test",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "69f5939500d868b930ffe376986a4406e1685da68608aabd9e3fc5aa711a1f8a": {
+    "cluster_id": 467,
+    "canonical_name": "Eggshell membrane supplementation",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1763a4f27cbcf15ea59a90c22f666ab89b70f48b6700f2eed09df0e5a2cc635e": {
+    "cluster_id": 463,
+    "canonical_name": "Endostar",
+    "category": "biologics",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1185788d62e6928c021c60a56800599aeb71b0b415ade4ad5924e4ee724ce403": {
+    "cluster_id": 361,
+    "canonical_name": "Epilepto mobile application",
+    "category": "device",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "20185d222a6780bd5e5e3dbf9568e1b7dc035a88e9599f87996253466ca9810c": {
+    "cluster_id": 553,
+    "canonical_name": "Epimedium",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "5f9a30fab2bd7406c0b3d7a8617813d49ea56d078e4af5d07c5c4a708fe533c8": {
+    "cluster_id": 689,
+    "canonical_name": "Extracorporeal shock wave lithotripsy",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "260102ed4d3fb07a4edfc86642df3a5abe22301f80981c21d9ff7b3aedd6754f": {
+    "cluster_id": 567,
+    "canonical_name": "Fenuflakes",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "134f2e5475bb06d44e77b99de77fd22462a29efb293038ad4dbb7653cab384a5": {
+    "cluster_id": 43,
+    "canonical_name": "Firsekibart",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "c92687c9fc5c82a63302748ec8041ff1249936af7ea2de24ea842fe88f23834e": {
+    "cluster_id": 651,
+    "canonical_name": "Fuzheng Yiliu Decoction combined with chemotherapy",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "474d4d8b95fd436e6221639384eee8bb405daa657267ce23480ed060f92c5aa1": {
+    "cluster_id": 22,
+    "canonical_name": "GLP-1 Receptor Agonists",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "29d303865e7bc082631063210b8a4bb8348c212e947183cea16df88229d554cc": {
+    "cluster_id": 24,
+    "canonical_name": "GLP-1RA and SGLT2i combination therapy",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "bcb4ece0cf7023ca1bf36886f9115aba5162c058a009ae180b3afdfa2f2aeda2": {
+    "cluster_id": 568,
+    "canonical_name": "GLP-1RA monotherapy",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "455343a60fb99851994cab1ee00f245dec45d97c87694cc1c8f190e7fda6af9a": {
+    "cluster_id": 557,
+    "canonical_name": "Galohgor",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "dc0810dbc7c630f41c3eed24eb77601fd17f3720f2ac12a679bed3cef2d1595f": {
+    "cluster_id": 527,
+    "canonical_name": "Graded Motor Imagery",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b5a562032a4651acb737b316f9a2d77725e596b39cf5f71cb6d75b1eb726a6f8": {
+    "cluster_id": 395,
+    "canonical_name": "HBV biomarkers-guided NAs withdrawal strategy",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4def97acefb743c1cd4075ff7decff01850fe96384c1a437f4faa69ddff9f1c2": {
+    "cluster_id": 561,
+    "canonical_name": "HEPA air cleaner",
+    "category": "device",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9f463a65511c7e151ad9080ef93407c2b9db3ab9d94c54a7fa64dd78ad8255e2": {
+    "cluster_id": 425,
+    "canonical_name": "Hewei Jiangni recipe",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4b8599c35a3ac8a13aa0fb9fb10a42257fcddc49642d9296e1fadc0c90a4d3af": {
+    "cluster_id": 2,
+    "canonical_name": "High-intensity interval training",
+    "category": "exercise",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "5ffa88fb1f161f77343dccde0e7c8c64381127ed019189f77b04984f7cf9556a": {
+    "cluster_id": 396,
+    "canonical_name": "IKAP theory-based digital health management",
+    "category": "device",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e0f1c645e205587f067a50aeb2292aeba2c446ede27755a2f6b83b5ae4c0d4c1": {
+    "cluster_id": 534,
+    "canonical_name": "IL-23-targeted therapies",
+    "category": "biologics",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4683d517db4144463d363c268b45ceabcc88024792bed67663e34fd19c569631": {
+    "cluster_id": 460,
+    "canonical_name": "IPL therapy",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9bec52a0bff51a19c86cd5e5edc6237d1739ed4fe725a367f846f7854f330f0b": {
+    "cluster_id": 404,
+    "canonical_name": "Imiquimod",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "eb73a3b395f3d6f5842008ea346cf46706508288138085f8724a03a62a304ff6": {
+    "cluster_id": 375,
+    "canonical_name": "Impella RP",
+    "category": "device",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4e482f0b08030dfbd7dd5e566c89a4881d070f0d7c2acae9e9a60b8bff55bd0f": {
+    "cluster_id": 594,
+    "canonical_name": "Incredible Years parenting programme",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1409a7f394af56a91a74654a84f5b00440dfaa4bc8bd96390f2a22694e3c7ed5": {
+    "cluster_id": 373,
+    "canonical_name": "Injury Prevention model",
+    "category": "lifestyle",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1f408b7a57feb77c66b4dd8323a15b4812dc5babd8168adce3a7738983401be4": {
+    "cluster_id": 415,
+    "canonical_name": "Interferon Gamma Injection",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b311f1bf43026b21578f95d1f61555cc094b06fe0e7d01334756c958dc7693c8": {
+    "cluster_id": 475,
+    "canonical_name": "Intravenous Laser Irradiation of Blood",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9c4e845b2e1da3d254126c89da9e29b8a3a4010be946c9532aa92aa3bd9449b1": {
+    "cluster_id": 635,
+    "canonical_name": "JAK1 inhibitors",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "2357700dc2628ed3129a002f2f07c60d47c676d04ce172dd040b46db62b5dd23": {
+    "cluster_id": 197,
+    "canonical_name": "Janus kinase inhibitors",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8053a00302d7cde2c07674ad9ab14aa7f65626cbec0adf5aad87e81d216a3383": {
+    "cluster_id": 637,
+    "canonical_name": "KOH 5% solution",
+    "category": "test",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "7adafb23d584f0a60939dff765df333c3cd109b2e150f3017e51dad9f0e5c569": {
+    "cluster_id": 525,
+    "canonical_name": "L-Arginine",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e0e633d765b5123760ab81a1e75b427df619d9491bb02faf6c70fd6be719bc9e": {
+    "cluster_id": 587,
+    "canonical_name": "LD-TLF complex stretching",
+    "category": "exercise",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "fcaec7fb61ec1ce0c237ef40b9889c38de79a6e905d3d41e37fb5ccf6bf90fb2": {
+    "cluster_id": 458,
+    "canonical_name": "Lactiplantibacillus plantarum and Bifidobacterium longum subspecies infantis synbiotic",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4f25cfd562037da78551341ee073c7e21e50d4f89027f64e5e554afa29f5cdf3": {
+    "cluster_id": 545,
+    "canonical_name": "Living with the Sun educational programme",
+    "category": "lifestyle",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6915655bdaa1e0b7cf58c1b9ecb04dacc2311aa9f22ba0445671cc5da6727559": {
+    "cluster_id": 465,
+    "canonical_name": "Lung and cardiac ultrasound (LuCUS)-guided strategy",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a4a644622498e0e88eb1301d128e0756877b099e1b21226eee0fd049c91dfbd8": {
+    "cluster_id": 390,
+    "canonical_name": "Lysozyme C (LYZ) supplementation",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c5b1bdc4385cc1b8470404392960c71420458a3a74ea6b56bd8e429a33de5417": {
+    "cluster_id": 393,
+    "canonical_name": "MAIOs",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "bf0c720fef62a570749ef5c5e5b92e103351a2f14509a867031d1ba452baeab4": {
+    "cluster_id": 671,
+    "canonical_name": "MCP-Mod",
+    "category": "procedure",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3caacb3f861bdfb4263e44ec6abef30aff74fcfc28fd749d7164bbf07cde84cb": {
+    "cluster_id": 631,
+    "canonical_name": "Mediterranean diet program",
+    "category": "lifestyle",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "50f68f1e2715d3c52c8eaffaa31d3da93fc60cb749ad1a4c2cbe5eed2ab0d48a": {
+    "cluster_id": 498,
+    "canonical_name": "Meridian-Sinew Release Therapy",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "879f81419d1880d3ae06ad9ba1b4ad3d4c889078e25cf2ddfc903d895d603dbd": {
+    "cluster_id": 18,
+    "canonical_name": "metformin",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "ca6595a2b9708831f36e5a163beb8d0d9a43e590820285bf067860babd671d67": {
+    "cluster_id": 523,
+    "canonical_name": "Mohs Micrographic Surgery",
+    "category": "surgery",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "0d50f016d4772cdf8f0242ab361dbde344de2b18d5d30f724b6dec7040e21650": {
+    "cluster_id": 537,
+    "canonical_name": "Monitored Therapeutic Alcohol Administration",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8e969890e78f31123a26bab8f7708b55254a454cb28da84923c8bba34253b396": {
+    "cluster_id": 533,
+    "canonical_name": "Morinda officinalis oligosaccharides",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "50d253d09e65751ec5d1d806bb52a82b1c25b88ea7a3d9a1707d45ba3d4dad1e": {
+    "cluster_id": 573,
+    "canonical_name": "Movement advice",
+    "category": "lifestyle",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "ca0c2a11e3ebacd76c4132f295ecfff85772d98a7bc68676aa53f8a9f510c279": {
+    "cluster_id": 473,
+    "canonical_name": "NCX 701",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "eec72240aba3eab453b489413d52a1e789d02d5e05eeebe98ef9fbf669287081": {
+    "cluster_id": 678,
+    "canonical_name": "NUT combination with Monacolin K",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f36e1fd625b022c48928f33ce5c2eff8eea5a4a9a494a9ff95e8b422de1ced3a": {
+    "cluster_id": 391,
+    "canonical_name": "NUT combination with Monacolin K and Morus alba",
+    "category": "supplement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d543a950b10ebb0b59a70c2d5de6e99a98fc2baed35595f8a366ecb5072ebc40": {
+    "cluster_id": 481,
+    "canonical_name": "Nintendo Switch-based therapy",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a8c8e77ec82d8c26ef093f920611b3d58da0843f198238b4f7b73184e35a6f38": {
+    "cluster_id": 380,
+    "canonical_name": "Nordic hamstring exercise",
+    "category": "exercise",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "eadcc28ea885e6fda1f9a3e3eb100aba89cff605582f7200c7caa8ce0011018a": {
+    "cluster_id": 672,
+    "canonical_name": "OAC regimen",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8ae022d2aa0b403da1811a650c15fc48411ca4ed29d0849f25a8e575647eabe7": {
+    "cluster_id": 350,
+    "canonical_name": "OAL regimen",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f5c2c0bb2ec991b2c2602e5036262376ba323b96dafdfae4456eb1328e546977": {
+    "cluster_id": 617,
+    "canonical_name": "OAMB regimen",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6c455e7a38133326d6449b602a2619ec7649c3ee149cb3e444a1d9b66fbc8036": {
+    "cluster_id": 482,
+    "canonical_name": "OTR-4131",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "bd7d91eb0252a5695fb73a5a7b86c5882341a9abfadb53bc671b5799023673ea": {
+    "cluster_id": 349,
+    "canonical_name": "Optimal medical therapy",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3f948745c7c5749720cc8a32aff962de23549b4576b10940170a1a1f2a7b064a": {
+    "cluster_id": 457,
+    "canonical_name": "Orem's self-care model nursing",
+    "category": "therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "52ff56cde8a66f23593b6821a1bfabdb58e2020b823a1752bf8ae9a2e33e110f": {
+    "cluster_id": 491,
+    "canonical_name": "PARP inhibitors",
+    "category": "medication",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "720cc905c00b19c7b5719c81b053867d621768e862d59690d4b477948d2bdd68": {
+    "cluster_id": 613,
+    "canonical_name": "PD-1 antibody",
+    "category": "biologics",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "571fb134493295481bd46836875bda952ed532e6dcbedafaa71c863e289ade06": {
+    "cluster_id": 428,
+    "canonical_name": "PD-1 antibody combined with pegylated interferon \u03b1",
+    "category": "biologics",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  }
+}

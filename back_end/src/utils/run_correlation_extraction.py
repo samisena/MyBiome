@@ -7,8 +7,8 @@ import sys
 from pathlib import Path
 
 try:
-    from back_end.src.data_collection.database_manager import database_manager
-    from back_end.src.llm_processing.dual_model_analyzer import DualModelAnalyzer
+    from back_end.src.phase_1_data_collection.database_manager import database_manager
+    from back_end.src.phase_2_llm_processing.dual_model_analyzer import DualModelAnalyzer
     from back_end.src.data.config import config, setup_logging
 except ImportError as e:
     print(f"Import error: {e}")

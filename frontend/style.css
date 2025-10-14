@@ -522,3 +522,78 @@ body {
         margin-bottom: 1rem;
     }
 }
+
+/* Multi-category badge styles */
+.category-badges {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.category-badges .badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Primary category badge */
+.badge-primary-category {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Functional category badge */
+.badge-functional {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Therapeutic category badge */
+.badge-therapeutic {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+/* System category badge (for conditions) */
+.badge-system {
+    background-color: #17a2b8;
+    color: white;
+}
+
+/* Pathway category badge (for mechanisms) */
+.badge-pathway {
+    background-color: #6f42c1;
+    color: white;
+}
+
+/* Target category badge (for mechanisms) */
+.badge-target {
+    background-color: #e83e8c;
+    color: white;
+}
+
+/* Comorbidity category badge (for conditions) */
+.badge-comorbidity {
+    background-color: #fd7e14;
+    color: white;
+}
+
+/* Multi-category stat card */
+.stat-card.multi-category {
+    background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+    border-color: #f39c12;
+}
+
+/* Category type labels */
+.category-type-label {
+    font-size: 0.65rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}

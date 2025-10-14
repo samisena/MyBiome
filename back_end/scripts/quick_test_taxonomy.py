@@ -12,7 +12,7 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-from back_end.src.semantic_normalization.prompts import (
+from back_end.src.phase_3_semantic_normalization.prompts import (
     RELATIONSHIP_CLASSIFICATION_PROMPT,
     RELATIONSHIP_CLASSIFICATION_SCHEMA,
     format_relationship_classification_prompt

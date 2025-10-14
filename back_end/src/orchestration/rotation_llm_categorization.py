@@ -10,7 +10,7 @@ from typing import List, Dict, Optional, Tuple
 from openai import OpenAI
 
 from back_end.src.data.config import config, setup_logging
-from back_end.src.data_collection.database_manager import database_manager
+from back_end.src.phase_1_data_collection.database_manager import database_manager
 from back_end.src.interventions.taxonomy import InterventionType
 from back_end.src.conditions.taxonomy import ConditionType
 

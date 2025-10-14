@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from back_end.src.data.config import setup_logging
 from back_end.src.data.api_clients import get_llm_client
 from back_end.src.data.utils import parse_json_safely
-from back_end.src.data_collection.database_manager import database_manager
+from back_end.src.phase_1_data_collection.database_manager import database_manager
 
 logger = setup_logging(__name__, 'test_hierarchical_prompt.log')
 

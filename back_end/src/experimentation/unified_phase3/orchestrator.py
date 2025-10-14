@@ -183,25 +183,28 @@ class UnifiedPhase3Orchestrator:
             logger.info("PROCESSING INTERVENTIONS")
             logger.info("="*60)
             results['interventions'] = self._process_entity_type('intervention')
+            # Save incrementally after interventions complete
+            self._save_entity_results('intervention', results['interventions'])
 
             # Process conditions
             logger.info("\n" + "="*60)
             logger.info("PROCESSING CONDITIONS")
             logger.info("="*60)
             results['conditions'] = self._process_entity_type('condition')
+            # Save incrementally after conditions complete
+            self._save_entity_results('condition', results['conditions'])
 
             # Process mechanisms
             logger.info("\n" + "="*60)
             logger.info("PROCESSING MECHANISMS")
             logger.info("="*60)
             results['mechanisms'] = self._process_entity_type('mechanism')
+            # Save incrementally after mechanisms complete
+            self._save_entity_results('mechanism', results['mechanisms'])
 
             # Update experiment status
             duration = time.time() - self.start_time
             self._update_experiment_status('completed', duration)
-
-            # Save detailed results
-            self._save_experiment_results(results)
 
             logger.info("\n" + "="*60)
             logger.info("UNIFIED PHASE 3 PIPELINE COMPLETED")
@@ -461,9 +464,13 @@ class UnifiedPhase3Orchestrator:
         # Build cluster data
         clusters = self._build_cluster_data(entity_type, entity_names, cluster_labels)
 
+        # Limit to 100 clusters for faster experimentation
+        clusters_limited = clusters[:100]
+        logger.info(f"Limiting naming to first 100 clusters (out of {len(clusters)} total)")
+
         # Name clusters
         naming_results = namer.name_clusters(
-            clusters,
+            clusters_limited,
             batch_size=naming_config['prompts']['batch_size']
         )
 
@@ -600,8 +607,97 @@ class UnifiedPhase3Orchestrator:
         conn.commit()
         conn.close()
 
+    def _save_entity_results(self, entity_type: str, entity_results: EntityResults):
+        """
+        Save results for a single entity type to database (incremental save).
+
+        Args:
+            entity_type: Entity type name ('intervention', 'condition', 'mechanism')
+            entity_results: EntityResults object for this entity type
+        """
+        conn = sqlite3.connect(self.experiment_db_path)
+        cursor = conn.cursor()
+
+        try:
+            # Save experiment_results
+            cursor.execute("""
+                INSERT INTO experiment_results (
+                    experiment_id, entity_type,
+                    embedding_duration_seconds, embeddings_generated, embedding_cache_hit_rate,
+                    clustering_duration_seconds, num_clusters, num_natural_clusters,
+                    num_singleton_clusters, num_noise_points, assignment_rate,
+                    silhouette_score, davies_bouldin_score,
+                    min_cluster_size, max_cluster_size, mean_cluster_size, median_cluster_size,
+                    naming_duration_seconds, names_generated, naming_failures, naming_cache_hit_rate
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                self.experiment_id, entity_type,
+                entity_results.embedding_duration_seconds,
+                entity_results.embeddings_generated,
+                entity_results.embedding_cache_hit_rate,
+                entity_results.clustering_duration_seconds,
+                entity_results.num_clusters,
+                entity_results.num_natural_clusters,
+                entity_results.num_singleton_clusters,
+                entity_results.num_noise_points,
+                entity_results.assignment_rate,
+                entity_results.silhouette_score,
+                entity_results.davies_bouldin_score,
+                entity_results.cluster_size_stats.get('min'),
+                entity_results.cluster_size_stats.get('max'),
+                entity_results.cluster_size_stats.get('mean'),
+                entity_results.cluster_size_stats.get('median'),
+                entity_results.naming_duration_seconds,
+                entity_results.names_generated,
+                entity_results.naming_failures,
+                entity_results.naming_cache_hit_rate
+            ))
+
+            # Save cluster_details
+            for cluster_id, naming_result in entity_results.naming_results.items():
+                # Find cluster members
+                member_mask = entity_results.cluster_labels == cluster_id
+                members = [entity_results.entity_names[i] for i in range(len(member_mask)) if member_mask[i]]
+
+                cursor.execute("""
+                    INSERT INTO cluster_details (
+                        experiment_id, entity_type, cluster_id,
+                        canonical_name, category, parent_cluster,
+                        member_count, is_singleton,
+                        member_entities, confidence,
+                        naming_method, naming_model, naming_temperature
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (
+                    self.experiment_id, entity_type, cluster_id,
+                    naming_result.canonical_name,
+                    naming_result.category,
+                    naming_result.parent_cluster,
+                    len(members),
+                    len(members) == 1,
+                    json.dumps(members),
+                    naming_result.confidence,
+                    naming_result.provenance.get('method') if naming_result.provenance else None,
+                    naming_result.provenance.get('model') if naming_result.provenance else None,
+                    naming_result.provenance.get('temperature') if naming_result.provenance else None
+                ))
+
+            conn.commit()
+            logger.info(f"Saved {entity_type} results to database (ID: {self.experiment_id})")
+
+        except Exception as e:
+            conn.rollback()
+            logger.error(f"Failed to save {entity_type} results: {e}", exc_info=True)
+            raise
+        finally:
+            conn.close()
+
     def _save_experiment_results(self, results: Dict[str, EntityResults]):
-        """Save detailed experiment results to database."""
+        """
+        Save detailed experiment results to database (batch save - DEPRECATED).
+
+        This method is kept for backward compatibility but is no longer used
+        by the main pipeline, which uses incremental saves via _save_entity_results.
+        """
         conn = sqlite3.connect(self.experiment_db_path)
         cursor = conn.cursor()
 

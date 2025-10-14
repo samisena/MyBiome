@@ -14,7 +14,7 @@ import json
 from datetime import datetime
 
 try:
-    from back_end.src.data_collection.data_mining_repository import (
+    from back_end.src.phase_1_data_collection.data_mining_repository import (
         DataMiningRepository,
         KnowledgeGraphNode,
         KnowledgeGraphEdge

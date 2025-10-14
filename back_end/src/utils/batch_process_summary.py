@@ -5,12 +5,12 @@ Summary and demonstration of batch processing results
 
 import sys
 import os
-from back_end.src.data_collection.database_manager import database_manager
+from back_end.src.phase_1_data_collection.database_manager import database_manager
 
 # Add the src directory to the path so we can import our modules
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from ..llm_processing.batch_entity_processor import BatchEntityProcessor as EntityNormalizer
+from ..phase_2_llm_processing.batch_entity_processor import BatchEntityProcessor as EntityNormalizer
 
 
 def show_batch_processing_summary():

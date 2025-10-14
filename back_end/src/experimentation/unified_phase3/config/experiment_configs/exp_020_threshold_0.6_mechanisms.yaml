@@ -1,0 +1,40 @@
+# Experiment 020: Distance Threshold 0.6 - Mechanisms
+# =====================================================
+
+_base: "../base_config.yaml"
+
+experiment:
+  name: "threshold_0.6_mechanisms"
+  description: "Test distance_threshold=0.6 for mechanism clustering (moderate loosening)"
+  tags:
+    - threshold_experiment
+    - hierarchical
+    - mechanisms
+    - threshold_0.6
+
+clustering:
+  # Keep interventions/conditions as HDBSCAN (not testing)
+  interventions:
+    algorithm: "hdbscan"
+    min_cluster_size: 2
+    min_samples: 1
+    cluster_selection_epsilon: 0.0
+    metric: "euclidean"
+
+  conditions:
+    algorithm: "hdbscan"
+    min_cluster_size: 2
+    min_samples: 1
+    cluster_selection_epsilon: 0.0
+    metric: "euclidean"
+
+  mechanisms:
+    algorithm: "hierarchical"
+    linkage: "ward"
+    distance_threshold: 0.6
+    n_clusters: null
+    metric: "euclidean"
+
+naming:
+  llm:
+    temperature: 0.0

@@ -7,7 +7,7 @@ Correlation Consistency Checker - Identify logical inconsistencies in interventi
 import sys
 from pathlib import Path
 from typing import Dict, List, Tuple, Set
-from back_end.src.data_collection.database_manager import database_manager
+from back_end.src.phase_1_data_collection.database_manager import database_manager
 
 
 class CorrelationConsistencyChecker:
