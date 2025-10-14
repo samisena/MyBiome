@@ -1,11 +1,8 @@
 """
 LLM Classifier for Hierarchical Semantic Normalization
 
-Uses qwen3:14b for:
-1. Canonical group extraction (Layer 1)
-2. Relationship type classification (EXACT_MATCH, VARIANT, etc.)
-
-Includes ground truth examples (Scenarios 1-3) for few-shot learning.
+Uses qwen3:14b for canonical group extraction (Layer 1).
+Relationship classification has been moved to Phase 3d (cluster-level analysis).
 """
 
 import os
@@ -21,9 +18,7 @@ from datetime import datetime
 # Import prompt templates
 from .prompts import (
     format_canonical_extraction_prompt,
-    format_relationship_classification_prompt,
-    CANONICAL_EXTRACTION_SCHEMA,
-    RELATIONSHIP_CLASSIFICATION_SCHEMA
+    CANONICAL_EXTRACTION_SCHEMA
 )
 
 # Configure logging
@@ -36,7 +31,8 @@ logger = logging.getLogger(__name__)
 
 class LLMClassifier:
     """
-    LLM-based classifier for canonical extraction and relationship classification.
+    LLM-based classifier for canonical group extraction.
+    Note: Relationship classification has been moved to Phase 3d (cluster-level).
     """
 
     def __init__(
@@ -47,8 +43,7 @@ class LLMClassifier:
         timeout: Optional[int] = None,
         max_retries: int = 3,
         strip_think_tags: bool = True,
-        canonical_cache_path: Optional[str] = None,
-        relationship_cache_path: Optional[str] = None
+        canonical_cache_path: Optional[str] = None
     ):
         """
         Initialize the LLM classifier.
@@ -61,7 +56,6 @@ class LLMClassifier:
             max_retries: Maximum retry attempts
             strip_think_tags: Remove <think>...</think> tags from responses
             canonical_cache_path: Path to canonical extraction cache
-            relationship_cache_path: Path to relationship classification cache
         """
         self.model = model
         self.base_url = base_url
@@ -72,19 +66,14 @@ class LLMClassifier:
 
         # Caches
         self.canonical_cache_path = canonical_cache_path
-        self.relationship_cache_path = relationship_cache_path
         self.canonical_cache: Dict[str, Dict] = {}
-        self.relationship_cache: Dict[str, Dict] = {}
 
         # Load caches
         self._load_cache(self.canonical_cache_path, self.canonical_cache)
-        self._load_cache(self.relationship_cache_path, self.relationship_cache)
 
         # Stats
         self.canonical_cache_hits = 0
         self.canonical_cache_misses = 0
-        self.relationship_cache_hits = 0
-        self.relationship_cache_misses = 0
 
         logger.info(f"LLMClassifier initialized with model: {model}")
 
@@ -261,145 +250,26 @@ class LLMClassifier:
             self.canonical_cache[intervention_name] = result
             return result
 
-    def classify_relationship(
-        self,
-        intervention_1: str,
-        intervention_2: str,
-        similarity: float
-    ) -> Dict:
-        """
-        Classify relationship between two interventions.
-
-        Args:
-            intervention_1: First intervention name
-            intervention_2: Second intervention name
-            similarity: Embedding similarity score (0.0-1.0)
-
-        Returns:
-            Dict with keys: relationship_type, layer_1_canonical, layer_2_same_variant, reasoning
-        """
-        # Create cache key (canonical ordering)
-        cache_key = tuple(sorted([intervention_1, intervention_2])) + (round(similarity, 3),)
-
-        # Check cache
-        if cache_key in self.relationship_cache:
-            self.relationship_cache_hits += 1
-            return self.relationship_cache[cache_key]
-
-        self.relationship_cache_misses += 1
-
-        # Auto-classify based on similarity thresholds
-        if similarity >= 0.95:
-            # High similarity: likely EXACT_MATCH or DOSAGE_VARIANT
-            # Let LLM decide
-            pass
-        elif similarity < 0.60:
-            # Very low similarity: auto-classify as DIFFERENT
-            result = {
-                'relationship_type': 'DIFFERENT',
-                'layer_1_canonical': None,
-                'layer_2_same_variant': False,
-                'reasoning': f'Low similarity ({similarity:.3f}) indicates unrelated interventions',
-                'source': 'auto_threshold',
-                'similarity': similarity
-            }
-            self.relationship_cache[cache_key] = result
-            return result
-
-        # LLM classification for intermediate similarity
-        try:
-            # Generate prompt
-            prompt = format_relationship_classification_prompt(
-                intervention_1,
-                intervention_2,
-                similarity
-            )
-
-            # Call LLM
-            response = self._call_llm(prompt)
-
-            # Parse response
-            result = self._parse_json_response(response)
-
-            # Validate response
-            required_fields = ['relationship_type', 'layer_1_canonical', 'layer_2_same_variant', 'reasoning']
-            for field in required_fields:
-                if field not in result:
-                    raise ValueError(f"Missing required field: {field}")
-
-            # Validate relationship type
-            valid_types = ['EXACT_MATCH', 'DOSAGE_VARIANT', 'SAME_CATEGORY_TYPE_VARIANT', 'SAME_CATEGORY', 'DIFFERENT']
-            if result['relationship_type'] not in valid_types:
-                raise ValueError(f"Invalid relationship type: {result['relationship_type']}")
-
-            # Add metadata
-            result['source'] = 'llm'
-            result['model'] = self.model
-            result['similarity'] = similarity
-
-            # Cache result
-            self.relationship_cache[cache_key] = result
-
-            # Save cache periodically
-            if len(self.relationship_cache) % 20 == 0:
-                self._save_cache(self.relationship_cache_path, self.relationship_cache)
-
-            return result
-
-        except Exception as e:
-            logger.error(f"Failed to classify relationship for '{intervention_1}' vs '{intervention_2}': {e}")
-
-            # Fallback based on similarity ranges (layer-based taxonomy)
-            if similarity >= 0.90:
-                rel_type = 'DOSAGE_VARIANT'
-            elif similarity >= 0.70:
-                rel_type = 'SAME_CATEGORY_TYPE_VARIANT'
-            elif similarity >= 0.60:
-                rel_type = 'SAME_CATEGORY'
-            else:
-                rel_type = 'DIFFERENT'
-
-            result = {
-                'relationship_type': rel_type,
-                'layer_1_canonical': None,
-                'layer_2_same_variant': False,
-                'reasoning': f'Fallback classification based on similarity ({similarity:.3f})',
-                'source': 'fallback',
-                'model': None,
-                'similarity': similarity
-            }
-
-            # Cache fallback
-            self.relationship_cache[cache_key] = result
-            return result
 
     def get_stats(self) -> Dict:
         """Get classifier statistics."""
         canonical_total = self.canonical_cache_hits + self.canonical_cache_misses
-        relationship_total = self.relationship_cache_hits + self.relationship_cache_misses
 
         return {
             'canonical_cache_size': len(self.canonical_cache),
             'canonical_cache_hits': self.canonical_cache_hits,
             'canonical_cache_misses': self.canonical_cache_misses,
             'canonical_hit_rate': self.canonical_cache_hits / canonical_total if canonical_total > 0 else 0.0,
-            'relationship_cache_size': len(self.relationship_cache),
-            'relationship_cache_hits': self.relationship_cache_hits,
-            'relationship_cache_misses': self.relationship_cache_misses,
-            'relationship_hit_rate': self.relationship_cache_hits / relationship_total if relationship_total > 0 else 0.0,
         }
 
     def save_caches_now(self):
         """Force save all caches to disk."""
         self._save_cache(self.canonical_cache_path, self.canonical_cache)
-        self._save_cache(self.relationship_cache_path, self.relationship_cache)
 
     def __del__(self):
         """Cleanup: save caches on destruction."""
         if hasattr(self, 'canonical_cache'):
             self._save_cache(self.canonical_cache_path, self.canonical_cache)
-        if hasattr(self, 'relationship_cache'):
-            self._save_cache(self.relationship_cache_path, self.relationship_cache)
 
 
 # ==============================================================================
@@ -424,8 +294,7 @@ def load_llm_classifier(config_path: Optional[str] = None) -> LLMClassifier:
         'timeout': None,  # No timeout by default
         'max_retries': 3,
         'strip_think_tags': True,
-        'canonical_cache_path': 'c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/canonicals.pkl',
-        'relationship_cache_path': 'c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/llm_decisions.pkl'
+        'canonical_cache_path': 'c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/canonicals.pkl'
     }
 
     # Load config from file if provided
@@ -443,7 +312,6 @@ def load_llm_classifier(config_path: Optional[str] = None) -> LLMClassifier:
             default_config['max_retries'] = llm_config.get('max_retries', default_config['max_retries'])
             default_config['strip_think_tags'] = llm_config.get('strip_think_tags', default_config['strip_think_tags'])
             default_config['canonical_cache_path'] = cache_config.get('canonical_cache_path', default_config['canonical_cache_path'])
-            default_config['relationship_cache_path'] = cache_config.get('llm_cache_path', default_config['relationship_cache_path'])
 
     return LLMClassifier(**default_config)
 
@@ -453,8 +321,7 @@ if __name__ == "__main__":
     print("Testing LLMClassifier...")
 
     classifier = LLMClassifier(
-        canonical_cache_path="c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/canonicals_test.pkl",
-        relationship_cache_path="c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/relationships_test.pkl"
+        canonical_cache_path="c:/Users/samis/Desktop/MyBiome/back_end/experiments/semantic_normalization/data/cache/canonicals_test.pkl"
     )
 
     # Test canonical extraction
@@ -472,23 +339,6 @@ if __name__ == "__main__":
         print(f"  Canonical: {result['canonical_group']}")
         print(f"  Reasoning: {result['reasoning']}")
         print(f"  Source: {result['source']}")
-
-    # Test relationship classification
-    print("\n=== Relationship Classification Test ===")
-    pairs = [
-        ("vitamin D", "cholecalciferol", 0.92),
-        ("Lactobacillus reuteri", "Saccharomyces boulardii", 0.72),
-        ("Cetuximab", "Cetuximab-β", 0.88),
-        ("vitamin D", "chemotherapy", 0.15)
-    ]
-
-    for int1, int2, sim in pairs:
-        result = classifier.classify_relationship(int1, int2, sim)
-        print(f"\n{int1} vs {int2} (sim={sim:.2f})")
-        print(f"  Type: {result['relationship_type']}")
-        print(f"  Canonical: {result['layer_1_canonical']}")
-        print(f"  Same variant: {result['layer_2_same_variant']}")
-        print(f"  Reasoning: {result['reasoning']}")
 
     # Print stats
     stats = classifier.get_stats()

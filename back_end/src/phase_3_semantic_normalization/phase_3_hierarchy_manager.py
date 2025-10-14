@@ -33,45 +33,6 @@ class HierarchyManager:
         r'\d+\s*(units?)',
     ]
 
-    # Aggregation rules per relationship type (layer-based taxonomy)
-    AGGREGATION_RULES = {
-        'EXACT_MATCH': {
-            'share_layer_0': True,
-            'share_layer_1': True,
-            'share_layer_2': True,
-            'share_layer_3': True,
-            'rule': 'merge_completely'
-        },
-        'DOSAGE_VARIANT': {
-            'share_layer_0': True,
-            'share_layer_1': True,
-            'share_layer_2': True,
-            'share_layer_3': False,
-            'rule': 'share_layers_0_1_2'
-        },
-        'SAME_CATEGORY_TYPE_VARIANT': {
-            'share_layer_0': True,
-            'share_layer_1': True,
-            'share_layer_2': False,
-            'share_layer_3': False,
-            'rule': 'share_layers_0_1'
-        },
-        'SAME_CATEGORY': {
-            'share_layer_0': True,
-            'share_layer_1': False,
-            'share_layer_2': False,
-            'share_layer_3': False,
-            'rule': 'share_layer_0_only'
-        },
-        'DIFFERENT': {
-            'share_layer_0': False,
-            'share_layer_1': False,
-            'share_layer_2': False,
-            'share_layer_3': False,
-            'rule': 'no_relationship'
-        }
-    }
-
     def __init__(self, db_path: str):
         """
         Initialize the hierarchy manager.
@@ -203,54 +164,6 @@ class HierarchyManager:
 
         return self.cursor.lastrowid
 
-    def create_entity_relationship(
-        self,
-        entity_1_id: int,
-        entity_2_id: int,
-        relationship_type: str,
-        relationship_confidence: float,
-        source: str,
-        labeled_by: Optional[str] = None,
-        similarity_score: Optional[float] = None
-    ) -> int:
-        """
-        Create relationship between two entities.
-
-        Args:
-            entity_1_id: First entity ID
-            entity_2_id: Second entity ID
-            relationship_type: Relationship type code
-            relationship_confidence: Confidence score (0.0-1.0)
-            source: Source of relationship ('llm_inference', 'manual_labeling', etc.)
-            labeled_by: Who/what labeled this
-            similarity_score: Embedding similarity (optional)
-
-        Returns:
-            ID of created relationship
-        """
-        # Ensure canonical ordering (smaller ID first)
-        if entity_1_id > entity_2_id:
-            entity_1_id, entity_2_id = entity_2_id, entity_1_id
-
-        # Get aggregation rules
-        rules = self.AGGREGATION_RULES.get(relationship_type, {})
-        share_layer_1 = rules.get('share_layer_1', False)
-        share_layer_2 = rules.get('share_layer_2', False)
-
-        query = """
-        INSERT OR IGNORE INTO entity_relationships (
-            entity_1_id, entity_2_id, relationship_type, relationship_confidence,
-            source, labeled_by, share_layer_1, share_layer_2, similarity_score
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """
-
-        self.cursor.execute(query, (
-            entity_1_id, entity_2_id, relationship_type, relationship_confidence,
-            source, labeled_by, share_layer_1, share_layer_2, similarity_score
-        ))
-        self.conn.commit()
-
-        return self.cursor.lastrowid
 
     def update_canonical_group_stats(self, canonical_name: str, entity_type: str):
         """
@@ -320,44 +233,6 @@ class HierarchyManager:
 
         return [dict(row) for row in self.cursor.fetchall()]
 
-    def find_related_entities(
-        self,
-        entity_id: int,
-        relationship_types: Optional[List[str]] = None
-    ) -> List[Dict]:
-        """
-        Find entities related to a given entity.
-
-        Args:
-            entity_id: Source entity ID
-            relationship_types: Filter by relationship types (optional)
-
-        Returns:
-            List of related entity dicts with relationship info
-        """
-        query = """
-        SELECT
-            sh.*,
-            er.relationship_type,
-            er.relationship_confidence,
-            er.similarity_score
-        FROM entity_relationships er
-        JOIN semantic_hierarchy sh ON (
-            (er.entity_1_id = ? AND sh.id = er.entity_2_id) OR
-            (er.entity_2_id = ? AND sh.id = er.entity_1_id)
-        )
-        """
-
-        params = [entity_id, entity_id]
-
-        if relationship_types:
-            placeholders = ','.join(['?'] * len(relationship_types))
-            query += f" WHERE er.relationship_type IN ({placeholders})"
-            params.extend(relationship_types)
-
-        self.cursor.execute(query, params)
-
-        return [dict(row) for row in self.cursor.fetchall()]
 
     def get_hierarchy_stats(self) -> Dict:
         """Get hierarchy statistics."""
@@ -378,18 +253,6 @@ class HierarchyManager:
         # Canonical groups
         self.cursor.execute("SELECT COUNT(*) as count FROM canonical_groups")
         stats['total_canonical_groups'] = self.cursor.fetchone()['count']
-
-        # Relationships
-        self.cursor.execute("SELECT COUNT(*) as count FROM entity_relationships")
-        stats['total_relationships'] = self.cursor.fetchone()['count']
-
-        # Relationships by type
-        self.cursor.execute("""
-            SELECT relationship_type, COUNT(*) as count
-            FROM entity_relationships
-            GROUP BY relationship_type
-        """)
-        stats['relationships_by_type'] = {row['relationship_type']: row['count'] for row in self.cursor.fetchall()}
 
         return stats
 
@@ -502,18 +365,6 @@ if __name__ == "__main__":
         aggregation_rule="share_layers_0_1"
     )
     print(f"Created entity 'S. boulardii' with ID: {entity_2_id}")
-
-    # Create relationship
-    rel_id = manager.create_entity_relationship(
-        entity_1_id=entity_1_id,
-        entity_2_id=entity_2_id,
-        relationship_type="SAME_CATEGORY_TYPE_VARIANT",
-        relationship_confidence=0.85,
-        source="llm_inference",
-        labeled_by="qwen3:14b",
-        similarity_score=0.72
-    )
-    print(f"Created relationship with ID: {rel_id}")
 
     # Update canonical stats
     manager.update_canonical_group_stats("probiotics", "intervention")

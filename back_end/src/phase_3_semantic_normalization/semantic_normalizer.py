@@ -53,11 +53,7 @@ class SemanticNormalizer:
         # Process each intervention
         total_processed = 0
         canonical_groups_created = 0
-        relationships_created = 0
         errors = 0
-
-        # Get all intervention names for similarity search
-        all_intervention_names = interventions
 
         for i, intervention_name in enumerate(interventions):
             try:
@@ -69,16 +65,10 @@ class SemanticNormalizer:
                     'frequency': 1
                 }
 
-                result = self.normalizer.process_intervention(
-                    intervention=intervention,
-                    all_intervention_names=all_intervention_names,
-                    top_k_similar=5
-                )
+                result = self.normalizer.process_intervention(intervention=intervention)
 
                 if result:
                     total_processed += 1
-                    if result.get('relationships_created', 0) > 0:
-                        relationships_created += result['relationships_created']
 
                 # Save state periodically
                 if (i + 1) % batch_size == 0:
@@ -102,6 +92,5 @@ class SemanticNormalizer:
         return {
             'total_processed': total_processed,
             'canonical_groups_created': canonical_groups_created,
-            'relationships_created': relationships_created,
             'errors': errors
         }

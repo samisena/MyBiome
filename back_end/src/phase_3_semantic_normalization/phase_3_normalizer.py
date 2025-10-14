@@ -5,10 +5,10 @@ Processes interventions from the database:
 1. Load interventions
 2. Generate embeddings
 3. Extract canonicals via LLM
-4. Find similar interventions and classify relationships
-5. Assign hierarchical layers
-6. Populate database tables
+4. Assign hierarchical layers
+5. Populate database tables
 
+Note: Relationship classification has been moved to Phase 3d (cluster-level analysis).
 Supports resumable sessions and progress tracking.
 """
 
@@ -80,7 +80,6 @@ class MainNormalizer:
             'processed': len(self.processed_interventions),
             'skipped': 0,
             'errors': 0,
-            'relationships_created': 0,
             'canonical_groups_created': 0
         }
 
@@ -129,13 +128,11 @@ class MainNormalizer:
                     timeout=llm_config.get('timeout', 60),
                     max_retries=llm_config.get('max_retries', 3),
                     strip_think_tags=llm_config.get('strip_think_tags', True),
-                    canonical_cache_path=cache_config.get('canonical_cache_path', canonical_cache),
-                    relationship_cache_path=cache_config.get('llm_cache_path', relationship_cache)
+                    canonical_cache_path=cache_config.get('canonical_cache_path', canonical_cache)
                 )
 
         return LLMClassifier(
-            canonical_cache_path=canonical_cache,
-            relationship_cache_path=relationship_cache
+            canonical_cache_path=canonical_cache
         )
 
     def _load_session_state(self) -> Dict:
@@ -217,17 +214,13 @@ class MainNormalizer:
 
     def process_intervention(
         self,
-        intervention: Dict,
-        all_intervention_names: List[str],
-        top_k_similar: int = 5
+        intervention: Dict
     ) -> Optional[Dict]:
         """
         Process a single intervention through the normalization pipeline.
 
         Args:
             intervention: Intervention dict
-            all_intervention_names: List of all intervention names for similarity search
-            top_k_similar: Number of similar interventions to find
 
         Returns:
             Processing result dict
@@ -248,19 +241,11 @@ class MainNormalizer:
             embedding = self.embedding_engine.generate_embedding(intervention_name)
             embedding_bytes = embedding.tobytes()
 
-            # Step 3: Find similar interventions
-            similar_interventions = self.embedding_engine.find_similar(
-                query_text=intervention_name,
-                candidate_texts=all_intervention_names,
-                top_k=top_k_similar,
-                min_similarity=0.65
-            )
-
-            # Step 4: Extract Layer 2 variant and Layer 3 detail
+            # Step 3: Extract Layer 2 variant and Layer 3 detail
             layer_2_variant = intervention_name.lower()  # Default: normalized name
             layer_3_detail = self.hierarchy_manager.extract_dosage(intervention_name)
 
-            # Step 5: Create or get canonical group
+            # Step 4: Create or get canonical group
             canonical_id = self.hierarchy_manager.get_or_create_canonical_group(
                 canonical_name=canonical_group,
                 entity_type='intervention',
@@ -272,7 +257,7 @@ class MainNormalizer:
                 self.stats['canonical_groups_created'] += 1
                 self.session_state.setdefault('canonical_groups', []).append(canonical_group)
 
-            # Step 6: Create semantic entity
+            # Step 5: Create semantic entity
             entity_id = self.hierarchy_manager.create_semantic_entity(
                 entity_name=intervention_name,
                 entity_type='intervention',
@@ -280,7 +265,7 @@ class MainNormalizer:
                 layer_1_canonical=canonical_group,
                 layer_2_variant=layer_2_variant,
                 layer_3_detail=layer_3_detail,
-                relationship_type=None,  # Will be set when creating relationships
+                relationship_type=None,
                 aggregation_rule=None,
                 embedding_vector=embedding_bytes,
                 embedding_model='nomic-embed-text',
@@ -288,35 +273,7 @@ class MainNormalizer:
                 source_ids=None  # Could be populated later
             )
 
-            # Step 7: Process similar interventions and create relationships
-            relationships_created = 0
-            for similar_name, similarity in similar_interventions:
-                # Classify relationship
-                rel_result = self.llm_classifier.classify_relationship(
-                    intervention_name,
-                    similar_name,
-                    similarity
-                )
-
-                # Get or create similar entity (if not already processed)
-                similar_entity = self.hierarchy_manager.get_entity_by_name(similar_name, 'intervention')
-
-                if similar_entity:
-                    # Create relationship
-                    self.hierarchy_manager.create_entity_relationship(
-                        entity_1_id=entity_id,
-                        entity_2_id=similar_entity['id'],
-                        relationship_type=rel_result['relationship_type'],
-                        relationship_confidence=0.85,  # Could be calculated
-                        source='llm_inference',
-                        labeled_by=self.llm_classifier.model,
-                        similarity_score=similarity
-                    )
-                    relationships_created += 1
-
-            self.stats['relationships_created'] += relationships_created
-
-            # Step 8: Update canonical group stats
+            # Step 6: Update canonical group stats
             self.hierarchy_manager.update_canonical_group_stats(canonical_group, 'intervention')
 
             # Mark as processed
@@ -328,8 +285,7 @@ class MainNormalizer:
                 'entity_id': entity_id,
                 'canonical_group': canonical_group,
                 'layer_2_variant': layer_2_variant,
-                'layer_3_detail': layer_3_detail,
-                'relationships_created': relationships_created
+                'layer_3_detail': layer_3_detail
             }
 
         except Exception as e:
@@ -351,18 +307,11 @@ class MainNormalizer:
         interventions = self.load_interventions()
         self.stats['total_interventions'] = len(interventions)
 
-        # Get unique intervention names
-        all_intervention_names = [i['intervention_name'] for i in interventions]
-
         # Process interventions with progress bar
         with tqdm(total=len(interventions), desc="Normalizing interventions") as pbar:
             for i, intervention in enumerate(interventions):
                 # Process
-                result = self.process_intervention(
-                    intervention,
-                    all_intervention_names,
-                    top_k_similar=5
-                )
+                result = self.process_intervention(intervention)
 
                 # Update progress
                 pbar.update(1)
@@ -396,7 +345,6 @@ class MainNormalizer:
         print(f"Skipped (already processed): {self.stats['skipped']}")
         print(f"Errors: {self.stats['errors']}")
         print(f"Canonical groups created: {self.stats['canonical_groups_created']}")
-        print(f"Relationships created: {self.stats['relationships_created']}")
 
         # Embedding engine stats
         emb_stats = self.embedding_engine.get_stats()
@@ -408,19 +356,12 @@ class MainNormalizer:
         llm_stats = self.llm_classifier.get_stats()
         print(f"\nLLM classifier:")
         print(f"  Canonical cache: {llm_stats['canonical_cache_size']} (hit rate: {llm_stats['canonical_hit_rate']:.2%})")
-        print(f"  Relationship cache: {llm_stats['relationship_cache_size']} (hit rate: {llm_stats['relationship_hit_rate']:.2%})")
 
         # Hierarchy stats
         hierarchy_stats = self.hierarchy_manager.get_hierarchy_stats()
         print(f"\nHierarchy database:")
         print(f"  Total entities: {hierarchy_stats['total_entities']}")
         print(f"  Canonical groups: {hierarchy_stats['total_canonical_groups']}")
-        print(f"  Relationships: {hierarchy_stats['total_relationships']}")
-
-        if hierarchy_stats.get('relationships_by_type'):
-            print(f"\n  Relationships by type:")
-            for rel_type, count in hierarchy_stats['relationships_by_type'].items():
-                print(f"    - {rel_type}: {count}")
 
         print("\n" + "="*80)
 

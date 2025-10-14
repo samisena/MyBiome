@@ -67,12 +67,13 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 
 ### Phase 3a: Semantic Normalization ✅
 - **Scope**: Both interventions AND conditions
-- **Technology**: nomic-embed-text embeddings (768-dim) + qwen3:14b classification
-- **6 Relationship Types**: EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT
+- **Technology**: nomic-embed-text embeddings (768-dim) + qwen3:14b canonical extraction
+- **Process**: Generate embeddings → Extract canonical groups via LLM → Populate semantic hierarchy
 - **Output**:
   - **Interventions**: Cross-paper unification (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
   - **Conditions**: Hierarchical grouping (e.g., "IBS" → "IBS-C", "IBS-D", "IBS-M")
 - **Performance**: Creates ~571 intervention groups + ~200-300 condition groups
+- **Note**: Relationship classification moved to Phase 3d (cluster-level analysis)
 - **Files**: `phase_3_normalizer.py`, `phase_3_embedding_engine.py`, `phase_3_llm_classifier.py`, `phase_3_hierarchy_manager.py`
 
 ### Phase 3b: Group-Based Categorization ✅
@@ -144,47 +145,48 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 
 ---
 
-## Database Schema (26 Tables)
+## Database Schema (25 Tables)
 
 ### Core Data Tables (2 tables)
 1. **`papers`** - PubMed articles with metadata and fulltext
 2. **`interventions`** - Extracted treatments and outcomes with mechanism data
 
-### Phase 3a & 3b Semantic Normalization & Categorization (3 tables)
+### Phase 3a & 3b Semantic Normalization & Categorization (2 tables)
 3. **`semantic_hierarchy`** - Hierarchical structure linking interventions AND conditions to canonical groups
-4. **`entity_relationships`** - Pairwise relationship types (6 types) for both entity types
-5. **`canonical_groups`** - Canonical entity groupings with Layer 0 categories for both interventions and conditions
+4. **`canonical_groups`** - Canonical entity groupings with Layer 0 categories for both interventions and conditions
+
+Note: `entity_relationships` table removed - relationship analysis moved to Phase 3d (cluster-level)
 
 ### Phase 3c Mechanism Clustering (4 tables)
-6. **`mechanism_clusters`** - Mechanism cluster metadata with canonical names and hierarchy
-7. **`mechanism_cluster_membership`** - Mechanism-to-cluster assignments (HDBSCAN or singleton)
-8. **`intervention_mechanisms`** - Junction table linking interventions to mechanism clusters
-9. **`mechanism_condition_associations`** - Analytics for which mechanisms work for which conditions
+5. **`mechanism_clusters`** - Mechanism cluster metadata with canonical names and hierarchy
+6. **`mechanism_cluster_membership`** - Mechanism-to-cluster assignments (HDBSCAN or singleton)
+7. **`intervention_mechanisms`** - Junction table linking interventions to mechanism clusters
+8. **`mechanism_condition_associations`** - Analytics for which mechanisms work for which conditions
 
 ### Phase 3d Multi-Category Support (3 tables) 🧪
-10. **`intervention_category_mapping`** - Many-to-many intervention-to-category relationships
-11. **`condition_category_mapping`** - Many-to-many condition-to-category relationships
-12. **`mechanism_category_mapping`** - Many-to-many mechanism-to-category relationships
+9. **`intervention_category_mapping`** - Many-to-many intervention-to-category relationships
+10. **`condition_category_mapping`** - Many-to-many condition-to-category relationships
+11. **`mechanism_category_mapping`** - Many-to-many mechanism-to-category relationships
 
 ### Data Mining Analytics (11 tables)
-13. **`knowledge_graph_nodes`** - Nodes in medical knowledge graph
-14. **`knowledge_graph_edges`** - Multi-edge graph relationships
-15. **`bayesian_scores`** - Bayesian evidence scoring
-16. **`treatment_recommendations`** - AI treatment recommendations
-17. **`research_gaps`** - Under-researched areas
-18. **`innovation_tracking`** - Emerging treatment tracking
-19. **`biological_patterns`** - Mechanism and pattern discovery
-20. **`condition_similarities`** - Condition similarity matrix
-21. **`intervention_combinations`** - Synergistic combination analysis
-22. **`failed_interventions`** - Catalog of ineffective treatments
-23. **`data_mining_sessions`** - Session tracking
+12. **`knowledge_graph_nodes`** - Nodes in medical knowledge graph
+13. **`knowledge_graph_edges`** - Multi-edge graph relationships
+14. **`bayesian_scores`** - Bayesian evidence scoring
+15. **`treatment_recommendations`** - AI treatment recommendations
+16. **`research_gaps`** - Under-researched areas
+17. **`innovation_tracking`** - Emerging treatment tracking
+18. **`biological_patterns`** - Mechanism and pattern discovery
+19. **`condition_similarities`** - Condition similarity matrix
+20. **`intervention_combinations`** - Synergistic combination analysis
+21. **`failed_interventions`** - Catalog of ineffective treatments
+22. **`data_mining_sessions`** - Session tracking
 
 ### Configuration & System (2 tables)
-24. **`intervention_categories`** - 13-category taxonomy configuration
-25. **`sqlite_sequence`** - SQLite internal auto-increment
+23. **`intervention_categories`** - 13-category taxonomy configuration
+24. **`sqlite_sequence`** - SQLite internal auto-increment
 
 ### Legacy Tables (4 tables - DEPRECATED)
-26. **`canonical_entities`, `entity_mappings`, `llm_normalization_cache`, `normalized_terms_cache`** - Replaced by Phase 3a semantic normalization
+25. **`canonical_entities`, `entity_mappings`, `llm_normalization_cache`, `normalized_terms_cache`** - Replaced by Phase 3a semantic normalization
 
 ---
 
@@ -212,7 +214,7 @@ back_end/src/
 ├── phase_3_semantic_normalization/   # Phase 3: Normalization & Categorization
 │   ├── phase_3_normalizer.py                    # 3a: Core normalization orchestrator
 │   ├── phase_3_embedding_engine.py              # 3a: Semantic embeddings
-│   ├── phase_3_llm_classifier.py                # 3a: Relationship classification
+│   ├── phase_3_llm_classifier.py                # 3a: Canonical extraction
 │   ├── phase_3_hierarchy_manager.py             # 3a: Database operations
 │   ├── phase_3b_intervention_categorizer.py     # 3b: Intervention categorization
 │   ├── phase_3b_condition_categorizer.py        # 3b: Condition categorization
@@ -348,7 +350,6 @@ python evaluator.py
 - **Mechanism Clusters**: **666 mechanisms** → **415 clusters** (100% assignment) ✅
   - 142 natural clusters (HDBSCAN)
   - 273 singleton clusters (unique mechanisms)
-- **Semantic Relationships**: 141+ cross-paper relationships tracked (both entity types)
 - **Processing Rate**: ~38-39 papers/hour (qwen3:14b with mechanism extraction)
 - **Architecture**: Phase 3a + 3b + 3c fully integrated ✅
 - **Ground Truth Labeling**: 80/500 pairs labeled (16% complete)
@@ -446,10 +447,10 @@ Exports SQLite → JSON with Phase 3.5 hierarchical data, metadata, and top perf
    - Propagate to conditions in interventions table
    - Fallback categorization for orphans
 
-### Phase 3: Semantic Normalization (October 2025) ✅
+### Phase 3a: Semantic Normalization (October 2025) ✅
 
 **Problem**: Cross-paper entity name unification (interventions AND conditions)
-**Solution**: Embedding-based similarity + LLM classification to create canonical groups
+**Solution**: Embedding-based canonical extraction via LLM
 
 **Scope**: Both interventions and conditions processed
 - **Interventions**: Unify variant names (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
@@ -458,7 +459,6 @@ Exports SQLite → JSON with Phase 3.5 hierarchical data, metadata, and top perf
 **Performance** (Current Database):
 - **Interventions**: 777 entities → 571 canonical groups
 - **Conditions**: 406 entities → ~200-300 canonical groups
-- **Total Relationships**: 141+ semantic connections
 - **Embeddings**: nomic-embed-text 768-dim vectors for all entities
 - **Runtime**: ~25s per uncached LLM call
 - **Cache hit rate**: 40%+
@@ -466,6 +466,8 @@ Exports SQLite → JSON with Phase 3.5 hierarchical data, metadata, and top perf
 **Result**:
 - Unified cross-paper analysis (e.g., "150 papers support vitamin D" instead of fragmented counts)
 - Condition variant tracking (e.g., "IBS" studies include "IBS-C", "IBS-D", "IBS-M" subtypes)
+
+**Note**: Entity-level relationship classification removed - moved to Phase 3d (cluster-level analysis)
 
 ### Phase 3.5: Group-Based Categorization (October 2025) ✅
 
@@ -659,30 +661,28 @@ Located in `back_end/src/data_mining/`:
    - Batch embedding support for efficiency
    - Cosine similarity calculations for finding related entities
 
-2. **llm_classifier.py** (267 lines) - LLM-based relationship classification
-   - Uses qwen3:14b for canonical extraction and relationship typing
-   - 6 relationship types: EXACT_MATCH, VARIANT, SUBTYPE, SAME_CATEGORY, DOSAGE_VARIANT, DIFFERENT
+2. **llm_classifier.py** (~200 lines) - LLM-based canonical extraction
+   - Uses qwen3:14b for canonical group extraction
    - Extracts canonical forms (e.g., "vitamin D" from "Vitamin D3 1000IU")
-   - Chain-of-thought reasoning for accurate classification
+   - Chain-of-thought suppression for faster processing
+   - Note: Relationship classification moved to Phase 3d
 
-3. **hierarchy_manager.py** (307 lines) - Database operations
-   - Manages 3-table schema: `semantic_hierarchy`, `entity_relationships`, `canonical_groups`
-   - CRUD operations for entities, relationships, and canonical groups
+3. **hierarchy_manager.py** (~250 lines) - Database operations
+   - Manages 2-table schema: `semantic_hierarchy`, `canonical_groups`
+   - CRUD operations for entities and canonical groups
    - Query methods for fetching hierarchies and group members
    - Transaction support for atomic updates
 
-4. **normalizer.py** (488 lines) - Pipeline orchestrator
+4. **normalizer.py** (~400 lines) - Pipeline orchestrator
    - MainNormalizer class coordinates full normalization workflow
-   - Workflow: Load entities → Generate embeddings → Extract canonicals → Find similar → Classify relationships → Populate DB
+   - Workflow: Load entities → Generate embeddings → Extract canonicals → Populate DB
    - Supports both intervention and condition normalization
    - Progress tracking and session persistence
-   - Configurable similarity thresholds and batch sizes
+   - Note: Relationship analysis moved to Phase 3d
 
-5. **evaluator.py** (342 lines) - Accuracy validation
-   - Tests automated system against ground truth labeled data
-   - Generates 6×6 confusion matrix for relationship types
-   - Per-type accuracy metrics and overall system accuracy
-   - Error pattern identification (e.g., VARIANT misclassified as EXACT_MATCH)
+5. **evaluator.py** (342 lines) - Accuracy validation (DEPRECATED)
+   - Legacy tool for ground truth validation
+   - Note: Relationship classification moved to Phase 3d (cluster-level)
 
 **Phase 3.5: Group-Based Categorization** (3 files, 1,378 lines)
 6. **group_categorizer.py** (561 lines) - Intervention group categorizer

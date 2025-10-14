@@ -1,0 +1,1068 @@
+{
+  "01e8250d1bd964741469380450f41700c4b4d411080980d7aa563014ec46b290": {
+    "cluster_id": 56,
+    "canonical_name": "Attention-deficit/hyperactivity disorder",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 5
+    }
+  },
+  "0fa82ef11ad734217dee3e1eedd8d7f200464b594e4d64d8340ebf798ff2c643": {
+    "cluster_id": 99,
+    "canonical_name": "Alzheimer's disease",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a9b28528a42359acce4412b6824d7cd5f5fbab8a796971bc0b9c2a805d625f5a": {
+    "cluster_id": 100,
+    "canonical_name": "Alcohol Use Disorder",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "510a6892b6d542f32ba767a5b542664a10b62e6a61bb2bc99c33fd149fd7c896": {
+    "cluster_id": 101,
+    "canonical_name": "Alcohol Withdrawal Syndrome",
+    "category": "psychiatric",
+    "parent_cluster": "Alcohol Use Disorder",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4b12b423f69161adaa8c690b1fce043d50012a9a89897edd6bd2afaf9c092d74": {
+    "cluster_id": 11,
+    "canonical_name": "Polycystic Kidney Disease",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "60f0fe1dbd36aecc2d6b64711b4c96d1b933a9ddda18b22b0f9959fb1b501cb8": {
+    "cluster_id": 95,
+    "canonical_name": "Parkinson's disease",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "48a8d0c556c444c1b6a37e8f09c2e06045bb009519e4cc9dcf8a743abf0cf6e0": {
+    "cluster_id": 102,
+    "canonical_name": "C3 glomerulopathy",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e2fb12b3ce1c247833cc1592c9c035ced6abff8a39fa6984b2bf477294d3eac3": {
+    "cluster_id": 92,
+    "canonical_name": "Cognitive Impairment",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "29424d0b695b6a2b15e2f8d770f8a7b9bfe854f048ed4877bcb83d2ae8875dc5": {
+    "cluster_id": 103,
+    "canonical_name": "Cutibacterium acnes infection",
+    "category": "infectious",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "aad9f191823028dcf21e0097861324ca367fe2221e1158a37abe8b546b35bd78": {
+    "cluster_id": 62,
+    "canonical_name": "Giant Cell Arteritis",
+    "category": "rheumatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "9f385712df0062889c2bf028bef60f93a6b2b1600b1e9221d973472bd74fabe6": {
+    "cluster_id": 104,
+    "canonical_name": "Hepatitis B",
+    "category": "infectious",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "0590fd2c284ba1c48ac25589b3bbd82eb9f9235ac41edf9d44ef02426b44f83e": {
+    "cluster_id": 39,
+    "canonical_name": "Asthma",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 7
+    }
+  },
+  "e7cc64129211713dc95e09dbe12aa9a35181119acbc006d3d443d12a6dabf0cb": {
+    "cluster_id": 40,
+    "canonical_name": "HER2-mutant metastatic non-small cell lung cancer",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "56a6ba4b26243f4fc0d83fa6557398ce0ea1c65077ebe0e87728b6442f8b0627": {
+    "cluster_id": 105,
+    "canonical_name": "HIV Drug Resistance",
+    "category": "infectious",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d8fdff1cb786adb6c6446757933efca1261f2edc00c1bcb11055fdec5b8fa451": {
+    "cluster_id": 106,
+    "canonical_name": "HPV Infection",
+    "category": "infectious",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9864bfdb02a873986256d106ac030a13de1947e9f2682eb0fa7b624dcbda86d9": {
+    "cluster_id": 107,
+    "canonical_name": "Helicobacter pylori infection",
+    "category": "infectious",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d2f8ea52ca9144c4ce78bc2e0ca0d1f8b971eb6d7c3bdfe484aac8cb88c08e06": {
+    "cluster_id": 36,
+    "canonical_name": "Prostate Cancer",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "0fa5aeed7eaeec4829e8d6ed2f56671646b4bf164847b12885cd82b084dae366": {
+    "cluster_id": 108,
+    "canonical_name": "IgA nephropathy",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "7fdb3343431249d6fc187ac6201ea4658d6312e001634b3e86ae0c133c93cddd": {
+    "cluster_id": 7,
+    "canonical_name": "Lennox-Gastaut syndrome",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "cd4d8c4522ad3265db57ed3183c36ff0f6805e6ee7febce700f610fe4ff49aa5": {
+    "cluster_id": 16,
+    "canonical_name": "Pseudomonas aeruginosa infection",
+    "category": "infectious",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "85795f6684061298f6a169f00b94ebcfe9916c2045e8c0a6c89aad2b779541fc": {
+    "cluster_id": 109,
+    "canonical_name": "Parkinson's disease pain in the Off state",
+    "category": "neurological",
+    "parent_cluster": "Parkinson's disease",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "7351096f1ff731d7ed85796b55466882b15f9f708d94b8e687af6e6cbd0721e2": {
+    "cluster_id": 110,
+    "canonical_name": "Parkinson's disease",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f94c29ba18c86cf929060c7562eeb8f3210579be11cbed2ed6ec821151ccdca9": {
+    "cluster_id": 75,
+    "canonical_name": "Polycystic ovary syndrome",
+    "category": "endocrine",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "1ac4da2eadf5cb1ce4400aa776de388020570ecc59115c35df75f207c5ed3c34": {
+    "cluster_id": 111,
+    "canonical_name": "Tuberculosis-related stigma",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a6c4778c3a077941143a9df86675082a6a41846d8ca458ca276a0c7febc069b7": {
+    "cluster_id": 67,
+    "canonical_name": "Type 2 diabetes mellitus",
+    "category": "endocrine",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 5
+    }
+  },
+  "363cb020dd53d082f1608ac5bb646d33b8c1fe9b3d04c6329d0f95b544a81d82": {
+    "cluster_id": 28,
+    "canonical_name": "Obesity",
+    "category": "nutritional",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "83127158a6e50cd5d69664e2bf056fae1ec18c4f82f3ade26e9f325dc0215e25": {
+    "cluster_id": 84,
+    "canonical_name": "Acne vulgaris",
+    "category": "dermatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "d756d0c5beffbe1f66fa4ec0d39bbe20f016b6b64e0777ecc1f27aef0e9ac4df": {
+    "cluster_id": 19,
+    "canonical_name": "Actinic keratosis",
+    "category": "dermatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "fffd1dc3df29fe343f82dbf4ec2a22a07cd36924b72e9663d46a2ba3d13652a7": {
+    "cluster_id": 112,
+    "canonical_name": "Gastric varices bleeding",
+    "category": "digestive",
+    "parent_cluster": "Gastric varices",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "91934eaa73e02a71be94da1c1f6341da98d7bec23f70c3d2506b06516fc01e57": {
+    "cluster_id": 14,
+    "canonical_name": "Anterior cruciate ligament injury",
+    "category": "musculoskeletal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "16b55e090bc13e6accf884f51762bb26b0d2730d10dedc77301691afee70d01b": {
+    "cluster_id": 54,
+    "canonical_name": "Acute gout",
+    "category": "rheumatological",
+    "parent_cluster": "Gout",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "d5c871b1503dc4886c1223938120f432881d3f3fe0042667f7355f61d4fde435": {
+    "cluster_id": 48,
+    "canonical_name": "Acute kidney injury",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "1e2258b1259be958342edeb0f2bfe2ce0f512f1b10d79bbd530827ceb650153c": {
+    "cluster_id": 33,
+    "canonical_name": "Acute liver failure",
+    "category": "digestive",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "8edd5992b3a1c8c1691889a9735337d72b8bbaae1e1398ce45d580e330f73bf4": {
+    "cluster_id": 60,
+    "canonical_name": "Acute myeloid leukemia",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "9eb83ec7d66b196db010d7ecd525a429d6c70f97b1eba5731f200fa790e43498": {
+    "cluster_id": 46,
+    "canonical_name": "Pulmonary embolism",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 7
+    }
+  },
+  "170e6e1926cb46e713b0df69fdd6eb483cd59774cb9b65ac7f6e600356761c2d": {
+    "cluster_id": 113,
+    "canonical_name": "Acute severe ulcerative colitis",
+    "category": "digestive",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "63e7bd924aeade9952f9b10f940ce630853d34d7a0f58115d94894029321ece8": {
+    "cluster_id": 78,
+    "canonical_name": "Medication adherence in hypothyroidism",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "8df4e9d015ac671423707af96916b34c6dd658ae5ee13270a007a1caa169ddd1": {
+    "cluster_id": 114,
+    "canonical_name": "Advance care planning",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a0d8b6694fe5ee22e72c56d77a42d187d37bf186f592b8f52c24e2cb02c774d0": {
+    "cluster_id": 50,
+    "canonical_name": "Advanced melanoma",
+    "category": "oncological",
+    "parent_cluster": "Melanoma",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "1f5e934df7cad7f6f3117897bb0260079d144049d6f3cd22e9c72512048fbb1a": {
+    "cluster_id": 115,
+    "canonical_name": "Non-oncogene addicted non-small cell lung cancer",
+    "category": "oncological",
+    "parent_cluster": "Non-small cell lung cancer",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3fb8e3a2ee59dedaafc5de8ce046c70ea674247f06aa963144175af769804940": {
+    "cluster_id": 49,
+    "canonical_name": "Non-Small Cell Lung Cancer (NSCLC)",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 5
+    }
+  },
+  "6938d4af72ceba44260c988ae17de85580e975a184b0bd2aa0e90284fc4fbada": {
+    "cluster_id": 116,
+    "canonical_name": "Chronic Liver Disease",
+    "category": "digestive",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "70793a4db6d9c52ec223a1c7a64923b8406a8e8ad5bc9540cf0963ee9179fca3": {
+    "cluster_id": 117,
+    "canonical_name": "Affective Symptoms",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "730b68fa7a541b0963a7612313c249279a72d4a13bf1ae362baabfe059d02efe": {
+    "cluster_id": 47,
+    "canonical_name": "Chronic Kidney Disease",
+    "category": "renal",
+    "parent_cluster": "Parkinson's Disease",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "002680834282a1fc1f8ba649a78067ac1543b3449109d7992990168581bcc188": {
+    "cluster_id": 118,
+    "canonical_name": "Alexithymia",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b46569c0d3c5222acdf1323ba91ad916afc99c5b4ad5e71851790a442b556bd8": {
+    "cluster_id": 119,
+    "canonical_name": "All-Cause Hospitalizations",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "183170ee9879091314c4d22ebd800e33b3ee8dafa085017663c09897c32fcb9f": {
+    "cluster_id": 37,
+    "canonical_name": "Anhedonia",
+    "category": "psychiatric",
+    "parent_cluster": "Depression",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "5054a9359ae708180154aff3db731f9308bc4ab2cfa04646dae8f426b985c5f7": {
+    "cluster_id": 120,
+    "canonical_name": "Antibody-Mediated Glomerular Nephropathy",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d708d2334c5833f81999b850b73c3bc577a2b88ba4133c306e1e392fe16d1f09": {
+    "cluster_id": 41,
+    "canonical_name": "Anxiety Disorders",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 5
+    }
+  },
+  "85144c704374f886424a7c8d5f5d6440b1d3efb9040bf53c606142848302b032": {
+    "cluster_id": 43,
+    "canonical_name": "Depression and Anxiety Disorders",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 6
+    }
+  },
+  "6508098ea67868c145e6fe44d189eb6d91b262828ea477c49e42d7d497cbe38f": {
+    "cluster_id": 121,
+    "canonical_name": "Anxiety",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "036b8dc21805ba834c4b29fed7f6320b487be573e312dd0cf32e44f84bbc897f": {
+    "cluster_id": 42,
+    "canonical_name": "Aortic Stenosis",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "0d96948c454b5ec1def49c06640d2030d375c8eff59aa3b06c1ae2c2607ece45": {
+    "cluster_id": 122,
+    "canonical_name": "Ascites",
+    "category": "digestive",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4be9ce430ccabff264d9bc10f409a3ba627c7264331bfaf4ae9c76281c885b8e": {
+    "cluster_id": 81,
+    "canonical_name": "Atopic Dermatitis",
+    "category": "dermatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "7d2f90c79df841212970510c14360a85bfd538f435c101303e1280f24bb5ce36": {
+    "cluster_id": 123,
+    "canonical_name": "Atrial Fibrillation",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "60788dbfb712a5870711f712a60ac1b166d9c4dfd4445ad335254c755d7d622d": {
+    "cluster_id": 124,
+    "canonical_name": "Atrial Fibrillation Recurrence",
+    "category": "cardiac",
+    "parent_cluster": "Atrial Fibrillation",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "ea10fb6066bdc903bfc7ed804aa03426c30be587bc4c2c3684a55e38e191ffbd": {
+    "cluster_id": 125,
+    "canonical_name": "Atrial Flutter",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "df22b138aa3ae86e9f5c94ccd0bfedc5f90d6844a493b328d27ed3ab4813942d": {
+    "cluster_id": 126,
+    "canonical_name": "Barriers to Work and Physical Activity",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "708c9e358c48c0ac745d32d8bd337b451a7870cf0ee62819f87b4fcac207ec9d": {
+    "cluster_id": 31,
+    "canonical_name": "Basal Cell Carcinoma (BCC)",
+    "category": "dermatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "c447ce925384c989e70a2fd7af8c3bad6b490b11a4e5325a37e14d115c8a68ef": {
+    "cluster_id": 77,
+    "canonical_name": "Behavioral Intention to Participate in Physical Activity",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "a7fe778ee257a4d8fa8c8e1bda83502b6d9455506d9ba655c8314477eb44fa3e": {
+    "cluster_id": 1,
+    "canonical_name": "Type 1 Diabetes",
+    "category": "endocrine",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "94438eb00be38810f7fb6b93a61cc544e6a6953345337a30aee1ec817f480e1a": {
+    "cluster_id": 129,
+    "canonical_name": "Chronic Ankle Instability",
+    "category": "musculoskeletal",
+    "parent_cluster": "Ankle Fractures",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c9193808a5fd71ea4e6e3b2ead5cea1680f7e49244f060dd0eed4e69b029bb46": {
+    "cluster_id": 69,
+    "canonical_name": "chronic low-grade inflammation",
+    "category": "infectious",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "0d84c69ec6726e67e2a2e7f239b70e2ef79eb641f1af9a010d9f6397ea8f25a4": {
+    "cluster_id": 137,
+    "canonical_name": "chronic myelomonocytic leukemia",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9904703bb26fdabf8ba1aad39c10d4cc3bbb41ee627f755e855229c4bcfc8898": {
+    "cluster_id": 87,
+    "canonical_name": "chronic obstructive pulmonary disease",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "913e21800e6c9d34006909f9e5759e4d93310cb500b85497f1cd4932eedce2d1": {
+    "cluster_id": 10,
+    "canonical_name": "bronchiectasis",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "931e056274ae79272c8eba86111e887dbca65a4038300431217a2c317158422f": {
+    "cluster_id": 35,
+    "canonical_name": "circulatory shock",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "f5f857f109010771f6a5599609b5ff4fabf6ede18bf58a1b48f2ae4d40c8fde4": {
+    "cluster_id": 57,
+    "canonical_name": "attention-deficit/hyperactivity disorder",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "aab2683457d142ecac86f0cde087d014a3954439016afd8d8904a8b99137d773": {
+    "cluster_id": 138,
+    "canonical_name": "cognitive function",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b2006c6156bb4ecaaf38166deef4c53c1bd22dd8b4a129a6ae5f3b687cc0a434": {
+    "cluster_id": 91,
+    "canonical_name": "mild cognitive impairment in Parkinson's disease",
+    "category": "neurological",
+    "parent_cluster": "Parkinson's disease",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "3ff15363899185f9c018aa207ee15678608acb3f97a07bbfeeb42280471db858": {
+    "cluster_id": 139,
+    "canonical_name": "cognitive impairment in acute ischemic stroke",
+    "category": "neurological",
+    "parent_cluster": "acute ischemic stroke",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d9376e08aafb6cdba65550a26f521582371318f364002b555f7957ef099ef266": {
+    "cluster_id": 140,
+    "canonical_name": "cognitive impairments after severe acquired brain injury",
+    "category": "neurological",
+    "parent_cluster": "severe acquired brain injury",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1df634b531e7051d3233ded1790201bb84c6243f1b2c72c6b37d961e0c83546f": {
+    "cluster_id": 98,
+    "canonical_name": "inflammatory bowel disease",
+    "category": "digestive",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 6
+    }
+  },
+  "d8e2505a17d90b0e655a03579475ba0cfb2261a8c0de4c639a29f4d1ddfcac46": {
+    "cluster_id": 13,
+    "canonical_name": "postoperative complications in colorectal cancer surgery",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "6dc967144181e911200091022c76fbc9043b51bd1247c2c4a69be2e1f0fb4e0b": {
+    "cluster_id": 88,
+    "canonical_name": "community-acquired bacterial pneumonia",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "2edbabf9d0e54bb564df0f2fc09d4e1f2146acda501d7d699fbbd73d933e5c40": {
+    "cluster_id": 64,
+    "canonical_name": "kidney stones",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "1b3c4d7dcd0f8f17c6580c16b6f0cf85821e4d502efeb8eef47f6d79d66a7a5e": {
+    "cluster_id": 82,
+    "canonical_name": "constipation-predominant irritable bowel syndrome",
+    "category": "digestive",
+    "parent_cluster": "irritable bowel syndrome",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "8b78e0082a95d3d5d58f611a81e479bcefcc395d09b003accc38d25722a3b93a": {
+    "cluster_id": 141,
+    "canonical_name": "de novo coronary artery lesions",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e8fe33c37694c76a6659b8cd7edd30fbcb273c856fc3cca6df069cde812db14f": {
+    "cluster_id": 44,
+    "canonical_name": "subclinical depressive symptoms",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "6e7a593baaa60931f7aa1694dd80922318b9f1c0dbab59947974712b7e3cd0b5": {
+    "cluster_id": 142,
+    "canonical_name": "diabetic foot",
+    "category": "endocrine",
+    "parent_cluster": "diabetes",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f91b3901e11472dc060060e1c8a2264fd789d2ee43d28732a39cae6ceff4cfff": {
+    "cluster_id": 143,
+    "canonical_name": "diffuse podocytopathy",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "eea94ab00157155737f8699e4657242dd6a35dd6eb6d18385f4c9e7ab40edb8d": {
+    "cluster_id": 144,
+    "canonical_name": "disability progression in secondary progressive multiple sclerosis",
+    "category": "neurological",
+    "parent_cluster": "multiple sclerosis",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  }
+}

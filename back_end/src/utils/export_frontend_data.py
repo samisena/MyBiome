@@ -213,15 +213,12 @@ def export_interventions_data() -> Dict[str, Any]:
     cursor.execute("SELECT COUNT(*) FROM interventions WHERE correlation_type = 'negative'")
     negative_correlations = cursor.fetchone()[0]
 
-    # Get semantic hierarchy statistics (Phase 3.5 - current system)
+    # Get semantic hierarchy statistics (Phase 3a - canonical groups only)
     cursor.execute("SELECT COUNT(*) FROM semantic_hierarchy WHERE entity_type = 'intervention'")
     semantic_interventions = cursor.fetchone()[0]
 
     cursor.execute("SELECT COUNT(DISTINCT layer_1_canonical) FROM semantic_hierarchy WHERE entity_type = 'intervention' AND layer_1_canonical IS NOT NULL")
     canonical_groups = cursor.fetchone()[0]
-
-    cursor.execute("SELECT COUNT(*) FROM entity_relationships")
-    total_relationships = cursor.fetchone()[0]
 
     # Get top interventions by frequency (using Phase 3.5 hierarchical canonical names)
     cursor.execute("""
@@ -310,7 +307,6 @@ def export_interventions_data() -> Dict[str, Any]:
             'unique_papers': unique_papers,
             'semantic_interventions': semantic_interventions,
             'canonical_groups': canonical_groups,
-            'total_relationships': total_relationships,
             'positive_correlations': positive_correlations,
             'negative_correlations': negative_correlations,
             'intervention_categories': intervention_categories,
@@ -452,7 +448,6 @@ def main():
     print(f"Unique conditions: {data['metadata']['unique_conditions']}")
     print(f"Papers referenced: {data['metadata']['unique_papers']}")
     print(f"Canonical groups: {data['metadata']['canonical_groups']}")
-    print(f"Semantic relationships: {data['metadata']['total_relationships']}")
 
     # Export mechanism clusters data (Phase 3.6)
     print("\nExporting mechanism clusters data...")

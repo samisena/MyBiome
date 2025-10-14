@@ -3,9 +3,9 @@ Database Migration: Add Semantic Normalization Tables
 
 Creates hierarchical semantic normalization schema:
 - semantic_hierarchy (main 4-layer hierarchical structure)
-- entity_relationships (pairwise relationship tracking)
 - canonical_groups (Layer 1 aggregation entities)
 
+Note: entity_relationships table removed - relationship analysis moved to Phase 3d (cluster-level).
 Plus indexes and views for efficient querying.
 
 Usage:
@@ -100,54 +100,6 @@ def create_semantic_hierarchy_table(conn: sqlite3.Connection):
     print("[OK] semantic_hierarchy table created")
 
 
-def create_entity_relationships_table(conn: sqlite3.Connection):
-    """Create entity_relationships table for pairwise relationship tracking."""
-    print("Creating entity_relationships table...")
-
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS entity_relationships (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-
-            -- Entity Pair
-            entity_1_id INTEGER NOT NULL,
-            entity_2_id INTEGER NOT NULL,
-
-            -- Relationship Details
-            relationship_type TEXT NOT NULL,            -- EXACT_MATCH, VARIANT, SUBTYPE, etc.
-            relationship_confidence REAL CHECK(relationship_confidence >= 0 AND relationship_confidence <= 1),
-
-            -- Source of Relationship
-            source TEXT NOT NULL,                       -- 'manual_labeling', 'llm_inference', 'embedding_similarity'
-            labeled_by TEXT,
-
-            -- Hierarchical Aggregation Rules
-            share_layer_1 BOOLEAN DEFAULT FALSE,
-            share_layer_2 BOOLEAN DEFAULT FALSE,
-
-            -- Metadata
-            similarity_score REAL,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-            -- Constraints
-            FOREIGN KEY (entity_1_id) REFERENCES semantic_hierarchy(id) ON DELETE CASCADE,
-            FOREIGN KEY (entity_2_id) REFERENCES semantic_hierarchy(id) ON DELETE CASCADE,
-            CHECK(entity_1_id < entity_2_id),
-            UNIQUE(entity_1_id, entity_2_id)
-        )
-    """)
-
-    # Create indexes
-    print("Creating indexes for entity_relationships...")
-
-    conn.execute("""
-        CREATE INDEX IF NOT EXISTS idx_relationships_entities ON entity_relationships(entity_1_id, entity_2_id)
-    """)
-
-    conn.execute("""
-        CREATE INDEX IF NOT EXISTS idx_relationships_type ON entity_relationships(relationship_type)
-    """)
-
-    print("[OK] entity_relationships table created")
 
 
 def create_canonical_groups_table(conn: sqlite3.Connection):
@@ -299,7 +251,7 @@ def check_new_tables(conn: sqlite3.Connection) -> dict:
 
     new_tables = {}
 
-    for table in ['semantic_hierarchy', 'entity_relationships', 'canonical_groups']:
+    for table in ['semantic_hierarchy', 'canonical_groups']:
         try:
             cursor.execute(f"SELECT COUNT(*) FROM {table}")
             new_tables[table] = cursor.fetchone()[0]
@@ -361,11 +313,6 @@ def main():
         else:
             print("[WARNING]  semantic_hierarchy already exists, skipping creation")
 
-        if new_tables['entity_relationships'] is None:
-            create_entity_relationships_table(conn)
-        else:
-            print("[WARNING]  entity_relationships already exists, skipping creation")
-
         if new_tables['canonical_groups'] is None:
             create_canonical_groups_table(conn)
         else:
@@ -393,12 +340,12 @@ def main():
         print("=" * 80)
         print("\nNew tables created:")
         print("  - semantic_hierarchy (4-layer hierarchical structure)")
-        print("  - entity_relationships (pairwise relationship tracking)")
         print("  - canonical_groups (Layer 1 aggregation entities)")
         print("\nViews created:")
         print("  - v_intervention_hierarchy")
         print("  - v_intervention_by_canonical")
         print("  - v_intervention_by_variant")
+        print("\nNote: entity_relationships table removed - relationships handled at cluster-level in Phase 3d")
 
         if not args.drop_old and (old_tables['canonical_entities'] or old_tables['entity_mappings']):
             print("\n[WARNING]  Old tables still exist:")
