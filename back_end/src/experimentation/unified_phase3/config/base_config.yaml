@@ -17,24 +17,24 @@ cache:
 embedding:
   # Intervention embeddings
   interventions:
-    model: "nomic-embed-text"
-    dimension: 768
+    model: "mxbai-embed-large"
+    dimension: 1024
     batch_size: 32
     include_context: false  # Include dosage/duration context
     normalization: "l2"     # l2 or unit_sphere
 
   # Condition embeddings
   conditions:
-    model: "nomic-embed-text"
-    dimension: 768
+    model: "mxbai-embed-large"
+    dimension: 1024
     batch_size: 32
     include_context: false  # Include symptom context
     normalization: "l2"
 
   # Mechanism embeddings
   mechanisms:
-    model: "nomic-embed-text"  # or "mxbai-embed-large"
-    dimension: 768             # 1024 for mxbai
+    model: "mxbai-embed-large"
+    dimension: 1024
     batch_size: 10             # Smaller for longer texts
     include_context: false     # Include intervention/condition context
     normalization: "l2"
