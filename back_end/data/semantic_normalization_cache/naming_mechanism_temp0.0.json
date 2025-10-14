@@ -1,0 +1,2784 @@
+{
+  "6de27f482fca3b6e6fb6adfdaf8a12f116fb347ec70cacd435effe6712904c56": {
+    "cluster_id": 45,
+    "canonical_name": "Margin Evaluation",
+    "category": "Diagnostic Evaluation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "340ae4f2c18a0430ae9e684bb41e1ebee20505fd8b300238a6edcf7387a0e6b3": {
+    "cluster_id": 18,
+    "canonical_name": "B Cell Depletion",
+    "category": "Immunomodulatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "f32f763a6cad24e4381f009f1e0788ff578979ef47fd4e67b021ae623e00711e": {
+    "cluster_id": 46,
+    "canonical_name": "CD123 Targeted Therapy",
+    "category": "Targeted Therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f651aa5da4351d3797cc4dd8ba71d2cad34c4b87a3f7bfaa7bcec5e5e4a7dfa3": {
+    "cluster_id": 47,
+    "canonical_name": "EGFR Inhibition",
+    "category": "Cell Proliferation Regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1bd221b68b712a5e3f602326ee4029bced1aea1632700894be6430bf36ae5f1e": {
+    "cluster_id": 9,
+    "canonical_name": "GABA Modulation and Vagus Nerve Stimulation",
+    "category": "Neurostimulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "d74821bcb927c97e51df64020cf66f1ba318093faa5e1acb5f1a014d120aa4ff": {
+    "cluster_id": 48,
+    "canonical_name": "PARP Inhibition",
+    "category": "DNA Repair Inhibition",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "112bb81bac8e489895ead0c8437e980278172e8b190512593fee825d5cc14efe": {
+    "cluster_id": 49,
+    "canonical_name": "VEGF Inhibition",
+    "category": "Anti-Angiogenesis",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9557eac1bc8bb1e01d38e67e3191f510f1c144db764dbdf230f9179695246315": {
+    "cluster_id": 31,
+    "canonical_name": "Bone Metabolism Regulation",
+    "category": "Metabolic Regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 6
+    }
+  },
+  "12492c0d62e4497f9e0f400f598737f452f6a4cf8c9e256995f7d3a4dd6741d2": {
+    "cluster_id": 50,
+    "canonical_name": "Fluid Management",
+    "category": "Clinical Monitoring",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "623f2acb29eeaa7dadba62a2728b3a72c994b59d527c4c35e5b14c541d0cdbea": {
+    "cluster_id": 14,
+    "canonical_name": "Chloride Channel Activation",
+    "category": "Gastrointestinal Motility",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "9c025cd3e5bd49fc5b037c38140e159397b3ed6c87a0776b2c6773187c5df2a9": {
+    "cluster_id": 13,
+    "canonical_name": "5-HT4 Receptor Activation",
+    "category": "Neurotransmitter Modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "6d19d2860b724166a89137575cec86b57912c4b96fd4000e8c3182c9fbc84c5a": {
+    "cluster_id": 15,
+    "canonical_name": "GLP-1 Receptor Agonism",
+    "category": "Metabolic Regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "dd7a507521482b2c36e3b60d3319cbb7d5ae6cbee50fa22eba77d9276f0a3fb4": {
+    "cluster_id": 51,
+    "canonical_name": "TLR7/8 Activation",
+    "category": "Pro-Inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4abdc0a82774bb1472b23e49a03b63e7c7918f0f8955a322b51c00329d4ba380": {
+    "cluster_id": 52,
+    "canonical_name": "Imagery-Based Therapy",
+    "category": "Psychological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "130029724650a1e9a3d3f1489aded0ddc50b023e5f6826054bb2dbcdc715fe17": {
+    "cluster_id": 53,
+    "canonical_name": "Blood Component Therapy",
+    "category": "Transfusion Medicine",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "aa65453a1737fba939412c87163b205aff716f768fc5b3bcf5839bc8aa708fe4": {
+    "cluster_id": 54,
+    "canonical_name": "Physical Activity Counseling",
+    "category": "Lifestyle Modification",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "36b5fe72f744f34e1c79c339aa4376a2069aaeede6813f4ffbbfcc13983199fb": {
+    "cluster_id": 55,
+    "canonical_name": "Aryl Hydrocarbon Receptor Activation",
+    "category": "Toxicology",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "2276797916138b48805c544e0c47259beea5224b631fc73458ff14abb287dbe5": {
+    "cluster_id": 26,
+    "canonical_name": "Neural Pain Modulation",
+    "category": "Analgesic",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "0a0003b0637b49d9b32fc356e9e92051b525af22a4bc8bbcffc84978988a4235": {
+    "cluster_id": 56,
+    "canonical_name": "Immune Function Enhancement",
+    "category": "Immunomodulatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "11cc277d86e3c72abd0fa7ad86ea29593cf848acd8574ed7cac882c82bd1bc6d": {
+    "cluster_id": 17,
+    "canonical_name": "Androgen Deprivation Therapy",
+    "category": "Hormonal Therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "4b40049231601ee99cd9dc6ca50b9866697c20e8af81f8e67e6637a567ac0cb2": {
+    "cluster_id": 57,
+    "canonical_name": "Drug delivery to prevent restenosis after angioplasty",
+    "category": "vascular modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c3926153150185e8314fcfd859f3f7c7229f1ced49144ff66c188bef75eaeff6": {
+    "cluster_id": 29,
+    "canonical_name": "Anti-estrogenic and anti-inflammatory effects",
+    "category": "anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "5dc0e80eb8b4c38170428b653cead817001acdcd39ecf7f9c5df4dc733c868d1": {
+    "cluster_id": 30,
+    "canonical_name": "Corticosteroid-mediated anti-inflammatory effects",
+    "category": "anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "8f78c79d6cc9b4172ce66ff19db2ba14999f1d1087bc51e22a282c05097a737f": {
+    "cluster_id": 58,
+    "canonical_name": "Anti-inflammatory, regenerative, and vascular modulation",
+    "category": "multi-target",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "589dc4abef76f1cd6a1a5274b6bb30f70f1b2c1bcbe374d3612d5aff41ce1a27": {
+    "cluster_id": 22,
+    "canonical_name": "Antibacterial action against H. pylori",
+    "category": "antimicrobial",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "8326fc1dcd0ea0d13f2a5f486331e8f27620650e20f00bf9137d2ad161ceffda": {
+    "cluster_id": 23,
+    "canonical_name": "Antibacterial action against Mycobacterium tuberculosis",
+    "category": "antimicrobial",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "e91c641b6da41b83909cb6b481133c4d0ad8cb767a20e4418cf1813998459285": {
+    "cluster_id": 59,
+    "canonical_name": "Antibacterial, immunomodulatory, sebostatic, and antioxidant effects",
+    "category": "multi-target",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "27f20bd8d8ddba19ed4acde91685826d514a9e85f11294be32e846588d3eb816": {
+    "cluster_id": 25,
+    "canonical_name": "Antibiotic and bismuth therapy with probiotics for H. pylori eradication",
+    "category": "antimicrobial",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "ad549aa25f2bc468333c71341d554535c78a3f30f7de71642843f336a41cd944": {
+    "cluster_id": 60,
+    "canonical_name": "Antibiotic treatment for Treponema pallidum infection",
+    "category": "antimicrobial",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "37f7ad531fe4915cb9a9e8f688b27830865ce3a351a103b6a7128b0392c0a8f0": {
+    "cluster_id": 24,
+    "canonical_name": "Antibiotic treatment for H. pylori eradication",
+    "category": "antimicrobial",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "add589a85698eb8204deae3bb783368eb536db9353bf7801a1ee8c1f2c97449a": {
+    "cluster_id": 7,
+    "canonical_name": "Anticoagulation to prevent thromboembolism",
+    "category": "anti-thrombotic",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "787bc3ce31e761a53b74e8164d619bc23f32e3978dd99f7883326f1eac840e3a": {
+    "cluster_id": 61,
+    "canonical_name": "Antidepressant and analgesic effects",
+    "category": "neurotransmitter modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3e359ee56ad340dc4f38b974b838ea59f5d253d0f3c61c2d212862e20f26911e": {
+    "cluster_id": 11,
+    "canonical_name": "Antiviral and immunomodulatory effects against HCV",
+    "category": "anti-viral",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "9a11a9b2fc5a5a09239963a98eb6d3ee5507a7ae7aed7416e43c378ac507f3a2": {
+    "cluster_id": 62,
+    "canonical_name": "Biopsychosocial assessment for personalized treatment",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "407faa44cf04166f3f310f4a645d764be2f82aabb0ab5cdbdfceb1f7829c90f0": {
+    "cluster_id": 20,
+    "canonical_name": "Cardiac function assessment during stress",
+    "category": "diagnostic evaluation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "d909f92e2914878018dbb5f4f451af0b7608442e4ae97d9d42f19f551133deb2": {
+    "cluster_id": 19,
+    "canonical_name": "Gut microbiome modulation and metabolic regulation",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 10
+    }
+  },
+  "71a605a5621bc4302aacc812a3721e2bda93bc0bbff4a8a59c7b973de68e02c7": {
+    "cluster_id": 40,
+    "canonical_name": "Behavioral adherence improvement through education",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 6
+    }
+  },
+  "4a5f5730cca25047ec791f12b1f523e06c54052b54d0e08f36d700b1defac042": {
+    "cluster_id": 36,
+    "canonical_name": "Behavioral and social skills training",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "00d54aae3f630043d6a3bba0d857109562dc93f900bc7761368e559886b0e74b": {
+    "cluster_id": 42,
+    "canonical_name": "Cognitive restructuring and behavioral modification",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "a581597f12e8ee99709517f1ead1ee339f6113716940a42473d490f141adeb4d": {
+    "cluster_id": 41,
+    "canonical_name": "Behavioral modification and physical activity adherence",
+    "category": "lifestyle intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "5e1680f76ba817f6fe7cea0971a6c816413e3c470899a8e6f88ce5f7bca8fd48": {
+    "cluster_id": 37,
+    "canonical_name": "Cognitive Behavioral Therapy for Anxiety and Substance Use",
+    "category": "mental health intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "a4f35f9599c6fc931bcd1175b9fbab87e1fb63a3cf272e3940e537df554cc25c": {
+    "cluster_id": 16,
+    "canonical_name": "PD-1 Inhibition for Anti-Tumor Immune Response",
+    "category": "immune modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "8a1c38dcd239cbf75fb2a426bc35d5232164b99418e5f34893202521288bfe4c": {
+    "cluster_id": 63,
+    "canonical_name": "ST2/IL-33 Inhibition and Anti-Inflammatory Effects",
+    "category": "anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e3b9668f753e2780e3ac1c08d7f0093b2754e6d375af8590ddb58a0f3fab1576": {
+    "cluster_id": 64,
+    "canonical_name": "Bronchodilation Mechanism",
+    "category": "respiratory function",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3429194be718e793a507e19c586a2cd93e27c5e6efe475f36dbb9c91daf23580": {
+    "cluster_id": 65,
+    "canonical_name": "Calcium Absorption Regulation",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "be905fd850d32ad9a8eb5c02da8da7745b9305d6cbd5d7d6787df8fbae35dceb": {
+    "cluster_id": 66,
+    "canonical_name": "Caloric Restriction",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a2064f327326d40d024c046149d3c303e08882d59c152217e6d3d3ca2bffe1fe": {
+    "cluster_id": 28,
+    "canonical_name": "Cell Cycle Arrest and Apoptosis Induction in Tumor Cells",
+    "category": "anti-cancer",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "7f724b422a4abf32ddf45a193829d14c7820e06d38d5f0ef5445fa2618ffbe9f": {
+    "cluster_id": 5,
+    "canonical_name": "Thrombolysis and Mechanical Clot Removal",
+    "category": "hemostasis",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "2160a03013f359ea9945c8d555e896822ec0c35ae9e85585b2ab62d0b3fab7b4": {
+    "cluster_id": 35,
+    "canonical_name": "Cognitive Behavioral Therapy for Pain Management",
+    "category": "pain management",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "2dd66e6ad3ed32b44e1680d2b6f9ff13d4960395e4850dcaceaa2a4a7d374380": {
+    "cluster_id": 43,
+    "canonical_name": "Multi-Domain Cognitive Training",
+    "category": "cognitive enhancement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 10
+    }
+  },
+  "f8eeb81d24e0357677ee2c42190305a8086128441467567988bc638e02661a56": {
+    "cluster_id": 67,
+    "canonical_name": "Deprescribing and Bone Health Optimization",
+    "category": "pharmacological intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "fd438427b1152b2a17adeba3db12e93146d2b9b9cc21174200b134f43031557a": {
+    "cluster_id": 68,
+    "canonical_name": "Acupuncture and Herbal Medicine for Hormonal Regulation",
+    "category": "hormonal modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a7d8fdb45fcab146addebe3d97714cf465b5c0b990bb992cf56dc1e5d4f23452": {
+    "cluster_id": 27,
+    "canonical_name": "Cytotoxic Chemotherapy",
+    "category": "anti-cancer",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "496e418847a78f5b492a15c3defb59e4e491c884c2152d0ff78f1e7f3de5b830": {
+    "cluster_id": 69,
+    "canonical_name": "Exercise and Psychological Support via Broaden-and-Build Theory",
+    "category": "mental health intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1eecc3fe27017caa3fd2ec9c37d02745dd8294dc2ec1577c85dfe502c9c04601": {
+    "cluster_id": 1,
+    "canonical_name": "Liver Disease Severity Assessment for HCC Surveillance",
+    "category": "diagnostic strategy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "961860517ff2c546109cccad15697da6fbd6b5fbb43a8a96abe8e99c6f930f8d": {
+    "cluster_id": 70,
+    "canonical_name": "Therapist-Guided Motor Function Exercises",
+    "category": "rehabilitation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "36e4f60415c886dcf03c8b8a3f91e5bfac6adfcbbbcfb240057700ab2c6e5684": {
+    "cluster_id": 3,
+    "canonical_name": "Tibial Fracture Surgical Fixation",
+    "category": "orthopedic surgery",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "b3e3c7e70b456a2f5b97cc853229b592a01facffb34b19eb0bb504e352f73b88": {
+    "cluster_id": 71,
+    "canonical_name": "Nutritional Deficiency Correction and Rehabilitation Support",
+    "category": "nutritional support",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "218cdc5da4a9b3b415970c08f8ba43b4cb617934eafda95989a8fe98ed5b1b99": {
+    "cluster_id": 72,
+    "canonical_name": "CDK4/6 Inhibition",
+    "category": "cell cycle regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4930c594025bdb2b7600d5136392a39fc937b6780dcf8636bb6063f2415e2b7c": {
+    "cluster_id": 73,
+    "canonical_name": "Infective Vegetation Debulking",
+    "category": "infectious disease management",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9aeb9cabbe92bf0d36b96aa73cb14cdbc70ed5e890a2926e28d185815e63010f": {
+    "cluster_id": 2,
+    "canonical_name": "urinary acidification via metabolic pathways",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "b5a535d56cedd1acaa47d3a16a6178f0021a13107ac960f63be1e2781a674c19": {
+    "cluster_id": 0,
+    "canonical_name": "renal replacement therapy timing adjustment",
+    "category": "therapeutic intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "6f8f1f7d60b431fe73f5a533e167b54d5e4cc009fc703e118b031db15b9875f5": {
+    "cluster_id": 74,
+    "canonical_name": "lymph node metastasis detection via PSMA PET/CT",
+    "category": "diagnostic imaging",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b88b62eb9b1b644ad041964eec8fbdf20efb25fb43f6950d63a5cca7eef5eff8": {
+    "cluster_id": 75,
+    "canonical_name": "dietary behavior modification through feedback",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "fb003361e4b5e6cb332725dca3e0beb0747aef6fea40204783f6c761d2611769": {
+    "cluster_id": 76,
+    "canonical_name": "DNA damage and ROS-induced tumor cell death",
+    "category": "oncology",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "498ccba077b762652136f19f9c27df46895fe61c302d40e91684f5591712f7f7": {
+    "cluster_id": 8,
+    "canonical_name": "direct coagulation factor inhibition",
+    "category": "anticoagulant",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "1024092dea240b7a8caecf5f952d70bc5dac1368cca7a0f458c797e08fb6488d": {
+    "cluster_id": 77,
+    "canonical_name": "intravenous iron supplementation",
+    "category": "nutritional support",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "14f8e9506bd4b536fdb3e9566808e2ae06a43f9198ba3d705b7a838ddfb3dcea": {
+    "cluster_id": 10,
+    "canonical_name": "topical keratolytic and immune modulation",
+    "category": "dermatological treatment",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "cf24e4f9bb53be7e9311042fc1693ebd8ae1a09289e24184123423ee258b4ecc": {
+    "cluster_id": 4,
+    "canonical_name": "minimally invasive stone removal techniques",
+    "category": "urological intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 7
+    }
+  },
+  "e53d2c7747ef2ba0cd58382b61456516cfa0248746e710add5fd853bef05b34b": {
+    "cluster_id": 78,
+    "canonical_name": "direct PA targeting in respiratory tract",
+    "category": "respiratory disease management",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "70ebaf57391b30115c7fbc66ea7362f1fd151535e42d47b15cc496e7b412360f": {
+    "cluster_id": 6,
+    "canonical_name": "direct visualization of coronary and colonic structures",
+    "category": "imaging diagnostics",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "db97e6a67c890e6b64d6f8d3967e5b829ee9dfb12d4f0694db4115814b9fdded": {
+    "cluster_id": 79,
+    "canonical_name": "therapy discontinuation after 2 years",
+    "category": "treatment cessation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6202bb0025fba74757471d1f9913d6fdc7946f28ed2a0d0262df3951930ef3d4": {
+    "cluster_id": 80,
+    "canonical_name": "electric field disruption of cancer cell division",
+    "category": "oncology",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "239a7d2746db09621146197b746de62ee8e9c600cc0d111f96d671ab5334c0f9": {
+    "cluster_id": 81,
+    "canonical_name": "early intervention and structured stimulation",
+    "category": "rehabilitation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "006ed39abde08d1cd0179385d1f08f5b0678c696a2af2847a206a1e4ebf34faa": {
+    "cluster_id": 34,
+    "canonical_name": "structured care education and empowerment",
+    "category": "patient education",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "d51ac8ce6bfbf58335614c3301fa18261a0c085e82ea7496e05525c405a27af6": {
+    "cluster_id": 82,
+    "canonical_name": "dietary education sessions",
+    "category": "nutritional education",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "2842ff9de7f42f5a13a683513025d7d567618fbed715bc18a05fb4a865d71bf3": {
+    "cluster_id": 83,
+    "canonical_name": "hypoglycaemia management and medication education",
+    "category": "diabetes management",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "05bdcc7e2fe3bbf2c1fcb9de8a1f9057fd4ab8a5b3f4cc5f4eabea8713bbca3f": {
+    "cluster_id": 44,
+    "canonical_name": "emotional and social engagement enhancement",
+    "category": "psychological support",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 5
+    }
+  },
+  "97a9ade6709dc68e0a25c08cd1a22303ef3c4aa57698bf1868fb60b376e98b00": {
+    "cluster_id": 84,
+    "canonical_name": "emotional stimulation and mood regulation",
+    "category": "mental health",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "abc86bc597fcbfb6ad0364d007d86a9e5dcc8830b65f5139be1b7cf13778fe1f": {
+    "cluster_id": 85,
+    "canonical_name": "remote monitoring for rehabilitation adherence",
+    "category": "rehabilitation support",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "7a1ae7a446f93008445e8b8188569a9faa2d731e0e221e7ec3e496e47d468d10": {
+    "cluster_id": 86,
+    "canonical_name": "metabolic efficiency and aerobic capacity enhancement",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "fc0f6bf05595c7a9737a3a9903b96c1308716224d33b31ab9da2bc777d3ec899": {
+    "cluster_id": 21,
+    "canonical_name": "bone-tendon regeneration via growth factors",
+    "category": "tissue repair",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "4d5923f077ba3e0e0c0a9a0a0c4eedf2d1c6c949fc4996959655e57317861b55": {
+    "cluster_id": 87,
+    "canonical_name": "brain connectivity and cognitive enhancement",
+    "category": "neurocognitive function",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "07c2f419ed5beeb7cad5ae0c7efa94c123a78c7bc4888a647767b7aa91891e3d": {
+    "cluster_id": 32,
+    "canonical_name": "cardiac function and hemodynamic enhancement",
+    "category": "cardiovascular regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "c690fc1a288ea5669f582c11a1b347345a718d70f429e40bcf4655446319e294": {
+    "cluster_id": 88,
+    "canonical_name": "cognitive performance via physical activity",
+    "category": "neurocognitive function",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "022a9ed160b072f9a65ccf06fd929b8e84ce729a244cc39a795d4e70fd94db37": {
+    "cluster_id": 89,
+    "canonical_name": "vaccination adherence through communication",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f3a22448ecf94a57e191dd3c64c20e2e7c364c104d4d69ae9ad86942cfe9bca3": {
+    "cluster_id": 90,
+    "canonical_name": "community support and care coordination",
+    "category": "social support",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e57c1d616714dbc91469ab64d1ce90c1705355edc9c0b847d0bfb2e36251aa7a": {
+    "cluster_id": 91,
+    "canonical_name": "engagement via tailored communication",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a07ef733e9972686e23797efe8ce8a64eff055f6f69c5b2b35bc901f04c7007b": {
+    "cluster_id": 92,
+    "canonical_name": "exercise capacity and stress reduction",
+    "category": "psychological well-being",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e91f270db573be2930b30ff22bfa6b69c6db84e5964aa1e3cb782d00c824d346": {
+    "cluster_id": 39,
+    "canonical_name": "exercise motivation and self-efficacy",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "c74f24fa50fe347cedc27fa5aae21d43d4d12cd99b069f8bd0ccba4e3b778cd9": {
+    "cluster_id": 93,
+    "canonical_name": "lower-limb function enhancement",
+    "category": "physical rehabilitation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "958f401ca2ccfa44915b66540c5854a807d74f4bfdaf9db18a1964c325a96fd8": {
+    "cluster_id": 94,
+    "canonical_name": "mental health and HIV education",
+    "category": "health education",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "2b85ae15cfe4b29b59f70297f4e3bfeca4f859495550b41fe43d9618d25816b4": {
+    "cluster_id": 33,
+    "canonical_name": "neuromuscular control enhancement",
+    "category": "motor function",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "c5a41509af2d173533ed0956199de2fbd7c5c9294c3ecb2d51deb811661e0836": {
+    "cluster_id": 95,
+    "canonical_name": "personalized care for patient outcomes",
+    "category": "healthcare delivery",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a2e5cd47ca805b2134e50c51ae1666c81e6878274f0da7a60f5ca6155625cad5": {
+    "cluster_id": 38,
+    "canonical_name": "patient-clinician communication enhancement",
+    "category": "healthcare delivery",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "ab047fd8439dffa4324fc72101c5ab5f9de9e63103dc73d036138b0d0fcb9ae7": {
+    "cluster_id": 96,
+    "canonical_name": "psychological adaptation and recovery",
+    "category": "mental health",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "263655f3adcefa28c2e18fa0922009fd9d6b5439d5ffbe065cfef289d9a7fa22": {
+    "cluster_id": 97,
+    "canonical_name": "duty and support intention enhancement",
+    "category": "behavioral motivation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "182616d07b62e948227ee23481293369aeca55f127f08bc6e5fc586e026ef950": {
+    "cluster_id": 98,
+    "canonical_name": "wound healing and scar modulation",
+    "category": "tissue repair",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3da6daa627f9ba47753995a8c691dfa27ddb664308480b17c146e5055200cab8": {
+    "cluster_id": 99,
+    "canonical_name": "dopamine/norepinephrine activity enhancement",
+    "category": "neurotransmitter modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c8e949af921df6c04b2556b885de35aa8e2768ea6779a2198ecc2bccc8ca417e": {
+    "cluster_id": 100,
+    "canonical_name": "psychological resilience and coping",
+    "category": "mental health",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8252eb52160d082a0be9cc7b5a166f04c8b74daea5de42b6cd1c8f0e1745b906": {
+    "cluster_id": 152,
+    "canonical_name": "Antibiotic treatment for H. pylori eradication",
+    "category": "antibiotic",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "27f74d656d4a3530a8fe4318b364b505344aeb3158e185c41e897664ecaf9990": {
+    "cluster_id": 112,
+    "canonical_name": "Oxidative stress reduction and anti-inflammatory pathways modulation",
+    "category": "anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "ef63a51f2a6ddc0d176efc154978ff49a5b561cf6d5372343edb33f39baffed5": {
+    "cluster_id": 174,
+    "canonical_name": "Behavioral adherence enhancement via education and follow-up",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "5c1e0e257ce42ab38dfa5b8280ee0803bd3949190dc1b04b19f614f21a52d418": {
+    "cluster_id": 156,
+    "canonical_name": "Behavioral and social skills training",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "247e589183cfbfaa93130c61a1ca70f3b0d14a369ae88d432346f9a210af1622": {
+    "cluster_id": 169,
+    "canonical_name": "Behavioral modification and physical activity adherence",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "252d0feead373de91ef59df8935177eadac14b2caa49eb4c7d69190599b38a5c": {
+    "cluster_id": 121,
+    "canonical_name": "Behavioral modification and lifestyle changes",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "dd6de7acd0ff6d594e3d7128e4eb5ee4f80c211c21428fb1cc47d7c63d77c3e0": {
+    "cluster_id": 144,
+    "canonical_name": "Behavioral therapy for mental health",
+    "category": "mental health intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d4a0b6246b958c03f71ff2bd3d18cb46c30859ac69f0009c20fb5e342dd56dc3": {
+    "cluster_id": 104,
+    "canonical_name": "Parental behavioral training for child behavior",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3d016c82751a417f42ce852f867de39ce733daacb76f7ec943aa961920e73884": {
+    "cluster_id": 125,
+    "canonical_name": "PD-1 inhibition to enhance anti-tumor immunity",
+    "category": "immune checkpoint inhibition",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e5bce00c1d52f2e4c34c841b43492f751b3effaa8beb50aa222e7c0bfd58b468": {
+    "cluster_id": 158,
+    "canonical_name": "Bone density increase",
+    "category": "bone health",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f138e61de07567ef9f67c4ac77363f6493456ca5cbc716be72d8e57bd9a16f98": {
+    "cluster_id": 141,
+    "canonical_name": "Bone mineral density improvement and pain relief",
+    "category": "bone health",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1e10dfbcb1ff1d3f28eb8068c153a94f2cb11e9fd3111be702a0bfdc94c45fcd": {
+    "cluster_id": 122,
+    "canonical_name": "Bone mineral density preservation",
+    "category": "bone health",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "0c27102cadb605179cc9e0a8e53381872062c0354bb7c7271e777cef5f153c5c": {
+    "cluster_id": 8,
+    "canonical_name": "Cell cycle arrest and apoptosis induction in tumor cells",
+    "category": "apoptosis induction",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "006857535dee5b03dfcfd177a7a7ed35e935e4c452fd6c436dd57d885524c57f": {
+    "cluster_id": 147,
+    "canonical_name": "Cell cycle inhibition and DNA damage induction",
+    "category": "DNA damage",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "938391e4ce794d10b3d3bcebb217d560b75da9f6419c8f995fa0458dff42c9ac": {
+    "cluster_id": 128,
+    "canonical_name": "Lipid metabolism and microbiota modulation",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "fe9f5dcdc568d0073ceba3bc42111be67e2aafc6df01b8699687a726e5c48eb4": {
+    "cluster_id": 139,
+    "canonical_name": "Thrombolytic agents for clot dissolution",
+    "category": "thrombolytic therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c968303a9098daed0e2fb66eb165c9d254ad058b92864fecae86d102abad2c39": {
+    "cluster_id": 126,
+    "canonical_name": "Cognitive behavioral techniques for anxiety and substance use",
+    "category": "mental health intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "2c37359760cdc600705e6f0eac5a91df936dc6803d2b960792375063ca7718b8": {
+    "cluster_id": 136,
+    "canonical_name": "Cognitive behavioral therapy for pain",
+    "category": "pain management",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "dce85036e4ecc48d916a4de1dea210858e33504630f06e78fec691e723a35e5b": {
+    "cluster_id": 86,
+    "canonical_name": "Multi-domain cognitive training",
+    "category": "cognitive enhancement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c8fc8ce88fb61f3da1ac50d7caef1f9986b39c1e345241dacf64d09f7db9498b": {
+    "cluster_id": 184,
+    "canonical_name": "Cognitive stimulation for performance improvement",
+    "category": "cognitive enhancement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b6f52ccd167c832e171115db025e4447022a762b78367ff45a613551c641e05a": {
+    "cluster_id": 111,
+    "canonical_name": "Combined mechanical and pharmacological thrombolysis",
+    "category": "thrombolytic therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9508ee9189c8596c1fbd644ececd68b5a7e54b01f263c5d0d6c4d3b80a86052d": {
+    "cluster_id": 82,
+    "canonical_name": "Antibacterial action against tuberculosis",
+    "category": "Antimicrobial",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f59f700a417da1d6e41499a1ed03b3ea253a69d1ecda36716cefa13d2bef4d52": {
+    "cluster_id": 61,
+    "canonical_name": "Immune and cytotoxic effects",
+    "category": "Immune modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "5a9291e9c472957f6d15a4163110be3f0321a9d3b18a2e9eb4656b088d7e4d82": {
+    "cluster_id": 105,
+    "canonical_name": "Risk mitigation in liver disease",
+    "category": "Pharmacological management",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1ded8a30e66cea7ea2ac14aec3c88a900c110d809561edb6679150e4e877da90": {
+    "cluster_id": 114,
+    "canonical_name": "Sustained immune response maintenance",
+    "category": "Immune modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1d5f13e6813abd5020e963ad347d90a05515443a4b4ad90a9e7beb4ef19f636b": {
+    "cluster_id": 98,
+    "canonical_name": "Surgical treatment of tibial fractures",
+    "category": "Surgical intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "2eb8ec51e0d0023da2dd11aa17253bb7b3c7447c12d99c839fe32aa951af0c4f": {
+    "cluster_id": 117,
+    "canonical_name": "Corticosteroid anti-inflammatory action",
+    "category": "Anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4cfc735826ac58b94addd327d2bc055c5f9d5c65fa04dbfaf5b2853210ce1e22": {
+    "cluster_id": 75,
+    "canonical_name": "Cytotoxic chemotherapy",
+    "category": "Cytotoxic",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1b6679860ca11bc065f4807f5ac2b2166134867a9e68896569efb095b3baf931": {
+    "cluster_id": 154,
+    "canonical_name": "Cytotoxic effect on cancer cells",
+    "category": "Cytotoxic",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d249c4b26731e5d16ef6068d107cac7dcaa7b52333befa5203ad8217b8cb78c6": {
+    "cluster_id": 2,
+    "canonical_name": "Urinary pH reduction via acid excretion",
+    "category": "Metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "1d72ffe3cda1af7260190d6d016b11a43feb097e4db59b1e8d5f33d133c55e49": {
+    "cluster_id": 164,
+    "canonical_name": "Urinary pH reduction via sulfur metabolism",
+    "category": "Metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f041c40991a225b2d421cb50c6e14b2dbbb3d63ecdaa39f1607bac9cc21c6619": {
+    "cluster_id": 183,
+    "canonical_name": "Delayed renal replacement therapy",
+    "category": "Renal management",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "2c7c73d5b38c615d50f2bde1dcb9c3ba2789bec8ef8686ec73e09b0e11756e24": {
+    "cluster_id": 178,
+    "canonical_name": "Direct factor Xa inhibition",
+    "category": "Anticoagulant",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c90895eaa5d8431c6f5dcbcd158ff25f0adbd62721061596950f65f4cf3dca9e": {
+    "cluster_id": 148,
+    "canonical_name": "Direct keratolytic action on abnormal cells",
+    "category": "Dermatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a2fe15097218c72caea0a218b00a0774468b5e57581a4eef7f9bf4068432d2b2": {
+    "cluster_id": 47,
+    "canonical_name": "Pulmonary clot burden reduction",
+    "category": "Thrombolytic",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "95406733f26be0672d1f51bce725bf366a32540f8156cf30308dc7e9ed23f2e0": {
+    "cluster_id": 71,
+    "canonical_name": "Minimally invasive stone removal",
+    "category": "Surgical intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "835f815446a2fad59f8f992b2159a5eb58e04a80089b70e7369992629f028a39": {
+    "cluster_id": 140,
+    "canonical_name": "Direct thrombin inhibition",
+    "category": "Anticoagulant",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9d0d02eaf8339841872a9d7b9b149e4a571f770d31e04c090db3f4f149295b57": {
+    "cluster_id": 102,
+    "canonical_name": "Coronary stenosis and plaque visualization",
+    "category": "Diagnostic imaging",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d18f0878481d292dee631fd3d2086f74a05a3b882bcb3cdc2e8701026a634e49": {
+    "cluster_id": 65,
+    "canonical_name": "HCV replication inhibition",
+    "category": "Antiviral",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "13d54420e2ee0669529b7b2ba3613629bd96656e8cc513b79888031b7af3fa8c": {
+    "cluster_id": 116,
+    "canonical_name": "Dual lipid and glucose metabolism modulation",
+    "category": "Metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "862b4411221d64bd7638b3207543921cd919a3eef450d2e01478d5ef5399ab2a": {
+    "cluster_id": 48,
+    "canonical_name": "Early cirrhosis detection and HCC surveillance",
+    "category": "Disease surveillance",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8a5d7556b12241ceaac28dc8c705bb7e43e8d009c3195ae8bfe809ddb8aa91ab": {
+    "cluster_id": 155,
+    "canonical_name": "H. pylori eradication with antibiotics",
+    "category": "antibiotic therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "108b220ae1d8208932ffad77cd26bc5cafc14ff44a060be5fd5a47d84a90be27": {
+    "cluster_id": 179,
+    "canonical_name": "GABA modulation and sedation",
+    "category": "neurotransmitter modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f438836691e087073eea412b00fcc3cb7f12b33e20ac8249a51653cc5cde7158": {
+    "cluster_id": 168,
+    "canonical_name": "accelerated bone turnover and bone loss",
+    "category": "bone metabolism",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "fe2e1a4bb0b12a4042a2d5602b3fb5622c042a4bca114a56e1dda9a24dfb5e12": {
+    "cluster_id": 166,
+    "canonical_name": "chloride channel activation for fluid secretion",
+    "category": "electrolyte regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "29075156e12f03e476a4fe2b7b7e7d7b7e79d95ad2973469070c6b926cc925fc": {
+    "cluster_id": 177,
+    "canonical_name": "guanylate cyclase-C activation for fluid secretion",
+    "category": "intestinal function",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "7a45e0f098d995d57596952a0f8a09a3d124462857c366bfac4096b5b8ffbbcf": {
+    "cluster_id": 160,
+    "canonical_name": "GLP-1 receptor activation",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8edffd9c914ac6da3fd68ce86603e2946bdfef3a6223586f85fe51fed118a564": {
+    "cluster_id": 153,
+    "canonical_name": "pain perception alleviation via neural modulation",
+    "category": "pain modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e481163907726a69bea16e1e9f4a311bd3b64fb0d6c8ce78039577d200d175d5": {
+    "cluster_id": 175,
+    "canonical_name": "androgen deprivation with immunosuppression",
+    "category": "hormonal therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e8eeb78c297f3b1d409356fce4d4c57bbc55d1746b34a966aa32345b1551bf5a": {
+    "cluster_id": 170,
+    "canonical_name": "anti-estrogenic and anti-inflammatory effects",
+    "category": "hormonal therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "55950174075c320bdaa7f4db89551d19f15bb49c36b1dbe35f9a2f27074bd09a": {
+    "cluster_id": 187,
+    "canonical_name": "corticosteroid-mediated anti-inflammatory effects",
+    "category": "anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6ba8a373972c05efc8e9a213303467a36fd72c78c17468257001cadfa76e9813": {
+    "cluster_id": 110,
+    "canonical_name": "anti-inflammatory effects",
+    "category": "anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d345c15baa6fb8bf19e8aee90c8b5e619aa197c517d29da208ad8ec3e197b503": {
+    "cluster_id": 176,
+    "canonical_name": "anti-TB bacterial action",
+    "category": "antibacterial",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "15f98bae4a93d5f20615103b7f78f3ebff291288d756829ef4ea784fd9e48284": {
+    "cluster_id": 1,
+    "canonical_name": "H. pylori eradication with antibiotics",
+    "category": "antibiotic therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "f56b89ef40bc1a85366ce069da812e36a6f00987afca2c580f6bed4fbe60a10a": {
+    "cluster_id": 87,
+    "canonical_name": "sequential H. pylori antibiotic regimen",
+    "category": "antibiotic therapy",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6ddb4af2e0431d7459073149abcd60ee50c6002dcd7336a54f8eb00f37a203b3": {
+    "cluster_id": 180,
+    "canonical_name": "anticoagulation for thromboembolism prevention",
+    "category": "anticoagulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a96073e9e05870a658276ceb8c118a3fefdc9f5b79096c0a13cee40d0a67f0c4": {
+    "cluster_id": 138,
+    "canonical_name": "thrombus prevention via anticoagulation",
+    "category": "anticoagulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1612238e3f92b76dc93a04d372d7f4aaf5041936aeedea156bc938c601ead8a3": {
+    "cluster_id": 108,
+    "canonical_name": "antiviral and immunomodulatory effects",
+    "category": "antiviral",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "985ed4e31274a08216161a2fb2534e42b5effffc21f9263336063e86dfbf0bf7": {
+    "cluster_id": 132,
+    "canonical_name": "cardiac response assessment during exertion",
+    "category": "cardiac monitoring",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "11b0cc28204e6ace61ce430661cc786c5db39a88159e6f8affaa2d19be709677": {
+    "cluster_id": 167,
+    "canonical_name": "left ventricular function assessment under stress",
+    "category": "cardiac function evaluation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "209ce72f905d039a9c4c973db102b20fcd032e6dc02defc8b91be05b89f65b34": {
+    "cluster_id": 10,
+    "canonical_name": "Cognitive enhancement via neural stimulation",
+    "category": "Neurocognitive modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "7bc869df28ea94d69823adcb208ce882a8b00ed7abfa1f1ef1f92b19c231259d": {
+    "cluster_id": 120,
+    "canonical_name": "Structured care-based empowerment",
+    "category": "Educational intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b026a5fb92e03e124844e98c7a94dd13c4565fb3965f72ff632a051c76c42a2d": {
+    "cluster_id": 9,
+    "canonical_name": "bone turnover modulation",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "6d1e8b3f315f6726adcb11af62c92cea1c8a11c54fa04e6948cb735f917b8a6e": {
+    "cluster_id": 14,
+    "canonical_name": "cardiac function assessment during stress",
+    "category": "physiological monitoring",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "290f321f441438c4c9cfad1d8e8a5b16723f7c981dec14a7b9850efa2969f03d": {
+    "cluster_id": 29,
+    "canonical_name": "behavioral adherence enhancement",
+    "category": "patient engagement strategies",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "1ce0ce86a1cbb735011f6d881d298c6b565c54338312b8b5837efa52923940ac": {
+    "cluster_id": 2,
+    "canonical_name": "bone metabolism enhancement",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "ddd0b0b8740680d9dc9e05ace7b1b1c6af59519d327d9a35e54519b7fae2d74d": {
+    "cluster_id": 0,
+    "canonical_name": "cognitive training enhancement",
+    "category": "neurocognitive modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "bf106d4bd32ee09242c715ad83e9cdbb0776fb5e2f780b4ae38a2cf93f2825bb": {
+    "cluster_id": 90,
+    "canonical_name": "pain management education",
+    "category": "behavioral intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "cba2a54e6f7f30248c090e228baa7b002774f4988b8322ed304552b749eef2d5": {
+    "cluster_id": 118,
+    "canonical_name": "vagus nerve stimulation",
+    "category": "neurological modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b66c8570dfe5ab0d118bf36ff1f851cee4edf29217acdaed6a68a53354109a6e": {
+    "cluster_id": 55,
+    "canonical_name": "electrophysiological arrhythmia prevention",
+    "category": "cardiovascular regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b52c585a0f7619821833f898a905e320335f0c11a1b8e743c19aac1ed2b8c2a0": {
+    "cluster_id": 13,
+    "canonical_name": "social engagement enhancement",
+    "category": "psychological modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "df183f140e60d12b9a7b13e658805b01ef3231600a8da14dfac737fd5152237a": {
+    "cluster_id": 13,
+    "canonical_name": "Psychological Resilience and Immune Enhancement",
+    "category": "Psychological and Immune Regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "d92c8d1264dfbac4a0b12f81b39f9cb3bf5d4cc05d487800e3e0126d2a028ea1": {
+    "cluster_id": 28,
+    "canonical_name": "Behavioral Adherence through Education and Monitoring",
+    "category": "Behavioral Intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 5
+    }
+  },
+  "9ab4b43f64ac41a7f1e785114864c4906cca8c8c87825d99750c9649305f1c7b": {
+    "cluster_id": 8,
+    "canonical_name": "Bone Density Improvement and Pain Reduction",
+    "category": "Metabolic Regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "15e4a1a12605eecb31c48dc227efa213712c6dca4ce9fe309b40f5fbf19211e0": {
+    "cluster_id": 3,
+    "canonical_name": "Clot Dissolution via Thrombolysis and Mechanical Removal",
+    "category": "Cardiovascular",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "e685e2c101d343b369fdee1cc22c967f5d580fb2b7688e3a21faba8134a087c1": {
+    "cluster_id": 20,
+    "canonical_name": "Cognitive Stimulation and Brain Connectivity Enhancement",
+    "category": "Neurocognitive Modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "826acafde66c7a1e33bd9e99266d488cbd7c982003da22d6055830555bdd8e95": {
+    "cluster_id": 1,
+    "canonical_name": "Exercise and Psychological Support Integration",
+    "category": "Psychological and Physical Rehabilitation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "dfa467e0d6135700f3354f089a6943bbc483576257ce77cddf5a10e9d1834c23": {
+    "cluster_id": 38,
+    "canonical_name": "Cytotoxic Chemotherapy",
+    "category": "Oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "2dc7be2835f17d8ee426518493ff0709408069b2d1e0494966077fc53688674d": {
+    "cluster_id": 5,
+    "canonical_name": "Minimally Invasive Stone Removal",
+    "category": "Surgical Intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "9be549e22e511d8f756158310ed53d7b86c88ef00a34b425fafe2f8557a1bca0": {
+    "cluster_id": 0,
+    "canonical_name": "Emotional and Social Engagement Enhancement",
+    "category": "Social and Psychological Engagement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "9632b201daa1ed09b735d1d9537c6441c4f0b628d804b9752f2e4648b559d628": {
+    "cluster_id": 22,
+    "canonical_name": "Engagement through Physical and Cognitive Activities",
+    "category": "Behavioral Motivation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "96a7c208f78378a44d79028c85e363c88be16e7f878f7f996cb59355543036a2": {
+    "cluster_id": 127,
+    "canonical_name": "Enhanced Anti-Tumor Immune Response",
+    "category": "Immune Modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "327a235f9a07c84138b24050b20bcf4f7b783e593288b070b5f950f369c5becc": {
+    "cluster_id": 119,
+    "canonical_name": "Immersive VR for Cognitive Enhancement",
+    "category": "Neurocognitive Modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "226a114779ec12ec12350dd0c1002c5f95dbf39d1b20c19f7676a4e6fa4401cc": {
+    "cluster_id": 27,
+    "canonical_name": "Cognitive Rehabilitation via Structured Exercises",
+    "category": "Neurorehabilitation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "01bf50787ce6bf2fda6dbc2d60cce982a2efeccad5b80d6b6eef2a315e9f1aa6": {
+    "cluster_id": 2,
+    "canonical_name": "Vaccination Adherence via Digital Engagement",
+    "category": "Behavioral Intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "94382cd944444569824732c5ce707631c5c0446821b8114bd753b05b2480f957": {
+    "cluster_id": 6,
+    "canonical_name": "EGFR, VEGF, and CDK4/6 inhibition",
+    "category": "cell proliferation regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "66181d62a8c4ec4be9ccb1123b34082a632bcccacf632054c1583daacb96be06": {
+    "cluster_id": 2,
+    "canonical_name": "Anti-inflammatory and immunomodulatory effects",
+    "category": "anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "27ce396e98b65034fdda72e7a25e250070b7485fc2f51879cb33549d398bfc7a": {
+    "cluster_id": 28,
+    "canonical_name": "Wound healing through anti-inflammatory and vascular modulation",
+    "category": "regenerative",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "e6f7fd38a714c2d8344b9180e8bc7a0e083967cb1be68f2666f83b60a0dda9ab": {
+    "cluster_id": 5,
+    "canonical_name": "Personalized treatment via biopsychosocial assessment",
+    "category": "personalized medicine",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "7dcf852c5c834b055b0cac4c10e7bc1ab6ede8d96548230e608914c0238bf7c5": {
+    "cluster_id": 14,
+    "canonical_name": "Oxidative stress and inflammatory pathway modulation",
+    "category": "anti-inflammatory",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "f3c5754ca1ad158ac3094744c15d75483fd10aeb4b8a0346a5b5e0abcdcc521b": {
+    "cluster_id": 11,
+    "canonical_name": "Behavioral adherence enhancement via education and digital tools",
+    "category": "behavioral adherence",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 7
+    }
+  },
+  "2e1b1e5b4b90d5369baf56fb264b504c5484cb5375be33a75b16a067029aba29": {
+    "cluster_id": 7,
+    "canonical_name": "Behavioral and social skills training for children",
+    "category": "behavioral training",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "da9e2a8917d725f9286a271d121e12463a100cf2d9567ad87b21edbe6767836e": {
+    "cluster_id": 4,
+    "canonical_name": "Lifestyle modification through behavioral and dietary interventions",
+    "category": "lifestyle modification",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "419d47a3d6ab8d0061bb72c0fe318e49f6830e7e38eea9937a882adb88bf8a01": {
+    "cluster_id": 17,
+    "canonical_name": "Bone density improvement and pain alleviation",
+    "category": "bone health",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "d1c9a537aef9e062145ce76941994347e08d042230b1b098b0c4e1e5284e04da": {
+    "cluster_id": 42,
+    "canonical_name": "Lipid and glucose metabolism modulation",
+    "category": "metabolic regulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "3681bd4f2ebb9c4c179302cd4f4d5b542dc98304e29af6b3708b04751c592b5f": {
+    "cluster_id": 12,
+    "canonical_name": "Cognitive function enhancement via multi-domain training",
+    "category": "cognitive enhancement",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 9
+    }
+  },
+  "0e4ac4f5faef334ab88ada1d7c4e19e14fa4be06d15148424af0956016676f53": {
+    "cluster_id": 29,
+    "canonical_name": "Immune response maintenance and recurrence prevention",
+    "category": "immune modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "c8719c467f2d191ae7b834bedce23f40c6ab5476d4946ea7562b3e09089b05e0": {
+    "cluster_id": 18,
+    "canonical_name": "Motor function enhancement through therapist-guided exercises",
+    "category": "physical rehabilitation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "f413d9cf9845b10ec7be0386ff4ef32736471b58db12f611b2ea4bd9a0df90e8": {
+    "cluster_id": 8,
+    "canonical_name": "Ureteral stone removal through endoscopic and shock wave therapies",
+    "category": "urological intervention",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "0b38c0e805054e9464c96d9c72e416dbbc852f6435b37cdd25c11ecc8ca9cebd": {
+    "cluster_id": 52,
+    "canonical_name": "Vagus nerve stimulation and electrophysiological modulation",
+    "category": "neurostimulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "f51964edb8a7365b6ff02230907d65a6015da59d7ceda76b45b8de5e2326e21b": {
+    "cluster_id": 1,
+    "canonical_name": "Dopamine and norepinephrine activity enhancement",
+    "category": "neurotransmitter modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "b95982a5f45c56bf6b6cc26e2757a9954a7650929606588023a2814a305f40b5": {
+    "cluster_id": 25,
+    "canonical_name": "Remote monitoring and community support for rehabilitation",
+    "category": "remote healthcare",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "2ecbcc4d0ca54d49b074bf258fb30423d219dd84b179b92a8d57310ce96cc3c8": {
+    "cluster_id": 20,
+    "canonical_name": "Aerobic capacity and neuromuscular activation enhancement",
+    "category": "aerobic and neuromuscular",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "23bf9eca69612ebbb0a80fe2ccb7ebeb039b9aa5e6d7d6225eeb7789da7c5ced": {
+    "cluster_id": 40,
+    "canonical_name": "Topical drug penetration and immune modulation",
+    "category": "topical drug delivery",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "5d2640d6f82b82ce9bd2e03bf75489a4a4eac9357f0670bdcf1994c08aad7b0f": {
+    "cluster_id": 82,
+    "canonical_name": "Neuromuscular control and proprioception enhancement",
+    "category": "neuromuscular",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "90fac7efc7db15ecf711470767e0d2cbb496669f22ca1659059f650cb76e6e61": {
+    "cluster_id": 92,
+    "canonical_name": "Adverse event mitigation through mucocutaneous tolerance enhancement",
+    "category": "adverse effect reduction",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "201aa38dbc5675217cf689e58273c731d62963c9eabb6c6eec15a009435fa95b": {
+    "cluster_id": 23,
+    "canonical_name": "Ureteroscopy procedural facilitation and complication reduction",
+    "category": "urological intervention support",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "40a923460b693f9766bd152e9743e96b2ffc4772454ffaea9f68e766d3da9793": {
+    "cluster_id": 60,
+    "canonical_name": "Epigenetic gene regulation and expression restoration",
+    "category": "gene expression modulation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "8b66ca1b3ecbcc38236fc5e325a525a7ed98750310e75fa623412e78a1c38acf": {
+    "cluster_id": 62,
+    "canonical_name": "Enthesitis inflammation assessment and monitoring",
+    "category": "inflammatory evaluation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8c78dd33ada72e9ca3e797e667987b4de197e4077febf58261c997d6f393e1ae": {
+    "cluster_id": 10,
+    "canonical_name": "Orthopedic fracture stabilization and bone healing promotion",
+    "category": "orthopedic healing support",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "df403aa288fffb781b16e4a29bd6808682483f9302f6a0bf7b53618397d8c5cb": {
+    "cluster_id": 76,
+    "canonical_name": "General clinical information dissemination framework",
+    "category": "educational support",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6e48bb9313704bce170bee1067a2f9538396a9d02302668675bf266f05c86637": {
+    "cluster_id": 58,
+    "canonical_name": "AI-driven synthetic clinical data generation",
+    "category": "data privacy preservation",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4a82541fa6fcc44af926ee87f8849c5457b505ee152b40dd9ee3e4dc6dec30b6": {
+    "cluster_id": 51,
+    "canonical_name": "Advance care planning conversation facilitation",
+    "category": "patient communication support",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c478f1f845a8bddf77bc9868c524ce84be18a131aa6b3376694079a612447157": {
+    "cluster_id": 54,
+    "canonical_name": "Multimodal guideline-based clinical care integration",
+    "category": "clinical guideline adherence",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  }
+}

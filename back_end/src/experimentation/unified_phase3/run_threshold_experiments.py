@@ -2,7 +2,7 @@
 Distance Threshold Experiment Runner
 
 Runs hierarchical clustering experiments with different distance_threshold values
-(0.4, 0.5, 0.6, 0.7) for interventions, conditions, and mechanisms.
+(0.4, 0.5, 0.6, 0.7, 0.8) for interventions, conditions, and mechanisms.
 
 Tests which threshold produces the best cluster quality based on:
 - Silhouette score (higher is better)
@@ -13,7 +13,7 @@ Tests which threshold produces the best cluster quality based on:
 Usage:
     python run_threshold_experiments.py \\
         --db back_end/data/processed/intervention_research.db \\
-        --thresholds 0.4 0.5 0.6 0.7 \\
+        --thresholds 0.7 0.8 \\
         --entity-types interventions conditions mechanisms
 """
 
@@ -76,9 +76,9 @@ def main():
 
     # Map entity types to experiment number ranges
     entity_ranges = {
-        'interventions': (10, 13),  # exp_010-013
-        'conditions': (14, 17),      # exp_014-017
-        'mechanisms': (18, 21)       # exp_018-021
+        'interventions': (10, 13),  # exp_010-013 (0.4-0.7), exp_022 (0.8)
+        'conditions': (14, 17),      # exp_014-017 (0.4-0.7), exp_023 (0.8)
+        'mechanisms': (18, 21)       # exp_018-021 (0.4-0.7), exp_024 (0.8)
     }
 
     # Threshold to experiment mapping
@@ -86,7 +86,15 @@ def main():
         0.4: 0,
         0.5: 1,
         0.6: 2,
-        0.7: 3
+        0.7: 3,
+        0.8: 12  # Special offset for 0.8 (exp_022-024)
+    }
+
+    # Special mapping for 0.8 threshold
+    entity_exp_0_8 = {
+        'interventions': 22,
+        'conditions': 23,
+        'mechanisms': 24
     }
 
     for entity_type in args.entity_types:
@@ -97,7 +105,12 @@ def main():
                 logger.warning(f"Skipping invalid threshold: {threshold}")
                 continue
 
-            exp_num = start_exp + threshold_offsets[threshold]
+            # Special handling for threshold 0.8
+            if threshold == 0.8:
+                exp_num = entity_exp_0_8[entity_type]
+            else:
+                exp_num = start_exp + threshold_offsets[threshold]
+
             config_name = f"exp_{exp_num:03d}_threshold_{threshold}_{entity_type}.yaml"
             config_path = config_dir / config_name
 

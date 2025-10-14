@@ -140,12 +140,13 @@ class MechanismEmbedder(BaseEmbedder):
 
         return enhanced
 
-    def embed_mechanisms_from_db(self, db_path: str) -> Tuple[np.ndarray, List[str]]:
+    def embed_mechanisms_from_db(self, db_path: str, limit: Optional[int] = None) -> Tuple[np.ndarray, List[str]]:
         """
         Load unique mechanism descriptions from database and generate embeddings.
 
         Args:
             db_path: Path to intervention_research.db
+            limit: Maximum number of mechanisms to load (for testing)
 
         Returns:
             Tuple of (embeddings_array, mechanism_texts)
@@ -155,14 +156,19 @@ class MechanismEmbedder(BaseEmbedder):
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
 
-        cursor.execute("""
+        query = """
             SELECT DISTINCT mechanism
             FROM interventions
             WHERE mechanism IS NOT NULL
               AND mechanism != ''
               AND mechanism != 'N/A'
             ORDER BY mechanism
-        """)
+        """
+
+        if limit:
+            query += f" LIMIT {limit}"
+
+        cursor.execute(query)
 
         mechanism_texts = [row[0] for row in cursor.fetchall()]
         conn.close()

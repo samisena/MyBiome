@@ -1064,5 +1064,1721 @@
       "temperature": 0.0,
       "members_shown": 1
     }
+  },
+  "f846d6ebdfdcaf6937b55d7549635960c9779b595f757db34d010c2c67949e05": {
+    "cluster_id": 73,
+    "canonical_name": "Musculoskeletal Health",
+    "category": "musculoskeletal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "f4e7653632f7a2f2d0e56a4f791759c5a0feaeaae6a8ec847386b45190d5986b": {
+    "cluster_id": 128,
+    "canonical_name": "Osteoporosis",
+    "category": "musculoskeletal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3b166003fdb35b1288a272317c9ab6c0da3ac63910e296e6671f354bd78f482f": {
+    "cluster_id": 59,
+    "canonical_name": "Hepatocellular Carcinoma",
+    "category": "oncological",
+    "parent_cluster": "Cancer",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "14a73a370bae4af8ddff2bab951135abb06d431745d646ce5da065dfd39d80a2": {
+    "cluster_id": 129,
+    "canonical_name": "Cancer Survival",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "87ebdd127c160a8f78a6eac041240202404b676ea3b7a1aff9f00428c43bae5a": {
+    "cluster_id": 34,
+    "canonical_name": "Cancer-Related Fatigue",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "4e8c53b92875984a13c9dccfd06360e6a0c694d3c7aff0e69daf1298fd7c7412": {
+    "cluster_id": 130,
+    "canonical_name": "Cardiac Injury During Coronary Artery Bypass Grafting",
+    "category": "cardiac",
+    "parent_cluster": "Cardiac Injury",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3ccb8ce1d83da5dcd208c59dc9608f01fc3fe8aebb44ac10a2decdac449724b1": {
+    "cluster_id": 71,
+    "canonical_name": "Heart Failure",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 5
+    }
+  },
+  "93a29adfb9189302a8f53ee04d093322536c03ce9a50e801c3e0e0580a6e11a6": {
+    "cluster_id": 23,
+    "canonical_name": "Cardiorespiratory Fitness",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "13aef0cf41e43defd6acf2e8b02dbec08d1063156fd344d0f7b409623d486b4c": {
+    "cluster_id": 131,
+    "canonical_name": "Cardiovascular and Renal Outcomes",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8ff2aa7f9de9d67afd26f4f31a871b403b0be422ee41db03af46409ad7079aef": {
+    "cluster_id": 132,
+    "canonical_name": "Cardiovascular Complications",
+    "category": "cardiac",
+    "parent_cluster": "Cardiovascular Disease",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6b9f07c9f081d28b6dae1bc86314d79acd77586b695bbefd31ad680af3d1d6dc": {
+    "cluster_id": 97,
+    "canonical_name": "Cardiovascular Disease",
+    "category": "cardiac",
+    "parent_cluster": "Noncommunicable Diseases",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "cc56c4941478d0fd550af2d165aab850b64efa3a18156538808f59bc71a76999": {
+    "cluster_id": 133,
+    "canonical_name": "Cardiovascular Management",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "808fa216de052ae5cf0fed60003080ca4c8105e456d3843b23017fcfa1453bb1": {
+    "cluster_id": 45,
+    "canonical_name": "Chronic Low Back Pain",
+    "category": "musculoskeletal",
+    "parent_cluster": "Chronic Pain",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 10
+    }
+  },
+  "5175f4bb54415112c4904be501c121d15981509df22ab536a4c871d26f007157": {
+    "cluster_id": 134,
+    "canonical_name": "Chemotherapy-Related Cognitive Impairment",
+    "category": "neurological",
+    "parent_cluster": "Cognitive Impairment",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3d000399bf8c16aa881dcfdbb9e120be9c79bf69a36d84d00fa5dcf969a6d2f5": {
+    "cluster_id": 135,
+    "canonical_name": "Childhood Cancer",
+    "category": "oncological",
+    "parent_cluster": "Cancer",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "bf57122770b1a7616ef9a09ddc2f750be09ff95cab33606693f4d5d7287667f7": {
+    "cluster_id": 136,
+    "canonical_name": "Chondral Lesions",
+    "category": "musculoskeletal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1d57fd4340927f9bc7febd075bbd9a6f1a3dd9b6e27b90896970348684a8ece9": {
+    "cluster_id": 6,
+    "canonical_name": "Chronic Ankle Instability",
+    "category": "musculoskeletal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "b330b57af4936f228e62c6fc73d233b80400cec91b10e114427d0f5d5dc6eb72": {
+    "cluster_id": 52,
+    "canonical_name": "Chronic Hepatitis B",
+    "category": "infectious",
+    "parent_cluster": "Hepatitis B",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "01dd016de572906441a92b31398de1edbaf0c26d449d6b466ba53a7337efb311": {
+    "cluster_id": 313,
+    "canonical_name": "Attention-Deficit/Hyperactivity Disorder",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e0e9e9175268074e11c7d81162d8ccc1f624448aa590f49d7437f53375bdcf30": {
+    "cluster_id": 264,
+    "canonical_name": "Alport syndrome",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "c7704bb9d88f0fe57338a9cac7c29fd1d35adb70e3fd1937f1490fd1d7551abd": {
+    "cluster_id": 323,
+    "canonical_name": "Alzheimer's disease",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "99ff4b3d6cac85decaa14e588c8b11291da959bee58d92d693e9d5d9b6504105": {
+    "cluster_id": 22,
+    "canonical_name": "Attention-Deficit/Hyperactivity Disorder",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "fb18da4ad4e67957d0a448d1e1fd575b68eedc3a80c7201493f44d6a4b4980bd": {
+    "cluster_id": 429,
+    "canonical_name": "Cognitive Impairment",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "88e9e2454eda9f85c47a9dc6a4a81805e9dee790c646f94e354661e0dc8a333c": {
+    "cluster_id": 407,
+    "canonical_name": "Giant Cell Arteritis",
+    "category": "rheumatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "881068a7eed7c499dad1c970aff2161db220607560d21ddaf21f11d22dd3cd7d": {
+    "cluster_id": 310,
+    "canonical_name": "Allergic Asthma",
+    "category": "pulmonary",
+    "parent_cluster": "Asthma",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "5b5d306bac925f0bc25124f8426da9cf273ebce8c06700cdcfb5b5b110334f5c": {
+    "cluster_id": 343,
+    "canonical_name": "HER2-low metastatic breast cancer",
+    "category": "oncological",
+    "parent_cluster": "breast cancer",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "45e3e1ec6f5d801101ef1e70cefe6bd29327621c2434897292ff97a047c16527": {
+    "cluster_id": 234,
+    "canonical_name": "HER2-mutant metastatic non-small cell lung cancer",
+    "category": "oncological",
+    "parent_cluster": "non-small cell lung cancer",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e4cfc5fca3d84d3a15defdcf0b8c9699cebc401ddfff665464952d4478c9e825": {
+    "cluster_id": 403,
+    "canonical_name": "Helicobacter pylori recurrence",
+    "category": "infectious",
+    "parent_cluster": "Helicobacter pylori infection",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "11f372a99e00a02663563678d11ce76d7b74eb62d8926e7a2e7c1ee85c6f35d6": {
+    "cluster_id": 360,
+    "canonical_name": "Lennox-Gastaut syndrome",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6273432d43e7f4bf0b61de1f735bfbd0fbe00efaa4c4372dce073cd123987804": {
+    "cluster_id": 365,
+    "canonical_name": "CDKL5 deficiency disorder",
+    "category": "neurological",
+    "parent_cluster": "Lennox-Gastaut syndrome",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "970f030bbca79688b40c81cdbc9cde4913508e4ae6ce1dd5a5d77ad011cf5b32": {
+    "cluster_id": 390,
+    "canonical_name": "Pseudomonas aeruginosa colonization in COPD",
+    "category": "pulmonary",
+    "parent_cluster": "COPD",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "ba645f5af957d21d6efa884f5a297121716d618abebce59fe9f3397621ebafa7": {
+    "cluster_id": 10,
+    "canonical_name": "Parkinson's disease",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "cee944c75a271775cdad19fec348b1ed4b0ecb23235ec38ad9e685e1b8c97efa": {
+    "cluster_id": 355,
+    "canonical_name": "Takayasu Arteritis",
+    "category": "rheumatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "53d50ae910ae82ed5fdcd0c34068da67897efdf7ae0daab40f288be45f23bc1e": {
+    "cluster_id": 5,
+    "canonical_name": "Type 2 diabetes mellitus",
+    "category": "endocrine",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "ebe355531ae139cc32fc563c1782897c6d3255d1e63c522d6685686cba54f34f": {
+    "cluster_id": 409,
+    "canonical_name": "Abdominal obesity",
+    "category": "nutritional",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8127958aa25df9a32b62feb319166579d10a61cacdbe02a6655f252185b88ab9": {
+    "cluster_id": 351,
+    "canonical_name": "Acne",
+    "category": "dermatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3f819d557fe35cc64f74ac11cc3fb2bc1dbc80fea9ede1731ec93bfad2910b45": {
+    "cluster_id": 410,
+    "canonical_name": "Acne vulgaris",
+    "category": "dermatological",
+    "parent_cluster": "Acne",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e9b85f21d34580e3d71ee7fb1ce6de31e9c47b50c9830e9a094d09d35bb91678": {
+    "cluster_id": 388,
+    "canonical_name": "Anterior Cruciate Ligament (ACL) injury",
+    "category": "musculoskeletal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "2892fa9bc527bab659ec2165eed0a4e7e484437f32afbdf3e44476635bef2068": {
+    "cluster_id": 220,
+    "canonical_name": "Chronic Obstructive Pulmonary Disease",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3c1b1d7ced561a6abca195b23622be7f1355da5bbfa5243d1b86b64ac8cda39a": {
+    "cluster_id": 417,
+    "canonical_name": "Acute Kidney Injury",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a1ad585edbbf5181893d9c29675974bbf29b7bdca92b81842e6fdd32913a9752": {
+    "cluster_id": 324,
+    "canonical_name": "Acute Liver Failure",
+    "category": "digestive",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "14f62f41a561153463fe7b6056686f45da3751623b7d9945e2e78f7a6246644c": {
+    "cluster_id": 404,
+    "canonical_name": "Acute Myeloid Leukemia",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b798ea0c89059e25d01958d237febcaf942cd35ef72badbd64e36ad31f350f0f": {
+    "cluster_id": 373,
+    "canonical_name": "Acute Promyelocytic Leukemia",
+    "category": "oncological",
+    "parent_cluster": "Acute Myeloid Leukemia",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "cf7036ebf1fdb84e60b1970b65c081951bc66abca9d708c3fd792a87343249ad": {
+    "cluster_id": 334,
+    "canonical_name": "Pulmonary Embolism",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d876203dc67b6c812f3078ad60646e473ab6d2dbfa4f54356d6478e35fe6001f": {
+    "cluster_id": 350,
+    "canonical_name": "Hypothyroidism",
+    "category": "endocrine",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "089e7431bb2ea5aa4988dd1aac4022bd645675bc2c13e7c710df618cb7eccd48": {
+    "cluster_id": 358,
+    "canonical_name": "Melanoma",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d27eea770e21e89d357a61bbc4ea12c1a27a1d8d4ab06985ce1f897f33714aaa": {
+    "cluster_id": 354,
+    "canonical_name": "Non-Small Cell Lung Cancer",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "8da83b6b3e73e5edc4f97f84289898f9c6e6d5be4a2bb84b313b508334ba1f1d": {
+    "cluster_id": 321,
+    "canonical_name": "Breast Cancer",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1b52f78e567e000c90b77dbebbbb81adbec8eb4968cd98cf38f5b00449437210": {
+    "cluster_id": 338,
+    "canonical_name": "Parkinson's Disease",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6d620b342205fc06a886c5fbb04bada4386a0abaacf876aee474ac3cad6b2938": {
+    "cluster_id": 337,
+    "canonical_name": "Anhedonia",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "fff9a545f26bb32c1a6fd6463d2d7373d0e7df8e46f03c97eaf1a44dac07aa22": {
+    "cluster_id": 387,
+    "canonical_name": "Depression",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "5e44ca8c5c4b5ab7065a62815b4f9c601c8255ba2a6f596ff4edfa17847e7b49": {
+    "cluster_id": 367,
+    "canonical_name": "Anterior Cruciate Ligament Injury",
+    "category": "musculoskeletal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "7aba6892ac20cc2f2988747bd4a82788d2a71c13366b65d2074ac84571c3ee97": {
+    "cluster_id": 374,
+    "canonical_name": "Anxiety",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "44c6a068f43241e8f92623408642b5fc2cb940cde74974431a45f7ed5852f268": {
+    "cluster_id": 2,
+    "canonical_name": "Major Depressive Disorder",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "010b893fc7f771c37299c7ec327b0c38e9da00b7d71c2e7a892d54f535ede4e1": {
+    "cluster_id": 281,
+    "canonical_name": "Substance Use Disorder",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "745564c7423512bee296b7bd7aa45b77b46eba2e5e09237d4564ab1e97fda819": {
+    "cluster_id": 392,
+    "canonical_name": "Anxiety Disorders",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "125f23d2ddced28347302fe7bb3d8144c43b4a6eb56bc9c405055e293e4de472": {
+    "cluster_id": 16,
+    "canonical_name": "Aortic Stenosis",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "253fec8ede94b483b6f5e30c98498ecdc7cef241c66f5c2d0829a2e2f41fc7f8": {
+    "cluster_id": 398,
+    "canonical_name": "Asthma",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "389020f6cd21a5f14d04accdf49124989739b8aa756ce8a3ee021b8c8390c59e": {
+    "cluster_id": 237,
+    "canonical_name": "asthma",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "08d4aa20e9b5ca8aaea8eb6fa4ee6ba34007d2e7c01a4786d50b71db95be944f": {
+    "cluster_id": 314,
+    "canonical_name": "asymptomatic severe aortic stenosis",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f167151ee38a359c3c2abbdf280860cf66a2b4031fabf81c808760e0ca45295c": {
+    "cluster_id": 383,
+    "canonical_name": "atopic dermatitis",
+    "category": "dermatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "08dc09468d586b3cf124b79a0c803c6952946b7a21f9af2e3610df60b2919ff9": {
+    "cluster_id": 3,
+    "canonical_name": "autosomal dominant polycystic kidney disease",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "36ac622a66a8464a24fe76719b05bd4ee8606cdc2bceb190ca41bbee56c9229e": {
+    "cluster_id": 406,
+    "canonical_name": "basal cell carcinoma",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e3854fda3ba99f6d4fc5f7f94a02610cf141e25e7770cc086cbd362ef9973bda": {
+    "cluster_id": 333,
+    "canonical_name": "behavioral intention to participate in physical activity",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "1486956a3ed535caf7afebcee3998e0d9e22ee37d44aa69de0370d16f2e958ff": {
+    "cluster_id": 369,
+    "canonical_name": "beta-cell function preservation in type 1 diabetes",
+    "category": "endocrine",
+    "parent_cluster": "type 1 diabetes",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e3a8c7bbd788cc93aed89568d5c33cb201ab1719a63d59b5958069b7248a4e0c": {
+    "cluster_id": 370,
+    "canonical_name": "biochemical recurrence after radical prostatectomy",
+    "category": "oncological",
+    "parent_cluster": "prostate cancer",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "2a7c44328186bb2a44f00c5144bcb6f43b39bd88213a27ef42640ff8978458bf": {
+    "cluster_id": 420,
+    "canonical_name": "bone and muscle health",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "6e00516da57290b3ff8be65025a06405e9fc7a624d70a1d141d4948d0e91d376": {
+    "cluster_id": 260,
+    "canonical_name": "bone health",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "61a5eca411d75a381354de0508c570f6414f81f9101eb3ef32f399547f03858b": {
+    "cluster_id": 340,
+    "canonical_name": "brain metastases from non-small cell lung cancer",
+    "category": "oncological",
+    "parent_cluster": "non-small cell lung cancer",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "60db878e139c5109b01550de28b53af17a520d4d3f0ba20dd1d380109565c380": {
+    "cluster_id": 362,
+    "canonical_name": "cancer",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9beb3a4479fbf4583de1d104b906b1d77816257c8cdc1f1f8e1d1e2f8e92f7fc": {
+    "cluster_id": 366,
+    "canonical_name": "cancer-related fatigue",
+    "category": "other",
+    "parent_cluster": "cancer",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3949244795c7f70d82fc738ecb1a13e5b86e0c0ab1361c4307d9bcf528720f91": {
+    "cluster_id": 257,
+    "canonical_name": "cardiometabolic risk",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "801ce863ac830ae430f2c278bd963495ff6c3095bff214cda1ae64916082e867": {
+    "cluster_id": 293,
+    "canonical_name": "cardiorespiratory fitness",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "3670f217c6cd6004eeee23d299823282d7d01091f661dbe3f541887a1954b31e": {
+    "cluster_id": 378,
+    "canonical_name": "cardiovascular disease",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "b4b195c78d705a74b93d319ce2692eed9d26dddc3c4c281a944398fc544847c6": {
+    "cluster_id": 270,
+    "canonical_name": "central sensitisation low back pain",
+    "category": "musculoskeletal",
+    "parent_cluster": "low back pain",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d81445d5f8e278af07ed4a0726c6f3cedd7b3287ec1499ca61d30aa57476ccf4": {
+    "cluster_id": 357,
+    "canonical_name": "chronic ankle instability",
+    "category": "musculoskeletal",
+    "parent_cluster": "ankle instability",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "4aaad718ed1e23e4bd0b466d30df4751ed10f8020effaeb09809cc179d7e020a": {
+    "cluster_id": 280,
+    "canonical_name": "chronic constipation",
+    "category": "digestive",
+    "parent_cluster": "constipation",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "139f90f17079e0b19c2c73e03cc3f92f241f61bef56319f7296da25a634be647": {
+    "cluster_id": 4,
+    "canonical_name": "acute kidney injury",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "f1438ed658c6dfc25445bc7259ce1deff39803a84a0324704fd1a46017b8c880": {
+    "cluster_id": 9,
+    "canonical_name": "obesity",
+    "category": "nutritional",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "79e56acd50988ca69b527e8326e57f52be3eef4551aa39978baa6ab7a64841db": {
+    "cluster_id": 31,
+    "canonical_name": "acne vulgaris",
+    "category": "dermatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "791651cb150f095b7278728b7b43c51f57d469e5c9b7b9fcb2571da16325d8d1": {
+    "cluster_id": 3,
+    "canonical_name": "anterior cruciate ligament injury",
+    "category": "musculoskeletal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "feaa4749514647e07e7d583808670f5e5dda02017c508fb0662d81828c223bf7": {
+    "cluster_id": 27,
+    "canonical_name": "acute myeloid leukemia",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "774e7582d0bac0a538c9211cae0b9825f969e5d06ad16c765004335f17e251c5": {
+    "cluster_id": 4,
+    "canonical_name": "generalized anxiety disorder",
+    "category": "psychiatric",
+    "parent_cluster": "anxiety disorders",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "bdaf7a0639ccea09a743d113a9f2023d4fee709d567094302da40c34c73798eb": {
+    "cluster_id": 33,
+    "canonical_name": "asthma",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "d66026e7e22b578d6b4d28d16d0d3361175dcd822a98345c53da542529414123": {
+    "cluster_id": 22,
+    "canonical_name": "basal cell carcinoma",
+    "category": "dermatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "a30b9894088f404a201dbfa27d06a62bf5981d35773745b1cdf9b33000864cea": {
+    "cluster_id": 368,
+    "canonical_name": "chronic hepatitis B",
+    "category": "infectious",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "ef3ced2a1285b55403bd36557bcc0bfab5531434090e10b59ca346a57461b62b": {
+    "cluster_id": 367,
+    "canonical_name": "chronic hepatitis B virus infection",
+    "category": "infectious",
+    "parent_cluster": "chronic hepatitis B",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f1bdf99e332eaa0c105e91ab79059d41dff78be951be7eb01a17a0d2884901ba": {
+    "cluster_id": 352,
+    "canonical_name": "chronic hepatitis B",
+    "category": "infectious",
+    "parent_cluster": "chronic hepatitis B virus infection",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "9872770431317ca5d579c627269d7346a4fd15c335cb5e4020bd50e3390be52c": {
+    "cluster_id": 317,
+    "canonical_name": "chronic kidney disease",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "e116aa96a3f773fbbf6eabd23a6641300b59030f75ca6150bcadf7a90494f20c": {
+    "cluster_id": 55,
+    "canonical_name": "chronic nonspecific low back pain",
+    "category": "musculoskeletal",
+    "parent_cluster": "chronic low back pain",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "58c9cd01c2ec2da20da0783e42c33a50075f2e4d677acfda13b7d11e796a3c74": {
+    "cluster_id": 85,
+    "canonical_name": "Cognitive Impairment",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "072346a691a75bb685f06b714e3d9a095f8eff252d9509f50662264744035f8e": {
+    "cluster_id": 53,
+    "canonical_name": "Obesity",
+    "category": "nutritional",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "c4248feb36bd7f9213d430ce191f2d09a4d0095b9c3f57e952f582cc73246621": {
+    "cluster_id": 3,
+    "canonical_name": "Pulmonary Embolism",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "348951fe88f60a3fbe348d25eba6b4cbc46566c3a19f34a5e737434d1604c2d0": {
+    "cluster_id": 28,
+    "canonical_name": "Non-Small Cell Lung Cancer",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "fa771a6b876efa37be4fb3643641e6b29779c8331ac9ee265e7ddbeda4f7ea44": {
+    "cluster_id": 5,
+    "canonical_name": "Kidney Function Decline",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "b4e74db4824e95b011901e91aead139fe62da7e82f4fdbf10e9c9c5eaa44a527": {
+    "cluster_id": 29,
+    "canonical_name": "Anxiety Disorders",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "aabce70704a0a12a980e72e39e158b1f53efd739320a4dfa7087800c91ea98bb": {
+    "cluster_id": 10,
+    "canonical_name": "Asthma",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "22bf62c9dfa54dea31ae233b5bec331992f484a23c304b083d2741348e43b0d9": {
+    "cluster_id": 31,
+    "canonical_name": "Atopic Dermatitis",
+    "category": "dermatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "1b58899608877df6bebb4694fed59c45d1ba23601b954ade23860e5dce537765": {
+    "cluster_id": 159,
+    "canonical_name": "Prostate Cancer Recurrence",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "e39bebbc0fed5ebe30970a232f2387d52a9abd0c61dd92d89664afb45ec72ad6": {
+    "cluster_id": 25,
+    "canonical_name": "Fatigue",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "57a4d8f22aebb8c773f55c8caff1e3dd4a745440378443e7e939c64cc047ec96": {
+    "cluster_id": 38,
+    "canonical_name": "Chronic Pain",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "69646c79363805b031959295069df327701c4c207dad0a286467f116448fc3ba": {
+    "cluster_id": 230,
+    "canonical_name": "Chronic Stress",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "a882181bd0e3fe09680063ce39dcb9771fed0553b5ccd7b60f743111a766ab21": {
+    "cluster_id": 265,
+    "canonical_name": "Bronchiectasis",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "5d3f1e66aa4c2470098b8a212bd675746d5465ff5c445aa2b3268ac1b55b8774": {
+    "cluster_id": 236,
+    "canonical_name": "Circulatory Shock",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "f13105d03c40e5513eda1b2f6edfaa6e2040240cd7bffb03d00c168ee945f381": {
+    "cluster_id": 113,
+    "canonical_name": "Attention-Deficit/Hyperactivity Disorder (ADHD)",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "22c2df2ed09d50e2bd6a577ac3a816b8210cf06b16e6a1226e1422fb798257ac": {
+    "cluster_id": 9,
+    "canonical_name": "Alcohol Withdrawal Syndrome (AWS)",
+    "category": "psychiatric",
+    "parent_cluster": "Alcohol Use Disorder",
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "ee9ff6bbff1a516de235dd70a86d4316a95887e3221e0cb34aea8dd614af3746": {
+    "cluster_id": 18,
+    "canonical_name": "Alport syndrome",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "21fd75309c0158a6137a614e499c83a3d171bd819fd3e5799bd348da576d5223": {
+    "cluster_id": 16,
+    "canonical_name": "Allergic Asthma (Type 2-High)",
+    "category": "pulmonary",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "21cb52de196686598cb864bee96a8c60ee1263688bc32320a07547586f22d217": {
+    "cluster_id": 108,
+    "canonical_name": "Helicobacter pylori infection",
+    "category": "infectious",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "6326cb2fd2475cb37aea51ac342bf43ef3ab467fc3f151cccd0e8ad0afaaf8d7": {
+    "cluster_id": 15,
+    "canonical_name": "IgA nephropathy",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "6a60b1d3ff89441430128245608feb80958203e0eebf15d991d9ffe8ca6a41f8": {
+    "cluster_id": 54,
+    "canonical_name": "Parkinson's disease",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "538607e93503d0284bc0e1c3eab8ea0a0f1d9c0af5997ddb5d9d37111310e877": {
+    "cluster_id": 32,
+    "canonical_name": "Gout",
+    "category": "rheumatological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "5ab31de5fdb586b73de47253e2cf12b59a82b3bd3a9a0a2f8c1b18a953d874fc": {
+    "cluster_id": 11,
+    "canonical_name": "Non-Small Cell Lung Cancer (NSCLC)",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "15d4d7aca09284bea0967de2ac5accea10ee73f4d349f1937125bcc0a75df146": {
+    "cluster_id": 57,
+    "canonical_name": "Non-Small Cell Lung Cancer (NSCLC)",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "e84da545a153c91b640810f191c248e5029c9e7ade0d2408ac501f7666e21a5c": {
+    "cluster_id": 34,
+    "canonical_name": "Major Depressive Disorder",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "211470090f48ea689e083dbf69e8933264b4d54a09c8b5e5aa90527764081f82": {
+    "cluster_id": 28,
+    "canonical_name": "Atrial Fibrillation",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "ba2513470fc290f3eeffadf8b0a67d2ef44010045d634a1a6203d50ededa7bdd": {
+    "cluster_id": 0,
+    "canonical_name": "Osteoporosis",
+    "category": "musculoskeletal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "61da09a4580a101d44b5d7ea04c68ba05de1758060bbfb282ea0dd209dfad88c": {
+    "cluster_id": 24,
+    "canonical_name": "Hepatocellular Carcinoma",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "3e5064325ef904ce709bf0ed14f6bdf4897e8c254ae493d7f9434ea06eaf5dc8": {
+    "cluster_id": 13,
+    "canonical_name": "Cancer Survival",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "8976e571efa9294b53cf1c96098f543c481b9b64eb2eb9425ca22c82d31fff31": {
+    "cluster_id": 4,
+    "canonical_name": "Cardiometabolic Risk",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "b9ed1693a15def8251b31b1803d11711917862b79b3842d00f5ae2a54903ebca": {
+    "cluster_id": 52,
+    "canonical_name": "Chronic Kidney Disease",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "6a9cc5ee9286c70afc93c8dafc7779999898e914c844d585bdd18110a4f36d12": {
+    "cluster_id": 30,
+    "canonical_name": "Cardiovascular Complications",
+    "category": "cardiac",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "d26253dcdd8f16c32b92466690f8af2f44449b495953898bc846d5d4bb74c24f": {
+    "cluster_id": 36,
+    "canonical_name": "Chronic Low Back Pain",
+    "category": "musculoskeletal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "6be13e41dbe5e86bdf1539982abffa52d97ca04254988cbe8feedb726201165b": {
+    "cluster_id": 7,
+    "canonical_name": "Chemotherapy-Related Cognitive Impairment",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "f1d22d21aa105f3ebbef8372c484033f1c9849e20bdaf4ad22be76e4060dd95a": {
+    "cluster_id": 29,
+    "canonical_name": "chronic constipation and chronic stress",
+    "category": "other",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "423d5e3c03c697426fe11f3c06ada954c3b5af9fa11ab79df484da8c3f8a8969": {
+    "cluster_id": 22,
+    "canonical_name": "cognitive impairment after stroke",
+    "category": "neurological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "94f8db7cd5e7b0ed0cddabaf1161eb6bc31815debe772570890403237aa8f5ec": {
+    "cluster_id": 58,
+    "canonical_name": "inflammatory bowel disease",
+    "category": "digestive",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 3
+    }
+  },
+  "b98a9843bdb844fc7350f1a7cedeadeabaa5c8ef56528e5869bfae437c887744": {
+    "cluster_id": 231,
+    "canonical_name": "colorectal cancer prevention",
+    "category": "oncological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 1
+    }
+  },
+  "d2a8203412e5f2022b99dcf18006ad4618790daf4d6864a8491158cb5bd1f735": {
+    "cluster_id": 1,
+    "canonical_name": "kidney stones",
+    "category": "renal",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 5
+    }
+  },
+  "76e782484cb6d2ec852eabbc9491631473b7e28afcd630fc69ccf8e16142d16e": {
+    "cluster_id": 76,
+    "canonical_name": "deep vein thrombosis",
+    "category": "hematological",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
+  },
+  "f54d2ce84f716e5a084f587c52acdf6f7d53407dbfadc60aa1e3f524ee728567": {
+    "cluster_id": 27,
+    "canonical_name": "depression",
+    "category": "psychiatric",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 4
+    }
+  },
+  "596233419ef2c0d32f9fd9e2bb4710f9592c66d06a4bd798479825713852362a": {
+    "cluster_id": 5,
+    "canonical_name": "diabetic complications",
+    "category": "endocrine",
+    "parent_cluster": null,
+    "confidence": 1.0,
+    "provenance": {
+      "method": "llm",
+      "model": "qwen3:14b",
+      "temperature": 0.0,
+      "members_shown": 2
+    }
   }
 }

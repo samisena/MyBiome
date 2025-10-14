@@ -43,20 +43,19 @@ def load_threshold_experiments(db_path: str) -> Dict[str, List[Dict]]:
         SELECT
             e.experiment_id,
             e.experiment_name,
-            e.config_data,
             e.status,
             e.duration_seconds,
             er.entity_type,
-            er.num_entities,
+            er.embeddings_generated,
             er.num_clusters,
             er.num_natural_clusters,
             er.num_singleton_clusters,
             er.silhouette_score,
             er.davies_bouldin_score,
-            er.cluster_size_min,
-            er.cluster_size_max,
-            er.cluster_size_mean,
-            er.cluster_size_median
+            er.min_cluster_size,
+            er.max_cluster_size,
+            er.mean_cluster_size,
+            er.median_cluster_size
         FROM experiments e
         JOIN experiment_results er ON e.experiment_id = er.experiment_id
         WHERE e.status = 'completed'
@@ -71,9 +70,9 @@ def load_threshold_experiments(db_path: str) -> Dict[str, List[Dict]]:
     results = defaultdict(list)
 
     for row in rows:
-        exp_id, exp_name, config_data, status, duration, entity_type, num_entities, \\
-        num_clusters, num_natural, num_singletons, silhouette, davies_bouldin, \\
-        size_min, size_max, size_mean, size_median = row
+        (exp_id, exp_name, status, duration, entity_type, num_entities,
+         num_clusters, num_natural, num_singletons, silhouette, davies_bouldin,
+         size_min, size_max, size_mean, size_median) = row
 
         # Extract threshold from experiment name
         # Format: threshold_0.5_interventions
@@ -121,10 +120,10 @@ def load_cluster_members(db_path: str, experiment_id: int, entity_type: str) -> 
             canonical_name,
             category,
             member_entities,
-            num_members
+            member_count
         FROM cluster_details
         WHERE experiment_id = ? AND entity_type = ?
-        ORDER BY num_members DESC, cluster_id
+        ORDER BY member_count DESC, cluster_id
     """, (experiment_id, entity_type))
 
     rows = cursor.fetchall()
@@ -152,10 +151,10 @@ def generate_quantitative_report(
     """Generate quantitative comparison table."""
     logger.info(f"Generating quantitative report: {output_path}")
 
-    with open(output_path, 'w') as f:
+    with open(output_path, 'w', encoding='utf-8') as f:
         f.write("# Distance Threshold Experiment Results\n\n")
-        f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\\n\\n")
-        f.write("="*80 + "\\n\\n")
+        f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+        f.write("="*80 + "\n\n")
 
         for entity_type, experiments in results.items():
             f.write(f"## {entity_type.title()} - Distance Threshold Comparison\\n\\n")
@@ -231,7 +230,7 @@ def generate_member_lists(
             # Generate markdown report
             output_file = output_dir / f"{entity_type}_clusters_threshold_{threshold:.1f}.md"
 
-            with open(output_file, 'w') as f:
+            with open(output_file, 'w', encoding='utf-8') as f:
                 f.write(f"# {entity_type.title()} - Distance Threshold {threshold:.1f}\\n\\n")
                 f.write(f"Experiment: {exp['experiment_name']}\\n")
                 f.write(f"Total clusters: {exp['num_clusters']}\\n")

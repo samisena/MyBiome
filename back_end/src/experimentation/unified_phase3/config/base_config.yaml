@@ -43,31 +43,37 @@ embedding:
 clustering:
   # Intervention clustering
   interventions:
-    algorithm: "hdbscan"      # hdbscan or hierarchical
+    algorithm: "hierarchical"  # hdbscan or hierarchical
     min_cluster_size: 2
     min_samples: 1
     cluster_selection_epsilon: 0.0
     metric: "euclidean"
     # Hierarchical-specific (if algorithm=hierarchical)
     linkage: "ward"
-    distance_threshold: null
+    distance_threshold: 0.7    # Optimal threshold from experiments (0.4-0.8)
     n_clusters: null
 
   # Condition clustering
   conditions:
-    algorithm: "hdbscan"
+    algorithm: "hierarchical"  # Optimal: hierarchical with 0.7
     min_cluster_size: 2
     min_samples: 1
     cluster_selection_epsilon: 0.0
     metric: "euclidean"
+    linkage: "ward"
+    distance_threshold: 0.7    # Optimal threshold from experiments
+    n_clusters: null
 
   # Mechanism clustering
   mechanisms:
-    algorithm: "hdbscan"
+    algorithm: "hierarchical"  # Optimal: hierarchical with 0.7
     min_cluster_size: 2
     min_samples: 1
     cluster_selection_epsilon: 0.0
     metric: "euclidean"
+    linkage: "ward"
+    distance_threshold: 0.7    # Optimal threshold from experiments
+    n_clusters: null
 
 # Phase 3c: LLM Naming
 naming:

@@ -335,7 +335,8 @@ class UnifiedPhase3Orchestrator:
                 normalization=config['normalization'],
                 include_context=config.get('include_context', False)
             )
-            embeddings, entity_names = embedder.embed_mechanisms_from_db(str(self.db_path))
+            # Limit to 200 entities for threshold experiments (faster testing)
+            embeddings, entity_names = embedder.embed_mechanisms_from_db(str(self.db_path), limit=200)
 
         else:
             raise ValueError(f"Unknown entity_type: {entity_type}")

@@ -58,9 +58,9 @@ class HierarchicalClusterer(BaseClusterer):
             raise ValueError("Only one of distance_threshold or n_clusters can be set")
 
         if distance_threshold is None and n_clusters is None:
-            # Default: use distance threshold
-            distance_threshold = 0.5
-            logger.info("Neither distance_threshold nor n_clusters set, using distance_threshold=0.5")
+            # Default: use optimal distance threshold from experiments (0.4-0.8 comparison)
+            distance_threshold = 0.7
+            logger.info("Neither distance_threshold nor n_clusters set, using distance_threshold=0.7 (optimal)")
 
         if linkage == 'ward' and metric != 'euclidean':
             logger.warning("Ward linkage requires euclidean metric, overriding")

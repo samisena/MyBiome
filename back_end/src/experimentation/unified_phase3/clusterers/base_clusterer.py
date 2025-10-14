@@ -184,9 +184,24 @@ class BaseClusterer(ABC):
         return metadata
 
     def _hash_embeddings(self, embeddings: np.ndarray) -> str:
-        """Generate hash for embeddings (for caching)."""
+        """
+        Generate hash for embeddings AND hyperparameters (for caching).
+
+        This ensures different hyperparameter configurations produce different cache keys,
+        allowing proper comparison of clustering algorithms with varying parameters.
+        """
         import hashlib
-        return hashlib.sha256(embeddings.tobytes()).hexdigest()
+
+        # Include both embeddings and hyperparameters in hash
+        embeddings_bytes = embeddings.tobytes()
+
+        # Serialize hyperparameters deterministically (sorted keys)
+        hyperparams_str = json.dumps(self.hyperparameters, sort_keys=True)
+        hyperparams_bytes = hyperparams_str.encode('utf-8')
+
+        # Combine and hash
+        combined = embeddings_bytes + b'|||' + hyperparams_bytes
+        return hashlib.sha256(combined).hexdigest()
 
     def _load_cache(self):
         """Load cache from disk."""
