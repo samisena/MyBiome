@@ -1,6 +1,10 @@
 """
 LLM-based categorization for interventions and conditions.
 Separate categorization phase that runs after extraction.
+
+DEPRECATED: This module is NOT part of the main pipeline.
+Main pipeline uses Phase 3c clustering-first approach.
+Categories are defined in phase_3_config.yaml (single source of truth).
 """
 
 import json
@@ -11,10 +15,23 @@ from openai import OpenAI
 
 from back_end.src.data.config import config, setup_logging
 from back_end.src.phase_1_data_collection.database_manager import database_manager
-from back_end.src.interventions.taxonomy import InterventionType
-from back_end.src.conditions.taxonomy import ConditionType
 
 logger = setup_logging(__name__)
+
+# DEPRECATED: Taxonomy imports removed - categories now defined in phase_3_config.yaml
+# These hardcoded lists are kept for backward compatibility with standalone categorizer
+INTERVENTION_CATEGORIES = [
+    'exercise', 'diet', 'supplement', 'medication', 'therapy',
+    'lifestyle', 'surgery', 'test', 'device', 'procedure',
+    'biologics', 'gene_therapy', 'emerging'
+]
+
+CONDITION_CATEGORIES = [
+    'cardiac', 'neurological', 'digestive', 'pulmonary', 'endocrine',
+    'renal', 'oncological', 'rheumatological', 'psychiatric',
+    'musculoskeletal', 'dermatological', 'infectious', 'immunological',
+    'hematological', 'nutritional', 'toxicological', 'parasitic', 'other'
+]
 
 
 class LLMCategorizationError(Exception):
@@ -332,10 +349,9 @@ No explanations. Just the JSON array."""
                     intervention_id = batch[number - 1]["id"]
 
                     # Validate category
-                    try:
-                        InterventionType(category.lower())
+                    if category.lower() in INTERVENTION_CATEGORIES:
                         category_map[intervention_id] = category.lower()
-                    except ValueError:
+                    else:
                         logger.warning(f"Invalid intervention category: {category}")
 
             return category_map
@@ -456,10 +472,9 @@ No explanations. Just the JSON array."""
                     condition_name = batch[number - 1]
 
                     # Validate category
-                    try:
-                        ConditionType(category.lower())
+                    if category.lower() in CONDITION_CATEGORIES:
                         category_map[condition_name] = category.lower()
-                    except ValueError:
+                    else:
                         logger.warning(f"Invalid condition category: {category}")
 
             return category_map

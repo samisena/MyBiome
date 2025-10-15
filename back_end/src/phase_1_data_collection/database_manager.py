@@ -770,37 +770,9 @@ class DatabaseManager:
             logger.error(f"Error setting up intervention categories: {e}")
             return False
 
-    def setup_condition_categories(self):
-        """Set up the condition categories table with taxonomy data."""
-        from ..conditions.taxonomy import condition_taxonomy
-        from ..conditions.search_terms import search_terms as condition_search_terms
-
-        try:
-            with self.get_connection() as conn:
-                cursor = conn.cursor()
-
-                for category_type, category_def in condition_taxonomy.get_all_categories().items():
-                    # Get search terms for this category
-                    category_search_terms = condition_search_terms.get_terms_for_category(category_type)
-
-                    cursor.execute('''
-                        INSERT OR REPLACE INTO condition_categories
-                        (category, display_name, description, search_terms)
-                        VALUES (?, ?, ?, ?)
-                    ''', (
-                        category_type.value,
-                        category_def.display_name,
-                        category_def.description,
-                        json.dumps(category_search_terms)
-                    ))
-
-                conn.commit()
-                logger.info(f"Set up {len(condition_taxonomy.get_all_categories())} condition categories")
-                return True
-
-        except Exception as e:
-            logger.error(f"Error setting up condition categories: {e}")
-            return False
+    # DEPRECATED: setup_condition_categories() removed
+    # Phase 3c now reads categories from phase_3_config.yaml as single source of truth
+    # Legacy database table 'condition_categories' is no longer actively used
     
     
     def get_paper_by_pmid(self, pmid: str) -> Optional[Dict]:

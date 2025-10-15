@@ -84,9 +84,9 @@ class Phase3dConfig:
     diversity_warning_threshold: float = 0.40  # Warn if inter-child similarity <0.40
     diversity_severe_threshold: float = 0.30  # SEVERE if <0.30
 
-    # Embedding model
-    embedding_model: str = "nomic-embed-text"
-    embedding_dimension: int = 768
+    # Embedding model (UPDATED to match Phase 3a/3b/3c)
+    embedding_model: str = "mxbai-embed-large"
+    embedding_dimension: int = 1024
 
     # Database tables
     clusters_table: str = 'mechanism_clusters'  # or 'canonical_groups' for interventions/conditions

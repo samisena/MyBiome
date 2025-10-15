@@ -2,44 +2,23 @@
 
 ## Project Overview
 
-Automated biomedical research pipeline that collects research papers about health conditions, extracts intervention-outcome relationships using local LLMs, and performs semantic normalization and data mining. Presents findings through an interactive web interface.
+Automated biomedical research pipeline that collects research papers about health conditions using PubMed API (Phase 1), then extracts condition-intervention-outcome-mechanism relationships using local LLMs (Phase 2). After that the pipeline performs semantic embedding of the conditions, interventions and mechanisms extracted (Phase 3a), followed by clustering them (Phase 3b), cluster naming using local LLMs (Phase 3c) and then merges similar clusters into parent-child hierarchies (Phase 3d). The findings are presented through an interactive web interface. And Phase 4: Data mining is currently under development and not yet integrated within the main pipeline.
 
 ## Quick Start
 
 **Environment**: Conda environment called 'venv'
 ```bash
 conda activate venv
-
-# Run single pipeline iteration (10 papers per condition across 60 conditions)
-python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10
-
-# Run continuous mode (infinite loop - restarts Phase 1 after Phase 3)
-python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous
-
-# Run limited iterations (e.g., 5 complete cycles)
-python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous --max-iterations 5
-
-# Custom delay between iterations (5 minutes = 300 seconds, default: 60s)
-python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous --iteration-delay 300
-
-# Resume interrupted session
-python -m back_end.src.orchestration.batch_medical_rotation --resume
-
-# Resume in continuous mode
-python -m back_end.src.orchestration.batch_medical_rotation --resume --continuous
-
-# Check status (shows iteration history in continuous mode)
-python -m back_end.src.orchestration.batch_medical_rotation --status
 ```
-
 ---
 
 ## Architecture
 
 **Backend**: Python 3.13 research automation pipeline
 **Frontend**: HTML/CSS/JavaScript web interface with DataTables.js
-**Database**: SQLite with 19 tables for papers, interventions, and analytics
-**LLM**: Local single-model extraction (qwen3:14b) via Ollama
+**Database**: SQLite with 25 tables
+**LLM**: Local qwen3:14b via Ollama
+**Embeddings**: mxbai-embed-large (1024-dim) via Ollama
 
 ---
 
@@ -50,78 +29,42 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
 - **PMC & Unpaywall**: Fulltext retrieval
 - **Output**: Papers stored in `papers` table with `processing_status = 'pending'`
 
-### Phase 2: LLM Processing (Hierarchical Extraction) ✅
+### Phase 2: LLM Processing
 - **Model**: qwen3:14b (optimized with chain-of-thought suppression)
 - **Format**: Hierarchical extraction (study-level + intervention-level fields)
 - **Extracts**:
-  - **Study-level**: health_condition, study_focus (research questions), measured_metrics (measurement tools), findings (key results with data), study_location, publisher, sample_size, study_duration, study_type, population_details
+  - **Study-level**: health_condition, study_focus (research questions), measured_metrics (measurement tools), findings (key results with data), study_location, publisher, sample_size, study_duration, study_type, population_details, study_focus, measured_metrics, findings, study_location, publisher
   - **Intervention-level**: intervention_name, dosage, duration, frequency, intensity, mechanism (biological/behavioral pathway), correlation_type, correlation_strength, delivery_method, adverse_effects, extraction_confidence
 - **Output**: Hierarchical JSON → Flattened to database (study fields duplicated per intervention)
-- **Performance**: ~31 papers/hour (~115s per paper) - 25% slower than old format but provides richer study context
-- **Database**: 5 new fields added (study_focus, measured_metrics, findings, study_location, publisher)
 
-### Phase 2.5: Categorization (DEPRECATED - Now Phase 3.5)
-- **Status**: Standalone script available but NOT integrated into main pipeline
-- **Use Case**: Manual re-categorization outside pipeline
-- **Replaced By**: Phase 3.5 group-based categorization
-
-### Phase 3a: Semantic Normalization ✅
-- **Scope**: Both interventions AND conditions
-- **Technology**: nomic-embed-text embeddings (768-dim) + qwen3:14b canonical extraction
-- **Process**: Generate embeddings → Extract canonical groups via LLM → Populate semantic hierarchy
-- **Output**:
-  - **Interventions**: Cross-paper unification (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
-  - **Conditions**: Hierarchical grouping (e.g., "IBS" → "IBS-C", "IBS-D", "IBS-M")
-- **Performance**: Creates ~571 intervention groups + ~200-300 condition groups
-- **Note**: Relationship classification moved to Phase 3d (cluster-level analysis)
-- **Files**: `phase_3_normalizer.py`, `phase_3_embedding_engine.py`, `phase_3_llm_classifier.py`, `phase_3_hierarchy_manager.py`
-
-### Phase 3b: Group-Based Categorization ✅
-- **Scope**: Both interventions AND conditions
-- **Efficiency**: Categorizes canonical groups instead of individual entities (~80% fewer LLM calls)
-- **Intervention Categories**: 13 categories (medication, supplement, therapy, etc.)
-- **Condition Categories**: 18 categories (cardiac, neurological, digestive, etc.)
-- **Workflow**:
-  - **PART A (Interventions)**:
-    1. Categorize intervention canonical groups (571 groups in batches of 20)
-    2. Propagate categories from groups to member interventions
-    3. Fallback categorization for orphan interventions (no group membership)
-  - **PART B (Conditions)**:
-    4. Categorize condition canonical groups (batches of 20)
-    5. Propagate categories from groups to conditions in interventions table
-    6. Fallback categorization for orphan conditions (no group membership)
-- **Performance**: 28% LLM call reduction vs individual categorization
-- **Files**: `phase_3b_intervention_categorizer.py`, `phase_3b_condition_categorizer.py`
-
-### Phase 3c: Mechanism Clustering ✅
-- **Scope**: All intervention mechanisms (biological/behavioral/psychological pathways)
-- **Technology**: HDBSCAN clustering + nomic-embed-text embeddings (768-dim)
-- **100% Assignment Guarantee**: No mechanism left uncategorized
-- **Strategy**: HDBSCAN for natural groupings + singleton clusters for unique mechanisms
-- **Output**:
-  - **mechanism_clusters**: Cluster metadata with canonical names
-  - **mechanism_cluster_membership**: Mechanism-to-cluster assignments
-  - **intervention_mechanisms**: Junction table linking interventions to mechanism clusters
-  - **mechanism_condition_associations**: Analytics for which mechanisms work for which conditions
-- **Performance**:
-  - First run: ~25 minutes (embedding generation for 666 mechanisms)
-  - Subsequent runs: <5 seconds (uses cached embeddings)
-  - Incremental updates: Only embed new mechanisms
-- **Results** (Current Database):
-  - **666 mechanisms** processed → **415 clusters** created
-  - **142 natural clusters** (HDBSCAN multi-member groups)
-  - **273 singleton clusters** (unique mechanisms)
-  - **Assignment rate: 100%** (all mechanisms categorized)
-  - Average cluster size: 1.60 mechanisms per cluster
-  - Silhouette score: 0.228 (acceptable for medical domain complexity)
-- **Files**: `phase_3c_mechanism_pipeline_orchestrator.py`, `phase_3c_mechanism_hierarchical_clustering.py`
-
-### Phase 3d: Hierarchical Cluster Merging (EXPERIMENTAL) 🧪
-- **Location**: `back_end/src/semantic_normalization/phase_3d/`
-- **Status**: Prototype implementation, not yet integrated into main pipeline
+### Phase 3a: Semantic Embedding ✅
 - **Scope**: All three entity types (interventions, conditions, mechanisms)
+- **Technology**: mxbai-embed-large (1024-dim) via Ollama
+- **Process**: Generate embeddings for all entities → Cache for reuse
+- **Performance**: 100% cache hit rate after first run, <1s to load
+- **Output**: 716 intervention, ~400 condition, 666 mechanism embeddings
+- **Files**: `phase_3a_base_embedder.py`, `phase_3a_intervention_embedder.py`, `phase_3a_condition_embedder.py`, `phase_3a_mechanism_embedder.py`
+
+### Phase 3b: Hierarchical Clustering ✅
+- **Scope**: All three entity types (interventions, conditions, mechanisms)
+- **Technology**: Hierarchical clustering with distance_threshold=0.7 (optimal from hyperparameter experiments)
+- **100% Assignment Guarantee**: Singleton handler ensures no entity unclustered
+- **Performance**: Interventions: 716 entities → 538 clusters (0.2s), uses cached results after first run
+- **Output**: Natural clusters (multi-member) + Singleton clusters (unique entities)
+- **Files**: `phase_3b_base_clusterer.py`, `phase_3b_hierarchical_clusterer.py`, `phase_3b_hdbscan_clusterer.py`, `phase_3b_singleton_handler.py`
+
+### Phase 3c: LLM Canonical Naming ✅
+- **Scope**: All three entity types (interventions, conditions, mechanisms)
+- **Technology**: qwen3:14b (temperature=0.0 for deterministic results)
+- **Process**: Name clusters with LLM → Assign categories → Cache results
+- **Performance**: Batch processing (20 clusters per call), ~70 minutes for 538 intervention clusters (uncached)
+- **Output**: Canonical names + category assignments (13 intervention, 18 condition categories)
+- **Files**: `phase_3c_base_namer.py`, `phase_3c_llm_namer.py` 
+
+### Phase 3d: Hierarchical Cluster Merging 
+- **Location**: `back_end/src/semantic_normalization/phase_3d/`
 - **Purpose**: Build multi-level hierarchies by merging similar clusters
-- **Technology**: HDBSCAN + nomic-embed-text embeddings (768-dim) + qwen3:14b validation
+- **Technology**: HDBSCAN + qwen3:14b validation
 - **Stages**:
   1. **Initial Clustering** - HDBSCAN creates base clusters (conservative settings)
   2. **Similarity Calculation** - Embedding-based similarity between clusters
@@ -129,7 +72,7 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
   4. **LLM Validation** - qwen3:14b validates semantic coherence of proposed merges
   5. **Hierarchical Merging** - Create parent clusters from validated merges (up to 4 levels)
   6. **Stage 3.5: Functional Grouping** - Detect cross-category merges, assign functional categories
-- **Multi-Category Support** ✨:
+- **Multi-Category Support**:
   - Entities can belong to MULTIPLE categories simultaneously
   - **Category Types**: primary, functional, therapeutic, system, pathway, target, comorbidity
   - Example: "Probiotics" = supplement (PRIMARY) + gut flora modulator (FUNCTIONAL) + IBS treatment (THERAPEUTIC)
@@ -139,7 +82,7 @@ python -m back_end.src.orchestration.batch_medical_rotation --status
   - Junction tables for multi-category relationships
   - Functional category suggestions from LLM for cross-category groups
 - **Expected Results**:
-  - 40-50% cluster reduction (e.g., 571 intervention groups → ~280-340 parent clusters)
+  - 40-50% cluster reduction 
   - More generalizable treatment insights
   - Cross-category pattern discovery
 
@@ -211,26 +154,27 @@ back_end/src/
 │   ├── phase_2_prompt_service.py
 │   └── phase_2_export_to_json.py
 │
-├── phase_3_semantic_normalization/   # Phase 3: Normalization & Categorization
-│   ├── phase_3_normalizer.py                    # 3a: Core normalization orchestrator
-│   ├── phase_3_embedding_engine.py              # 3a: Semantic embeddings
-│   ├── phase_3_llm_classifier.py                # 3a: Canonical extraction
-│   ├── phase_3_hierarchy_manager.py             # 3a: Database operations
-│   ├── phase_3b_intervention_categorizer.py     # 3b: Intervention categorization
-│   ├── phase_3b_condition_categorizer.py        # 3b: Condition categorization
-│   ├── phase_3c_mechanism_pipeline_orchestrator.py  # 3c: Mechanism clustering
-│   ├── phase_3c_mechanism_hierarchical_clustering.py  # 3c: Hierarchical clusters
-│   ├── mechanism_*.py                           # 3c: Supporting mechanism files
-│   ├── phase_3d/                                # 3d: Experimental hierarchical merging
-│   └── ground_truth/                            # Ground truth labeling workflow
+├── phase_3_semantic_normalization/   # Phase 3: Clustering-First Architecture
+│   ├── phase_3a_base_embedder.py                # 3a: Base embedder class
+│   ├── phase_3a_intervention_embedder.py        # 3a: Intervention embeddings
+│   ├── phase_3a_condition_embedder.py           # 3a: Condition embeddings
+│   ├── phase_3a_mechanism_embedder.py           # 3a: Mechanism embeddings
+│   ├── phase_3b_base_clusterer.py               # 3b: Base clusterer class
+│   ├── phase_3b_hierarchical_clusterer.py       # 3b: Hierarchical clustering
+│   ├── phase_3b_hdbscan_clusterer.py            # 3b: HDBSCAN (alternative)
+│   ├── phase_3b_singleton_handler.py            # 3b: 100% assignment guarantee
+│   ├── phase_3c_base_namer.py                   # 3c: Base namer class
+│   ├── phase_3c_llm_namer.py                    # 3c: LLM canonical naming
+│   ├── phase_3abc_orchestrator.py               # Main orchestrator
+│   ├── phase_3_config.yaml                      # Configuration
+│   ├── phase_3d/                                # 3d: Hierarchical merging
+│   └── ground_truth/                            # Ground truth labeling
 │
 ├── orchestration/                    # Pipeline Orchestrators
 │   ├── phase_1_paper_collector.py
 │   ├── phase_2_llm_processor.py
-│   ├── phase_3_semantic_normalizer.py
-│   ├── phase_3b_group_categorization.py
-│   ├── phase_3c_mechanism_clustering.py
-│   └── batch_medical_rotation.py    (main pipeline controller)
+│   ├── phase_3abc_semantic_normalizer.py     # NEW: Clustering-first orchestrator
+│   └── batch_medical_rotation.py             # Main pipeline controller
 │
 ├── data_mining/                      # Analytics & Insights
 │   ├── data_mining_orchestrator.py
@@ -245,11 +189,17 @@ back_end/src/
 
 ### Pipeline Flow
 ```
-Phase 1 → Phase 2 → Phase 3a → Phase 3b → Phase 3c → [Phase 3d]
-   ↓         ↓          ↓          ↓          ↓          ↓
-Papers   Interventions Groups  Categories Mechanisms Hierarchies
-                                                      (experimental)
+Phase 1 → Phase 2 → Phase 3a   →   Phase 3b   →   Phase 3c   → Phase 3d
+   ↓         ↓          ↓              ↓              ↓             ↓
+Papers   Extracts   Embeddings    Clusters      Names      Hierarchies
+                   (1024-dim)      (538)     (canonical)  (experimental)
 ```
+
+**Phase 3 Details (Clustering-First)**:
+- **3a**: Embed entities using mxbai-embed-large → Cache vectors
+- **3b**: Cluster embeddings with hierarchical algorithm → 100% assignment
+- **3c**: Name clusters with qwen3:14b → Assign categories
+- **3d**: Merge similar clusters → Build parent-child hierarchies
 
 ### File Naming Convention
 - **Phase-specific files**: `phase_X_descriptive_name.py` (e.g., `phase_2_single_model_analyzer.py`)
@@ -327,32 +277,16 @@ python evaluator.py
 ## Technology Stack
 
 - **Python 3.13**: Core language
-- **SQLite**: Database with connection pooling
-- **Ollama**: Local LLM inference (qwen3:14b, nomic-embed-text)
+- **SQLite**: Database with connection pooling (25 tables)
+- **Ollama**: Local LLM inference
+  - **qwen3:14b**: Extraction + naming (temperature=0.0)
+  - **mxbai-embed-large**: Embeddings (1024-dim)
 - **PubMed API**: Primary paper source
 - **PMC & Unpaywall**: Fulltext retrieval
 - **Circuit Breaker Pattern**: Robust error handling
 - **Retry Logic**: Automatic retry with exponential backoff for LLM failures
-- **Continuous Mode**: Infinite loop execution for unattended multi-iteration data collection
+- **Caching**: Embeddings, clusters, and naming results cached for speed
 - **FAST_MODE**: Logging suppression for high-throughput (enabled by default)
-
----
-
-## Current Status (October 13, 2025)
-
-- **Papers**: 533 research papers (high quality, all with mechanism data)
-- **Interventions**: 777 with **100% mechanism coverage** ✅
-- **Intervention Groups**: 571 canonical groups created ✅
-- **Intervention Categorization**: 777/777 (100%) via group propagation ✅
-- **Conditions**: 406 unique conditions
-- **Condition Groups**: ~200-300 canonical groups (semantic normalization enabled) ✅
-- **Condition Categorization**: 406/406 (100%) via group propagation - 18 categories ✅
-- **Mechanism Clusters**: **666 mechanisms** → **415 clusters** (100% assignment) ✅
-  - 142 natural clusters (HDBSCAN)
-  - 273 singleton clusters (unique mechanisms)
-- **Processing Rate**: ~38-39 papers/hour (qwen3:14b with mechanism extraction)
-- **Architecture**: Phase 3a + 3b + 3c fully integrated ✅
-- **Ground Truth Labeling**: 80/500 pairs labeled (16% complete)
 
 ---
 
@@ -363,13 +297,6 @@ python evaluator.py
 - Comprehensive error handling with circuit breaker patterns
 - Session persistence for all long-running operations
 - Thermal protection for GPU-intensive operations
-
-### File Organization
-- **Source code**: `back_end/src/`
-- **Execution scripts**: `back_end/src/orchestration/`
-- **Data mining**: `back_end/src/data_mining/`
-- **Configuration**: `back_end/src/data/config.py`
-- **Session files**: `back_end/data/` (JSON state files)
 
 ### Performance Optimization
 - **FAST_MODE**: Logging suppression for 1000+ papers/hour processing
@@ -401,143 +328,6 @@ python evaluator.py
 python -m back_end.src.utils.export_frontend_data
 ```
 Exports SQLite → JSON with Phase 3.5 hierarchical data, metadata, and top performers.
-
----
-
-## Important Architecture Changes
-
-### Single-Model Architecture (October 2025) ✅
-**Previous**: Dual-model (gemma2:9b + qwen2.5:14b) with Phase 2 deduplication
-**Current**: Single-model (qwen3:14b only) - no deduplication needed
-
-**Benefits**:
-- 2.6x speed improvement (no dual extraction overhead)
-- Simpler error handling and debugging
-- Preserves superior extraction detail
-- Increased batch size from 5 to 8 papers
-
-### Model Optimization: qwen3:14b (January 2025) ✅
-**Challenge**: qwen3:14b generates chain-of-thought reasoning (8x slower)
-**Solution**: System prompt suppression + `<think>` tag stripping
-**Result**: qwen3:14b runs 1.3x faster than qwen2.5:14b (22.0s vs 28.9s per paper - baseline)
-
-**Current Performance** (with mechanism extraction):
-- qwen3:14b: ~93s per paper (~38-39 papers/hour)
-- Trade-off: Richer mechanism data (biological/behavioral/psychological pathways)
-
-### Categorization Architecture (October 2025) ✅
-**Previous**: Categorization during extraction (in prompt)
-**Current**: Group-based categorization in Phase 3.5 (after semantic normalization)
-
-**Benefits**:
-- Separation of concerns (extraction → normalization → categorization)
-- Can re-categorize without re-extraction
-- Faster extraction (fewer tokens in prompt)
-- More accurate categorization with semantic context from groups
-- Automatic retry logic prevents pipeline stoppage
-- Enhanced prompts with edge case handling
-
-**Current Pipeline Flow**:
-1. **Phase 2**: Extract interventions WITHOUT categories → `intervention_category = NULL`, `condition_category = NULL`
-2. **Phase 3**: Semantic normalization (create canonical groups for interventions AND conditions)
-3. **Phase 3.5**: Group-based categorization
-   - Categorize intervention groups (13 categories, batch of 20)
-   - Propagate to member interventions
-   - Categorize condition groups (18 categories, batch of 20)
-   - Propagate to conditions in interventions table
-   - Fallback categorization for orphans
-
-### Phase 3a: Semantic Normalization (October 2025) ✅
-
-**Problem**: Cross-paper entity name unification (interventions AND conditions)
-**Solution**: Embedding-based canonical extraction via LLM
-
-**Scope**: Both interventions and conditions processed
-- **Interventions**: Unify variant names (e.g., "vitamin D" = "Vitamin D3" = "cholecalciferol")
-- **Conditions**: Hierarchical grouping (e.g., "IBS" parent with "IBS-C", "IBS-D", "IBS-M" subtypes)
-
-**Performance** (Current Database):
-- **Interventions**: 777 entities → 571 canonical groups
-- **Conditions**: 406 entities → ~200-300 canonical groups
-- **Embeddings**: nomic-embed-text 768-dim vectors for all entities
-- **Runtime**: ~25s per uncached LLM call
-- **Cache hit rate**: 40%+
-
-**Result**:
-- Unified cross-paper analysis (e.g., "150 papers support vitamin D" instead of fragmented counts)
-- Condition variant tracking (e.g., "IBS" studies include "IBS-C", "IBS-D", "IBS-M" subtypes)
-
-**Note**: Entity-level relationship classification removed - moved to Phase 3d (cluster-level analysis)
-
-### Phase 3.5: Group-Based Categorization (October 2025) ✅
-
-**Problem**: Categorizing individual entities is inefficient (792 LLM calls for interventions alone)
-**Solution**: Categorize canonical groups then propagate to member entities (both interventions AND conditions)
-
-**Benefits**:
-- 28% reduction in LLM calls vs individual categorization
-- Consistent categorization across variant names
-- Can re-categorize all entities by updating group categories
-- Single phase handles both entity types
-
-**Workflow (6 Steps)**:
-- **PART A (Interventions)**:
-  1. Categorize intervention canonical groups (571 groups, 13 categories, batches of 20)
-  2. Propagate categories from groups to member interventions
-  3. Fallback categorization for orphan interventions (no group membership)
-- **PART B (Conditions)**:
-  4. Categorize condition canonical groups (~200-300 groups, 18 categories, batches of 20)
-  5. Propagate categories from groups to conditions in interventions table
-  6. Fallback categorization for orphan conditions (no group membership)
-
-**Performance**:
-- **Interventions**: 571 LLM calls (vs 792 individual) = 28% reduction
-- **Conditions**: ~10-15 LLM calls (vs ~20 individual) = ~40% reduction
-- **Total**: ~580-590 LLM calls for complete categorization of both entity types
-
-**Integration**: Fully integrated into main pipeline as Phase 3.5 (runs after Phase 3 semantic normalization)
-
-### Continuous Mode: Infinite Loop Execution (October 2025) ✅
-
-**Problem**: Manual pipeline re-runs required for large-scale data collection
-**Solution**: Continuous mode that automatically restarts Phase 1 after Phase 3 completion
-
-**Features**:
-- **Infinite loop**: Automatically restarts collection after semantic normalization completes
-- **Iteration tracking**: Full history of all completed iterations with timestamps and statistics
-- **Thermal protection**: Configurable delay between iterations (default: 60s) prevents GPU overheating
-- **Graceful shutdown**: Ctrl+C stops cleanly between iterations (won't interrupt mid-phase)
-- **Iteration limits**: Optional max iterations (unlimited by default)
-- **Resumable**: Can resume continuous mode from saved session
-- **Backward compatible**: Default behavior unchanged (single iteration)
-
-**Usage**:
-```bash
-# Infinite loop (runs until Ctrl+C)
-python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous
-
-# Limited iterations (e.g., 5 complete cycles)
-python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous --max-iterations 5
-
-# Custom delay (5 minutes between iterations)
-python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous --iteration-delay 300
-```
-
-**Iteration Flow**:
-1. Phase 1 → Phase 2 → Phase 3 → Phase 3.5 → Phase 3.6 (complete)
-2. Save iteration statistics to history
-3. Reset phase flags and counters
-4. Wait `iteration_delay_seconds` (thermal protection)
-5. Increment iteration counter
-6. **Loop back to Phase 1** ↻
-7. Continue until max iterations reached or Ctrl+C
-
-**Benefits**:
-- Unattended data collection over days/weeks
-- Automatic expansion of research database
-- No manual intervention required
-- Full audit trail via iteration history
-- GPU thermal protection between cycles
 
 ---
 
@@ -603,26 +393,6 @@ python -m back_end.src.orchestration.batch_medical_rotation --papers-per-conditi
 
 ---
 
-## Database Cleanup (October 8, 2025) ✅
-
-**Issue**: 579 interventions (42.2%) extracted before mechanism field added (Oct 2-4, 2025)
-
-**Actions Taken**:
-1. Deleted 579 old interventions (without mechanisms)
-2. Deleted 91 papers with only old interventions
-3. Cleaned semantic hierarchy (352 entries, 156 relationships, 225 canonical groups)
-4. Backup created: `intervention_research_backup_cleanup_20251008_173314.db`
-
-**Results**:
-- Interventions: 1,371 → **792** (-42.2%)
-- Mechanism coverage: 57.8% → **100%** ✅
-- Papers: 456 → **365** (-20.0%)
-- All remaining interventions have complete mechanism data
-
-**Documentation**: See [CLEANUP_SUMMARY_20251008.md](back_end/data/CLEANUP_SUMMARY_20251008.md)
-
----
-
 ## Data Mining Tools
 
 Located in `back_end/src/data_mining/`:
@@ -646,268 +416,36 @@ Located in `back_end/src/data_mining/`:
 
 ---
 
-## Semantic Normalization Module
 
-**Location**: `back_end/src/semantic_normalization/`
+## Current Status (October 15, 2025)
 
-**Purpose**: Advanced entity name normalization using hierarchical semantic grouping (interventions AND conditions)
+**Phase 3 Migration Complete**: Successfully migrated from naming-first to clustering-first architecture.
 
-### Core Components (8 files, 2,996 lines)
+### Database Statistics
+- **Papers**: 533 research papers (all with mechanism data)
+- **Interventions**: 777 interventions (100% mechanism coverage)
+- **Intervention Clusters**: 538 canonical groups (from 716 unique names)
+- **Conditions**: ~400 unique conditions
+- **Mechanisms**: 666 unique mechanisms
 
-**Phase 3: Semantic Normalization** (5 files, 1,618 lines)
-1. **embedding_engine.py** (214 lines) - Semantic embeddings with caching
-   - nomic-embed-text model (768-dimensional vectors)
-   - Persistent embedding cache to avoid recomputation
-   - Batch embedding support for efficiency
-   - Cosine similarity calculations for finding related entities
+### Performance Metrics
+- **Phase 3a (Embedding)**: <1s (100% cache hit rate after first run)
+- **Phase 3b (Clustering)**: 0.2s per entity type (hierarchical threshold=0.7)
+- **Phase 3c (Naming)**: ~70 minutes for 538 clusters (uncached), instant with cache
+- **Architecture**: Clustering-first (mxbai-embed-large 1024-dim + qwen3:14b naming)
 
-2. **llm_classifier.py** (~200 lines) - LLM-based canonical extraction
-   - Uses qwen3:14b for canonical group extraction
-   - Extracts canonical forms (e.g., "vitamin D" from "Vitamin D3 1000IU")
-   - Chain-of-thought suppression for faster processing
-   - Note: Relationship classification moved to Phase 3d
-
-3. **hierarchy_manager.py** (~250 lines) - Database operations
-   - Manages 2-table schema: `semantic_hierarchy`, `canonical_groups`
-   - CRUD operations for entities and canonical groups
-   - Query methods for fetching hierarchies and group members
-   - Transaction support for atomic updates
-
-4. **normalizer.py** (~400 lines) - Pipeline orchestrator
-   - MainNormalizer class coordinates full normalization workflow
-   - Workflow: Load entities → Generate embeddings → Extract canonicals → Populate DB
-   - Supports both intervention and condition normalization
-   - Progress tracking and session persistence
-   - Note: Relationship analysis moved to Phase 3d
-
-5. **evaluator.py** (342 lines) - Accuracy validation (DEPRECATED)
-   - Legacy tool for ground truth validation
-   - Note: Relationship classification moved to Phase 3d (cluster-level)
-
-**Phase 3.5: Group-Based Categorization** (3 files, 1,378 lines)
-6. **group_categorizer.py** (561 lines) - Intervention group categorizer
-   - Categorizes canonical intervention groups (13 categories)
-   - Includes group members in prompt for semantic context
-   - Batch processing (20 groups per LLM call)
-   - Propagation to member interventions via UPDATE-JOIN
-   - Orphan intervention handling (fallback categorization)
-
-7. **condition_group_categorizer.py** (493 lines) - Condition group categorizer
-   - Categorizes canonical condition groups (18 categories)
-   - Includes group members in prompt for semantic context
-   - Batch processing (20 groups per LLM call)
-   - Propagation to conditions in interventions table
-   - Orphan condition handling (fallback categorization)
-
-8. **validation.py** (324 lines) - Categorization validation
-   - Coverage validation (% of entities categorized)
-   - Purity validation (consistency within groups)
-   - Comparison with existing categorizations
-   - Overall validation scoring with pass/fail thresholds
-
-### Ground Truth Labeling Workflow (5 files, 1,776 lines)
-
-Complete **human-in-the-loop** workflow for creating labeled training data
-
-1. **Export** data from DB (**`data_exporter.py`** - 160 lines)
-    - Exports unique intervention names with metadata (frequency, category, health conditions)
-    - Query: Groups by intervention name, filters by min frequency, limits to top 500
-    - Output: JSON file with intervention list + metadata for candidate generation
-
-2. **Unified CLI** for workflow management (**`ground_truth_cli.py`** - 567 lines)
-    - Single entry point with 4 subcommands: `generate`, `label`, `status`, `clean`
-    - **Subcommand: generate** - Creates 500 candidate pairs using stratified sampling
-        - Calls `pair_generator.py` (442 lines) with fuzzy matching (rapidfuzz/fuzzywuzzy)
-        - Stratified sampling: 60% similarity-based + 20% random + 20% targeted same-category
-        - Output: `hierarchical_candidates_500_pairs.json` (168 KB)
-    - **Subcommand: label** - Interactive batch labeling with resume capability
-        - Uses `labeling_interface.py` (559 lines) terminal UI with 6 relationship types
-        - Manages batches (default: 50 pairs), auto-save every 5 labels, undo/skip features
-        - Progress grid, time estimation, performance tracking (labels per minute)
-        - Example: Batch 1 (pairs 1-50) → Batch 2 (pairs 51-100) → ... → Batch 10 (pairs 451-500)
-    - **Subcommand: status** - Displays completion percentage, batch grid, time remaining
-    - **Subcommand: clean** - Removes duplicate labels, creates backup, updates counters
-
-3. **Pair generation library** (**`pair_generator.py`** - 442 lines)
-    - SmartPairGenerator class with fuzzy matching algorithms
-    - Stratified sampling strategy:
-        - 60% similarity-based (ranges: 0.85-0.95, 0.75-0.85, 0.65-0.75)
-        - 20% random low-similarity (0.40-0.65) for DIFFERENT examples
-        - 20% targeted same-category (probiotics vs probiotics, statins vs statins)
-    - Category-aware pair selection and deduplication logic
-
-4. **Interactive labeling UI** (**`labeling_interface.py`** - 559 lines)
-    - HierarchicalLabelingInterface class - reusable terminal interface
-    - Features:
-        - Undo history (last 10 labels)
-        - Skip pairs (review later)
-        - Performance tracking (labels per minute)
-        - Session auto-save every 5 labels
-        - Displays similarity score and metadata
-    - Relationship types: EXACT_MATCH (1), VARIANT (2), SUBTYPE (3), SAME_CATEGORY (4), DOSAGE_VARIANT (5), DIFFERENT (6)
-    - Output: Session JSON with labeled pairs + progress tracking
-
-5. **Module documentation** (**`__init__.py`** - 48 lines)
-    - Package-level documentation and imports
-    - Usage examples for CLI workflow
-    - Feature summary and component descriptions
-
-**Current Progress**: 80/500 pairs labeled (16% complete)
-
-**Usage**:
-```bash
-cd back_end/src/semantic_normalization/ground_truth
-python ground_truth_cli.py generate              # Step 1: Generate candidates
-python ground_truth_cli.py label --batch-size 50 # Step 2: Label in batches
-python ground_truth_cli.py status                # Step 3: Check progress
-python ground_truth_cli.py clean                 # Step 4: Remove duplicates
-```
-
-**Documentation**: See [back_end/src/semantic_normalization/README.md](back_end/src/semantic_normalization/README.md)
+### Migration Details (October 15, 2025)
+- **Old Architecture**: Naming-first (nomic-embed-text 768-dim → LLM canonical extraction → grouping)
+- **New Architecture**: Clustering-first (mxbai-embed-large 1024-dim → hierarchical clustering → LLM naming)
+- **Benefits**:
+  - Better separation with 1024-dim embeddings
+  - Optimal clustering threshold (0.7) from hyperparameter tuning
+  - 100% entity assignment (no noise points)
+  - Faster with aggressive caching
+- **Backup**: Old code saved in `phase_3_semantic_normalization_OLD_BACKUP_20251015/`
 
 ---
 
-## Phase 3d: Hierarchical Cluster Merging (EXPERIMENTAL) 🧪
-
-**Location**: `back_end/src/semantic_normalization/phase_3d/`
-**Status**: Prototype implementation, not yet integrated into main pipeline
-
-### Overview
-
-Phase 3d builds multi-level hierarchies by merging similar clusters created in earlier phases. The goal is to discover higher-level patterns and enable cross-category functional grouping.
-
-### Architecture
-
-**6-Stage Pipeline**:
-1. **Stage 1**: Initial HDBSCAN clustering (conservative settings)
-2. **Stage 2**: Embedding-based similarity calculation
-3. **Stage 3**: Merge candidate generation (top-k similar pairs)
-4. **Stage 4**: LLM validation (qwen3:14b semantic coherence check)
-5. **Stage 5**: Hierarchical parent cluster creation (up to 4 levels)
-6. **Stage 3.5**: Functional grouping for cross-category merges
-
-**Key Components** (7 files):
-- **config.py** (156 lines) - Configuration with hyperparameter presets
-- **models.py** (225 lines) - Data models (Cluster, MergeCandidate, HierarchyLevel)
-- **stage_1_clustering.py** (294 lines) - HDBSCAN initial clustering
-- **stage_2_similarity.py** (248 lines) - Centroid-based similarity calculation
-- **stage_3_candidate_generation.py** (339 lines) - Top-k merge candidate selection
-- **stage_4_llm_validation.py** (412 lines) - Semantic coherence validation
-- **stage_5_hierarchical_merging.py** (468 lines) - Multi-level hierarchy construction
-- **stage_3_5_functional_grouping.py** (561 lines) - Cross-category detection & functional categorization
-
-### Multi-Category Support ✨
-
-**Problem**: Single categories are too restrictive. Example: "Probiotics" (supplement) + "FMT" (procedure) both modulate gut flora, but traditional categorization can't capture this shared function.
-
-**Solution**: Multi-category membership with junction tables
-
-**Category Types**:
-- **primary**: What the entity IS (e.g., supplement, medication, procedure)
-- **functional**: What the entity DOES (e.g., gut flora modulator, anti-inflammatory)
-- **therapeutic**: What condition it treats (e.g., IBS treatment, cardiovascular therapy)
-- **system**: Body system (conditions only - e.g., digestive, cardiac)
-- **pathway**: Biological pathway (mechanisms only - e.g., AMPK activation)
-- **target**: Molecular target (mechanisms only - e.g., PPAR-gamma)
-- **comorbidity**: Co-occurring conditions (conditions only - e.g., metabolic syndrome cluster)
-
-**Database Schema** (3 junction tables):
-- `intervention_category_mapping` - Intervention-to-category assignments
-- `condition_category_mapping` - Condition-to-category assignments
-- `mechanism_category_mapping` - Mechanism-to-category assignments
-
-Each table includes:
-- `entity_id` - Foreign key to entity
-- `category_type` - Type of category (primary, functional, therapeutic, etc.)
-- `category_name` - Category name
-- `confidence` - Assignment confidence (0.0-1.0)
-- `assigned_by` - Source (system, llm, group_propagation, user)
-- `notes` - Optional explanation
-
-**API Methods** ([database_manager.py:1268-1475](back_end/src/data_collection/database_manager.py#L1268-L1475)):
-- `assign_category()` - Assign category to entity
-- `get_entity_categories()` - Get all categories for entity
-- `get_entities_by_category()` - Query entities by category
-- `get_primary_category()` - Backward compatibility helper
-
-**Dual-Write Pattern**: Updates both legacy columns (`intervention_category`, `condition_category`) AND junction tables for backward compatibility
-
-**Example Use Case**:
-```python
-# Probiotics gets multiple categories
-db.assign_category('intervention', probiotic_id, 'supplement', 'primary')
-db.assign_category('intervention', probiotic_id, 'gut_flora_modulator', 'functional')
-db.assign_category('intervention', probiotic_id, 'ibs_treatment', 'therapeutic')
-
-# Query all gut flora modulators (includes both probiotics AND FMT)
-entities = db.get_entities_by_category('gut_flora_modulator', 'intervention', 'functional')
-```
-
-### Frontend Integration
-
-**Updated Components**:
-- **HTML**: Functional/therapeutic category filter dropdowns + multi-category stat card
-- **CSS**: Color-coded badges (primary=blue, functional=green, therapeutic=yellow, etc.)
-- **JavaScript**: Multi-category display, filtering, and details modal
-
-**Color Scheme**:
-- Primary (blue): `#007bff`
-- Functional (green): `#28a745`
-- Therapeutic (yellow): `#ffc107`
-- System (teal): `#17a2b8`
-- Pathway (purple): `#6f42c1`
-- Target (pink): `#e83e8c`
-- Comorbidity (orange): `#fd7e14`
-
-**Backward Compatibility**: All code handles both legacy single-category (string) and new multi-category (object) formats
-
-### Usage
-
-```bash
-# Run multi-category migration (create junction tables)
-python -m back_end.src.migrations.add_multi_category_support
-
-# Run Stage 3.5 functional grouping (detect cross-category merges)
-python -m back_end.src.semantic_normalization.phase_3d.stage_3_5_functional_grouping
-
-# Export data with multi-category support
-python -m back_end.src.utils.export_frontend_data
-```
-
-### Expected Results
-
-- **Cluster Reduction**: 40-50% (e.g., 571 intervention groups → ~280-340 parent clusters)
-- **Cross-Category Insights**: Discover functional groupings across traditional boundaries
-- **More Generalizable**: Higher-level abstractions enable broader treatment insights
-
-### Status
-
-- **Backend**: Fully implemented (database, API, categorization scripts, data export)
-- **Frontend**: Fully implemented (HTML, CSS, JavaScript with multi-category display)
-- **Integration**: NOT yet integrated into main pipeline (experimental prototype)
-- **Testing**: Unit tests passing, integration tests pending
-
----
-
-## Support & Troubleshooting
-
-**For help**:
-- Run status check: `python -m back_end.src.orchestration.batch_medical_rotation --status`
-- Check semantic normalization: `python -m back_end.src.orchestration.rotation_semantic_normalizer --status`
-- Review logs: `back_end/logs/*.log`
-- Run tests: Check test files in `back_end/testing/`
-
-**Common Issues**:
-- GPU overheating: Check thermal status, wait for cooling (or use `--iteration-delay` in continuous mode)
-- LLM timeout: Increase timeout in config or use automatic retry logic (`--max-retries`)
-- LLM categorization failures: Retry logic now handles transient failures automatically
-- Database locked: Ensure no concurrent processes
-- Missing dependencies: `conda activate venv`, check Ollama models
-- Pipeline stops during Phase 2.5: Automatic retry logic (3 attempts) prevents stoppage
-
----
-
-*Last Updated: October 14, 2025*
-*Architecture: Single-model (qwen3:14b) with Phase 1 (collection) → Phase 2 (extraction) → Phase 3a (normalization) → Phase 3b (categorization) → Phase 3c (mechanism clustering) → Phase 3d (experimental hierarchical merging)*
-*Status: Production Ready ✅ (Phase 3d: Experimental 🧪)*
-*Naming Convention: Phase-prefixed files for clear pipeline organization*
+*Last Updated: October 15, 2025*  
+*Architecture: Clustering-First (Phase 3a: Embedding → Phase 3b: Clustering → Phase 3c: Naming → Phase 3d: Hierarchical Merging)*  
+*Status: Production Ready ✅*

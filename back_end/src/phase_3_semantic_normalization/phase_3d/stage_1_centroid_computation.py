@@ -28,7 +28,7 @@ class CentroidResult:
 def compute_centroids(
     clusters: List[Cluster],
     embeddings: Dict[str, np.ndarray],
-    embedding_dim: int = 768,
+    embedding_dim: int = 1024,
     normalize: bool = True
 ) -> Dict[int, np.ndarray]:
     """
@@ -37,7 +37,7 @@ def compute_centroids(
     Args:
         clusters: List of Cluster objects
         embeddings: Dict mapping member IDs to embedding vectors
-        embedding_dim: Embedding dimension (default: 768 for nomic-embed-text)
+        embedding_dim: Embedding dimension (default: 1024 for mxbai-embed-large)
         normalize: Whether to normalize centroids to unit vectors
 
     Returns:
@@ -62,7 +62,7 @@ def compute_centroids(
 def compute_single_centroid(
     cluster: Cluster,
     embeddings: Dict[str, np.ndarray],
-    embedding_dim: int = 768,
+    embedding_dim: int = 1024,
     normalize: bool = True
 ) -> np.ndarray:
     """
@@ -105,7 +105,7 @@ def compute_single_centroid(
 def compute_centroids_with_details(
     clusters: List[Cluster],
     embeddings: Dict[str, np.ndarray],
-    embedding_dim: int = 768,
+    embedding_dim: int = 1024,
     normalize: bool = True
 ) -> List[CentroidResult]:
     """
@@ -165,7 +165,7 @@ def compute_weighted_centroid(
     cluster: Cluster,
     embeddings: Dict[str, np.ndarray],
     weights: Dict[str, float],
-    embedding_dim: int = 768,
+    embedding_dim: int = 1024,
     normalize: bool = True
 ) -> np.ndarray:
     """
@@ -216,7 +216,7 @@ def compute_weighted_centroid(
 
 def validate_centroids(
     centroids: Dict[int, np.ndarray],
-    expected_dim: int = 768
+    expected_dim: int = 1024
 ) -> Dict[str, any]:
     """
     Validate computed centroids.

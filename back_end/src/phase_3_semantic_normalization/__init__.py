@@ -1,21 +1,28 @@
 """
 Semantic Normalization Module
 
-Hierarchical semantic normalization system for intervention names using:
-- Embedding-based similarity (nomic-embed-text)
-- LLM-based canonical extraction (qwen3:14b)
-- 4-layer hierarchical structure
-- 6 relationship types
+Unified Phase 3 pipeline with clustering-first architecture:
+- Phase 3a: Semantic Embedding (mxbai-embed-large, 1024-dim)
+- Phase 3b: Clustering (Hierarchical with threshold=0.7 + Singleton Handler)
+- Phase 3c: LLM Canonical Naming (qwen3:14b with temperature control)
 
 Components:
-- embedding_engine: Generate semantic embeddings
-- llm_classifier: LLM-based canonical extraction and relationship classification
-- hierarchy_manager: Database operations for hierarchical schema
-- normalizer: Main normalization pipeline
-- evaluator: Ground truth accuracy testing
-- test_runner: Batch testing framework
-- cluster_reviewer: Interactive manual review
-- experiment_logger: Experiment documentation
+
+Phase 3a (Embedders):
+- InterventionEmbedder, ConditionEmbedder, MechanismEmbedder
+- BaseEmbedder (abstract base class)
+
+Phase 3b (Clusterers):
+- HierarchicalClusterer, HDBSCANClusterer
+- SingletonHandler (100% assignment guarantee)
+- BaseClusterer (abstract base class)
+
+Phase 3c (Namers):
+- LLMNamer (canonical naming + categorization)
+- BaseNamer (abstract base class)
+
+Legacy Components (OLD - naming-first architecture):
+- EmbeddingEngine, LLMClassifier, HierarchyManager, MainNormalizer, SemanticNormalizer
 
 Ground Truth Tools:
 - ground_truth.labeling_interface: Interactive labeling interface
@@ -23,14 +30,52 @@ Ground Truth Tools:
 - ground_truth.label_in_batches: Batch labeling session management
 """
 
+# Phase 3a: Embedders
+from .phase_3a_base_embedder import BaseEmbedder
+from .phase_3a_intervention_embedder import InterventionEmbedder
+from .phase_3a_condition_embedder import ConditionEmbedder
+from .phase_3a_mechanism_embedder import MechanismEmbedder
+
+# Phase 3b: Clusterers
+from .phase_3b_base_clusterer import BaseClusterer
+from .phase_3b_hierarchical_clusterer import HierarchicalClusterer
+from .phase_3b_hdbscan_clusterer import HDBSCANClusterer
+from .phase_3b_singleton_handler import SingletonHandler
+
+# Phase 3c: Namers
+from .phase_3c_base_namer import BaseNamer, ClusterData, NamingResult
+from .phase_3c_llm_namer import LLMNamer
+
+# Main Orchestrator
+from .phase_3abc_orchestrator import UnifiedPhase3Orchestrator, EntityResults
+
+# Legacy (OLD - naming-first)
 from .phase_3_embedding_engine import EmbeddingEngine
 from .phase_3_llm_classifier import LLMClassifier
 from .phase_3_hierarchy_manager import HierarchyManager
 from .phase_3_normalizer import MainNormalizer
 from .semantic_normalizer import SemanticNormalizer
-# Note: evaluator, test_runner, cluster_reviewer, experiment_logger have import issues - fix later if needed
 
 __all__ = [
+    # Phase 3a (NEW)
+    'BaseEmbedder',
+    'InterventionEmbedder',
+    'ConditionEmbedder',
+    'MechanismEmbedder',
+    # Phase 3b (NEW)
+    'BaseClusterer',
+    'HierarchicalClusterer',
+    'HDBSCANClusterer',
+    'SingletonHandler',
+    # Phase 3c (NEW)
+    'BaseNamer',
+    'ClusterData',
+    'NamingResult',
+    'LLMNamer',
+    # Orchestrator (NEW)
+    'UnifiedPhase3Orchestrator',
+    'EntityResults',
+    # Legacy (OLD)
     'EmbeddingEngine',
     'LLMClassifier',
     'HierarchyManager',
