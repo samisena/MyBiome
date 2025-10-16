@@ -2,11 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(\"C:\\Users\\samis\\anaconda3\\envs\\venv\\python.exe\":*)",
-      "Bash(for file in base_embedder.py intervention_embedder.py condition_embedder.py mechanism_embedder.py)",
-      "Bash(do cp \"$file\" \"../../phase_3_semantic_normalization/phase_3a_$file\")",
-      "Bash(done)",
-      "Bash(\"C:\\Users\\samis\\anaconda3\\envs\\venv\\python.exe\" \"back_end\\src\\phase_3_semantic_normalization\\test_imports.py\")",
-      "Bash(ollama serve)"
+      "Bash(git rm:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

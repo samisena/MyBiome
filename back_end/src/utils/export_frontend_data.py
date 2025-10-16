@@ -28,36 +28,40 @@ def get_entity_categories(cursor, entity_type: str, entity_id: Any) -> Dict[str,
     Returns:
         Dict with category types as keys, lists of category names as values
     """
-    if entity_type == 'intervention':
-        cursor.execute("""
-            SELECT category_type, category_name, confidence
-            FROM intervention_category_mapping
-            WHERE intervention_id = ?
-            ORDER BY category_type, category_name
-        """, (entity_id,))
-    elif entity_type == 'condition':
-        cursor.execute("""
-            SELECT category_type, category_name, confidence
-            FROM condition_category_mapping
-            WHERE condition_name = ?
-            ORDER BY category_type, category_name
-        """, (entity_id,))
-    else:
+    try:
+        if entity_type == 'intervention':
+            cursor.execute("""
+                SELECT category_type, category_name, confidence
+                FROM intervention_category_mapping
+                WHERE intervention_id = ?
+                ORDER BY category_type, category_name
+            """, (entity_id,))
+        elif entity_type == 'condition':
+            cursor.execute("""
+                SELECT category_type, category_name, confidence
+                FROM condition_category_mapping
+                WHERE condition_name = ?
+                ORDER BY category_type, category_name
+            """, (entity_id,))
+        else:
+            return {}
+
+        rows = cursor.fetchall()
+
+        # Organize by category type
+        categories_by_type = {}
+        for row in rows:
+            cat_type = row['category_type']
+            cat_name = row['category_name']
+
+            if cat_type not in categories_by_type:
+                categories_by_type[cat_type] = []
+            categories_by_type[cat_type].append(cat_name)
+
+        return categories_by_type
+    except sqlite3.OperationalError:
+        # Table doesn't exist yet - return empty dict
         return {}
-
-    rows = cursor.fetchall()
-
-    # Organize by category type
-    categories_by_type = {}
-    for row in rows:
-        cat_type = row['category_type']
-        cat_name = row['category_name']
-
-        if cat_type not in categories_by_type:
-            categories_by_type[cat_type] = []
-        categories_by_type[cat_type].append(cat_name)
-
-    return categories_by_type
 
 def export_interventions_data() -> Dict[str, Any]:
     """
@@ -71,7 +75,7 @@ def export_interventions_data() -> Dict[str, Any]:
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
-    # Query to get interventions with paper details and hierarchical semantic data (Phase 3.5)
+    # Query to get interventions with paper details and hierarchical semantic data (Phase 3.5) + Bayesian scores (Phase 4b)
     query = """
     SELECT
         i.id,
@@ -114,13 +118,21 @@ def export_interventions_data() -> Dict[str, Any]:
         sh_c.layer_1_canonical as condition_l1_canonical,
         sh_c.layer_2_variant as condition_l2_variant,
         sh_c.layer_3_detail as condition_l3_detail,
+        bs.posterior_mean as bayesian_score,
+        bs.confidence_adjusted_score as bayesian_conservative_score,
+        bs.positive_evidence_count,
+        bs.negative_evidence_count,
+        bs.neutral_evidence_count,
+        bs.total_studies as bayesian_total_studies,
+        bs.bayes_factor,
         i.extraction_model,
         i.extraction_timestamp
     FROM interventions i
     LEFT JOIN papers p ON i.paper_id = p.pmid
     LEFT JOIN semantic_hierarchy sh_i ON i.intervention_name = sh_i.entity_name AND sh_i.entity_type = 'intervention'
     LEFT JOIN semantic_hierarchy sh_c ON i.health_condition = sh_c.entity_name AND sh_c.entity_type = 'condition'
-    ORDER BY i.extraction_timestamp DESC
+    LEFT JOIN bayesian_scores bs ON sh_i.layer_1_canonical = bs.intervention_name AND sh_c.layer_1_canonical = bs.condition_name
+    ORDER BY bs.posterior_mean DESC NULLS LAST, i.extraction_confidence DESC
     """
 
     cursor.execute(query)
@@ -168,6 +180,15 @@ def export_interventions_data() -> Dict[str, Any]:
                 'extraction_confidence': row['extraction_confidence'],
                 'study_confidence': row['study_confidence']
             },
+            'bayesian_scoring': {
+                'score': row['bayesian_score'],  # Posterior mean (0-1)
+                'conservative_score': row['bayesian_conservative_score'],  # 10th percentile
+                'positive_evidence': row['positive_evidence_count'],
+                'negative_evidence': row['negative_evidence_count'],
+                'neutral_evidence': row['neutral_evidence_count'],
+                'total_studies': row['bayesian_total_studies'],
+                'bayes_factor': row['bayes_factor']
+            } if row['bayesian_score'] is not None else None,
             'study': {
                 'type': row['study_type'],
                 'sample_size': row['sample_size'],
@@ -273,27 +294,46 @@ def export_interventions_data() -> Dict[str, Any]:
     condition_categories = {row['condition_category']: row['count'] for row in cursor.fetchall()}
 
     # NEW: Get multi-category statistics
-    cursor.execute("""
-        SELECT category_type, category_name, COUNT(*) as count
-        FROM intervention_category_mapping
-        GROUP BY category_type, category_name
-        ORDER BY category_type, count DESC
-    """)
     multi_category_stats = {}
-    for row in cursor.fetchall():
-        cat_type = row['category_type']
-        if cat_type not in multi_category_stats:
-            multi_category_stats[cat_type] = {}
-        multi_category_stats[cat_type][row['category_name']] = row['count']
+    multi_category_interventions = 0
+    try:
+        cursor.execute("""
+            SELECT category_type, category_name, COUNT(*) as count
+            FROM intervention_category_mapping
+            GROUP BY category_type, category_name
+            ORDER BY category_type, count DESC
+        """)
+        for row in cursor.fetchall():
+            cat_type = row['category_type']
+            if cat_type not in multi_category_stats:
+                multi_category_stats[cat_type] = {}
+            multi_category_stats[cat_type][row['category_name']] = row['count']
 
-    # Count interventions with multiple categories
-    cursor.execute("""
-        SELECT COUNT(DISTINCT intervention_id) as count
-        FROM intervention_category_mapping
-        GROUP BY intervention_id
-        HAVING COUNT(*) > 1
-    """)
-    multi_category_interventions = len(cursor.fetchall())
+        # Count interventions with multiple categories
+        cursor.execute("""
+            SELECT COUNT(DISTINCT intervention_id) as count
+            FROM intervention_category_mapping
+            GROUP BY intervention_id
+            HAVING COUNT(*) > 1
+        """)
+        multi_category_interventions = len(cursor.fetchall())
+    except sqlite3.OperationalError:
+        # Tables don't exist yet - skip multi-category stats
+        pass
+
+    # Get Bayesian score statistics (Phase 4b)
+    cursor.execute("SELECT COUNT(*) FROM bayesian_scores")
+    bayesian_scores_count = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM bayesian_scores WHERE posterior_mean > 0.7")
+    high_bayesian_scores = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM bayesian_scores WHERE posterior_mean > 0.5")
+    medium_bayesian_scores = cursor.fetchone()[0]
+
+    # Get total relationships (sum across canonical groups)
+    cursor.execute("SELECT COUNT(DISTINCT intervention_name || '::' || condition_name) FROM bayesian_scores")
+    total_relationships = cursor.fetchone()[0]
 
     conn.close()
 
@@ -312,7 +352,11 @@ def export_interventions_data() -> Dict[str, Any]:
             'intervention_categories': intervention_categories,
             'condition_categories': condition_categories,
             'multi_category_stats': multi_category_stats,  # NEW: Multi-category statistics
-            'multi_category_interventions': multi_category_interventions  # NEW: Count of interventions with >1 category
+            'multi_category_interventions': multi_category_interventions,  # NEW: Count of interventions with >1 category
+            'bayesian_scores_available': bayesian_scores_count > 0,  # Phase 4b integration
+            'total_relationships': total_relationships if bayesian_scores_count > 0 else canonical_groups,  # For backward compatibility
+            'high_scoring_interventions': high_bayesian_scores,  # Bayesian score > 0.7
+            'medium_scoring_interventions': medium_bayesian_scores  # Bayesian score > 0.5
         },
         'top_performers': {
             'interventions': top_interventions,

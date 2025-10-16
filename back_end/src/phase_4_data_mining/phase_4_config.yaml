@@ -1,0 +1,49 @@
+# Phase 4 Data Mining Configuration
+# Configuration for knowledge graph construction and Bayesian scoring
+
+phase_4a_knowledge_graph:
+  # Use canonical groups from Phase 3 (clustering-first architecture)
+  use_canonical_groups: true
+
+  # Evidence aggregation strategy
+  # - "pooled": Sum all evidence across cluster members
+  # - "weighted_average": Weight by study quality/confidence
+  evidence_aggregation: "pooled"
+
+  # Minimum cluster members to include (1 = include singletons)
+  min_cluster_members: 1
+
+  # Save results to database
+  save_to_database: true
+
+  # Edge weight thresholds
+  min_confidence: 0.0
+  min_evidence_count: 1
+
+phase_4b_bayesian_scoring:
+  # Use canonical groups from Phase 3
+  use_canonical_groups: true
+
+  # Bayesian prior parameters (uniform by default)
+  alpha_prior: 1.0
+  beta_prior: 1.0
+
+  # Minimum evidence to score
+  min_evidence_count: 1
+
+  # Save results to database
+  save_to_database: true
+
+  # Scoring thresholds
+  min_bayes_factor: 0.0
+  confidence_threshold: 0.7
+
+# Database configuration
+database:
+  # Path is typically passed by orchestrator
+  default_path: "data/intervention_research.db"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  fast_mode: true  # Suppress verbose logging

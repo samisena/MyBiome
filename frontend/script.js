@@ -64,6 +64,7 @@ function populateSummaryStats() {
     document.getElementById('canonical-groups').textContent = (meta.canonical_groups || 0).toLocaleString();
     document.getElementById('semantic-relationships').textContent = (meta.total_relationships || 0).toLocaleString();
     document.getElementById('multi-category-interventions').textContent = (meta.multi_category_interventions || 0).toLocaleString();
+    document.getElementById('high-scoring-interventions').textContent = (meta.high_scoring_interventions || 0).toLocaleString();
     document.getElementById('positive-correlations').textContent = meta.positive_correlations.toLocaleString();
     document.getElementById('negative-correlations').textContent = meta.negative_correlations.toLocaleString();
 }
@@ -140,6 +141,7 @@ function initializeDataTable() {
         formatCategory(intervention.condition.categories || intervention.condition.category),
         formatCorrelationType(intervention.correlation.type),
         formatStrengthBar(intervention.correlation.strength),
+        formatBayesianScore(intervention.bayesian_scoring),
         formatConfidenceBar(intervention.correlation.extraction_confidence),
         formatSampleSize(intervention.study.sample_size),
         intervention.study.type || 'N/A',
@@ -151,7 +153,7 @@ function initializeDataTable() {
         data: tableData,
         pageLength: 25,
         responsive: true,
-        order: [[8, 'desc'], [7, 'desc']], // Sort by confidence, then strength
+        order: [[8, 'desc'], [7, 'desc'], [9, 'desc']], // Sort by Bayesian score, then strength, then confidence
         buttons: [
             'csv', 'excel'
         ],
@@ -324,6 +326,29 @@ function formatStrengthBar(strength) {
     return `<span class="strength-label ${className}">${label}</span>`;
 }
 
+// Format Bayesian score (Phase 4b)
+function formatBayesianScore(bayesian) {
+    if (!bayesian || !bayesian.score) return '<span class="bayesian-na">N/A</span>';
+
+    const score = bayesian.score;
+    const percentage = Math.round(score * 100);
+
+    // Color code by score
+    let className = 'bayesian-low';
+    if (score >= 0.7) className = 'bayesian-high';
+    else if (score >= 0.5) className = 'bayesian-medium';
+
+    const evidenceTitle = `Positive: ${bayesian.positive_evidence || 0}, Negative: ${bayesian.negative_evidence || 0}, Neutral: ${bayesian.neutral_evidence || 0}`;
+
+    return `
+        <div class="bayesian-score ${className}" title="${evidenceTitle}">
+            <div class="score-value">${percentage}%</div>
+            <div class="score-bar" style="width: ${percentage}%"></div>
+            <div class="evidence-counts">${bayesian.total_studies || 0} studies</div>
+        </div>
+    `;
+}
+
 // Format confidence as progress bar
 function formatConfidenceBar(confidence) {
     if (!confidence && confidence !== 0) return 'N/A';
@@ -426,6 +451,13 @@ Correlation Type: ${intervention.correlation.type || 'N/A'}
 Correlation Strength: ${getStrengthLabel(intervention.correlation.strength)} (${intervention.correlation.strength || 'N/A'})
 Extraction Confidence: ${intervention.correlation.extraction_confidence || 'N/A'}
 Study Confidence: ${intervention.correlation.study_confidence || 'N/A'}
+
+Bayesian Evidence Score (Phase 4b):
+${intervention.bayesian_scoring ? `- Posterior Mean: ${(intervention.bayesian_scoring.score * 100).toFixed(1)}%
+- Conservative Score (10th percentile): ${(intervention.bayesian_scoring.conservative_score * 100).toFixed(1)}%
+- Evidence Counts: ${intervention.bayesian_scoring.positive_evidence || 0} positive, ${intervention.bayesian_scoring.negative_evidence || 0} negative, ${intervention.bayesian_scoring.neutral_evidence || 0} neutral
+- Total Studies: ${intervention.bayesian_scoring.total_studies || 0}
+- Bayes Factor: ${intervention.bayesian_scoring.bayes_factor ? intervention.bayesian_scoring.bayes_factor.toFixed(2) : 'N/A'}` : 'Not available (requires Phase 4b scoring)'}
 
 Study Details:
 - Sample Size: ${intervention.study.sample_size || 'Not specified'}

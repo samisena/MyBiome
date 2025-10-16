@@ -58,12 +58,21 @@ class Phase3dOrchestrator:
         self.config = config_override or config
         logger.info(f"Phase3dOrchestrator initialized: entity_type={self.config.entity_type}")
 
-    def run(self, entity_type: str) -> Phase3dResults:
+    def run(
+        self,
+        entity_type: str,
+        naming_results: Optional[Dict] = None,
+        cluster_labels: Optional[np.ndarray] = None,
+        entity_names: Optional[List[str]] = None
+    ) -> Phase3dResults:
         """
         Run full Phase 3d pipeline for entity type.
 
         Args:
             entity_type: 'intervention', 'condition', or 'mechanism'
+            naming_results: Dict of cluster_id -> NamingResult from Phase 3c
+            cluster_labels: Cluster labels from Phase 3b (parallel to entity_names)
+            entity_names: Entity names from Phase 3a
 
         Returns:
             Phase3dResults with merging statistics
@@ -88,7 +97,12 @@ class Phase3dOrchestrator:
 
         # Step 2: Load clusters from Phase 3b/3c
         logger.info("[Step 2] Loading clusters from Phase 3b/3c...")
-        clusters = self._load_clusters_from_phase3bc(entity_type)
+        clusters = self._load_clusters_from_phase3bc(
+            entity_type,
+            naming_results=naming_results,
+            cluster_labels=cluster_labels,
+            entity_names=entity_names
+        )
         logger.info(f"  Loaded: {len(clusters)} clusters")
 
         # Step 3: Load embeddings
@@ -109,21 +123,48 @@ class Phase3dOrchestrator:
         )
         logger.info(f"  Computed: {len(centroids)} centroids")
 
-        # Step 5: Hierarchical merging (placeholder for now)
-        logger.info("[Step 5] Hierarchical merging...")
-        logger.info("  NOTE: Full merging pipeline not yet implemented")
-        logger.info("  This would run: candidate generation → LLM validation → merge application")
+        # Step 5: Generate merge candidates
+        logger.info("[Step 5] Generating merge candidates...")
+        from .stage_2_candidate_generation import generate_merge_candidates
 
-        # Placeholder results
+        candidates = generate_merge_candidates(
+            clusters=clusters,
+            centroids=centroids,
+            similarity_threshold=self.config.phase3d.get('candidate_generation', {}).get('similarity_threshold', 0.6),
+            max_candidates=self.config.phase3d.get('candidate_generation', {}).get('max_candidates', 1000)
+        )
+        logger.info(f"  Generated: {len(candidates)} merge candidates")
+
+        # Step 6: LLM validation
+        logger.info("[Step 6] Validating merge candidates with LLM...")
+        from .stage_3_llm_validation import LLMValidator
+
+        validator = LLMValidator(self.config)
+        validation_results = validator.validate_candidates(candidates, embeddings)
+        approved_merges = validator.get_approved_merges(validation_results)
+        logger.info(f"  Auto-approved: {len(approved_merges)}/{len(validation_results)} merges")
+
+        # Step 7: Apply approved merges
+        logger.info("[Step 7] Applying approved merges to database...")
+        from .stage_5_merge_application import MergeApplicator
+
+        applicator = MergeApplicator(db_path=str(self.config.db_path), entity_type=entity_type)
+        application_result = applicator.apply_merges(
+            approved_merges=approved_merges,
+            target_level=2,
+            create_backup=True
+        )
+
+        # Calculate final results
         duration = time.time() - start_time
 
         results = Phase3dResults(
             entity_type=entity_type,
             initial_clusters=len(clusters),
-            final_clusters=len(clusters),  # No merges yet
-            reduction_pct=0.0,
-            hierarchy_depth=0,
-            merges_applied=0,
+            final_clusters=application_result.parents_created + len(clusters),
+            reduction_pct=(1 - (application_result.parents_created + len(clusters)) / len(clusters)) * 100 if len(clusters) > 0 else 0.0,
+            hierarchy_depth=2,  # Currently creates parent-child only
+            merges_applied=application_result.merges_identical + application_result.merges_parent_child,
             duration_seconds=duration
         )
 
@@ -137,28 +178,58 @@ class Phase3dOrchestrator:
 
         return results
 
-    def _load_clusters_from_phase3bc(self, entity_type: str) -> List[Cluster]:
+    def _load_clusters_from_phase3bc(
+        self,
+        entity_type: str,
+        naming_results: Optional[Dict] = None,
+        cluster_labels: Optional[np.ndarray] = None,
+        entity_names: Optional[List[str]] = None
+    ) -> List[Cluster]:
         """
         Load clusters from Phase 3b/3c results.
 
         Args:
             entity_type: 'intervention', 'condition', or 'mechanism'
+            naming_results: Dict of cluster_id -> NamingResult from Phase 3c
+            cluster_labels: Cluster labels from Phase 3b (parallel to entity_names)
+            entity_names: Entity names from Phase 3a
 
         Returns:
             List of Cluster objects
-
-        Note:
-            This is a placeholder. In full implementation, this would query
-            the database or load from Phase 3b/3c cache.
         """
-        logger.warning("_load_clusters_from_phase3bc: Placeholder implementation")
+        if naming_results is None or cluster_labels is None or entity_names is None:
+            logger.warning("_load_clusters_from_phase3bc: Missing Phase 3b/3c data, returning empty list")
+            return []
 
-        # TODO: Implement actual cluster loading from:
-        # - For mechanisms: mechanism_clusters + mechanism_cluster_membership tables
-        # - For interventions/conditions: canonical_groups + semantic_hierarchy tables
+        clusters = []
 
-        # For now, return empty list
-        return []
+        # Group entities by cluster_id
+        cluster_members = {}
+        for i, (entity_name, cluster_id) in enumerate(zip(entity_names, cluster_labels)):
+            if cluster_id not in cluster_members:
+                cluster_members[cluster_id] = []
+            cluster_members[cluster_id].append(entity_name)
+
+        # Create Cluster objects
+        for cluster_id, members in cluster_members.items():
+            naming_result = naming_results.get(cluster_id)
+
+            if naming_result is None:
+                logger.warning(f"No naming result for cluster {cluster_id}, skipping")
+                continue
+
+            cluster = Cluster(
+                cluster_id=cluster_id,
+                canonical_name=naming_result.canonical_name,
+                category=naming_result.category,
+                members=members,
+                confidence=naming_result.confidence if hasattr(naming_result, 'confidence') else 'MEDIUM'
+            )
+            clusters.append(cluster)
+
+        logger.info(f"Loaded {len(clusters)} clusters with {sum(len(c.members) for c in clusters)} total members")
+
+        return clusters
 
 
 def main():

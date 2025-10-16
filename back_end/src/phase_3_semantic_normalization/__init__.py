@@ -49,38 +49,34 @@ from .phase_3c_llm_namer import LLMNamer
 # Main Orchestrator
 from .phase_3abc_orchestrator import UnifiedPhase3Orchestrator, EntityResults
 
-# Legacy (OLD - naming-first)
-from .phase_3_embedding_engine import EmbeddingEngine
-from .phase_3_llm_classifier import LLMClassifier
-from .phase_3_hierarchy_manager import HierarchyManager
-from .phase_3_normalizer import MainNormalizer
-from .semantic_normalizer import SemanticNormalizer
+# Phase 3c Stage 2: Category Consolidation
+from .phase_3c_category_consolidator import CategoryConsolidator, CategoryInfo, ConsolidationMapping, ConsolidationResult
+
+# Legacy imports removed - files deleted during migration
 
 __all__ = [
-    # Phase 3a (NEW)
+    # Phase 3a
     'BaseEmbedder',
     'InterventionEmbedder',
     'ConditionEmbedder',
     'MechanismEmbedder',
-    # Phase 3b (NEW)
+    # Phase 3b
     'BaseClusterer',
     'HierarchicalClusterer',
     'HDBSCANClusterer',
     'SingletonHandler',
-    # Phase 3c (NEW)
+    # Phase 3c
     'BaseNamer',
     'ClusterData',
     'NamingResult',
     'LLMNamer',
-    # Orchestrator (NEW)
+    'CategoryConsolidator',
+    'CategoryInfo',
+    'ConsolidationMapping',
+    'ConsolidationResult',
+    # Orchestrator
     'UnifiedPhase3Orchestrator',
     'EntityResults',
-    # Legacy (OLD)
-    'EmbeddingEngine',
-    'LLMClassifier',
-    'HierarchyManager',
-    'MainNormalizer',
-    'SemanticNormalizer',
 ]
 
 __version__ = '1.0.0'

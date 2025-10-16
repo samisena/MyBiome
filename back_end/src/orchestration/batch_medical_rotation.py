@@ -111,6 +111,7 @@ class BatchPhase(Enum):
     SEMANTIC_NORMALIZATION = "semantic_normalization"  # Phase 3 (formerly CANONICAL_GROUPING)
     GROUP_CATEGORIZATION = "group_categorization"      # Phase 3.5 (NEW - formerly CATEGORIZATION)
     MECHANISM_CLUSTERING = "mechanism_clustering"      # Phase 3.6 (NEW)
+    DATA_MINING = "data_mining"                        # Phase 4 (NEW - Knowledge Graph + Bayesian Scoring)
     COMPLETED = "completed"
 
 
@@ -129,6 +130,7 @@ class BatchSession:
     semantic_normalization_completed: bool = False  # Phase 3 (formerly canonical_grouping_completed)
     group_categorization_completed: bool = False     # Phase 3.5 (NEW - formerly categorization_completed)
     mechanism_clustering_completed: bool = False     # Phase 3.6 (NEW)
+    data_mining_completed: bool = False              # Phase 4 (NEW)
 
     # Statistics (current iteration)
     total_papers_collected: int = 0
@@ -140,6 +142,9 @@ class BatchSession:
     total_orphans_categorized: int = 0              # Phase 3.5 (fallback)
     total_mechanisms_processed: int = 0             # Phase 3.6 (NEW)
     total_mechanism_clusters: int = 0               # Phase 3.6 (NEW)
+    total_knowledge_graph_nodes: int = 0            # Phase 4 (NEW)
+    total_knowledge_graph_edges: int = 0            # Phase 4 (NEW)
+    total_bayesian_scores: int = 0                  # Phase 4 (NEW)
 
     # Continuous mode settings
     continuous_mode: bool = False
@@ -155,6 +160,7 @@ class BatchSession:
     semantic_normalization_result: Optional[Dict[str, Any]] = None  # Phase 3
     group_categorization_result: Optional[Dict[str, Any]] = None     # Phase 3.5
     mechanism_clustering_result: Optional[Dict[str, Any]] = None     # Phase 3.6 (NEW)
+    data_mining_result: Optional[Dict[str, Any]] = None              # Phase 4 (NEW)
 
     def is_completed(self) -> bool:
         """Check if entire pipeline is completed."""
@@ -240,6 +246,7 @@ class BatchMedicalRotationPipeline:
                 semantic_normalization_completed=data.get('semantic_normalization_completed', False),
                 group_categorization_completed=data.get('group_categorization_completed', False),
                 mechanism_clustering_completed=data.get('mechanism_clustering_completed', False),
+                data_mining_completed=data.get('data_mining_completed', False),
                 total_papers_collected=data.get('total_papers_collected', 0),
                 total_papers_processed=data.get('total_papers_processed', 0),
                 total_interventions_extracted=data.get('total_interventions_extracted', 0),
@@ -249,6 +256,9 @@ class BatchMedicalRotationPipeline:
                 total_orphans_categorized=data.get('total_orphans_categorized', 0),
                 total_mechanisms_processed=data.get('total_mechanisms_processed', 0),
                 total_mechanism_clusters=data.get('total_mechanism_clusters', 0),
+                total_knowledge_graph_nodes=data.get('total_knowledge_graph_nodes', 0),
+                total_knowledge_graph_edges=data.get('total_knowledge_graph_edges', 0),
+                total_bayesian_scores=data.get('total_bayesian_scores', 0),
                 continuous_mode=data.get('continuous_mode', False),
                 max_iterations=data.get('max_iterations'),
                 iteration_delay_seconds=data.get('iteration_delay_seconds', 60.0),
@@ -257,7 +267,8 @@ class BatchMedicalRotationPipeline:
                 processing_result=data.get('processing_result'),
                 semantic_normalization_result=data.get('semantic_normalization_result'),
                 group_categorization_result=data.get('group_categorization_result'),
-                mechanism_clustering_result=data.get('mechanism_clustering_result')
+                mechanism_clustering_result=data.get('mechanism_clustering_result'),
+                data_mining_result=data.get('data_mining_result')
             )
 
             self.current_session = session
@@ -294,6 +305,7 @@ class BatchMedicalRotationPipeline:
                 'semantic_normalization_completed': self.current_session.semantic_normalization_completed,
                 'group_categorization_completed': self.current_session.group_categorization_completed,
                 'mechanism_clustering_completed': self.current_session.mechanism_clustering_completed,
+                'data_mining_completed': self.current_session.data_mining_completed,
                 'total_papers_collected': self.current_session.total_papers_collected,
                 'total_papers_processed': self.current_session.total_papers_processed,
                 'total_interventions_extracted': self.current_session.total_interventions_extracted,
@@ -303,6 +315,9 @@ class BatchMedicalRotationPipeline:
                 'total_orphans_categorized': self.current_session.total_orphans_categorized,
                 'total_mechanisms_processed': self.current_session.total_mechanisms_processed,
                 'total_mechanism_clusters': self.current_session.total_mechanism_clusters,
+                'total_knowledge_graph_nodes': self.current_session.total_knowledge_graph_nodes,
+                'total_knowledge_graph_edges': self.current_session.total_knowledge_graph_edges,
+                'total_bayesian_scores': self.current_session.total_bayesian_scores,
                 'continuous_mode': self.current_session.continuous_mode,
                 'max_iterations': self.current_session.max_iterations,
                 'iteration_delay_seconds': self.current_session.iteration_delay_seconds,
@@ -311,7 +326,8 @@ class BatchMedicalRotationPipeline:
                 'processing_result': self.current_session.processing_result,
                 'semantic_normalization_result': self.current_session.semantic_normalization_result,
                 'group_categorization_result': self.current_session.group_categorization_result,
-                'mechanism_clustering_result': self.current_session.mechanism_clustering_result
+                'mechanism_clustering_result': self.current_session.mechanism_clustering_result,
+                'data_mining_result': self.current_session.data_mining_result
             }
 
             # Write with platform-specific file locking
@@ -498,6 +514,20 @@ class BatchMedicalRotationPipeline:
                         return mechanism_clustering_result
 
                     session.mechanism_clustering_completed = True
+                    session.current_phase = BatchPhase.DATA_MINING
+                    self._save_session()
+
+                # Phase 4: Data Mining (NEW - Knowledge Graph + Bayesian Scoring)
+                if session.current_phase == BatchPhase.DATA_MINING and not session.data_mining_completed:
+                    logger.info("\n" + "="*40)
+                    logger.info("PHASE 4: DATA MINING")
+                    logger.info("="*40)
+
+                    data_mining_result = self._run_data_mining_phase(session)
+                    if not data_mining_result['success']:
+                        return data_mining_result
+
+                    session.data_mining_completed = True
                     session.current_phase = BatchPhase.COMPLETED
                     self._save_session()
 
@@ -517,6 +547,9 @@ class BatchMedicalRotationPipeline:
                 logger.info(f"Orphans categorized: {session.total_orphans_categorized}")
                 logger.info(f"Mechanisms processed: {session.total_mechanisms_processed}")
                 logger.info(f"Mechanism clusters created: {session.total_mechanism_clusters}")
+                logger.info(f"Knowledge graph nodes: {session.total_knowledge_graph_nodes}")
+                logger.info(f"Knowledge graph edges: {session.total_knowledge_graph_edges}")
+                logger.info(f"Bayesian scores generated: {session.total_bayesian_scores}")
 
                 # Save iteration history
                 iteration_summary = {
@@ -531,7 +564,10 @@ class BatchMedicalRotationPipeline:
                     'interventions_categorized': session.total_interventions_categorized,
                     'orphans_categorized': session.total_orphans_categorized,
                     'mechanisms_processed': session.total_mechanisms_processed,
-                    'mechanism_clusters_created': session.total_mechanism_clusters
+                    'mechanism_clusters_created': session.total_mechanism_clusters,
+                    'knowledge_graph_nodes': session.total_knowledge_graph_nodes,
+                    'knowledge_graph_edges': session.total_knowledge_graph_edges,
+                    'bayesian_scores_generated': session.total_bayesian_scores
                 }
                 session.iteration_history.append(iteration_summary)
 
@@ -555,7 +591,10 @@ class BatchMedicalRotationPipeline:
                             'interventions_categorized': session.total_interventions_categorized,
                             'orphans_categorized': session.total_orphans_categorized,
                             'mechanisms_processed': session.total_mechanisms_processed,
-                            'mechanism_clusters_created': session.total_mechanism_clusters
+                            'mechanism_clusters_created': session.total_mechanism_clusters,
+                            'knowledge_graph_nodes': session.total_knowledge_graph_nodes,
+                            'knowledge_graph_edges': session.total_knowledge_graph_edges,
+                            'bayesian_scores_generated': session.total_bayesian_scores
                         }
                     }
 
@@ -570,6 +609,7 @@ class BatchMedicalRotationPipeline:
                 session.semantic_normalization_completed = False
                 session.group_categorization_completed = False
                 session.mechanism_clustering_completed = False
+                session.data_mining_completed = False
 
                 # Reset iteration statistics (cumulative tracking happens in iteration_history)
                 session.total_papers_collected = 0
@@ -581,6 +621,9 @@ class BatchMedicalRotationPipeline:
                 session.total_orphans_categorized = 0
                 session.total_mechanisms_processed = 0
                 session.total_mechanism_clusters = 0
+                session.total_knowledge_graph_nodes = 0
+                session.total_knowledge_graph_edges = 0
+                session.total_bayesian_scores = 0
 
                 self._save_session()
 
@@ -913,6 +956,74 @@ class BatchMedicalRotationPipeline:
             logger.error(traceback.format_exc())
             return {'success': False, 'error': str(e), 'phase': 'mechanism_clustering'}
 
+    def _run_data_mining_phase(self, session: BatchSession) -> Dict[str, Any]:
+        """
+        Run Phase 4: Data Mining (knowledge graph + Bayesian scoring).
+
+        Consumes Phase 3 canonical groups to build knowledge graph and generate
+        Bayesian scores with pooled evidence for better statistical power.
+        """
+        logger.info("Running Phase 4: Data Mining...")
+
+        try:
+            if self.shutdown_requested:
+                return {'success': False, 'error': 'Shutdown requested during data mining'}
+
+            # Import Phase 4 orchestrator
+            from .phase_4_data_miner import Phase4DataMiningOrchestrator
+
+            # Initialize orchestrator
+            phase4_orchestrator = Phase4DataMiningOrchestrator(
+                db_path=str(config.db_path),
+                config_path=str(config.data_root / "phase_4_data_mining" / "phase_4_config.yaml")
+            )
+
+            # Run Phase 4 (4a + 4b)
+            mining_result = phase4_orchestrator.run(force=False)
+
+            # Update session with results
+            session.data_mining_result = {
+                'phase_4a_completed': mining_result.phase_4a_completed,
+                'phase_4b_completed': mining_result.phase_4b_completed,
+                'canonical_groups_processed': mining_result.canonical_groups_processed,
+                'knowledge_graph_nodes': mining_result.knowledge_graph_nodes,
+                'knowledge_graph_edges': mining_result.knowledge_graph_edges,
+                'bayesian_scores_generated': mining_result.bayesian_scores_generated,
+                'high_confidence_scores': mining_result.high_confidence_scores,
+                'phase_4a_duration_seconds': mining_result.phase_4a_duration_seconds,
+                'phase_4b_duration_seconds': mining_result.phase_4b_duration_seconds,
+                'total_duration_seconds': mining_result.total_duration_seconds
+            }
+
+            session.total_knowledge_graph_nodes = mining_result.knowledge_graph_nodes
+            session.total_knowledge_graph_edges = mining_result.knowledge_graph_edges
+            session.total_bayesian_scores = mining_result.bayesian_scores_generated
+
+            if not mining_result.success:
+                logger.error(f"Data mining failed: {mining_result.error}")
+                return {
+                    'success': False,
+                    'error': f"Data mining failed: {mining_result.error}",
+                    'phase': 'data_mining'
+                }
+
+            logger.info("[SUCCESS] Data mining completed successfully")
+            logger.info(f"  Canonical groups processed: {mining_result.canonical_groups_processed}")
+            logger.info(f"  Knowledge graph nodes: {mining_result.knowledge_graph_nodes}")
+            logger.info(f"  Knowledge graph edges: {mining_result.knowledge_graph_edges}")
+            logger.info(f"  Bayesian scores: {mining_result.bayesian_scores_generated}")
+            logger.info(f"  High confidence scores: {mining_result.high_confidence_scores}")
+            logger.info(f"  Phase 4a duration: {mining_result.phase_4a_duration_seconds:.1f}s")
+            logger.info(f"  Phase 4b duration: {mining_result.phase_4b_duration_seconds:.1f}s")
+
+            return {'success': True, 'result': session.data_mining_result}
+
+        except Exception as e:
+            logger.error(f"Data mining failed: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            return {'success': False, 'error': str(e), 'phase': 'data_mining'}
+
     def get_status(self) -> Dict[str, Any]:
         """Get current pipeline status."""
         session = self.load_existing_session()
@@ -941,6 +1052,7 @@ class BatchMedicalRotationPipeline:
                 'semantic_normalization_completed': session.semantic_normalization_completed,
                 'group_categorization_completed': session.group_categorization_completed,
                 'mechanism_clustering_completed': session.mechanism_clustering_completed,
+                'data_mining_completed': session.data_mining_completed,
                 'pipeline_completed': session.is_completed()
             },
             'statistics': {
@@ -952,7 +1064,10 @@ class BatchMedicalRotationPipeline:
                 'interventions_categorized': session.total_interventions_categorized,
                 'orphans_categorized': session.total_orphans_categorized,
                 'mechanisms_processed': session.total_mechanisms_processed,
-                'mechanism_clusters_created': session.total_mechanism_clusters
+                'mechanism_clusters_created': session.total_mechanism_clusters,
+                'knowledge_graph_nodes': session.total_knowledge_graph_nodes,
+                'knowledge_graph_edges': session.total_knowledge_graph_edges,
+                'bayesian_scores_generated': session.total_bayesian_scores
             },
             'iteration_history': session.iteration_history,
             'phase_results': {
@@ -960,7 +1075,8 @@ class BatchMedicalRotationPipeline:
                 'processing': session.processing_result,
                 'semantic_normalization': session.semantic_normalization_result,
                 'group_categorization': session.group_categorization_result,
-                'mechanism_clustering': session.mechanism_clustering_result
+                'mechanism_clustering': session.mechanism_clustering_result,
+                'data_mining': session.data_mining_result
             }
         }
 

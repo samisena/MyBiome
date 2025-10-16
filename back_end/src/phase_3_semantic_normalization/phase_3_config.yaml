@@ -4,7 +4,7 @@
 # Database paths
 database:
   db_path: "c:/Users/samis/Desktop/MyBiome/back_end/data/processed/intervention_research.db"
-  experiment_db_path: "c:/Users/samis/Desktop/MyBiome/back_end/src/experimentation/unified_phase3/experiment_results.db"
+  experiment_db_path: "c:/Users/samis/Desktop/MyBiome/back_end/src/phase_3_semantic_normalization/experiment_results.db"
 
 # Cache directories
 cache:
@@ -80,7 +80,7 @@ naming:
   llm:
     model: "qwen3:14b"
     base_url: "http://localhost:11434"
-    temperature: 0.0          # Experiment with: 0.0, 0.2, 0.3, 0.4
+    temperature: 0.2          # Optimal from experiments: best naming quality + speed
     max_tokens: 2000
     timeout: null             # No timeout - let LLM take as long as needed
     max_retries: 3
@@ -96,40 +96,55 @@ naming:
   validation:
     min_name_length: 3
     max_name_length: 100
-    allowed_categories:
-      intervention:
-        - exercise
-        - diet
-        - supplement
-        - medication
-        - therapy
-        - lifestyle
-        - surgery
-        - test
-        - device
-        - procedure
-        - biologics
-        - gene_therapy
-        - emerging
-      condition:
-        - cardiac
-        - neurological
-        - digestive
-        - pulmonary
-        - endocrine
-        - renal
-        - oncological
-        - rheumatological
-        - psychiatric
-        - musculoskeletal
-        - dermatological
-        - infectious
-        - immunological
-        - hematological
-        - nutritional
-        - toxicological
-        - parasitic
-        - other
+
+  # Dynamic category discovery
+  dynamic_categories:
+    enabled: true
+    max_categories: 30
+    min_usage_for_persistence: 2
+    example_categories:
+      intervention: [supplement, exercise, medication, gene_therapy]
+      condition: [cardiac, neurological, endocrine, oncological]
+    forbidden_terms: [treatment, intervention, therapy_general, supplements_general, drug, medicine_general]
+
+  # Category consolidation (Stage 3c.2)
+  consolidation:
+    enabled: true
+    llm_temperature: 0.0  # Conservative (deterministic) for safety
+    similarity_threshold: 0.85
+    min_group_size: 1  # Always consolidate when possible
+    max_consolidation_ratio: 0.5
+    timeout: null  # No timeout - let LLM take as long as needed
+
+# Phase 3d: Hierarchical Cluster Merging (EXPERIMENTAL)
+phase3d:
+  enabled: false  # Not yet fully implemented - set to true to enable
+  embedding_dimension: 1024
+
+  # Stage 1: Centroid computation
+  centroid:
+    normalize: true
+    method: "mean"  # mean or median
+
+  # Stage 2: Merge candidate generation
+  candidate_generation:
+    top_k: 10  # Top K most similar clusters per cluster
+    similarity_threshold: 0.6
+    max_candidates: 1000
+
+  # Stage 3: LLM validation
+  llm_validation:
+    model: "qwen3:14b"
+    base_url: "http://localhost:11434"
+    temperature: 0.0  # Conservative for validation
+    timeout: null
+    batch_size: 10
+
+  # Stage 4-5: Hierarchy construction
+  hierarchy:
+    max_depth: 4  # Max hierarchy levels (grandparent → parent → child)
+    min_cluster_size_for_merge: 2
+    allow_cross_category_merges: true  # Enable functional grouping
 
 # Experiment tracking
 experiment:

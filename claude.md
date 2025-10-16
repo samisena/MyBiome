@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Automated biomedical research pipeline that collects research papers about health conditions using PubMed API (Phase 1), then extracts condition-intervention-outcome-mechanism relationships using local LLMs (Phase 2). After that the pipeline performs semantic embedding of the conditions, interventions and mechanisms extracted (Phase 3a), followed by clustering them (Phase 3b), cluster naming using local LLMs (Phase 3c) and then merges similar clusters into parent-child hierarchies (Phase 3d). The findings are presented through an interactive web interface. And Phase 4: Data mining is currently under development and not yet integrated within the main pipeline.
+Automated biomedical research pipeline that collects research papers about health conditions using PubMed API (Phase 1), then extracts condition-intervention-outcome-mechanism relationships using local LLMs (Phase 2). After that the pipeline performs semantic embedding of the conditions, interventions and mechanisms extracted (Phase 3a), followed by clustering them (Phase 3b), cluster naming using local LLMs (Phase 3c) and then merges similar clusters into parent-child hierarchies (Phase 3d). Finally, Phase 4 builds a knowledge graph from canonical groups (Phase 4a) and generates Bayesian evidence scores with pooled evidence for better statistical power (Phase 4b). The findings are presented through an interactive web interface.
 
 ## Quick Start
 
@@ -82,9 +82,36 @@ conda activate venv
   - Junction tables for multi-category relationships
   - Functional category suggestions from LLM for cross-category groups
 - **Expected Results**:
-  - 40-50% cluster reduction 
+  - 40-50% cluster reduction
   - More generalizable treatment insights
   - Cross-category pattern discovery
+
+### Phase 4a: Knowledge Graph Construction ✅
+- **Location**: `back_end/src/phase_4_data_mining/`
+- **Purpose**: Build multi-edge bidirectional knowledge graph from Phase 3 canonical groups
+- **Technology**: Graph construction with canonical group nodes (not raw intervention names)
+- **Key Features**:
+  - **Canonical Group Nodes**: 538 nodes (vs. 716 duplicate raw names)
+  - **Evidence Pooling**: Aggregate evidence across cluster members
+  - **Multi-Edge Preservation**: All studies retained (positive, negative, neutral)
+  - **Bidirectional Queries**: "What treats X?" and "What does Y treat?"
+  - **Database Integration**: Saves to `knowledge_graph_nodes` and `knowledge_graph_edges` tables
+- **Performance**: Builds complete graph from Phase 3 results in seconds
+- **Files**: `phase_4a_knowledge_graph.py`
+
+### Phase 4b: Bayesian Evidence Scoring ✅
+- **Location**: `back_end/src/phase_4_data_mining/`
+- **Purpose**: Score canonical groups using Bayesian statistics with pooled evidence
+- **Technology**: Beta distribution priors + evidence aggregation
+- **Key Features**:
+  - **Canonical Group Scoring**: Score clusters (not raw names)
+  - **Evidence Pooling**: Pool evidence across all cluster members for better statistical power
+  - **Innovation Penalty Solution**: Uses statistical confidence (not raw counts)
+  - **Conservative Scoring**: 10th percentile (worst-case scenario)
+  - **Database Integration**: Saves to `bayesian_scores` table
+- **Example**: "Probiotics" cluster (5 studies) vs. "probiotic supplementation" (2 studies) → Pool to 7 studies for higher confidence
+- **Performance**: Scores all canonical groups against all conditions in minutes
+- **Files**: `phase_4b_bayesian_scorer.py`
 
 ---
 
@@ -170,16 +197,23 @@ back_end/src/
 │   ├── phase_3d/                                # 3d: Hierarchical merging
 │   └── ground_truth/                            # Ground truth labeling
 │
+├── phase_4_data_mining/              # Phase 4: Knowledge Graph + Bayesian Scoring
+│   ├── phase_4a_knowledge_graph.py              # 4a: Knowledge graph construction
+│   ├── phase_4b_bayesian_scorer.py              # 4b: Bayesian evidence scoring
+│   ├── scoring_utils.py                         # Shared scoring utilities
+│   └── phase_4_config.yaml                      # Configuration
+│
 ├── orchestration/                    # Pipeline Orchestrators
 │   ├── phase_1_paper_collector.py
 │   ├── phase_2_llm_processor.py
-│   ├── phase_3abc_semantic_normalizer.py     # NEW: Clustering-first orchestrator
-│   └── batch_medical_rotation.py             # Main pipeline controller
+│   ├── phase_3abc_semantic_normalizer.py        # Phase 3 orchestrator
+│   ├── phase_4_data_miner.py                    # Phase 4 orchestrator (NEW)
+│   └── batch_medical_rotation.py                # Main pipeline controller
 │
-├── data_mining/                      # Analytics & Insights
+├── data_mining/                      # Advanced Analytics (Legacy/Standalone)
 │   ├── data_mining_orchestrator.py
-│   ├── medical_knowledge_graph.py
-│   ├── bayesian_scorer.py
+│   ├── medical_knowledge_graph.py               # (Original - kept for compatibility)
+│   ├── bayesian_scorer.py                       # (Original - kept for compatibility)
 │   └── ...
 │
 ├── utils/                            # General Utilities
@@ -189,10 +223,10 @@ back_end/src/
 
 ### Pipeline Flow
 ```
-Phase 1 → Phase 2 → Phase 3a   →   Phase 3b   →   Phase 3c   → Phase 3d
-   ↓         ↓          ↓              ↓              ↓             ↓
-Papers   Extracts   Embeddings    Clusters      Names      Hierarchies
-                   (1024-dim)      (538)     (canonical)  (experimental)
+Phase 1 → Phase 2 → Phase 3a → Phase 3b → Phase 3c → Phase 3d → Phase 4a → Phase 4b
+   ↓         ↓          ↓          ↓          ↓          ↓          ↓          ↓
+Papers   Extracts   Embeddings Clusters    Names    Hierarchies  Graph    Scores
+                   (1024-dim)   (538)   (canonical) (experimental) (538 nodes) (Bayesian)
 ```
 
 **Phase 3 Details (Clustering-First)**:
@@ -200,6 +234,10 @@ Papers   Extracts   Embeddings    Clusters      Names      Hierarchies
 - **3b**: Cluster embeddings with hierarchical algorithm → 100% assignment
 - **3c**: Name clusters with qwen3:14b → Assign categories
 - **3d**: Merge similar clusters → Build parent-child hierarchies
+
+**Phase 4 Details (Data Mining)**:
+- **4a**: Build knowledge graph from canonical groups → Cleaner nodes, pooled evidence
+- **4b**: Score canonical groups with Bayesian statistics → Better statistical power
 
 ### File Naming Convention
 - **Phase-specific files**: `phase_X_descriptive_name.py` (e.g., `phase_2_single_model_analyzer.py`)
@@ -213,10 +251,10 @@ Papers   Extracts   Embeddings    Clusters      Names      Hierarchies
 
 ### Complete Workflow
 ```bash
-# Single iteration: Collection → Processing → Semantic Normalization → Group Categorization → Mechanism Clustering
+# Single iteration: Collection → Processing → Semantic Normalization → Group Categorization → Mechanism Clustering → Data Mining
 python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10
 
-# Continuous mode: Infinite loop (restarts Phase 1 after Phase 3c)
+# Continuous mode: Infinite loop (restarts Phase 1 after Phase 4)
 python -m back_end.src.orchestration.batch_medical_rotation --papers-per-condition 10 --continuous
 
 # Limited iterations (e.g., 5 complete cycles)
@@ -247,7 +285,13 @@ python -m back_end.src.orchestration.rotation_group_categorization  # Categorize
 python -m back_end.src.orchestration.rotation_llm_categorization --interventions-only
 python -m back_end.src.orchestration.rotation_llm_categorization --conditions-only
 
-# Data mining and analysis
+# Phase 4: Data Mining (Knowledge Graph + Bayesian Scoring)
+python -m back_end.src.orchestration.phase_4_data_miner  # Run complete Phase 4 (4a + 4b)
+python -m back_end.src.orchestration.phase_4_data_miner --phase-4a-only  # Knowledge graph only
+python -m back_end.src.orchestration.phase_4_data_miner --phase-4b-only  # Bayesian scoring only
+python -m back_end.src.orchestration.phase_4_data_miner --status  # Check Phase 4 status
+
+# Data mining and analysis (standalone/legacy tools)
 python -m back_end.src.data_mining.data_mining_orchestrator --all
 ```
 
@@ -316,18 +360,30 @@ python evaluator.py
 
 ### Key Features
 - **Interactive DataTables**: Sortable, searchable, paginated intervention table
-- **Summary Statistics**: Total interventions, conditions, papers, canonical groups, relationships
+- **Bayesian Score Ranking (Phase 4b)** ✅: Default sorting by evidence-based Bayesian scores
+  - Color-coded scores: Green (>0.7), Yellow (>0.5), Red (<0.5)
+  - Posterior mean + conservative (10th percentile) estimates
+  - Evidence breakdown (positive/negative/neutral counts)
+  - Removes innovation penalty (new treatments fairly ranked)
+- **Summary Statistics**: Total interventions, conditions, papers, canonical groups, relationships, high-scoring interventions
 - **Correlation Strength Display**: Categorical labels (Very Strong ≥0.75, Strong ≥0.50, Weak ≥0.25, Very Weak <0.25)
 - **Filtering**: By intervention category (13), condition category (18), functional category, therapeutic category, correlation type, confidence threshold
 - **Multi-Category Display** 🧪: Color-coded badges for multiple category types (primary, functional, therapeutic, etc.)
 - **Semantic Integration**: Displays canonical groups and 4-layer hierarchical classifications
-- **Details Modal**: Full intervention data, mechanism of action, study details, paper information, all category types
+- **Details Modal**: Full intervention data, mechanism of action, Bayesian statistics, study details, paper information, all category types
 
 ### Data Export
 ```bash
 python -m back_end.src.utils.export_frontend_data
 ```
-Exports SQLite → JSON with Phase 3.5 hierarchical data, metadata, and top performers.
+Exports SQLite → JSON with Phase 4b Bayesian scores, Phase 3.5 hierarchical data, metadata, and top performers.
+
+### Bayesian Score Integration (October 15, 2025)
+- **Backend**: [export_frontend_data.py](back_end/src/utils/export_frontend_data.py) joins `bayesian_scores` table
+- **Frontend**: [script.js](frontend/script.js) formats and displays scores with `formatBayesianScore()`
+- **Styling**: [style.css](frontend/style.css) provides color-coded visual indicators
+- **Default Ranking**: Interventions sorted by Bayesian score (desc) → Strength (desc) → Confidence (desc)
+- **Statistics**: New "High Bayesian Score (>0.7)" card in summary section
 
 ---
 
@@ -420,6 +476,8 @@ Located in `back_end/src/data_mining/`:
 ## Current Status (October 15, 2025)
 
 **Phase 3 Migration Complete**: Successfully migrated from naming-first to clustering-first architecture.
+**Phase 4 Integration Complete**: Knowledge graph and Bayesian scoring now integrated into main pipeline.
+**Frontend Bayesian Integration Complete**: Bayesian scores now drive default intervention ranking.
 
 ### Database Statistics
 - **Papers**: 533 research papers (all with mechanism data)
@@ -427,14 +485,18 @@ Located in `back_end/src/data_mining/`:
 - **Intervention Clusters**: 538 canonical groups (from 716 unique names)
 - **Conditions**: ~400 unique conditions
 - **Mechanisms**: 666 unique mechanisms
+- **Bayesian Scores**: 259 intervention-condition relationships scored
 
 ### Performance Metrics
 - **Phase 3a (Embedding)**: <1s (100% cache hit rate after first run)
 - **Phase 3b (Clustering)**: 0.2s per entity type (hierarchical threshold=0.7)
 - **Phase 3c (Naming)**: ~70 minutes for 538 clusters (uncached), instant with cache
-- **Architecture**: Clustering-first (mxbai-embed-large 1024-dim + qwen3:14b naming)
+- **Phase 4a (Knowledge Graph)**: Seconds (builds from Phase 3 canonical groups)
+- **Phase 4b (Bayesian Scoring)**: ~3 minutes (scores 259 canonical group pairs)
+- **Frontend Export**: ~2 seconds (generates interventions.json with Bayesian data)
+- **Architecture**: Clustering-first with integrated data mining and Bayesian-ranked frontend
 
-### Migration Details (October 15, 2025)
+### Phase 3 Migration Details (October 15, 2025)
 - **Old Architecture**: Naming-first (nomic-embed-text 768-dim → LLM canonical extraction → grouping)
 - **New Architecture**: Clustering-first (mxbai-embed-large 1024-dim → hierarchical clustering → LLM naming)
 - **Benefits**:
@@ -444,8 +506,41 @@ Located in `back_end/src/data_mining/`:
   - Faster with aggressive caching
 - **Backup**: Old code saved in `phase_3_semantic_normalization_OLD_BACKUP_20251015/`
 
+### Phase 4 Integration Details (October 15, 2025)
+- **Migration**: data_mining tools → phase_4_data_mining pipeline integration
+- **New Components**:
+  - `phase_4a_knowledge_graph.py` - Builds graph from canonical groups (not raw names)
+  - `phase_4b_bayesian_scorer.py` - Scores canonical groups with pooled evidence
+  - `phase_4_data_miner.py` - Orchestrator for Phase 4a + 4b
+- **Benefits**:
+  - Cleaner knowledge graph: 538 nodes vs. 716 duplicates
+  - Better statistical power: Pooled evidence across cluster members
+  - Integrated pipeline: Automatic execution after Phase 3
+- **Backward Compatibility**: Original data_mining tools kept for standalone use
+
+### Frontend Bayesian Integration (October 15, 2025)
+- **Problem Solved**: Frontend was sorting by LLM extraction confidence (not effectiveness)
+- **Solution**: Integrated Phase 4b Bayesian scores as default ranking method
+- **Implementation**:
+  - **Backend**: Fixed Phase 4b bugs (schema mismatch), generated 259 scores
+  - **Export**: Updated `export_frontend_data.py` to JOIN `bayesian_scores` table
+  - **Frontend**: Added Bayesian Score column with color-coded display (green/yellow/red)
+  - **Sorting**: Changed default to Bayesian score (desc) → Strength (desc) → Confidence (desc)
+  - **UI**: Added "High Bayesian Score (>0.7)" summary statistic
+  - **Modal**: Displays full Bayesian statistics (posterior mean, conservative score, evidence breakdown, Bayes factor)
+- **Technical Details**:
+  - Scoring formula: Beta(α=1, β=1) prior → Posterior mean = (α+positive) / (α+β+positive+negative)
+  - Conservative estimate: 10th percentile of posterior distribution
+  - Evidence pooling: Aggregates across canonical group members (e.g., "probiotics" + "probiotic supplementation")
+  - Color thresholds: Green >0.7, Yellow >0.5, Red <0.5
+- **User Impact**:
+  - Most effective interventions (by evidence) appear first
+  - No innovation penalty (new treatments fairly ranked)
+  - Transparent evidence breakdown (positive/negative/neutral counts)
+  - Statistically rigorous ranking (Bayesian statistics)
+
 ---
 
-*Last Updated: October 15, 2025*  
-*Architecture: Clustering-First (Phase 3a: Embedding → Phase 3b: Clustering → Phase 3c: Naming → Phase 3d: Hierarchical Merging)*  
-*Status: Production Ready ✅*
+*Last Updated: October 15, 2025*
+*Architecture: End-to-End Pipeline (Phase 1 → 2 → 3a → 3b → 3c → 3d → 4a → 4b → Frontend)*
+*Status: Production Ready with Bayesian-Ranked Frontend ✅*

@@ -46,6 +46,12 @@ CREATE TABLE IF NOT EXISTS knowledge_graph_edges (
     effect_size REAL,
     p_value REAL,
 
+    -- Mechanism-based edge fields (Phase 3c integration)
+    mechanism_cluster_id INTEGER,             -- FK to mechanism_clusters
+    mechanism_canonical_name TEXT,            -- Mechanism IS the edge label
+    mechanism_text_raw TEXT,                  -- Original mechanism description
+    mechanism_similarity_score REAL,          -- Similarity to cluster centroid
+
     -- Metadata
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     generation_model TEXT,                     -- Which model/process created this edge
@@ -53,7 +59,8 @@ CREATE TABLE IF NOT EXISTS knowledge_graph_edges (
 
     FOREIGN KEY (source_node_id) REFERENCES knowledge_graph_nodes(node_id),
     FOREIGN KEY (target_node_id) REFERENCES knowledge_graph_nodes(node_id),
-    FOREIGN KEY (study_id) REFERENCES papers(pmid)
+    FOREIGN KEY (study_id) REFERENCES papers(pmid),
+    FOREIGN KEY (mechanism_cluster_id) REFERENCES mechanism_clusters(cluster_id)
 );
 
 -- 2. BAYESIAN SCORING RESULTS
@@ -443,6 +450,8 @@ CREATE INDEX IF NOT EXISTS idx_kg_edges_source ON knowledge_graph_edges(source_n
 CREATE INDEX IF NOT EXISTS idx_kg_edges_target ON knowledge_graph_edges(target_node_id);
 CREATE INDEX IF NOT EXISTS idx_kg_edges_type ON knowledge_graph_edges(edge_type);
 CREATE INDEX IF NOT EXISTS idx_kg_edges_study ON knowledge_graph_edges(study_id);
+CREATE INDEX IF NOT EXISTS idx_kg_edges_mechanism ON knowledge_graph_edges(mechanism_cluster_id);
+CREATE INDEX IF NOT EXISTS idx_kg_edges_mechanism_name ON knowledge_graph_edges(mechanism_canonical_name);
 
 -- Bayesian scores indexes
 CREATE INDEX IF NOT EXISTS idx_bayesian_intervention ON bayesian_scores(intervention_name);

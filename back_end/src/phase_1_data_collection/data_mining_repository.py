@@ -52,6 +52,12 @@ class KnowledgeGraphEdge:
     edge_weight: float = 1.0
     evidence_type: str = 'neutral'  # 'positive', 'negative', 'neutral', 'unsure'
     confidence: float = 0.5
+    # Mechanism fields (Phase 3c integration - mechanisms ARE the edge labels)
+    mechanism_cluster_id: Optional[int] = None
+    mechanism_canonical_name: Optional[str] = None
+    mechanism_text_raw: Optional[str] = None
+    mechanism_similarity_score: Optional[float] = None
+    # Study metadata
     study_id: Optional[str] = None
     study_title: Optional[str] = None
     sample_size: Optional[int] = None
@@ -185,24 +191,26 @@ class DataMiningRepository:
             return cursor.lastrowid
 
     def save_knowledge_graph_edge(self, edge: KnowledgeGraphEdge) -> int:
-        """Save a knowledge graph edge."""
+        """Save a knowledge graph edge with mechanism metadata."""
         with self.get_connection() as conn:
             cursor = conn.cursor()
 
             cursor.execute("""
                 INSERT OR REPLACE INTO knowledge_graph_edges
                 (edge_id, source_node_id, target_node_id, edge_type, edge_weight,
-                 evidence_type, confidence, study_id, study_title, sample_size,
-                 study_design, publication_year, journal, doi, effect_size,
+                 evidence_type, confidence, mechanism_cluster_id, mechanism_canonical_name,
+                 mechanism_text_raw, mechanism_similarity_score, study_id, study_title,
+                 sample_size, study_design, publication_year, journal, doi, effect_size,
                  p_value, generation_model, generation_version)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 edge.edge_id, edge.source_node_id, edge.target_node_id,
                 edge.edge_type, edge.edge_weight, edge.evidence_type,
-                edge.confidence, edge.study_id, edge.study_title,
-                edge.sample_size, edge.study_design, edge.publication_year,
-                edge.journal, edge.doi, edge.effect_size, edge.p_value,
-                edge.generation_model, edge.generation_version
+                edge.confidence, edge.mechanism_cluster_id, edge.mechanism_canonical_name,
+                edge.mechanism_text_raw, edge.mechanism_similarity_score,
+                edge.study_id, edge.study_title, edge.sample_size, edge.study_design,
+                edge.publication_year, edge.journal, edge.doi, edge.effect_size,
+                edge.p_value, edge.generation_model, edge.generation_version
             ))
 
             conn.commit()
@@ -281,6 +289,10 @@ class DataMiningRepository:
                     edge_weight=row['edge_weight'],
                     evidence_type=row['evidence_type'],
                     confidence=row['confidence'],
+                    mechanism_cluster_id=row.get('mechanism_cluster_id'),
+                    mechanism_canonical_name=row.get('mechanism_canonical_name'),
+                    mechanism_text_raw=row.get('mechanism_text_raw'),
+                    mechanism_similarity_score=row.get('mechanism_similarity_score'),
                     study_id=row['study_id'],
                     study_title=row['study_title'],
                     sample_size=row['sample_size'],
