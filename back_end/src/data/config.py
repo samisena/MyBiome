@@ -156,10 +156,10 @@ class UnifiedConfig:
         #* Performance settings - FAST_MODE enabled by default for optimal performance
         self.fast_mode = os.getenv('FAST_MODE', '1').lower() in ('1', 'true', 'yes')
 
-        #* Semantic Normalization Configuration (Phase 3.5)
-        # Embedding settings
-        self.semantic_embedding_model = "nomic-embed-text"
-        self.semantic_embedding_dimension = 768
+        #* Semantic Normalization Configuration (Phase 3)
+        # Embedding settings (Updated Oct 16, 2025: migrated to mxbai-embed-large for better separation)
+        self.semantic_embedding_model = "mxbai-embed-large"
+        self.semantic_embedding_dimension = 1024
         self.semantic_embedding_cache_path = self.data_root / "semantic_normalization_cache" / "embeddings.pkl"
 
         # LLM settings for canonical extraction

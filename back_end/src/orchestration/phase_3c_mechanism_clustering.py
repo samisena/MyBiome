@@ -1,12 +1,20 @@
 """
-Rotation Mechanism Clustering - Phase 3.6 Integration
+Rotation Mechanism Clustering - LEGACY FILE (Phase 3c superseded by phase_3c_llm_namer.py)
 
+⚠️  DEPRECATED: This file appears to be legacy mechanism clustering code from an older architecture.
+    Current Phase 3c uses: phase_3c_llm_namer.py for LLM-based canonical naming.
+
+    If this file is still in use, it should be migrated to use:
+    - mxbai-embed-large (1024-dim) instead of nomic-embed-text (768-dim)
+    - Current Phase 3 architecture patterns
+
+ORIGINAL PURPOSE:
 Integrates mechanism semantic clustering into the batch medical rotation pipeline.
 Runs after Phase 3.5 (Group Categorization) to cluster all extracted mechanisms.
 
 Architecture:
 1. Load mechanism texts from interventions table
-2. Generate/load semantic embeddings (nomic-embed-text via Ollama)
+2. Generate/load semantic embeddings (mxbai-embed-large via Ollama) ← UPDATED
 3. Run HDBSCAN clustering
 4. Create singleton clusters for unassigned mechanisms (100% assignment)
 5. Extract canonical names via LLM (qwen3:14b)
@@ -229,8 +237,8 @@ class RotationMechanismClusterer:
         cache_data = {
             'mechanisms': mechanisms,
             'embeddings': embeddings.tolist(),
-            'model': 'nomic-embed-text',
-            'dimension': 768,
+            'model': 'mxbai-embed-large',  # Updated Oct 16, 2025
+            'dimension': 1024,  # Updated Oct 16, 2025
             'timestamp': datetime.now().isoformat()
         }
 
@@ -247,7 +255,8 @@ class RotationMechanismClusterer:
         import requests
 
         OLLAMA_API_URL = "http://localhost:11434/api/embeddings"
-        EMBEDDING_MODEL = "nomic-embed-text"
+        EMBEDDING_MODEL = "mxbai-embed-large"  # Updated Oct 16, 2025
+        EMBEDDING_DIM = 1024  # Updated Oct 16, 2025
         BATCH_SIZE = 10
 
         embeddings = []
@@ -272,18 +281,18 @@ class RotationMechanismClusterer:
 
                     if response.status_code == 200:
                         embedding = response.json().get('embedding', [])
-                        if len(embedding) == 768:
+                        if len(embedding) == EMBEDDING_DIM:
                             embeddings.append(embedding)
                         else:
-                            embeddings.append([0.0] * 768)
+                            embeddings.append([0.0] * EMBEDDING_DIM)
                             failed_count += 1
                     else:
-                        embeddings.append([0.0] * 768)
+                        embeddings.append([0.0] * EMBEDDING_DIM)
                         failed_count += 1
 
                 except Exception as e:
                     logger.warning(f"    Failed to embed: {text[:50]}... - {e}")
-                    embeddings.append([0.0] * 768)
+                    embeddings.append([0.0] * EMBEDDING_DIM)
                     failed_count += 1
 
             time.sleep(0.1)  # Rate limiting
@@ -432,7 +441,7 @@ class RotationMechanismClusterer:
                 mechanism_text TEXT NOT NULL,
                 cluster_id INTEGER,
                 health_condition TEXT,
-                correlation_strength REAL,
+                outcome_type TEXT,  -- UPDATED: was correlation_strength (removed Oct 16, 2025)
                 FOREIGN KEY (intervention_id) REFERENCES interventions(id),
                 FOREIGN KEY (cluster_id) REFERENCES mechanism_clusters(cluster_id)
             )
@@ -445,7 +454,7 @@ class RotationMechanismClusterer:
                 cluster_id INTEGER NOT NULL,
                 health_condition TEXT NOT NULL,
                 intervention_count INTEGER DEFAULT 0,
-                avg_correlation_strength REAL,
+                -- avg_correlation_strength REAL,  -- REMOVED: correlation_strength field removed Oct 16, 2025
                 FOREIGN KEY (cluster_id) REFERENCES mechanism_clusters(cluster_id),
                 UNIQUE(cluster_id, health_condition)
             )
@@ -462,14 +471,14 @@ class RotationMechanismClusterer:
         # Populate intervention_mechanisms junction table
         cursor.execute("""
             INSERT OR REPLACE INTO intervention_mechanisms (
-                intervention_id, mechanism_text, cluster_id, health_condition, correlation_strength
+                intervention_id, mechanism_text, cluster_id, health_condition, outcome_type
             )
             SELECT
                 i.id,
                 i.mechanism,
                 mcm.cluster_id,
                 i.health_condition,
-                i.correlation_strength
+                i.outcome_type
             FROM interventions i
             INNER JOIN mechanism_cluster_membership mcm ON i.mechanism = mcm.mechanism_text
             WHERE i.mechanism IS NOT NULL
@@ -480,13 +489,12 @@ class RotationMechanismClusterer:
         # Build mechanism-condition associations
         cursor.execute("""
             INSERT INTO mechanism_condition_associations (
-                cluster_id, health_condition, intervention_count, avg_correlation_strength
+                cluster_id, health_condition, intervention_count
             )
             SELECT
                 cluster_id,
                 health_condition,
-                COUNT(*) as intervention_count,
-                AVG(correlation_strength) as avg_correlation_strength
+                COUNT(*) as intervention_count
             FROM intervention_mechanisms
             WHERE health_condition IS NOT NULL
             GROUP BY cluster_id, health_condition

@@ -784,6 +784,7 @@ class BatchMedicalRotationPipeline:
 
             # Update session with intervention results
             total_interventions_processed = grouping_result.get('interventions_processed', 0)
+            # NOTE: 'canonical_entities_created' is a legacy key name from grouping_result (not a database field reference)
             intervention_groups_created = grouping_result.get('canonical_entities_created', 0)
 
             # Step 2: Run semantic grouping for conditions

@@ -2,7 +2,23 @@
 Export Phase 4a knowledge graph data to JSON format for D3.js network visualization.
 
 Reads from knowledge_graph_nodes and knowledge_graph_edges tables and exports
-to frontend_network_viz_experiment/data/network_graph.json
+to frontend/data/network_graph.json
+
+⚠️  DEPRECATION WARNING (October 16, 2025):
+    This script is now DEPRECATED in favor of Phase 5 automated frontend export.
+
+    RECOMMENDED: Use Phase 5 instead:
+      python -m back_end.src.orchestration.phase_5_frontend_updater
+
+    Phase 5 Benefits:
+      - Atomic file writes (no corrupted JSON)
+      - Automatic backups (.bak files)
+      - Post-export validation
+      - Session tracking
+      - Integrated into main pipeline (auto-runs after Phase 4b)
+
+    This legacy script is kept for backward compatibility with manual exports only.
+    New development should use Phase 5.
 
 Usage:
     python -m back_end.src.utils.export_network_visualization_data

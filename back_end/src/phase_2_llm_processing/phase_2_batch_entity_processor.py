@@ -520,34 +520,38 @@ class BatchEntityProcessor:
     # === SYSTEM STATUS AND UTILITIES ===
 
     def get_system_status(self) -> Dict[str, Any]:
-        """Get comprehensive system status."""
+        """
+        Get comprehensive system status.
+
+        NOTE: Legacy table queries (canonical_entities, entity_mappings, normalized_terms_cache)
+        are deprecated. These tables were replaced by Phase 3 semantic normalization
+        (semantic_hierarchy, canonical_groups tables) in October 2025.
+
+        This method returns minimal status since the old tables are no longer used.
+        """
         cursor = self.db.cursor()
 
-        # Count entities and mappings
-        cursor.execute("SELECT COUNT(*) FROM canonical_entities")
-        total_entities = cursor.fetchone()[0]
-
-        cursor.execute("SELECT COUNT(*) FROM entity_mappings")
-        total_mappings = cursor.fetchone()[0]
-
-        # Count by entity type
-        cursor.execute("SELECT entity_type, COUNT(*) FROM canonical_entities GROUP BY entity_type")
-        entities_by_type = dict(cursor.fetchall())
-
-        # Cache statistics
-        cursor.execute("SELECT COUNT(*) FROM normalized_terms_cache")
-        cache_entries = cursor.fetchone()[0]
+        # DEPRECATED: Old table queries commented out (tables replaced by Phase 3 semantic normalization)
+        # cursor.execute("SELECT COUNT(*) FROM canonical_entities")
+        # total_entities = cursor.fetchone()[0]
+        # cursor.execute("SELECT COUNT(*) FROM entity_mappings")
+        # total_mappings = cursor.fetchone()[0]
+        # cursor.execute("SELECT entity_type, COUNT(*) FROM canonical_entities GROUP BY entity_type")
+        # entities_by_type = dict(cursor.fetchall())
+        # cursor.execute("SELECT COUNT(*) FROM normalized_terms_cache")
+        # cache_entries = cursor.fetchone()[0]
 
         return {
             'database_path': str(self.db),
-            'total_canonical_entities': total_entities,
-            'total_entity_mappings': total_mappings,
-            'entities_by_type': entities_by_type,
-            'cache_entries': cache_entries,
+            'total_canonical_entities': 0,  # Legacy table no longer used
+            'total_entity_mappings': 0,  # Legacy table no longer used
+            'entities_by_type': {},  # Legacy table no longer used
+            'cache_entries': 0,  # Legacy table no longer used
             'llm_model': self.llm_model,
             'llm_available': LLM_AVAILABLE,
             'operation_counts': dict(self.operation_counts),
-            'fast_mode': config.fast_mode
+            'fast_mode': config.fast_mode,
+            'note': 'Legacy tables (canonical_entities, entity_mappings) deprecated - use Phase 3 semantic normalization instead'
         }
 
 # === FACTORY FUNCTIONS ===

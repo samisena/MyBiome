@@ -1,7 +1,7 @@
 """
 Mechanism Embedder - Semantic embeddings for intervention mechanisms
 
-Uses Ollama API (nomic-embed-text or mxbai-embed-large) to generate embeddings
+Uses Ollama API (mxbai-embed-large by default, 1024-dim) to generate embeddings
 for mechanism descriptions (often longer text than interventions/conditions).
 """
 
@@ -21,14 +21,14 @@ class MechanismEmbedder(BaseEmbedder):
     Embedder for mechanism descriptions using Ollama API.
 
     Supports:
-    - nomic-embed-text (768-dim, fast, good for short text)
-    - mxbai-embed-large (1024-dim, slower, better for longer text)
+    - mxbai-embed-large (1024-dim, current default, better for longer text)
+    - nomic-embed-text (768-dim, legacy, good for short text)
     """
 
     def __init__(
         self,
-        model: str = "nomic-embed-text",
-        dimension: int = 768,
+        model: str = "mxbai-embed-large",
+        dimension: int = 1024,
         batch_size: int = 10,  # Smaller batches for potentially longer text
         cache_path: Optional[str] = None,
         normalization: str = "l2",
@@ -41,8 +41,8 @@ class MechanismEmbedder(BaseEmbedder):
         Initialize mechanism embedder.
 
         Args:
-            model: Ollama model name (nomic-embed-text or mxbai-embed-large)
-            dimension: Embedding dimension (768 for nomic, 1024 for mxbai)
+            model: Ollama model name (default: mxbai-embed-large)
+            dimension: Embedding dimension (default: 1024)
             batch_size: Texts per batch (default: 10 for mechanisms)
             cache_path: Path to cache file
             normalization: Normalization method (l2, unit_sphere, none)

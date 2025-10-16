@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """
-Intervention Consensus Analyzer
+Intervention Consensus Analyzer - LEGACY DATA MINING TOOL
+
+⚠️  WARNING: This is a legacy data mining tool from back_end/src/data_mining/.
+    Kept for backward compatibility with standalone analysis scripts.
+
+    DEPRECATED FIELD REFERENCES:
+    - correlation_strength field was removed Oct 16, 2025
+    - References commented out but kept for reference
 
 This module provides data mining and research analysis functionality for creating
 consensus interventions from multiple sources. It groups similar interventions
@@ -242,7 +249,7 @@ class InterventionConsensusAnalyzer:
             # Evidence accumulation
             'accumulated_evidence': evidence_sources['combined_quotes'],
             'confidence_range': evidence_sources['confidence_range'],
-            'correlation_strength_range': evidence_sources['correlation_strength_range'],
+            # 'correlation_strength_range': evidence_sources['correlation_strength_range'],  # REMOVED: field no longer exists
 
             # Research quality indicators
             'evidence_consistency': evidence_sources['consistency_score'],
@@ -267,7 +274,7 @@ class InterventionConsensusAnalyzer:
         evidence = {
             'combined_quotes': [],
             'confidence_scores': [],
-            'correlation_strengths': [],
+            # 'correlation_strengths': [],  # REMOVED: correlation_strength field no longer exists
             'unique_methods': set(),
             'papers': set(),
             'models': set()
@@ -288,9 +295,10 @@ class InterventionConsensusAnalyzer:
             if conf_score is not None:
                 evidence['confidence_scores'].append(conf_score)
 
-            corr_strength = intervention.get('correlation_strength')
-            if corr_strength is not None:
-                evidence['correlation_strengths'].append(corr_strength)
+            # REMOVED: correlation_strength field no longer exists (removed Oct 16, 2025)
+            # corr_strength = intervention.get('correlation_strength')
+            # if corr_strength is not None:
+            #     evidence['correlation_strengths'].append(corr_strength)
 
             # Methodological tracking
             method = intervention.get('extraction_method', intervention.get('mapping_method', 'unknown'))
@@ -306,10 +314,11 @@ class InterventionConsensusAnalyzer:
             if evidence['confidence_scores'] else (0, 0)
         )
 
-        evidence['correlation_strength_range'] = (
-            (min(evidence['correlation_strengths']), max(evidence['correlation_strengths']))
-            if evidence['correlation_strengths'] else (0, 0)
-        )
+        # REMOVED: correlation_strength field no longer exists (removed Oct 16, 2025)
+        # evidence['correlation_strength_range'] = (
+        #     (min(evidence['correlation_strengths']), max(evidence['correlation_strengths']))
+        #     if evidence['correlation_strengths'] else (0, 0)
+        # )
 
         # Evidence consistency score (based on confidence score variance)
         if len(evidence['confidence_scores']) > 1:

@@ -6,7 +6,9 @@
       "Bash(dir:*)",
       "Bash(where /r . medical_research.db)",
       "Bash(conda run:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(awk:*)"
     ],
     "deny": [],
     "ask": []

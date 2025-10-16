@@ -1,7 +1,7 @@
 """
 Condition Embedder - Semantic embeddings for medical condition names
 
-Uses Ollama API (nomic-embed-text by default) to generate embeddings for condition names.
+Uses Ollama API (mxbai-embed-large by default, 1024-dim) to generate embeddings for condition names.
 Supports optional context inclusion (symptoms, related conditions).
 """
 
@@ -21,14 +21,15 @@ class ConditionEmbedder(BaseEmbedder):
     Embedder for medical condition names using Ollama API.
 
     Supports:
-    - nomic-embed-text (768-dim, fast)
+    - mxbai-embed-large (1024-dim, current default, better semantic separation)
+    - nomic-embed-text (768-dim, legacy)
     - Optional context enhancement (symptoms, ICD codes)
     """
 
     def __init__(
         self,
-        model: str = "nomic-embed-text",
-        dimension: int = 768,
+        model: str = "mxbai-embed-large",
+        dimension: int = 1024,
         batch_size: int = 32,
         cache_path: Optional[str] = None,
         normalization: str = "l2",
@@ -40,8 +41,8 @@ class ConditionEmbedder(BaseEmbedder):
         Initialize condition embedder.
 
         Args:
-            model: Ollama model name (default: nomic-embed-text)
-            dimension: Embedding dimension (default: 768)
+            model: Ollama model name (default: mxbai-embed-large)
+            dimension: Embedding dimension (default: 1024)
             batch_size: Texts per batch (default: 32)
             cache_path: Path to cache file
             normalization: Normalization method (l2, unit_sphere, none)

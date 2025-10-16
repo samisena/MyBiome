@@ -287,14 +287,14 @@ class MergeApplicator:
         cursor.execute("""
             INSERT OR REPLACE INTO intervention_mechanisms (
                 intervention_id, mechanism_text, cluster_id,
-                health_condition, correlation_strength
+                health_condition, outcome_type
             )
             SELECT
                 i.id,
                 i.mechanism,
                 mcm.cluster_id,
                 i.health_condition,
-                i.correlation_strength
+                i.outcome_type
             FROM interventions i
             INNER JOIN mechanism_cluster_membership mcm ON i.mechanism = mcm.mechanism_text
             WHERE i.mechanism IS NOT NULL
