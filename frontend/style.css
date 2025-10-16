@@ -18,6 +18,57 @@ body {
     padding: 0 20px;
 }
 
+/* Navigation Bar */
+.nav-bar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-title {
+    font-size: 20px;
+    color: white;
+    margin: 0;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-link.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+
 /* Header styles */
 .header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -335,32 +386,32 @@ body {
     max-width: 100%;
 }
 
-/* Correlation type badges */
-.correlation-badge {
+/* Health Impact / Outcome type badges */
+.outcome-badge {
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 0.5px;
 }
 
-.correlation-positive {
+.outcome-improves {
     background-color: #28a745;
     color: white;
 }
 
-.correlation-negative {
+.outcome-worsens {
     background-color: #dc3545;
     color: white;
 }
 
-.correlation-neutral {
+.outcome-no-effect {
     background-color: #6c757d;
     color: white;
 }
 
-.correlation-inconclusive {
+.outcome-inconclusive {
     background-color: #ffc107;
     color: #333;
 }
@@ -392,68 +443,6 @@ body {
 .validation-failed {
     background-color: #f5c6cb;
     color: #721c24;
-}
-
-/* Strength labels */
-.strength-label {
-    padding: 0.35rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: inline-block;
-}
-
-.strength-very-strong {
-    background-color: #28a745;
-    color: white;
-}
-
-.strength-strong {
-    background-color: #5cb85c;
-    color: white;
-}
-
-.strength-weak {
-    background-color: #ffc107;
-    color: #333;
-}
-
-.strength-very-weak {
-    background-color: #dc3545;
-    color: white;
-}
-
-.strength-unknown {
-    background-color: #6c757d;
-    color: white;
-}
-
-/* Confidence bars */
-.confidence-bar {
-    height: 20px;
-    background-color: #e9ecef;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-}
-
-.confidence-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #667eea, #764ba2);
-    border-radius: 10px;
-    transition: width 0.3s ease;
-}
-
-.bar-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #333;
 }
 
 /* Paper links */

@@ -62,7 +62,7 @@ class DatabaseManager:
 
         # Run migrations for existing databases
         self.migrate_to_llm_processed_flag()
-        self.migrate_to_dual_confidence()
+        self.migrate_to_study_confidence()
 
         # Set up intervention categories
         self.setup_intervention_categories()
@@ -150,39 +150,22 @@ class DatabaseManager:
                 logger.error(f"Failed to migrate to llm_processed flag: {e}")
                 raise
 
-    def migrate_to_dual_confidence(self):
-        """Migrate existing database to support dual confidence metrics."""
+    def migrate_to_study_confidence(self):
+        """Migrate existing database to support study_confidence metric."""
         with self.get_connection() as conn:
             cursor = conn.cursor()
 
             try:
-                # Check if new columns already exist
+                # Check if study_confidence column exists
                 cursor.execute("PRAGMA table_info(interventions)")
                 columns = [row[1] for row in cursor.fetchall()]
-
-                if 'extraction_confidence' not in columns:
-                    logger.info("Adding extraction_confidence column to interventions table")
-                    cursor.execute("ALTER TABLE interventions ADD COLUMN extraction_confidence REAL CHECK(extraction_confidence >= 0 AND extraction_confidence <= 1)")
 
                 if 'study_confidence' not in columns:
                     logger.info("Adding study_confidence column to interventions table")
                     cursor.execute("ALTER TABLE interventions ADD COLUMN study_confidence REAL CHECK(study_confidence >= 0 AND study_confidence <= 1)")
 
-                # Migrate existing confidence_score values to extraction_confidence for backward compatibility
-                # Only run migration if confidence_score column exists
-                if 'confidence_score' in columns:
-                    cursor.execute("""
-                        UPDATE interventions
-                        SET extraction_confidence = confidence_score
-                        WHERE extraction_confidence IS NULL AND confidence_score IS NOT NULL
-                    """)
-                    rows_migrated = cursor.rowcount
-                    logger.info(f"Migrated {rows_migrated} rows from confidence_score to extraction_confidence")
-                else:
-                    logger.info("confidence_score column not found - migration already complete or not needed")
-
                 conn.commit()
-                logger.info("Successfully migrated database to dual confidence system")
+                logger.info("Successfully migrated database to study_confidence system")
 
             except Exception as e:
                 conn.rollback()
@@ -261,11 +244,9 @@ class DatabaseManager:
                     intervention_details TEXT,  -- JSON object with category-specific fields
                     health_condition TEXT NOT NULL,
                     mechanism TEXT,  -- Biological/behavioral mechanism of action
-                    correlation_type TEXT CHECK(correlation_type IN ('positive', 'negative', 'neutral', 'inconclusive')),
-                    correlation_strength REAL CHECK(correlation_strength >= 0 AND correlation_strength <= 1),
+                    outcome_type TEXT CHECK(outcome_type IN ('improves', 'worsens', 'no_effect', 'inconclusive')),
 
-                    -- Dual confidence metrics
-                    extraction_confidence REAL CHECK(extraction_confidence >= 0 AND extraction_confidence <= 1),
+                    -- Study confidence metric (for future use)
                     study_confidence REAL CHECK(study_confidence >= 0 AND study_confidence <= 1),
 
                     -- Study details
@@ -315,7 +296,7 @@ class DatabaseManager:
                 'CREATE INDEX IF NOT EXISTS idx_interventions_category ON interventions(intervention_category)',
                 'CREATE INDEX IF NOT EXISTS idx_interventions_name ON interventions(intervention_name)',
                 'CREATE INDEX IF NOT EXISTS idx_interventions_condition ON interventions(health_condition)',
-                'CREATE INDEX IF NOT EXISTS idx_interventions_type ON interventions(correlation_type)',
+                'CREATE INDEX IF NOT EXISTS idx_interventions_outcome ON interventions(outcome_type)',
                 'CREATE INDEX IF NOT EXISTS idx_interventions_model ON interventions(extraction_model)',
                 
                 # Composite indexes for common queries
@@ -450,6 +431,8 @@ class DatabaseManager:
 
             if cursor.fetchone():
                 logger.debug("Data mining tables already exist")
+                # Still need to check/create frontend_export_sessions table
+                self._create_frontend_export_session_table(cursor)
                 return
 
             # Read and execute the enhanced schema
@@ -475,8 +458,31 @@ class DatabaseManager:
             else:
                 logger.warning("Enhanced database schema file not found")
 
+            # Create frontend export sessions table (Phase 5)
+            self._create_frontend_export_session_table(cursor)
+
         except Exception as e:
             logger.error(f"Error creating data mining tables: {e}")
+
+    def _create_frontend_export_session_table(self, cursor):
+        """Create frontend_export_sessions table for Phase 5 tracking."""
+        try:
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS frontend_export_sessions (
+                    session_id TEXT PRIMARY KEY,
+                    start_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    end_time TIMESTAMP,
+                    status TEXT CHECK(status IN ('running', 'completed', 'failed')),
+                    files_exported INTEGER DEFAULT 0,
+                    table_view_size_kb INTEGER,
+                    network_viz_size_kb INTEGER,
+                    validation_passed BOOLEAN DEFAULT TRUE,
+                    error_message TEXT
+                )
+            ''')
+            logger.debug("Created/verified frontend_export_sessions table")
+        except Exception as e:
+            logger.error(f"Error creating frontend_export_sessions table: {e}")
 
     def get_data_mining_connection(self):
         """Get a connection specifically for data mining operations."""
@@ -688,13 +694,13 @@ class DatabaseManager:
                 cursor.execute('''
                     INSERT OR REPLACE INTO interventions
                     (paper_id, intervention_category, intervention_name, intervention_details,
-                     health_condition, mechanism, condition_category, correlation_type, correlation_strength,
-                     extraction_confidence, study_confidence,
+                     health_condition, mechanism, condition_category, outcome_type,
+                     study_confidence,
                      sample_size, study_duration, study_type, population_details,
                      supporting_quote, delivery_method, severity, adverse_effects, cost_category,
                      study_focus, measured_metrics, findings, study_location, publisher,
                      extraction_model)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
@@ -703,9 +709,7 @@ class DatabaseManager:
                     validated_intervention['health_condition'],
                     validated_intervention.get('mechanism'),
                     validated_intervention.get('condition_category'),
-                    validated_intervention['correlation_type'],
-                    validated_intervention.get('correlation_strength'),
-                    validated_intervention.get('extraction_confidence'),
+                    validated_intervention['outcome_type'],
                     validated_intervention.get('study_confidence'),
                     validated_intervention.get('sample_size'),
                     validated_intervention.get('study_duration'),
@@ -1145,14 +1149,14 @@ class DatabaseManager:
                 cursor.execute('''
                     INSERT OR REPLACE INTO interventions
                     (paper_id, intervention_category, intervention_name, intervention_details,
-                     health_condition, mechanism, condition_category, correlation_type, correlation_strength,
-                     extraction_confidence, study_confidence,
+                     health_condition, mechanism, condition_category, outcome_type,
+                     study_confidence,
                      sample_size, study_duration, study_type, population_details,
                      supporting_quote, delivery_method, severity, adverse_effects, cost_category,
                      extraction_model, consensus_confidence, model_agreement,
                      models_used, raw_extraction_count, models_contributing,
                      intervention_canonical_id, condition_canonical_id, normalized)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     validated_intervention['paper_id'] if 'paper_id' in validated_intervention else validated_intervention.get('pmid'),
                     validated_intervention['intervention_category'],
@@ -1161,9 +1165,7 @@ class DatabaseManager:
                     validated_intervention['health_condition'],
                     validated_intervention.get('mechanism'),
                     validated_intervention.get('condition_category'),
-                    validated_intervention['correlation_type'],
-                    validated_intervention.get('correlation_strength'),
-                    validated_intervention.get('extraction_confidence'),
+                    validated_intervention['outcome_type'],
                     validated_intervention.get('study_confidence'),
                     validated_intervention.get('sample_size'),
                     validated_intervention.get('study_duration'),

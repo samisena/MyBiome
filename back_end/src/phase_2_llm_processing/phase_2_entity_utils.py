@@ -198,7 +198,7 @@ class EntityValidator:
                 errors.append(f"Invalid intervention_category: {e}")
 
         # Validate confidence fields
-        for conf_field in ['extraction_confidence', 'study_confidence']:
+        for conf_field in ['study_confidence']:
             if conf_field in intervention:
                 try:
                     cleaned_data[conf_field] = EntityValidator.validate_confidence(
@@ -324,49 +324,44 @@ class ConfidenceCalculator:
         """
         Get effective confidence from intervention data.
 
-        Uses extraction_confidence as primary metric.
+        Uses consensus_confidence as primary metric.
         """
-        # Use extraction_confidence
-        if 'extraction_confidence' in intervention:
-            extraction_conf = intervention.get('extraction_confidence', 0)
-            if extraction_conf is not None:
-                return float(extraction_conf)
-
-        # Fall back to consensus_confidence (from consensus processing)
+        # Use consensus_confidence (from consensus processing)
         if 'consensus_confidence' in intervention:
             consensus_conf = intervention.get('consensus_confidence', 0)
             if consensus_conf is not None:
                 return float(consensus_conf)
 
+        # Fall back to study_confidence
+        if 'study_confidence' in intervention:
+            study_conf = intervention.get('study_confidence', 0)
+            if study_conf is not None:
+                return float(study_conf)
+
         return 0.0
 
     @staticmethod
-    def merge_dual_confidence(interventions: List[Dict[str, Any]]) -> Tuple[float, float]:
+    def merge_dual_confidence(interventions: List[Dict[str, Any]]) -> Tuple[float, float, float]:
         """
         Merge confidence values from multiple interventions.
 
         Returns:
-            Tuple of (extraction_confidence, study_confidence)
+            Tuple of (extraction_confidence=0.0, study_confidence, legacy_confidence=0.0)
+            Note: extraction_confidence always returns 0.0 for backward compatibility
         """
-        extraction_confidences = []
         study_confidences = []
 
         for intervention in interventions:
-            # Extract extraction_confidence
-            ext_conf = intervention.get('extraction_confidence')
-            if ext_conf is not None:
-                extraction_confidences.append(float(ext_conf))
-
             # Extract study_confidence
             study_conf = intervention.get('study_confidence')
             if study_conf is not None:
                 study_confidences.append(float(study_conf))
 
-        # Calculate merged values (use max for extraction confidence, average for others)
-        merged_extraction = max(extraction_confidences) if extraction_confidences else 0.0
+        # Calculate merged study confidence (average)
         merged_study = sum(study_confidences) / len(study_confidences) if study_confidences else 0.0
 
-        return merged_extraction, merged_study
+        # Return (0.0, study_confidence, 0.0) for backward compatibility with existing code
+        return 0.0, merged_study, 0.0
 
     @staticmethod
     def boost_confidence_for_agreement(base_confidence: float, agreement_count: int) -> float:

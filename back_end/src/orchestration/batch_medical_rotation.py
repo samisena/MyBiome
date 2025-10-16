@@ -112,6 +112,7 @@ class BatchPhase(Enum):
     GROUP_CATEGORIZATION = "group_categorization"      # Phase 3.5 (NEW - formerly CATEGORIZATION)
     MECHANISM_CLUSTERING = "mechanism_clustering"      # Phase 3.6 (NEW)
     DATA_MINING = "data_mining"                        # Phase 4 (NEW - Knowledge Graph + Bayesian Scoring)
+    FRONTEND_EXPORT = "frontend_export"                # Phase 5 (NEW - Frontend Data Export)
     COMPLETED = "completed"
 
 
@@ -131,6 +132,7 @@ class BatchSession:
     group_categorization_completed: bool = False     # Phase 3.5 (NEW - formerly categorization_completed)
     mechanism_clustering_completed: bool = False     # Phase 3.6 (NEW)
     data_mining_completed: bool = False              # Phase 4 (NEW)
+    frontend_export_completed: bool = False          # Phase 5 (NEW)
 
     # Statistics (current iteration)
     total_papers_collected: int = 0
@@ -145,6 +147,7 @@ class BatchSession:
     total_knowledge_graph_nodes: int = 0            # Phase 4 (NEW)
     total_knowledge_graph_edges: int = 0            # Phase 4 (NEW)
     total_bayesian_scores: int = 0                  # Phase 4 (NEW)
+    total_files_exported: int = 0                   # Phase 5 (NEW)
 
     # Continuous mode settings
     continuous_mode: bool = False
@@ -161,6 +164,7 @@ class BatchSession:
     group_categorization_result: Optional[Dict[str, Any]] = None     # Phase 3.5
     mechanism_clustering_result: Optional[Dict[str, Any]] = None     # Phase 3.6 (NEW)
     data_mining_result: Optional[Dict[str, Any]] = None              # Phase 4 (NEW)
+    frontend_export_result: Optional[Dict[str, Any]] = None          # Phase 5 (NEW)
 
     def is_completed(self) -> bool:
         """Check if entire pipeline is completed."""
@@ -247,6 +251,7 @@ class BatchMedicalRotationPipeline:
                 group_categorization_completed=data.get('group_categorization_completed', False),
                 mechanism_clustering_completed=data.get('mechanism_clustering_completed', False),
                 data_mining_completed=data.get('data_mining_completed', False),
+                frontend_export_completed=data.get('frontend_export_completed', False),
                 total_papers_collected=data.get('total_papers_collected', 0),
                 total_papers_processed=data.get('total_papers_processed', 0),
                 total_interventions_extracted=data.get('total_interventions_extracted', 0),
@@ -259,6 +264,7 @@ class BatchMedicalRotationPipeline:
                 total_knowledge_graph_nodes=data.get('total_knowledge_graph_nodes', 0),
                 total_knowledge_graph_edges=data.get('total_knowledge_graph_edges', 0),
                 total_bayesian_scores=data.get('total_bayesian_scores', 0),
+                total_files_exported=data.get('total_files_exported', 0),
                 continuous_mode=data.get('continuous_mode', False),
                 max_iterations=data.get('max_iterations'),
                 iteration_delay_seconds=data.get('iteration_delay_seconds', 60.0),
@@ -268,7 +274,8 @@ class BatchMedicalRotationPipeline:
                 semantic_normalization_result=data.get('semantic_normalization_result'),
                 group_categorization_result=data.get('group_categorization_result'),
                 mechanism_clustering_result=data.get('mechanism_clustering_result'),
-                data_mining_result=data.get('data_mining_result')
+                data_mining_result=data.get('data_mining_result'),
+                frontend_export_result=data.get('frontend_export_result')
             )
 
             self.current_session = session
@@ -306,6 +313,7 @@ class BatchMedicalRotationPipeline:
                 'group_categorization_completed': self.current_session.group_categorization_completed,
                 'mechanism_clustering_completed': self.current_session.mechanism_clustering_completed,
                 'data_mining_completed': self.current_session.data_mining_completed,
+                'frontend_export_completed': self.current_session.frontend_export_completed,
                 'total_papers_collected': self.current_session.total_papers_collected,
                 'total_papers_processed': self.current_session.total_papers_processed,
                 'total_interventions_extracted': self.current_session.total_interventions_extracted,
@@ -318,6 +326,7 @@ class BatchMedicalRotationPipeline:
                 'total_knowledge_graph_nodes': self.current_session.total_knowledge_graph_nodes,
                 'total_knowledge_graph_edges': self.current_session.total_knowledge_graph_edges,
                 'total_bayesian_scores': self.current_session.total_bayesian_scores,
+                'total_files_exported': self.current_session.total_files_exported,
                 'continuous_mode': self.current_session.continuous_mode,
                 'max_iterations': self.current_session.max_iterations,
                 'iteration_delay_seconds': self.current_session.iteration_delay_seconds,
@@ -327,7 +336,8 @@ class BatchMedicalRotationPipeline:
                 'semantic_normalization_result': self.current_session.semantic_normalization_result,
                 'group_categorization_result': self.current_session.group_categorization_result,
                 'mechanism_clustering_result': self.current_session.mechanism_clustering_result,
-                'data_mining_result': self.current_session.data_mining_result
+                'data_mining_result': self.current_session.data_mining_result,
+                'frontend_export_result': self.current_session.frontend_export_result
             }
 
             # Write with platform-specific file locking
@@ -528,6 +538,20 @@ class BatchMedicalRotationPipeline:
                         return data_mining_result
 
                     session.data_mining_completed = True
+                    session.current_phase = BatchPhase.FRONTEND_EXPORT
+                    self._save_session()
+
+                # Phase 5: Frontend Data Export (NEW)
+                if session.current_phase == BatchPhase.FRONTEND_EXPORT and not session.frontend_export_completed:
+                    logger.info("\n" + "="*40)
+                    logger.info("PHASE 5: FRONTEND DATA EXPORT")
+                    logger.info("="*40)
+
+                    frontend_export_result = self._run_frontend_export_phase(session)
+                    if not frontend_export_result['success']:
+                        return frontend_export_result
+
+                    session.frontend_export_completed = True
                     session.current_phase = BatchPhase.COMPLETED
                     self._save_session()
 
@@ -550,6 +574,7 @@ class BatchMedicalRotationPipeline:
                 logger.info(f"Knowledge graph nodes: {session.total_knowledge_graph_nodes}")
                 logger.info(f"Knowledge graph edges: {session.total_knowledge_graph_edges}")
                 logger.info(f"Bayesian scores generated: {session.total_bayesian_scores}")
+                logger.info(f"Files exported: {session.total_files_exported}")
 
                 # Save iteration history
                 iteration_summary = {
@@ -567,7 +592,8 @@ class BatchMedicalRotationPipeline:
                     'mechanism_clusters_created': session.total_mechanism_clusters,
                     'knowledge_graph_nodes': session.total_knowledge_graph_nodes,
                     'knowledge_graph_edges': session.total_knowledge_graph_edges,
-                    'bayesian_scores_generated': session.total_bayesian_scores
+                    'bayesian_scores_generated': session.total_bayesian_scores,
+                    'files_exported': session.total_files_exported
                 }
                 session.iteration_history.append(iteration_summary)
 
@@ -594,7 +620,8 @@ class BatchMedicalRotationPipeline:
                             'mechanism_clusters_created': session.total_mechanism_clusters,
                             'knowledge_graph_nodes': session.total_knowledge_graph_nodes,
                             'knowledge_graph_edges': session.total_knowledge_graph_edges,
-                            'bayesian_scores_generated': session.total_bayesian_scores
+                            'bayesian_scores_generated': session.total_bayesian_scores,
+                            'files_exported': session.total_files_exported
                         }
                     }
 
@@ -610,6 +637,7 @@ class BatchMedicalRotationPipeline:
                 session.group_categorization_completed = False
                 session.mechanism_clustering_completed = False
                 session.data_mining_completed = False
+                session.frontend_export_completed = False
 
                 # Reset iteration statistics (cumulative tracking happens in iteration_history)
                 session.total_papers_collected = 0
@@ -624,6 +652,7 @@ class BatchMedicalRotationPipeline:
                 session.total_knowledge_graph_nodes = 0
                 session.total_knowledge_graph_edges = 0
                 session.total_bayesian_scores = 0
+                session.total_files_exported = 0
 
                 self._save_session()
 
@@ -1024,6 +1053,70 @@ class BatchMedicalRotationPipeline:
             logger.error(traceback.format_exc())
             return {'success': False, 'error': str(e), 'phase': 'data_mining'}
 
+    def _run_frontend_export_phase(self, session: BatchSession) -> Dict[str, Any]:
+        """
+        Run Phase 5: Frontend data export.
+
+        Exports interventions.json and network_graph.json for frontend display.
+        """
+        logger.info("Running Phase 5: Frontend data export...")
+
+        try:
+            if self.shutdown_requested:
+                return {'success': False, 'error': 'Shutdown requested during frontend export'}
+
+            # Import Phase 5 orchestrator
+            from .phase_5_frontend_updater import Phase5FrontendExportOrchestrator
+
+            # Initialize orchestrator
+            phase5_orchestrator = Phase5FrontendExportOrchestrator(
+                db_path=str(config.db_path),
+                config_path=None  # Use default config
+            )
+
+            # Run Phase 5
+            export_results = phase5_orchestrator.run()
+
+            # Update session with results
+            session.frontend_export_result = {
+                'table_view_completed': export_results.table_view_completed,
+                'network_viz_completed': export_results.network_viz_completed,
+                'files_exported': export_results.files_exported,
+                'table_view_size_mb': export_results.table_view_size_mb,
+                'network_viz_size_mb': export_results.network_viz_size_mb,
+                'total_interventions': export_results.total_interventions,
+                'total_nodes': export_results.total_nodes,
+                'total_edges': export_results.total_edges,
+                'validation_passed': export_results.validation_passed,
+                'validation_warnings_count': len(export_results.validation_warnings) if export_results.validation_warnings else 0
+            }
+
+            session.total_files_exported = export_results.files_exported
+
+            if not export_results.success:
+                logger.error(f"Frontend export failed: {export_results.error}")
+                return {
+                    'success': False,
+                    'error': f"Frontend export failed: {export_results.error}",
+                    'phase': 'frontend_export'
+                }
+
+            logger.info("[SUCCESS] Frontend export completed successfully")
+            logger.info(f"  Files exported: {export_results.files_exported}")
+            logger.info(f"  Table view: {export_results.table_view_size_mb:.2f} MB ({export_results.total_interventions} interventions)")
+            logger.info(f"  Network viz: {export_results.network_viz_size_mb:.2f} MB ({export_results.total_nodes} nodes, {export_results.total_edges} edges)")
+
+            if export_results.validation_warnings:
+                logger.warning(f"  Validation warnings: {len(export_results.validation_warnings)}")
+
+            return {'success': True, 'result': session.frontend_export_result}
+
+        except Exception as e:
+            logger.error(f"Frontend export failed: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            return {'success': False, 'error': str(e), 'phase': 'frontend_export'}
+
     def get_status(self) -> Dict[str, Any]:
         """Get current pipeline status."""
         session = self.load_existing_session()
@@ -1053,6 +1146,7 @@ class BatchMedicalRotationPipeline:
                 'group_categorization_completed': session.group_categorization_completed,
                 'mechanism_clustering_completed': session.mechanism_clustering_completed,
                 'data_mining_completed': session.data_mining_completed,
+                'frontend_export_completed': session.frontend_export_completed,
                 'pipeline_completed': session.is_completed()
             },
             'statistics': {
@@ -1067,7 +1161,8 @@ class BatchMedicalRotationPipeline:
                 'mechanism_clusters_created': session.total_mechanism_clusters,
                 'knowledge_graph_nodes': session.total_knowledge_graph_nodes,
                 'knowledge_graph_edges': session.total_knowledge_graph_edges,
-                'bayesian_scores_generated': session.total_bayesian_scores
+                'bayesian_scores_generated': session.total_bayesian_scores,
+                'files_exported': session.total_files_exported
             },
             'iteration_history': session.iteration_history,
             'phase_results': {
@@ -1076,7 +1171,8 @@ class BatchMedicalRotationPipeline:
                 'semantic_normalization': session.semantic_normalization_result,
                 'group_categorization': session.group_categorization_result,
                 'mechanism_clustering': session.mechanism_clustering_result,
-                'data_mining': session.data_mining_result
+                'data_mining': session.data_mining_result,
+                'frontend_export': session.frontend_export_result
             }
         }
 

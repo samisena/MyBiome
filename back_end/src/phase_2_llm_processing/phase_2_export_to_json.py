@@ -125,7 +125,6 @@ class UnifiedDataExporter:
                     i.intervention_name,
                     i.health_condition,
                     i.correlation_type,
-                    i.correlation_strength,
                     i.confidence_score,
                     i.sample_size,
                     i.study_duration,
@@ -153,8 +152,7 @@ class UnifiedDataExporter:
                 LEFT JOIN papers p ON i.paper_id = p.id
                 WHERE i.intervention_name IS NOT NULL
                 AND i.health_condition IS NOT NULL
-                ORDER BY i.confidence_score DESC NULLS LAST,
-                         i.correlation_strength DESC NULLS LAST
+                ORDER BY i.confidence_score DESC NULLS LAST
             """
 
             cursor.execute(query)
@@ -167,32 +165,31 @@ class UnifiedDataExporter:
                     'intervention_name': row[2],
                     'health_condition': row[3],
                     'correlation_type': row[4],
-                    'correlation_strength': row[5],
-                    'confidence_score': row[6],
-                    'sample_size': row[7],
-                    'study_duration': row[8],
-                    'study_type': row[9],
-                    'delivery_method': row[10],
-                    'severity': row[11],
-                    'adverse_effects': row[12],
-                    'cost_category': row[13],
-                    'supporting_quote': row[14],
-                    'extraction_model': row[15],
+                    'confidence_score': row[5],
+                    'sample_size': row[6],
+                    'study_duration': row[7],
+                    'study_type': row[8],
+                    'delivery_method': row[9],
+                    'severity': row[10],
+                    'adverse_effects': row[11],
+                    'cost_category': row[12],
+                    'supporting_quote': row[13],
+                    'extraction_model': row[14],
                     'paper': {
-                        'title': row[16],
-                        'authors': row[17],
-                        'publication_date': row[18],
-                        'pmid': row[19],
-                        'doi': row[20]
+                        'title': row[15],
+                        'authors': row[16],
+                        'publication_date': row[17],
+                        'pmid': row[18],
+                        'doi': row[19]
                     }
                 }
 
                 # Add normalization info if available
-                if use_norm and len(row) > 21:
+                if use_norm and len(row) > 20:
                     intervention.update({
-                        'intervention_canonical_id': row[21],
-                        'condition_canonical_id': row[22],
-                        'normalized': row[23],
+                        'intervention_canonical_id': row[20],
+                        'condition_canonical_id': row[21],
+                        'normalized': row[22],
                         'intervention_display': self.get_display_info(row[2], 'intervention'),
                         'condition_display': self.get_display_info(row[3], 'condition')
                     })
@@ -287,7 +284,6 @@ def export_correlations_data() -> Dict[str, Any]:
             i.intervention_category,
             i.health_condition,
             i.correlation_type,
-            i.correlation_strength,
             i.confidence_score,
             i.sample_size,
             i.study_type,
@@ -306,7 +302,7 @@ def export_correlations_data() -> Dict[str, Any]:
             p.doi
         FROM interventions i
         LEFT JOIN papers p ON i.paper_id = p.pmid
-        ORDER BY i.confidence_score DESC, i.correlation_strength DESC
+        ORDER BY i.confidence_score DESC
         """
         
         cursor = conn.execute(query)
@@ -348,7 +344,6 @@ def export_correlations_data() -> Dict[str, Any]:
                 # Additional metadata
                 'id': row['id'],
                 'intervention_category': row['intervention_category'],
-                'correlation_strength': row['correlation_strength'],
                 'supporting_quote': row['supporting_quote'],
                 'validation_status': row['validation_status'],
                 'paper': {
@@ -373,8 +368,7 @@ def export_correlations_data() -> Dict[str, Any]:
             COUNT(CASE WHEN correlation_type = 'negative' THEN 1 END) as negative_correlations,
             COUNT(CASE WHEN correlation_type = 'neutral' THEN 1 END) as neutral_correlations,
             COUNT(CASE WHEN correlation_type = 'inconclusive' THEN 1 END) as inconclusive_correlations,
-            AVG(confidence_score) as avg_confidence,
-            AVG(correlation_strength) as avg_correlation_strength
+            AVG(confidence_score) as avg_confidence
         FROM interventions
         """
         
@@ -390,8 +384,7 @@ def export_correlations_data() -> Dict[str, Any]:
             'negative_correlations': stats_row['negative_correlations'] or 0,
             'neutral_correlations': stats_row['neutral_correlations'] or 0,
             'inconclusive_correlations': stats_row['inconclusive_correlations'] or 0,
-            'avg_confidence': round(stats_row['avg_confidence'] or 0, 3),
-            'avg_correlation_strength': round(stats_row['avg_correlation_strength'] or 0, 3)
+            'avg_confidence': round(stats_row['avg_confidence'] or 0, 3)
         }
         
         # Get top interventions and conditions

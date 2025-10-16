@@ -120,28 +120,24 @@ function populateFilterOptions() {
 // Initialize DataTables
 function initializeDataTable() {
     // Debug: Check data quality
-    const hasStrength = interventionsData.interventions.filter(i => i.correlation.strength !== null && i.correlation.strength !== undefined).length;
-    const hasConfidence = interventionsData.interventions.filter(i => i.correlation.extraction_confidence !== null && i.correlation.extraction_confidence !== undefined).length;
     const hasMechanism = interventionsData.interventions.filter(i => i.mechanism_canonical_names && i.mechanism_canonical_names.length > 0).length;
+    const hasStudyConfidence = interventionsData.interventions.filter(i => i.correlation.study_confidence !== null && i.correlation.study_confidence !== undefined).length;
     console.log(`Data Quality Check:`);
-    console.log(`  - ${hasStrength}/${interventionsData.interventions.length} have strength values (${(hasStrength/interventionsData.interventions.length*100).toFixed(1)}%)`);
-    console.log(`  - ${hasConfidence}/${interventionsData.interventions.length} have confidence values (${(hasConfidence/interventionsData.interventions.length*100).toFixed(1)}%)`);
     console.log(`  - ${hasMechanism}/${interventionsData.interventions.length} have mechanism canonical names (${(hasMechanism/interventionsData.interventions.length*100).toFixed(1)}%)`);
+    console.log(`  - ${hasStudyConfidence}/${interventionsData.interventions.length} have study confidence values (${(hasStudyConfidence/interventionsData.interventions.length*100).toFixed(1)}%)`);
 
     // Debug first intervention
     console.log('Sample intervention data:', interventionsData.interventions[0]);
     console.log('Sample mechanism canonical names:', interventionsData.interventions[0].mechanism_canonical_names);
 
     const tableData = interventionsData.interventions.map(intervention => [
-        formatCanonicalGroup(intervention.intervention.hierarchy),  // Canonical Group (was position 2, now position 0)
+        formatCanonicalGroup(intervention.intervention.hierarchy),  // Canonical Group
         formatCategory(intervention.intervention.categories || intervention.intervention.category),  // Category
         formatMechanism(intervention.mechanism_canonical_names),  // Mechanism (now uses canonical names from Phase 3c)
         formatConditionName(intervention.condition),  // Health Condition
         formatCategory(intervention.condition.categories || intervention.condition.category),  // Condition Category
         formatCorrelationType(intervention.correlation.type),  // Correlation
-        formatStrengthBar(intervention.correlation.strength),  // Strength
         formatBayesianScore(intervention.bayesian_scoring),  // Bayesian Score
-        formatConfidenceBar(intervention.correlation.extraction_confidence),  // Confidence
         formatSampleSize(intervention.study.sample_size),  // Sample Size
         intervention.study.type || 'N/A',  // Study Type
         formatPaperLink(intervention.paper),  // Paper
@@ -153,14 +149,14 @@ function initializeDataTable() {
         pageLength: 25,
         responsive: true,
         autoWidth: false,
-        order: [[7, 'desc'], [6, 'desc'], [8, 'desc']], // Sort by Bayesian score, then strength, then confidence
+        order: [[6, 'desc']], // Sort by Bayesian score (descending)
         buttons: [
             'csv', 'excel'
         ],
         dom: 'Bfrtip',
         columnDefs: [
             {
-                targets: [5, 6, 7, 11],
+                targets: [5, 9],  // Correlation and Paper columns are not orderable
                 orderable: false
             },
             {
@@ -189,31 +185,23 @@ function initializeDataTable() {
                 width: '110px'
             },
             {
-                targets: [6],  // Strength
-                width: '110px'
+                targets: [6],  // Bayesian Score
+                width: '130px'
             },
             {
-                targets: [7],  // Bayesian Score
-                width: '120px'
-            },
-            {
-                targets: [8],  // Confidence
-                width: '90px'
-            },
-            {
-                targets: [9],  // Sample Size
+                targets: [7],  // Sample Size
                 width: '100px'
             },
             {
-                targets: [10],  // Study Type
+                targets: [8],  // Study Type
                 width: '120px'
             },
             {
-                targets: [11],  // Paper
+                targets: [9],  // Paper
                 width: '150px'
             },
             {
-                targets: [12],  // Details
+                targets: [10],  // Details
                 width: '80px'
             }
         ],
@@ -333,17 +321,33 @@ function formatMechanism(mechanismCanonicalNames) {
     return `<div class="mechanism-list">${mechanismItems}</div>`;
 }
 
-// Format correlation type with color coding
+// Format outcome type with health impact color coding
 function formatCorrelationType(type) {
     const classes = {
-        'positive': 'correlation-positive',
-        'negative': 'correlation-negative',
-        'neutral': 'correlation-neutral',
-        'inconclusive': 'correlation-inconclusive'
+        'improves': 'outcome-improves',
+        'worsens': 'outcome-worsens',
+        'no_effect': 'outcome-no-effect',
+        'inconclusive': 'outcome-inconclusive',
+        // Legacy backward compatibility
+        'positive': 'outcome-improves',
+        'negative': 'outcome-worsens',
+        'neutral': 'outcome-no-effect'
     };
 
-    const className = classes[type] || 'correlation-neutral';
-    return `<span class="correlation-badge ${className}">${type || 'N/A'}</span>`;
+    const labels = {
+        'improves': 'Improves',
+        'worsens': 'Worsens',
+        'no_effect': 'No Effect',
+        'inconclusive': 'Inconclusive',
+        // Legacy
+        'positive': 'Improves',
+        'negative': 'Worsens',
+        'neutral': 'No Effect'
+    };
+
+    const className = classes[type] || 'outcome-no-effect';
+    const label = labels[type] || type || 'N/A';
+    return `<span class="outcome-badge ${className}">${label}</span>`;
 }
 
 // Helper function to get strength label
@@ -504,9 +508,7 @@ Condition Hierarchy:
 - Specific Variant (L2): ${conditionHierarchyInfo.layer_2_variant || 'N/A'}
 - Details (L3): ${conditionHierarchyInfo.layer_3_detail || 'N/A'}
 
-Correlation Type: ${intervention.correlation.type || 'N/A'}
-Correlation Strength: ${getStrengthLabel(intervention.correlation.strength)} (${intervention.correlation.strength || 'N/A'})
-Extraction Confidence: ${intervention.correlation.extraction_confidence || 'N/A'}
+Health Impact: ${{'improves': 'Improves', 'worsens': 'Worsens', 'no_effect': 'No Effect', 'inconclusive': 'Inconclusive', 'positive': 'Improves', 'negative': 'Worsens', 'neutral': 'No Effect'}[intervention.correlation.type] || intervention.correlation.type || 'N/A'}
 Study Confidence: ${intervention.correlation.study_confidence || 'N/A'}
 
 Bayesian Evidence Score (Phase 4b):
@@ -635,8 +637,9 @@ function applyFilters() {
                 return false;
             }
 
-            // Confidence filter
-            if (intervention.correlation.extraction_confidence < confidenceFilter) {
+            // Study confidence filter (if available)
+            const studyConf = intervention.correlation.study_confidence || 0;
+            if (studyConf < confidenceFilter) {
                 return false;
             }
 

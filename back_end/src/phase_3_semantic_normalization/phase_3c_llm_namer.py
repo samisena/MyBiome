@@ -370,7 +370,7 @@ CLUSTERS TO CATEGORIZE:
 {clusters_text}
 
 For each cluster, provide:
-1. canonical_name: Most common/clear name
+1. canonical_name: Most common/clear name (DO NOT include cluster numbers or prefixes like "Cluster X:")
 2. category: Choose existing OR create new (lowercase_with_underscores)
 3. reasoning: Brief explanation (1 sentence)
 4. confidence: HIGH/MEDIUM/LOW
@@ -415,7 +415,7 @@ CLUSTERS TO CATEGORIZE:
 {clusters_text}
 
 For each cluster, provide:
-1. canonical_name: Standard medical term
+1. canonical_name: Standard medical term (DO NOT include cluster numbers or prefixes like "Cluster X:")
 2. category: Choose existing OR create new (lowercase_with_underscores)
 3. reasoning: Brief explanation (1 sentence)
 4. confidence: HIGH/MEDIUM/LOW
@@ -442,7 +442,7 @@ No explanations. Just the JSON array."""
         clusters_text = "\n\n".join(cluster_list)
 
         prompt = f"""Analyze these mechanism descriptions and extract:
-1. Canonical mechanism name (concise biological pathway/action, max 10 words)
+1. Canonical mechanism name (concise biological pathway/action, max 10 words - DO NOT include cluster numbers or prefixes like "Cluster X:")
 2. Mechanism category (e.g., anti-inflammatory, neurotransmitter modulation, metabolic regulation)
 
 CLUSTERS TO NAME:

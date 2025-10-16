@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBiome Medical Knowledge Network</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="network-style.css?v=1">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav id="nav-bar">
+        <div class="nav-content">
+            <h1 class="nav-title">MyBiome Health Research</h1>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Table View</a>
+                <a href="network.html" class="nav-link active">Network View</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="container">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <h1>Medical Knowledge Network</h1>
+
+            <!-- Search -->
+            <div class="filter-group">
+                <label class="filter-label">Search</label>
+                <input type="text" id="search" placeholder="Search nodes...">
+            </div>
+
+            <!-- Intervention Categories -->
+            <h2>Intervention Categories</h2>
+            <div class="checkbox-list" id="category-filters"></div>
+
+            <!-- Evidence Types -->
+            <h2>Evidence Types</h2>
+            <div class="checkbox-list" id="evidence-filters"></div>
+
+            <!-- Confidence Filter -->
+            <h2>Confidence Threshold</h2>
+            <div class="filter-group">
+                <input type="range" id="confidence-slider" min="0" max="100" value="0" step="5">
+                <div style="display: flex; justify-content: space-between; font-size: 10px; color: #666; margin-top: 5px;">
+                    <span>0%</span>
+                    <span id="confidence-value">0%</span>
+                    <span>100%</span>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <button id="reset-btn">Reset Filters</button>
+            <button id="center-btn">Center View</button>
+
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-row">
+                    <span>Visible Nodes:</span>
+                    <span id="visible-nodes">0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Visible Edges:</span>
+                    <span id="visible-edges">0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Total Nodes:</span>
+                    <span id="total-nodes">0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Total Edges:</span>
+                    <span id="total-edges">0</span>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend">
+                <h2 style="margin-top: 0;">Legend</h2>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ff9800; color: #ff9800;"></div>
+                    <span>Intervention</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #00bcd4; color: #00bcd4;"></div>
+                    <span>Condition</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line" style="background: #4caf50;"></div>
+                    <span>Improves Health</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line" style="background: #f44336;"></div>
+                    <span>Worsens Health</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line" style="background: #757575;"></div>
+                    <span>No Effect</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization -->
+        <div id="visualization">
+            <div id="loading">Loading network data...</div>
+            <svg id="network"></svg>
+            <div id="tooltip"></div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let graphData = null;
+        let simulation = null;
+        let svg = null;
+        let g = null;
+        let zoom = null;
+
+        let linkElements = null;
+        let nodeElements = null;
+        let textElements = null;
+
+        let filters = {
+            categories: new Set(),
+            evidenceTypes: new Set(['positive', 'negative', 'neutral']),
+            confidence: 0,
+            search: ''
+        };
+
+        // Initialize
+        async function init() {
+            try {
+                // Load data
+                const response = await fetch('data/network_graph.json');
+                graphData = await response.json();
+
+                console.log('Loaded data:', graphData.metadata);
+
+                // Setup UI
+                setupFilters();
+                setupVisualization();
+                updateStats();
+
+                // Hide loading
+                document.getElementById('loading').style.display = 'none';
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').textContent = 'Error loading data: ' + error.message;
+            }
+        }
+
+        function setupFilters() {
+            const metadata = graphData.metadata;
+
+            // Initialize category filters (all checked)
+            metadata.categories.forEach(cat => filters.categories.add(cat));
+
+            // Create category checkboxes
+            const categoryContainer = document.getElementById('category-filters');
+            metadata.categories.forEach(category => {
+                const count = metadata.category_counts[category] || 0;
+                const div = document.createElement('div');
+                div.className = 'checkbox-item';
+                div.innerHTML = `
+                    <input type="checkbox" id="cat-${category}" value="${category}" checked>
+                    <label for="cat-${category}">${category}</label>
+                    <span class="count">(${count})</span>
+                `;
+                categoryContainer.appendChild(div);
+
+                div.querySelector('input').addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        filters.categories.add(category);
+                    } else {
+                        filters.categories.delete(category);
+                    }
+                    applyFilters();
+                });
+            });
+
+            // Create evidence type checkboxes
+            const evidenceContainer = document.getElementById('evidence-filters');
+            ['positive', 'negative', 'neutral'].forEach(type => {
+                const count = metadata.evidence_types[type] || 0;
+                const div = document.createElement('div');
+                div.className = 'checkbox-item';
+                div.innerHTML = `
+                    <input type="checkbox" id="ev-${type}" value="${type}" checked>
+                    <label for="ev-${type}">${type}</label>
+                    <span class="count">(${count})</span>
+                `;
+                evidenceContainer.appendChild(div);
+
+                div.querySelector('input').addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        filters.evidenceTypes.add(type);
+                    } else {
+                        filters.evidenceTypes.delete(type);
+                    }
+                    applyFilters();
+                });
+            });
+
+            // Confidence slider
+            const slider = document.getElementById('confidence-slider');
+            const valueDisplay = document.getElementById('confidence-value');
+            slider.addEventListener('input', (e) => {
+                filters.confidence = parseInt(e.target.value) / 100;
+                valueDisplay.textContent = e.target.value + '%';
+                applyFilters();
+            });
+
+            // Search box
+            const searchBox = document.getElementById('search');
+            searchBox.addEventListener('input', (e) => {
+                filters.search = e.target.value.toLowerCase();
+                applyFilters();
+            });
+
+            // Reset button
+            document.getElementById('reset-btn').addEventListener('click', () => {
+                // Reset filters
+                filters.categories = new Set(metadata.categories);
+                filters.evidenceTypes = new Set(['positive', 'negative', 'neutral']);
+                filters.confidence = 0;
+                filters.search = '';
+
+                // Reset UI
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+                slider.value = 0;
+                valueDisplay.textContent = '0%';
+                searchBox.value = '';
+
+                applyFilters();
+            });
+
+            // Center button
+            document.getElementById('center-btn').addEventListener('click', () => {
+                const bounds = g.node().getBBox();
+                const width = svg.attr('width');
+                const height = svg.attr('height');
+                const scale = 0.8 / Math.max(bounds.width / width, bounds.height / height);
+                const translate = [width / 2 - scale * (bounds.x + bounds.width / 2),
+                                   height / 2 - scale * (bounds.y + bounds.height / 2)];
+
+                svg.transition()
+                    .duration(750)
+                    .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+            });
+        }
+
+        function setupVisualization() {
+            const width = document.getElementById('visualization').clientWidth;
+            const height = document.getElementById('visualization').clientHeight;
+
+            // Create SVG
+            svg = d3.select('#network')
+                .attr('width', width)
+                .attr('height', height);
+
+            // Create zoom behavior
+            zoom = d3.zoom()
+                .scaleExtent([0.1, 10])
+                .on('zoom', (event) => {
+                    g.attr('transform', event.transform);
+                });
+
+            svg.call(zoom);
+
+            // Create container group for zooming/panning
+            g = svg.append('g');
+
+            // Create force simulation
+            simulation = d3.forceSimulation(graphData.nodes)
+                .force('link', d3.forceLink(graphData.links)
+                    .id(d => d.id)
+                    .distance(80))
+                .force('charge', d3.forceManyBody()
+                    .strength(-200))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collision', d3.forceCollide()
+                    .radius(d => getNodeRadius(d) + 5));
+
+            // Create links
+            linkElements = g.append('g')
+                .selectAll('line')
+                .data(graphData.links)
+                .join('line')
+                .attr('class', d => `link ${d.effect}`)
+                .attr('stroke-width', d => 1 + d.confidence * 2)
+                .on('mouseover', handleLinkHover)
+                .on('mouseout', handleLinkOut);
+
+            // Create nodes
+            nodeElements = g.append('g')
+                .selectAll('g')
+                .data(graphData.nodes)
+                .join('g')
+                .attr('class', d => `node ${d.type}`)
+                .call(d3.drag()
+                    .on('start', dragStarted)
+                    .on('drag', dragged)
+                    .on('end', dragEnded))
+                .on('mouseover', handleNodeHover)
+                .on('mouseout', handleNodeOut);
+
+            nodeElements.append('circle')
+                .attr('r', d => getNodeRadius(d));
+
+            nodeElements.append('text')
+                .attr('dy', d => getNodeRadius(d) + 12)
+                .text(d => d.name.length > 20 ? d.name.substring(0, 20) + '...' : d.name);
+
+            // Update positions on simulation tick
+            simulation.on('tick', () => {
+                linkElements
+                    .attr('x1', d => d.source.x)
+                    .attr('y1', d => d.source.y)
+                    .attr('x2', d => d.target.x)
+                    .attr('y2', d => d.target.y);
+
+                nodeElements
+                    .attr('transform', d => `translate(${d.x},${d.y})`);
+            });
+        }
+
+        function getNodeRadius(node) {
+            if (node.type === 'intervention') {
+                return 5 + Math.min(node.cluster_size || 1, 5);
+            } else {
+                // Condition - size by connection count
+                const connections = graphData.links.filter(l =>
+                    l.source.id === node.id || l.target.id === node.id
+                ).length;
+                return 6 + Math.min(connections / 2, 6);
+            }
+        }
+
+        function applyFilters() {
+            // Filter nodes
+            nodeElements.style('display', d => {
+                // Intervention filters
+                if (d.type === 'intervention') {
+                    if (!filters.categories.has(d.category)) return 'none';
+                }
+
+                // Search filter
+                if (filters.search && !d.name.toLowerCase().includes(filters.search)) {
+                    return 'none';
+                }
+
+                return 'block';
+            });
+
+            // Filter links
+            linkElements.style('display', d => {
+                // Evidence type filter
+                if (!filters.evidenceTypes.has(d.effect)) return 'none';
+
+                // Confidence filter
+                if (d.confidence < filters.confidence) return 'none';
+
+                // Hide if either connected node is hidden
+                const sourceVisible = nodeElements.filter(n => n.id === d.source.id).style('display') !== 'none';
+                const targetVisible = nodeElements.filter(n => n.id === d.target.id).style('display') !== 'none';
+                if (!sourceVisible || !targetVisible) return 'none';
+
+                return 'block';
+            });
+
+            updateStats();
+        }
+
+        function updateStats() {
+            const visibleNodes = nodeElements.filter(function() {
+                return d3.select(this).style('display') !== 'none';
+            }).size();
+
+            const visibleEdges = linkElements.filter(function() {
+                return d3.select(this).style('display') !== 'none';
+            }).size();
+
+            document.getElementById('visible-nodes').textContent = visibleNodes;
+            document.getElementById('visible-edges').textContent = visibleEdges;
+            document.getElementById('total-nodes').textContent = graphData.nodes.length;
+            document.getElementById('total-edges').textContent = graphData.links.length;
+        }
+
+        function handleNodeHover(event, d) {
+            // Highlight connected edges and nodes
+            const connectedNodes = new Set();
+            connectedNodes.add(d.id);
+
+            linkElements.classed('highlighted', link => {
+                const isConnected = (link.source.id === d.id || link.target.id === d.id);
+                if (isConnected) {
+                    connectedNodes.add(link.source.id);
+                    connectedNodes.add(link.target.id);
+                }
+                return isConnected;
+            }).classed('dimmed', link => link.source.id !== d.id && link.target.id !== d.id);
+
+            nodeElements.classed('highlighted', n => connectedNodes.has(n.id))
+                        .classed('dimmed', n => !connectedNodes.has(n.id));
+
+            // Show tooltip
+            showTooltip(event, d);
+        }
+
+        function handleNodeOut() {
+            linkElements.classed('highlighted', false).classed('dimmed', false);
+            nodeElements.classed('highlighted', false).classed('dimmed', false);
+            hideTooltip();
+        }
+
+        function handleLinkHover(event, d) {
+            showLinkTooltip(event, d);
+        }
+
+        function handleLinkOut() {
+            hideTooltip();
+        }
+
+        function showTooltip(event, node) {
+            const tooltip = document.getElementById('tooltip');
+            let html = `<div class="tooltip-title">${node.name}</div>`;
+            html += `<div class="tooltip-row"><span class="tooltip-label">Type:</span> ${node.type}</div>`;
+
+            if (node.type === 'intervention') {
+                html += `<div class="tooltip-row"><span class="tooltip-label">Category:</span> ${node.category}</div>`;
+                html += `<div class="tooltip-row"><span class="tooltip-label">Cluster Size:</span> ${node.cluster_size}</div>`;
+                html += `<div class="tooltip-row"><span class="tooltip-label">Evidence Count:</span> ${node.evidence_count}</div>`;
+            } else {
+                const connections = graphData.links.filter(l =>
+                    l.source.id === node.id || l.target.id === node.id
+                ).length;
+                html += `<div class="tooltip-row"><span class="tooltip-label">Connections:</span> ${connections}</div>`;
+            }
+
+            tooltip.innerHTML = html;
+            tooltip.style.display = 'block';
+            tooltip.style.left = (event.pageX + 10) + 'px';
+            tooltip.style.top = (event.pageY + 10) + 'px';
+        }
+
+        function showLinkTooltip(event, link) {
+            const tooltip = document.getElementById('tooltip');
+            let html = `<div class="tooltip-title">Treatment Relationship</div>`;
+            html += `<div class="tooltip-row"><span class="tooltip-label">From:</span> ${link.source.name}</div>`;
+            html += `<div class="tooltip-row"><span class="tooltip-label">To:</span> ${link.target.name}</div>`;
+            html += `<div class="tooltip-row"><span class="tooltip-label">Effect:</span> ${link.effect}</div>`;
+            html += `<div class="tooltip-row"><span class="tooltip-label">Confidence:</span> ${(link.confidence * 100).toFixed(0)}%</div>`;
+            html += `<div class="tooltip-row"><span class="tooltip-label">Mechanism:</span> ${link.mechanism}</div>`;
+            html += `<div class="tooltip-row"><span class="tooltip-label">Study:</span> PMID ${link.study_id}</div>`;
+
+            tooltip.innerHTML = html;
+            tooltip.style.display = 'block';
+            tooltip.style.left = (event.pageX + 10) + 'px';
+            tooltip.style.top = (event.pageY + 10) + 'px';
+        }
+
+        function hideTooltip() {
+            document.getElementById('tooltip').style.display = 'none';
+        }
+
+        function dragStarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragEnded(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            // Keep node pinned
+            // d.fx = null;
+            // d.fy = null;
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const width = document.getElementById('visualization').clientWidth;
+            const height = document.getElementById('visualization').clientHeight;
+            svg.attr('width', width).attr('height', height);
+            simulation.force('center', d3.forceCenter(width / 2, height / 2));
+            simulation.alpha(0.3).restart();
+        });
+
+        // Start
+        init();
+    </script>
+</body>
+</html>

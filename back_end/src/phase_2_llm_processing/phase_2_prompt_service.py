@@ -407,11 +407,9 @@ FORMAT:
     "intensity": "string or null",
     "administration_route": "string or null",
     "mechanism": "concise HOW it works (3-10 words)",
-    "correlation_type": "positive|negative|neutral|inconclusive",
-    "correlation_strength": "very strong|strong|moderate|weak|very weak|null",
+    "outcome_type": "improves|worsens|no_effect|inconclusive",
     "delivery_method": "oral|injection|topical|behavioral|etc or null",
-    "adverse_effects": "string or null",
-    "extraction_confidence": "very high|high|medium|low|very low"
+    "adverse_effects": "string or null"
   }}]
 }}]
 
@@ -428,6 +426,55 @@ RULES:
 5. mechanism = biological/behavioral pathway, NOT intervention name repeated
 6. Extract 2-5 key findings with quantitative data when available
 7. Return [] if no interventions found
+
+CRITICAL - outcome_type Definition (Health Impact Framework):
+
+Evaluate the NET IMPACT on patient health, not statistical correlation direction.
+
+Decision Rules:
+- "improves": Intervention makes patient healthier/better (positive health impact)
+- "worsens": Intervention makes patient sicker/worse (negative health impact)
+- "no_effect": No measurable impact on patient health
+- "inconclusive": Mixed evidence or unclear effect
+
+Decision Framework:
+1. Ask: "Is the measured outcome GOOD or BAD for patients?"
+2. Ask: "Did the intervention INCREASE or DECREASE this outcome?"
+3. Combine using human health impact logic:
+   - Intervention REDUCES bad thing (↓anxiety, ↓pain, ↓tumor size) → "improves"
+   - Intervention INCREASES good thing (↑bone density, ↑cognition, ↑mobility) → "improves"
+   - Intervention INCREASES bad thing (↑pain, ↑inflammation, ↑adverse events) → "worsens"
+   - Intervention REDUCES good thing (↓cognitive function, ↓mobility, ↓quality of life) → "worsens"
+
+Critical Examples:
+✓ "Antidepressants reduce anxiety by 30%" → outcome_type: "improves"
+  (Anxiety is BAD, reducing it is GOOD for patient health)
+
+✓ "Statins increase muscle pain by 15%" → outcome_type: "worsens"
+  (Pain is BAD, increasing it is BAD for patient health)
+
+✓ "Exercise increases life satisfaction by 25%" → outcome_type: "improves"
+  (Satisfaction is GOOD, increasing it is GOOD for patient health)
+
+✓ "Opioids decrease cognitive function by 20%" → outcome_type: "worsens"
+  (Cognition is GOOD, decreasing it is BAD for patient health)
+
+✓ "Chemotherapy reduces tumor size by 60%" → outcome_type: "improves"
+  (Tumors are BAD, reducing them is GOOD for patient health)
+
+✓ "Probiotics improve gut microbiome diversity" → outcome_type: "improves"
+  (Diversity is GOOD, improving it is GOOD for patient health)
+
+✓ "Vitamin D increases bone density by 18%" → outcome_type: "improves"
+  (Density is GOOD, increasing it is GOOD for patient health)
+
+⚠️ Common Pitfalls to Avoid:
+- DON'T confuse statistical direction with health impact
+- "Reduces anxiety" = "improves" (NOT "worsens", even though anxiety goes DOWN)
+- "Increases pain" = "worsens" (NOT "improves", even though pain goes UP)
+- "Lowers blood pressure in hypertension" = "improves" (HIGH BP is bad, lowering it is good)
+- "Raises blood pressure in hypotension" = "improves" (LOW BP is bad, raising it is good)
+- ALWAYS think: "Is the patient better off or worse off after this intervention?"
 
 EXAMPLES:
 
@@ -453,11 +500,9 @@ Abstract: "RCT with 54 diabetic patients per group. Intervention included family
     "intensity": null,
     "administration_route": null,
     "mechanism": "improved adherence through family education",
-    "correlation_type": "positive",
-    "correlation_strength": "strong",
+    "outcome_type": "improves",
     "delivery_method": "behavioral",
-    "adverse_effects": null,
-    "extraction_confidence": "very high"
+    "adverse_effects": null
   }}]
 }}]
 
@@ -485,11 +530,9 @@ Abstract: "120 IBS patients received Lactobacillus plantarum 10^9 CFU daily or p
     "intensity": null,
     "administration_route": "oral",
     "mechanism": "gut microbiome modulation",
-    "correlation_type": "positive",
-    "correlation_strength": "strong",
+    "outcome_type": "improves",
     "delivery_method": "oral",
-    "adverse_effects": null,
-    "extraction_confidence": "very high"
+    "adverse_effects": null
   }}]
 }}]
 
@@ -518,11 +561,9 @@ Abstract: "200 patients (50 per group). HbA1c reduction: exercise 0.8% (p<0.01),
       "intensity": "moderate",
       "administration_route": null,
       "mechanism": "improved insulin sensitivity",
-      "correlation_type": "positive",
-      "correlation_strength": "moderate",
+      "outcome_type": "improves",
       "delivery_method": "behavioral",
-      "adverse_effects": null,
-      "extraction_confidence": "very high"
+      "adverse_effects": null
     }},
     {{
       "intervention_name": "Mediterranean diet",
@@ -532,11 +573,9 @@ Abstract: "200 patients (50 per group). HbA1c reduction: exercise 0.8% (p<0.01),
       "intensity": null,
       "administration_route": null,
       "mechanism": "reduced inflammation and improved metabolism",
-      "correlation_type": "positive",
-      "correlation_strength": "strong",
+      "outcome_type": "improves",
       "delivery_method": "dietary",
-      "adverse_effects": null,
-      "extraction_confidence": "very high"
+      "adverse_effects": null
     }},
     {{
       "intervention_name": "combined exercise and diet",
@@ -546,11 +585,9 @@ Abstract: "200 patients (50 per group). HbA1c reduction: exercise 0.8% (p<0.01),
       "intensity": "moderate",
       "administration_route": null,
       "mechanism": "synergistic metabolic improvement",
-      "correlation_type": "positive",
-      "correlation_strength": "very strong",
+      "outcome_type": "improves",
       "delivery_method": "behavioral",
-      "adverse_effects": null,
-      "extraction_confidence": "very high"
+      "adverse_effects": null
     }}
   ]
 }}]

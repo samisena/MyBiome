@@ -1,0 +1,333 @@
+/* MyBiome Network Visualization Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Navigation Bar */
+#nav-bar {
+    background: rgba(20, 20, 20, 0.98);
+    border-bottom: 2px solid #00bcd4;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+
+.nav-title {
+    font-size: 20px;
+    color: #00bcd4;
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #aaa;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+    color: #00bcd4;
+    background: rgba(0, 188, 212, 0.2);
+}
+
+/* Main Container */
+#container {
+    display: flex;
+    width: 100vw;
+    height: calc(100vh - 50px);
+}
+
+#sidebar {
+    width: 280px;
+    background: rgba(20, 20, 20, 0.95);
+    border-right: 1px solid #333;
+    padding: 20px;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+#visualization {
+    flex-grow: 1;
+    position: relative;
+}
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #00bcd4;
+    text-align: center;
+}
+
+h2 {
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #ff9800;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+/* Filters */
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-label {
+    display: block;
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.checkbox-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 11px;
+}
+
+.checkbox-item input {
+    margin-right: 8px;
+}
+
+.checkbox-item label {
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.count {
+    color: #666;
+    margin-left: 5px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #00bcd4;
+}
+
+/* Stats Panel */
+.stats {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(0, 188, 212, 0.1);
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+/* Legend */
+.legend {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.legend-line {
+    width: 30px;
+    height: 3px;
+    margin-right: 10px;
+}
+
+/* SVG and Graph Elements */
+svg {
+    cursor: grab;
+}
+
+svg:active {
+    cursor: grabbing;
+}
+
+.node {
+    cursor: pointer;
+}
+
+.node circle {
+    stroke-width: 2;
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+.node.intervention circle {
+    fill: #ff9800;
+    stroke: #ff9800;
+}
+
+.node.condition circle {
+    fill: #00bcd4;
+    stroke: #00bcd4;
+}
+
+.node text {
+    font-size: 10px;
+    text-anchor: middle;
+    fill: #fff;
+    pointer-events: none;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.link {
+    stroke-opacity: 0.4;
+    fill: none;
+}
+
+.link.positive {
+    stroke: #4caf50;
+}
+
+.link.negative {
+    stroke: #f44336;
+}
+
+.link.neutral {
+    stroke: #757575;
+}
+
+.link:hover {
+    stroke-opacity: 0.8;
+    stroke-width: 3;
+}
+
+.link.highlighted {
+    stroke-opacity: 0.9;
+    stroke-width: 3;
+}
+
+.node.highlighted circle {
+    filter: drop-shadow(0 0 20px currentColor);
+}
+
+.node.dimmed {
+    opacity: 0.2;
+}
+
+.link.dimmed {
+    opacity: 0.1;
+}
+
+/* Tooltip */
+#tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #00bcd4;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 12px;
+    pointer-events: none;
+    display: none;
+    z-index: 1000;
+    max-width: 300px;
+}
+
+#tooltip .tooltip-title {
+    font-weight: bold;
+    color: #00bcd4;
+    margin-bottom: 5px;
+}
+
+#tooltip .tooltip-row {
+    margin: 3px 0;
+    font-size: 11px;
+}
+
+#tooltip .tooltip-label {
+    color: #999;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    background: #00bcd4;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #00acc1;
+}
+
+/* Loading State */
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: #00bcd4;
+}

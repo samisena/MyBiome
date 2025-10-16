@@ -236,18 +236,17 @@ class PaperValidator(BaseValidator):
 class InterventionValidator(BaseValidator):
     """Validator for intervention data."""
 
-    REQUIRED_FIELDS = ['intervention_name', 'health_condition', 'mechanism', 'correlation_type']
+    REQUIRED_FIELDS = ['intervention_name', 'health_condition', 'mechanism', 'outcome_type']
     OPTIONAL_FIELDS = ['condition_category', 'intervention_category']  # Optional to allow separate categorization phase
     VALID_CATEGORIES = ['exercise', 'diet', 'supplement', 'medication', 'therapy', 'lifestyle', 'surgery', 'test', 'device', 'procedure', 'biologics', 'gene_therapy', 'emerging']
     VALID_CONDITION_CATEGORIES = ['cardiac', 'neurological', 'digestive', 'pulmonary', 'endocrine', 'renal', 'oncological', 'rheumatological', 'psychiatric', 'musculoskeletal', 'dermatological', 'infectious', 'immunological', 'hematological', 'nutritional', 'toxicological', 'parasitic', 'other']
-    VALID_CORRELATION_TYPES = ['positive', 'negative', 'neutral', 'inconclusive']
+    VALID_OUTCOME_TYPES = ['improves', 'worsens', 'no_effect', 'inconclusive']
     VALID_DELIVERY_METHODS = ['oral', 'injection', 'topical', 'inhalation', 'behavioral', 'digital', 'surgical', 'intravenous', 'sublingual', 'rectal', 'transdermal', 'acupuncture', 'nasal', 'nasal spray', 'intranasal', 'enema', 'subcutaneous', 'intramuscular', 'needling', 'local application', 'neuromodulation', 'electrical stimulation', 'subcutaneous injection', 'acupuncture needles', 'blunt-tipped needles at non-acupoints', 'educational', 'supervised', 'counseling', 'oral capsules or colonoscopy']
     VALID_SEVERITY_LEVELS = ['mild', 'moderate', 'severe']
     VALID_COST_CATEGORIES = ['low', 'medium', 'high']
 
-    # String-based confidence/strength levels (new prompt format)
+    # String-based confidence levels (new prompt format)
     VALID_CONFIDENCE_LEVELS = ['very high', 'high', 'medium', 'low', 'very low']
-    VALID_STRENGTH_LEVELS = ['very strong', 'strong', 'moderate', 'weak', 'very weak']
 
     # Mapping from string to numeric values
     CONFIDENCE_TO_NUMERIC = {
@@ -256,14 +255,6 @@ class InterventionValidator(BaseValidator):
         'medium': 0.5,
         'low': 0.25,
         'very low': 0.1
-    }
-
-    STRENGTH_TO_NUMERIC = {
-        'very strong': 0.9,
-        'strong': 0.75,
-        'moderate': 0.5,
-        'weak': 0.25,
-        'very weak': 0.1
     }
     
     def validate(self, intervention_data: Dict) -> ValidationResult:
@@ -362,44 +353,15 @@ class InterventionValidator(BaseValidator):
                 self.VALID_CONDITION_CATEGORIES
             ))
 
-        # Correlation type validation
-        if 'correlation_type' in intervention_data:
+        # Outcome type validation
+        if 'outcome_type' in intervention_data:
             issues.extend(self.validate_enum_value(
-                intervention_data['correlation_type'],
-                'correlation_type',
-                self.VALID_CORRELATION_TYPES
+                intervention_data['outcome_type'],
+                'outcome_type',
+                self.VALID_OUTCOME_TYPES
             ))
-        
-        # Confidence and strength field validation (support both string and numeric formats)
-        # correlation_strength
-        if 'correlation_strength' in intervention_data and intervention_data['correlation_strength'] is not None:
-            value = intervention_data['correlation_strength']
-            if isinstance(value, str):
-                # String format - validate against allowed values
-                issues.extend(self.validate_enum_value(
-                    value.lower() if value else value,
-                    'correlation_strength',
-                    self.VALID_STRENGTH_LEVELS
-                ))
-                # Convert to numeric for database storage
-                cleaned_data['correlation_strength'] = self.STRENGTH_TO_NUMERIC.get(value.lower() if value else value)
-            else:
-                # Numeric format - validate range
-                issues.extend(self.validate_numeric_range(value, 'correlation_strength', 0.0, 1.0))
 
-        # extraction_confidence
-        if 'extraction_confidence' in intervention_data and intervention_data['extraction_confidence'] is not None:
-            value = intervention_data['extraction_confidence']
-            if isinstance(value, str):
-                issues.extend(self.validate_enum_value(
-                    value.lower() if value else value,
-                    'extraction_confidence',
-                    self.VALID_CONFIDENCE_LEVELS
-                ))
-                cleaned_data['extraction_confidence'] = self.CONFIDENCE_TO_NUMERIC.get(value.lower() if value else value)
-            else:
-                issues.extend(self.validate_numeric_range(value, 'extraction_confidence', 0.0, 1.0))
-
+        # Confidence field validation (support both string and numeric formats)
         # study_confidence
         if 'study_confidence' in intervention_data and intervention_data['study_confidence'] is not None:
             value = intervention_data['study_confidence']

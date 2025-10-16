@@ -1009,13 +1009,11 @@ class SemanticGrouper:
             )
 
             # Set dual confidence values
-            merged['extraction_confidence'] = min(0.98, extraction_conf + validation_boost) if extraction_conf > 0 else merged['consensus_confidence']
             merged['study_confidence'] = study_conf if study_conf > 0 else None
 
         else:
             merged['consensus_confidence'] = 0.75  # Default for validated duplicates
             merged['confidence_interval'] = (0.65, 0.85)
-            merged['extraction_confidence'] = 0.75
             merged['study_confidence'] = None
 
         # Merge supporting evidence with model attribution

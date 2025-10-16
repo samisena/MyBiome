@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyBiome Health Intervention Research Database</title>
-    
+
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-    
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=10">
 
     <!-- jQuery and DataTables JS -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
@@ -22,6 +22,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <h1 class="nav-title">MyBiome Health Research</h1>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Table View</a>
+                <a href="network.html" class="nav-link">Network View</a>
+            </div>
+        </div>
+    </nav>
+
     <header class="header">
         <div class="container">
             <h1>MyBiome Health Intervention Research</h1>
@@ -118,12 +129,12 @@
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label for="correlation-filter">Correlation Type:</label>
+                    <label for="correlation-filter">Health Impact:</label>
                     <select id="correlation-filter">
                         <option value="">All Types</option>
-                        <option value="positive">Positive</option>
-                        <option value="negative">Negative</option>
-                        <option value="neutral">Neutral</option>
+                        <option value="improves">Improves</option>
+                        <option value="worsens">Worsens</option>
+                        <option value="no_effect">No Effect</option>
                         <option value="inconclusive">Inconclusive</option>
                     </select>
                 </div>
@@ -149,10 +160,8 @@
                         <th>Mechanism</th>
                         <th>Health Condition</th>
                         <th>Condition Category</th>
-                        <th>Correlation</th>
-                        <th>Strength</th>
+                        <th>Health Impact</th>
                         <th>Bayesian Score</th>
-                        <th>Confidence</th>
                         <th>Sample Size</th>
                         <th>Study Type</th>
                         <th>Paper</th>
@@ -188,6 +197,6 @@
     </footer>
 
     <!-- Custom JavaScript -->
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=10"></script>
 </body>
 </html>

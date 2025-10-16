@@ -211,8 +211,7 @@ class BatchEntityProcessor:
             cursor = self.db.cursor()
             cursor.execute("""
                 SELECT i.id, i.intervention_name, i.health_condition, i.paper_id,
-                       i.correlation_type, i.correlation_strength,
-                       i.extraction_confidence, i.study_confidence,
+                       i.correlation_type, i.study_confidence,
                        i.extraction_model, i.verification_model,
                        i.intervention_canonical_id, i.condition_canonical_id,
                        i.normalized, i.consensus_confidence, i.sample_size,
@@ -319,7 +318,6 @@ class BatchEntityProcessor:
         """Get effective confidence score for an intervention."""
         return (
             intervention.get('consensus_confidence') or
-            intervention.get('extraction_confidence') or
             intervention.get('study_confidence') or
             0.5
         )

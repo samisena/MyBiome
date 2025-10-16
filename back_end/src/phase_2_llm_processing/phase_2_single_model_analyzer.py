@@ -354,10 +354,8 @@ class SingleModelAnalyzer:
                     'administration_route': intervention.get('administration_route'),
                     'mechanism': intervention.get('mechanism'),
                     'correlation_type': intervention.get('correlation_type'),
-                    'correlation_strength': intervention.get('correlation_strength'),
                     'delivery_method': intervention.get('delivery_method'),
                     'adverse_effects': intervention.get('adverse_effects'),
-                    'extraction_confidence': intervention.get('extraction_confidence'),
 
                     # Study-level fields (copied to each intervention)
                     'health_condition': health_condition,

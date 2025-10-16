@@ -1,0 +1,34 @@
+# Phase 5: Frontend Data Export Configuration
+
+# Output file paths (relative to project root)
+output_paths:
+  table_view: "frontend/data/interventions.json"
+  network_viz: "frontend/data/network_graph.json"
+  mechanism_clusters: "frontend/data/mechanism_clusters.json"
+
+# Export options
+export_options:
+  pretty_print: true          # Human-readable JSON formatting
+  include_metadata: true      # Add generation metadata
+  atomic_writes: true         # Write to .tmp then rename (prevents corruption)
+  backup_previous: true       # Create .bak of previous export
+  timestamp_backups: false    # Add timestamp to backup filename (vs. simple .bak)
+
+# Validation settings
+validation:
+  enabled: true
+  min_interventions: 10       # Minimum interventions expected
+  min_conditions: 5           # Minimum conditions expected
+  min_nodes: 50              # Minimum knowledge graph nodes
+  min_edges: 20              # Minimum knowledge graph edges
+  fail_on_validation_error: false  # Continue even if validation fails
+
+# Database query settings
+database:
+  batch_size: 1000           # Records per batch for large queries
+  connection_timeout: 300    # Seconds before timeout
+
+# Performance settings
+performance:
+  max_file_size_mb: 100      # Warning threshold for export file size
+  compress_large_files: false # GZIP compression for files > threshold

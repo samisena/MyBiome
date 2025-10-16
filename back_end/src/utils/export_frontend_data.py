@@ -86,8 +86,6 @@ def export_interventions_data() -> Dict[str, Any]:
         i.condition_category,
         i.mechanism,
         i.correlation_type,
-        i.correlation_strength,
-        i.extraction_confidence,
         i.study_confidence,
         i.sample_size,
         i.study_duration,
@@ -132,7 +130,7 @@ def export_interventions_data() -> Dict[str, Any]:
     LEFT JOIN semantic_hierarchy sh_i ON i.intervention_name = sh_i.entity_name AND sh_i.entity_type = 'intervention'
     LEFT JOIN semantic_hierarchy sh_c ON i.health_condition = sh_c.entity_name AND sh_c.entity_type = 'condition'
     LEFT JOIN bayesian_scores bs ON sh_i.layer_1_canonical = bs.intervention_name AND sh_c.layer_1_canonical = bs.condition_name
-    ORDER BY bs.posterior_mean DESC NULLS LAST, i.extraction_confidence DESC
+    ORDER BY bs.posterior_mean DESC NULLS LAST, i.study_confidence DESC NULLS LAST
     """
 
     cursor.execute(query)
@@ -193,8 +191,6 @@ def export_interventions_data() -> Dict[str, Any]:
             'mechanism_canonical_names': mechanism_canonical_names,  # NEW: Mechanism canonical names from Phase 3c
             'correlation': {
                 'type': row['correlation_type'],
-                'strength': row['correlation_strength'],
-                'extraction_confidence': row['extraction_confidence'],
                 'study_confidence': row['study_confidence']
             },
             'bayesian_scoring': {
@@ -264,7 +260,6 @@ def export_interventions_data() -> Dict[str, Any]:
             COALESCE(sh.layer_1_canonical, i.intervention_name) as name,
             i.intervention_category,
             COUNT(*) as count,
-            AVG(i.correlation_strength) as avg_strength,
             COUNT(DISTINCT i.paper_id) as paper_count
         FROM interventions i
         LEFT JOIN semantic_hierarchy sh ON i.intervention_name = sh.entity_name AND sh.entity_type = 'intervention'
@@ -433,8 +428,7 @@ def export_mechanism_clusters_data() -> Dict[str, Any]:
             SELECT
                 cluster_id,
                 condition_name,
-                intervention_count,
-                avg_correlation_strength
+                intervention_count
             FROM mechanism_condition_associations
             ORDER BY cluster_id, intervention_count DESC
         """)

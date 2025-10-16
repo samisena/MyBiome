@@ -300,12 +300,12 @@ class BayesianEvidenceScorer:
                         # Extract counts from aggregated data
                         evidence_details = treatment.get('evidence', [])
                         for detail in evidence_details:
-                            evidence_type = detail.get('evidence_type', 'neutral')
-                            if evidence_type == 'positive':
+                            evidence_type = detail.get('evidence_type', 'no_effect')
+                            if evidence_type == 'improves':
                                 positive_count += 1
-                            elif evidence_type == 'negative':
+                            elif evidence_type == 'worsens':
                                 negative_count += 1
-                            elif evidence_type == 'neutral':
+                            elif evidence_type == 'no_effect':
                                 neutral_count += 1
                         return positive_count, negative_count, neutral_count
             except:
@@ -316,11 +316,11 @@ class BayesianEvidenceScorer:
             edges = edges_data[condition][intervention]
             for edge in edges:
                 evidence_type = edge.evidence.evidence_type
-                if evidence_type == 'positive':
+                if evidence_type == 'improves':
                     positive_count += 1
-                elif evidence_type == 'negative':
+                elif evidence_type == 'worsens':
                     negative_count += 1
-                elif evidence_type == 'neutral':
+                elif evidence_type == 'no_effect':
                     neutral_count += 1
 
         return positive_count, negative_count, neutral_count
@@ -582,24 +582,37 @@ class BayesianEvidenceScorer:
         """
         cursor.execute("""
             SELECT
-                i.correlation_type as evidence_type,
+                i.outcome_type as evidence_type,
                 COUNT(*) as count
             FROM interventions i
             WHERE i.intervention_name = ? AND i.health_condition = ?
-            GROUP BY i.correlation_type
+            GROUP BY i.outcome_type
         """, (intervention_name, condition))
 
         positive_count = 0
         negative_count = 0
         neutral_count = 0
 
+        # Map outcome_type to counts (with backward compatibility)
+        outcome_map = {
+            'improves': 'positive',
+            'worsens': 'negative',
+            'no_effect': 'neutral',
+            'inconclusive': 'neutral',
+            # Legacy values
+            'positive': 'positive',
+            'negative': 'negative',
+            'neutral': 'neutral'
+        }
+
         for row in cursor.fetchall():
-            evidence_type = row['evidence_type'].lower() if row['evidence_type'] else 'neutral'
+            evidence_type_raw = row['evidence_type'].lower() if row['evidence_type'] else 'no_effect'
+            evidence_type = outcome_map.get(evidence_type_raw, 'neutral')
             count = row['count']
 
-            if 'positive' in evidence_type:
+            if evidence_type == 'positive':
                 positive_count += count
-            elif 'negative' in evidence_type:
+            elif evidence_type == 'negative':
                 negative_count += count
             else:
                 neutral_count += count

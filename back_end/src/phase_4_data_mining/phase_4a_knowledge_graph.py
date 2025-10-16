@@ -45,7 +45,7 @@ class StudyEvidence:
     """Individual study evidence with complete metadata."""
     study_id: str
     title: str
-    evidence_type: str  # 'positive', 'negative', 'neutral', 'unsure'
+    evidence_type: str  # 'improves', 'worsens', 'no_effect', 'inconclusive'
     weight: float
     confidence: float
     sample_size: int
@@ -64,7 +64,7 @@ class StudyEvidence:
 
     def __post_init__(self):
         """Validate evidence data on creation."""
-        if self.evidence_type not in ['positive', 'negative', 'neutral', 'unsure']:
+        if self.evidence_type not in ['improves', 'worsens', 'no_effect', 'inconclusive']:
             raise ValueError(f"Invalid evidence_type: {self.evidence_type}")
         if not 0 <= self.confidence <= 1:
             raise ValueError(f"Confidence must be between 0 and 1: {self.confidence}")
@@ -124,12 +124,12 @@ class MedicalKnowledgeGraph:
     - Fundamental intervention detection
     """
 
-    # Weight mapping for different evidence types
+    # Weight mapping for different evidence types (health impact semantics)
     WEIGHT_MAP = {
-        'positive': 1.0,   # Treatment works
-        'negative': -1.0,  # Treatment doesn't work (important signal!)
-        'neutral': 0.0,    # No effect
-        'unsure': 0.3      # Slight positive signal
+        'improves': 1.0,      # Treatment improves patient health
+        'worsens': -1.0,      # Treatment worsens patient health (important signal!)
+        'no_effect': 0.0,     # No measurable impact
+        'inconclusive': 0.3   # Unclear, slight positive signal
     }
 
     def __init__(self, save_to_database: bool = True):
@@ -256,7 +256,7 @@ class MedicalKnowledgeGraph:
             List of treatments with aggregated evidence
         """
         if evidence_types is None:
-            evidence_types = ['positive', 'negative', 'neutral', 'unsure']
+            evidence_types = ['improves', 'worsens', 'no_effect', 'inconclusive']
 
         treatments = defaultdict(list)
 
@@ -295,7 +295,7 @@ class MedicalKnowledgeGraph:
             List of conditions with aggregated evidence
         """
         if evidence_types is None:
-            evidence_types = ['positive', 'negative', 'neutral', 'unsure']
+            evidence_types = ['improves', 'worsens', 'no_effect', 'inconclusive']
 
         conditions = defaultdict(list)
 
@@ -530,7 +530,7 @@ class MedicalKnowledgeGraph:
             List of mechanisms with aggregated evidence
         """
         if evidence_types is None:
-            evidence_types = ['positive', 'negative', 'neutral', 'unsure']
+            evidence_types = ['improves', 'worsens', 'no_effect', 'inconclusive']
 
         mechanisms = defaultdict(list)
 
@@ -588,7 +588,7 @@ class MedicalKnowledgeGraph:
             List of mechanisms with aggregated evidence
         """
         if evidence_types is None:
-            evidence_types = ['positive', 'negative', 'neutral', 'unsure']
+            evidence_types = ['improves', 'worsens', 'no_effect', 'inconclusive']
 
         mechanisms = defaultdict(list)
 
@@ -890,8 +890,8 @@ class MedicalKnowledgeGraph:
                         i.intervention_name,
                         i.health_condition,
                         i.mechanism,
-                        i.correlation_type as evidence_type,
-                        i.correlation_strength as confidence,
+                        i.outcome_type as evidence_type,
+                        i.study_confidence as confidence,
                         i.sample_size,
                         i.study_type as study_design,
                         p.journal,
@@ -938,18 +938,24 @@ class MedicalKnowledgeGraph:
                             logger.debug(f"Skipping edges with no mechanism (will count total at end)")
                         continue
 
-                    # Map correlation_type to evidence_type
+                    # Map outcome_type to internal evidence_type (backward compatibility)
                     evidence_type_map = {
-                        'positive': 'positive',
-                        'negative': 'negative',
-                        'neutral': 'neutral',
-                        'no_correlation': 'neutral',
-                        'positive_correlation': 'positive',
-                        'negative_correlation': 'negative'
+                        # New health-impact values
+                        'improves': 'improves',
+                        'worsens': 'worsens',
+                        'no_effect': 'no_effect',
+                        'inconclusive': 'inconclusive',
+                        # Legacy values (if database has old data)
+                        'positive': 'improves',
+                        'negative': 'worsens',
+                        'neutral': 'no_effect',
+                        'no_correlation': 'no_effect',
+                        'positive_correlation': 'improves',
+                        'negative_correlation': 'worsens'
                     }
                     evidence_type = evidence_type_map.get(
-                        row['evidence_type'].lower() if row['evidence_type'] else 'neutral',
-                        'neutral'
+                        row['evidence_type'].lower() if row['evidence_type'] else 'no_effect',
+                        'no_effect'
                     )
 
                     # Create evidence object WITH mechanism data
@@ -1078,7 +1084,7 @@ class MedicalKnowledgeGraph:
             title: Paper title
             intervention_name: Intervention name (can be raw or canonical)
             condition: Health condition
-            evidence_type: Type of evidence ('positive', 'negative', 'neutral', 'unsure')
+            evidence_type: Type of evidence ('improves', 'worsens', 'no_effect', 'inconclusive')
             confidence: Confidence score (0-1)
             sample_size: Study sample size
             study_design: Type of study (RCT, observational, etc.)
