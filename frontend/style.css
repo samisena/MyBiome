@@ -223,6 +223,41 @@ body {
 /* DataTables custom styles */
 #interventions-table {
     width: 100% !important;
+    table-layout: fixed;
+}
+
+#interventions-table td {
+    overflow: hidden;
+}
+
+/* Specific column width constraints */
+#interventions-table td:nth-child(3),
+#interventions-table td.mechanism-column {
+    /* Mechanism column - NO truncation */
+    max-width: 300px !important;
+    width: 300px !important;
+    overflow: visible !important;
+    vertical-align: top;
+    padding: 8px !important;
+    white-space: normal;
+}
+
+/* Health Condition column - NO truncation */
+#interventions-table td:nth-child(4) {
+    max-width: 200px !important;
+    width: 200px !important;
+    overflow: visible !important;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Fix ALL column headers to wrap properly */
+#interventions-table th {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    padding: 12px 8px !important;
+    vertical-align: middle !important;
+    line-height: 1.3 !important;
 }
 
 .dataTables_wrapper {
@@ -275,6 +310,29 @@ body {
     font-size: 0.75rem;
     color: #999;
     font-style: italic;
+}
+
+/* Mechanism list - displays canonical names in separate lines */
+.mechanism-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.mechanism-item {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 5px 8px;
+    background-color: #f0f4f8;
+    border-left: 3px solid #667eea;
+    border-radius: 4px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
 }
 
 /* Correlation type badges */

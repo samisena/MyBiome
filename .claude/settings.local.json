@@ -1,9 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(\"C:\\Users\\samis\\anaconda3\\envs\\venv\\python.exe\":*)",
-      "Bash(git rm:*)",
-      "Bash(find:*)"
+      "Bash(sqlite3:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

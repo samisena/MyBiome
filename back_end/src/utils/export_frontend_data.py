@@ -138,11 +138,27 @@ def export_interventions_data() -> Dict[str, Any]:
     cursor.execute(query)
     rows = cursor.fetchall()
 
+    # Helper function to get mechanism canonical names for an intervention
+    def get_mechanism_canonical_names(intervention_id):
+        """Get all mechanism canonical names for an intervention."""
+        cursor.execute("""
+            SELECT DISTINCT mc.canonical_name
+            FROM intervention_mechanisms im
+            JOIN mechanism_clusters mc ON im.cluster_id = mc.cluster_id
+            WHERE im.intervention_id = ?
+            ORDER BY mc.canonical_name
+        """, (intervention_id,))
+        results = cursor.fetchall()
+        return [row[0] for row in results] if results else []
+
     interventions = []
     for row in rows:
         # Get multi-category data for intervention and condition
         intervention_categories = get_entity_categories(cursor, 'intervention', row['id'])
         condition_categories = get_entity_categories(cursor, 'condition', row['health_condition'])
+
+        # Get mechanism canonical names (Phase 3c)
+        mechanism_canonical_names = get_mechanism_canonical_names(row['id'])
 
         intervention = {
             'id': row['id'],
@@ -174,6 +190,7 @@ def export_interventions_data() -> Dict[str, Any]:
                 }
             },
             'mechanism': row['mechanism'],
+            'mechanism_canonical_names': mechanism_canonical_names,  # NEW: Mechanism canonical names from Phase 3c
             'correlation': {
                 'type': row['correlation_type'],
                 'strength': row['correlation_strength'],

@@ -385,6 +385,124 @@ Exports SQLite → JSON with Phase 4b Bayesian scores, Phase 3.5 hierarchical da
 - **Default Ranking**: Interventions sorted by Bayesian score (desc) → Strength (desc) → Confidence (desc)
 - **Statistics**: New "High Bayesian Score (>0.7)" card in summary section
 
+### Browser Cache Management (October 16, 2025)
+**IMPORTANT**: When updating frontend files (JavaScript/CSS), browsers aggressively cache static assets.
+
+**Problem**: Modified files on disk may not reflect in browser (old cached version loads instead)
+
+**Solution**: Use cache-busting version parameters in HTML:
+```html
+<!-- Increment version number after ANY JavaScript/CSS changes -->
+<script src="script.js?v=2"></script>
+<link rel="stylesheet" href="style.css?v=2">
+```
+
+**Best Practices**:
+- Increment version parameter (`?v=3`, `?v=4`, etc.) after each update
+- Use date format `?v=YYYYMMDD` or semantic versioning for clarity
+- Hard refresh (Ctrl+F5) alone is unreliable - users may not know the shortcut
+- Version parameters force browsers to treat file as new URL, bypassing cache
+- For production: Use build tools (webpack, gulp) to auto-generate cache-busting hashes
+
+**Current Version**: `script.js?v=7`, `style.css?v=7` (updated October 16, 2025 - mechanism canonical names + layout fixes)
+
+### Frontend Design Challenges & Solutions (October 16, 2025)
+
+**See [BUGFIX_LOG.md](BUGFIX_LOG.md) for detailed technical documentation.**
+
+#### Common Issues When Working with DataTables.js
+
+**Issue 1: Column Overflow and Text Wrapping**
+- **Problem**: Content spilling into adjacent columns
+- **Root Cause**: DataTables' `autoWidth: true` + flexible `table-layout: auto` ignore CSS constraints
+- **Solution Pattern**:
+  ```javascript
+  // DataTables config
+  {
+    autoWidth: false,
+    columnDefs: [
+      { targets: [n], width: 'XXXpx', className: 'custom-class' }
+    ]
+  }
+  ```
+  ```css
+  /* CSS enforcement */
+  #table-id {
+    table-layout: fixed;
+  }
+  #table-id td.custom-class {
+    max-width: XXXpx !important;
+    width: XXXpx !important;
+    overflow: visible !important;
+    white-space: normal;
+  }
+  ```
+
+**Issue 2: Text Truncation with Ellipsis (...)**
+- **Problem**: Content hidden with "..." instead of wrapping
+- **Root Cause**: Generic `text-overflow: ellipsis` on all cells
+- **Solution**: Use `overflow: visible` + `white-space: normal` for text-heavy columns
+
+**Issue 3: Column Headers Overlapping**
+- **Problem**: Header text mashing together unreadably
+- **Root Cause**: Default `white-space: nowrap` prevents line breaks, insufficient column width
+- **Solution Pattern**:
+  ```css
+  #table-id th {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    padding: 12px 8px !important;
+    vertical-align: middle !important;
+    line-height: 1.3 !important;
+  }
+  ```
+
+**Issue 4: Browser Cache Not Updating**
+- **Problem**: Changes to CSS/JS not reflecting in browser
+- **Root Cause**: Aggressive browser caching of static assets
+- **Solution**: Version parameters (already implemented above)
+
+#### Key Lessons for Frontend Development
+
+1. **CSS !important is necessary** when overriding DataTables' inline styles
+2. **Set widths in BOTH JavaScript and CSS** for reliability
+3. **overflow: visible vs. hidden**: visible allows wrapping, hidden causes truncation
+4. **table-layout: fixed + autoWidth: false** must be used together
+5. **Explicit widths for ALL columns** prevents layout collapse
+6. **Apply header fixes universally** using `th` selector
+7. **Test with real data** before declaring success
+
+#### DataTables.js Quirks to Remember
+
+- **Inline styles dominate**: CSS needs `!important` to override
+- **Auto-width is aggressive**: Must explicitly disable with `autoWidth: false`
+- **Responsive mode unpredictable**: Fixed layouts + explicit widths provide control
+- **CSS specificity matters**: Use `#table-id td.class-name` for highest precedence
+
+#### Design Patterns Established
+
+**Column Content Display**:
+```javascript
+function formatColumnContent(dataArray) {
+    if (!dataArray || dataArray.length === 0) {
+        return '<span class="none">Not specified</span>';
+    }
+    const items = dataArray.map(item =>
+        `<div class="item">${item}</div>`
+    ).join('');
+    return `<div class="list">${items}</div>`;
+}
+```
+
+**Column Width Control**:
+- Set in DataTables config: `{ targets: [n], width: 'XXXpx' }`
+- Enforce in CSS: `max-width: XXXpx !important; width: XXXpx !important;`
+- Allow wrapping: `overflow: visible; white-space: normal;`
+
+**Cache Busting**:
+- Always increment version after CSS/JS changes
+- Format: `?v=X` (increment) or `?v=YYYYMMDD` (date-based)
+
 ---
 
 ## Intervention Taxonomy (13 Categories)

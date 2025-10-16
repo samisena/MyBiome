@@ -122,53 +122,98 @@ function initializeDataTable() {
     // Debug: Check data quality
     const hasStrength = interventionsData.interventions.filter(i => i.correlation.strength !== null && i.correlation.strength !== undefined).length;
     const hasConfidence = interventionsData.interventions.filter(i => i.correlation.extraction_confidence !== null && i.correlation.extraction_confidence !== undefined).length;
-    const hasMechanism = interventionsData.interventions.filter(i => i.mechanism && i.mechanism !== '').length;
+    const hasMechanism = interventionsData.interventions.filter(i => i.mechanism_canonical_names && i.mechanism_canonical_names.length > 0).length;
     console.log(`Data Quality Check:`);
     console.log(`  - ${hasStrength}/${interventionsData.interventions.length} have strength values (${(hasStrength/interventionsData.interventions.length*100).toFixed(1)}%)`);
     console.log(`  - ${hasConfidence}/${interventionsData.interventions.length} have confidence values (${(hasConfidence/interventionsData.interventions.length*100).toFixed(1)}%)`);
-    console.log(`  - ${hasMechanism}/${interventionsData.interventions.length} have mechanism values (${(hasMechanism/interventionsData.interventions.length*100).toFixed(1)}%)`);
+    console.log(`  - ${hasMechanism}/${interventionsData.interventions.length} have mechanism canonical names (${(hasMechanism/interventionsData.interventions.length*100).toFixed(1)}%)`);
 
     // Debug first intervention
     console.log('Sample intervention data:', interventionsData.interventions[0]);
-    console.log('Sample mechanism:', interventionsData.interventions[0].mechanism);
+    console.log('Sample mechanism canonical names:', interventionsData.interventions[0].mechanism_canonical_names);
 
     const tableData = interventionsData.interventions.map(intervention => [
-        formatInterventionName(intervention.intervention),
-        formatCategory(intervention.intervention.categories || intervention.intervention.category),
-        formatCanonicalGroup(intervention.intervention.hierarchy),
-        formatMechanism(intervention.mechanism),
-        formatConditionName(intervention.condition),
-        formatCategory(intervention.condition.categories || intervention.condition.category),
-        formatCorrelationType(intervention.correlation.type),
-        formatStrengthBar(intervention.correlation.strength),
-        formatBayesianScore(intervention.bayesian_scoring),
-        formatConfidenceBar(intervention.correlation.extraction_confidence),
-        formatSampleSize(intervention.study.sample_size),
-        intervention.study.type || 'N/A',
-        formatPaperLink(intervention.paper),
-        formatDetailsButton(intervention)
+        formatCanonicalGroup(intervention.intervention.hierarchy),  // Canonical Group (was position 2, now position 0)
+        formatCategory(intervention.intervention.categories || intervention.intervention.category),  // Category
+        formatMechanism(intervention.mechanism_canonical_names),  // Mechanism (now uses canonical names from Phase 3c)
+        formatConditionName(intervention.condition),  // Health Condition
+        formatCategory(intervention.condition.categories || intervention.condition.category),  // Condition Category
+        formatCorrelationType(intervention.correlation.type),  // Correlation
+        formatStrengthBar(intervention.correlation.strength),  // Strength
+        formatBayesianScore(intervention.bayesian_scoring),  // Bayesian Score
+        formatConfidenceBar(intervention.correlation.extraction_confidence),  // Confidence
+        formatSampleSize(intervention.study.sample_size),  // Sample Size
+        intervention.study.type || 'N/A',  // Study Type
+        formatPaperLink(intervention.paper),  // Paper
+        formatDetailsButton(intervention)  // Details
     ]);
 
     dataTable = $('#interventions-table').DataTable({
         data: tableData,
         pageLength: 25,
         responsive: true,
-        order: [[8, 'desc'], [7, 'desc'], [9, 'desc']], // Sort by Bayesian score, then strength, then confidence
+        autoWidth: false,
+        order: [[7, 'desc'], [6, 'desc'], [8, 'desc']], // Sort by Bayesian score, then strength, then confidence
         buttons: [
             'csv', 'excel'
         ],
         dom: 'Bfrtip',
         columnDefs: [
             {
-                targets: [6, 7, 8, 12],
+                targets: [5, 6, 7, 11],
                 orderable: false
             },
             {
-                targets: [7, 8],
+                targets: [0],  // Canonical Group
+                width: '150px'
+            },
+            {
+                targets: [1],  // Category
+                width: '120px'
+            },
+            {
+                targets: [2],  // Mechanism column
+                width: '300px',
+                className: 'mechanism-column'
+            },
+            {
+                targets: [3],  // Health Condition
+                width: '200px'
+            },
+            {
+                targets: [4],  // Condition Category
+                width: '120px'
+            },
+            {
+                targets: [5],  // Correlation
+                width: '110px'
+            },
+            {
+                targets: [6],  // Strength
+                width: '110px'
+            },
+            {
+                targets: [7],  // Bayesian Score
+                width: '120px'
+            },
+            {
+                targets: [8],  // Confidence
+                width: '90px'
+            },
+            {
+                targets: [9],  // Sample Size
                 width: '100px'
             },
             {
-                targets: [12],
+                targets: [10],  // Study Type
+                width: '120px'
+            },
+            {
+                targets: [11],  // Paper
+                width: '150px'
+            },
+            {
+                targets: [12],  // Details
                 width: '80px'
             }
         ],
@@ -273,12 +318,19 @@ function formatCanonicalGroup(hierarchy) {
     return `<span class="canonical-group">${hierarchy.layer_1_canonical}</span>`;
 }
 
-// Format mechanism of action
-function formatMechanism(mechanism) {
-    if (!mechanism) return '<span class="mechanism-none">Not specified</span>';
+// Format mechanism of action (now displays canonical names from Phase 3c)
+function formatMechanism(mechanismCanonicalNames) {
+    // mechanismCanonicalNames is now an array of canonical names from Phase 3c
+    if (!mechanismCanonicalNames || mechanismCanonicalNames.length === 0) {
+        return '<span class="mechanism-none">Not specified</span>';
+    }
 
-    const truncated = mechanism.length > 100 ? mechanism.substring(0, 97) + '...' : mechanism;
-    return `<span class="mechanism-text" title="${mechanism}">${truncated}</span>`;
+    // Display each mechanism on a separate line
+    const mechanismItems = mechanismCanonicalNames.map(name =>
+        `<div class="mechanism-item">${name}</div>`
+    ).join('');
+
+    return `<div class="mechanism-list">${mechanismItems}</div>`;
 }
 
 // Format correlation type with color coding
@@ -433,7 +485,12 @@ Hierarchical Classification:
 - Specific Variant (L2): ${hierarchyInfo.layer_2_variant || 'N/A'}
 - Dosage/Details (L3): ${hierarchyInfo.layer_3_detail || 'N/A'}
 
-Mechanism of Action:
+Mechanism of Action (Canonical Names from Phase 3c):
+${intervention.mechanism_canonical_names && intervention.mechanism_canonical_names.length > 0
+    ? intervention.mechanism_canonical_names.map(name => `- ${name}`).join('\n')
+    : 'Not specified'}
+
+Raw Mechanism Text:
 ${intervention.mechanism || 'Not specified'}
 
 Health Condition: ${intervention.condition.canonical_name || intervention.condition.name}
