@@ -8,7 +8,22 @@
       "Bash(conda run:*)",
       "Bash(mkdir:*)",
       "Bash(find:*)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "Bash(git checkout:*)",
+      "Bash(pip install:*)",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(ollama list:*)",
+      "Bash(curl:*)",
+      "Bash(tee:*)",
+      "Bash(nvidia-smi dmon:*)",
+      "Bash(ollama serve:*)",
+      "Bash(ollama ps:*)",
+      "Bash(timeout 120 python:*)",
+      "Bash(git rm:*)",
+      "Bash(if exist nul del nul)",
+      "Bash(del nul)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []

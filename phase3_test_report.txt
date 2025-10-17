@@ -1,0 +1,62 @@
+[11:58:10] [INFO] ============================================================
+[11:58:10] [INFO] PHASE 3 MINIMAL PIPELINE TEST
+[11:58:10] [INFO] ============================================================
+[11:58:10] [SUCCESS] Database found: C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+[11:58:10] [SUCCESS] Config found: C:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3_config.yaml
+[11:58:12] [SUCCESS] Ollama is running (9 models available)
+[11:58:12] [SUCCESS] Required models found: qwen2.5:14b, mxbai-embed-large
+[11:58:12] [INFO] 
+============================================================
+[11:58:12] [INFO] STEP 1: Inserting Test Data
+[11:58:12] [INFO] ============================================================
+[11:58:12] [INFO] Inserted test paper (ID: 1547)
+[11:58:12] [INFO]   - Inserted: aspirin (ID: 2115)
+[11:58:12] [INFO]   - Inserted: acetaminophen (ID: 2116)
+[11:58:12] [INFO]   - Inserted: ibuprofen (ID: 2117)
+[11:58:12] [SUCCESS] Inserted 3 test interventions
+[11:58:12] [INFO] 
+============================================================
+[11:58:12] [INFO] STEP 2: Running Phase 3 Pipeline
+[11:58:12] [INFO] ============================================================
+[11:58:12] [INFO] Initializing UnifiedPhase3Orchestrator...
+[11:58:12] [ERROR] ERROR: Pipeline failed: [Errno 2] No such file or directory: 'C:\\Users\\samis\\Desktop\\MyBiome\\back_end\\src\\phase_3_semantic_normalization\\experiment_schema.sql'
+[11:58:12] [ERROR] Traceback (most recent call last):
+  File "C:\Users\samis\Desktop\MyBiome\test_phase3_minimal.py", line 183, in run_phase3_pipeline
+    orchestrator = UnifiedPhase3Orchestrator(
+        db_path=str(self.db_path),
+        config_path=str(self.config_path)
+    )
+  File "C:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3_orchestrator.py", line 131, in __init__
+    self._initialize_experiment_db()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3_orchestrator.py", line 173, in _initialize_experiment_db
+    with open(schema_path, 'r') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\samis\\Desktop\\MyBiome\\back_end\\src\\phase_3_semantic_normalization\\experiment_schema.sql'
+
+[11:58:12] [INFO] 
+============================================================
+[11:58:12] [INFO] STEP 3: Verifying Database Outputs
+[11:58:12] [INFO] ============================================================
+[11:58:12] [ERROR] ERROR: Verification failed: no such column: original_name
+[11:58:12] [ERROR] Traceback (most recent call last):
+  File "C:\Users\samis\Desktop\MyBiome\test_phase3_minimal.py", line 234, in verify_database_outputs
+    cursor.execute("""
+    ~~~~~~~~~~~~~~^^^^
+        SELECT COUNT(*) FROM semantic_hierarchy
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        WHERE entity_type = 'intervention'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        AND original_name IN ('aspirin', 'acetaminophen', 'ibuprofen')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    """)
+    ^^^^
+sqlite3.OperationalError: no such column: original_name
+
+[11:58:12] [INFO] 
+============================================================
+[11:58:12] [INFO] TEST REPORT
+[11:58:12] [INFO] ============================================================
+[11:58:12] [ERROR] OVERALL STATUS: FAILED
+[11:58:12] [INFO] 
+============================================================

@@ -7,13 +7,12 @@ Classifies relationships and suggests canonical names for merged clusters.
 
 import json
 import logging
-import requests
-import time
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, asdict
 
 from .stage_2_candidate_generation import MergeCandidate
 from .config import Phase3dConfig, get_config
+from back_end.src.data.ollama_client import OllamaClient
 
 logger = logging.getLogger(__name__)
 
@@ -58,15 +57,23 @@ class LLMValidator:
     Auto-approves based on confidence and quality checks.
     """
 
-    def __init__(self, config: Phase3dConfig = None):
+    def __init__(self, config: Phase3dConfig = None, ollama_client: Optional[OllamaClient] = None):
         """
         Initialize LLM validator.
 
         Args:
             config: Configuration object (uses global if None)
+            ollama_client: Optional pre-configured OllamaClient instance
         """
         self.config = config or get_config()
-        self.llm_url = f"{self.config.llm_base_url}/api/generate"
+
+        # Use provided client or create new one
+        self.llm_client = ollama_client or OllamaClient(
+            model=self.config.llm_model,
+            temperature=self.config.llm_temperature,
+            api_url=self.config.llm_base_url,
+            timeout=self.config.llm_timeout
+        )
 
         logger.info(f"Initialized LLMValidator with model: {self.config.llm_model}")
 
@@ -182,43 +189,27 @@ class LLMValidator:
         """
         prompt = self._build_prompt(candidate)
 
-        payload = {
-            "model": self.config.llm_model,
-            "prompt": prompt,
-            "stream": False,
-            "format": "json",
-            "options": {
-                "temperature": 0.3,  # Lower temperature for consistency
-                "num_predict": 500
-            }
-        }
-
         try:
-            response = requests.post(
-                self.llm_url,
-                json=payload,
-                timeout=self.config.llm_timeout
+            # Use OllamaClient with JSON mode and custom temperature
+            response_text = self.llm_client.generate(
+                prompt=prompt,
+                json_mode=True,
+                temperature_override=0.3,  # Lower temperature for consistency
+                max_tokens=500
             )
-            response.raise_for_status()
-
-            response_data = response.json()
-            response_text = response_data.get('response', '{}')
 
             # Parse JSON response
             llm_output = json.loads(response_text)
 
             return llm_output
 
-        except requests.exceptions.Timeout:
-            logger.error(f"LLM timeout for candidate {candidate.cluster_a_id}-{candidate.cluster_b_id}")
-            return {'relationship_type': 'DIFFERENT', 'confidence': 'LOW', 'reasoning': 'Timeout'}
-
         except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse LLM JSON response: {e}")
+            logger.error(f"Failed to parse LLM JSON response for candidate {candidate.cluster_a_id}-{candidate.cluster_b_id}: {e}")
+            logger.debug(f"Response was: {response_text[:200]}")
             return {'relationship_type': 'DIFFERENT', 'confidence': 'LOW', 'reasoning': 'Parse error'}
 
         except Exception as e:
-            logger.error(f"LLM API error: {e}")
+            logger.error(f"LLM API error for candidate {candidate.cluster_a_id}-{candidate.cluster_b_id}: {e}")
             return {'relationship_type': 'DIFFERENT', 'confidence': 'LOW', 'reasoning': f'Error: {e}'}
 
     def _build_prompt(self, candidate: MergeCandidate) -> str:

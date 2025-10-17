@@ -49,7 +49,7 @@ except ImportError:
 try:
     from ..data.config import config, setup_logging
     from ..phase_1_data_collection.database_manager import database_manager
-    from ..phase_2_llm_processing.single_model_analyzer import SingleModelAnalyzer
+    from ..phase_2_llm_processing.phase_2_single_model_analyzer import SingleModelAnalyzer
     from ..data.repositories import repository_manager
 except ImportError:
     # Fallback for standalone execution
@@ -322,7 +322,7 @@ class RotationLLMProcessor:
         if not isinstance(result, dict):
             return False, "Result is not a dictionary"
 
-        required_fields = ['success', 'condition', 'papers_processed', 'interventions_extracted']
+        required_fields = ['success', 'papers_processed', 'interventions_extracted']
         missing_fields = [field for field in required_fields if field not in result]
 
         if missing_fields:
@@ -340,13 +340,13 @@ class RotationLLMProcessor:
 
         return True, "Processing result is valid"
 
-    def process_all_papers_batch(self, batch_size: Optional[int] = None) -> Dict[str, Any]:
+    def process_all_papers_batch(self, batch_size: Optional[int] = None, max_papers: Optional[int] = None) -> Dict[str, Any]:
         """
-        Process ALL unprocessed papers using single-model approach.
+        Process unprocessed papers using single-model approach.
 
-        Simplified method using qwen2.5:14b only:
-        1. Load qwen2.5:14b once
-        2. Process all papers
+        Simplified method using qwen3:14b only:
+        1. Load qwen3:14b once
+        2. Process papers (up to max_papers limit if specified)
         3. Save results directly (no consensus building needed)
 
         Benefits:
@@ -356,16 +356,17 @@ class RotationLLMProcessor:
 
         Args:
             batch_size: Papers per batch (auto-optimized if None)
+            max_papers: Maximum number of papers to process (None = all papers)
 
         Returns:
             Dictionary with comprehensive processing results
         """
         start_time = datetime.now()
-        logger.info("Starting batch processing of all unprocessed papers (single model)")
+        logger.info(f"Starting batch processing of unprocessed papers (single model, limit={max_papers})")
 
         try:
-            # Get all unprocessed papers from database
-            unprocessed_papers = self._get_all_unprocessed_papers()
+            # Get unprocessed papers from database (with limit if specified)
+            unprocessed_papers = self._get_all_unprocessed_papers(limit=max_papers)
 
             if not unprocessed_papers:
                 logger.info("No unprocessed papers found")
@@ -447,11 +448,15 @@ class RotationLLMProcessor:
                 'status': 'failed'
             }
 
-    def _get_all_unprocessed_papers(self) -> List[Dict[str, Any]]:
-        """Get all papers that haven't been processed yet."""
+    def _get_all_unprocessed_papers(self, limit: Optional[int] = None) -> List[Dict[str, Any]]:
+        """Get papers that haven't been processed yet.
+
+        Args:
+            limit: Maximum number of papers to retrieve (None = all papers)
+        """
         try:
             # Use the single_model_analyzer's method to get unprocessed papers
-            return self.single_analyzer.get_unprocessed_papers()
+            return self.single_analyzer.get_unprocessed_papers(limit=limit)
 
         except Exception as e:
             logger.error(f"Error getting unprocessed papers: {e}")
@@ -461,17 +466,16 @@ class RotationLLMProcessor:
 def process_single_condition(condition: str, max_papers: Optional[int] = None) -> Dict[str, Any]:
     """
     Convenience function to process papers for a single condition.
-    NOTE: This now uses the batch processing method which processes ALL papers.
 
     Args:
-        condition: Medical condition to process (ignored - all papers processed)
-        max_papers: Maximum number of papers to process (ignored - all papers processed)
+        condition: Medical condition to process (currently not filtered by condition - processes all unprocessed papers)
+        max_papers: Maximum number of papers to process (None = all unprocessed papers)
 
     Returns:
         Processing result dictionary
     """
     processor = RotationLLMProcessor()
-    return processor.process_all_papers_batch()
+    return processor.process_all_papers_batch(max_papers=max_papers)
 
 
 if __name__ == "__main__":
@@ -504,13 +508,12 @@ if __name__ == "__main__":
         if args.max_papers:
             print(f"Max papers: {args.max_papers}")
 
-        result = processor.process_all_papers_batch()
+        result = processor.process_all_papers_batch(max_papers=args.max_papers)
 
         print("\n" + "="*60)
         print("PROCESSING RESULT")
         print("="*60)
         print(f"Success: {result['success']}")
-        print(f"Condition: {result['condition']}")
         print(f"Papers processed: {result['papers_processed']}")
         print(f"Interventions extracted: {result['interventions_extracted']}")
         print(f"Processing time: {result['processing_time_seconds']:.1f} seconds")

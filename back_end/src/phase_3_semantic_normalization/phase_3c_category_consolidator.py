@@ -7,11 +7,11 @@ Uses LLM to identify and merge similar categories while preserving semantic dist
 
 import json
 import logging
-import requests
-import time
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 from collections import Counter
+
+from back_end.src.data.ollama_client import OllamaClient
 
 logger = logging.getLogger(__name__)
 
@@ -64,27 +64,33 @@ class CategoryConsolidator:
         similarity_threshold: float = 0.85,
         max_consolidation_ratio: float = 0.5,
         min_group_size: int = 2,
-        timeout: int = 60
+        timeout: int = 60,
+        ollama_client: Optional[OllamaClient] = None
     ):
         """
         Initialize category consolidator.
 
         Args:
             model: LLM model name
-            base_url: Ollama API URL
+            base_url: Ollama API URL (ignored if ollama_client provided)
             temperature: LLM temperature (keep low for consistency)
             similarity_threshold: Threshold for considering categories similar
             max_consolidation_ratio: Maximum % of categories to consolidate
             min_group_size: Minimum categories required to form consolidation group
             timeout: API request timeout
+            ollama_client: Optional pre-configured OllamaClient instance
         """
-        self.model = model
-        self.base_url = base_url
-        self.temperature = temperature
         self.similarity_threshold = similarity_threshold
         self.max_consolidation_ratio = max_consolidation_ratio
         self.min_group_size = min_group_size
-        self.timeout = timeout
+
+        # Use provided client or create new one
+        self.llm_client = ollama_client or OllamaClient(
+            model=model,
+            temperature=temperature,
+            api_url=base_url,
+            timeout=timeout
+        )
 
         logger.info(f"CategoryConsolidator initialized: threshold={similarity_threshold}")
 
@@ -241,20 +247,11 @@ No explanations. Just the JSON object."""
             Dict mapping old_category -> new_category
         """
         try:
-            response = requests.post(
-                f"{self.base_url}/api/generate",
-                json={
-                    "model": self.model,
-                    "prompt": prompt,
-                    "temperature": self.temperature,
-                    "stream": False,
-                    "format": "json"
-                },
-                timeout=self.timeout
+            # Use OllamaClient with JSON mode
+            response_text = self.llm_client.generate(
+                prompt=prompt,
+                json_mode=True
             )
-            response.raise_for_status()
-
-            response_text = response.json()['response'].strip()
 
             # Parse JSON response
             consolidation_map = json.loads(response_text)
@@ -266,11 +263,9 @@ No explanations. Just the JSON object."""
             logger.info(f"LLM proposed {len(consolidation_map)} consolidations")
             return consolidation_map
 
-        except requests.exceptions.Timeout:
-            logger.error("LLM timeout during consolidation")
-            return {}
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse LLM JSON response: {e}")
+            logger.debug(f"Response was: {response_text[:200]}")
             return {}
         except Exception as e:
             logger.error(f"LLM API error during consolidation: {e}")

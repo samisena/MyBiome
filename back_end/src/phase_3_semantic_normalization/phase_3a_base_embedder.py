@@ -8,11 +8,15 @@ Supports caching, batch processing, and performance tracking.
 import json
 import pickle
 import logging
+import time
 from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import List, Dict, Optional, Tuple
 from datetime import datetime
 import numpy as np
+import requests
+
+from back_end.src.data.constants import OLLAMA_API_URL
 
 logger = logging.getLogger(__name__)
 
@@ -172,6 +176,65 @@ class BaseEmbedder(ABC):
         """Generate hash for text (for caching)."""
         import hashlib
         return hashlib.sha256(text.encode('utf-8')).hexdigest()
+
+    def _call_ollama_api(
+        self,
+        text: str,
+        model: str,
+        api_endpoint: str,
+        timeout: int,
+        dimension: int,
+        rate_limit_delay: float = 0.01
+    ) -> np.ndarray:
+        """
+        Call Ollama API to generate embedding for a single text.
+
+        This method centralizes Ollama API calls to eliminate duplication
+        across InterventionEmbedder, ConditionEmbedder, and MechanismEmbedder.
+
+        Args:
+            text: Input text to embed
+            model: Ollama model name (e.g., 'mxbai-embed-large')
+            api_endpoint: Full API endpoint URL
+            timeout: Request timeout in seconds
+            dimension: Expected embedding dimension
+            rate_limit_delay: Delay after request (seconds)
+
+        Returns:
+            np.ndarray: Embedding vector of shape (dimension,)
+        """
+        try:
+            response = requests.post(
+                api_endpoint,
+                json={
+                    "model": model,
+                    "prompt": text
+                },
+                timeout=timeout
+            )
+            response.raise_for_status()
+
+            embedding = response.json().get('embedding', [])
+
+            # Dimension validation and correction
+            if len(embedding) != dimension:
+                logger.warning(f"Unexpected embedding dimension: {len(embedding)} (expected {dimension})")
+                if len(embedding) < dimension:
+                    # Pad with zeros
+                    embedding = embedding + [0.0] * (dimension - len(embedding))
+                else:
+                    # Truncate
+                    embedding = embedding[:dimension]
+
+            # Rate limiting
+            time.sleep(rate_limit_delay)
+
+            return np.array(embedding, dtype=np.float32)
+
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Failed to embed text '{text[:50]}...': {e}")
+            # Fallback: zero vector
+            return np.zeros(dimension, dtype=np.float32)
 
     def _load_cache(self):
         """Load cache from disk."""

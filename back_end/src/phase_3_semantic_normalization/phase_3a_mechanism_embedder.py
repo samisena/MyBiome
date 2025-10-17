@@ -6,12 +6,11 @@ for mechanism descriptions (often longer text than interventions/conditions).
 """
 
 import logging
-import time
 from typing import List, Optional, Tuple
 import numpy as np
-import requests
 
 from .phase_3a_base_embedder import BaseEmbedder
+from back_end.src.data.constants import OLLAMA_API_URL
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +31,7 @@ class MechanismEmbedder(BaseEmbedder):
         batch_size: int = 10,  # Smaller batches for potentially longer text
         cache_path: Optional[str] = None,
         normalization: str = "l2",
-        base_url: str = "http://localhost:11434",
+        base_url: str = OLLAMA_API_URL,
         include_context: bool = False,
         timeout: int = 60,  # Longer timeout for mxbai
         max_mechanism_length: Optional[int] = None
@@ -73,6 +72,9 @@ class MechanismEmbedder(BaseEmbedder):
         """
         embeddings = []
 
+        # Determine rate limit delay based on model
+        rate_limit_delay = 0.1 if self.model == "mxbai-embed-large" else 0.01
+
         for text in texts:
             # Optional: Truncate long mechanisms
             if self.max_mechanism_length and len(text) > self.max_mechanism_length:
@@ -83,40 +85,18 @@ class MechanismEmbedder(BaseEmbedder):
             if self.include_context:
                 text = self._enhance_with_context(text)
 
-            try:
-                response = requests.post(
-                    self.api_endpoint,
-                    json={
-                        "model": self.model,
-                        "prompt": text
-                    },
-                    timeout=self.timeout
-                )
-                response.raise_for_status()
+            # Use centralized Ollama API caller from base class
+            embedding = self._call_ollama_api(
+                text=text,
+                model=self.model,
+                api_endpoint=self.api_endpoint,
+                timeout=self.timeout,
+                dimension=self.dimension,
+                rate_limit_delay=rate_limit_delay
+            )
+            embeddings.append(embedding)
 
-                embedding = response.json().get('embedding', [])
-
-                if len(embedding) != self.dimension:
-                    logger.warning(f"Unexpected embedding dimension: {len(embedding)} (expected {self.dimension})")
-                    if len(embedding) < self.dimension:
-                        embedding = embedding + [0.0] * (self.dimension - len(embedding))
-                    else:
-                        embedding = embedding[:self.dimension]
-
-                embeddings.append(embedding)
-
-            except requests.exceptions.RequestException as e:
-                logger.error(f"Failed to embed mechanism '{text[:50]}...': {e}")
-                embeddings.append([0.0] * self.dimension)
-
-            # Rate limiting (more conservative for mxbai)
-            if self.model == "mxbai-embed-large":
-                time.sleep(0.1)
-            else:
-                time.sleep(0.01)
-
-        embeddings_array = np.array(embeddings, dtype=np.float32)
-        return embeddings_array
+        return np.vstack(embeddings)
 
     def _enhance_with_context(self, mechanism_text: str) -> str:
         """

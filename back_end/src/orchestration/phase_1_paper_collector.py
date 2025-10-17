@@ -49,9 +49,6 @@ try:
     from ..phase_1_data_collection.database_manager import database_manager
     from ..phase_1_data_collection.pubmed_collector import PubMedCollector
     # Semantic Scholar removed from orchestration pipeline (keeping module intact for future use)
-    from .rotation_session_manager import (
-        RotationSessionManager, PipelinePhase, session_manager
-    )
 except ImportError:
     # Fallback for standalone execution
     import sys
@@ -61,9 +58,6 @@ except ImportError:
     from back_end.src.phase_1_data_collection.database_manager import database_manager
     from back_end.src.phase_1_data_collection.phase_1_pubmed_collector import PubMedCollector
     # Semantic Scholar removed from orchestration pipeline (keeping module intact for future use)
-    from back_end.src.orchestration.rotation_session_manager import (
-        RotationSessionManager, PipelinePhase, session_manager
-    )
 
 logger = setup_logging(__name__, 'rotation_paper_collector.log')
 
@@ -97,7 +91,7 @@ class RotationPaperCollector:
         self.max_retries = 3
         self.retry_delays = [30, 60, 120]  # seconds
         self.batch_size = 25  # PubMed API batch size
-        self.max_workers = 2  # Reduced parallel API calls to avoid overwhelming the system
+        self.max_workers = 10  # Parallel API calls (PubMed allows 10/sec with API key)
 
     def get_all_conditions(self) -> List[str]:
         """Get all 60 medical conditions from config."""
@@ -445,13 +439,16 @@ class RotationPaperCollector:
     # Old session integration methods removed - replaced by batch processing architecture
 
 
-def create_collection_integrator(session_mgr: RotationSessionManager = None) -> RotationPaperCollector:
+def create_collection_integrator(session_mgr: Optional[Any] = None) -> RotationPaperCollector:
     """
     Create and return a collection integrator instance.
 
     This function provides backward compatibility for code that previously
     used RotationCollectionIntegrator. The RotationPaperCollector now includes
     all integration functionality.
+
+    Args:
+        session_mgr: Deprecated parameter, kept for backward compatibility only
     """
     return RotationPaperCollector()
 

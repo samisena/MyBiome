@@ -21,7 +21,7 @@ back_end/src/phase_3_semantic_normalization_OLD_BACKUP_20251015/
 - `phase_3_embedding_engine.py` - OLD embedding engine (replaced by phase_3a_*.py)
 - `phase_3_llm_classifier.py` - OLD LLM classifier (replaced by phase_3c_llm_namer.py)
 - `phase_3_hierarchy_manager.py` - OLD hierarchy manager (replaced by phase_3c database operations)
-- `phase_3_normalizer.py` - OLD main normalizer (replaced by phase_3abc_orchestrator.py)
+- `phase_3_normalizer.py` - OLD main normalizer (replaced by phase_3_orchestrator.py)
 - `semantic_normalizer.py` - OLD semantic normalizer wrapper
 
 ### Legacy Config (2 items)
@@ -88,7 +88,7 @@ back_end/src/phase_3_semantic_normalization_OLD_BACKUP_20251015/
 **Decision**: DELETE after confirming new pipeline handles mechanism clustering
 
 ### Core Orchestrator (2 files)
-- `phase_3abc_orchestrator.py` - NEW unified orchestrator
+- `phase_3_orchestrator.py` - NEW unified orchestrator
 - `phase_3_config.yaml` - NEW configuration
 
 ### Phase 3d: Hierarchical Merging (Keep all)

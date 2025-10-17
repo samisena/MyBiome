@@ -597,7 +597,10 @@ PAPER:
 
     def create_system_message(self) -> str:
         """Create a standardized system message for LLM calls optimized for qwen3:14b."""
-        return "Provide only the final JSON output without showing your reasoning process or using <think> tags. Start your response immediately with the [ character."
+        return """You MUST provide ONLY the final JSON output. NO reasoning process, NO <think> tags, NO explanations, NO commentary.
+Your response must start immediately with the [ character and end with ].
+Any text before [ or after ] will cause parsing to fail.
+Do NOT use <think>...</think> tags for reasoning - provide only the final output."""
 
 
 # Global prompt service instance

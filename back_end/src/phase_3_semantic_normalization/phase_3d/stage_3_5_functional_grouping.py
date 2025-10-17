@@ -17,13 +17,13 @@ Example:
 import json
 import logging
 import sqlite3
-import requests
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
 from .stage_3_llm_validation import LLMValidationResult
 from .config import Phase3dConfig, get_config
+from back_end.src.data.ollama_client import OllamaClient
 
 logger = logging.getLogger(__name__)
 
@@ -54,17 +54,25 @@ class FunctionalGrouper:
     4. Store in intervention_category_mapping junction table
     """
 
-    def __init__(self, config: Phase3dConfig = None, db_path: str = None):
+    def __init__(self, config: Phase3dConfig = None, db_path: str = None, ollama_client: Optional[OllamaClient] = None):
         """
         Initialize functional grouper.
 
         Args:
             config: Configuration object
             db_path: Path to intervention_research.db
+            ollama_client: Optional pre-configured OllamaClient instance
         """
         self.config = config or get_config()
         self.db_path = db_path or "back_end/data/intervention_research.db"
-        self.llm_url = f"{self.config.llm_base_url}/api/generate"
+
+        # Use provided client or create new one
+        self.llm_client = ollama_client or OllamaClient(
+            model=self.config.llm_model,
+            temperature=self.config.llm_temperature,
+            api_url=self.config.llm_base_url,
+            timeout=self.config.llm_timeout
+        )
 
         logger.info("Initialized FunctionalGrouper")
 
@@ -201,50 +209,29 @@ Respond ONLY with valid JSON (no markdown, no extra text):
 }}"""
 
         try:
-            response = requests.post(
-                self.llm_url,
-                json={
-                    "model": self.config.llm_model,
-                    "prompt": prompt,
-                    "stream": False,
-                    "format": "json",
-                    "options": {
-                        "temperature": self.config.llm_temperature,
-                        "num_predict": 200
-                    }
-                },
-                timeout=10  # Reduced timeout for testing
+            # Use OllamaClient with JSON mode and reduced token limit
+            response_text = self.llm_client.generate(
+                prompt=prompt,
+                json_mode=True,
+                max_tokens=200
             )
 
-            if response.status_code == 200:
-                result = response.json()
-                response_text = result.get('response', '').strip()
+            # Parse JSON response
+            parsed = json.loads(response_text)
 
-                # Parse JSON response
-                parsed = json.loads(response_text)
+            functional_name = parsed.get('functional_name', '')
+            category_type = parsed.get('category_type', 'functional')
+            reasoning = parsed.get('reasoning', '')
 
-                functional_name = parsed.get('functional_name', '')
-                category_type = parsed.get('category_type', 'functional')
-                reasoning = parsed.get('reasoning', '')
+            # Validate category_type
+            if category_type not in ['functional', 'therapeutic']:
+                category_type = 'functional'
 
-                # Validate category_type
-                if category_type not in ['functional', 'therapeutic']:
-                    category_type = 'functional'
+            return functional_name, category_type, reasoning
 
-                return functional_name, category_type, reasoning
-
-            else:
-                logger.error(f"LLM request failed: {response.status_code}")
-                return "", "functional", ""
-
-        except requests.exceptions.Timeout:
-            logger.warning("LLM request timed out (Ollama may not be running)")
-            return "", "functional", ""
-        except requests.exceptions.ConnectionError:
-            logger.warning("Could not connect to LLM (Ollama may not be running)")
-            return "", "functional", ""
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse LLM JSON response: {e}")
+            logger.debug(f"Response was: {response_text[:200]}")
             return "", "functional", ""
         except Exception as e:
             logger.error(f"Error calling LLM: {e}")

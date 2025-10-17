@@ -6,7 +6,7 @@ Coordinates all three phases of the unified semantic clustering pipeline:
 2. Phase 3b: Clustering (HDBSCAN or Hierarchical + Singleton Handler)
 3. Phase 3c: LLM Canonical Naming (qwen3:14b with temperature control)
 
-Supports configuration via YAML, session persistence, and experiment tracking.
+Supports configuration via YAML and caching.
 """
 
 import json
@@ -88,15 +88,14 @@ class UnifiedPhase3Orchestrator:
     """
     Main orchestrator for unified Phase 3 pipeline.
 
-    Runs all three phases for interventions, conditions, and mechanisms.
-    Tracks results and saves to experiment database.
+    Runs all three phases (embedding, clustering, naming) for interventions,
+    conditions, and mechanisms. Supports single-entity and multi-entity modes.
     """
 
     def __init__(
         self,
         config_path: str,
         db_path: str,
-        experiment_db_path: Optional[str] = None,
         cache_dir: Optional[str] = None
     ):
         """
@@ -105,7 +104,6 @@ class UnifiedPhase3Orchestrator:
         Args:
             config_path: Path to YAML configuration file
             db_path: Path to intervention_research.db
-            experiment_db_path: Path to experiment database (optional)
             cache_dir: Cache directory for embeddings/clusters/naming (optional)
         """
         self.config_path = Path(config_path)
@@ -121,21 +119,10 @@ class UnifiedPhase3Orchestrator:
             self.cache_dir = Path(self.config['cache']['base_dir'])
         self.cache_dir.mkdir(parents=True, exist_ok=True)
 
-        # Setup experiment database
-        if experiment_db_path:
-            self.experiment_db_path = Path(experiment_db_path)
-        else:
-            self.experiment_db_path = Path(self.config['database']['experiment_db_path'])
-
-        # Initialize experiment database if needed
-        self._initialize_experiment_db()
-
-        # Experiment metadata
-        self.experiment_id = None
-        self.experiment_name = self.config['experiment']['name']
+        # Timing
         self.start_time = None
 
-        logger.info(f"UnifiedPhase3Orchestrator initialized: experiment={self.experiment_name}")
+        logger.info("UnifiedPhase3Orchestrator initialized")
 
     def _deep_merge(self, base: Dict, override: Dict) -> Dict:
         """Deep merge two dictionaries."""
@@ -163,38 +150,27 @@ class UnifiedPhase3Orchestrator:
         logger.info(f"Loaded configuration from {self.config_path}")
         return config
 
-    def _initialize_experiment_db(self):
-        """Initialize experiment database with schema."""
-        if not self.experiment_db_path.exists():
-            logger.info(f"Creating experiment database: {self.experiment_db_path}")
-            schema_path = Path(__file__).parent / "experiment_schema.sql"
-
-            conn = sqlite3.connect(self.experiment_db_path)
-            with open(schema_path, 'r') as f:
-                schema_sql = f.read()
-            conn.executescript(schema_sql)
-            conn.commit()
-            conn.close()
-
-            logger.info("Experiment database initialized")
-
     def run(self) -> Dict[str, Any]:
         """
-        Run complete unified Phase 3 pipeline.
+        Run complete unified Phase 3 pipeline for all entity types.
+
+        Processes all three entity types (interventions, conditions, mechanisms)
+        sequentially through Phase 3a (embedding), 3b (clustering), 3c (naming),
+        and optionally 3d (hierarchical merging).
 
         Returns:
-            Dict with experiment results
+            Dict with pipeline results:
+                - success (bool): Whether pipeline completed successfully
+                - duration_seconds (float): Total execution time
+                - results (dict): EntityResults for each entity type
+                - error (str): Error message if failed
         """
         self.start_time = time.time()
 
         logger.info("="*60)
         logger.info("UNIFIED PHASE 3 PIPELINE STARTING")
         logger.info("="*60)
-        logger.info(f"Experiment: {self.experiment_name}")
         logger.info(f"Config: {self.config_path}")
-
-        # Create experiment record
-        self.experiment_id = self._create_experiment_record()
 
         try:
             # Run pipeline for each entity type
@@ -205,39 +181,28 @@ class UnifiedPhase3Orchestrator:
             logger.info("PROCESSING INTERVENTIONS")
             logger.info("="*60)
             results['interventions'] = self._process_entity_type('intervention')
-            # Save incrementally after interventions complete
-            self._save_entity_results('intervention', results['interventions'])
 
             # Process conditions
             logger.info("\n" + "="*60)
             logger.info("PROCESSING CONDITIONS")
             logger.info("="*60)
             results['conditions'] = self._process_entity_type('condition')
-            # Save incrementally after conditions complete
-            self._save_entity_results('condition', results['conditions'])
 
             # Process mechanisms
             logger.info("\n" + "="*60)
             logger.info("PROCESSING MECHANISMS")
             logger.info("="*60)
             results['mechanisms'] = self._process_entity_type('mechanism')
-            # Save incrementally after mechanisms complete
-            self._save_entity_results('mechanism', results['mechanisms'])
 
-            # Update experiment status
             duration = time.time() - self.start_time
-            self._update_experiment_status('completed', duration)
 
             logger.info("\n" + "="*60)
             logger.info("UNIFIED PHASE 3 PIPELINE COMPLETED")
             logger.info("="*60)
             logger.info(f"Duration: {duration:.1f}s ({duration/60:.1f}m)")
-            logger.info(f"Experiment ID: {self.experiment_id}")
 
             return {
                 'success': True,
-                'experiment_id': self.experiment_id,
-                'experiment_name': self.experiment_name,
                 'duration_seconds': duration,
                 'results': results
             }
@@ -245,15 +210,72 @@ class UnifiedPhase3Orchestrator:
         except Exception as e:
             logger.error(f"Pipeline failed: {e}", exc_info=True)
             duration = time.time() - self.start_time
-            self._update_experiment_status('failed', duration)
-            self._log_experiment_error(str(e))
 
             return {
                 'success': False,
-                'experiment_id': self.experiment_id,
                 'error': str(e),
                 'duration_seconds': duration
             }
+
+    def run_pipeline(
+        self,
+        entity_type: str,
+        force_reembed: bool = False,
+        force_recluster: bool = False
+    ) -> EntityResults:
+        """
+        Run Phase 3 pipeline for a single entity type.
+
+        This method provides compatibility with the batch pipeline wrapper API.
+        Unlike run(), which processes all 3 entity types sequentially, this method
+        processes only the specified entity type.
+
+        Args:
+            entity_type: 'intervention', 'condition', or 'mechanism'
+            force_reembed: Ignore embedding cache and regenerate embeddings
+            force_recluster: Ignore clustering cache and recluster
+
+        Returns:
+            EntityResults object with all phase statistics
+
+        Raises:
+            ValueError: If entity_type is invalid
+        """
+        # Validate entity type
+        valid_types = ['intervention', 'condition', 'mechanism']
+        if entity_type not in valid_types:
+            raise ValueError(f"Invalid entity_type: {entity_type}. Must be one of {valid_types}")
+
+        logger.info("="*60)
+        logger.info(f"PHASE 3 PIPELINE: {entity_type.upper()}S")
+        logger.info("="*60)
+        logger.info(f"Config: {self.config_path}")
+        logger.info(f"Force reembed: {force_reembed}")
+        logger.info(f"Force recluster: {force_recluster}")
+
+        start_time = time.time()
+
+        try:
+            # Process the entity type through all phases
+            results = self._process_entity_type(entity_type)
+
+            duration = time.time() - start_time
+
+            logger.info("="*60)
+            logger.info(f"PHASE 3 PIPELINE COMPLETED: {entity_type.upper()}S")
+            logger.info("="*60)
+            logger.info(f"Duration: {duration:.1f}s ({duration/60:.1f}m)")
+            logger.info(f"Embeddings: {results.embeddings_generated}")
+            logger.info(f"Clusters: {results.num_clusters}")
+            logger.info(f"Named: {results.names_generated}")
+
+            return results
+
+        except Exception as e:
+            duration = time.time() - start_time
+            logger.error(f"Pipeline failed for {entity_type}s: {e}", exc_info=True)
+            logger.error(f"Failed after {duration:.1f}s")
+            raise
 
     def _process_entity_type(self, entity_type: str) -> EntityResults:
         """
@@ -690,255 +712,3 @@ class UnifiedPhase3Orchestrator:
 
         return clusters
 
-    def _create_experiment_record(self) -> int:
-        """Create experiment record in database."""
-        conn = sqlite3.connect(self.experiment_db_path)
-        cursor = conn.cursor()
-
-        # Check if experiment already exists
-        cursor.execute("SELECT experiment_id FROM experiments WHERE experiment_name = ?",
-                      (self.experiment_name,))
-        existing = cursor.fetchone()
-
-        if existing:
-            # Update existing experiment
-            experiment_id = existing[0]
-            cursor.execute("""
-                UPDATE experiments
-                SET description = ?, config_path = ?,
-                    embedding_model = ?, clustering_algorithm = ?, naming_temperature = ?,
-                    embedding_hyperparameters = ?, clustering_hyperparameters = ?, naming_hyperparameters = ?,
-                    status = ?, started_at = ?, tags = ?
-                WHERE experiment_id = ?
-            """, (
-                self.config['experiment'].get('description', ''),
-                str(self.config_path),
-                self.config['embedding']['interventions']['model'],
-                self.config['clustering']['interventions']['algorithm'],
-                self.config['naming']['llm']['temperature'],
-                json.dumps(self.config['embedding']),
-                json.dumps(self.config['clustering']),
-                json.dumps(self.config['naming']),
-                'running',
-                datetime.now().isoformat(),
-                json.dumps(self.config['experiment'].get('tags', [])),
-                experiment_id
-            ))
-        else:
-            # Create new experiment
-            cursor.execute("""
-                INSERT INTO experiments (
-                    experiment_name, description, config_path,
-                    embedding_model, clustering_algorithm, naming_temperature,
-                    embedding_hyperparameters, clustering_hyperparameters, naming_hyperparameters,
-                    status, started_at, tags
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, (
-                self.experiment_name,
-                self.config['experiment'].get('description', ''),
-                str(self.config_path),
-                self.config['embedding']['interventions']['model'],
-                self.config['clustering']['interventions']['algorithm'],
-                self.config['naming']['llm']['temperature'],
-                json.dumps(self.config['embedding']),
-                json.dumps(self.config['clustering']),
-                json.dumps(self.config['naming']),
-                'running',
-                datetime.now().isoformat(),
-                json.dumps(self.config['experiment'].get('tags', []))
-            ))
-            experiment_id = cursor.lastrowid
-
-        conn.commit()
-        conn.close()
-
-        return experiment_id
-
-    def _update_experiment_status(self, status: str, duration: float):
-        """Update experiment status."""
-        conn = sqlite3.connect(self.experiment_db_path)
-        cursor = conn.cursor()
-
-        cursor.execute("""
-            UPDATE experiments
-            SET status = ?, completed_at = ?, duration_seconds = ?
-            WHERE experiment_id = ?
-        """, (status, datetime.now().isoformat(), duration, self.experiment_id))
-
-        conn.commit()
-        conn.close()
-
-    def _save_entity_results(self, entity_type: str, entity_results: EntityResults):
-        """
-        Save results for a single entity type to database (incremental save).
-
-        Args:
-            entity_type: Entity type name ('intervention', 'condition', 'mechanism')
-            entity_results: EntityResults object for this entity type
-        """
-        conn = sqlite3.connect(self.experiment_db_path)
-        cursor = conn.cursor()
-
-        try:
-            # Save experiment_results
-            cursor.execute("""
-                INSERT INTO experiment_results (
-                    experiment_id, entity_type,
-                    embedding_duration_seconds, embeddings_generated, embedding_cache_hit_rate,
-                    clustering_duration_seconds, num_clusters, num_natural_clusters,
-                    num_singleton_clusters, num_noise_points, assignment_rate,
-                    silhouette_score, davies_bouldin_score,
-                    min_cluster_size, max_cluster_size, mean_cluster_size, median_cluster_size,
-                    naming_duration_seconds, names_generated, naming_failures, naming_cache_hit_rate
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, (
-                self.experiment_id, entity_type,
-                entity_results.embedding_duration_seconds,
-                entity_results.embeddings_generated,
-                entity_results.embedding_cache_hit_rate,
-                entity_results.clustering_duration_seconds,
-                entity_results.num_clusters,
-                entity_results.num_natural_clusters,
-                entity_results.num_singleton_clusters,
-                entity_results.num_noise_points,
-                entity_results.assignment_rate,
-                entity_results.silhouette_score,
-                entity_results.davies_bouldin_score,
-                entity_results.cluster_size_stats.get('min'),
-                entity_results.cluster_size_stats.get('max'),
-                entity_results.cluster_size_stats.get('mean'),
-                entity_results.cluster_size_stats.get('median'),
-                entity_results.naming_duration_seconds,
-                entity_results.names_generated,
-                entity_results.naming_failures,
-                entity_results.naming_cache_hit_rate
-            ))
-
-            # Save cluster_details
-            for cluster_id, naming_result in entity_results.naming_results.items():
-                # Find cluster members
-                member_mask = entity_results.cluster_labels == cluster_id
-                members = [entity_results.entity_names[i] for i in range(len(member_mask)) if member_mask[i]]
-
-                cursor.execute("""
-                    INSERT INTO cluster_details (
-                        experiment_id, entity_type, cluster_id,
-                        canonical_name, category, parent_cluster,
-                        member_count, is_singleton,
-                        member_entities, confidence,
-                        naming_method, naming_model, naming_temperature
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """, (
-                    self.experiment_id, entity_type, cluster_id,
-                    naming_result.canonical_name,
-                    naming_result.category,
-                    naming_result.parent_cluster,
-                    len(members),
-                    len(members) == 1,
-                    json.dumps(members),
-                    naming_result.confidence,
-                    naming_result.provenance.get('method') if naming_result.provenance else None,
-                    naming_result.provenance.get('model') if naming_result.provenance else None,
-                    naming_result.provenance.get('temperature') if naming_result.provenance else None
-                ))
-
-            conn.commit()
-            logger.info(f"Saved {entity_type} results to database (ID: {self.experiment_id})")
-
-        except Exception as e:
-            conn.rollback()
-            logger.error(f"Failed to save {entity_type} results: {e}", exc_info=True)
-            raise
-        finally:
-            conn.close()
-
-    def _save_experiment_results(self, results: Dict[str, EntityResults]):
-        """
-        Save detailed experiment results to database (batch save - DEPRECATED).
-
-        This method is kept for backward compatibility but is no longer used
-        by the main pipeline, which uses incremental saves via _save_entity_results.
-        """
-        conn = sqlite3.connect(self.experiment_db_path)
-        cursor = conn.cursor()
-
-        for entity_type, entity_results in results.items():
-            # Save experiment_results
-            cursor.execute("""
-                INSERT INTO experiment_results (
-                    experiment_id, entity_type,
-                    embedding_duration_seconds, embeddings_generated, embedding_cache_hit_rate,
-                    clustering_duration_seconds, num_clusters, num_natural_clusters,
-                    num_singleton_clusters, num_noise_points, assignment_rate,
-                    silhouette_score, davies_bouldin_score,
-                    min_cluster_size, max_cluster_size, mean_cluster_size, median_cluster_size,
-                    naming_duration_seconds, names_generated, naming_failures, naming_cache_hit_rate
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, (
-                self.experiment_id, entity_type,
-                entity_results.embedding_duration_seconds,
-                entity_results.embeddings_generated,
-                entity_results.embedding_cache_hit_rate,
-                entity_results.clustering_duration_seconds,
-                entity_results.num_clusters,
-                entity_results.num_natural_clusters,
-                entity_results.num_singleton_clusters,
-                entity_results.num_noise_points,
-                entity_results.assignment_rate,
-                entity_results.silhouette_score,
-                entity_results.davies_bouldin_score,
-                entity_results.cluster_size_stats.get('min'),
-                entity_results.cluster_size_stats.get('max'),
-                entity_results.cluster_size_stats.get('mean'),
-                entity_results.cluster_size_stats.get('median'),
-                entity_results.naming_duration_seconds,
-                entity_results.names_generated,
-                entity_results.naming_failures,
-                entity_results.naming_cache_hit_rate
-            ))
-
-            # Save cluster_details
-            for cluster_id, naming_result in entity_results.naming_results.items():
-                # Find cluster members
-                member_mask = entity_results.cluster_labels == cluster_id
-                members = [entity_results.entity_names[i] for i in range(len(member_mask)) if member_mask[i]]
-
-                cursor.execute("""
-                    INSERT INTO cluster_details (
-                        experiment_id, entity_type, cluster_id,
-                        canonical_name, category, parent_cluster,
-                        member_count, is_singleton,
-                        member_entities, confidence,
-                        naming_method, naming_model, naming_temperature
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """, (
-                    self.experiment_id, entity_type, cluster_id,
-                    naming_result.canonical_name,
-                    naming_result.category,
-                    naming_result.parent_cluster,
-                    len(members),
-                    len(members) == 1,
-                    json.dumps(members),
-                    naming_result.confidence,
-                    naming_result.provenance.get('method') if naming_result.provenance else None,
-                    naming_result.provenance.get('model') if naming_result.provenance else None,
-                    naming_result.provenance.get('temperature') if naming_result.provenance else None
-                ))
-
-        conn.commit()
-        conn.close()
-
-        logger.info(f"Saved experiment results to database (ID: {self.experiment_id})")
-
-    def _log_experiment_error(self, error_message: str):
-        """Log error to experiment_logs table."""
-        conn = sqlite3.connect(self.experiment_db_path)
-        cursor = conn.cursor()
-
-        cursor.execute("""
-            INSERT INTO experiment_logs (experiment_id, log_level, phase, message)
-            VALUES (?, ?, ?, ?)
-        """, (self.experiment_id, 'ERROR', 'pipeline', error_message))
-
-        conn.commit()
-        conn.close()

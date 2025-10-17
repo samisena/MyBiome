@@ -168,6 +168,71 @@ def calculate_success_rate(successful: int, total: int) -> float:
     return (successful / total) * 100.0
 
 
+def normalize_string(
+    text: str,
+    lowercase: bool = True,
+    strip_whitespace: bool = True,
+    remove_extra_spaces: bool = False,
+    min_length: int = 0,
+    max_length: Optional[int] = None
+) -> Optional[str]:
+    """
+    Normalize a string with common transformations.
+
+    This utility eliminates duplicate string normalization patterns
+    found across validators, processors, and clustering code.
+
+    Args:
+        text: Input string to normalize
+        lowercase: Convert to lowercase (default: True)
+        strip_whitespace: Strip leading/trailing whitespace (default: True)
+        remove_extra_spaces: Collapse multiple spaces to single space (default: False)
+        min_length: Minimum length (return None if shorter, default: 0)
+        max_length: Maximum length (truncate if longer, default: None)
+
+    Returns:
+        Normalized string, or None if validation fails
+
+    Examples:
+        >>> normalize_string("  Hello World  ")
+        'hello world'
+
+        >>> normalize_string("Test", min_length=5)
+        None
+
+        >>> normalize_string("  Multiple   Spaces  ", remove_extra_spaces=True)
+        'multiple spaces'
+    """
+    if not text or not isinstance(text, str):
+        return None
+
+    # Strip whitespace
+    if strip_whitespace:
+        text = text.strip()
+
+    # Check if empty after stripping
+    if not text:
+        return None
+
+    # Convert to lowercase
+    if lowercase:
+        text = text.lower()
+
+    # Remove extra spaces
+    if remove_extra_spaces:
+        text = ' '.join(text.split())
+
+    # Check minimum length
+    if min_length > 0 and len(text) < min_length:
+        return None
+
+    # Truncate to maximum length
+    if max_length is not None and len(text) > max_length:
+        text = text[:max_length]
+
+    return text
+
+
 def read_fulltext_content(fulltext_path: str) -> Optional[str]:
     """
     Read full-text content from XML or PDF files.

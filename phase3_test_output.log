@@ -1,0 +1,25 @@
+[12:15:57] [INFO] ============================================================
+[12:15:57] [INFO] PHASE 3 MINIMAL PIPELINE TEST
+[12:15:57] [INFO] ============================================================
+[12:15:57] [SUCCESS] Database found: C:\Users\samis\Desktop\MyBiome\back_end\data\processed\intervention_research.db
+[12:15:57] [SUCCESS] Config found: C:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3_config.yaml
+[12:15:59] [SUCCESS] Ollama is running (9 models available)
+[12:15:59] [SUCCESS] Required models found: qwen2.5:14b, mxbai-embed-large
+[12:15:59] [INFO] 
+============================================================
+[12:15:59] [INFO] STEP 1: Inserting Test Data
+[12:15:59] [INFO] ============================================================
+[12:15:59] [ERROR] ERROR: Failed to insert test data: UNIQUE constraint failed: papers.pmid
+[12:15:59] [ERROR] Traceback (most recent call last):
+  File "C:\Users\samis\Desktop\MyBiome\test_phase3_minimal.py", line 107, in insert_test_data
+    cursor.execute("""
+    ~~~~~~~~~~~~~~^^^^
+        INSERT INTO papers (pmid, title, abstract, publication_date, processing_status, llm_processed)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+        1
+        ^
+    ))
+    ^^
+sqlite3.IntegrityError: UNIQUE constraint failed: papers.pmid
+

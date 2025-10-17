@@ -64,7 +64,7 @@ class ModelResult:
 
 class SingleModelAnalyzer:
     """
-    Simple single-model analyzer using qwen2.5:14b.
+    Simple single-model analyzer using qwen3:14b.
     Runs one model on each paper and stores valid interventions directly.
 
     Benefits over dual-model approach:
@@ -76,7 +76,7 @@ class SingleModelAnalyzer:
 
     def __init__(self, repository_mgr=None):
         """
-        Initialize with qwen2.5:14b model.
+        Initialize with qwen3:14b model.
 
         Args:
             repository_mgr: Repository manager instance (optional, uses global if None)
@@ -84,9 +84,9 @@ class SingleModelAnalyzer:
         self.repository_mgr = repository_mgr or repository_manager
 
         # Single model configuration
-        self.model_name = 'qwen2.5:14b'
+        self.model_name = 'qwen3:14b'
         self.model_config = {
-            'client': get_llm_client('qwen2.5:14b'),
+            'client': get_llm_client('qwen3:14b'),
             'temperature': 0.4,  # Optimized based on temperature experiments (0.4 provides best balance of speed + quality)
             'max_tokens': None,  # Will be calculated dynamically
             'max_context': 32768,  # Model's maximum context length
@@ -100,7 +100,7 @@ class SingleModelAnalyzer:
         # GPU optimization settings
         self.gpu_optimization = self._initialize_gpu_optimization()
 
-        logger.info("Single-model analyzer initialized with qwen2.5:14b")
+        logger.info("Single-model analyzer initialized with qwen3:14b")
 
     def _initialize_gpu_optimization(self) -> Dict[str, Any]:
         """Initialize GPU optimization settings."""
@@ -247,6 +247,24 @@ class SingleModelAnalyzer:
             response_text = response.get('content', '')
             extraction_time = time.time() - start_time
 
+            # === DIAGNOSTIC LOGGING ===
+            response_stats = response.get('usage', {})
+            logger.info(f"[DIAGNOSTICS] Paper {pmid}:")
+            logger.info(f"  - Response length: {len(response_text)} chars")
+            logger.info(f"  - Prompt tokens: {response_stats.get('prompt_tokens', 'unknown')}")
+            logger.info(f"  - Completion tokens: {response_stats.get('completion_tokens', 'unknown')}")
+            logger.info(f"  - Total tokens: {response_stats.get('total_tokens', 'unknown')}")
+            logger.info(f"  - Extraction time: {extraction_time:.2f}s")
+
+            # Check for think tags
+            if '<think>' in response_text.lower():
+                logger.warning(f"[DIAGNOSTICS] Paper {pmid}: Response contains <think> tags!")
+                # Count think tag occurrences
+                think_count = response_text.lower().count('<think>')
+                logger.warning(f"  - Found {think_count} <think> tag(s)")
+                # Show first 200 chars of response
+                logger.warning(f"  - Response preview: {response_text[:200]}")
+
             # Parse JSON response
             hierarchical_data = parse_json_safely(response_text, f"{pmid}_{self.model_name}")
 
@@ -344,6 +362,11 @@ class SingleModelAnalyzer:
 
             # Flatten: create one record per intervention, copying study-level fields
             for intervention in interventions:
+                # Convert adverse_effects array to string if needed
+                adverse_effects = intervention.get('adverse_effects')
+                if isinstance(adverse_effects, list):
+                    adverse_effects = '; '.join(str(x) for x in adverse_effects if x)
+
                 flat_record = {
                     # Intervention-level fields
                     'intervention_name': intervention.get('intervention_name'),
@@ -353,9 +376,9 @@ class SingleModelAnalyzer:
                     'intensity': intervention.get('intensity'),
                     'administration_route': intervention.get('administration_route'),
                     'mechanism': intervention.get('mechanism'),
-                    'correlation_type': intervention.get('correlation_type'),
+                    'outcome_type': intervention.get('outcome_type'),  # Fixed: renamed from correlation_type
                     'delivery_method': intervention.get('delivery_method'),
-                    'adverse_effects': intervention.get('adverse_effects'),
+                    'adverse_effects': adverse_effects,  # Fixed: convert array to string
 
                     # Study-level fields (copied to each intervention)
                     'health_condition': health_condition,
@@ -532,16 +555,26 @@ class SingleModelAnalyzer:
         """
         Save a batch of interventions to database.
         """
+        saved_count = 0
+        failed_count = 0
+
         for intervention in interventions:
             try:
                 # Use standard insertion
                 success = self.repository_mgr.interventions.insert_intervention(intervention)
                 if success:
-                    logger.debug(f"Intervention saved: {intervention.get('intervention_name')}")
+                    saved_count += 1
+                    logger.debug(f"✓ Saved intervention: {intervention.get('intervention_name')}")
                 else:
-                    logger.error(f"Failed to save intervention: {intervention.get('intervention_name')}")
+                    failed_count += 1
+                    logger.warning(f"✗ Failed to save intervention: {intervention.get('intervention_name')} (returned False)")
             except Exception as e:
-                logger.error(f"Error saving intervention: {e}")
+                failed_count += 1
+                logger.error(f"✗ Exception saving intervention {intervention.get('intervention_name')}: {e}")
+
+        # Summary logging
+        total = len(interventions)
+        logger.info(f"Database save summary: {saved_count}/{total} saved, {failed_count}/{total} failed")
 
     def get_unprocessed_papers(self, limit: Optional[int] = None) -> List[Dict]:
         """Get papers that haven't been processed yet (truly unprocessed only)."""

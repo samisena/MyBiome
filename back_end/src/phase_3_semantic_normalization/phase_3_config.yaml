@@ -4,7 +4,6 @@
 # Database paths
 database:
   db_path: "c:/Users/samis/Desktop/MyBiome/back_end/data/processed/intervention_research.db"
-  experiment_db_path: "c:/Users/samis/Desktop/MyBiome/back_end/src/phase_3_semantic_normalization/experiment_results.db"
 
 # Cache directories
 cache:
@@ -145,13 +144,6 @@ phase3d:
     max_depth: 4  # Max hierarchy levels (grandparent → parent → child)
     min_cluster_size_for_merge: 2
     allow_cross_category_merges: true  # Enable functional grouping
-
-# Experiment tracking
-experiment:
-  name: "baseline"
-  description: "Baseline configuration with temperature=0.0"
-  save_results: true
-  save_provenance: true
 
 # Performance settings
 performance:

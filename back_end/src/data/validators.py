@@ -8,6 +8,7 @@ from typing import Any, Dict, List, Optional, Set, Union
 from dataclasses import dataclass
 from enum import Enum
 from back_end.src.data.config import setup_logging
+from back_end.src.data.constants import PLACEHOLDER_PATTERNS
 
 logger = setup_logging(__name__, 'validators.log')
 
@@ -280,16 +281,14 @@ class InterventionValidator(BaseValidator):
 
             # Check for placeholder values - only reject if the ENTIRE name is a placeholder
             # Split into words and check if it's ONLY placeholder words
-            import re
             name_lower = name.lower().strip()
             words = re.findall(r'\b\w+\b', name_lower)  # Extract words only
 
-            placeholder_patterns = ['unknown', 'n/a', 'na', 'null', 'none', 'tbd', 'todo']
             # Check if the entire name is just a placeholder (exact match or only placeholder words)
             is_placeholder = (
-                name_lower in placeholder_patterns or  # Exact match
+                name_lower in PLACEHOLDER_PATTERNS or  # Exact match
                 '...' in name or  # Contains ellipsis
-                (len(words) == 1 and words[0] in placeholder_patterns)  # Single placeholder word
+                (len(words) == 1 and words[0] in PLACEHOLDER_PATTERNS)  # Single placeholder word
             )
 
             if is_placeholder:
@@ -316,17 +315,17 @@ class InterventionValidator(BaseValidator):
                 ))
 
                 # Check for placeholder/generic values
-                import re
                 mechanism_lower = mechanism.lower().strip()
-                placeholder_patterns = [
-                    'unknown', 'unclear', 'not specified', 'n/a', 'na', 'null', 'none',
-                    'mechanism not described', 'mechanism unclear', 'not clear',
+
+                # Extended placeholder patterns for mechanisms (combines general + mechanism-specific)
+                mechanism_placeholders = PLACEHOLDER_PATTERNS | {
+                    'unclear', 'mechanism not described', 'mechanism unclear', 'not clear',
                     'improves symptoms', 'helps condition', 'works through pathways',
                     'mechanism of action unknown'
-                ]
+                }
 
                 # Check if mechanism is just a placeholder
-                if mechanism_lower in placeholder_patterns or len(mechanism_lower) < 10:
+                if mechanism_lower in mechanism_placeholders or len(mechanism_lower) < 10:
                     issues.append(ValidationIssue(
                         field='mechanism',
                         message=f"Mechanism '{mechanism}' is too generic or placeholder. Describe the biological/behavioral/psychological pathway.",

@@ -78,6 +78,11 @@ TIMEOUT_EMBEDDING_LONG = 60  # For mxbai-embed-large (larger model)
 TIMEOUT_LLM_DEFAULT = 60  # Standard LLM calls
 TIMEOUT_LLM_BATCH = 300  # Large batch LLM processing (5 minutes)
 
+# Ollama client constants (for OllamaClient class)
+OLLAMA_API_URL = "http://localhost:11434"  # Default Ollama API endpoint
+OLLAMA_TIMEOUT_SECONDS = 60  # Request timeout
+OLLAMA_RETRY_DELAYS = [10, 30, 60]  # Retry delays in seconds (exponential backoff)
+
 # === INTERVENTION CATEGORIES (13 categories) ===
 
 INTERVENTION_CATEGORIES = [

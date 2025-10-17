@@ -8,13 +8,13 @@ Tracks discovered categories with confidence scores for later consolidation.
 import json
 import logging
 import re
-import time
-import requests
 import hashlib
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, field, asdict
 from collections import defaultdict
+
+from back_end.src.data.ollama_client import OllamaClient
 
 logger = logging.getLogger(__name__)
 
@@ -75,37 +75,43 @@ class LLMNamer:
         strip_think_tags: bool = True,
         max_members_shown: int = 10,
         include_frequency: bool = True,
-        cache_path: Optional[str] = None,  # For compatibility (not used yet)
+        cache_path: Optional[str] = None,
         example_categories: Optional[Dict[str, List[str]]] = None,
-        forbidden_terms: Optional[List[str]] = None
+        forbidden_terms: Optional[List[str]] = None,
+        ollama_client: Optional[OllamaClient] = None
     ):
         """
         Initialize dynamic LLM namer.
 
         Args:
             model: LLM model name
-            base_url: Ollama API URL
+            base_url: Ollama API URL (ignored if ollama_client provided)
             temperature: LLM temperature (0.0-1.0)
             max_tokens: Maximum response tokens
             timeout: API request timeout
-            max_retries: Maximum retry attempts
+            max_retries: Maximum retry attempts (ignored if ollama_client provided)
             strip_think_tags: Remove <think> tags from qwen3
             max_members_shown: Maximum members in prompt
             include_frequency: Show paper frequency
-            cache_path: Cache path (for compatibility, not used yet)
+            cache_path: Cache path for naming results
             example_categories: Dict of example categories per entity type
             forbidden_terms: Generic terms to reject
+            ollama_client: Optional pre-configured OllamaClient instance
         """
-        self.model = model
-        self.base_url = base_url
-        self.temperature = temperature
-        self.max_tokens = max_tokens
-        self.timeout = timeout  # None = no timeout, respects config
-        self.max_retries = max_retries
         self.strip_think_tags = strip_think_tags
         self.max_members_shown = max_members_shown
         self.include_frequency = include_frequency
-        self.cache_path = cache_path  # For compatibility
+        self.cache_path = cache_path
+        self.temperature = temperature  # Store for cache key generation
+
+        # Use provided client or create new one
+        self.llm_client = ollama_client or OllamaClient(
+            model=model,
+            temperature=temperature,
+            api_url=base_url,
+            timeout=timeout,
+            max_retries=max_retries
+        )
 
         # Example categories (minimal - not exhaustive)
         self.example_categories = example_categories or {
@@ -138,7 +144,7 @@ class LLMNamer:
             'hit_rate': 0.0  # For compatibility
         }
 
-        logger.info(f"LLMNamer initialized: model={model}, temperature={temperature}")
+        logger.info(f"LLMNamer initialized: model={self.llm_client.model}, temperature={temperature}")
         if self.cache_path and self.cache:
             logger.info(f"Loaded {len(self.cache)} cached naming results from {self.cache_path}")
 
@@ -252,74 +258,55 @@ class LLMNamer:
         # Build prompt for uncached clusters only
         prompt = self._build_prompt(uncached_clusters, entity_type)
 
-        # Call LLM with retry logic
+        # Call LLM using OllamaClient (retry logic handled by client)
         system_message = "Provide only the final JSON output without showing your reasoning process or using <think> tags. Start your response immediately with the [ character."
 
-        for attempt in range(self.max_retries):
-            try:
-                # Use very large timeout if None (requests doesn't accept None)
-                timeout_value = self.timeout if self.timeout is not None else 3600  # 1 hour max
+        try:
+            # Use OllamaClient.generate() with system prompt
+            response_text = self.llm_client.generate(
+                prompt=prompt,
+                system_prompt=system_message
+            )
 
-                response = requests.post(
-                    f"{self.base_url}/api/generate",
-                    json={
-                        "model": self.model,
-                        "prompt": prompt,
-                        "system": system_message,
-                        "temperature": self.temperature,
-                        "stream": False
-                    },
-                    timeout=timeout_value
-                )
-                response.raise_for_status()
+            # Strip think tags if present
+            if self.strip_think_tags:
+                response_text = self._strip_think_tags(response_text)
 
-                response_text = response.json()['response'].strip()
+            # Parse JSON response
+            naming_data = self._parse_response(response_text)
 
-                # Strip think tags if present
-                if self.strip_think_tags:
-                    response_text = self._strip_think_tags(response_text)
+            # Map to NamingResult objects (uncached clusters only)
+            new_results = self._map_to_results(uncached_clusters, naming_data, entity_type, response_text)
 
-                # Parse JSON response
-                naming_data = self._parse_response(response_text)
+            # Cache newly generated results
+            if self.cache_path:
+                for i, result in enumerate(new_results):
+                    cluster = uncached_clusters[i]
+                    cache_key = self._get_cache_key(cluster)
 
-                # Map to NamingResult objects (uncached clusters only)
-                new_results = self._map_to_results(uncached_clusters, naming_data, entity_type, response_text)
+                    # Convert NamingResult to dict for caching
+                    self.cache[cache_key] = {
+                        'canonical_name': result.canonical_name,
+                        'category': result.category,
+                        'reasoning': result.reasoning,
+                        'confidence': result.confidence,
+                        'parent_cluster': result.parent_cluster,
+                        'raw_response': result.raw_response,
+                        'provenance': result.provenance
+                    }
 
-                # Cache newly generated results
-                if self.cache_path:
-                    for i, result in enumerate(new_results):
-                        cluster = uncached_clusters[i]
-                        cache_key = self._get_cache_key(cluster)
+                # Save cache to disk
+                self._save_cache()
 
-                        # Convert NamingResult to dict for caching
-                        self.cache[cache_key] = {
-                            'canonical_name': result.canonical_name,
-                            'category': result.category,
-                            'reasoning': result.reasoning,
-                            'confidence': result.confidence,
-                            'parent_cluster': result.parent_cluster,
-                            'raw_response': result.raw_response,
-                            'provenance': result.provenance
-                        }
+            # Combine cached and new results
+            all_batch_results = cached_results + new_results
 
-                    # Save cache to disk
-                    self._save_cache()
+            logger.info(f"Successfully named {len(new_results)} clusters ({len(cached_results)} from cache)")
+            return all_batch_results
 
-                # Combine cached and new results
-                all_batch_results = cached_results + new_results
-
-                logger.info(f"Successfully named {len(new_results)} clusters ({len(cached_results)} from cache, attempt {attempt + 1})")
-                return all_batch_results
-
-            except Exception as e:
-                if attempt < self.max_retries - 1:
-                    delay = 2 ** attempt
-                    logger.warning(f"Naming failed (attempt {attempt + 1}/{self.max_retries}): {e}")
-                    logger.info(f"Retrying in {delay} seconds...")
-                    time.sleep(delay)
-                else:
-                    logger.error(f"Naming failed after {self.max_retries} attempts: {e}")
-                    raise
+        except Exception as e:
+            logger.error(f"Naming failed: {e}")
+            raise
 
     def _build_prompt(self, clusters: List[ClusterData], entity_type: str) -> str:
         """
@@ -564,7 +551,7 @@ No explanations. Just the JSON array."""
                 raw_response=raw_response,
                 provenance={
                     'method': 'dynamic_llm',
-                    'model': self.model,
+                    'model': self.llm_client.model,
                     'temperature': self.temperature
                 }
             )

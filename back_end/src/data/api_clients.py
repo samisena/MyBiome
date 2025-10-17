@@ -285,7 +285,11 @@ class LLMClient:
             model=self.model_name,
             messages=messages,
             temperature=temperature or config.llm_temperature,
-            max_tokens=max_tokens or config.llm_max_tokens
+            max_tokens=max_tokens or config.llm_max_tokens,
+            extra_body={
+                "num_gpu": -1,  # Use all available GPU layers
+                "num_thread": 8   # Optimize CPU threads
+            }
         )
         return{
             'content':response.choices[0].message.content,

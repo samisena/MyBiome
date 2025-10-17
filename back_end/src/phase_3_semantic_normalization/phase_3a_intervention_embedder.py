@@ -6,12 +6,11 @@ Supports optional context inclusion (dosage, duration, etc.).
 """
 
 import logging
-import time
 from typing import List, Optional
 import numpy as np
-import requests
 
 from .phase_3a_base_embedder import BaseEmbedder
+from back_end.src.data.constants import OLLAMA_API_URL
 
 logger = logging.getLogger(__name__)
 
@@ -33,7 +32,7 @@ class InterventionEmbedder(BaseEmbedder):
         batch_size: int = 32,
         cache_path: Optional[str] = None,
         normalization: str = "l2",
-        base_url: str = "http://localhost:11434",
+        base_url: str = OLLAMA_API_URL,
         include_context: bool = False,
         timeout: int = 30
     ):
@@ -76,39 +75,18 @@ class InterventionEmbedder(BaseEmbedder):
             if self.include_context:
                 text = self._enhance_with_context(text)
 
-            try:
-                response = requests.post(
-                    self.api_endpoint,
-                    json={
-                        "model": self.model,
-                        "prompt": text
-                    },
-                    timeout=self.timeout
-                )
-                response.raise_for_status()
+            # Use centralized Ollama API caller from base class
+            embedding = self._call_ollama_api(
+                text=text,
+                model=self.model,
+                api_endpoint=self.api_endpoint,
+                timeout=self.timeout,
+                dimension=self.dimension,
+                rate_limit_delay=0.01
+            )
+            embeddings.append(embedding)
 
-                embedding = response.json().get('embedding', [])
-
-                if len(embedding) != self.dimension:
-                    logger.warning(f"Unexpected embedding dimension: {len(embedding)} (expected {self.dimension})")
-                    # Pad or truncate
-                    if len(embedding) < self.dimension:
-                        embedding = embedding + [0.0] * (self.dimension - len(embedding))
-                    else:
-                        embedding = embedding[:self.dimension]
-
-                embeddings.append(embedding)
-
-            except requests.exceptions.RequestException as e:
-                logger.error(f"Failed to embed intervention '{text[:50]}...': {e}")
-                # Fallback: zero vector
-                embeddings.append([0.0] * self.dimension)
-
-            # Rate limiting
-            time.sleep(0.01)
-
-        embeddings_array = np.array(embeddings, dtype=np.float32)
-        return embeddings_array
+        return np.vstack(embeddings)
 
     def _enhance_with_context(self, intervention_name: str) -> str:
         """

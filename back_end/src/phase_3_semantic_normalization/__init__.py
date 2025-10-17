@@ -47,7 +47,7 @@ from .phase_3c_base_namer import BaseNamer, ClusterData, NamingResult
 from .phase_3c_llm_namer import LLMNamer
 
 # Main Orchestrator
-from .phase_3abc_orchestrator import UnifiedPhase3Orchestrator, EntityResults
+from .phase_3_orchestrator import UnifiedPhase3Orchestrator, EntityResults
 
 # Phase 3c Stage 2: Category Consolidation
 from .phase_3c_category_consolidator import CategoryConsolidator, CategoryInfo, ConsolidationMapping, ConsolidationResult

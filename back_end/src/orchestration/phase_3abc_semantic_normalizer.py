@@ -31,7 +31,7 @@ from typing import Dict, Optional
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from back_end.src.data.config import config
-from back_end.src.phase_3_semantic_normalization.phase_3abc_orchestrator import (
+from back_end.src.phase_3_semantic_normalization.phase_3_orchestrator import (
     UnifiedPhase3Orchestrator,
     EntityResults
 )
