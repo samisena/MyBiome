@@ -3,8 +3,8 @@
 Batch Medical Rotation Pipeline - Refactored Orchestrator
 
 Simplified batch-oriented pipeline that processes all 60 medical conditions
-in seven distinct phases: collection → processing → semantic normalization →
-group categorization → mechanism clustering → data mining → frontend export.
+in five distinct phases: collection → processing → semantic normalization →
+data mining → frontend export.
 
 This is a lean orchestrator that delegates to specialized modules:
 - batch_config.py: Configuration and command-line arguments
@@ -12,17 +12,19 @@ This is a lean orchestrator that delegates to specialized modules:
 - phase_runner.py: Phase execution logic
 
 Pipeline Flow:
-1. COLLECTION: Collect N papers for all 60 conditions
-2. PROCESSING: Process all papers with LLM (qwen3:14b)
-3. SEMANTIC NORMALIZATION: Cross-paper semantic merging
-4. GROUP CATEGORIZATION: Classify canonical groups
-5. MECHANISM CLUSTERING: Cluster intervention mechanisms
-6. DATA MINING: Knowledge graph + Bayesian scoring
-7. FRONTEND EXPORT: Export data to frontend JSON files
+1. COLLECTION: Collect N papers for all 60 conditions (Phase 1)
+2. PROCESSING: Process all papers with LLM (qwen3:14b) (Phase 2)
+3. SEMANTIC NORMALIZATION: Unified Phase 3 - processes ALL entity types (Phase 3)
+   - 3a: Embedding (interventions, conditions, mechanisms)
+   - 3b: Clustering (interventions, conditions, mechanisms)
+   - 3c: LLM Naming + Category Assignment (interventions, conditions, mechanisms)
+   - 3d: Hierarchical Merging (optional)
+4. DATA MINING: Knowledge graph + Bayesian scoring (Phase 4: 4a + 4b)
+5. FRONTEND EXPORT: Export data to frontend JSON files (Phase 5)
 
 Features:
 - Modular architecture with clear separation of concerns
-- 7 clear phases with natural breakpoints for recovery
+- 5 clear phases with natural breakpoints for recovery
 - Continuous mode: Infinite loop with iteration tracking
 - Thermal protection: Configurable delay between iterations
 - Session persistence with platform-specific file locking
@@ -236,20 +238,8 @@ class BatchMedicalRotationPipeline:
             ),
             BatchPhase.SEMANTIC_NORMALIZATION: (
                 'semantic_normalization_completed',
-                "PHASE 3: SEMANTIC NORMALIZATION",
+                "PHASE 3: SEMANTIC NORMALIZATION (3a/3b/3c for all entities)",
                 self.phase_runner.run_semantic_normalization_phase,
-                BatchPhase.GROUP_CATEGORIZATION
-            ),
-            BatchPhase.GROUP_CATEGORIZATION: (
-                'group_categorization_completed',
-                "PHASE 3.5: GROUP-BASED CATEGORIZATION",
-                self.phase_runner.run_group_categorization_phase,
-                BatchPhase.MECHANISM_CLUSTERING
-            ),
-            BatchPhase.MECHANISM_CLUSTERING: (
-                'mechanism_clustering_completed',
-                "PHASE 3.6: MECHANISM CLUSTERING",
-                self.phase_runner.run_mechanism_clustering_phase,
                 BatchPhase.DATA_MINING
             ),
             BatchPhase.DATA_MINING: (

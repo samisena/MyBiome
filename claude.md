@@ -154,7 +154,7 @@ Note: `entity_relationships` table removed - relationship analysis moved to Phas
 7. **`intervention_mechanisms`** - Junction table linking interventions to mechanism clusters
 8. **`mechanism_condition_associations`** - Analytics for which mechanisms work for which conditions
 
-### Phase 3d Multi-Category Support (3 tables) 🧪
+### Phase 3d Multi-Category Support (3 tables)
 9. **`intervention_category_mapping`** - Many-to-many intervention-to-category relationships
 10. **`condition_category_mapping`** - Many-to-many condition-to-category relationships
 11. **`mechanism_category_mapping`** - Many-to-many mechanism-to-category relationships
@@ -256,7 +256,7 @@ back_end/src/
 Phase 1 → Phase 2 → Phase 3a → Phase 3b → Phase 3c → Phase 3d → Phase 4a → Phase 4b → Phase 5
    ↓         ↓          ↓          ↓          ↓          ↓          ↓          ↓          ↓
 Papers   Extracts   Embeddings Clusters    Names    Hierarchies  Graph    Scores    Export
-                   (1024-dim)   (538)   (canonical) (experimental) (538 nodes) (Bayesian) (JSON)
+                   (1024-dim)   (538)   (canonical)   (merging)  (538 nodes) (Bayesian) (JSON)
 ```
 
 **Phase 3 Details (Clustering-First)**:

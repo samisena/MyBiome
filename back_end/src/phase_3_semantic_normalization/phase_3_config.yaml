@@ -115,9 +115,9 @@ naming:
     max_consolidation_ratio: 0.5
     timeout: null  # No timeout - let LLM take as long as needed
 
-# Phase 3d: Hierarchical Cluster Merging (EXPERIMENTAL)
+# Phase 3d: Hierarchical Cluster Merging
 phase3d:
-  enabled: false  # Not yet fully implemented - set to true to enable
+  enabled: true  # Integral part of Phase 3 - builds multi-level hierarchies
   embedding_dimension: 1024
 
   # Stage 1: Centroid computation

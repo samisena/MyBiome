@@ -10,8 +10,8 @@ from dataclasses import dataclass, field
 
 
 # Paths
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-DB_PATH = PROJECT_ROOT / "back_end" / "data" / "intervention_research.db"
+PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent  # Go up 5 levels to reach MyBiome/
+DB_PATH = PROJECT_ROOT / "back_end" / "data" / "processed" / "intervention_research.db"
 CACHE_DIR = PROJECT_ROOT / "back_end" / "data" / "semantic_normalization_cache"
 RESULTS_DIR = Path(__file__).parent / "results"
 

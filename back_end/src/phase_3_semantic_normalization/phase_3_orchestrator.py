@@ -156,7 +156,7 @@ class UnifiedPhase3Orchestrator:
 
         Processes all three entity types (interventions, conditions, mechanisms)
         sequentially through Phase 3a (embedding), 3b (clustering), 3c (naming),
-        and optionally 3d (hierarchical merging).
+        and 3d (hierarchical merging).
 
         Returns:
             Dict with pipeline results:
@@ -298,7 +298,7 @@ class UnifiedPhase3Orchestrator:
             entity_type, entity_names, cluster_labels
         )
 
-        # Phase 3d: Hierarchical Merging (optional)
+        # Phase 3d: Hierarchical Merging
         phase3d_stats = self._run_phase3d(
             entity_type, naming_results, cluster_labels, entity_names
         )
@@ -605,7 +605,11 @@ class UnifiedPhase3Orchestrator:
         entity_names: List[str]
     ) -> Dict:
         """
-        Phase 3d: Hierarchical Cluster Merging (optional).
+        Phase 3d: Hierarchical Cluster Merging.
+
+        Builds multi-level hierarchies by merging similar clusters using HDBSCAN + LLM validation.
+        Creates parent-child relationships (up to 4 levels) with functional category grouping
+        for cross-category merges.
 
         Args:
             entity_type: 'intervention', 'condition', or 'mechanism'
@@ -618,8 +622,8 @@ class UnifiedPhase3Orchestrator:
         """
         # Check if Phase 3d is enabled
         phase3d_config = self.config.get('phase3d', {})
-        if not phase3d_config.get('enabled', False):
-            logger.info("[Phase 3d] Hierarchical merging disabled (set phase3d.enabled=true to enable)")
+        if not phase3d_config.get('enabled', True):
+            logger.warning("[Phase 3d] Hierarchical merging explicitly disabled in config")
             return {
                 'enabled': False,
                 'initial_clusters': 0,

@@ -49,6 +49,44 @@ from .phase_3c_llm_namer import LLMNamer
 # Main Orchestrator
 from .phase_3_orchestrator import UnifiedPhase3Orchestrator, EntityResults
 
+# Backward compatibility wrapper for legacy code
+# TODO: Update phase_3_semantic_normalizer.py to use UnifiedPhase3Orchestrator directly
+class SemanticNormalizer(UnifiedPhase3Orchestrator):
+    """Legacy wrapper for UnifiedPhase3Orchestrator with simplified API."""
+    def __init__(self, db_path: str):
+        # Get config path from package directory
+        from pathlib import Path
+        config_path = Path(__file__).parent / "phase_3_config.yaml"
+        cache_dir = Path(__file__).parent.parent.parent / "data" / "semantic_normalization_cache"
+        super().__init__(
+            config_path=str(config_path),
+            db_path=db_path,
+            cache_dir=str(cache_dir)
+        )
+
+    def normalize_interventions(self, interventions=None, entity_type: str = 'intervention',
+                                source_table: str = 'interventions', force_reembed: bool = False,
+                                force_recluster: bool = False, batch_size: int = 20):
+        """
+        Legacy method for backward compatibility - maps to run_pipeline().
+
+        Note: The 'interventions' parameter is ignored because UnifiedPhase3Orchestrator
+        processes all entities in the database, not a subset.
+        """
+        result = self.run_pipeline(
+            entity_type=entity_type,
+            force_reembed=force_reembed,
+            force_recluster=force_recluster
+        )
+
+        # Convert EntityResults dataclass to legacy dict format
+        return {
+            'total_processed': result.embeddings_generated,
+            'canonical_groups_created': result.num_clusters,
+            'relationships_created': 0,  # Legacy field not used by new orchestrator
+            'errors': 0
+        }
+
 # Phase 3c Stage 2: Category Consolidation
 from .phase_3c_category_consolidator import CategoryConsolidator, CategoryInfo, ConsolidationMapping, ConsolidationResult
 
@@ -77,6 +115,8 @@ __all__ = [
     # Orchestrator
     'UnifiedPhase3Orchestrator',
     'EntityResults',
+    # Legacy Compatibility
+    'SemanticNormalizer',
 ]
 
 __version__ = '1.0.0'

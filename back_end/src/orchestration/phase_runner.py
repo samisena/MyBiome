@@ -21,8 +21,6 @@ class PhaseRunner:
         self._paper_collector = None
         self._llm_processor = None
         self._dedup_integrator = None
-        self._group_categorizer = None
-        self._mechanism_clusterer = None
 
     @property
     def paper_collector(self):
@@ -47,30 +45,6 @@ class PhaseRunner:
             from .rotation_semantic_grouping_integrator import RotationSemanticGroupingIntegrator
             self._dedup_integrator = RotationSemanticGroupingIntegrator()
         return self._dedup_integrator
-
-    @property
-    def group_categorizer(self):
-        """Lazy load group categorizer."""
-        if self._group_categorizer is None:
-            from .phase_3b_group_categorization import RotationGroupCategorizer
-            self._group_categorizer = RotationGroupCategorizer(
-                db_path=config.db_path,
-                batch_size=20,
-                include_members=True,
-                validate_results=True
-            )
-        return self._group_categorizer
-
-    @property
-    def mechanism_clusterer(self):
-        """Lazy load mechanism clusterer."""
-        if self._mechanism_clusterer is None:
-            from .phase_3c_mechanism_clustering import RotationMechanismClusterer
-            self._mechanism_clusterer = RotationMechanismClusterer(
-                db_path=str(config.db_path),
-                cache_dir=str(config.data_root / "semantic_normalization_cache")
-            )
-        return self._mechanism_clusterer
 
     def run_collection_phase(self, session: BatchSession) -> Dict[str, Any]:
         """Run Phase 1: Batch collection."""
@@ -218,94 +192,6 @@ class PhaseRunner:
         except Exception as e:
             logger.error(f"Semantic normalization failed: {e}")
             return {'success': False, 'error': str(e), 'phase': 'semantic_normalization'}
-
-    def run_group_categorization_phase(self, session: BatchSession) -> Dict[str, Any]:
-        """Run Phase 3.5: Group-based categorization."""
-        logger.info("Running Phase 3.5: Group-based categorization...")
-
-        try:
-            group_cat_result = self.group_categorizer.run()
-
-            session.group_categorization_result = {
-                'intervention_groups_categorized': group_cat_result['group_categorization']['processed'],
-                'intervention_groups_failed': group_cat_result['group_categorization']['failed'],
-                'interventions_updated': group_cat_result['propagation']['updated'],
-                'intervention_orphans_found': group_cat_result['propagation']['orphans'],
-                'intervention_orphans_categorized': group_cat_result['orphan_categorization']['processed'],
-                'condition_groups_categorized': group_cat_result.get('condition_group_categorization', {}).get('processed_groups', 0),
-                'condition_groups_failed': group_cat_result.get('condition_group_categorization', {}).get('failed_groups', 0),
-                'conditions_updated': group_cat_result.get('condition_propagation', {}).get('updated', 0),
-                'condition_orphans_found': group_cat_result.get('condition_propagation', {}).get('orphans', 0),
-                'condition_orphans_categorized': group_cat_result.get('condition_orphan_categorization', {}).get('processed', 0),
-                'total_llm_calls': group_cat_result['performance']['total_llm_calls'],
-                'elapsed_time_seconds': group_cat_result['elapsed_time_seconds'],
-                'validation_passed': group_cat_result.get('validation', {}).get('all_passed', False)
-            }
-
-            session.total_groups_categorized = (
-                group_cat_result['group_categorization']['processed'] +
-                group_cat_result.get('condition_group_categorization', {}).get('processed_groups', 0)
-            )
-            session.total_interventions_categorized = group_cat_result['propagation']['updated']
-            session.total_orphans_categorized = (
-                group_cat_result['orphan_categorization']['processed'] +
-                group_cat_result.get('condition_orphan_categorization', {}).get('processed', 0)
-            )
-
-            logger.info("[SUCCESS] Group-based categorization completed successfully")
-            logger.info(f"  Intervention groups categorized: {group_cat_result['group_categorization']['processed']}")
-            logger.info(f"  Interventions updated: {session.total_interventions_categorized}")
-            logger.info(f"  Total LLM calls: {group_cat_result['performance']['total_llm_calls']}")
-
-            return {'success': True, 'result': session.group_categorization_result}
-
-        except Exception as e:
-            logger.error(f"Group categorization failed: {e}")
-            import traceback
-            logger.error(traceback.format_exc())
-            return {'success': False, 'error': str(e), 'phase': 'group_categorization'}
-
-    def run_mechanism_clustering_phase(self, session: BatchSession) -> Dict[str, Any]:
-        """Run Phase 3.6: Mechanism clustering."""
-        logger.info("Running Phase 3.6: Mechanism clustering...")
-
-        try:
-            clustering_result = self.mechanism_clusterer.run(force=False)
-
-            session.mechanism_clustering_result = {
-                'mechanisms_processed': clustering_result['mechanisms_processed'],
-                'clusters_created': clustering_result['clusters_created'],
-                'natural_clusters': clustering_result.get('natural_clusters', 0),
-                'singleton_clusters': clustering_result.get('singleton_clusters', 0),
-                'assignment_rate': clustering_result['assignment_rate'],
-                'avg_cluster_size': clustering_result.get('avg_cluster_size', 0.0),
-                'silhouette_score': clustering_result.get('silhouette_score', 0.0),
-                'elapsed_time_seconds': clustering_result['elapsed_time_seconds']
-            }
-
-            session.total_mechanisms_processed = clustering_result['mechanisms_processed']
-            session.total_mechanism_clusters = clustering_result['clusters_created']
-
-            if not clustering_result['success']:
-                logger.error(f"Mechanism clustering failed: {clustering_result.get('error', 'Unknown error')}")
-                return {
-                    'success': False,
-                    'error': f"Mechanism clustering failed: {clustering_result.get('error', 'Unknown error')}",
-                    'phase': 'mechanism_clustering'
-                }
-
-            logger.info("[SUCCESS] Mechanism clustering completed successfully")
-            logger.info(f"  Mechanisms processed: {session.total_mechanisms_processed}")
-            logger.info(f"  Total clusters created: {session.total_mechanism_clusters}")
-            logger.info(f"  Assignment rate: {clustering_result['assignment_rate']:.1%}")
-
-            return {'success': True, 'result': session.mechanism_clustering_result}
-
-        except Exception as e:
-            logger.error(f"Mechanism clustering failed: {e}")
-            import traceback
-            logger.error(traceback.format_exc())
-            return {'success': False, 'error': str(e), 'phase': 'mechanism_clustering'}
 
     def run_data_mining_phase(self, session: BatchSession) -> Dict[str, Any]:
         """Run Phase 4: Data mining (knowledge graph + Bayesian scoring)."""

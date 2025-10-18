@@ -23,7 +23,11 @@
       "Bash(git rm:*)",
       "Bash(if exist nul del nul)",
       "Bash(del nul)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(timeout 5 sleep:*)",
+      "Bash(timeout 10 sleep:*)",
+      "Bash(timeout 15 sleep:*)",
+      "Bash(timeout 20 sleep:*)"
     ],
     "deny": [],
     "ask": []

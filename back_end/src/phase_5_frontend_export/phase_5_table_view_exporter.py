@@ -51,7 +51,7 @@ class TableViewExporter(BaseExporter):
                 i.health_condition,
                 i.condition_category,
                 i.mechanism,
-                i.correlation_type,
+                i.outcome_type,
                 i.study_confidence,
                 i.sample_size,
                 i.study_duration,
@@ -115,10 +115,10 @@ class TableViewExporter(BaseExporter):
             cursor.execute("SELECT COUNT(DISTINCT paper_id) FROM interventions")
             unique_papers = cursor.fetchone()[0]
 
-            cursor.execute("SELECT COUNT(*) FROM interventions WHERE correlation_type = 'positive'")
+            cursor.execute("SELECT COUNT(*) FROM interventions WHERE outcome_type = 'positive'")
             positive_correlations = cursor.fetchone()[0]
 
-            cursor.execute("SELECT COUNT(*) FROM interventions WHERE correlation_type = 'negative'")
+            cursor.execute("SELECT COUNT(*) FROM interventions WHERE outcome_type = 'negative'")
             negative_correlations = cursor.fetchone()[0]
 
             # Semantic hierarchy stats
@@ -137,7 +137,7 @@ class TableViewExporter(BaseExporter):
                     COUNT(DISTINCT i.paper_id) as paper_count
                 FROM interventions i
                 LEFT JOIN semantic_hierarchy sh ON i.intervention_name = sh.entity_name AND sh.entity_type = 'intervention'
-                WHERE i.correlation_type = 'positive'
+                WHERE i.outcome_type = 'positive'
                 GROUP BY COALESCE(sh.layer_1_canonical, i.intervention_name), i.intervention_category
                 ORDER BY count DESC
                 LIMIT 10
@@ -294,7 +294,7 @@ class TableViewExporter(BaseExporter):
                     'mechanism': row['mechanism'],
                     'mechanism_canonical_names': mechanism_canonical_names,
                     'correlation': {
-                        'type': row['correlation_type'],
+                        'type': row['outcome_type'],
                         'study_confidence': row['study_confidence']
                     },
                     'bayesian_scoring': {

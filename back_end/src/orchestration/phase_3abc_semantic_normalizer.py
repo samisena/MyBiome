@@ -189,6 +189,41 @@ class Phase3ABCOrchestrator:
             print(f"\n[ERROR] Failed to process {entity_type}s: {e}")
             raise
 
+    def run_intervention_normalization(self, batch_size: int = 50, force_rerun: bool = False) -> Dict:
+        """
+        Run intervention normalization for compatibility with RotationSemanticGroupingIntegrator.
+
+        This is a wrapper around run_all_entity_types() that returns intervention-specific results.
+
+        Args:
+            batch_size: Batch size for processing (ignored - kept for API compatibility)
+            force_rerun: Force rerun of pipeline (uses force_reembed/force_recluster)
+
+        Returns:
+            Dictionary with intervention normalization results
+        """
+        logger.info("Running intervention normalization via Phase 3abc pipeline")
+
+        try:
+            # Run pipeline for intervention entity type only
+            result = self.orchestrator.run_pipeline(
+                entity_type='intervention',
+                force_reembed=force_rerun,
+                force_recluster=force_rerun
+            )
+
+            # Convert EntityResults to legacy dict format
+            return {
+                'embeddings_generated': result.embeddings_generated,
+                'clusters_created': result.num_clusters,
+                'groups_named': result.names_generated,
+                'total_duration': result.embedding_duration_seconds + result.clustering_duration_seconds + result.naming_duration_seconds
+            }
+
+        except Exception as e:
+            logger.error(f"Intervention normalization failed: {e}", exc_info=True)
+            raise
+
     def display_status(self):
         """Display Phase 3 pipeline status."""
         print("\n" + "="*80)

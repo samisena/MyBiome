@@ -46,11 +46,11 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from back_end.src.data.config import config
 from back_end.src.phase_3_semantic_normalization import SemanticNormalizer
-from back_end.src.phase_3_semantic_normalization.config import (
-    DB_PATH,
-    RESULTS_DIR,
-    CACHE_DIR
-)
+
+# Define paths directly instead of importing from non-existent config module
+DB_PATH = Path(__file__).parent.parent.parent.parent / "back_end" / "data" / "processed" / "intervention_research.db"
+RESULTS_DIR = Path(__file__).parent.parent.parent.parent / "back_end" / "results" / "semantic_normalization"
+CACHE_DIR = Path(__file__).parent.parent.parent.parent / "back_end" / "data" / "semantic_normalization_cache"
 
 # Setup logging
 logging.basicConfig(

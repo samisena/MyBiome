@@ -20,6 +20,8 @@ class Cluster:
     members: List[str]
     parent_id: Optional[int] = None
     hierarchy_level: int = 0
+    category: Optional[str] = None
+    confidence: str = 'MEDIUM'
 
 
 @dataclass

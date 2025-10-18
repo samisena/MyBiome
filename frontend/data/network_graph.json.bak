@@ -1,0 +1,20 @@
+{
+  "nodes": [],
+  "links": [],
+  "metadata": {
+    "export_date": "2025-10-18T08:40:38.065664",
+    "database_path": "c:\\Users\\samis\\Desktop\\MyBiome\\back_end\\data\\processed\\intervention_research.db",
+    "node_count": 0,
+    "edge_count": 0,
+    "node_types": {},
+    "evidence_types": {},
+    "categories": [],
+    "category_counts": {},
+    "mechanism_count": 0,
+    "confidence_stats": {
+      "min": 0,
+      "max": 0,
+      "avg": 0.0
+    }
+  }
+}

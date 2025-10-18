@@ -15,11 +15,9 @@ class BatchPhase(Enum):
     """Pipeline phases for batch processing."""
     COLLECTION = "collection"
     PROCESSING = "processing"
-    SEMANTIC_NORMALIZATION = "semantic_normalization"
-    GROUP_CATEGORIZATION = "group_categorization"
-    MECHANISM_CLUSTERING = "mechanism_clustering"
-    DATA_MINING = "data_mining"
-    FRONTEND_EXPORT = "frontend_export"
+    SEMANTIC_NORMALIZATION = "semantic_normalization"  # Phase 3: 3a/3b/3c/3d for all entities
+    DATA_MINING = "data_mining"  # Phase 4: 4a (knowledge graph) + 4b (Bayesian)
+    FRONTEND_EXPORT = "frontend_export"  # Phase 5: Export to frontend JSON
     COMPLETED = "completed"
 
 
@@ -111,8 +109,7 @@ Examples:
                         help='Resume existing session')
     parser.add_argument('--start-phase',
                         choices=['collection', 'processing', 'semantic_normalization',
-                                'group_categorization', 'mechanism_clustering', 'data_mining',
-                                'frontend_export'],
+                                'data_mining', 'frontend_export'],
                         help='Specific phase to start from (use with --resume)')
     parser.add_argument('--continuous', action='store_true',
                         help='Enable continuous mode (infinite loop, restarts Phase 1 after completion)')
