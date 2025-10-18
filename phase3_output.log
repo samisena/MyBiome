@@ -1,0 +1,48 @@
+2025-10-18 15:52:37,806 - back_end.src.phase_3_semantic_normalization.phase_3_orchestrator - ERROR - [Phase 3d] Hierarchical merging failed: No embeddings found in cache file: c:\Users\samis\Desktop\MyBiome\back_end\data\semantic_normalization_cache\embeddings_intervention_mxbai-embed-large.pkl
+Traceback (most recent call last):
+  File "c:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3_orchestrator.py", line 644, in _run_phase3d
+    results = phase3d_orch.run(
+        entity_type=entity_type,
+    ...<2 lines>...
+        entity_names=entity_names
+    )
+  File "c:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3d\phase_3d_orchestrator.py", line 110, in run
+    embeddings = load_embeddings_for_clusters(
+        clusters=clusters,
+        entity_type=entity_type
+    )
+  File "c:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3d\embedding_loader.py", line 93, in load_embeddings_for_clusters
+    all_embeddings = load_embeddings_from_phase3a_cache(entity_type, cache_dir)
+  File "c:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3d\embedding_loader.py", line 56, in load_embeddings_from_phase3a_cache
+    raise ValueError(f"No embeddings found in cache file: {cache_path}")
+ValueError: No embeddings found in cache file: c:\Users\samis\Desktop\MyBiome\back_end\data\semantic_normalization_cache\embeddings_intervention_mxbai-embed-large.pkl
+2025-10-18 15:52:37,830 - __main__ - ERROR - Error processing interventions: 'EntityResults' object has no attribute 'clusters_created'
+Traceback (most recent call last):
+  File "c:\Users\samis\Desktop\MyBiome\back_end\src\orchestration\phase_3abc_semantic_normalizer.py", line 108, in run_all_entity_types
+    'clusters_created': entity_results.clusters_created,
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EntityResults' object has no attribute 'clusters_created'
+2025-10-18 15:52:41,284 - back_end.src.phase_3_semantic_normalization.phase_3_orchestrator - ERROR - [Phase 3d] Hierarchical merging failed: No embeddings found in cache file: c:\Users\samis\Desktop\MyBiome\back_end\data\semantic_normalization_cache\embeddings_condition_mxbai-embed-large.pkl
+Traceback (most recent call last):
+  File "c:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3_orchestrator.py", line 644, in _run_phase3d
+    results = phase3d_orch.run(
+        entity_type=entity_type,
+    ...<2 lines>...
+        entity_names=entity_names
+    )
+  File "c:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3d\phase_3d_orchestrator.py", line 110, in run
+    embeddings = load_embeddings_for_clusters(
+        clusters=clusters,
+        entity_type=entity_type
+    )
+  File "c:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3d\embedding_loader.py", line 93, in load_embeddings_for_clusters
+    all_embeddings = load_embeddings_from_phase3a_cache(entity_type, cache_dir)
+  File "c:\Users\samis\Desktop\MyBiome\back_end\src\phase_3_semantic_normalization\phase_3d\embedding_loader.py", line 56, in load_embeddings_from_phase3a_cache
+    raise ValueError(f"No embeddings found in cache file: {cache_path}")
+ValueError: No embeddings found in cache file: c:\Users\samis\Desktop\MyBiome\back_end\data\semantic_normalization_cache\embeddings_condition_mxbai-embed-large.pkl
+2025-10-18 15:52:41,284 - __main__ - ERROR - Error processing conditions: 'EntityResults' object has no attribute 'clusters_created'
+Traceback (most recent call last):
+  File "c:\Users\samis\Desktop\MyBiome\back_end\src\orchestration\phase_3abc_semantic_normalizer.py", line 108, in run_all_entity_types
+    'clusters_created': entity_results.clusters_created,
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EntityResults' object has no attribute 'clusters_created'

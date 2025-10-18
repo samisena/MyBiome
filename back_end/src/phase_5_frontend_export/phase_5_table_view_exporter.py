@@ -374,7 +374,47 @@ class TableViewExporter(BaseExporter):
                 categories_by_type[cat_type].append(cat_name)
 
             return categories_by_type
-        except sqlite3.OperationalError:
+
+        except sqlite3.OperationalError as e:
+            # FALLBACK: Junction tables don't exist yet - use simple layer_0_category from semantic_hierarchy
+            if "no such table" in str(e):
+                try:
+                    if entity_type == 'intervention':
+                        # Get category from semantic_hierarchy
+                        cursor.execute("""
+                            SELECT layer_0_category
+                            FROM semantic_hierarchy
+                            WHERE entity_name = (
+                                SELECT intervention_name FROM interventions WHERE id = ?
+                            ) AND entity_type = 'intervention'
+                            LIMIT 1
+                        """, (entity_id,))
+                    elif entity_type == 'condition':
+                        # Get category from semantic_hierarchy
+                        cursor.execute("""
+                            SELECT layer_0_category
+                            FROM semantic_hierarchy
+                            WHERE entity_name = ? AND entity_type = 'condition'
+                            LIMIT 1
+                        """, (entity_id,))
+                    else:
+                        return {}
+
+                    result = cursor.fetchone()
+                    if result and result['layer_0_category']:
+                        # Return as primary category in multi-category format
+                        return {'primary': [result['layer_0_category']]}
+                    return {}
+
+                except Exception as fallback_error:
+                    logger.warning(f"Fallback category lookup failed for {entity_type} {entity_id}: {fallback_error}")
+                    return {}
+            else:
+                # Re-raise if it's a different OperationalError
+                raise
+
+        except Exception as e:
+            logger.error(f"Error getting categories for {entity_type} {entity_id}: {e}")
             return {}
 
     def _get_mechanism_canonical_names(self, cursor, intervention_id: int) -> List[str]:

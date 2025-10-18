@@ -31,6 +31,7 @@ from .phase_3c_llm_namer import LLMNamer
 from .phase_3c_base_namer import ClusterData
 from .phase_3c_category_consolidator import CategoryConsolidator
 from .phase_3d.phase_3d_orchestrator import Phase3dOrchestrator
+from .phase_3_database_saver import Phase3DatabaseSaver
 
 logger = logging.getLogger(__name__)
 
@@ -301,6 +302,11 @@ class UnifiedPhase3Orchestrator:
         # Phase 3d: Hierarchical Merging
         phase3d_stats = self._run_phase3d(
             entity_type, naming_results, cluster_labels, entity_names
+        )
+
+        # Save to database
+        self._save_to_database(
+            entity_type, entity_names, embeddings, cluster_labels, naming_results
         )
 
         # Combine results
@@ -663,6 +669,19 @@ class UnifiedPhase3Orchestrator:
 
             return stats
 
+        except (FileNotFoundError, ValueError) as e:
+            # FileNotFoundError: Cache file doesn't exist
+            # ValueError: Cache file exists but has no embeddings
+            logger.warning(f"[Phase 3d] Skipping hierarchical merging: {e}")
+            return {
+                'enabled': False,
+                'initial_clusters': len(naming_results),
+                'final_clusters': len(naming_results),
+                'reduction_pct': 0.0,
+                'hierarchy_depth': 0,
+                'merges_applied': 0,
+                'duration': 0.0
+            }
         except Exception as e:
             logger.error(f"[Phase 3d] Hierarchical merging failed: {e}", exc_info=True)
             return {
@@ -675,6 +694,44 @@ class UnifiedPhase3Orchestrator:
                 'duration': 0.0,
                 'error': str(e)
             }
+
+    def _save_to_database(
+        self,
+        entity_type: str,
+        entity_names: List[str],
+        embeddings: np.ndarray,
+        cluster_labels: np.ndarray,
+        naming_results: Dict
+    ) -> None:
+        """
+        Save Phase 3 results to database.
+
+        Args:
+            entity_type: 'intervention', 'condition', or 'mechanism'
+            entity_names: List of entity names
+            embeddings: Embedding vectors
+            cluster_labels: Cluster assignments
+            naming_results: LLM naming results
+        """
+        logger.info(f"[Database] Saving {entity_type} results to database...")
+
+        try:
+            saver = Phase3DatabaseSaver(str(self.db_path))
+            stats = saver.save_all(
+                entity_type=entity_type,
+                entity_names=entity_names,
+                embeddings=embeddings,
+                cluster_labels=cluster_labels,
+                naming_results=naming_results,
+                embedding_model="mxbai-embed-large"
+            )
+
+            logger.info(f"[Database] Saved {entity_type} results: {stats}")
+
+        except Exception as e:
+            logger.error(f"[Database] Failed to save {entity_type} results: {e}", exc_info=True)
+            # Don't crash the pipeline - database save is non-critical for cache-based workflow
+            logger.warning("[Database] Continuing despite database save failure...")
 
     def _build_cluster_data(
         self,

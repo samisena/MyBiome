@@ -105,18 +105,23 @@ class Phase3ABCOrchestrator:
                     'embedding_duration': entity_results.embedding_duration_seconds,
                     'embeddings_generated': entity_results.embeddings_generated,
                     'clustering_duration': entity_results.clustering_duration_seconds,
-                    'clusters_created': entity_results.clusters_created,
-                    'singletons': entity_results.singletons_assigned,
+                    'clusters_created': entity_results.num_clusters,
+                    'singletons': entity_results.num_singleton_clusters,
                     'naming_duration': entity_results.naming_duration_seconds,
-                    'entities_named': entity_results.entities_named,
-                    'total_duration': entity_results.total_duration_seconds
+                    'entities_named': entity_results.names_generated,
+                    'total_duration': (entity_results.embedding_duration_seconds +
+                                     entity_results.clustering_duration_seconds +
+                                     entity_results.naming_duration_seconds)
                 }
 
                 print(f"\n[SUCCESS] {entity_type.capitalize()} processing complete!")
                 print(f"  - Embeddings: {entity_results.embeddings_generated} entities")
-                print(f"  - Clusters: {entity_results.clusters_created} (+ {entity_results.singletons_assigned} singletons)")
-                print(f"  - Named: {entity_results.entities_named} canonical groups")
-                print(f"  - Total time: {entity_results.total_duration_seconds:.1f}s")
+                print(f"  - Clusters: {entity_results.num_clusters} (+ {entity_results.num_singleton_clusters} singletons)")
+                print(f"  - Named: {entity_results.names_generated} canonical groups")
+                total_time = (entity_results.embedding_duration_seconds +
+                            entity_results.clustering_duration_seconds +
+                            entity_results.naming_duration_seconds)
+                print(f"  - Total time: {total_time:.1f}s")
 
             except Exception as e:
                 logger.error(f"Error processing {entity_type}s: {e}", exc_info=True)

@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "generated_at": "2025-10-18T08:40:38.055216",
+    "generated_at": "2025-10-18T16:36:14.735280",
     "total_interventions": 82,
     "unique_interventions": 82,
     "unique_conditions": 39,
     "unique_papers": 41,
-    "semantic_interventions": 0,
-    "canonical_groups": 0,
+    "semantic_interventions": 82,
+    "canonical_groups": 63,
     "positive_correlations": 0,
     "negative_correlations": 0,
     "intervention_categories": {},
@@ -14,13 +14,20 @@
     "multi_category_stats": {},
     "multi_category_interventions": 0,
     "bayesian_scores_available": false,
-    "total_relationships": 0,
+    "total_relationships": 63,
     "high_scoring_interventions": 0,
     "medium_scoring_interventions": 0
   },
   "top_performers": {
     "interventions": [],
     "conditions": [
+      {
+        "name": "lupus nephritis, systemic lupus erythematosus",
+        "condition_category": null,
+        "count": 7,
+        "intervention_count": 7,
+        "paper_count": 2
+      },
       {
         "name": "asthma",
         "condition_category": null,
@@ -30,13 +37,6 @@
       },
       {
         "name": "behavioral difficulties",
-        "condition_category": null,
-        "count": 6,
-        "intervention_count": 6,
-        "paper_count": 1
-      },
-      {
-        "name": "systemic lupus erythematosus",
         "condition_category": null,
         "count": 6,
         "intervention_count": 6,
@@ -55,6 +55,13 @@
         "count": 4,
         "intervention_count": 4,
         "paper_count": 1
+      },
+      {
+        "name": "obesity_severe_obesity",
+        "condition_category": null,
+        "count": 4,
+        "intervention_count": 4,
+        "paper_count": 3
       },
       {
         "name": "Helicobacter pylori infection",
@@ -83,13 +90,6 @@
         "count": 3,
         "intervention_count": 3,
         "paper_count": 1
-      },
-      {
-        "name": "chemotherapy-induced peripheral neuropathy",
-        "condition_category": null,
-        "count": 2,
-        "intervention_count": 2,
-        "paper_count": 1
       }
     ]
   },
@@ -98,28 +98,36 @@
       "id": 1,
       "intervention": {
         "name": "Xiao-Feng-San combined with auricular acupuncture",
-        "canonical_name": null,
+        "canonical_name": "xiao_feng_san_with_auricular_acupuncture",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "traditional_chinese_medicine_combination"
+          ]
+        },
         "details": "{}",
         "delivery_method": "acupuncture",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "traditional_chinese_medicine_combination",
+          "layer_1_canonical": "xiao_feng_san_with_auricular_acupuncture",
+          "layer_2_variant": "Xiao-Feng-San combined with auricular acupuncture",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "atopic dermatitis",
-        "canonical_name": null,
+        "canonical_name": "atopic dermatitis",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "dermatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "dermatological",
+          "layer_1_canonical": "atopic dermatitis",
+          "layer_2_variant": "atopic dermatitis",
           "layer_3_detail": null
         }
       },
@@ -173,28 +181,36 @@
       "id": 2,
       "intervention": {
         "name": "topical ivermectin 1%",
-        "canonical_name": null,
+        "canonical_name": "topical_ivermectin",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "topical_ivermectin",
+          "layer_2_variant": "topical ivermectin 1%",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "Demodex-associated skin conditions",
-        "canonical_name": null,
+        "canonical_name": "Demodex-associated skin conditions",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "dermatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "dermatological",
+          "layer_1_canonical": "Demodex-associated skin conditions",
+          "layer_2_variant": "Demodex-associated skin conditions",
           "layer_3_detail": null
         }
       },
@@ -245,28 +261,36 @@
       "id": 3,
       "intervention": {
         "name": "Racz catheter technique",
-        "canonical_name": null,
+        "canonical_name": "racz_catheter_technique",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "spinal_intervention"
+          ]
+        },
         "details": "{}",
         "delivery_method": "injection",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "spinal_intervention",
+          "layer_1_canonical": "racz_catheter_technique",
+          "layer_2_variant": "Racz catheter technique",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "low back pain",
-        "canonical_name": null,
+        "canonical_name": "low back pain",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "musculoskeletal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "musculoskeletal",
+          "layer_1_canonical": "low back pain",
+          "layer_2_variant": "low back pain",
           "layer_3_detail": null
         }
       },
@@ -317,28 +341,36 @@
       "id": 4,
       "intervention": {
         "name": "conventional lumbar epidural steroid injection",
-        "canonical_name": null,
+        "canonical_name": "lumbar_epidural_steroid_injection",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "epidural_injection"
+          ]
+        },
         "details": "{}",
         "delivery_method": "injection",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "epidural_injection",
+          "layer_1_canonical": "lumbar_epidural_steroid_injection",
+          "layer_2_variant": "conventional lumbar epidural steroid injection",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "low back pain",
-        "canonical_name": null,
+        "canonical_name": "low back pain",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "musculoskeletal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "musculoskeletal",
+          "layer_1_canonical": "low back pain",
+          "layer_2_variant": "low back pain",
           "layer_3_detail": null
         }
       },
@@ -389,28 +421,36 @@
       "id": 5,
       "intervention": {
         "name": "tegoprazan (half-dose)",
-        "canonical_name": null,
+        "canonical_name": "tegoprazan",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "tegoprazan",
+          "layer_2_variant": "tegoprazan (half-dose)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "gastroesophageal reflux disease (GERD)",
-        "canonical_name": null,
+        "canonical_name": "gastroesophageal reflux disease (GERD)",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "digestive"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "digestive",
+          "layer_1_canonical": "gastroesophageal reflux disease (GERD)",
+          "layer_2_variant": "gastroesophageal reflux disease (GERD)",
           "layer_3_detail": null
         }
       },
@@ -459,28 +499,36 @@
       "id": 6,
       "intervention": {
         "name": "lansoprazole (standard dose)",
-        "canonical_name": null,
+        "canonical_name": "lansoprazole",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "lansoprazole",
+          "layer_2_variant": "lansoprazole (standard dose)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "gastroesophageal reflux disease (GERD)",
-        "canonical_name": null,
+        "canonical_name": "gastroesophageal reflux disease (GERD)",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "digestive"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "digestive",
+          "layer_1_canonical": "gastroesophageal reflux disease (GERD)",
+          "layer_2_variant": "gastroesophageal reflux disease (GERD)",
           "layer_3_detail": null
         }
       },
@@ -529,28 +577,36 @@
       "id": 7,
       "intervention": {
         "name": "reframing intervention",
-        "canonical_name": null,
+        "canonical_name": "reframing_intervention",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "cognitive_reframing"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "cognitive_reframing",
+          "layer_1_canonical": "reframing_intervention",
+          "layer_2_variant": "reframing intervention",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "multiple sclerosis",
-        "canonical_name": null,
+        "canonical_name": "multiple sclerosis",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "neurological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "neurological",
+          "layer_1_canonical": "multiple sclerosis",
+          "layer_2_variant": "multiple sclerosis",
           "layer_3_detail": null
         }
       },
@@ -601,28 +657,36 @@
       "id": 8,
       "intervention": {
         "name": "pharmacist-led CKD screening and education",
-        "canonical_name": null,
+        "canonical_name": "ckd_screening_education",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "health_education"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "health_education",
+          "layer_1_canonical": "ckd_screening_education",
+          "layer_2_variant": "pharmacist-led CKD screening and education",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "chronic kidney disease",
-        "canonical_name": null,
+        "canonical_name": "chronic kidney disease",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "renal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "renal",
+          "layer_1_canonical": "chronic kidney disease",
+          "layer_2_variant": "chronic kidney disease",
           "layer_3_detail": null
         }
       },
@@ -676,28 +740,36 @@
       "id": 9,
       "intervention": {
         "name": "acupuncture at HT-7 (Shenmen) and GV-20 (Baihui)",
-        "canonical_name": null,
+        "canonical_name": "acupuncture_at_ht7_and_gv20",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "acupuncture"
+          ]
+        },
         "details": "{}",
         "delivery_method": "acupuncture",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "acupuncture",
+          "layer_1_canonical": "acupuncture_at_ht7_and_gv20",
+          "layer_2_variant": "acupuncture at HT-7 (Shenmen) and GV-20 (Baihui)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "generalized anxiety disorder",
-        "canonical_name": null,
+        "canonical_name": "generalized anxiety disorder",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "generalized anxiety disorder",
+          "layer_2_variant": "generalized anxiety disorder",
           "layer_3_detail": null
         }
       },
@@ -747,28 +819,36 @@
       "id": 10,
       "intervention": {
         "name": "oral ketamine",
-        "canonical_name": null,
+        "canonical_name": "ketamine",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "ketamine",
+          "layer_2_variant": "oral ketamine",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "major depressive disorder",
-        "canonical_name": null,
+        "canonical_name": "depressive and anxiety disorders, major depressive disorder",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "depressive and anxiety disorders, major depressive disorder",
+          "layer_2_variant": "major depressive disorder",
           "layer_3_detail": null
         }
       },
@@ -820,28 +900,36 @@
       "id": 11,
       "intervention": {
         "name": "prenatal iron-folic acid",
-        "canonical_name": null,
+        "canonical_name": "prenatal_iron_folic_acid",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "prenatal_iron_folic_acid",
+          "layer_2_variant": "prenatal iron-folic acid",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "behavioral difficulties",
-        "canonical_name": null,
+        "canonical_name": "behavioral difficulties",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "behavioral difficulties",
+          "layer_2_variant": "behavioral difficulties",
           "layer_3_detail": null
         }
       },
@@ -891,28 +979,36 @@
       "id": 12,
       "intervention": {
         "name": "prenatal iron-folic acid + zinc",
-        "canonical_name": null,
+        "canonical_name": "prenatal_iron_folic_acid",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "prenatal_iron_folic_acid",
+          "layer_2_variant": "prenatal iron-folic acid + zinc",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "behavioral difficulties",
-        "canonical_name": null,
+        "canonical_name": "behavioral difficulties",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "behavioral difficulties",
+          "layer_2_variant": "behavioral difficulties",
           "layer_3_detail": null
         }
       },
@@ -962,28 +1058,36 @@
       "id": 13,
       "intervention": {
         "name": "prenatal multiple micronutrients",
-        "canonical_name": null,
+        "canonical_name": "prenatal_iron_folic_acid",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "prenatal_iron_folic_acid",
+          "layer_2_variant": "prenatal multiple micronutrients",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "behavioral difficulties",
-        "canonical_name": null,
+        "canonical_name": "behavioral difficulties",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "behavioral difficulties",
+          "layer_2_variant": "behavioral difficulties",
           "layer_3_detail": null
         }
       },
@@ -1033,28 +1137,36 @@
       "id": 14,
       "intervention": {
         "name": "preschool iron-folic acid",
-        "canonical_name": null,
+        "canonical_name": "preschool_iron_folic_acid",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "preschool_iron_folic_acid",
+          "layer_2_variant": "preschool iron-folic acid",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "behavioral difficulties",
-        "canonical_name": null,
+        "canonical_name": "behavioral difficulties",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "behavioral difficulties",
+          "layer_2_variant": "behavioral difficulties",
           "layer_3_detail": null
         }
       },
@@ -1104,28 +1216,36 @@
       "id": 15,
       "intervention": {
         "name": "preschool zinc",
-        "canonical_name": null,
+        "canonical_name": "preschool_iron_folic_acid",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "preschool_iron_folic_acid",
+          "layer_2_variant": "preschool zinc",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "behavioral difficulties",
-        "canonical_name": null,
+        "canonical_name": "behavioral difficulties",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "behavioral difficulties",
+          "layer_2_variant": "behavioral difficulties",
           "layer_3_detail": null
         }
       },
@@ -1175,28 +1295,36 @@
       "id": 16,
       "intervention": {
         "name": "preschool iron-folic acid + zinc",
-        "canonical_name": null,
+        "canonical_name": "preschool_iron_folic_acid",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "preschool_iron_folic_acid",
+          "layer_2_variant": "preschool iron-folic acid + zinc",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "behavioral difficulties",
-        "canonical_name": null,
+        "canonical_name": "behavioral difficulties",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "behavioral difficulties",
+          "layer_2_variant": "behavioral difficulties",
           "layer_3_detail": null
         }
       },
@@ -1246,28 +1374,36 @@
       "id": 17,
       "intervention": {
         "name": "recumbent isometric yoga",
-        "canonical_name": null,
+        "canonical_name": "recumbent_isometric_yoga",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "exercise"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "exercise",
+          "layer_1_canonical": "recumbent_isometric_yoga",
+          "layer_2_variant": "recumbent isometric yoga",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS)",
-        "canonical_name": null,
+        "canonical_name": "myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS)",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "multisystem"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "multisystem",
+          "layer_1_canonical": "myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS)",
+          "layer_2_variant": "myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS)",
           "layer_3_detail": null
         }
       },
@@ -1318,28 +1454,36 @@
       "id": 18,
       "intervention": {
         "name": "surgical embolectomy",
-        "canonical_name": null,
+        "canonical_name": "surgical_embolectomy",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgical_procedure"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgical_procedure",
+          "layer_1_canonical": "surgical_embolectomy",
+          "layer_2_variant": "surgical embolectomy",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "pulmonary embolism",
-        "canonical_name": null,
+        "canonical_name": "pulmonary embolism",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "cardiac"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "cardiac",
+          "layer_1_canonical": "pulmonary embolism",
+          "layer_2_variant": "pulmonary embolism",
           "layer_3_detail": null
         }
       },
@@ -1390,28 +1534,36 @@
       "id": 19,
       "intervention": {
         "name": "photolyase",
-        "canonical_name": null,
+        "canonical_name": "photolyase",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "biological_agent"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "biological_agent",
+          "layer_1_canonical": "photolyase",
+          "layer_2_variant": "photolyase",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "actinic keratoses",
-        "canonical_name": null,
+        "canonical_name": "actinic keratoses",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "dermatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "dermatological",
+          "layer_1_canonical": "actinic keratoses",
+          "layer_2_variant": "actinic keratoses",
           "layer_3_detail": null
         }
       },
@@ -1459,28 +1611,36 @@
       "id": 20,
       "intervention": {
         "name": "endonuclease",
-        "canonical_name": null,
+        "canonical_name": "endonuclease",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gene_therapy"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gene_therapy",
+          "layer_1_canonical": "endonuclease",
+          "layer_2_variant": "endonuclease",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "actinic keratoses",
-        "canonical_name": null,
+        "canonical_name": "actinic keratoses",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "dermatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "dermatological",
+          "layer_1_canonical": "actinic keratoses",
+          "layer_2_variant": "actinic keratoses",
           "layer_3_detail": null
         }
       },
@@ -1528,28 +1688,36 @@
       "id": 21,
       "intervention": {
         "name": "combination of DNA repair enzymes",
-        "canonical_name": null,
+        "canonical_name": "dna_repair_enzymes_combination",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "dna_repair_supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "dna_repair_supplement",
+          "layer_1_canonical": "dna_repair_enzymes_combination",
+          "layer_2_variant": "combination of DNA repair enzymes",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "actinic keratoses",
-        "canonical_name": null,
+        "canonical_name": "actinic keratoses",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "dermatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "dermatological",
+          "layer_1_canonical": "actinic keratoses",
+          "layer_2_variant": "actinic keratoses",
           "layer_3_detail": null
         }
       },
@@ -1597,28 +1765,36 @@
       "id": 22,
       "intervention": {
         "name": "anifrolumab",
-        "canonical_name": null,
+        "canonical_name": "anifrolumab",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "intravenous",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "anifrolumab",
+          "layer_2_variant": "anifrolumab",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "lupus nephritis",
-        "canonical_name": null,
+        "canonical_name": "lupus nephritis, systemic lupus erythematosus",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "autoimmune"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "autoimmune",
+          "layer_1_canonical": "lupus nephritis, systemic lupus erythematosus",
+          "layer_2_variant": "lupus nephritis",
           "layer_3_detail": null
         }
       },
@@ -1671,28 +1847,36 @@
       "id": 23,
       "intervention": {
         "name": "local heat application",
-        "canonical_name": null,
+        "canonical_name": "local_heat_application",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "physical_therapy"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "physical_therapy",
+          "layer_1_canonical": "local_heat_application",
+          "layer_2_variant": "local heat application",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "chemotherapy-induced peripheral neuropathy",
-        "canonical_name": null,
+        "canonical_name": "chemotherapy-induced peripheral neuropathy",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "neurological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "neurological",
+          "layer_1_canonical": "chemotherapy-induced peripheral neuropathy",
+          "layer_2_variant": "chemotherapy-induced peripheral neuropathy",
           "layer_3_detail": null
         }
       },
@@ -1741,28 +1925,36 @@
       "id": 24,
       "intervention": {
         "name": "local cold application",
-        "canonical_name": null,
+        "canonical_name": "local_cold_application",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "physical_therapy"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "physical_therapy",
+          "layer_1_canonical": "local_cold_application",
+          "layer_2_variant": "local cold application",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "chemotherapy-induced peripheral neuropathy",
-        "canonical_name": null,
+        "canonical_name": "chemotherapy-induced peripheral neuropathy",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "neurological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "neurological",
+          "layer_1_canonical": "chemotherapy-induced peripheral neuropathy",
+          "layer_2_variant": "chemotherapy-induced peripheral neuropathy",
           "layer_3_detail": null
         }
       },
@@ -1811,28 +2003,36 @@
       "id": 25,
       "intervention": {
         "name": "aerobic exercise",
-        "canonical_name": null,
+        "canonical_name": "aerobic_exercise",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "exercise"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "exercise",
+          "layer_1_canonical": "aerobic_exercise",
+          "layer_2_variant": "aerobic exercise",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "systemic lupus erythematosus",
-        "canonical_name": null,
+        "canonical_name": "lupus nephritis, systemic lupus erythematosus",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "autoimmune"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "autoimmune",
+          "layer_1_canonical": "lupus nephritis, systemic lupus erythematosus",
+          "layer_2_variant": "systemic lupus erythematosus",
           "layer_3_detail": null
         }
       },
@@ -1888,28 +2088,36 @@
       "id": 26,
       "intervention": {
         "name": "resistance training",
-        "canonical_name": null,
+        "canonical_name": "combined_aerobic_and_resistance_training",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "exercise"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "exercise",
+          "layer_1_canonical": "combined_aerobic_and_resistance_training",
+          "layer_2_variant": "resistance training",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "systemic lupus erythematosus",
-        "canonical_name": null,
+        "canonical_name": "lupus nephritis, systemic lupus erythematosus",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "autoimmune"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "autoimmune",
+          "layer_1_canonical": "lupus nephritis, systemic lupus erythematosus",
+          "layer_2_variant": "systemic lupus erythematosus",
           "layer_3_detail": null
         }
       },
@@ -1965,28 +2173,36 @@
       "id": 27,
       "intervention": {
         "name": "combined aerobic and resistance training",
-        "canonical_name": null,
+        "canonical_name": "combined_aerobic_and_resistance_training",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "exercise"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "exercise",
+          "layer_1_canonical": "combined_aerobic_and_resistance_training",
+          "layer_2_variant": "combined aerobic and resistance training",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "systemic lupus erythematosus",
-        "canonical_name": null,
+        "canonical_name": "lupus nephritis, systemic lupus erythematosus",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "autoimmune"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "autoimmune",
+          "layer_1_canonical": "lupus nephritis, systemic lupus erythematosus",
+          "layer_2_variant": "systemic lupus erythematosus",
           "layer_3_detail": null
         }
       },
@@ -2042,28 +2258,36 @@
       "id": 28,
       "intervention": {
         "name": "vibration training",
-        "canonical_name": null,
+        "canonical_name": "vibration_training",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "exercise"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "exercise",
+          "layer_1_canonical": "vibration_training",
+          "layer_2_variant": "vibration training",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "systemic lupus erythematosus",
-        "canonical_name": null,
+        "canonical_name": "lupus nephritis, systemic lupus erythematosus",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "autoimmune"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "autoimmune",
+          "layer_1_canonical": "lupus nephritis, systemic lupus erythematosus",
+          "layer_2_variant": "systemic lupus erythematosus",
           "layer_3_detail": null
         }
       },
@@ -2119,28 +2343,36 @@
       "id": 29,
       "intervention": {
         "name": "home-based exercise protocols",
-        "canonical_name": null,
+        "canonical_name": "home_based_exercise_protocols",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "exercise"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "exercise",
+          "layer_1_canonical": "home_based_exercise_protocols",
+          "layer_2_variant": "home-based exercise protocols",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "systemic lupus erythematosus",
-        "canonical_name": null,
+        "canonical_name": "lupus nephritis, systemic lupus erythematosus",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "autoimmune"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "autoimmune",
+          "layer_1_canonical": "lupus nephritis, systemic lupus erythematosus",
+          "layer_2_variant": "systemic lupus erythematosus",
           "layer_3_detail": null
         }
       },
@@ -2196,28 +2428,36 @@
       "id": 30,
       "intervention": {
         "name": "counseling strategies",
-        "canonical_name": null,
+        "canonical_name": "counseling_strategies",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "behavioral_intervention"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "behavioral_intervention",
+          "layer_1_canonical": "counseling_strategies",
+          "layer_2_variant": "counseling strategies",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "systemic lupus erythematosus",
-        "canonical_name": null,
+        "canonical_name": "lupus nephritis, systemic lupus erythematosus",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "autoimmune"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "autoimmune",
+          "layer_1_canonical": "lupus nephritis, systemic lupus erythematosus",
+          "layer_2_variant": "systemic lupus erythematosus",
           "layer_3_detail": null
         }
       },
@@ -2273,28 +2513,36 @@
       "id": 31,
       "intervention": {
         "name": "prebiotic-containing gel cream",
-        "canonical_name": null,
+        "canonical_name": "prebiotic_gel_cream",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "topical_supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "topical_supplement",
+          "layer_1_canonical": "prebiotic_gel_cream",
+          "layer_2_variant": "prebiotic-containing gel cream",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "acne vulgaris",
-        "canonical_name": null,
+        "canonical_name": "acne vulgaris",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "dermatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "dermatological",
+          "layer_1_canonical": "acne vulgaris",
+          "layer_2_variant": "acne vulgaris",
           "layer_3_detail": null
         }
       },
@@ -2346,28 +2594,36 @@
       "id": 32,
       "intervention": {
         "name": "ureteral access sheath (UAS) use during RIRS",
-        "canonical_name": null,
+        "canonical_name": "ureteral_access_sheath",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medical_device"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medical_device",
+          "layer_1_canonical": "ureteral_access_sheath",
+          "layer_2_variant": "ureteral access sheath (UAS) use during RIRS",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "renal stones",
-        "canonical_name": null,
+        "canonical_name": "renal stones",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "urological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "urological",
+          "layer_1_canonical": "renal stones",
+          "layer_2_variant": "renal stones",
           "layer_3_detail": null
         }
       },
@@ -2418,28 +2674,36 @@
       "id": 33,
       "intervention": {
         "name": "electroacupuncture",
-        "canonical_name": null,
+        "canonical_name": "conventional_and_electroacupuncture",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "acupuncture"
+          ]
+        },
         "details": "{}",
         "delivery_method": "acupuncture",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "acupuncture",
+          "layer_1_canonical": "conventional_and_electroacupuncture",
+          "layer_2_variant": "electroacupuncture",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "rheumatoid arthritis pain",
-        "canonical_name": null,
+        "canonical_name": "rheumatoid arthritis pain",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "rheumatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "rheumatological",
+          "layer_1_canonical": "rheumatoid arthritis pain",
+          "layer_2_variant": "rheumatoid arthritis pain",
           "layer_3_detail": null
         }
       },
@@ -2489,28 +2753,36 @@
       "id": 34,
       "intervention": {
         "name": "conventional acupuncture",
-        "canonical_name": null,
+        "canonical_name": "conventional_and_electroacupuncture",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "acupuncture"
+          ]
+        },
         "details": "{}",
         "delivery_method": "acupuncture",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "acupuncture",
+          "layer_1_canonical": "conventional_and_electroacupuncture",
+          "layer_2_variant": "conventional acupuncture",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "rheumatoid arthritis pain",
-        "canonical_name": null,
+        "canonical_name": "rheumatoid arthritis pain",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "rheumatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "rheumatological",
+          "layer_1_canonical": "rheumatoid arthritis pain",
+          "layer_2_variant": "rheumatoid arthritis pain",
           "layer_3_detail": null
         }
       },
@@ -2560,28 +2832,36 @@
       "id": 35,
       "intervention": {
         "name": "double row knotted Corkscrew/Swivelock Biocomposite",
-        "canonical_name": null,
+        "canonical_name": "swivelock_biocomposite_corkscrew",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgical_implant"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgical_implant",
+          "layer_1_canonical": "swivelock_biocomposite_corkscrew",
+          "layer_2_variant": "double row knotted Corkscrew/Swivelock Biocomposite",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "rotator cuff tear",
-        "canonical_name": null,
+        "canonical_name": "rotator cuff tear",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "musculoskeletal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "musculoskeletal",
+          "layer_1_canonical": "rotator cuff tear",
+          "layer_2_variant": "rotator cuff tear",
           "layer_3_detail": null
         }
       },
@@ -2633,28 +2913,36 @@
       "id": 36,
       "intervention": {
         "name": "double row knotless Swivelock Biocomposite",
-        "canonical_name": null,
+        "canonical_name": "swivelock_biocomposite_corkscrew",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgical_implant"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgical_implant",
+          "layer_1_canonical": "swivelock_biocomposite_corkscrew",
+          "layer_2_variant": "double row knotless Swivelock Biocomposite",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "rotator cuff tear",
-        "canonical_name": null,
+        "canonical_name": "rotator cuff tear",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "musculoskeletal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "musculoskeletal",
+          "layer_1_canonical": "rotator cuff tear",
+          "layer_2_variant": "rotator cuff tear",
           "layer_3_detail": null
         }
       },
@@ -2706,28 +2994,36 @@
       "id": 37,
       "intervention": {
         "name": "double row knotless Healicoil PEEK/Footprint Ultra PEEK",
-        "canonical_name": null,
+        "canonical_name": "healicoil_peek_footprint_ultra_peek",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgical_implant"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgical_implant",
+          "layer_1_canonical": "healicoil_peek_footprint_ultra_peek",
+          "layer_2_variant": "double row knotless Healicoil PEEK/Footprint Ultra PEEK",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "rotator cuff tear",
-        "canonical_name": null,
+        "canonical_name": "rotator cuff tear",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "musculoskeletal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "musculoskeletal",
+          "layer_1_canonical": "rotator cuff tear",
+          "layer_2_variant": "rotator cuff tear",
           "layer_3_detail": null
         }
       },
@@ -2779,28 +3075,36 @@
       "id": 38,
       "intervention": {
         "name": "topical vancomycin",
-        "canonical_name": null,
+        "canonical_name": "topical_vancomycin",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "topical_vancomycin",
+          "layer_2_variant": "topical vancomycin",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "surgical site infection",
-        "canonical_name": null,
+        "canonical_name": "surgical site infection",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgical_infections"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgical_infections",
+          "layer_1_canonical": "surgical site infection",
+          "layer_2_variant": "surgical site infection",
           "layer_3_detail": null
         }
       },
@@ -2851,28 +3155,36 @@
       "id": 39,
       "intervention": {
         "name": "topical vancomycin + tobramycin",
-        "canonical_name": null,
+        "canonical_name": "topical_vancomycin",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "topical_vancomycin",
+          "layer_2_variant": "topical vancomycin + tobramycin",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "surgical site infection",
-        "canonical_name": null,
+        "canonical_name": "surgical site infection",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgical_infections"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgical_infections",
+          "layer_1_canonical": "surgical site infection",
+          "layer_2_variant": "surgical site infection",
           "layer_3_detail": null
         }
       },
@@ -2923,28 +3235,36 @@
       "id": 40,
       "intervention": {
         "name": "conventional treatment combined with Bifidobacterium-Lactobacillus triplex live bacteria",
-        "canonical_name": null,
+        "canonical_name": "bifidobacterium_live_bacteria_combinations",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "bifidobacterium_live_bacteria_combinations",
+          "layer_2_variant": "conventional treatment combined with Bifidobacterium-Lactobacillus triplex live bacteria",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "asthma",
-        "canonical_name": null,
+        "canonical_name": "asthma",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "respiratory"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "respiratory",
+          "layer_1_canonical": "asthma",
+          "layer_2_variant": "asthma",
           "layer_3_detail": null
         }
       },
@@ -3002,28 +3322,36 @@
       "id": 41,
       "intervention": {
         "name": "conventional treatment combined with Bifidobacterium adolescentis",
-        "canonical_name": null,
+        "canonical_name": "bifidobacterium_live_bacteria_combinations",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "bifidobacterium_live_bacteria_combinations",
+          "layer_2_variant": "conventional treatment combined with Bifidobacterium adolescentis",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "asthma",
-        "canonical_name": null,
+        "canonical_name": "asthma",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "respiratory"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "respiratory",
+          "layer_1_canonical": "asthma",
+          "layer_2_variant": "asthma",
           "layer_3_detail": null
         }
       },
@@ -3081,28 +3409,36 @@
       "id": 42,
       "intervention": {
         "name": "conventional treatment combined with Lactobacillus tablets",
-        "canonical_name": null,
+        "canonical_name": "bacillus_subtilis_diplex_live_bacteria",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "bacillus_subtilis_diplex_live_bacteria",
+          "layer_2_variant": "conventional treatment combined with Lactobacillus tablets",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "asthma",
-        "canonical_name": null,
+        "canonical_name": "asthma",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "respiratory"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "respiratory",
+          "layer_1_canonical": "asthma",
+          "layer_2_variant": "asthma",
           "layer_3_detail": null
         }
       },
@@ -3160,28 +3496,36 @@
       "id": 43,
       "intervention": {
         "name": "conventional treatment combined with Bacillus subtilis diplex live bacteria",
-        "canonical_name": null,
+        "canonical_name": "bacillus_subtilis_diplex_live_bacteria",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "bacillus_subtilis_diplex_live_bacteria",
+          "layer_2_variant": "conventional treatment combined with Bacillus subtilis diplex live bacteria",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "asthma",
-        "canonical_name": null,
+        "canonical_name": "asthma",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "respiratory"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "respiratory",
+          "layer_1_canonical": "asthma",
+          "layer_2_variant": "asthma",
           "layer_3_detail": null
         }
       },
@@ -3239,28 +3583,36 @@
       "id": 44,
       "intervention": {
         "name": "conventional treatment combined with Bifidobacterium quadruplex live bacteria",
-        "canonical_name": null,
+        "canonical_name": "bifidobacterium_live_bacteria_combinations",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "bifidobacterium_live_bacteria_combinations",
+          "layer_2_variant": "conventional treatment combined with Bifidobacterium quadruplex live bacteria",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "asthma",
-        "canonical_name": null,
+        "canonical_name": "asthma",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "respiratory"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "respiratory",
+          "layer_1_canonical": "asthma",
+          "layer_2_variant": "asthma",
           "layer_3_detail": null
         }
       },
@@ -3318,28 +3670,36 @@
       "id": 45,
       "intervention": {
         "name": "conventional treatment combined with Bifidobacterium triplex live bacteria",
-        "canonical_name": null,
+        "canonical_name": "bifidobacterium_live_bacteria_combinations",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "bifidobacterium_live_bacteria_combinations",
+          "layer_2_variant": "conventional treatment combined with Bifidobacterium triplex live bacteria",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "asthma",
-        "canonical_name": null,
+        "canonical_name": "asthma",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "respiratory"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "respiratory",
+          "layer_1_canonical": "asthma",
+          "layer_2_variant": "asthma",
           "layer_3_detail": null
         }
       },
@@ -3397,28 +3757,36 @@
       "id": 46,
       "intervention": {
         "name": "High-Intensity Functional Training (HIFT)",
-        "canonical_name": null,
+        "canonical_name": "high_intensity_functional_training",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "exercise"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "exercise",
+          "layer_1_canonical": "high_intensity_functional_training",
+          "layer_2_variant": "High-Intensity Functional Training (HIFT)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "obesity",
-        "canonical_name": null,
+        "canonical_name": "obesity_severe_obesity",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "endocrine"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "endocrine",
+          "layer_1_canonical": "obesity_severe_obesity",
+          "layer_2_variant": "obesity",
           "layer_3_detail": null
         }
       },
@@ -3469,28 +3837,36 @@
       "id": 47,
       "intervention": {
         "name": "Single-anastomosis duodenal switch (SADI-S)",
-        "canonical_name": null,
+        "canonical_name": "duodenal_switch_surgery",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgery"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgery",
+          "layer_1_canonical": "duodenal_switch_surgery",
+          "layer_2_variant": "Single-anastomosis duodenal switch (SADI-S)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "severe obesity",
-        "canonical_name": null,
+        "canonical_name": "obesity_severe_obesity",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "endocrine"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "endocrine",
+          "layer_1_canonical": "obesity_severe_obesity",
+          "layer_2_variant": "severe obesity",
           "layer_3_detail": null
         }
       },
@@ -3535,28 +3911,36 @@
       "id": 48,
       "intervention": {
         "name": "Roux-en-Y gastric bypass (RYGB)",
-        "canonical_name": null,
+        "canonical_name": "gastric_bypass_surgery",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgery"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgery",
+          "layer_1_canonical": "gastric_bypass_surgery",
+          "layer_2_variant": "Roux-en-Y gastric bypass (RYGB)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "severe obesity",
-        "canonical_name": null,
+        "canonical_name": "obesity_severe_obesity",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "endocrine"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "endocrine",
+          "layer_1_canonical": "obesity_severe_obesity",
+          "layer_2_variant": "severe obesity",
           "layer_3_detail": null
         }
       },
@@ -3601,28 +3985,36 @@
       "id": 49,
       "intervention": {
         "name": "ultrasound-guided pericapsular nerve group (PENG) block",
-        "canonical_name": null,
+        "canonical_name": "ultrasound_guided_pericapsular_nerve_group_block",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "nerve_block"
+          ]
+        },
         "details": "{}",
         "delivery_method": "injection",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "nerve_block",
+          "layer_1_canonical": "ultrasound_guided_pericapsular_nerve_group_block",
+          "layer_2_variant": "ultrasound-guided pericapsular nerve group (PENG) block",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "positional pain during spinal anesthesia in hip fracture patients",
-        "canonical_name": null,
+        "canonical_name": "positional_pain_during_spinal_anesthesia_in_hip_fracture_patients",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "anesthesia"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "anesthesia",
+          "layer_1_canonical": "positional_pain_during_spinal_anesthesia_in_hip_fracture_patients",
+          "layer_2_variant": "positional pain during spinal anesthesia in hip fracture patients",
           "layer_3_detail": null
         }
       },
@@ -3675,28 +4067,36 @@
       "id": 50,
       "intervention": {
         "name": "antiviral therapies",
-        "canonical_name": null,
+        "canonical_name": "antiviral_therapies",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "antiviral_therapies",
+          "layer_2_variant": "antiviral therapies",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "influenza",
-        "canonical_name": null,
+        "canonical_name": "influenza",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "infectious_diseases"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "infectious_diseases",
+          "layer_1_canonical": "influenza",
+          "layer_2_variant": "influenza",
           "layer_3_detail": null
         }
       },
@@ -3738,28 +4138,36 @@
       "id": 51,
       "intervention": {
         "name": "immunomodulatory therapies",
-        "canonical_name": null,
+        "canonical_name": "antiviral_therapies",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "antiviral_therapies",
+          "layer_2_variant": "immunomodulatory therapies",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "influenza",
-        "canonical_name": null,
+        "canonical_name": "influenza",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "infectious_diseases"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "infectious_diseases",
+          "layer_1_canonical": "influenza",
+          "layer_2_variant": "influenza",
           "layer_3_detail": null
         }
       },
@@ -3801,28 +4209,36 @@
       "id": 52,
       "intervention": {
         "name": "Bmab 1200 (biosimilar ustekinumab)",
-        "canonical_name": null,
+        "canonical_name": "ustekinumab",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "injection",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "ustekinumab",
+          "layer_2_variant": "Bmab 1200 (biosimilar ustekinumab)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "moderate-to-severe plaque psoriasis",
-        "canonical_name": null,
+        "canonical_name": "moderate_to_severe_plaque_psoriasis",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "dermatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "dermatological",
+          "layer_1_canonical": "moderate_to_severe_plaque_psoriasis",
+          "layer_2_variant": "moderate-to-severe plaque psoriasis",
           "layer_3_detail": null
         }
       },
@@ -3870,28 +4286,36 @@
       "id": 53,
       "intervention": {
         "name": "reference ustekinumab (45 mg or 90 mg)",
-        "canonical_name": null,
+        "canonical_name": "ustekinumab",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "injection",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "ustekinumab",
+          "layer_2_variant": "reference ustekinumab (45 mg or 90 mg)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "moderate-to-severe plaque psoriasis",
-        "canonical_name": null,
+        "canonical_name": "moderate_to_severe_plaque_psoriasis",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "dermatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "dermatological",
+          "layer_1_canonical": "moderate_to_severe_plaque_psoriasis",
+          "layer_2_variant": "moderate-to-severe plaque psoriasis",
           "layer_3_detail": null
         }
       },
@@ -3939,28 +4363,36 @@
       "id": 54,
       "intervention": {
         "name": "group cognitive behavioral therapy",
-        "canonical_name": null,
+        "canonical_name": "group_cognitive_behavioral_therapy",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "cognitive_behavioral_therapy"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "cognitive_behavioral_therapy",
+          "layer_1_canonical": "group_cognitive_behavioral_therapy",
+          "layer_2_variant": "group cognitive behavioral therapy",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "attention-deficit/hyperactivity disorder",
-        "canonical_name": null,
+        "canonical_name": "attention-deficit/hyperactivity disorder",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "neurological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "neurological",
+          "layer_1_canonical": "attention-deficit/hyperactivity disorder",
+          "layer_2_variant": "attention-deficit/hyperactivity disorder",
           "layer_3_detail": null
         }
       },
@@ -4012,28 +4444,36 @@
       "id": 55,
       "intervention": {
         "name": "teriflunomide",
-        "canonical_name": null,
+        "canonical_name": "teriflunomide",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "teriflunomide",
+          "layer_2_variant": "teriflunomide",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "radiologically isolated syndrome",
-        "canonical_name": null,
+        "canonical_name": "radiologically_isolated_syndrome",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "neurological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "neurological",
+          "layer_1_canonical": "radiologically_isolated_syndrome",
+          "layer_2_variant": "radiologically isolated syndrome",
           "layer_3_detail": null
         }
       },
@@ -4085,28 +4525,36 @@
       "id": 56,
       "intervention": {
         "name": "dimethyl fumarate",
-        "canonical_name": null,
+        "canonical_name": "dimethyl_fumarate",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "dimethyl_fumarate",
+          "layer_2_variant": "dimethyl fumarate",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "radiologically isolated syndrome",
-        "canonical_name": null,
+        "canonical_name": "radiologically_isolated_syndrome",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "neurological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "neurological",
+          "layer_1_canonical": "radiologically_isolated_syndrome",
+          "layer_2_variant": "radiologically isolated syndrome",
           "layer_3_detail": null
         }
       },
@@ -4158,28 +4606,36 @@
       "id": 57,
       "intervention": {
         "name": "trigeminal nerve stimulation (TNS)",
-        "canonical_name": null,
+        "canonical_name": "trigeminal_nerve_stimulation",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "nerve_stimulation"
+          ]
+        },
         "details": "{}",
         "delivery_method": "neuromodulation",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "nerve_stimulation",
+          "layer_1_canonical": "trigeminal_nerve_stimulation",
+          "layer_2_variant": "trigeminal nerve stimulation (TNS)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "drug-resistant epilepsy",
-        "canonical_name": null,
+        "canonical_name": "drug-resistant epilepsy",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "neurological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "neurological",
+          "layer_1_canonical": "drug-resistant epilepsy",
+          "layer_2_variant": "drug-resistant epilepsy",
           "layer_3_detail": null
         }
       },
@@ -4231,28 +4687,36 @@
       "id": 58,
       "intervention": {
         "name": "clozapine",
-        "canonical_name": null,
+        "canonical_name": "clozapine_quetiapine",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "clozapine_quetiapine",
+          "layer_2_variant": "clozapine",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "schizophrenia",
-        "canonical_name": null,
+        "canonical_name": "schizophrenia",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "schizophrenia",
+          "layer_2_variant": "schizophrenia",
           "layer_3_detail": null
         }
       },
@@ -4304,28 +4768,36 @@
       "id": 59,
       "intervention": {
         "name": "quetiapine",
-        "canonical_name": null,
+        "canonical_name": "clozapine_quetiapine",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "clozapine_quetiapine",
+          "layer_2_variant": "quetiapine",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "schizophrenia",
-        "canonical_name": null,
+        "canonical_name": "schizophrenia",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "schizophrenia",
+          "layer_2_variant": "schizophrenia",
           "layer_3_detail": null
         }
       },
@@ -4377,28 +4849,36 @@
       "id": 60,
       "intervention": {
         "name": "upfront surgical resection (RND)",
-        "canonical_name": null,
+        "canonical_name": "upfront_surgical_resection",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgery"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgery",
+          "layer_1_canonical": "upfront_surgical_resection",
+          "layer_2_variant": "upfront surgical resection (RND)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "retroperitoneal lymph node metastases in colorectal cancer",
-        "canonical_name": null,
+        "canonical_name": "retroperitoneal_lymph_node_metastases_in_colorectal_cancer",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "oncological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "oncological",
+          "layer_1_canonical": "retroperitoneal_lymph_node_metastases_in_colorectal_cancer",
+          "layer_2_variant": "retroperitoneal lymph node metastases in colorectal cancer",
           "layer_3_detail": null
         }
       },
@@ -4450,28 +4930,36 @@
       "id": 61,
       "intervention": {
         "name": "One Anastomosis Gastric Bypass (OAGB)",
-        "canonical_name": null,
+        "canonical_name": "gastric_bypass_surgery",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgery"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgery",
+          "layer_1_canonical": "gastric_bypass_surgery",
+          "layer_2_variant": "One Anastomosis Gastric Bypass (OAGB)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "obesity",
-        "canonical_name": null,
+        "canonical_name": "obesity_severe_obesity",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "endocrine"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "endocrine",
+          "layer_1_canonical": "obesity_severe_obesity",
+          "layer_2_variant": "obesity",
           "layer_3_detail": null
         }
       },
@@ -4527,28 +5015,36 @@
       "id": 62,
       "intervention": {
         "name": "Renal Combi supplement",
-        "canonical_name": null,
+        "canonical_name": "renal_combi_supplement",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "renal_combi_supplement",
+          "layer_2_variant": "Renal Combi supplement",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "chronic kidney disease",
-        "canonical_name": null,
+        "canonical_name": "chronic kidney disease",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "renal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "renal",
+          "layer_1_canonical": "chronic kidney disease",
+          "layer_2_variant": "chronic kidney disease",
           "layer_3_detail": null
         }
       },
@@ -4604,28 +5100,36 @@
       "id": 63,
       "intervention": {
         "name": "user-centered COPD care pathway",
-        "canonical_name": null,
+        "canonical_name": "user_centered_copd_care_pathway",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "care_pathway"
+          ]
+        },
         "details": "{}",
         "delivery_method": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "care_pathway",
+          "layer_1_canonical": "user_centered_copd_care_pathway",
+          "layer_2_variant": "user-centered COPD care pathway",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "chronic obstructive pulmonary disease",
-        "canonical_name": null,
+        "canonical_name": "chronic obstructive pulmonary disease",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "respiratory"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "respiratory",
+          "layer_1_canonical": "chronic obstructive pulmonary disease",
+          "layer_2_variant": "chronic obstructive pulmonary disease",
           "layer_3_detail": null
         }
       },
@@ -4675,28 +5179,36 @@
       "id": 64,
       "intervention": {
         "name": "micronized adipose tissue",
-        "canonical_name": null,
+        "canonical_name": "micronized_adipose_tissue",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "tissue_therapy"
+          ]
+        },
         "details": "{}",
         "delivery_method": "injection",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "tissue_therapy",
+          "layer_1_canonical": "micronized_adipose_tissue",
+          "layer_2_variant": "micronized adipose tissue",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "knee osteoarthritis",
-        "canonical_name": null,
+        "canonical_name": "knee osteoarthritis",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "musculoskeletal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "musculoskeletal",
+          "layer_1_canonical": "knee osteoarthritis",
+          "layer_2_variant": "knee osteoarthritis",
           "layer_3_detail": null
         }
       },
@@ -4746,28 +5258,36 @@
       "id": 65,
       "intervention": {
         "name": "enzymatically extracted stromal vascular fraction",
-        "canonical_name": null,
+        "canonical_name": "enzymatically_extracted_stromal_vascular_fraction",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gene_therapy"
+          ]
+        },
         "details": "{}",
         "delivery_method": "injection",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gene_therapy",
+          "layer_1_canonical": "enzymatically_extracted_stromal_vascular_fraction",
+          "layer_2_variant": "enzymatically extracted stromal vascular fraction",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "knee osteoarthritis",
-        "canonical_name": null,
+        "canonical_name": "knee osteoarthritis",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "musculoskeletal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "musculoskeletal",
+          "layer_1_canonical": "knee osteoarthritis",
+          "layer_2_variant": "knee osteoarthritis",
           "layer_3_detail": null
         }
       },
@@ -4817,28 +5337,36 @@
       "id": 66,
       "intervention": {
         "name": "culture-expanded adipose-derived stromal cells",
-        "canonical_name": null,
+        "canonical_name": "culture_expanded_adipose_derived_stromal_cells",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gene_therapy"
+          ]
+        },
         "details": "{}",
         "delivery_method": "injection",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gene_therapy",
+          "layer_1_canonical": "culture_expanded_adipose_derived_stromal_cells",
+          "layer_2_variant": "culture-expanded adipose-derived stromal cells",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "knee osteoarthritis",
-        "canonical_name": null,
+        "canonical_name": "knee osteoarthritis",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "musculoskeletal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "musculoskeletal",
+          "layer_1_canonical": "knee osteoarthritis",
+          "layer_2_variant": "knee osteoarthritis",
           "layer_3_detail": null
         }
       },
@@ -4888,28 +5416,36 @@
       "id": 67,
       "intervention": {
         "name": "peppermint oil",
-        "canonical_name": null,
+        "canonical_name": "fennel_oil_peppermint_oil",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "fennel_oil_peppermint_oil",
+          "layer_2_variant": "peppermint oil",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "irritable bowel syndrome",
-        "canonical_name": null,
+        "canonical_name": "irritable bowel syndrome",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gastrointestinal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gastrointestinal",
+          "layer_1_canonical": "irritable bowel syndrome",
+          "layer_2_variant": "irritable bowel syndrome",
           "layer_3_detail": null
         }
       },
@@ -4959,28 +5495,36 @@
       "id": 68,
       "intervention": {
         "name": "Iberogast",
-        "canonical_name": null,
+        "canonical_name": "iberogast",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "iberogast",
+          "layer_2_variant": "Iberogast",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "irritable bowel syndrome",
-        "canonical_name": null,
+        "canonical_name": "irritable bowel syndrome",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gastrointestinal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gastrointestinal",
+          "layer_1_canonical": "irritable bowel syndrome",
+          "layer_2_variant": "irritable bowel syndrome",
           "layer_3_detail": null
         }
       },
@@ -5030,28 +5574,36 @@
       "id": 69,
       "intervention": {
         "name": "curcumin",
-        "canonical_name": null,
+        "canonical_name": "curcumin",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "curcumin",
+          "layer_2_variant": "curcumin",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "irritable bowel syndrome",
-        "canonical_name": null,
+        "canonical_name": "irritable bowel syndrome",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gastrointestinal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gastrointestinal",
+          "layer_1_canonical": "irritable bowel syndrome",
+          "layer_2_variant": "irritable bowel syndrome",
           "layer_3_detail": null
         }
       },
@@ -5101,28 +5653,36 @@
       "id": 70,
       "intervention": {
         "name": "fennel oil",
-        "canonical_name": null,
+        "canonical_name": "fennel_oil_peppermint_oil",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "supplement"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "supplement",
+          "layer_1_canonical": "fennel_oil_peppermint_oil",
+          "layer_2_variant": "fennel oil",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "irritable bowel syndrome",
-        "canonical_name": null,
+        "canonical_name": "irritable bowel syndrome",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gastrointestinal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gastrointestinal",
+          "layer_1_canonical": "irritable bowel syndrome",
+          "layer_2_variant": "irritable bowel syndrome",
           "layer_3_detail": null
         }
       },
@@ -5172,28 +5732,36 @@
       "id": 71,
       "intervention": {
         "name": "cannabis derivatives",
-        "canonical_name": null,
+        "canonical_name": "cannabis_derivatives",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "cannabis_derivatives",
+          "layer_2_variant": "cannabis derivatives",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "irritable bowel syndrome",
-        "canonical_name": null,
+        "canonical_name": "irritable bowel syndrome",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gastrointestinal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gastrointestinal",
+          "layer_1_canonical": "irritable bowel syndrome",
+          "layer_2_variant": "irritable bowel syndrome",
           "layer_3_detail": null
         }
       },
@@ -5243,28 +5811,36 @@
       "id": 72,
       "intervention": {
         "name": "Mohs Micrographic Surgery (MMS)",
-        "canonical_name": null,
+        "canonical_name": "mohs_micrographic_surgery",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "surgery"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "surgery",
+          "layer_1_canonical": "mohs_micrographic_surgery",
+          "layer_2_variant": "Mohs Micrographic Surgery (MMS)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "non-melanoma skin cancer",
-        "canonical_name": null,
+        "canonical_name": "non_melanoma_skin_cancer",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "oncological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "oncological",
+          "layer_1_canonical": "non_melanoma_skin_cancer",
+          "layer_2_variant": "non-melanoma skin cancer",
           "layer_3_detail": null
         }
       },
@@ -5317,28 +5893,36 @@
       "id": 73,
       "intervention": {
         "name": "Imiquimod topical cream",
-        "canonical_name": null,
+        "canonical_name": "imiquimod_topical_cream",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "imiquimod_topical_cream",
+          "layer_2_variant": "Imiquimod topical cream",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "non-melanoma skin cancer",
-        "canonical_name": null,
+        "canonical_name": "non_melanoma_skin_cancer",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "oncological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "oncological",
+          "layer_1_canonical": "non_melanoma_skin_cancer",
+          "layer_2_variant": "non-melanoma skin cancer",
           "layer_3_detail": null
         }
       },
@@ -5391,28 +5975,36 @@
       "id": 74,
       "intervention": {
         "name": "autologous platelet-rich plasma (PRP) injection",
-        "canonical_name": null,
+        "canonical_name": "platelet_rich_plasma_injection",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "regenerative_medicine"
+          ]
+        },
         "details": "{}",
         "delivery_method": "surgical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "regenerative_medicine",
+          "layer_1_canonical": "platelet_rich_plasma_injection",
+          "layer_2_variant": "autologous platelet-rich plasma (PRP) injection",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "thyroidectomy scar",
-        "canonical_name": null,
+        "canonical_name": "thyroidectomy_scar",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "dermatological"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "dermatological",
+          "layer_1_canonical": "thyroidectomy_scar",
+          "layer_2_variant": "thyroidectomy scar",
           "layer_3_detail": null
         }
       },
@@ -5470,28 +6062,36 @@
       "id": 75,
       "intervention": {
         "name": "bismuth-containing quadruple therapy (BQT)",
-        "canonical_name": null,
+        "canonical_name": "bismuth_quadruple_therapy",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "bismuth_quadruple_therapy",
+          "layer_2_variant": "bismuth-containing quadruple therapy (BQT)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "Helicobacter pylori infection",
-        "canonical_name": null,
+        "canonical_name": "Helicobacter pylori infection",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gastrointestinal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gastrointestinal",
+          "layer_1_canonical": "Helicobacter pylori infection",
+          "layer_2_variant": "Helicobacter pylori infection",
           "layer_3_detail": null
         }
       },
@@ -5543,28 +6143,36 @@
       "id": 76,
       "intervention": {
         "name": "tegoprazan-amoxicillin dual therapy (TAD)",
-        "canonical_name": null,
+        "canonical_name": "tegoprazan_amoxicillin_dual_therapy",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "tegoprazan_amoxicillin_dual_therapy",
+          "layer_2_variant": "tegoprazan-amoxicillin dual therapy (TAD)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "Helicobacter pylori infection",
-        "canonical_name": null,
+        "canonical_name": "Helicobacter pylori infection",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gastrointestinal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gastrointestinal",
+          "layer_1_canonical": "Helicobacter pylori infection",
+          "layer_2_variant": "Helicobacter pylori infection",
           "layer_3_detail": null
         }
       },
@@ -5616,28 +6224,36 @@
       "id": 77,
       "intervention": {
         "name": "tegoprazan-based quadruple therapy (TBQT)",
-        "canonical_name": null,
+        "canonical_name": "bismuth_quadruple_therapy",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "medication"
+          ]
+        },
         "details": "{}",
         "delivery_method": "oral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "medication",
+          "layer_1_canonical": "bismuth_quadruple_therapy",
+          "layer_2_variant": "tegoprazan-based quadruple therapy (TBQT)",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "Helicobacter pylori infection",
-        "canonical_name": null,
+        "canonical_name": "Helicobacter pylori infection",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "gastrointestinal"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "gastrointestinal",
+          "layer_1_canonical": "Helicobacter pylori infection",
+          "layer_2_variant": "Helicobacter pylori infection",
           "layer_3_detail": null
         }
       },
@@ -5689,28 +6305,36 @@
       "id": 78,
       "intervention": {
         "name": "antimicrobial dressings (silver ion) with basic fibroblast growth factor",
-        "canonical_name": null,
+        "canonical_name": "antimicrobial_dressings",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "topical_medical_device"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "topical_medical_device",
+          "layer_1_canonical": "antimicrobial_dressings",
+          "layer_2_variant": "antimicrobial dressings (silver ion) with basic fibroblast growth factor",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "diabetic foot ulcers",
-        "canonical_name": null,
+        "canonical_name": "diabetic foot ulcers",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "endocrine"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "endocrine",
+          "layer_1_canonical": "diabetic foot ulcers",
+          "layer_2_variant": "diabetic foot ulcers",
           "layer_3_detail": null
         }
       },
@@ -5762,28 +6386,36 @@
       "id": 79,
       "intervention": {
         "name": "epidermal growth factor-based regimens with hydrogel",
-        "canonical_name": null,
+        "canonical_name": "epidermal_growth_factor_based_regimens_with_hydrogel",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "growth_factor_therapy"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "growth_factor_therapy",
+          "layer_1_canonical": "epidermal_growth_factor_based_regimens_with_hydrogel",
+          "layer_2_variant": "epidermal growth factor-based regimens with hydrogel",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "diabetic foot ulcers",
-        "canonical_name": null,
+        "canonical_name": "diabetic foot ulcers",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "endocrine"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "endocrine",
+          "layer_1_canonical": "diabetic foot ulcers",
+          "layer_2_variant": "diabetic foot ulcers",
           "layer_3_detail": null
         }
       },
@@ -5835,28 +6467,36 @@
       "id": 80,
       "intervention": {
         "name": "platelet-rich plasma with hydrogel",
-        "canonical_name": null,
+        "canonical_name": "platelet_rich_plasma_injection",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "regenerative_medicine"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "regenerative_medicine",
+          "layer_1_canonical": "platelet_rich_plasma_injection",
+          "layer_2_variant": "platelet-rich plasma with hydrogel",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "diabetic foot ulcers",
-        "canonical_name": null,
+        "canonical_name": "diabetic foot ulcers",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "endocrine"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "endocrine",
+          "layer_1_canonical": "diabetic foot ulcers",
+          "layer_2_variant": "diabetic foot ulcers",
           "layer_3_detail": null
         }
       },
@@ -5908,28 +6548,36 @@
       "id": 81,
       "intervention": {
         "name": "honey dressings",
-        "canonical_name": null,
+        "canonical_name": "honey_dressings",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "topical_therapy"
+          ]
+        },
         "details": "{}",
         "delivery_method": "topical",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "topical_therapy",
+          "layer_1_canonical": "honey_dressings",
+          "layer_2_variant": "honey dressings",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "diabetic foot ulcers",
-        "canonical_name": null,
+        "canonical_name": "diabetic foot ulcers",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "endocrine"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "endocrine",
+          "layer_1_canonical": "diabetic foot ulcers",
+          "layer_2_variant": "diabetic foot ulcers",
           "layer_3_detail": null
         }
       },
@@ -5981,28 +6629,36 @@
       "id": 82,
       "intervention": {
         "name": "Unified Protocol (UP) psychotherapy",
-        "canonical_name": null,
+        "canonical_name": "unified_protocol_psychotherapy",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychotherapy"
+          ]
+        },
         "details": "{}",
         "delivery_method": "behavioral",
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychotherapy",
+          "layer_1_canonical": "unified_protocol_psychotherapy",
+          "layer_2_variant": "Unified Protocol (UP) psychotherapy",
           "layer_3_detail": null
         }
       },
       "condition": {
         "name": "depressive and anxiety disorders",
-        "canonical_name": null,
+        "canonical_name": "depressive and anxiety disorders, major depressive disorder",
         "category": null,
-        "categories": {},
+        "categories": {
+          "primary": [
+            "psychiatric"
+          ]
+        },
         "severity": null,
         "hierarchy": {
-          "layer_0_category": null,
-          "layer_1_canonical": null,
-          "layer_2_variant": null,
+          "layer_0_category": "psychiatric",
+          "layer_1_canonical": "depressive and anxiety disorders, major depressive disorder",
+          "layer_2_variant": "depressive and anxiety disorders",
           "layer_3_detail": null
         }
       },
